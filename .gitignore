@@ -2,4 +2,7 @@
 *.gz
 *.kate-swp
 *.log
+*.aux
+*.bbl
+*.out
 
