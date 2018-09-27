@@ -1,3 +1,5 @@
 *.pdf
 *.gz
-*kate-swp
+*.kate-swp
+*.log
+
