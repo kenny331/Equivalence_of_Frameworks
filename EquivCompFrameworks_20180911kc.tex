@@ -96,14 +96,14 @@ to obtain a new cospan whose left foot is the left foot of the first, whose righ
 \end{tikzpicture}
 \]
 
-In Fong's theory of decorated cospans, given a category $\bold{C}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\bold{C},+,0) \to (\bold{D},\otimes,I)$ is used to `decorate' the apex of a cospan in $\bold{C}$ with an element of the image of its apex under the functor $F$, in the case of the first cospan above, a morphism $d \colon I \to F(c)$. Here $F(c)$ is the collection of all $F$-decorations on the object $c$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is then a pair:
+In Fong's theory of decorated cospans, given a category $\bold{C}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\bold{C},+,0) \to (\bold{D},\otimes,I)$ is used to `decorate' the apex of a cospan in $\bold{C}$ with an element of the image of its apex under the functor $F$, in the case of the first cospan above, a morphism $d \colon I \to F(c)$. Here $F(c)$ is the collection of all $F$-decorations on the object $c$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$I$};
-\node (E) at (4,0.5) {$F(c)$};
+\node (D) at (3,0) {$I$};
+\node (E) at (4,0) {$F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -114,10 +114,10 @@ To obtain a decoration on the composition of two composable $F$-decorated cospan
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
 \node (F) at (3,0) {$b$};
-\node (G) at (4,1) {$f$};
+\node (G) at (4,0) {$f$};
 \node (H) at (5,0) {$e$};
 \node (D) at (0.5,-0.5) {$I$};
 \node (E) at (1.5,-0.5) {$F(c)$};
@@ -198,9 +198,9 @@ One approach to remedying this nuisance is to instead view $F$ as a functor $F \
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -210,12 +210,12 @@ Except now, given another morphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,-1) {$c^\prime$};
+\node (B) at (1,0) {$c^\prime$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
+\node (D) at (3,0) {$d^\prime \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[below]{$i^\prime$} (B)
-(C) edge node[below]{$o^\prime$} (B);
+(A) edge node[above]{$i^\prime$} (B)
+(C) edge node[above]{$o^\prime$} (B);
 \end{tikzpicture}
 \]
 these two morphisms are in the same isomorphism class if the following diagrams commute
@@ -321,9 +321,9 @@ We call $A, B, C$ and $D$ `objects', $f$ and $g$ `vertical 1-morphisms', $M$ and
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -364,9 +364,9 @@ We can then obtain a symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cosp
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -402,6 +402,7 @@ Then we can obtain the above improved symmetric monoidal category as a decategor
 The outline for the paper is as follows: In the second section we present the definition of double category and symmetric monoidal double category, both of which can be found in earlier works \cite{Shul}. In the third section, we construct the symmetric monoidal double category $F\textnormal{Cospan}(\bold{C})$ mentioned above as well as a result of Shulman that allows us to obtain a symmetric monoidal bicategory whose decategorification is an improved version of Fong's symmetric monoidal category. In the fourth section we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction. In the fifth section we review another compositional framework which uses cospans equipped with extra structure due to Baez and the first author, namely `structured cospans' and prove that the double categorical versions of decorated cospans and structured cospans are equivalent, and in the final section, we present a few examples that can be realized with either framework and exhibit the equivalences.
 
 \section{A review of double categories and symmetric monoidal double categories}
+\textbf{Likely move this to an appendix or remove entirely and just cite another paper.}
 This section is meant to serve as a review of double categories and to present the definitions of double category, symmetric monoidal double category and a few more ideas that will be used later in the paper. Nothing in this section is new and can be found in the work of Shulman \cite{Shul}.
 
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
@@ -1242,6 +1243,7 @@ Thus the above diagram containing the 2-morphism $\iota$ becomes:
 \end{tikzpicture}
 \]
 which is just a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$. Thus a morphism of $(\mathbb{G} / \mathbb{F})_1$ is a map of cospans in $\bold{C}$ together with a natural transformation that that makes the above triangle commute.
+\textbf{Likely delete everything in this section before this line.}
 \begin{thm}
 Let $\bold{C}$ be a category with finite colimits and $F \colon \bold{C} \to \bold{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $\mathbb{F} \textnormal{Cospan}(\bold{C}) \coloneqq (\mathbb{G}/ \mathbb{F})$ which has:
 \begin{enumerate}
@@ -1251,9 +1253,9 @@ Let $\bold{C}$ be a category with finite colimits and $F \colon \bold{C} \to \bo
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -1287,14 +1289,14 @@ together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 The unit structure functor $U \colon (\mathbb{G},\mathbb{F})_0 \to (\mathbb{G},\mathbb{F})_1$ is defined on objects as: 
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (-1,0.5) {$c \mapsto$};
+\node (E) at (-1,0) {$c \mapsto$};
 \node (A) at (0,0) {$c$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$c$};
-\node (D) at (3,0.5) {$I \in F(c)$};
+\node (D) at (3,0) {$I \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1$} (B)
-(C) edge node[right]{$1$} (B);
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
 where $I \in F(c)$ is the trivial decoration on $c$ given by the composition of the unique map $F(!) \colon F(0) \to F(c)$ and the morphism $\phi \colon \bold{1} \to F(0)$  which comes from the symmetric lax monoidal pseudofunctor $F \colon \bold{C} \to \bold{Cat}$. For morphisms, the structure functor $U$ is defined as:
@@ -1326,9 +1328,9 @@ together with the morphism $\iota_{!_f} = F(f) F(!) \phi \colon \bold{1} \to F(c
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -1362,11 +1364,11 @@ Given two composable horizontal 1-cells:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
 \node (D) at (1,-0.5) {$d \in F(c)$};
 \node (E) at (3,0) {$b$};
-\node (F) at (4,1) {$c^\prime$};
+\node (F) at (4,0) {$c^\prime$};
 \node (G) at (5,0) {$e$};
 \node (H) at (4,-0.5) {$d^\prime \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1406,15 +1408,15 @@ Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
 \node (D) at (1,-0.5) {$d_1 \in F(c)$};
 \node (E) at (3,0) {$b$};
-\node (F) at (4,1) {$c^\prime$};
+\node (F) at (4,0) {$c^\prime$};
 \node (G) at (5,0) {$e$};
 \node (H) at (4,-0.5) {$d_2 \in F(c^\prime)$};
 \node (I) at (6,0) {$e$};
-\node (J) at (7,1) {$c''$};
+\node (J) at (7,0) {$c''$};
 \node (K) at (8,0) {$f$};
 \node (L) at (7,-0.5) {$d_3 \in F(c'')$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1440,8 +1442,8 @@ we get a natural isomorphism $a \colon (M_1 \odot M_2) \odot M_3 \to M_1 \odot (
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
-(A) edge node[left]{$\id_a$} (A')
-(C) edge node[left]{$\id_f$} (C')
+(A) edge node[left]{$1$} (A')
+(C) edge node[left]{$1$} (C')
 (A') edge node {$$} (D)
 (C') edge node {$$} (D)
 (B) edge node [left] {$\sigma$} (D);
@@ -1455,9 +1457,9 @@ together with an isomorphism $\iota_a \colon F(\sigma)(d) \to d^\prime$. We also
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -1467,11 +1469,11 @@ if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
 \node (D) at (1,-0.5) {$d \in F(c)$};
 \node (E) at (3,0) {$b$};
-\node (F) at (4,1) {$b$};
+\node (F) at (4,0) {$b$};
 \node (G) at (5,0) {$b$};
 \node (H) at (4,-0.5) {$!_b \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1481,16 +1483,16 @@ if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
 (G) edge node[above]{$1$} (F);
 \end{tikzpicture}
 \]
-where $!_b = F(!)  \phi \colon \bold{1} \to F(b)$ is the trivial decoration on $b$. Composing these then gives:
+where $!_b = F(!)  \phi \colon 1 \to F(b)$ is the trivial decoration on $b$. Composing these then gives:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c+_b b$};
+\node (B) at (1,0) {$c+_b b$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$\hat{d} \in F(c +_b b)$};
+\node (D) at (3,0) {$\hat{d} \in F(c +_b b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$j \psi_c i$} (B)
-(C) edge node[right]{$j \psi_b$} (B);
+(A) edge node[above]{$j \psi_c i$} (B)
+(C) edge node[above]{$j \psi_b$} (B);
 \end{tikzpicture}
 \]
 where $\psi_b \colon b \to c+b$ is the natural map into the coproduct and likewise for $\psi_c$ and $j \colon c+b \to c+_b b$ is the natural map from the coproduct to the pushout. The decoration $\hat{d} \colon \bold{1} \to F(c+_b b)$ is given by: $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d \times !_b} F(c) \times F(b) \xrightarrow{\phi_{c,b}} F(c+b) \xrightarrow{F(j_{c,b})} F(c+_b b).$$ We then have that the right unitor of the original horizontal 1-cell $M$ is given by the globular 2-morphism $(\id_a,\gamma,\id_b)$ from the above composite to $M$:
@@ -1665,7 +1667,7 @@ and then multiply these viewed as two 2-morphisms in $\bold{Cat}$ which results 
 (E) edge node [right] {$F(h_1) \times F(h_2)$} (E');
 \end{tikzpicture}
 \]
-where the middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying diagram commutes. The objects $d_{1,2}$ and $d^\prime_{1,2}$ are given by top and bottom composite of arrows and the morphism of decorations $\iota_{1,2}$ is given by composing $\iota_1 \times \iota_2$ with the two commuting squares. Returning the interchange law, composing the two horizontal compositions above vertically then results in:
+where the middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying diagram commutes. The objects $d_{1,2}$ and $d^\prime_{1,2}$ are given by top and bottom composite of arrows and the morphism of decorations $\iota_{1,2}$ is given by composing $\iota_1 \times \iota_2$ with the two commuting squares. Returning to the interchange law, composing the two horizontal compositions above vertically then results in:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -1783,9 +1785,9 @@ First we note that the category of objects $\mathbb{F}\textnormal{Cospan}(\bold{
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (3,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -1820,11 +1822,11 @@ Given two objects $M_1$ and $M_2$ of $\mathbb{F}\textnormal{Cospan}(\bold{C})_1$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
 \node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,1) {$c_2$};
+\node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$b_2$};
 \node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1838,21 +1840,21 @@ their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1,1) {$c_1+c_2$};
-\node (C) at (2,0) {$b_1+b_2$};
-\node (D) at (3.5,0.5) {$d_{M_1 \otimes M_2} \in F(c_1+c_2)$};
+\node (B) at (1.25,0) {$c_1+c_2$};
+\node (C) at (2.5,0) {$b_1+b_2$};
+\node (D) at (4.25,0) {$d_{M_1 \otimes M_2} \in F(c_1+c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$i_1+i_2$} (B)
-(C) edge node[right]{$o_1+o_2$} (B);
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
 and where the element of the image of the apex under $F$  is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F:$ $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1 + c_2).$$The monoidal unit is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
-\node (B) at (1,1) {$0$};
+\node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
-\node (D) at (3,0.5) {$! \in F(0)$};
+\node (D) at (3,0) {$! \in F(0)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!$} (B)
 (C) edge node[above]{$!$} (B);
@@ -1862,11 +1864,11 @@ where $0$ is the monoidal unit of $\bold{C}$ and $! \colon \bold{1} \to F(0)$ is
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
-\node (B) at (1,1) {$0$};
+\node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
 \node (D) at (1,-0.5) {$! \in F(0)$};
 \node (E) at (3,0) {$a$};
-\node (F) at (4,1) {$c$};
+\node (F) at (4,0) {$c$};
 \node (G) at (5,0) {$b$};
 \node (H) at (4,-0.5) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1880,12 +1882,12 @@ results in:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0+a$};
-\node (B) at (1,1) {$0+c$};
+\node (B) at (1,0) {$0+c$};
 \node (C) at (2,0) {$0+b$};
-\node (D) at (3,0.5) {$d^\prime \in F(0+c)$};
+\node (D) at (3.5,0) {$d^\prime \in F(0+c)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$!+i$} (B)
-(C) edge node[right]{$!+o$} (B);
+(A) edge node[above]{$!+i$} (B)
+(C) edge node[above]{$!+o$} (B);
 \end{tikzpicture}
 \]
 where $d^\prime \in F(0+c)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\phi \times d} F(0) \times F(c) \xrightarrow{\phi_{0,d}} F(0+c).$$The left unitor is then a morphism in $\mathbb{F} \textnormal{Cospan}(\bold{C})_1$ given by:
@@ -4781,11 +4783,11 @@ the image $\mathbb{G}(M)$ is the horizontal 1-cell in $_L \mathbb{C}\textnormal{
 \node (B) at (1,1) {$d$};
 \node (C) at (2,0) {$L(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$L(I)$} (B)
-(C) edge node[right]{$L(O)$} (B);
+(A) edge node[left]{$\tau_c L(I)$} (B)
+(C) edge node[right]{$\tau_ c L(O)$} (B);
 \end{tikzpicture}
 \]
-and similarly, given a 2-morphism $(f,h,g,\iota) \colon M \to M^\prime$ of $\mathbb{F} \textnormal{Cospan}(\bold{C})$:
+where $\tau_c \colon L(c) \to d$ is the unique morphism from the trival decoration on $c$ given by $$!_c \coloneqq 1 \xrightarrow{\phi} F(0) \xrightarrow{F(!)} F(c)$$ to $d \in F(c)$. In other words, the trivial decoraction $!_c$ is initial in $F(c)$ and $\tau_c \colon !_c \to d$ is the unique morphism to $d$. Similarly, given a 2-morphism $(f,h,g,\iota) \colon M \to M^\prime$ of $\mathbb{F} \textnormal{Cospan}(\bold{C})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (1,0.5) {$d \in F(c)$};
@@ -4817,10 +4819,10 @@ the image in $_L \mathbb{C}\textnormal{sp}(\bold{D})$ is given by the 2-morphism
 \node (B') at (1,-1) {$d^\prime$};
 \node (C') at (2,-1) {$L(c_2^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$L(I)$} (B)
-(C) edge node[above]{$L(O)$} (B)
-(A') edge node[above]{$L(I^\prime)$} (B')
-(C') edge node[above]{$L(O^\prime)$} (B')
+(A) edge node[above]{$\tau_c L(I)$} (B)
+(C) edge node[above]{$\tau_c L(O)$} (B)
+(A') edge node[above]{$\tau_{c^\prime} L(I^\prime)$} (B')
+(C') edge node[above]{$\tau_{c^\prime} L(O^\prime)$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
 (C) edge node [left]{$L(g)$} (C');
@@ -4828,7 +4830,9 @@ the image in $_L \mathbb{C}\textnormal{sp}(\bold{D})$ is given by the 2-morphism
 \]
 where $\alpha \colon d \to d^\prime$ is a morphism in the Grothendieck construction of $F$ given by $\alpha = (h \colon c \to c^\prime, \iota \colon F(h)(d) \to d^\prime)$. 
 
-Next, we exhibit natural isomorphisms $\eta \colon \id_{ _L \mathbb{C}\textnormal{sp}(\bold{D})} \cong \mathbb{G} \mathbb{E}$ and $\epsilon \colon \mathbb{E} \mathbb{G} \cong \id_{\mathbb{F}\textnormal{Cospan}(\bold{C})}$. First we compute the composites $\mathbb{G} \mathbb{E}$ and $\mathbb{E} \mathbb{G}$. On the object categories, both composites are $\id_\bold{C}$ and we have natural isomorphism $\eta \colon \id_{\bold{C}} \cong \mathbb{G}_0 \mathbb{E}_0$ and $\epsilon \colon \mathbb{E}_0 \mathbb{G}_0 \cong \id_{\bold{C}}$.
+Next, we exhibit natural isomorphisms $\eta \colon \id_{ _L \mathbb{C}\textnormal{sp}(\bold{D})} \cong \mathbb{G} \mathbb{E}$ and $\epsilon \colon \mathbb{E} \mathbb{G} \cong \id_{\mathbb{F}\textnormal{Cospan}(\bold{C})}$. Specifically, these are double natural isomorphisms given by double transformations $\eta$ and $\epsilon$ whose components are isomorphisms.
+
+First we compute the composites $\mathbb{G} \mathbb{E}$ and $\mathbb{E} \mathbb{G}$. On the object categories, both composites are $\id_\bold{C}$ and we have natural isomorphisms $\eta \colon \id_{\bold{C}} \cong \mathbb{G}_0 \mathbb{E}_0$ and $\epsilon \colon \mathbb{E}_0 \mathbb{G}_0 \cong \id_{\bold{C}}$.
 
 Given a horizontal 1-cell $M$ in $_L \mathbb{C} \textnormal{sp}(\bold{D})$:
 \[
@@ -4860,31 +4864,30 @@ and then the horizontal 1-cell $\mathbb{G} \mathbb{E}(M)$ is given by:
 \node (B) at (1,1) {$d$};
 \node (C) at (2,0) {$L(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$L(R(i))$} (B)
-(C) edge node[right]{$L(R(o))$} (B);
+(A) edge node[left]{$\tau_{R(d)}L(R(i))$} (B)
+(C) edge node[right]{$\tau_{R(d)}L(R(o))$} (B);
 \end{tikzpicture}
 \]
 \textbf{What can we say about LR? Find a 2-iso between these in $_L Csp(D)$.}
-Then we can find a 2-isomorphism $\eta \colon M \xrightarrow{\sim} \mathbb{G}\mathbb{E}(M) $ in $_L \mathbb{C} \textnormal{sp}(\bold{C})$ given by:
+Then we can find a 2-isomorphism $\eta_M \colon M \xrightarrow{\sim} \mathbb{G}\mathbb{E}(M) $ in $_L \mathbb{C} \textnormal{sp}(\bold{C})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
-\node (B) at (1,0) {$d$};
-\node (C) at (2,0) {$L(c_2)$};
+\node (B) at (1.25,0) {$d$};
+\node (C) at (2.5,0) {$L(c_2)$};
 \node (A') at (0,-1) {$L(c_1)$};
-\node (B') at (1,-1) {$d$};
-\node (C') at (2,-1) {$L(c_2)$};
+\node (B') at (1.25,-1) {$d$};
+\node (C') at (2.5,-1) {$L(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
-(A') edge node[above]{$L(R(i))$} (B')
-(C') edge node[above]{$L(R(o))$} (B')
+(A') edge node[above]{$\tau_{R(d)}L(R(i))$} (B')
+(C') edge node[above]{$\tau_{R(d)}L(R(o))$} (B')
 (A) edge node [left]{$1$} (A')
 (B) edge node [left]{$1$} (B')
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-
 On the other hand, given a horizontal 1-cell $N$ in $\mathbb{F}\textnormal{Cospan}(\bold{C})$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -4904,8 +4907,8 @@ the horizontal 1-cell $\mathbb{G}(N)$ is given by:
 \node (B) at (1,1) {$d$};
 \node (C) at (2,0) {$L(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$L(I)$} (B)
-(C) edge node[right]{$L(O)$} (B);
+(A) edge node[left]{$\tau_c L(I)$} (B)
+(C) edge node[right]{$\tau_c L(O)$} (B);
 \end{tikzpicture}
 \]
 and then the horizontal 1-cell $\mathbb{E} \mathbb{G}(N)$ is given by:
@@ -4916,11 +4919,11 @@ and then the horizontal 1-cell $\mathbb{E} \mathbb{G}(N)$ is given by:
 \node (C) at (2,0) {$c_2$};
 \node (D) at (1,-0.5) {$d \in F(R(d))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$R(L(I))$} (B)
-(C) edge node[right]{$R(L(O))$} (B);
+(A) edge node[left]{$R(\tau_c)I$} (B)
+(C) edge node[right]{$R(\tau_c)O$} (B);
 \end{tikzpicture}
 \]
-Then we can find a 2-isomorphism $\epsilon \colon \mathbb{E} \mathbb{G} (N) \xrightarrow{\sim} N$ in $\mathbb{F}\textnormal{Cospan}(\bold{C})$ given by:
+Then we can find a 2-isomorphism $\epsilon_N \colon \mathbb{E} \mathbb{G} (N) \xrightarrow{\sim} N$ in $\mathbb{F}\textnormal{Cospan}(\bold{C})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (1,0.5) {$d \in F(R(d))$};
@@ -4932,8 +4935,8 @@ Then we can find a 2-isomorphism $\epsilon \colon \mathbb{E} \mathbb{G} (N) \xri
 \node (B') at (1,-1) {$c$};
 \node (C') at (2,-1) {$c_2$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(L(I))$} (B)
-(C) edge node[above]{$R(L(O))$} (B)
+(A) edge node[above]{$R(\tau_c)I$} (B)
+(C) edge node[above]{$R(\tau_c)O$} (B)
 (A') edge node[above]{$I$} (B')
 (C') edge node[above]{$O$} (B')
 (A) edge node [left]{$1$} (A')
@@ -4942,7 +4945,6 @@ Then we can find a 2-isomorphism $\epsilon \colon \mathbb{E} \mathbb{G} (N) \xri
 \end{tikzpicture}
 \]
 $$\iota \colon F(e)(d) \to d$$
-where $R(L(I))=I$ and $R(L(O))=O$ since $L \colon \bold{C} \to \bold{D} \cong \int{F}$ is a left adjoint with right adjoint $R \colon \int{F} \to \bold{C}$ as its inverse.
 \section{An example}
 As an example, let $L \colon \bold{FinSet} \to \bold{Graph}$ be the functor which is left adjoint to the forgetful functor $R \colon \bold{Graph} \to \bold{FinSet}$; the functor $L$ maps a finite set $N$ to the discrete graph with $N$ as its set of vertices and no edges. Since $\bold{Graph}$ is a topos and thus has finite colimits, we can then obtain a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\bold{Graph})$ which has:
 \begin{enumerate}
