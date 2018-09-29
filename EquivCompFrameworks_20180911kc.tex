@@ -1917,15 +1917,15 @@ Given three objects $M_1, M_2$ and $M_3$ in $\mathbb{F}\textnormal{Cospan}(\bold
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
 \node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,1) {$c_2$};
+\node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$b_2$};
 \node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
 \node (I) at (6,0) {$a_3$};
-\node (J) at (7,1) {$c_3$};
+\node (J) at (7,0) {$c_3$};
 \node (K) at (8,0) {$b_3$};
 \node (L) at (7,-0.5) {$d_3 \in F(c_3)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1941,24 +1941,24 @@ tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(a_1+a_2)+a_3$};
-\node (B) at (1,1) {$(c_1+c_2)+c_3$};
-\node (C) at (2,0) {$(b_1+b_2)+b_3$};
-\node (D) at (4.5,0.5) {$d_{(M_1 \otimes M_2) \otimes M_3} \in F((c_1+c_2)+c_3)$};
+\node (B) at (2.25,0){$(c_1+c_2)+c_3$};
+\node (C) at (4.5,0) {$(b_1+b_2)+b_3$};
+\node (D) at (2.25,-0.5) {$d_{(M_1 \otimes M_2) \otimes M_3} \in F((c_1+c_2)+c_3)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$(i_1+i_2)+i_3$} (B)
-(C) edge node[right]{$(o_1+o_2)+o_3$} (B);
+(A) edge node[above]{$(i_1+i_2)+i_3$} (B)
+(C) edge node[above]{$(o_1+o_2)+o_3$} (B);
 \end{tikzpicture}
 \]
 where $d_{(M_1 \otimes M_2) \otimes M_3} \colon \bold{1} \to F((c_1+c_2)+c_3)$ is given by: $$1 \xrightarrow{((d_1 \times d_2) \times d_3)} (F(c_1) \times F(c_2)) \times F(c_3) \xrightarrow{\phi_{c_1,c_2} \times 1} F(c_1+c_2) \times F(c_3) \xrightarrow{\phi_{c_1+c_2,c_3}} F((c_1+c_2)+c_3)$$whereas tensoring the last two and then the first results in $M_1 \otimes (M_2 \otimes M_3)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+(a_2+a_3)$};
-\node (B) at (1,1) {$c_1+(c_2+c_3)$};
-\node (C) at (2,0) {$b_1+(b_2+b_3)$};
-\node (D) at (4.5,0.5) {$d_{M_1 \otimes (M_2 \otimes M_3)} \in F(c_1+(c_2+c_3))$};
+\node (B) at (2.25,0) {$c_1+(c_2+c_3)$};
+\node (C) at (4.5,0) {$b_1+(b_2+b_3)$};
+\node (D) at (2.25,-0.5) {$d_{M_1 \otimes (M_2 \otimes M_3)} \in F(c_1+(c_2+c_3))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$i_1+(i_2+i_3)$} (B)
-(C) edge node[right]{$o_1+(o_2+o_3)$} (B);
+(A) edge node[above]{$i_1+(i_2+i_3)$} (B)
+(C) edge node[above]{$o_1+(o_2+o_3)$} (B);
 \end{tikzpicture}
 \]
 where $d_{M_1 \otimes (M_2 \otimes M_3)} \colon \bold{1} \to F(c_1+(c_2+c_3))$ is given by: $$1 \xrightarrow{d_1 \times (d_2 \times d_3)} F(c_1) \times (F(c_2) \times F(c_3)) \xrightarrow{1 \times \phi_{c_2,c_3}} F(c_1) \times F(c_2+c_3) \xrightarrow{\phi_{c_1,c_2+c_3}} F(c_1+(c_2+c_3)).$$If we let $a$ denote the associator of $(\bold{C},+,0)$, the associator of $\mathbb{F} \textnormal{Cospan}(\bold{C})_1$ is then a map of cospans in $\bold{C}$ from $(M_1 \otimes M_2) \otimes M_3)$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
@@ -1982,25 +1982,25 @@ where $d_{M_1 \otimes (M_2 \otimes M_3)} \colon \bold{1} \to F(c_1+(c_2+c_3))$ i
 (B) edge node [left] {$a$} (D);
 \end{tikzpicture}
 \]
-together with the morphism $\iota_a \colon F(a)(d_{(M_1 \otimes M_2) \otimes M_3}) \to d_{M_1 \otimes (M_2 \otimes M_3)}$. If we denote the above associator simply as $a$ and the left and right unitors as $\lambda$ and $\rho$, respectively, then given four objects in $F\textnormal{Cospan}(\bold{C})_1$, say $M_1, M_2, M_3$ and $M_4$:
+together with the isomorphism $\iota_a \colon F(a)(d_{(M_1 \otimes M_2) \otimes M_3}) \to d_{M_1 \otimes (M_2 \otimes M_3)}$. If we denote the above associator simply as $a$ and the left and right unitors as $\lambda$ and $\rho$, respectively, then given four objects in $\mathbb{F}\textnormal{Cospan}(\bold{C})_1$, say $M_1, M_2, M_3$ and $M_4$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
 \node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,1) {$c_2$};
+\node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$b_2$};
 \node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
-\node (I) at (0,-2) {$a_3$};
-\node (J) at (1,-1) {$c_3$};
-\node (K) at (2,-2) {$b_3$};
-\node (L) at (1,-2.5) {$d_3 \in F(c_3)$};
-\node (M) at (3,-2) {$a_4$};
-\node (N) at (4,-1) {$c_4$};
-\node (O) at (5,-2) {$b_4$};
-\node (P) at (4,-2.5) {$d_4 \in F(c_4)$};
+\node (I) at (0,-1.5) {$a_3$};
+\node (J) at (1,-1.5) {$c_3$};
+\node (K) at (2,-1.5) {$b_3$};
+\node (L) at (1,-2) {$d_3 \in F(c_3)$};
+\node (M) at (3,-1.5) {$a_4$};
+\node (N) at (4,-1.5) {$c_4$};
+\node (O) at (5,-1.5) {$b_4$};
+\node (P) at (4,-2) {$d_4 \in F(c_4)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -2016,10 +2016,10 @@ then the following pentagon of underlying cospans commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$((M_1 \otimes M_2) \otimes M_3) \otimes M_4$};
-\node (B) at (2.25,1.5) {$(M_1 \otimes M_2) \otimes (M_3 \otimes M_4)$};
+\node (B) at (2.25,1) {$(M_1 \otimes M_2) \otimes (M_3 \otimes M_4)$};
 \node (C) at (4.5,0) {$M_1 \otimes (M_2 \otimes (M_3 \otimes M_4))$};
-\node (D) at (.75,-2) {$(M_1 \otimes (M_2 \otimes M_3)) \otimes M_4$};
-\node (E) at (3.75,-2) {$M_1 \otimes ((M_2 \otimes M_3) \otimes M_4)$};
+\node (D) at (.75,-1.5) {$(M_1 \otimes (M_2 \otimes M_3)) \otimes M_4$};
+\node (E) at (3.75,-1.5) {$M_1 \otimes ((M_2 \otimes M_3) \otimes M_4)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$a$} (B)
 (B) edge node[above]{$a$} (C)
@@ -2032,10 +2032,10 @@ as well as the following pentagon of corresponding decorations in the category $
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (-.5,0) {$F(aa)(d_{((M_1 \otimes M_2) \otimes M_3) \otimes M_4}) $};
-\node (B) at (2.25,1.5) {$F(a)(d_{(M_1 \otimes M_2) \otimes (M_3 \otimes M_4)})$};
+\node (B) at (2.25,1) {$F(a)(d_{(M_1 \otimes M_2) \otimes (M_3 \otimes M_4)})$};
 \node (C) at (5,0) {$d_{M_1 \otimes (M_2 \otimes (M_3 \otimes M_4))}$};
-\node (D) at (-.5,-2) {$F((1 \otimes a)a)(d_{(M_1 \otimes (M_2 \otimes M_3)) \otimes M_4}) $};
-\node (E) at (5,-2) {$F(1 \otimes a)(d_{M_1 \otimes ((M_2 \otimes M_3) \otimes M_4)}) $};
+\node (D) at (-.5,-1) {$F((1 \otimes a)a)(d_{(M_1 \otimes (M_2 \otimes M_3)) \otimes M_4}) $};
+\node (E) at (5,-1) {$F(1 \otimes a)(d_{M_1 \otimes ((M_2 \otimes M_3) \otimes M_4)}) $};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$F(a)(\iota_a)$} (B)
 (B) edge node[above]{$\iota_a$} (C)
@@ -2050,7 +2050,7 @@ Similarly, if we denote the left and right unitors as $\lambda$ and $\rho$, resp
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(M_1 \otimes U_{0}) \otimes M_2$};
-\node (B) at (2.25,1.5) {$M_1 \otimes M_2$};
+\node (B) at (2.25,1) {$M_1 \otimes M_2$};
 \node (C) at (4.5,0) {$M_1 \otimes (U_0 \otimes M_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\rho \otimes 1$} (B)
@@ -2062,7 +2062,7 @@ as well as the following triangle of corresponding decorations in the category $
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$F(\rho \otimes 1)(d_{(M_1 \otimes U_0) \otimes M_2})$};
-\node (B) at (2.25,1.5) {$d_{M_1 \otimes M_2}$};
+\node (B) at (2.25,1) {$d_{M_1 \otimes M_2}$};
 \node (C) at (4.5,0) {$F(1 \otimes \lambda)(d_{M_1 \otimes (U_0 \otimes M_2)}) $};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\iota_{\rho \otimes 1}$} (B)
@@ -2099,11 +2099,11 @@ This braiding makes the following triangle of underlying cospans commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$M_1 \otimes M_2$};
-\node (B) at (2.25,1.5) {$M_1 \otimes M_2$};
+\node (B) at (2.25,1) {$M_1 \otimes M_2$};
 \node (C) at (4.5,0) {$M_2 \otimes M_1$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1$} (B)
-(C) edge node[right]{$\beta_{M_2,M_1}$} (B)
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$\beta_{M_2,M_1}$} (B)
 (A) edge node[above]{$\beta_{M_1,M_2}$} (C);
 \end{tikzpicture}
 \]
@@ -2111,10 +2111,10 @@ as well as the following diagram of corresponding decorations in the category $F
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$F(\beta_{c_1,c_2})(d_{M_1 \otimes M_2})$};
-\node (B) at (2.25,1.5) {$F(\beta_{c_1,c_2})(d_{M_1 \otimes M_2}) $};
+\node (B) at (2.25,1) {$F(\beta_{c_1,c_2})(d_{M_1 \otimes M_2}) $};
 \node (C) at (4.5,0) {$d_{M_2 \otimes M_1} $};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1$} (B)
+(A) edge node[above]{$1$} (B)
 (C) edge node[right]{$F(\beta_{c_1,c_2})(\iota_{\beta_{M_2,M_1}})$} (B)
 (A) edge node[above]{$\iota_{\beta_{M_1,M_2}}$} (C);
 \end{tikzpicture}
@@ -2125,21 +2125,21 @@ Now, given four horizontal 1-cells $M_1, M_2, N_1$ and $N_2$ respectively by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
 \node (D) at (1,-0.5) {$d_{M_1} \in F(c_1)$};
 \node (E) at (3,0) {$b_1$};
-\node (F) at (4,1) {$e_1$};
+\node (F) at (4,0) {$e_1$};
 \node (G) at (5,0) {$x_1$};
 \node (H) at (4,-0.5) {$d_{M_2} \in F(e_1)$};
-\node (I) at (0,-2) {$a_2$};
-\node (J) at (1,-1) {$c_2$};
-\node (K) at (2,-2) {$b_2$};
-\node (L) at (1,-2.5) {$d_{N_1} \in F(c_2)$};
-\node (M) at (3,-2) {$b_2$};
-\node (N) at (4,-1) {$e_2$};
-\node (O) at (5,-2) {$x_2$};
-\node (P) at (4,-2.5) {$d_{N_2} \in F(e_2)$};
+\node (I) at (0,-1.5) {$a_2$};
+\node (J) at (1,-1.5) {$c_2$};
+\node (K) at (2,-1.5) {$b_2$};
+\node (L) at (1,-2) {$d_{N_1} \in F(c_2)$};
+\node (M) at (3,-1.5) {$b_2$};
+\node (N) at (4,-1.5) {$e_2$};
+\node (O) at (5,-1.5) {$x_2$};
+\node (P) at (4,-2) {$d_{N_2} \in F(e_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -2155,24 +2155,24 @@ we have that $(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1,1) {$(c_1+c_2)+_{b_1+b_2}(e_1+e_2)$};
-\node (C) at (2,0) {$x_1+x_2$};
-\node (D) at (1,-0.5) {$d_{(M_1 \otimes N_1) \odot (M_2 \otimes N_2)} \in F((c_1+c_2)+_{b_1+b_2}(e_1+e_2))$};
+\node (B) at (2.5,0) {$(c_1+c_2)+_{b_1+b_2}(e_1+e_2)$};
+\node (C) at (5,0) {$x_1+x_2$};
+\node (D) at (2.5,-0.5) {$d_{(M_1 \otimes N_1) \odot (M_2 \otimes N_2)} \in F((c_1+c_2)+_{b_1+b_2}(e_1+e_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$j \psi(i_1+i_2)$} (B)
-(C) edge node[right]{$j \psi(o_1^\prime + o_2^\prime)$} (B);
+(A) edge node[above]{$j \psi(i_1+i_2)$} (B)
+(C) edge node[above]{$j \psi(o_1^\prime + o_2^\prime)$} (B);
 \end{tikzpicture}
 \]
 and $(M_1 \odot M_2) \otimes (N_1 \odot N_2)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1,1) {$(c_1+_{b_1} e_1) + (c_2 +_{b_2} e_2)$};
-\node (C) at (2,0) {$x_1+x_2$};
-\node (D) at (1,-0.5) {$d_{(M_1 \odot M_2) \otimes (N_1 \odot N_2)} \in F((c_1+_{b_1}e_1)+(c_2+_{b_2}e_2))$};
+\node (B) at (2.5,0) {$(c_1+_{b_1} e_1) + (c_2 +_{b_2} e_2)$};
+\node (C) at (5,0) {$x_1+x_2$};
+\node (D) at (2.5,-0.5) {$d_{(M_1 \odot M_2) \otimes (N_1 \odot N_2)} \in F((c_1+_{b_1}e_1)+(c_2+_{b_2}e_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$(j \psi i_2)+(j \psi i_1)$} (B)
-(C) edge node[right]{$(j \psi o_2^\prime)+(j \psi o_1^\prime)$} (B);
+(A) edge node[above]{$(j \psi i_2)+(j \psi i_1)$} (B)
+(C) edge node[above]{$(j \psi o_2^\prime)+(j \psi o_1^\prime)$} (B);
 \end{tikzpicture}
 \]
 where $\psi$ and $j$ are the natural maps into a coproduct and from a coproduct into a pushout, respectively. We then get a globular 2-morphism $$\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$$ given by:
@@ -2201,12 +2201,12 @@ For two objects $a,b \in \bold{C}$, $U_{a+b}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a+b$};
-\node (B) at (1,1) {$a+b$};
+\node (B) at (1,0) {$a+b$};
 \node (C) at (2,0) {$a+b$};
-\node (D) at (3,0.5) {$!_{a+b} \in F(a+b)$};
+\node (D) at (1,-0.5) {$!_{a+b} \in F(a+b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1_{a+b}$} (B)
-(C) edge node[right]{$1_{a+b}$} (B);
+(A) edge node[above]{$1_{a+b}$} (B)
+(C) edge node[above]{$1_{a+b}$} (B);
 \end{tikzpicture}
 \]
 where $$!_{a+b} \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\phi \times \phi} F(0) \times F(0) \xrightarrow{F(!_a) \times F(!_b)} F(a) \times F(b) \xrightarrow{\phi_{a,b}} F(a+b).$$
@@ -2214,11 +2214,11 @@ Similarly, we have $U_a$ and $U_b$ given respectively by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$a$};
+\node (B) at (1,0) {$a$};
 \node (C) at (2,0) {$a$};
 \node (D) at (1,-0.5) {$!_a \in F(a)$};
 \node (E) at (3,0) {$b$};
-\node (F) at (4,1) {$b$};
+\node (F) at (4,0) {$b$};
 \node (G) at (5,0) {$b$};
 \node (H) at (4,-0.5) {$!_b \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -2232,12 +2232,12 @@ and then $U_a + U_b$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a+b$};
-\node (B) at (1,1) {$a+b$};
-\node (C) at (2,0) {$a+b$};
-\node (D) at (3.25,0.5) {$!_a + !_b \in F(a+b)$};
+\node (B) at (1.25,0) {$a+b$};
+\node (C) at (2.5,0) {$a+b$};
+\node (D) at (1.25,-0.5) {$!_a + !_b \in F(a+b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1_a + 1_b$} (B)
-(C) edge node[right]{$1_a + 1_b$} (B);
+(A) edge node[above]{$1_a + 1_b$} (B)
+(C) edge node[above]{$1_a + 1_b$} (B);
 \end{tikzpicture}
 \]
 where
@@ -2270,10 +2270,10 @@ There are a fair amount of coherence diagrams to verify, many of which are simil
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)$};
 \node (A') at (4.5,0.5) {$(M_1 \otimes (N_1 \otimes P_1)) \odot (M_2 \otimes (N_2 \otimes P_2))$};
-\node (B) at (0,-0.5) {$((M_1 \otimes N_1) \odot (M_2 \otimes N_2)) \otimes (P_1 \odot P_2)$};
-\node (C) at (4.5,-0.5) {$(M_1 \odot M_2) \otimes ((N_1 \otimes P_1) \odot (N_2 \otimes P_2))$};
-\node (C') at (0,-1.5) {$((M_1 \odot M_2) \otimes (N_1 \odot N_2)) \otimes (P_1 \odot P_2)$};
-\node (D) at (4.5,-1.5) {$(M_1 \odot M_2) \otimes ((N_1 \odot N_2) \otimes (P_1 \odot P_2))$};
+\node (B) at (0,-0.25) {$((M_1 \otimes N_1) \odot (M_2 \otimes N_2)) \otimes (P_1 \odot P_2)$};
+\node (C) at (4.5,-0.25) {$(M_1 \odot M_2) \otimes ((N_1 \otimes P_1) \odot (N_2 \otimes P_2))$};
+\node (C') at (0,-1) {$((M_1 \odot M_2) \otimes (N_1 \odot N_2)) \otimes (P_1 \odot P_2)$};
+\node (D) at (4.5,-1) {$(M_1 \odot M_2) \otimes ((N_1 \odot N_2) \otimes (P_1 \odot P_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$a \odot a$} (A')
 (A) edge node[left]{$\mu$} (B)
@@ -2287,35 +2287,35 @@ Here, $a$ is the associator of $\mathbb{F}\textnormal{Cospan}(\bold{C})_1$ and $
 	\[
 		\begin{tikzpicture}
 			\node (k) at (0,0) {$k$};
-			\node (l) at (1,.5) {$l$};
+			\node (l) at (1,0) {$l$};
 			\node (m) at (2,0) {$m$};
-			\node (M1) at (-1,.25) {$M_1 =$};
-			\node (N1) at (3,.25) {$N_1 =$};
+			\node (M1) at (-1,0) {$M_1 =$};
+			\node (N1) at (3,0) {$N_1 =$};
 			\node (q) at (4,0) {$q$};
-			\node (r) at (5,.5) {$r$};
+			\node (r) at (5,0) {$r$};
 			\node (s) at (6,0) {$s$};
-			\node (P1) at (7,.25) {$P_1 =$};
+			\node (P1) at (7,0) {$P_1 =$};
 			\node (v) at (8,0) {$v$};
-			\node (w) at (9,.5) {$w$};
+			\node (w) at (9,0) {$w$};
 			\node (x) at (10,0) {$x$};
-			\node (m2) at (0,-2) {$m$};
+			\node (m2) at (0,-1.5) {$m$};
 			\node (n) at (1,-1.5) {$n$};
-			\node (p) at (2,-2) {$p$};
-			\node (M2) at (-1,-1.75) {$M_2 =$};
-			\node (N2) at (3,-1.75) {$N_2 =$};
-			\node (s2) at (4,-2) {$s$};
+			\node (p) at (2,-1.5) {$p$};
+			\node (M2) at (-1,-1.5) {$M_2 =$};
+			\node (N2) at (3,-1.5) {$N_2 =$};
+			\node (s2) at (4,-1.5) {$s$};
 			\node (t) at (5,-1.5) {$t$};
-			\node (u) at (6,-2) {$u$};
-			\node (P2) at (7,-1.75) {$P_2 =$};
-			\node (x2) at (8,-2) {$x$};
+			\node (u) at (6,-1.5) {$u$};
+			\node (P2) at (7,-1.5) {$P_2 =$};
+			\node (x2) at (8,-1.5) {$x$};
 			\node (y) at (9,-1.5) {$y$};
-			\node (z) at (10,-2) {$z$};
+			\node (z) at (10,-1.5) {$z$};
 \node (dM1) at (1,-0.5) {$d_{M_1} \in F(l)$};
-\node (dM2) at (1,-2.5) {$d_{M_2} \in F(n)$};
+\node (dM2) at (1,-2) {$d_{M_2} \in F(n)$};
 \node (dN1) at (5,-0.5) {$d_{N_1} \in F(r)$};
-\node (dN2) at (5,-2.5) {$d_{N_2} \in F(t)$};
+\node (dN2) at (5,-2) {$d_{N_2} \in F(t)$};
 \node (dP1) at (9,-0.5) {$d_{P_1} \in F(w)$};
-\node (dP2) at (9,-2.5) {$d_{P_2} \in F(y)$};
+\node (dP2) at (9,-2) {$d_{P_2} \in F(y)$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(k) edge node[above]{$$} (l)
 			(m) edge node[above]{$$} (l)
@@ -2337,24 +2337,24 @@ The above diagram then becomes:
 			\node (a) at (-4,0) {$k+m$};
 			\node (b) at (1,0) {$((l+r)+w) +_{((m+s)+x)}((n+t)+y)$};
 			\node (c) at (6,0) {$v+x$};
-			\node (a2) at (-4,1.5) {$k+m$};
-			\node (b2) at (1,1.5) {$(l+(r+w)) +_{(m+(s+x))}(n+(t+y))$};
-			\node (c2) at (6,1.5) {$v+x$};
-                                \node (a3) at (-4,3) {$k+m$};
-			\node (b3) at (1,3) {$(l+_m n)+((r+w)+_{(s+x)}(t+y))$};
-			\node (c3) at (6,3) {$v+x$};
-                                \node (a4) at (-4,4.5) {$k+m$};
-			\node (b4) at (1,4.5) {$(l+_m n)+((r+_s t)+(w+_x y))$};
-			\node (c4) at (6,4.5) {$v+x$};
-                                \node (a5) at (-4,-1.5) {$k+m$};
-			\node (b5) at (1,-1.5) {$((l+r)+_{(m+s)}(n+t))+(w+_x y)$};
-			\node (c5) at (6,-1.5) {$v+x$};
-                                \node (a6) at (-4,-3) {$k+m$};
-			\node (b6) at (1,-3) {$((l+_m n)+(r+_s t))+(w+_x y)$};
-			\node (c6) at (6,-3) {$v+x$};
-                                \node (a7) at (-4,-4.5) {$k+m$};
-			\node (b7) at (1,-4.5) {$(l+_m n)+((r+_s t)+(w+_x y))$};
-			\node (c7) at (6,-4.5) {$v+x$};
+			\node (a2) at (-4,1) {$k+m$};
+			\node (b2) at (1,1) {$(l+(r+w)) +_{(m+(s+x))}(n+(t+y))$};
+			\node (c2) at (6,1) {$v+x$};
+                                \node (a3) at (-4,2) {$k+m$};
+			\node (b3) at (1,2) {$(l+_m n)+((r+w)+_{(s+x)}(t+y))$};
+			\node (c3) at (6,2) {$v+x$};
+                                \node (a4) at (-4,3) {$k+m$};
+			\node (b4) at (1,3) {$(l+_m n)+((r+_s t)+(w+_x y))$};
+			\node (c4) at (6,3) {$v+x$};
+                                \node (a5) at (-4,-1) {$k+m$};
+			\node (b5) at (1,-1) {$((l+r)+_{(m+s)}(n+t))+(w+_x y)$};
+			\node (c5) at (6,-1) {$v+x$};
+                                \node (a6) at (-4,-2) {$k+m$};
+			\node (b6) at (1,-2) {$((l+_m n)+(r+_s t))+(w+_x y)$};
+			\node (c6) at (6,-2) {$v+x$};
+                                \node (a7) at (-4,-3) {$k+m$};
+			\node (b7) at (1,-3) {$(l+_m n)+((r+_s t)+(w+_x y))$};
+			\node (c7) at (6,-3) {$v+x$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
 			(c) edge node[above]{$$} (b)
@@ -2422,8 +2422,8 @@ Another requirement for a double category to be symmetric monoidal is that the b
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
 \node (B) at (3,0) {$(N_1 \odot N_2) \otimes (M_1 \odot M_2)$};
-\node (C) at (0,-1) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
-\node (D) at (3,-1) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
+\node (C) at (0,-.75) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
+\node (D) at (3,-.75) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\beta$} (B)
 (B) edge node[right]{$\mu$} (D)
@@ -2437,18 +2437,18 @@ Using the same notation as the previous coherence diagram, the diagram for the u
 			\node (a) at (-4,0) {$k+m$};
 			\node (b) at (1,0) {$(l+_m n) + (r+_s t)$};
 			\node (c) at (6,0) {$s+u$};
-			\node (a2) at (-4,1.5) {$k+m$};
-			\node (b2) at (1,1.5) {$(r +_s t) + (l +_m n)$};
-			\node (c2) at (6,1.5) {$s+u$};
-                                \node (a3) at (-4,3) {$k+m$};
-			\node (b3) at (1,3) {$(r+l) +_{(s+m)} (t+n)$};
-			\node (c3) at (6,3) {$s+u$};
-                                \node (a5) at (-4,-1.5) {$k+m$};
-			\node (b5) at (1,-1.5) {$(l+r) +_{(m+s)} (n+t)$};
-			\node (c5) at (6,-1.5) {$s+u$};
-                                \node (a6) at (-4,-3) {$k+m$};
-			\node (b6) at (1,-3) {$(r+l) +_{(s+m)} (t+n)$};
-			\node (c6) at (6,-3) {$s+u$};
+			\node (a2) at (-4,1) {$k+m$};
+			\node (b2) at (1,1) {$(r +_s t) + (l +_m n)$};
+			\node (c2) at (6,1) {$s+u$};
+                                \node (a3) at (-4,2) {$k+m$};
+			\node (b3) at (1,2) {$(r+l) +_{(s+m)} (t+n)$};
+			\node (c3) at (6,2) {$s+u$};
+                                \node (a5) at (-4,-1) {$k+m$};
+			\node (b5) at (1,-1) {$(l+r) +_{(m+s)} (n+t)$};
+			\node (c5) at (6,-1) {$s+u$};
+                                \node (a6) at (-4,-2) {$k+m$};
+			\node (b6) at (1,-2) {$(r+l) +_{(s+m)} (t+n)$};
+			\node (c6) at (6,-2) {$s+u$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
 			(c) edge node[above]{$$} (b)
@@ -2505,9 +2505,9 @@ Let $f \colon c \to c^\prime$ be a vertical 1-morphism in $\mathbb{F} \textnorma
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
-\node (B) at (1,1) {$c^\prime$};
+\node (B) at (1,0) {$c^\prime$};
 \node (C) at (2,0) {$c^\prime$};
-\node (D) at (3,0.5) {$!_{c^\prime} \in F(c^\prime)$};
+\node (D) at (1,-0.5) {$!_{c^\prime} \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B);
@@ -2660,9 +2660,9 @@ The right hand sides of the above two equations are given respectively by the 2-
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c^\prime$};
-\node (B) at (1,1) {$c^\prime$};
+\node (B) at (1,0) {$c^\prime$};
 \node (C) at (2,0) {$c$};
-\node (D) at (3,0.5) {$!_{c^\prime} \in F(c^\prime)$};
+\node (D) at (4,0) {$!_{c^\prime} \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$f$} (B);
@@ -2689,9 +2689,9 @@ There exists a symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\b
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (4,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -2702,9 +2702,9 @@ and}
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0.5) {$c$};
 \node (C) at (2,0) {$b$};
-\node (E) at (1,-1) {$c^\prime$};
+\node (E) at (1,-0.5) {$c^\prime$};
 \node (D) at (3,0.5) {$d \in F(c)$};
 \node (F) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -2736,8 +2736,8 @@ The second author then using a result of Shulman \cite{Shul} extended this to a 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (B') at (1,-1) {$c^\prime$};
+\node (B) at (1,0.5) {$c$};
+\node (B') at (1,-0.5) {$c^\prime$};
 \node (C) at (2,0) {$b$};
 \node (D) at (3,0) {$\bold{1}$};
 \node (E) at (4,0.5) {$F(c)$};
@@ -2827,9 +2827,9 @@ Given a symmetric lax monoidal pseudofunctor $F \colon \bold{C} \to \bold{Cat}$ 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (4,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -2839,9 +2839,9 @@ Given another $F$-decorated cospan:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,-1) {$c^\prime$};
+\node (B) at (1,0) {$c^\prime$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
+\node (D) at (4,0) {$d^\prime \in F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[below]{$i^\prime$} (B)
 (C) edge node[below]{$o^\prime$} (B);
@@ -2851,8 +2851,8 @@ these two $F$-decorated cospans are in the same isomorphism class if there exist
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B') at (1,1) {$c$};
-\node (B) at (1,-1) {$c^\prime$};
+\node (B') at (1,0.5) {$c$};
+\node (B) at (1,-0.5) {$c^\prime$};
 \node (C) at (2,0) {$b$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[below]{$i^\prime$} (B)
@@ -2876,9 +2876,9 @@ Let $F \colon \bold{C} \to \bold{Cat}$ be a symmetric lax monoidal pseudofunctor
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
+\node (D) at (4,0) {$d \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -2912,19 +2912,19 @@ Given another symmetric lax monoidal pseudofunctor $F^\prime \colon \bold{C^\pri
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
+\node (B) at (1,0) {$c$};
 \node (C) at (2,0) {$b$};
 \node (D) at (1,-0.5) {$d \in F(c)$};
-\node (E) at (2.75,0.25) {$\mapsto$};
+\node (E) at (2.75,0) {$\mapsto$};
 \node (A') at (3.5,0) {$H(a)$};
-\node (B') at (4.5,1) {$H(c)$};
+\node (B') at (4.5,0) {$H(c)$};
 \node (C') at (5.5,0) {$H(b)$};
 \node (D') at (4.5,-0.5) {$E(d) \in F^\prime(H(c))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$i$} (B)
-(C) edge node[right]{$o$} (B)
-(A') edge node[left]{$H(i)$} (B')
-(C') edge node[right]{$H(o)$} (B');
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[above]{$H(i)$} (B')
+(C') edge node[above]{$H(o)$} (B');
 \end{tikzpicture}
 \]
 and on 2-morphisms by:
@@ -2997,8 +2997,8 @@ Applying the terminal category preserving 2-functor $E \colon \bold{Cat} \to \bo
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,-0.5) {$E(\bold{1}) \cong \bold{1}$};
-\node (B) at (1.5,0.25) {$E(F(c))$};
-\node (D) at (1.5,-1.25) {$E(F(c^\prime))$};
+\node (B) at (1.5,0) {$E(F(c))$};
+\node (D) at (1.5,-1) {$E(F(c^\prime))$};
 \node (C) at (1,-0.5) {$\Swarrow$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$E(d)$} (B)
@@ -3010,8 +3010,8 @@ Then because the above square commutes, this is the same as
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,-0.5) {$E(\bold{1}) \cong \bold{1}$};
-\node (B) at (1.5,0.25) {$F^\prime(H(c))$};
-\node (D) at (1.5,-1.25) {$F^\prime(H(c^\prime))$};
+\node (B) at (1.5,0) {$F^\prime(H(c))$};
+\node (D) at (1.5,-1) {$F^\prime(H(c^\prime))$};
 \node (C) at (1,-0.5) {$\Swarrow$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$E(d)$} (B)
@@ -3167,11 +3167,11 @@ Given two composable horizontal 1-cells $M$ and $N$ in $\mathbb{F}\textnormal{Co
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b$};
 \node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
 \node (E) at (3,0) {$b$};
-\node (F) at (4,1) {$c_2$};
+\node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$a_2$};
 \node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -3185,54 +3185,54 @@ composing first gives $M \odot N$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1+_b c_2$};
-\node (C) at (2,0) {$a_2$};
-\node (D) at (1,-0.5) {$d \in F(c_1 +_b c_2)$};
+\node (B) at (1.5,0) {$c_1+_b c_2$};
+\node (C) at (3,0) {$a_2$};
+\node (D) at (1.5,-0.5) {$d \in F(c_1 +_b c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$\psi j_{c_1} i_1$} (B)
-(C) edge node[right]{$\psi j_{c_2} o_2$} (B);
+(A) edge node[above]{$\psi j_{c_1} i_1$} (B)
+(C) edge node[above]{$\psi j_{c_2} o_2$} (B);
 \end{tikzpicture}
 \]
 where $$d \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(\psi)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\mathbb{H}(M \odot N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
-\node (B) at (1,1) {$H(c_1+_b c_2)$};
-\node (C) at (2,0) {$H(a_2)$};
-\node (D) at (1,-0.5) {$E(d) \in F^\prime(H(c_1 +_b c_2))$};
+\node (B) at (1.5,0) {$H(c_1+_b c_2)$};
+\node (C) at (3,0) {$H(a_2)$};
+\node (D) at (1.5,-0.5) {$E(d) \in F^\prime(H(c_1 +_b c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$H(\psi j_{c_1} i_1)$} (B)
-(C) edge node[right]{$H(\psi j_{c_2} o_2)$} (B);
+(A) edge node[above]{$H(\psi j_{c_1} i_1)$} (B)
+(C) edge node[above]{$H(\psi j_{c_2} o_2)$} (B);
 \end{tikzpicture}
 \]
 where $$E(d) \colon 1 \xrightarrow{E(d)} E(F(c_1 +_b c_2)) = F^\prime(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\mathbb{H}$ is given respectively by $\mathbb{H}(M)$ and $\mathbb{H}(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
-\node (B) at (1,1) {$H(c_1)$};
+\node (B) at (1,0) {$H(c_1)$};
 \node (C) at (2,0) {$H(b)$};
 \node (D) at (1,-0.5) {$E(d_1) \in F^\prime(H(c_1))$};
 \node (E) at (3,0) {$H(b)$};
-\node (F) at (4,1) {$H(c_2)$};
+\node (F) at (4,0) {$H(c_2)$};
 \node (G) at (5,0) {$H(a_2)$};
 \node (H) at (4,-0.5) {$E(d_2) \in F^\prime(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$H(i_1)$} (B)
-(C) edge node[right]{$H(o_1)$} (B)
-(E) edge node[left]{$H(i_2)$} (F)
-(G) edge node[right]{$H(o_2)$} (F);
+(A) edge node[above]{$H(i_1)$} (B)
+(C) edge node[above]{$H(o_1)$} (B)
+(E) edge node[above]{$H(i_2)$} (F)
+(G) edge node[above]{$H(o_2)$} (F);
 \end{tikzpicture}
 \]
 Composing these then gives $\mathbb{H}(M) \odot \mathbb{H}(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
-\node (B) at (1,1) {$H(c_1)+_{H(b)} H(c_2)$};
-\node (C) at (2,0) {$H(a_2)$};
-\node (D) at (1,-0.5) {$d^\prime \in F^\prime(H(c_1) +_{H(b)} H(c_2))$};
+\node (B) at (2,0) {$H(c_1)+_{H(b)} H(c_2)$};
+\node (C) at (4,0) {$H(a_2)$};
+\node (D) at (2,-0.5) {$d^\prime \in F^\prime(H(c_1) +_{H(b)} H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$\Psi j_{H(c_1)} H(i_1)$} (B)
-(C) edge node[right]{$\Psi j_{H(c_2)} H(o_2)$} (B);
+(A) edge node[above]{$\Psi j_{H(c_1)} H(i_1)$} (B)
+(C) edge node[above]{$\Psi j_{H(c_2)} H(o_2)$} (B);
 \end{tikzpicture}
 \]
 where $$d^\prime \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime(H(c_1)+ H(c_2)) \xrightarrow{F^\prime (H(\Psi))} F^\prime(H(c_1) +_{H(b)} H(c_2)).$$
@@ -3322,11 +3322,11 @@ This shows that $\mathbb{H}=(H,E)$ is a double functor. Next we show that this d
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$c_1$};
+\node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
 \node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,1) {$c_2$};
+\node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$b_2$};
 \node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -3340,12 +3340,12 @@ their tensor product $M_1 \otimes M_2$ in $\mathbb{F}\textnormal{Cospan}(\bold{C
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1,1) {$c_1+c_2$};
-\node (C) at (2,0) {$b_1+b_2$};
-\node (D) at (1,-0.5) {$d_1+d_2 \in F(c_1)$};
+\node (B) at (1.5,0) {$c_1+c_2$};
+\node (C) at (3,0) {$b_1+b_2$};
+\node (D) at (1.5,-0.5) {$d_1+d_2 \in F(c_1)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$i_1+i_2$} (B)
-(C) edge node[right]{$o_1+o_2$} (B);
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
 $$d_1+d_2 \colon 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2)$$
@@ -3353,42 +3353,42 @@ and the image of this horizontal 1-cell under the double functor $\mathbb{H}$ is
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1+a_2)$};
-\node (B) at (1,1) {$H(c_1+c_2)$};
-\node (C) at (2,0) {$H(b_1+b_2)$};
-\node (D) at (1,-0.5) {$E(d_1+d_2) \in E(F(c_1+c_2)) = F^\prime(H(c_1+c_2))$};
+\node (B) at (2,0) {$H(c_1+c_2)$};
+\node (C) at (4,0) {$H(b_1+b_2)$};
+\node (D) at (2,-0.5) {$E(d_1+d_2) \in E(F(c_1+c_2)) = F^\prime(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$H(i_1+i_2)$} (B)
-(C) edge node[right]{$H(o_1+o_2)$} (B);
+(A) edge node[above]{$H(i_1+i_2)$} (B)
+(C) edge node[above]{$H(o_1+o_2)$} (B);
 \end{tikzpicture}
 \]
 On the other hand, the image of $M_1$ and $M_2$ is given by $\mathbb{H}(M_1)$ and $\mathbb{H}(M_2)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
-\node (B) at (1,1) {$H(c_1)$};
+\node (B) at (1,0) {$H(c_1)$};
 \node (C) at (2,0) {$H(b_1)$};
 \node (D) at (1,-0.5) {$E(d_1) \in F^\prime(H(c_1))$};
 \node (E) at (3,0) {$H(a_2)$};
-\node (F) at (4,1) {$H(c_2)$};
+\node (F) at (4,0) {$H(c_2)$};
 \node (G) at (5,0) {$H(b_2)$};
 \node (H) at (4,-0.5) {$E(d_2) \in F^\prime(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$H(i_1)$} (B)
-(C) edge node[right]{$H(o_1)$} (B)
-(E) edge node[left]{$H(i_2)$} (F)
-(G) edge node[right]{$H(o_2)$} (F);
+(A) edge node[above]{$H(i_1)$} (B)
+(C) edge node[above]{$H(o_1)$} (B)
+(E) edge node[above]{$H(i_2)$} (F)
+(G) edge node[above]{$H(o_2)$} (F);
 \end{tikzpicture}
 \]
 and their tensor product $\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)+H(a_2)$};
-\node (B) at (1,1) {$H(c_1)+H(c_2)$};
-\node (C) at (2,0) {$H(b_1)+H(b_2)$};
-\node (D) at (1,-0.5) {$E(d_1)+E(d_2) \in F^\prime(H(c_1)+H(c_2))$};
+\node (B) at (2,0) {$H(c_1)+H(c_2)$};
+\node (C) at (4,0) {$H(b_1)+H(b_2)$};
+\node (D) at (2,-0.5) {$E(d_1)+E(d_2) \in F^\prime(H(c_1)+H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$H(i_1)+H(i_2)$} (B)
-(C) edge node[right]{$H(o_1)+H(o_2)$} (B);
+(A) edge node[above]{$H(i_1)+H(i_2)$} (B)
+(C) edge node[above]{$H(o_1)+H(o_2)$} (B);
 \end{tikzpicture}
 \]
 $$E(d_1)+E(d_2) \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime (H(c_1)+H(c_2)).$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \colon \mathbb{H}(M_1) \otimes \mathbb{H}(M_2) \to \mathbb{H}(M_1 \otimes M_2)$ in $\mathbb{F^\prime}\textnormal{Cospan}(\bold{C^\prime})$ given by:
@@ -3454,31 +3454,31 @@ We also have that the monoidal unit of $\mathbb{F}\textnormal{Cospan}(\bold{C})_
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$1_\bold{C}$};
-\node (B) at (1,1) {$1_\bold{C}$};
+\node (B) at (1,0) {$1_\bold{C}$};
 \node (C) at (2,0) {$1_\bold{C}$};
 \node (D) at (1,-0.5) {$!_{1_\bold{C}} \in F(1_\bold{C})$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1$} (B)
-(C) edge node[right]{$1$} (B);
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
 where $1_\bold{C}$ is the monoidal unit of the finitely cocartesian category $\bold{C}$. The image of this horizontal 1-cell under $\mathbb{H}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(1_\bold{C})$};
-\node (B) at (1,1) {$H(1_\bold{C})$};
+\node (B) at (1,0) {$H(1_\bold{C})$};
 \node (C) at (2,0) {$H(1_\bold{C})$};
-\node (E) at (3,0.5) {$=$};
+\node (E) at (3,0) {$=$};
 \node (F) at (4,0) {$1_\bold{C^\prime}$};
-\node (G) at (5,1) {$1_\bold{C^\prime}$};
+\node (G) at (5,0) {$1_\bold{C^\prime}$};
 \node (H) at (6,0) {$1_\bold{C^\prime}$};
 \node (I) at (5,-0.5) {$!_{1_{\bold{C^\prime}}} \in F^\prime(1_{\bold{C^\prime}})$};
 \node (D) at (1,-0.5) {$E(!_{1_\bold{C}}) \in F^\prime(H(1_\bold{C}))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1$} (B)
-(C) edge node[right]{$1$} (B)
-(F) edge node[left]{$1$} (G)
-(H) edge node[right]{$1$} (G);
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$1$} (B)
+(F) edge node[above]{$1$} (G)
+(H) edge node[above]{$1$} (G);
 \end{tikzpicture}
 \]
 since $H$ preserves finite colimits. We then have a 2-isomorphism in $\mathbb{F^\prime}\textnormal{Cospan}(\bold{C^\prime})$ given by: $$\mu \colon 1_{\mathbb{F^\prime}\textnormal{Cospan}(\bold{C^\prime})_1} \to \mathbb{H}(1_{\mathbb{F}\textnormal{Cospan}(\bold{C})_1})$$ 
@@ -3758,13 +3758,13 @@ Let $P \colon \bold{D} \to \bold{C}$ be a functor. A morphism $f \colon d_{1} \t
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$d^\prime$};
-\node (B) at (0,-1.5) {$d_{2}$};
-\node (C) at (1.5,-1.5) {$d_{1}$};
-\node (H) at (2,-0.5) {$P$};
-\node (D) at (2,-.75) {$\mapsto$};
+\node (B) at (0,-1) {$d_{2}$};
+\node (C) at (1.5,-1) {$d_{1}$};
+\node (H) at (2,-0.25) {$P$};
+\node (D) at (2,-.5) {$\mapsto$};
 \node (E) at (3,0) {$P(d^\prime)$};
-\node (F) at (3,-1.5) {$P(d_{2})$};
-\node (G) at (4.5,-1.5) {$P(d_{1})$};
+\node (F) at (3,-1) {$P(d_{2})$};
+\node (G) at (4.5,-1) {$P(d_{1})$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge[dashed] node[above,left]{$\exists ! h$} (A)
 (C) edge node[above,right]{$g$} (A)
@@ -3840,12 +3840,9 @@ A double functor $\mathbb{F} \colon \mathbb{C} \to \mathbb{D}$ is \define{strong
 \begin{thm}[Shulman,7.8]\label{ShulDubEquiv}
 Given a strong double functor $\mathbb{F} \colon \mathbb{C} \to \mathbb{D}$, $\mathbb{F}$ is part of a double equivalence if and only if $\mathbb{F}$ is full, faithful and essentially surjective.
 \end{thm}
-\begin{thm}
+\begin{prop}
 Let $\mathbb{C}$ and $\mathbb{D}$ be symmetric monoidal double categories and let $\mathbb{F} \colon \mathbb{C} \to \mathbb{D}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{C}$ and $\mathbb{D}$ are equivalent as symmetric monoidal double categories.
-\end{thm}
-\begin{proof}
-\textbf{Prove this...is there anything to even prove?}
-\end{proof}
+\end{prop}
 Our next goal is to show that the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\bold{C})$ of Section \ref{DecCospansDoublecat} is equivalent as a symmetric monoidal double category to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\bold{D})$ obtained using structured cospans.
 
 \begin{thm}
@@ -3857,7 +3854,7 @@ Given a category $\bold{D}$ with finite colimits and a category $\bold{C}$ with 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c)$};
-\node (B) at (1,1) {$d$};
+\node (B) at (1,0) {$d$};
 \node (C) at (2,0) {$L(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
