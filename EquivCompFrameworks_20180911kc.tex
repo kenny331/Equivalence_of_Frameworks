@@ -396,852 +396,11 @@ together with a morphism $\iota \colon F(f)(d) \to d^\prime$ of $F(c^\prime)$.}
 \end{enumerate}
 Then we can obtain the above improved symmetric monoidal category as a decategorification of the symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\textrm{A}))$.
 
-The outline for the paper is as follows: In the second section we present the definition of double category and symmetric monoidal double category, both of which can be found in earlier works \cite{Shul}. In the third section, we construct the symmetric monoidal double category $F\textnormal{Cospan}(\textrm{A})$ mentioned above as well as a result of Shulman that allows us to obtain a symmetric monoidal bicategory whose decategorification is an improved version of Fong's symmetric monoidal category. In the fourth section we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction. In the fifth section we review another compositional framework which uses cospans equipped with extra structure due to the first two authors, namely `structured cospans' and prove that the double categorical versions of decorated cospans and structured cospans are equivalent, and in the final section, we present a few examples that can be realized with either framework and exhibit the equivalences.
-
-\section{A review of double categories and symmetric monoidal double categories}
-\textbf{Likely move this to an appendix or remove entirely and just cite another paper.}
-This section is meant to serve as a review of double categories and to present the definitions of double category, symmetric monoidal double category and a few more ideas that will be used later in the paper. Nothing in this section is new and can be found in the work of Shulman \cite{Shul}.
-
-Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
-
-\[
-\begin{tikzpicture}[scale=1]
-\node (D) at (-4,0.5) {$A$};
-\node (E) at (-2,0.5) {$B$};
-\node (F) at (-4,-1) {$C$};
-\node (A) at (-2,-1) {$D$};
-\node (B) at (-3,-0.25) {$\Downarrow a$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above]{$M$}(E)
-(E) edge node [right]{$g$}(A)
-(D) edge node [left]{$f$}(F)
-(F) edge node [above]{$N$} (A);
-\end{tikzpicture}
-\]
-
-We call $A, B, C$ and $D$ \textbf{objects} or \textbf{0-cells}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. We follow the notation of Shulman \cite{Shul} with the following definitions.
-
-\begin{defn}
-A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\bold{D_{0}}$ and a category of arrows $\bold{D_{1}}$ with the following functors
-\begin{center}
-$U\colon \bold{D_{0}} \to \bold{D_{1}}$\\
-$S,T \colon \bold{D_{1}} \rightrightarrows \bold{D_{0}}$\\
-$\odot \colon \bold{D_{1}} \times_{\bold{D_{0}}} \bold{D_{1}} \to \bold{D_{1}}$ (where the pullback is taken over $\bold{D_{1}} \xrightarrow[]{T} \bold{D_{0}} \xleftarrow[]{S} \bold{D_{1}}$) \\
-\end{center}
- such that \\
-\begin{center}
-$S(U_{A})=A=T(U_{A})$\\
-$S(M \odot N)=SN$\\
-$T(M \odot N)=TM$\\
-\end{center}
-equipped with natural isomorphisms
-\begin{center}
-
-$\alpha \colon (M \odot N) \odot P \xrightarrow{\sim} M \odot (N \odot P)$\\
-$\lambda \colon U_{B} \odot M \xrightarrow{\sim} M$\\
-$\rho \colon M \odot U_{A} \xrightarrow{\sim} M$
-
-\end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\bold{D_{0}}$ are called $\textbf{0-cells}$ and morphisms of $\bold{D_{0}}$ are called $\textbf{vertical 1-morphisms}$. Objects of $\bold{D_{1}}$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\bold{D_{1}}$ are called $\textbf{2-morphisms}$. The morphisms of $\bold{D_{0}}$, which are vertical 1-morphisms, will be denoted $f \colon A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \colon A \to B$. Then a 2-morphism $a \colon M \to N$ of $\bold{D_{1}}$ with $S(a)=f,T(a)=g$ would look like:
-\[
-\begin{tikzpicture}[scale=1]
-\node (D) at (-4,0.5) {$A$};
-\node (E) at (-2,0.5) {$B$};
-\node (F) at (-4,-1) {$C$};
-\node (A) at (-2,-1) {$D$};
-\node (B) at (-3,-0.25) {$\Downarrow a$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above]{$M$}(E)
-(E) edge node [right]{$g$}(A)
-(D) edge node [left]{$f$}(F)
-(F) edge node [above]{$N$} (A);
-\end{tikzpicture}
-\]
-\end{defn}
-
-The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\bold{Cat}$, we can view a pseudo double category as a category `weakly' internal to $\bold{Cat}$. We will sometimes omit the word pseudo and simply say double category.
-
-\begin{defn}
-A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
-\end{defn}
-
-\begin{defn}
-Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
-\end{defn}
-
-\begin{defn}
-  A \textbf{monoidal double category} is a double category equipped the following
-structure.
-\begin{enumerate}
-\item $\bold{D_{0}}$ and $\bold{D_{1}}$ are both monoidal categories.
-\item If $I$ is the monoidal unit of $\bold{D_{0}}$, then $U_I$ is the
-  monoidal unit of $\bold{D_{1}}$.
-\item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
-  = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
-  preserve the associativity and unit constraints.
-\item We have globular isomorphisms
-  \[\chi \maps (M_1\ten N_1)\odot (M_2\ten N_2)\too[\sim] (M_1\odot M_2)\ten (N_1\odot N_2)\]
-  and
-  \[\mu\maps U_{A\ten B} \too[\sim] (U_A \ten U_B)\]
-  such that the following diagrams commute:
-		\item \label{diag:MonDblCat}
-			The following diagrams commute expressing the constraint data for the double functor $\otimes$.
-			\[
-			\begin{tikzpicture}
-				\node (A) at (0,3) {\footnotesize{
-							$((M_1\otimes N_1)\odot (M_2\otimes N_2)) \odot (M_3\otimes N_3)$}
-				};
-				\node (B) at (7,3) {\footnotesize{
-						$((M_1\odot M_2)\otimes (N_1\odot N_2)) \odot (M_3\otimes N_3) $}
-				};
-				\node (A') at (0,1.5) {\footnotesize{
-						$(M_1\otimes N_1)\odot ((M_2\otimes N_2) \odot (M_3\otimes N_3)) $}
-				};
-				\node (B') at (7,1.5) {\footnotesize{
-						$((M_1\odot M_2)\odot M_3) \otimes ((N_1\odot N_2)\odot N_3)$}
-				};
-				\node (A'') at (0,0) {\footnotesize{
-						$(M_1\otimes N_1) \odot ((M_2\odot M_3) \otimes (N_2\odot N_3))$}
-				};
-				\node (B'') at (7,0) {\footnotesize{
-						$(M_1\odot (M_2\odot M_3)) \otimes (N_1\odot (N_2\odot N_3))$}
-				};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\alpha$} (A')
-				(A') edge node[left]{$1 \odot \chi$} (A'')
-				(B) edge node[right]{$\chi$} (B')
-				(B') edge node[right]{$\alpha \otimes \alpha$} (B'')
-				(A) edge node[above]{$\chi \odot 1$} (B)
-				(A'') edge node[above]{$\chi$} (B'');
-		\end{tikzpicture}
-		\]
-		\[
-		\begin{tikzpicture}
-			\node (UL) at (0,1.5) {\footnotesize{
-					$(M\otimes N) \odot U_{C\otimes D}$}
-			};
-			\node (LL) at (0,0) {\footnotesize{
-					$M\otimes N$}
-			};
-			\node (UR) at (3.5,1.5) {\footnotesize{
-					$(M\otimes N)\odot (U_C\otimes U_D)$}
-			};
-			\node (LR) at (3.5,0) {\footnotesize{
-					$(M\odot U_C) \otimes (N\odot U_D)$}
-			};
-			%
-			\path[->,font=\scriptsize]
-				(UL) edge node[above]{$1 \odot \mu$} (UR) 
-				(UL) edge node[left]{$\rho$} (LL)
-				(LR) edge node[above]{$\rho \otimes \rho$} (LL)
-				(UR) edge node[right]{$\chi$} (LR);
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (UL) at (0,1.5) {\scriptsize{$U_{A\otimes B}\odot (M\otimes N)$}};
-			\node (LL) at (0,0) {\scriptsize{$M\otimes N$}};
-			\node (UR) at (3.5,1.5) {\scriptsize{$(U_A\otimes U_B)\odot (M\otimes N)$}};
-			\node (LR) at (3.5,0) {\scriptsize{$(U_A \odot M) \otimes (U_B\odot N)$}};
-			%
-			\path[->,font=\scriptsize]
-				(UL) edge node[above]{$\chi \odot 1$} (UR) 
-				(UL) edge node[left]{$\lambda$} (LL)
-				(LR) edge node[above]{$\lambda \otimes \lambda$} (LL)
-				(UR) edge node[right]{$\chi$} (LR);
-		\end{tikzpicture}
-		\]
-		%
-		\item The following diagrams commute expressing 
-		the associativity isomorphism for $\otimes$ is a transformation of double categories.
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,3) {\footnotesize{
-					$((M_1\otimes N_1)\otimes P_1) \odot ((M_2\otimes N_2)\otimes P_2)$}
-			};
-			\node (B) at (7,3) {\footnotesize{
-					$(M_1\otimes (N_1\otimes P_1)) \odot (M_2\otimes (N_2\otimes P_2))$}
-			};
-			\node (A') at (0,1.5) {\footnotesize{
-					$((M_1\otimes N_1) \odot (M_2\otimes N_2)) \otimes (P_1\odot P_2)$}
-			};
-			\node (B') at (7,1.5) {\footnotesize{
-					$(M_1\odot M_2) \otimes ((N_1\otimes P_1)\odot (N_2\otimes P_2))$}
-			};
-			\node (A'') at (0,0) {\footnotesize{
-					$((M_1\odot M_2) \otimes(N_1\odot N_2)) \otimes (P_1\odot P_2)$}
-			};
-			\node (B'') at (7,0) {\footnotesize{
-					$(M_1\odot M_2) \otimes ((N_1\odot N_2)\otimes (P_1\odot P_2))$}
-			};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\chi$} (A')
-				(A') edge node[left]{$\chi \otimes 1$} (A'')
-				(B) edge node[right]{$\chi$} (B')
-				(B') edge node[right]{$1 \otimes \chi$} (B'')
-				(A) edge node[above]{$\alpha \odot \alpha$} (B)
-				(A'') edge node[above]{$\alpha$} (B'');
-		\end{tikzpicture}
-		\]
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,3) {\footnotesize{$U_{(A\otimes B)\otimes C}$}};
-			\node (B) at (4,3) {\footnotesize{$U_{A\otimes (B\otimes C)} $}};
-			\node (A') at (0,1.5) {\footnotesize{$U_{A\otimes B} \otimes U_C $}};
-			\node (B') at (4,1.5) {\footnotesize{$U_A\otimes U_{B\otimes C}$}};
-			\node (A'') at (0,0) {\footnotesize{$(U_A\otimes U_B)\otimes U_C$}};
-			\node (B'') at (4,0) {\footnotesize{$U_A\otimes (U_B\otimes U_C) $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\mu$} (A')
-				(A') edge node[left]{$\mu \otimes 1$} (A'')
-				(B) edge node[right]{$\mu$} (B')
-				(B') edge node[right]{$1 \otimes \mu$} (B'')
-				(A) edge node[above]{$U_{\alpha}$} (B)
-				(A'') edge node[above]{$\alpha$} (B'');
-		\end{tikzpicture}
-		\]
-		\item The following diagrams commute expressing that 
-		the unit isomorphisms for $\otimes$ are transformations of double categories. 
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(M\otimes U_I)\odot (N\otimes U_I)$}};
-			\node (A') at (0,0) {\footnotesize{$M\odot N $}};
-			\node (B) at (4,1.5) {\footnotesize{$(M\odot N)\otimes (U_I \odot U_I) $}};
-			\node (B') at (4,0) {\footnotesize{$(M\odot N)\otimes U_I $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$r \odot r$} (A')
-				(A) edge node[above]{$\chi$} (B)
-				(B) edge node[right]{$1 \otimes \rho$} (B')
-				(B') edge node[above]{$r$} (A');
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (A) at (0,0.75) {\footnotesize{$U_{A\otimes I} $}};
-			\node (B) at (1.5,1.5) {\footnotesize{$U_A\otimes U_I $}};
-			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[above]{$\mu$} (B)
-				(A) edge node[below]{$U_{r}$} (B')
-				(B) edge node[right]{$r$} (B');
-		\end{tikzpicture}
-		\]
-		%
-		%
-		%
-		%
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(U_I\otimes M)\odot (U_I\otimes N)$}};
-			\node (A') at (0,0) {\footnotesize{$M\odot N$}};
-			\node (B) at (4,1.5) {\footnotesize{$(U_I \odot U_I) \otimes (M\odot N)$}};
-			\node (B') at (4,0) {\footnotesize{$U_I\otimes (M\odot N) $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\ell \odot \ell$} (A')
-				(A) edge node[above]{$\chi$} (B)
-				(B) edge node[right]{$\lambda \otimes 1$} (B')
-				(B') edge node[above]{$\ell$} (A');
-		\end{tikzpicture}
-		%
-		\quad
-		\begin{tikzpicture}
-			\node (A) at (0,0.75) {\footnotesize{$U_{I\otimes A}$}};
-			\node (B) at (1.5,1.5) {\footnotesize{$U_I\otimes U_A$}};
-			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[above]{$\mu$} (B)
-				(A) edge node[below]{$U_{\ell}$} (B')
-				(B) edge node[right]{$\ell$} (B');
-		\end{tikzpicture}
-		\]
-		\newcounter{mondbl}
-		\setcounter{mondbl}{\value{enumi}}
-	\end{enumerate}
-	A \textbf{braided monoidal double category} 
-	is a monoidal double category 
-	such that:
-	\begin{enumerate}
-		\setcounter{enumi}{\value{mondbl}}
-		\item $\dblcat{D}_{0}$ and $\dblcat{D}_{1}$ are braided monoidal categories.
-		\item The functors $S$ and $T$ are strict braided monoidal functors.
-		\item The following diagrams commute expressing that the braiding is a transformation of double categories.
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
-			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
-			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
-			\node (B') at (5,0) {\footnotesize{$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\chi$} (A')
-				(A) edge node[above]{$\beta$} (B)
-				(B) edge node[right]{$\chi$} (B')
-				(A') edge node[above]{$\beta \odot \beta$} (B');
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$U_A \otimes U_B$}};
-			\node (A') at (0,0) {\footnotesize{$U_B\otimes U_A$}};
-			\node (B) at (2,1.5) {\footnotesize{$U_{A\otimes B} $}};
-			\node (B') at (2,0) {\footnotesize{$U_{B\otimes A}$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\beta$} (A')
-				(B) edge node[above]{$\mu$} (A)
-				(B) edge node[right]{$U_\beta$} (B')
-				(B') edge node[above]{$\mu$} (A');
-		\end{tikzpicture}
-		\]
-		\setcounter{mondbl}{\value{enumi}}
-	\end{enumerate}
-	Finally, a \textbf{symmetric monoidal double category} 
-	is a braided monoidal double category $\mathbb{D}$ such that:
-	\begin{enumerate}
-		\setcounter{enumi}{\value{mondbl}}
-		\item $\dblcat{D}_{0}$ and $\dblcat{D}_{1}$ are symmetric monoidal.
-	\end{enumerate}
-\end{defn}
-
-
-\begin{defn}\label{def:companion}
-  Let \lD\ be a double category and $f\maps A\to B$ a vertical
-  1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
-  $\fhat\maps A\to B$ together with 2-morphisms
-	\[
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,1) {$A$};
-		\node (B) at (1,1) {$B$};
-		\node (A') at (0,0) {$B$};
-		\node (B') at (1,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-			(A) edge node[above]{$\widehat{f}$} (B)
-			(A) edge node[left]{$f$} (A')
-			(B) edge node[right]{$1$} (B')
-			(A') edge node[below]{$U_B$} (B');
-		%
-	%	\draw (0.5,.925) -- (0.5,1.075);
-	%	\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
-	\end{tikzpicture}
-	}
-	%
-	\quad \text{ and } \quad
-	%
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,1) {$A$};
-		\node (B) at (1,1) {$A$};
-		\node (A') at (0,0) {$A$};
-		\node (B') at (1,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-			(A) edge node[above]{$U_A$} (B)
-			(A) edge node[left]{$1$} (A')
-			(B) edge node[right]{$f$} (B')
-			(A') edge node[below]{ $\widehat{f}$} (B');
-		%
-	%	\draw (0.5,.925) -- (0.5,1.075);
-	%	\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
-	\end{tikzpicture}
-	}
-	\]
-  such that the following equations hold.
-	\begin{equation}
-	\label{eq:CompanionEq}
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,2) {$A$};
-		\node (B) at (1.1,2) {$A$};
-		\node (A') at (0,1) {$A$};
-		\node (B') at (1.1,1) {$B$};
-		\node (A'') at (0,0) {$B$};
-		\node (B'') at (1.1,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-			(A) edge node[left]{$1$} (A')
-			(A') edge node[left]{$f$} (A'')
-			(B) edge node[right]{$f$} (B')
-			(B') edge node[right]{$1$} (B'')
-			(A) edge node[above]{$U_A$} (B)
-			(A') edge  (B')
-			(A'') edge node[below]{$U_B$} (B'');
-		%
-	%	\draw (0.5,1.925) -- (0.5,2.075);
-		\draw[line width=2mm,white] (0.5,.925) -- (0.5,1.075);
-	%	\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
-		\node () at (0.5,1.5) {\scriptsize{$\Downarrow$}};
-		\node () at (0.5,1) {\scriptsize $\widehat{f}$};
-	\end{tikzpicture}
-	}
-	%
-	\raisebox{-0.5\height}{=}
-	%
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,1) {$A$};
-		\node (B) at (1,1) {$A$};
-		\node (A') at (0,0) {$B$};
-		\node (B') at (1,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-		(A) edge node[left]{$f$} (A')
-		(B) edge node[right]{$f$} (B')
-		(A) edge node[above]{$U_A$} (B)
-		(A') edge node[below]{$U_B$} (B');
-		%
-		%\draw (0.5,.925) -- (0.5,1.075);
-		%\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow U_f$}};
-	\end{tikzpicture}
-	}
-	%
-	\raisebox{-0.5\height}{\text{   and   }}
-	%
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,1) {$A$};
-		\node (A') at (0,0) {$A$};
-		\node (B) at (1,1) {$A$};
-		\node (B') at (1,0) {$B$};
-		\node (C) at (2,1) {$B$};
-		\node (C') at (2,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-			(A) edge node[left]{$1$} (A')
-			(B) edge node[left]{$f$} (B')
-			(C) edge node[right]{$1$} (C')
-			(A) edge node[above]{$U_A$} (B)
-			(B) edge node[above]{$\widehat{f}$} (C)
-			(A') edge node[below]{$\widehat{f}$} (B')
-			(B') edge node[below]{$U_B$} (C');
-		%
-	%	\draw (1.5,0.925) -- (1.5,1.075);
-	%	\draw (1.5,0.925) -- (1.5,1.075);
-	%	\draw (0.5,.925) -- (0.5,1.075);
-	%	\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
-		\node () at (1.5,0.5) {\scriptsize{$\Downarrow$}};
-	\end{tikzpicture}
-	}
-	%
-	\raisebox{-0.5\height}{=}
-	%
-	\raisebox{-0.5\height}{
-	\begin{tikzpicture}
-		\node (A) at (0,1) {$A$};
-		\node (B) at (1,1) {$B$};
-		\node (A') at (0,0) {$A$};
-		\node (B') at (1,0) {$B$};
-		%
-		\path[->,font=\scriptsize,>=angle 90]
-			(A) edge node[left]{$1$} (A')
-			(B) edge node[right]{$1$} (B')
-			(A) edge node[above]{$\widehat{f}$} (B)
-			(A') edge node[below]{$\widehat{f}$} (B');
-		%
-	%	\draw (0.5,.925) -- (0.5,1.075);
-	%	\draw (0.5,-.075) -- (0.5,.075);
-		\node () at (0.5,0.5) {\scriptsize{$\Downarrow \id_{\widehat{f}}$}};
-	\end{tikzpicture}
-	}
-	\end{equation}
-  A \textbf{conjoint} of $f$, denoted $\fchk \maps B\to A$, is a
-  companion of $f$ in the double category $\lD^{h\cdot\mathrm{op}}$
-  obtained by reversing the horizontal 1-cells, but not the vertical
-  1-morphisms, of \lD.
-\end{defn}
-\noindent
-In a pseudo double category, the second equation above requires an insertion of unit isomorphisms to make sense due to horizontal composition only holding up to isomorphism.
-\begin{defn}
-  We say that a double category is \textbf{fibrant} if every vertical
-  1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
-\end{defn}
-
-%\section{Outline for paper}
-%\begin{enumerate}
-%\item{Need to build a symmetric monoidal decorated cospan category $F$Cospan$(\mathrm{A})$ from a lax symmetric monoidal pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$.}
-%\item{Need to view $F$Cospan$(\mathrm{A})$ as a one object bicategory and then a one object pseudo double category.}
-%\item{Deloop the symmetric monoidal $(\bold{Cat,\times})$ into a one object bicategory and then view this as a one object pseudo double category in which there is only an identity for vertical 1-morphisms and the objects of $\bold{Cat}$ appear as horizontal 1-cells, and morphisms of $\bold{Cat}$ as 2-morphisms. Denote this pseudo double category as $\mathbb{C}\bold{at}$.}
-%\item{Define a symmetric monoidal lax double functor $\mathbb{F} \colon$ $F$Cospan$(\mathrm{A}) \to \mathbb{C} \bold{at}$.}
-%\item{Define a symmetric monoidal oplax double functor $\mathbb{I} \colon 1 \to \mathbb{C} \bold{at}$ where $1$ is the one object double category.}
-%\item{Obtain a symmetric monoidal double category of decorated cospans $\mathbb{F}$Cospan$(\mathrm{A})$ as a comma object from the cospan $1 \xrightarrow{ \mathbb{I} } \mathbb{C}\bold{at} \xleftarrow{ \mathbb{F} } F\textrm{Cospan}(\mathrm{A})$ in the 2-category $\mathbb{DBL}$ of monoidal double categories and lax functors. (Note that the functor $\mathbb{I} \colon 1 \to \mathbb{C}\bold{at}$ is actually pseudo, and hence both lax and oplax.)} 
-%\item{Figure out what a (double?) equivalence of symmetric monoidal double categories is.}
-%\item{Show that $_F \textrm{Csp}(\mathrm{A})$ is equivalent to $\mathbb{F}\textrm{Cospan}(\mathrm{A})$ as symmetric monoidal double categories, where $_F \textrm{Csp}(\mathrm{A})$ is the structured cospan double category that comes from the double category Csp$(\mathrm{A})$ and the functor $F \colon \mathrm{A} \to \bold{Cat}$.}
-%\end{enumerate}
+The outline for the paper is as follows: In the second section, we construct the symmetric monoidal double category $F\textnormal{Cospan}(\textrm{A})$ mentioned above as well as a result of Shulman that allows us to obtain a symmetric monoidal bicategory whose decategorification is an improved version of Fong's symmetric monoidal category. In the third section we define maps between decorated cospan double categories which are double functors of an appropriate type. In the fourth section we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction. In the fifth section we briefly review another compositional framework which uses cospans equipped with extra structure due to the first two authors, namely `structured cospans' and prove that the double categorical versions of decorated cospans and structured cospans are equivalent, and in the final section, we present a few examples that can be realized with either framework and discuss the realized equivalences.
 
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoublecat}
-In this section we build the symmetric monoidal double category mentioned in the introduction. A double category $\mathbb{D}=(\mathbb{D}_0,\mathbb{D}_1)$ consists of a category of objects $\mathbb{D}_0$ and a category of arrows $\mathbb{D}_1$. We obtain $\mathbb{D}$ as a comma object in the 2-category $\bold{Dbl}$ of monoidal double categories, monoidal double functors and monoidal double transformations by obtaining each of $\mathbb{D}_0$ and $\mathbb{D}_1$ as comma categories in $\bold{Cat}$.
-
-If $\mathrm{A}$ is a category with finite colimits, there is a well-known symmetric monoidal pseudo double category $\mathbb{C} \textnormal{ospan}(\mathrm{A})$ which has:
-\begin{enumerate}
-\item{objects as those of $\mathrm{A}$,}
-\item{vertical 1-morphisms as morphisms of $\mathrm{A}$,}
-\item{horizontal 1-cells as cospans in $\mathrm{A}$, and}
-\item{2-morphisms as maps of cospans in $\mathrm{A}.$
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,0) {$d$};
-\node (C) at (2,0) {$c_2$};
-\node (A') at (0,-1) {$c_1^\prime$};
-\node (B') at (1,-1) {$d^\prime$};
-\node (C') at (2,-1) {$c_2^\prime$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A') edge node[above]{$$} (B')
-(C') edge node[above]{$$} (B')
-(A) edge node [above]{$$} (A')
-(B) edge node [above]{$$} (B')
-(C) edge node [above]{$$} (C');
-\end{tikzpicture}
-\]}
-\end{enumerate}
-
-The symmetric monoidal category $(\bold{Cat},\times,1)$ consisting of categories and functors can naturally be viewed as a one object bicategory using a standard level shift. This one object bicategory, which we denote as $\textnormal{BD}(\bold{Cat})$, will have:
-\begin{enumerate}
-\item{one object $\{ \star \}$,}
-\item{objects of $\bold{Cat}$ as morphisms, and}
-\item{morphisms of $\bold{Cat}$ as 2-morphisms.}
-\end{enumerate}
-We can then view this one object bicategory as a one object pseudo double category $\mathbb{B}\textnormal{D}(\bold{Cat})$, which will have:
-\begin{enumerate}
-\item{one object $\{ \star \}$,}
-\item{only an identity for vertical 1-morphisms,}
-\item{morphisms of $\textnormal{BD}(\bold{Cat})$, which are objects of $\bold{Cat}$, as horizontal 1-cells, and}
-\item{2-morphisms of $\textnormal{BD}(\bold{Cat})$, which are morphisms of $\bold{Cat}$, as 2-morphisms.}
-\end{enumerate}
-This one object pseudo double category $\mathbb{B}\textnormal{D}(\bold{Cat})$ will serve as the apex of a cospan: 
-
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1$};
-\node (B) at (1,1) {$\mathbb{B}\textnormal{D}(\bold{Cat})$};
-\node (C) at (2,0) {$\mathbb{C}\textnormal{ospan}(\mathrm{A})$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{G}$} (B)
-(C) edge node[above]{$\mathbb{F}$} (B);
-\end{tikzpicture}
-\]
-which we will use to construct a comma object in $\bold{Dbl}$, the 2-category of double categories, double functors and double transformations. In order for the double comma object to exist in $\bold{Dbl}$, namely a pseudo comma double category, it is necessary that $\mathbb{F}$ and $\mathbb{G}$ be lax and oplax double functors, respectively. This was made known to the first author by Shulman. This result is true in general, but we will only prove it for this particular case that we are interested in.
-
-The oplax double functor $\mathbb{G} \colon 1 \to \mathbb{B}\textnormal{D}(\bold{Cat})$ is trivially defined modulo $\mathbb{G}$ mapping the identity horizontal 1-cell to the monoidal unit of $\mathbb{B}\textnormal{D}(\bold{Cat})$ which is given by the terminal category $1$. The category $\mathrm{A}$ has finite colimits and can be viewed as a 2-category with only trivial 2-morphisms. Then from a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$, we can obtain symmetric lax monoidal lax double functor $\mathbb{F} \colon \mathbb{C}\textnormal{ospan}(\mathrm{A}) \to \mathbb{B}\textnormal{D}(\bold{Cat})$ which is defined as the pseudofunctor $F$ on horizontal 1-cells and 2-morphisms; note that $\mathbb{B}\textnormal{D}(\bold{Cat})$ has a single object and an identity vertical 1-morphism. Thus $\mathbb{F}$ will map a cospan in $\mathrm{A}$: $$a \rightarrow c \leftarrow b$$ to $F(c) \in \bold{Cat}$ and 
-\begin{thm}
-Let $F \colon \mathrm{A} \to \bold{Cat}$ be a symmetric lax monoidal pseudofunctor. Then there exists a symmetric (lax) monoidal lax double functor $\mathbb{F} \colon \mathbb{C}\textnormal{ospan}(\mathrm{A}) \to \mathbb{B}\textnormal{D}(\bold{Cat})$ which is defined:
-\begin{enumerate}
-\item{trivially on objects as $\mathbb{B}\textnormal{D}(\bold{Cat})$ only has a single object,}
-\item{trivially on vertical 1-morphisms as $\mathbb{B}\textnormal{D}(\bold{Cat})$ only has a single identity vertical 1-morphism,}
-\item{as the pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$ on horizontal 1-cells, meaning that $$(c_1 \xrightarrow{i} c \xleftarrow{o} c_2) \mapsto F(c)$$ and}
-\item{as the pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$ on 2-morphisms, meaning that 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$c_2$};
-\node (A') at (0,-1) {$c_1^\prime$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C') at (2,-1) {$c_2^\prime$};
-\node (D) at (3,-0.5) {$\mapsto$};
-\node (E) at (4,0) {$F(c)$};
-\node (E') at (4,-1) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A') edge node[above]{$$} (B')
-(C') edge node[above]{$$} (B')
-(A) edge node [above]{$$} (A')
-(B) edge node [left]{$f$} (B')
-(C) edge node [above]{$$} (C')
-(E) edge node [right] {$F(f)$} (E');
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
-\end{thm}
-\begin{proof}
-The functor $\mathbb{F} \colon \mathbb{C}\textnormal{ospan}(\mathrm{A}) \to \mathbb{B} \textnormal{D}(\bold{Cat})$ is defined trivially on objects and vertical 1-morphisms as the object category of $\mathbb{B}\textnormal{D}(\bold{Cat})$ is trivial. Given two composable horizontal 1-cells $M$ and $N$ in $\mathbb{C}\textnormal{ospan}(\mathrm{A})$ given respectively by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,1) {$c$};
-\node (C) at (2,0) {$c_2$};
-\node (D) at (3,0) {$c_2$};
-\node (E) at (4,1) {$c^\prime$};
-\node (F) at (5,0) {$c_3$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(D) edge node[above]{$i^\prime$} (E)
-(F) edge node[above]{$o^\prime$} (E);
-\end{tikzpicture}
-\]
-we have that $\mathbb{F}(M)=F(c)$ and $\mathbb{F}(N)=F(c^\prime)$. The composite $M \odot N$ is given by the pushout:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,1) {$c+_{c_2} c^\prime$};
-\node (C) at (2,0) {$c_3$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$j \psi_c i$} (B)
-(C) edge node[right]{$j \psi_{c^\prime} o$} (B);
-\end{tikzpicture}
-\]
-and so $\mathbb{F}(M \odot N)=F(c+_{c_2} c^\prime)$. The comparison constraint globular 2-morphism $\mathbb{F}_{M,N} \colon \mathbb{F}(M) \odot \mathbb{F}(N) \to \mathbb{F}(M \odot N)$ is then given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\star$};
-\node (B) at (1.5,0) {$\star$};
-\node (A') at (0,-1.5) {$\star$};
-\node (B') at (1.5,-1.5) {$\star$};
-\node (C) at (.75,-.75) {$\Downarrow F(j) \phi_{c,c^\prime}$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(c) \times F(c^\prime)$} (B)
-(A') edge node[above]{$F(c+_{c_2} c^\prime)$} (B')
-(A) edge node [left]{$\id$} (A')
-(B) edge node [right]{$\id$} (B');
-\end{tikzpicture}
-\]
-where $\phi_{c,c^\prime} \colon F(c) \times F(c^\prime) \to F(c+c^\prime)$ is one of the natural transformations of the symmetric lax monoidal pseudo functor $F$ and $j \colon c+c^\prime \to c+_{c_2}c^\prime$ is the natural map from the coproduct to the pushout. 
-
-Given an object $c$ in $\mathbb{C}\textnormal{ospan}(\mathrm{A})$, $\mathbb{F}(c)$ is the single object $\star$ of $\mathbb{B}\textnormal{D}(\bold{Cat})$, and so $1_{\mathbb{F}(c)}$ is the identity horizontal 1-cell on $\star$. Similarly, $1_c$ is the identity cospan on $c$ and then $\mathbb{F}(1_c)=F(c)$. The identity comparison is then the globular 2-morphism $\mathbb{F}_c \colon 1_{\mathbb{F}(c)} \to \mathbb{F}(1_c)$ given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\star$};
-\node (B) at (1.5,0) {$\star$};
-\node (A') at (0,-1.5) {$\star$};
-\node (B') at (1.5,-1.5) {$\star$};
-\node (C) at (.75,-.75) {$\Downarrow$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(A') edge node[above]{$F(c)$} (B')
-(A) edge node [left]{$\id$} (A')
-(B) edge node [right]{$\id$} (B');
-\end{tikzpicture}
-\]
-\textbf{Finish this...}
-\end{proof}
-\begin{prop}
-Let $1$ denote the trivial double category with a single object and only identities. Then there exists a symmetric lax monoidal oplax double functor $\mathbb{G} \colon \mathbf{1} \to \mathbb{B}\textnormal{D}(\bold{Cat})$ which is defined:
-\begin{enumerate}
-\item{trivially on objects, as both $1$ and $\mathbb{B} \textnormal{D}(\bold{Cat})$ have a single object,}
-\item{trivially on vertical 1-morphisms, as both $1$ and $\mathbb{B} \textnormal{D}(\bold{Cat})$ only have a single identity vertical 1-morphism,}
-\item{the identity horizontal 1-cell of $1$ maps to the monoidal unit of $(\mathbb{B}\textnormal{D}(\bold{Cat}),\times, 1)$, which is the terminal category $1$ with a single object and identity morphism, and}
-\item{the identity 2-morphism maps to the identity functor $! \colon 1 \to 1$ on the terminal category.}
-\end{enumerate}
-\end{prop}
-We recall the definition of \emph{comma category} which will be crucial for the next step.
-\begin{defn}
-Let $f \colon \textbf{C} \to \textbf{E}$ and $g \colon \textbf{D} \to \textbf{E}$ be functors with a common codomain. Then the $\textbf{comma category}$ determined by $f$ and $g$ is the category $(f/g)$ whose:
-\begin{enumerate}
-\item{objects are triples $(c,d,\alpha)$ where $c \in \textbf{C}, d \in \textbf{D}$ and $\alpha \colon f(c) \to g(d)$ is a morphism in $\textbf{E}$, and whose}
-\item{morphisms from $(c_{1},d_{1},\alpha_{1})$ to $(c_{2},d_{2},\alpha_{2})$ are pairs $(\beta, \gamma)$ where $\beta \colon c_{1} \to c_{2}$ and $\gamma \colon d_{1} \to d_{2}$ are morphisms in $\textbf{C}$ and $\textbf{D}$, respectively, such that the following diagram commutes}
-\end{enumerate}
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$f(c_{1})$};
-\node (B) at (2,1) {$f(c_{2})$};
-\node (A') at (1,0) {$g(d_{1})$};
-\node (B') at (2,0) {$g(d_{2})$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$f(\beta)$} (B)
-(A') edge node[above]{$g(\gamma)$} (B')
-(A) edge node[left]{$\alpha_{1}$} (A')
-(B) edge node[right]{$\alpha_{2}$} (B');
-\end{tikzpicture}
-\]
-\end{defn}
-\begin{defn}
-Let $f \colon \textbf{C} \to \textbf{E}$ and $g \colon \textbf{D} \to \textbf{E}$ be pseudofunctors between bicategories with a common codomain. Then the $\textbf{(weak) comma category}$ determined by $f$ and $g$ is the category $(f/g)$ whose:
-\begin{enumerate}
-\item{objects are triples $(c,d,\alpha)$ where $c \in \textbf{C}, d \in \textbf{D}$ and $\alpha \colon f(c) \to g(d)$ is a morphism in $\textbf{E}$, and whose}
-\item{morphisms from $(c_{1},d_{1},\alpha_{1})$ to $(c_{2},d_{2},\alpha_{2})$ are triples $(\beta, \gamma, \iota)$ where $\beta \colon c_{1} \to c_{2}$ and $\gamma \colon d_{1} \to d_{2}$ are morphisms in $\textbf{C}$ and $\textbf{D}$, respectively and $\iota$ is a 2-morphism in $\bold{E}$, such that the following diagram commutes up to the 2-morphism $\iota$:}
-\end{enumerate}
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$f(c_{1})$};
-\node (B) at (2,1) {$f(c_{2})$};
-\node (A') at (1,0) {$g(d_{1})$};
-\node (B') at (2,0) {$g(d_{2})$};
-\node (C) at (1.5,0.5) {$\iota \Swarrow$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$f(\beta)$} (B)
-(A') edge node[above]{$g(\gamma)$} (B')
-(A) edge node[left]{$\alpha_{1}$} (A')
-(B) edge node[right]{$\alpha_{2}$} (B');
-\end{tikzpicture}
-\]
-\end{defn}
-Using this definition we want to construct a `pseudo comma double category' from the lax double functor $\mathbb{F} \colon \mathbb{C}\textnormal{ospan}(\mathrm{A}) \to \mathbb{B} \textnormal{D}(\bold{Cat})$ and the oplax double functor $\mathbb{G} \colon 1 \to \mathbb{B}\textnormal{D}(\bold{Cat})$. First, we define how this pseudo comma double category $(\mathbb{G} / \mathbb{F}) \coloneqq \mathbb{F}\textnormal{Cospan}(\mathrm{A})$ is obtained.
-\textbf{Should this be a proposition or a definition? Ask Dr. Baez and Christina for their opinions.}
-\begin{defn}
-Let $\mathbb{G} \colon \lC \to \lE$ be an oplax double functor and $\mathbb{F} \colon \lD \to \lE$ be a lax double functor where $\lC = (\mathrm{A}_{0},\mathrm{A}_{1}), \lD = (\bold{D}_{0}, \bold{D}_{1})$ and $\lE = (\bold{E}_{0}, \bold{E}_{1})$ are pseudo  double categories with $\mathrm{A}_{0}, \mathrm{A}_{1}$ the category of objects and category of arrows of the double category $\lC$, respectively, and likewise for $\bold{D}_{0}, \bold{D}_{1}, \bold{E}_{0}$ and $\bold{E}_{1}$. Then the \define{pseudo comma double category} determined by the double functors $\mathbb{G}$ and $\mathbb{F}$ is the pseudo double category $(\mathbb{G} / \mathbb{F})$ consisting of a category of objects $(\mathbb{G} / \mathbb{F})_{0}$ and category of arrows $(\mathbb{G} / \mathbb{F})_{1}$ where the category of objects $(\mathbb{G} / \mathbb{F})_0$ is the comma category obtained from the functors $\mathbb{G}_0 \colon \mathrm{A}_{0} \to \bold{E}_{0}$ and $\mathbb{F}_0 \colon \bold{D}_{0} \to \bold{E}_{0}$ and $(\mathbb{G} / \mathbb{F})_1$ is the comma category obtained from the functors $\mathbb{G}_{1} \colon \mathrm{A}_{1} \to \bold{E}_{1}$ and $\mathbb{F}_1 \colon \bold{D}_{1} \to \bold{E}_{1}$.
-\end{defn}
-\begin{thm}
-Let $\mathbb{G} \colon 1 \to \mathbb{B}\textnormal{D}(\bold{Cat})$ be the oplax double functor previously defined and let $\mathbb{F} \colon \mathbb{F}\textnormal{Cospan}(\mathrm{A}) \to \mathbb{B}(\bold{Cat})$ be the lax double functor previously defined. 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1$};
-\node (B) at (1,1) {$\mathbb{B}\textnormal{D}(\bold{Cat})$};
-\node (C) at (2,0) {$\mathbb{C}\textnormal{ospan}(\mathrm{A})$};
-\node (D) at (1,-1) {$(\mathbb{G} / \mathbb{F})$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{G}$} (B)
-(C) edge node[above]{$\mathbb{F}$} (B)
-(D) edge node [below] {$p$} (A)
-(D) edge node [below] {$q$} (C);
-\end{tikzpicture}
-\]
-Then there exists a category $(\mathbb{G} / \mathbb{F})_0 \coloneqq (\mathbb{G}_0 / \mathbb{F}_0)$ obtained as a comma category from the functors $\mathbb{F}_0 \colon \mathbb{C}\textnormal{ospan}(\mathrm{A})_0 \to \mathbb{B}\textnormal{D}(\bold{Cat})_0$ and $\mathbb{G}_0 \colon 1 \to \mathbb{B}\textnormal{D}(\bold{Cat})_0$ which has:
-\begin{enumerate}
-\item{objects as those of $\mathrm{A}$ and}
-\item{morphisms as those of $\mathrm{A}$,}
-\end{enumerate}
-and there exists a category $(\mathbb{G} / \mathbb{F})_1 \coloneqq (\mathbb{G}_1 / \mathbb{F}_1)$ obtained as a comma category from the functors $\mathbb{F}_1 \colon \mathbb{C}\textnormal{ospan}(\mathrm{A})_1 \to \mathbb{B}\textnormal{D}(\bold{Cat})_1$ and $\mathbb{G}_1 \colon 1 \to \mathbb{B}\textnormal{D}(\bold{Cat})_1$ which has:
-\begin{enumerate}
-\item{objects as $F$-decorated cospans of $\mathrm{A}$, which are pairs:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0.5) {$d \in F(c)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{morphisms as maps of cospans of $\mathrm{A}$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\node (E) at (3,0.5) {$d \in F(c)$};
-\node (F) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[left]{$g$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
-(B) edge node [left] {$h$} (D);
-\end{tikzpicture}
-\]
-together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.
- }
-\end{enumerate}
-\end{thm}
-\begin{proof}
-The category $(\mathbb{G} / \mathbb{F})_0$ will be the comma category obtained from the following cospan:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1$};
-\node (B) at (1,1) {$\mathbb{B}\textnormal{D}(\bold{Cat})_0$};
-\node (C) at (2,0) {$\mathbb{C}\textnormal{ospan}(\mathrm{A})_0=\mathrm{A}$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{G}_0$} (B)
-(C) edge node[above]{$\mathbb{F}_0$} (B);
-\end{tikzpicture}
-\]
-Thus $(\mathbb{G} / \mathbb{F})_0$ will be the comma category which has objects given by triples $(\star,c,\alpha \colon \mathbb{G}(\star) \to \mathbb{F}(c))$ where $\star$ is the single object of $1$, $c$ is a object of $\mathrm{A}$ and $\alpha \colon \mathbb{G}(\star) \to \mathbb{F}(c)$ is a morphism in $\mathbb{B}\textnormal{D}(\bold{Cat})_0$. The pseudo double category $\mathbb{B}\textnormal{D}(\bold{Cat})$ only has a single object $\star$ and identity vertical 1-morphism, so the triple $(\star,c,\alpha \colon \mathbb{G}(\star) \to \mathbb{F}(c))$ amounts to an object of $\mathrm{A}$ together with trivial structure. Given another object $(\star, c^\prime, \alpha^\prime \colon \mathbb{G}(\star) \to \mathbb{F}(c^\prime))$, a morphism from the first triple to the second triple is a pair $(\beta, \gamma)$ where $\beta = \id_{\star}$ is a morphism in $1$ and $\gamma \colon c \to c^\prime$ is a morphism in $\mathrm{A}$ such that the following diagram commutes:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\mathbb{G}(\star)$};
-\node (B) at (2,1) {$\mathbb{G}(\star)$};
-\node (A') at (1,0) {$\mathbb{F}(c)$};
-\node (B') at (2,0) {$\mathbb{F}(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{G}(\id_{\star})$} (B)
-(A') edge node[above]{$\mathbb{F}(\gamma)$} (B')
-(A) edge node[left]{$\alpha$} (A')
-(B) edge node[right]{$\alpha^\prime$} (B');
-\end{tikzpicture}
-\]
-The double category $\mathbb{B}\textnormal{D}(\bold{Cat})$ only has a single object and identity vertical 1-morphism, so this diagram is trivial,  as all four objects are the same and all four morphisms are identities. Thus, morphisms are given by morphisms of $\mathrm{A}$ with added trivial structure, and so the category $(\mathbb{G}/ \mathbb{F})_0$ has objects and morphisms of $\mathrm{A}$, and we have an isomorphism of categories $(\mathbb{G} / \mathbb{F})_0 \cong \mathrm{A}$.
-
-Next we build the category $(\mathbb{G} / \mathbb{F})_1$ which will be the comma category obtained from the following cospan:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1$};
-\node (B) at (1,1) {$\mathbb{B}\textnormal{D}(\bold{Cat})_1$};
-\node (C) at (2,0) {$\mathbb{C}\textnormal{ospan}(\mathrm{A})_1$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{G}_1$} (B)
-(C) edge node[above]{$\mathbb{F}_1$} (B);
-\end{tikzpicture}
-\]
-Objects are given by triples $$(1_{\star}, a \rightarrow c \leftarrow b, d \colon \mathbb{G}(1_{\star}) \to \mathbb{F}(a \rightarrow c \leftarrow b))$$ where $1_{\star}$ is the identity horizontal 1-cell on $\star$ and $a \rightarrow c \leftarrow b$ is a cospan in $\mathrm{A}$. The double functor $\mathbb{G}$ maps the identity horizontal 1-cell to the monoidal unit of $\bold{Cat}$ under $\times$, namely the terminal category $1$, and the double functor $\mathbb{F}$ acts as the functor $F$ on horizontal 1-cells, meaning that $\mathbb{F}(a \rightarrow c \leftarrow b)=F(c)$. Thus the above triple is a cospan in $\mathrm{A}$ together with an element $d \colon 1 \to F(c)$, and this is precisely an $F$-decorated cospan, namely a pair $$((a \rightarrow c \leftarrow b),d \in F(c)).$$ 
-
-Given two objects $((a \rightarrow c \leftarrow b),d \in F(c))$ and $(a^\prime \rightarrow c^\prime \leftarrow b^\prime),d^\prime \in F(c^\prime))$, a morphism from the first to the second is a triple $(\delta,h,\iota)$ that makes the following diagram commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\mathbb{G}(1_\star)$};
-\node (B) at (0,-1) {$\mathbb{G}(1_\star)$};
-\node (C) at (2,0) {$\mathbb{F}(a \rightarrow c \leftarrow b)$};
-\node (D) at (2,-1) {$\mathbb{F}(a^\prime \rightarrow c^\prime \leftarrow b^\prime)$};
-\node (E) at (1,-0.5) {$\iota \Swarrow$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$\mathbb{G}(\delta)$} (B)
-(A) edge node[above]{$d$} (C)
-(C) edge node[right]{$\mathbb{F}(h)$} (D)
-(B) edge node [above] {$d^\prime$} (D);
-\end{tikzpicture}
-\]
-Simplifying things a bit, $\mathbb{G}(\delta)$ must be the identity 2-morphism of $1$ and $h$ is a morphism of $\mathbb{C}\textnormal{ospan}(\mathrm{A})$, namely a triple of morphisms $(h_1,h,h_2)$ in $\mathrm{A}$ that makes the following diagram commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A) edge node[left]{$h_1$} (A')
-(C) edge node[left]{$h_2$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
-(B) edge node [left] {$h$} (D);
-\end{tikzpicture}
-\]
-Thus the above diagram containing the 2-morphism $\iota$ becomes:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (4,0) {$\iota \Swarrow$};
-\node (D) at (3,0) {$1$};
-\node (E) at (4.5,0.5) {$F(c)$};
-\node (E') at (4.5,-0.5) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$d$} (E)
-(D) edge node [below] {$d^\prime$} (E')
-(E) edge node [right] {$F(h)$} (E');
-\end{tikzpicture}
-\]
-which is just a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$. Thus a morphism of $(\mathbb{G} / \mathbb{F})_1$ is a map of cospans in $\mathrm{A}$ together with a natural transformation that that makes the above triangle commute.
-\newline
-\textbf{Likely delete everything in this section before this line.}
+In this section we build the symmetric monoidal double category mentioned in the introduction. 
+\textbf{Add more here.}
 \begin{thm}
 Let $\mathrm{A}$ be a category with finite colimits and $F \colon \mathrm{A} \to \bold{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $\mathbb{F} \textnormal{Cospan}(\mathrm{A}) \coloneqq (\mathbb{G}/ \mathbb{F})$ which has:
 \begin{enumerate}
@@ -1284,6 +443,7 @@ and}
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 \end{enumerate}
 \end{thm}
+\begin{proof}
 The unit structure functor $U \colon (\mathbb{G},\mathbb{F})_0 \to (\mathbb{G},\mathbb{F})_1$ is defined on objects as: 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -4940,7 +4100,7 @@ Then we can find a 2-isomorphism $\epsilon_N \colon \mathbb{E} \mathbb{G} (N) \x
 \end{tikzpicture}
 \]
 $$\iota \colon F(e)(x) \to x$$
-\section{An example}
+\section{Applications}
 As an example, let $L \colon \mathrm{FinSet} \to \mathrm{Graph}$ be the functor which is left adjoint to the forgetful functor $R \colon \mathrm{Graph} \to \mathrm{FinSet}$; the functor $L$ maps a finite set $N$ to the discrete graph with $N$ as its set of vertices and no edges. Since $\mathrm{Graph}$ is a topos and thus has finite colimits, we can then obtain a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ which has:
 \begin{enumerate}
 \item{finite sets as objects,}
@@ -5020,246 +4180,480 @@ and}
 \]
 together with a graph morphism $\iota \colon F(h)(M) \to M^\prime$ in $F(N^\prime)$.}
 \end{enumerate}
-We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ using Theorem \ref{main1}. These two double categories are in fact equivalent as symmetric monoidal double categories which we now show.
+We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ using Theorem \ref{main1}.
 
-\textbf{Probably delete stuff after this line.}
+\textbf{Also talk about electrical circuit, Markov process and Petri net examples.}
 
-Define a double functor $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathrm{Graph}) \to \mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ as follows: $\mathbb{E}_0=\id_{\mathrm{FinSet}}$ as both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ have $\mathrm{FinSet}$ as their category of objects. The identity functor on $\mathrm{FinSet}$ is trivially an equivalence. For the arrow component $\mathbb{E}_1$, given a horizontal 1-cell of $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$, which is a cospan in $\mathrm{Graph}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-the functor $\mathbb{E}_1$ maps this horizontal 1-cell to the horizontal 1-cell of $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N$};
-\node (B) at (1,0) {$R(M)$};
-\node (C) at (2,0) {$N^\prime$};
-\node (D) at (3.5,0) {$M \in F(R(M))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i)$} (B)
-(C) edge node[above]{$R(o)$} (B);
-\end{tikzpicture}
-\]
-where $R \colon \mathrm{Graph} \to \mathrm{FinSet}$ is the forgetful functor, right adjoint to $L \colon \mathrm{FinSet} \to \mathrm{Graph}$. The image of a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N_1)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\node (A') at (0,-1) {$L(N_1^\prime)$};
-\node (B') at (1,-1) {$M^\prime$};
-\node (C') at (2,-1) {$L(N_2^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A') edge node[above]{$i^\prime$} (B')
-(C') edge node[above]{$o^\prime$} (B')
-(A) edge node [left]{$L(f)$} (A')
-(B) edge node [left]{$h$} (B')
-(C) edge node [left]{$L(g)$} (C');
-\end{tikzpicture}
-\]
-is the 2-morphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$R(M)$};
-\node (C) at (2,0) {$N_2$};
-\node (A') at (0,-1) {$N_1^\prime$};
-\node (B') at (1,-1) {$R(M^\prime)$};
-\node (C') at (2,-1) {$N_2^\prime$};
-\node (D) at (4,0) {$F(R(M))$};
-\node (D') at (4,-1) {$F(R(M^\prime))$};
-\node (E) at (3,-0.5) {$1$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i)$} (B)
-(C) edge node[above]{$R(o)$} (B)
-(A') edge node[above]{$R(i^\prime)$} (B')
-(C') edge node[above]{$R(o^\prime)$} (B')
-(A) edge node [left]{$f$} (A')
-(B) edge node [left]{$R(h)$} (B')
-(C) edge node [left]{$g$} (C')
-(E) edge node [above] {$M$} (D)
-(E) edge node [below] {$M^\prime$} (D')
-(D) edge node [right] {$F(R(h))$} (D');
-\end{tikzpicture}
-\]
-together with a graph morphism $\iota_h \colon F(R(h))(M) \to M^\prime$. Denoting a cospan by its apex, the map $$\mathbb{E}_1 \colon { _f { _L \mathbb{C}\textnormal{sp}(\mathrm{Graph})}_g} (M,M^\prime) \to { _{\mathbb{E}(f)} \mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})_{\mathbb{E}(g)}}(\mathbb{E}(M),\mathbb{E}(M^\prime))$$ is bijective and thus the double functor $\mathbb{E}$ is full and faithful. To see that it is also essentially surjective, given a horizontal 1-cell in $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$N$};
-\node (C) at (2,0) {$N_2$};
-\node (D) at (3,0) {$M \in F(N)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-there exists a horizontal 1-cell in $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N_1)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i^\prime$} (B)
-(C) edge node[above]{$o^\prime$} (B);
-\end{tikzpicture}
-\]
-and a 2-isomorphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ from the image of the latter horizontal 1-cell to the former given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$R(M)$};
-\node (C) at (2,0) {$N_2$};
-\node (A') at (0,-1) {$N_1$};
-\node (B') at (1,-1) {$N$};
-\node (C') at (2,-1) {$N_2$};
-\node (D) at (3.5,0) {$M \in F(R(M))$};
-\node (D') at (3.5,-1) {$M \in F(N)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i^\prime)$} (B)
-(C) edge node[above]{$R(o^\prime)$} (B)
-(A') edge node[above]{$i$} (B')
-(C') edge node[above]{$o$} (B')
-(A) edge node [left]{$1$} (A')
-(B) edge node [left]{$1$} (B')
-(C) edge node [left]{$1$} (C');
-\end{tikzpicture}
-\]
-$$\iota = \id_{M} \colon F(R(M)) \to M$$ 
-which trivially commutes as $R(M)=N$ and $R(i^\prime)$ and $R(o^\prime)$ are the underlying maps of vertices of the graph morphisms $i^\prime$ and $o^\prime$ which act as the functions $i$ and $o$, respectively. Given two composable horizontal 1-cells $\alpha$ and $\beta$ of $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$: 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N_1)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\node (D) at (3,0) {$L(N_2)$};
-\node (E) at (4,0) {$M^\prime$};
-\node (F) at (5,0) {$L(N_3)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(D) edge node[above]{$i_2$} (E)
-(F) edge node[above]{$o_2$} (E);
-\end{tikzpicture}
-\]
-we have a natural isomorphism $\mathbb{E}_{\alpha,\beta} \colon \mathbb{E}(\alpha) \odot \mathbb{E}(\beta) \to \mathbb{E}(\alpha \odot \beta)$ given by: 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (2,0) {$R(M)+_{N_2} R(M^\prime)$};
-\node (C) at (4,0) {$N_3$};
-\node (A') at (0,-1) {$N_1$};
-\node (B') at (2,-1) {$R(M +_{L(N_2)} M^\prime)$};
-\node (C') at (4,-1) {$N_3$};
-\node (D) at (6.5,0) {$M+_{L(N_2)}M^\prime \in F(R(M) +_{N_2} R(M^\prime))$};
-\node (D') at (6.5,-1) {$M +_{L(N_2)} M^\prime \in F(R(M+_{L(N_2)} M^\prime))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi R(i_1)$} (B)
-(C) edge node[above]{$j \psi R(o_2)$} (B)
-(A') edge node[above]{$U(i^\prime)$} (B')
-(C') edge node[above]{$U(o^\prime)$} (B')
-(A) edge node [left]{$1$} (A')
-(B) edge node [left]{$$} (B')
-(C) edge node [left]{$1$} (C');
-\end{tikzpicture}
-\]
-The right adjoint $R \colon \textrm{Graph} \to \textrm{Set}$ is also a left adjoint $R \dashv K$ to the codiscrete graph functor $K \colon \textrm{Set} \to \textrm{Graph}$ which sends a finite set $N$ to the complete graph with $N$ as its underlying set of vertices. The functor $R \colon \textrm{Graph} \to \textrm{Set}$ thus also preserves colimits which yields an isomorphism $$ R(M +_{L(N_2)} M^\prime) \cong R(M) +_{R(L(N_2))} R(M^\prime)$$ and again we make use of the fact that the left adjoint $L \colon \textrm{Set} \to \textrm{Graph}$ is fully faithful and thus the unit $$\eta_{N_2} \colon N_2 \to R(L(N_2))$$ is an isomorphism which gives $$R(M +_{L(N_2)} M^\prime) \cong R(M) +_{R(L(N_2))} R(M^\prime) \cong R(M) +_{N_2} R(M^\prime).$$ Thus the double functor $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathrm{Graph}) \to \mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ is strong and we  have an equivalence of double categories $_L \mathbb{C}\textnormal{sp}(\textrm{Graph}) \sim \mathbb{F}\textrm{Cospan}(\textrm{FinSet})$. Moreover, each of these categories is symmetric monoidal and the double functor $\mathbb{E}$ is symmetric monoidal; first, we have that the following diagrams commute.
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$_L \mathbb{C} \textnormal{sp}(\textrm{Graph})_1$};
-\node (B) at (4,0) {$\mathbb{F}\textnormal{Cospan}(\textrm{FinSet})_1$};
-\node (C) at (0,-1) {$_L \mathbb{C}\textnormal{sp}(\textrm{FinGraph)}_0 = \textrm{FinSet}$};
-\node (D) at (4,-1) {$\mathbb{F} \textnormal{Cospan}(\textrm{FinSet})_0 = \textrm{FinSet}$};
-\node (A') at (0,-2) {$_L \mathbb{C} \textnormal{sp}(\textrm{Graph})_1$};
-\node (B') at (4,-2) {$\mathbb{F}\textnormal{Cospan}(\textrm{FinSet})_1$};
-\node (C') at (0,-3) {$_L \mathbb{C}\textnormal{sp}(\textrm{Graph)}_0 = \textrm{FinSet}$};
-\node (D') at (4,-3) {$\mathbb{F} \textnormal{Cospan}(\textrm{FinSet})_0 = \textrm{FinSet}$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{E}_1$} (B)
-(A) edge node[left]{$S$} (C)
-(C) edge node[above]{$\mathbb{E}_0=\id_{\textrm{FinSet}}$} (D)
-(B) edge node[right]{$S$} (D)
-(A') edge node [above]{$\mathbb{E}_1$} (B')
-(A') edge node [left]{$T$} (C')
-(C') edge node [above]{$\mathbb{E}_0=\id_{\textrm{FinSet}}$} (D')
-(B') edge node [right] {$T$} (D');
-\end{tikzpicture}
-\]
-Both diagrams are similar: focusing on the top one and starting with an object of $_L \mathbb{C}\textnormal{sp}(\textrm{Graph})_1$ which is a cospan in $\textrm{Graph}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-the functor $\mathbb{E}_1$ then maps this horizontal 1-cell to the horizontal 1-cell in $\mathbb{F}\textnormal{Cospan}(\textrm{FinSet})$ which is given by the pair:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$R(M)$};
-\node (C) at (2,0) {$N_2$};
-\node (D) at (3.5,0) {$M \in F(R(M))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i)$} (B)
-(C) edge node[above]{$R(o)$} (B);
-\end{tikzpicture}
-\]
-and the source of this horizontal 1-cell is the object $N_1 \in \textrm{FinSet}$. Going the other way around the diagram also yields $N_1$. A morphism in $_L \mathbb{C} \textnormal{sp}(\textrm{Graph})_1$ given by a map of cospans in $\textrm{Graph}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N_1)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\node (A') at (0,-1) {$L(N_1^\prime)$};
-\node (B') at (1,-1) {$M^\prime$};
-\node (C') at (2,-1) {$L(N_2^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(A') edge node[above]{$i_2$} (B')
-(C') edge node[above]{$o_2$} (B')
-(A) edge node [left]{$L(f)$} (A')
-(B) edge node [left]{$h$} (B')
-(C) edge node [left]{$L(g)$} (C');
-\end{tikzpicture}
-\]
-maps under the functor $\mathbb{E}_1$ to:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$R(M)$};
-\node (C) at (2,0) {$N_2$};
-\node (A') at (0,-1) {$N_1^\prime$};
-\node (B') at (1,-1) {$R(M^\prime)$};
-\node (C') at (2,-1) {$N_2^\prime$};
-\node (D) at (3,0) {$M \in F(R(M))$};
-\node (D') at (3,-1) {$M^\prime \in F(R(M^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i_1)$} (B)
-(C) edge node[above]{$R(o_1)$} (B)
-(A') edge node[above]{$R(i_2)$} (B')
-(C') edge node[above]{$R(o_2)$} (B')
-(A) edge node [left]{$f$} (A')
-(B) edge node [left]{$R(h)$} (B')
-(C) edge node [left]{$g$} (C');
-\end{tikzpicture}
-\]
-together with a morphism $\iota \colon F(R(h))(M) \to M^\prime$ in $\textrm{Graph}$ which is really just the morphism $h \in \textrm{Graph}$. The source of this morphism is then the morphism $f \in \textrm{FinSet}$, compared with going the other way around the diagram which also results in $f$ and thus both of these squares commute. 
+\section{Appendix}
+Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
 
+\[
+\begin{tikzpicture}[scale=1]
+\node (D) at (-4,0.5) {$A$};
+\node (E) at (-2,0.5) {$B$};
+\node (F) at (-4,-1) {$C$};
+\node (A) at (-2,-1) {$D$};
+\node (B) at (-3,-0.25) {$\Downarrow a$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above]{$M$}(E)
+(E) edge node [right]{$g$}(A)
+(D) edge node [left]{$f$}(F)
+(F) edge node [above]{$N$} (A);
+\end{tikzpicture}
+\]
+
+We call $A, B, C$ and $D$ \textbf{objects} or \textbf{0-cells}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. We follow the notation of Shulman \cite{Shul} with the following definitions.
+
+\begin{defn}
+A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\bold{D_{0}}$ and a category of arrows $\bold{D_{1}}$ with the following functors
+\begin{center}
+$U\colon \bold{D_{0}} \to \bold{D_{1}}$\\
+$S,T \colon \bold{D_{1}} \rightrightarrows \bold{D_{0}}$\\
+$\odot \colon \bold{D_{1}} \times_{\bold{D_{0}}} \bold{D_{1}} \to \bold{D_{1}}$ (where the pullback is taken over $\bold{D_{1}} \xrightarrow[]{T} \bold{D_{0}} \xleftarrow[]{S} \bold{D_{1}}$) \\
+\end{center}
+ such that \\
+\begin{center}
+$S(U_{A})=A=T(U_{A})$\\
+$S(M \odot N)=SN$\\
+$T(M \odot N)=TM$\\
+\end{center}
+equipped with natural isomorphisms
+\begin{center}
+
+$\alpha \colon (M \odot N) \odot P \xrightarrow{\sim} M \odot (N \odot P)$\\
+$\lambda \colon U_{B} \odot M \xrightarrow{\sim} M$\\
+$\rho \colon M \odot U_{A} \xrightarrow{\sim} M$
+
+\end{center}
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\bold{D_{0}}$ are called $\textbf{0-cells}$ and morphisms of $\bold{D_{0}}$ are called $\textbf{vertical 1-morphisms}$. Objects of $\bold{D_{1}}$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\bold{D_{1}}$ are called $\textbf{2-morphisms}$. The morphisms of $\bold{D_{0}}$, which are vertical 1-morphisms, will be denoted $f \colon A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \colon A \to B$. Then a 2-morphism $a \colon M \to N$ of $\bold{D_{1}}$ with $S(a)=f,T(a)=g$ would look like:
+\[
+\begin{tikzpicture}[scale=1]
+\node (D) at (-4,0.5) {$A$};
+\node (E) at (-2,0.5) {$B$};
+\node (F) at (-4,-1) {$C$};
+\node (A) at (-2,-1) {$D$};
+\node (B) at (-3,-0.25) {$\Downarrow a$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above]{$M$}(E)
+(E) edge node [right]{$g$}(A)
+(D) edge node [left]{$f$}(F)
+(F) edge node [above]{$N$} (A);
+\end{tikzpicture}
+\]
+\end{defn}
+
+The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\bold{Cat}$, we can view a pseudo double category as a category `weakly' internal to $\bold{Cat}$. We will sometimes omit the word pseudo and simply say double category.
+
+\begin{defn}
+A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
+\end{defn}
+
+\begin{defn}
+Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
+\end{defn}
+
+\begin{defn}
+  A \textbf{monoidal double category} is a double category equipped the following
+structure.
+\begin{enumerate}
+\item $\bold{D_{0}}$ and $\bold{D_{1}}$ are both monoidal categories.
+\item If $I$ is the monoidal unit of $\bold{D_{0}}$, then $U_I$ is the
+  monoidal unit of $\bold{D_{1}}$.
+\item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
+  = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
+  preserve the associativity and unit constraints.
+\item We have globular isomorphisms
+  \[\chi \maps (M_1\ten N_1)\odot (M_2\ten N_2)\too[\sim] (M_1\odot M_2)\ten (N_1\odot N_2)\]
+  and
+  \[\mu\maps U_{A\ten B} \too[\sim] (U_A \ten U_B)\]
+  such that the following diagrams commute:
+		\item \label{diag:MonDblCat}
+			The following diagrams commute expressing the constraint data for the double functor $\otimes$.
+			\[
+			\begin{tikzpicture}
+				\node (A) at (0,3) {\footnotesize{
+							$((M_1\otimes N_1)\odot (M_2\otimes N_2)) \odot (M_3\otimes N_3)$}
+				};
+				\node (B) at (7,3) {\footnotesize{
+						$((M_1\odot M_2)\otimes (N_1\odot N_2)) \odot (M_3\otimes N_3) $}
+				};
+				\node (A') at (0,1.5) {\footnotesize{
+						$(M_1\otimes N_1)\odot ((M_2\otimes N_2) \odot (M_3\otimes N_3)) $}
+				};
+				\node (B') at (7,1.5) {\footnotesize{
+						$((M_1\odot M_2)\odot M_3) \otimes ((N_1\odot N_2)\odot N_3)$}
+				};
+				\node (A'') at (0,0) {\footnotesize{
+						$(M_1\otimes N_1) \odot ((M_2\odot M_3) \otimes (N_2\odot N_3))$}
+				};
+				\node (B'') at (7,0) {\footnotesize{
+						$(M_1\odot (M_2\odot M_3)) \otimes (N_1\odot (N_2\odot N_3))$}
+				};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\alpha$} (A')
+				(A') edge node[left]{$1 \odot \chi$} (A'')
+				(B) edge node[right]{$\chi$} (B')
+				(B') edge node[right]{$\alpha \otimes \alpha$} (B'')
+				(A) edge node[above]{$\chi \odot 1$} (B)
+				(A'') edge node[above]{$\chi$} (B'');
+		\end{tikzpicture}
+		\]
+		\[
+		\begin{tikzpicture}
+			\node (UL) at (0,1.5) {\footnotesize{
+					$(M\otimes N) \odot U_{C\otimes D}$}
+			};
+			\node (LL) at (0,0) {\footnotesize{
+					$M\otimes N$}
+			};
+			\node (UR) at (3.5,1.5) {\footnotesize{
+					$(M\otimes N)\odot (U_C\otimes U_D)$}
+			};
+			\node (LR) at (3.5,0) {\footnotesize{
+					$(M\odot U_C) \otimes (N\odot U_D)$}
+			};
+			%
+			\path[->,font=\scriptsize]
+				(UL) edge node[above]{$1 \odot \mu$} (UR) 
+				(UL) edge node[left]{$\rho$} (LL)
+				(LR) edge node[above]{$\rho \otimes \rho$} (LL)
+				(UR) edge node[right]{$\chi$} (LR);
+		\end{tikzpicture}
+		%
+		\quad
+		%
+		\begin{tikzpicture}
+			\node (UL) at (0,1.5) {\scriptsize{$U_{A\otimes B}\odot (M\otimes N)$}};
+			\node (LL) at (0,0) {\scriptsize{$M\otimes N$}};
+			\node (UR) at (3.5,1.5) {\scriptsize{$(U_A\otimes U_B)\odot (M\otimes N)$}};
+			\node (LR) at (3.5,0) {\scriptsize{$(U_A \odot M) \otimes (U_B\odot N)$}};
+			%
+			\path[->,font=\scriptsize]
+				(UL) edge node[above]{$\chi \odot 1$} (UR) 
+				(UL) edge node[left]{$\lambda$} (LL)
+				(LR) edge node[above]{$\lambda \otimes \lambda$} (LL)
+				(UR) edge node[right]{$\chi$} (LR);
+		\end{tikzpicture}
+		\]
+		%
+		\item The following diagrams commute expressing 
+		the associativity isomorphism for $\otimes$ is a transformation of double categories.
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,3) {\footnotesize{
+					$((M_1\otimes N_1)\otimes P_1) \odot ((M_2\otimes N_2)\otimes P_2)$}
+			};
+			\node (B) at (7,3) {\footnotesize{
+					$(M_1\otimes (N_1\otimes P_1)) \odot (M_2\otimes (N_2\otimes P_2))$}
+			};
+			\node (A') at (0,1.5) {\footnotesize{
+					$((M_1\otimes N_1) \odot (M_2\otimes N_2)) \otimes (P_1\odot P_2)$}
+			};
+			\node (B') at (7,1.5) {\footnotesize{
+					$(M_1\odot M_2) \otimes ((N_1\otimes P_1)\odot (N_2\otimes P_2))$}
+			};
+			\node (A'') at (0,0) {\footnotesize{
+					$((M_1\odot M_2) \otimes(N_1\odot N_2)) \otimes (P_1\odot P_2)$}
+			};
+			\node (B'') at (7,0) {\footnotesize{
+					$(M_1\odot M_2) \otimes ((N_1\odot N_2)\otimes (P_1\odot P_2))$}
+			};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\chi$} (A')
+				(A') edge node[left]{$\chi \otimes 1$} (A'')
+				(B) edge node[right]{$\chi$} (B')
+				(B') edge node[right]{$1 \otimes \chi$} (B'')
+				(A) edge node[above]{$\alpha \odot \alpha$} (B)
+				(A'') edge node[above]{$\alpha$} (B'');
+		\end{tikzpicture}
+		\]
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,3) {\footnotesize{$U_{(A\otimes B)\otimes C}$}};
+			\node (B) at (4,3) {\footnotesize{$U_{A\otimes (B\otimes C)} $}};
+			\node (A') at (0,1.5) {\footnotesize{$U_{A\otimes B} \otimes U_C $}};
+			\node (B') at (4,1.5) {\footnotesize{$U_A\otimes U_{B\otimes C}$}};
+			\node (A'') at (0,0) {\footnotesize{$(U_A\otimes U_B)\otimes U_C$}};
+			\node (B'') at (4,0) {\footnotesize{$U_A\otimes (U_B\otimes U_C) $}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\mu$} (A')
+				(A') edge node[left]{$\mu \otimes 1$} (A'')
+				(B) edge node[right]{$\mu$} (B')
+				(B') edge node[right]{$1 \otimes \mu$} (B'')
+				(A) edge node[above]{$U_{\alpha}$} (B)
+				(A'') edge node[above]{$\alpha$} (B'');
+		\end{tikzpicture}
+		\]
+		\item The following diagrams commute expressing that 
+		the unit isomorphisms for $\otimes$ are transformations of double categories. 
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$(M\otimes U_I)\odot (N\otimes U_I)$}};
+			\node (A') at (0,0) {\footnotesize{$M\odot N $}};
+			\node (B) at (4,1.5) {\footnotesize{$(M\odot N)\otimes (U_I \odot U_I) $}};
+			\node (B') at (4,0) {\footnotesize{$(M\odot N)\otimes U_I $}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$r \odot r$} (A')
+				(A) edge node[above]{$\chi$} (B)
+				(B) edge node[right]{$1 \otimes \rho$} (B')
+				(B') edge node[above]{$r$} (A');
+		\end{tikzpicture}
+		%
+		\quad
+		%
+		\begin{tikzpicture}
+			\node (A) at (0,0.75) {\footnotesize{$U_{A\otimes I} $}};
+			\node (B) at (1.5,1.5) {\footnotesize{$U_A\otimes U_I $}};
+			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[above]{$\mu$} (B)
+				(A) edge node[below]{$U_{r}$} (B')
+				(B) edge node[right]{$r$} (B');
+		\end{tikzpicture}
+		\]
+		%
+		%
+		%
+		%
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$(U_I\otimes M)\odot (U_I\otimes N)$}};
+			\node (A') at (0,0) {\footnotesize{$M\odot N$}};
+			\node (B) at (4,1.5) {\footnotesize{$(U_I \odot U_I) \otimes (M\odot N)$}};
+			\node (B') at (4,0) {\footnotesize{$U_I\otimes (M\odot N) $}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\ell \odot \ell$} (A')
+				(A) edge node[above]{$\chi$} (B)
+				(B) edge node[right]{$\lambda \otimes 1$} (B')
+				(B') edge node[above]{$\ell$} (A');
+		\end{tikzpicture}
+		%
+		\quad
+		\begin{tikzpicture}
+			\node (A) at (0,0.75) {\footnotesize{$U_{I\otimes A}$}};
+			\node (B) at (1.5,1.5) {\footnotesize{$U_I\otimes U_A$}};
+			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[above]{$\mu$} (B)
+				(A) edge node[below]{$U_{\ell}$} (B')
+				(B) edge node[right]{$\ell$} (B');
+		\end{tikzpicture}
+		\]
+		\newcounter{mondbl}
+		\setcounter{mondbl}{\value{enumi}}
+	\end{enumerate}
+	A \textbf{braided monoidal double category} 
+	is a monoidal double category 
+	such that:
+	\begin{enumerate}
+		\setcounter{enumi}{\value{mondbl}}
+		\item $\dblcat{D}_{0}$ and $\dblcat{D}_{1}$ are braided monoidal categories.
+		\item The functors $S$ and $T$ are strict braided monoidal functors.
+		\item The following diagrams commute expressing that the braiding is a transformation of double categories.
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
+			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
+			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
+			\node (B') at (5,0) {\footnotesize{$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\chi$} (A')
+				(A) edge node[above]{$\beta$} (B)
+				(B) edge node[right]{$\chi$} (B')
+				(A') edge node[above]{$\beta \odot \beta$} (B');
+		\end{tikzpicture}
+		%
+		\quad
+		%
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$U_A \otimes U_B$}};
+			\node (A') at (0,0) {\footnotesize{$U_B\otimes U_A$}};
+			\node (B) at (2,1.5) {\footnotesize{$U_{A\otimes B} $}};
+			\node (B') at (2,0) {\footnotesize{$U_{B\otimes A}$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\beta$} (A')
+				(B) edge node[above]{$\mu$} (A)
+				(B) edge node[right]{$U_\beta$} (B')
+				(B') edge node[above]{$\mu$} (A');
+		\end{tikzpicture}
+		\]
+		\setcounter{mondbl}{\value{enumi}}
+	\end{enumerate}
+	Finally, a \textbf{symmetric monoidal double category} 
+	is a braided monoidal double category $\mathbb{D}$ such that:
+	\begin{enumerate}
+		\setcounter{enumi}{\value{mondbl}}
+		\item $\dblcat{D}_{0}$ and $\dblcat{D}_{1}$ are symmetric monoidal.
+	\end{enumerate}
+\end{defn}
+
+
+\begin{defn}\label{def:companion}
+  Let \lD\ be a double category and $f\maps A\to B$ a vertical
+  1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
+  $\fhat\maps A\to B$ together with 2-morphisms
+	\[
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,1) {$A$};
+		\node (B) at (1,1) {$B$};
+		\node (A') at (0,0) {$B$};
+		\node (B') at (1,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+			(A) edge node[above]{$\widehat{f}$} (B)
+			(A) edge node[left]{$f$} (A')
+			(B) edge node[right]{$1$} (B')
+			(A') edge node[below]{$U_B$} (B');
+		%
+	%	\draw (0.5,.925) -- (0.5,1.075);
+	%	\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
+	\end{tikzpicture}
+	}
+	%
+	\quad \text{ and } \quad
+	%
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,1) {$A$};
+		\node (B) at (1,1) {$A$};
+		\node (A') at (0,0) {$A$};
+		\node (B') at (1,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+			(A) edge node[above]{$U_A$} (B)
+			(A) edge node[left]{$1$} (A')
+			(B) edge node[right]{$f$} (B')
+			(A') edge node[below]{ $\widehat{f}$} (B');
+		%
+	%	\draw (0.5,.925) -- (0.5,1.075);
+	%	\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
+	\end{tikzpicture}
+	}
+	\]
+  such that the following equations hold.
+	\begin{equation}
+	\label{eq:CompanionEq}
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,2) {$A$};
+		\node (B) at (1.1,2) {$A$};
+		\node (A') at (0,1) {$A$};
+		\node (B') at (1.1,1) {$B$};
+		\node (A'') at (0,0) {$B$};
+		\node (B'') at (1.1,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+			(A) edge node[left]{$1$} (A')
+			(A') edge node[left]{$f$} (A'')
+			(B) edge node[right]{$f$} (B')
+			(B') edge node[right]{$1$} (B'')
+			(A) edge node[above]{$U_A$} (B)
+			(A') edge  (B')
+			(A'') edge node[below]{$U_B$} (B'');
+		%
+	%	\draw (0.5,1.925) -- (0.5,2.075);
+		\draw[line width=2mm,white] (0.5,.925) -- (0.5,1.075);
+	%	\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
+		\node () at (0.5,1.5) {\scriptsize{$\Downarrow$}};
+		\node () at (0.5,1) {\scriptsize $\widehat{f}$};
+	\end{tikzpicture}
+	}
+	%
+	\raisebox{-0.5\height}{=}
+	%
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,1) {$A$};
+		\node (B) at (1,1) {$A$};
+		\node (A') at (0,0) {$B$};
+		\node (B') at (1,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+		(A) edge node[left]{$f$} (A')
+		(B) edge node[right]{$f$} (B')
+		(A) edge node[above]{$U_A$} (B)
+		(A') edge node[below]{$U_B$} (B');
+		%
+		%\draw (0.5,.925) -- (0.5,1.075);
+		%\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow U_f$}};
+	\end{tikzpicture}
+	}
+	%
+	\raisebox{-0.5\height}{\text{   and   }}
+	%
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,1) {$A$};
+		\node (A') at (0,0) {$A$};
+		\node (B) at (1,1) {$A$};
+		\node (B') at (1,0) {$B$};
+		\node (C) at (2,1) {$B$};
+		\node (C') at (2,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+			(A) edge node[left]{$1$} (A')
+			(B) edge node[left]{$f$} (B')
+			(C) edge node[right]{$1$} (C')
+			(A) edge node[above]{$U_A$} (B)
+			(B) edge node[above]{$\widehat{f}$} (C)
+			(A') edge node[below]{$\widehat{f}$} (B')
+			(B') edge node[below]{$U_B$} (C');
+		%
+	%	\draw (1.5,0.925) -- (1.5,1.075);
+	%	\draw (1.5,0.925) -- (1.5,1.075);
+	%	\draw (0.5,.925) -- (0.5,1.075);
+	%	\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow$}};
+		\node () at (1.5,0.5) {\scriptsize{$\Downarrow$}};
+	\end{tikzpicture}
+	}
+	%
+	\raisebox{-0.5\height}{=}
+	%
+	\raisebox{-0.5\height}{
+	\begin{tikzpicture}
+		\node (A) at (0,1) {$A$};
+		\node (B) at (1,1) {$B$};
+		\node (A') at (0,0) {$A$};
+		\node (B') at (1,0) {$B$};
+		%
+		\path[->,font=\scriptsize,>=angle 90]
+			(A) edge node[left]{$1$} (A')
+			(B) edge node[right]{$1$} (B')
+			(A) edge node[above]{$\widehat{f}$} (B)
+			(A') edge node[below]{$\widehat{f}$} (B');
+		%
+	%	\draw (0.5,.925) -- (0.5,1.075);
+	%	\draw (0.5,-.075) -- (0.5,.075);
+		\node () at (0.5,0.5) {\scriptsize{$\Downarrow \id_{\widehat{f}}$}};
+	\end{tikzpicture}
+	}
+	\end{equation}
+  A \textbf{conjoint} of $f$, denoted $\fchk \maps B\to A$, is a
+  companion of $f$ in the double category $\lD^{h\cdot\mathrm{op}}$
+  obtained by reversing the horizontal 1-cells, but not the vertical
+  1-morphisms, of \lD.
+\end{defn}
+\noindent
+In a pseudo double category, the second equation above requires an insertion of unit isomorphisms to make sense due to horizontal composition only holding up to isomorphism.
+\begin{defn}
+  We say that a double category is \textbf{fibrant} if every vertical
+  1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
+\end{defn}
 \section{Acknowledgements}
 Daniel Cicala, person that Christina emailed about lax slice category?
 \begin{thebibliography}{100}
