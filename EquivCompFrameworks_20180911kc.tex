@@ -402,7 +402,7 @@ The outline for the paper is as follows: In the second section, we construct the
 In this section we build the symmetric monoidal double category mentioned in the introduction. 
 \textbf{Add more here.}
 \begin{thm}
-Let $\mathrm{A}$ be a category with finite colimits and $F \colon \mathrm{A} \to \bold{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $\mathbb{F} \textnormal{Cospan}(\mathrm{A}) \coloneqq (\mathbb{G}/ \mathbb{F})$ which has:
+Let $\mathrm{A}$ be a category with finite colimits and $F \colon \mathrm{A} \to \bold{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $\mathbb{F} \textnormal{Cospan}(\mathrm{A})$ which has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
 \item{vertical 1-morphisms as morphisms of $\mathrm{A}$,}
@@ -444,7 +444,7 @@ together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 \end{enumerate}
 \end{thm}
 \begin{proof}
-The unit structure functor $U \colon (\mathbb{G},\mathbb{F})_0 \to (\mathbb{G},\mathbb{F})_1$ is defined on objects as: 
+The unit structure functor $U \colon \mathbb{F}\textnormal{Cospan}(\mathrm{A})_0 \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})_1$ is defined on objects as: 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (-1,0) {$c \mapsto$};
@@ -482,7 +482,7 @@ where $!_c \in F(c)$ is the trivial decoration on $c$ given by the composition o
 (G) edge node [left] {$f$} (G');
 \end{tikzpicture}
 \]
-together with the morphism $\iota_{!_f} = F(f) F(!) \phi \colon 1 \to F(c^\prime)$. We also have source and target structure functors $s,t \colon (\mathbb{G} / \mathbb{F})_1 \to (\mathbb{G} / \mathbb{F})_0$ where the source of a horizontal 1-cell
+together with the morphism $\iota_{!_f} = F(f) F(!) \phi \colon 1 \to F(c^\prime)$. We also have source and target structure functors $S, T \colon \mathbb{F}\textnormal{Cospan}(\mathrm{A})_1 \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})_0$ where the source of a horizontal 1-cell
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2965,7 +2965,7 @@ Under certain conditions, the functor resulting from the Grothendieck constructi
 
 
 \section{An equivalence of symmetric monoidal double categories}
-In this section we prove that two different frameworks which utilize symmetric monoidal double categories, namely decorated cospans and `structured cospans', are equivalent under the conditions required from the previous section that allow for a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ to be obtained from a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$. The double category version of decorataed cospans is given in Section \ref{DecCospansDoublecat}. The other framework which also utilizes symmetric monoidal double categories, due to Baez and the first author and goes by the name of `structured cospans', is explained below. Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
+In this section we prove that two different frameworks which utilize symmetric monoidal double categories, namely decorated cospans and `structured cospans', are equivalent under the conditions required from the previous section that allow for a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ to be obtained from a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \bold{Cat}$. The double category version of decorataed cospans is given in Section \ref{DecCospansDoublecat}. The other framework also utilizing symmetric monoidal double categories due to the first two authors and which goes by the name of `structured cospans', is explained below. Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
 \[
   \xymatrix@-.5pc{
     A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
@@ -4101,6 +4101,8 @@ Then we can find a 2-isomorphism $\epsilon_N \colon \mathbb{E} \mathbb{G} (N) \x
 \]
 $$\iota \colon F(e)(x) \to x$$
 \section{Applications}
+In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by the first author and others by way of `black-boxing'. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathrm{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathrm{Circ} \to \mathrm{LinRel}$$ $$\blacksquare_2 \colon \mathrm{Mark} \to \mathrm{LinRel}$$ $$\blacksquare_3 \colon \mathrm{Petri} \to \mathrm{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories. \textbf{Make this better...}
+\subsection{Graphs}
 As an example, let $L \colon \mathrm{FinSet} \to \mathrm{Graph}$ be the functor which is left adjoint to the forgetful functor $R \colon \mathrm{Graph} \to \mathrm{FinSet}$; the functor $L$ maps a finite set $N$ to the discrete graph with $N$ as its set of vertices and no edges. Since $\mathrm{Graph}$ is a topos and thus has finite colimits, we can then obtain a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ which has:
 \begin{enumerate}
 \item{finite sets as objects,}
@@ -4182,7 +4184,11 @@ together with a graph morphism $\iota \colon F(h)(M) \to M^\prime$ in $F(N^\prim
 \end{enumerate}
 We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ using Theorem \ref{main1}.
 
-\textbf{Also talk about electrical circuit, Markov process and Petri net examples.}
+\subsection{Electrial circuits}
+
+\subsection{Markov processes}
+
+\subsection{Petri nets}
 
 \section{Appendix}
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
