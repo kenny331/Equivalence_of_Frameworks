@@ -933,7 +933,7 @@ and then composing horizontally results in:
 As is usual concerning the interchange law of double categories of this nature, only the `interior' of the two compositions appears different, but the two morphisms $(h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2) \colon c+_b e \to c'' +_{b''} e''$ and $(h_1^\prime h_1) +_{g^\prime g} (h_2^\prime h_2) \colon c+_b e \to c'' +_{b''}e''$ are the same universal map realized in two different ways. The two morphisms of decorations are two compositions of 2-morphisms in $\bold{Cat}$ for which the interchange law already holds, and as a result, the morphisms $$(\iota_{1,2}^\prime \iota_{1,2}) \colon F((h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2))(d_{1,2}) \to d_{1,2}''$$ and $$(\iota_1^\prime \iota_1,\iota_2^\prime \iota_2) \colon F((h_1^\prime h_1)+_{g^\prime g} (h_2^\prime h_2))(d_{1,2}) \to d_{1,2}''$$ are also the same.
 \end{proof}
 
-\begin{thm}\label{main1}
+\begin{thm}\label{DC}
 Let $\mathrm{A}$ be a category with finite colimits and $F \colon \mathrm{A} \to \bold{Cat}$ a symmetric lax monoidal pseudofunctor. Then the double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ is symmetric monoidal.
 \end{thm}
 \begin{proof}
@@ -3003,8 +3003,8 @@ Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and le
 \end{prop}
 Our next goal is to show that the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ of Section \ref{DecCospansDoublecat} is equivalent as a symmetric monoidal double category to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ obtained using structured cospans.
 
-\begin{thm}
-Given a category $\mathrm{X}$ with finite colimits and a category $\mathrm{A}$ with finite coproducts and a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ with $\mathrm{A}$ and $\mathrm{X}$ regarded as symmetric monoidal categories under binary coproducts, we can obtain a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ which has:
+\begin{thm}\label{SC}
+Given a category $\mathrm{X}$ with finite colimits and a category $\mathrm{A}$ with finite coproducts and a finite coproduct preserving functor $L \colon \mathrm{A} \to \mathrm{X}$ with $\mathrm{A}$ and $\mathrm{X}$ regarded as cocartesian monoidal categories, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ which has:
 \begin{enumerate}
 \item{objects given by objects of $\mathrm{A}$,}
 \item{vertical 1-morphisms given by morphisms of $\mathrm{A}$,}
@@ -3087,7 +3087,7 @@ and}
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 \end{enumerate}
 We now show that these two symmetric monoidal double categories are equivalent. 
-\begin{thm}\label{main2}
+\begin{thm}\label{Equiv}
 Let $\mathrm{A}$ and $\mathrm{X}$ be categories with finite colimits and $F \colon \mathrm{A} \to \bold{Cat}$ a symmetric lax monoidal pseudofunctor. Let $L \colon \mathrm{A} \to \int{F} \cong \mathrm{X}$ be the left adjoint of the Grothendieck construction $R \colon \int{F} \to \mathrm{A}$ of $F$. Then the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ utilizing structured cospans and the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ utilizing decorated cospans are equivalent as symmetric monoidal double categories.
 \end{thm}
 \begin{proof}
@@ -4103,86 +4103,86 @@ $$\iota \colon F(e)(x) \to x$$
 \section{Applications}
 In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by the first author and others by way of `black-boxing'. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathrm{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathrm{Circ} \to \mathrm{LinRel}$$ $$\blacksquare_2 \colon \mathrm{Mark} \to \mathrm{LinRel}$$ $$\blacksquare_3 \colon \mathrm{Petri} \to \mathrm{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories. \textbf{Make this better...}
 \subsection{Graphs}
-As an example, let $L \colon \mathrm{FinSet} \to \mathrm{Graph}$ be the functor which is left adjoint to the forgetful functor $R \colon \mathrm{Graph} \to \mathrm{FinSet}$; the functor $L$ maps a finite set $N$ to the discrete graph with $N$ as its set of vertices and no edges. Since $\mathrm{Graph}$ is a topos and thus has finite colimits, we can then obtain a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ which has:
+As a first example that was also mentioned in the introduction, let $L \colon \mathrm{Set} \to \mathrm{Graph}$ be the functor that assigns to a set $N$ the \emph{discrete graph} on $N$ which is the edgeless graph $L(N)$ with no edges and $N$ as its set of vertices. Both $\mathrm{Set}$ and $\mathrm{Graph}$ are cocartesian monoidal and the functor $L \colon \mathrm{Set} \to \mathrm{Graph}$ is left adjoint to the forgetful functor $R \colon \mathrm{Graph} \to \mathrm{Set}$ which assigns to a graph $G$ its underlying set of vertices $U(G)$. Using structured cospans and appealing to Theorem \ref{SC}, we get a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ which has:
 \begin{enumerate}
-\item{finite sets as objects,}
+\item{sets as objects,}
 \item{functions as vertical 1-morphisms,}
-\item{cospans of graphs of the form
+\item{cospans of graphs, or, \emph{open} graphs of the form
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(N)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N^\prime)$};
+\node (B) at (1,0) {$G$};
+\node (C) at (2,0) {$L(M)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
+(A) edge node[above]{$I$} (B)
+(C) edge node[above]{$O$} (B);
 \end{tikzpicture}
 \]
-as horizontal 1-cells, where $L(N)$ and $L(N^\prime)$ are discrete graphs on the sets $N$ and $N^\prime$, respectively, $M$ is a graph and $i$ and $o$ are graph morphisms, and}
+as horizontal 1-cells, where $L(N)$ and $L(M)$ are discrete graphs on the sets $N$ and $M$, respectively, $G$ is a graph and $I$ and $O$ are graph morphisms, and}
 \item{maps of cospans of graphs of the form
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(N_1)$};
-\node (B) at (1,0) {$M$};
-\node (C) at (2,0) {$L(N_2)$};
-\node (A') at (0,-1) {$L(N_1^\prime)$};
-\node (B') at (1,-1) {$M^\prime$};
-\node (C') at (2,-1) {$L(N_2^\prime)$};
+\node (B) at (1,0) {$G_1$};
+\node (C) at (2,0) {$L(M_1)$};
+\node (A') at (0,-1) {$L(N_2)$};
+\node (B') at (1,-1) {$G_2$};
+\node (C') at (2,-1) {$L(M_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A') edge node[above]{$i^\prime$} (B')
-(C') edge node[above]{$o^\prime$} (B')
+(A) edge node[above]{$I_1$} (B)
+(C) edge node[above]{$O_1$} (B)
+(A') edge node[above]{$I_2$} (B')
+(C') edge node[above]{$O_2$} (B')
 (A) edge node [left]{$L(f)$} (A')
-(B) edge node [left]{$h$} (B')
+(B) edge node [left]{$\alpha$} (B')
 (C) edge node [left]{$L(g)$} (C');
 \end{tikzpicture}
 \]
-as 2-morphisms, where $L(f)$ and $L(g)$ are maps of discrete graphs given by the underlying functions $f$ and $g$, respectively, and $h \colon M \to M^\prime$ is a graph morphism.
+as 2-morphisms, where $L(f)$ and $L(g)$ are maps of discrete graphs induced by the underlying functions $f$ and $g$, respectively, and $\alpha \colon G_1 \to G_2$ is a graph morphism.
 }
 \end{enumerate}
 
-On the other hand, let $F \colon \mathrm{FinSet} \to \mathrm{Cat}$ be the symmetric lax monoidal pseudofunctor that assigns to a finite set $N$ the \emph{category} of all graph structures whose underlying set of vertices is $N$. Using Theorem \ref{main1}, we can then obtain a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ which has:
+We can obtain a similar symmetric monoidal double category using decorated cospans. Let $F \colon \mathrm{Set} \to \mathrm{Cat}$ be the symmetric lax monoidal pseudofunctor that assigns to a set $N$ the \emph{category} of all graph structures whose underlying set of vertices is $N$. Using Theorem \ref{DC}, we then obtain a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ which has:
 \begin{enumerate}
-\item{finite sets as objects,}
+\item{sets as objects,}
 \item{functions as vertical 1-morphisms,}
-\item{horizontal 1-cells are given by pairs:
+\item{horizontal 1-cells as pairs:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (B) at (1,0) {$N$};
-\node (C) at (2,0) {$N_2$};
-\node (D) at (3.25,0) {$M \in F(N)$};
+\node (A) at (0,0) {$N$};
+\node (B) at (1,0) {$P$};
+\node (C) at (2,0) {$M$};
+\node (D) at (3.25,0) {$G \in F(P)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-and}
-\item{2-morphisms as maps of cospans 
+which can also be thought of as open graphs, and}
+\item{2-morphisms as maps of cospans of sets
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$N_1$};
-\node (A') at (0,-1) {$N_1^\prime$};
-\node (C') at (2,-1) {$N_2^\prime$};
-\node (B) at (1,0) {$N$};
-\node (C) at (2,0) {$N_2$};
-\node (D) at (1,-1) {$N^\prime$};
-\node (E) at (3,0) {$M \in F(N)$};
-\node (F) at (3,-1) {$M^\prime \in F(N^\prime)$};
+\node (A') at (0,-1) {$N_2$};
+\node (C') at (2,-1) {$M_2$};
+\node (B) at (1,0) {$P_1$};
+\node (C) at (2,0) {$M_1$};
+\node (D) at (1,-1) {$P_2$};
+\node (E) at (3,0) {$G_1 \in F(P_1)$};
+\node (F) at (3,-1) {$G_2 \in F(P_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(C') edge node [above] {$o^\prime$} (D)
-(A') edge node [above] {$i^\prime$} (D)
+(C') edge node [above] {$o_2$} (D)
+(A') edge node [above] {$i_2$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a graph morphism $\iota \colon F(h)(M) \to M^\prime$ in $F(N^\prime)$.}
+together with a graph morphism $\iota \colon F(h)(G_1) \to G_2$ in $F(P_2)$.}
 \end{enumerate}
-We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ using Theorem \ref{main1}.
+We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ obtained from decorated cospans. Both of these double categories have $\mathrm{Set}$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms, and by Theorem \ref{Equiv}, we have an equivalence of symmetric monoidal double categories $$_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}) \sim \mathbb{F}\textnormal{Cospan}(\mathrm{Set}).$$
 
 \subsection{Electrial circuits}
 
