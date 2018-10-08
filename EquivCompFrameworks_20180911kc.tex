@@ -4189,6 +4189,120 @@ We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal
 \subsection{Markov processes}
 
 \subsection{Petri nets}
+In a previous work, Master and the first author used structured cospans to obtain a symmetric monoidal double category of `open Petri nets'. A Petri net is given by a diagram in $\mathrm{Set}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (B) at (1,0) {$T$};
+\node (C) at (2,0) {$\mathbb{N}[S].$};
+\path[->,font=\scriptsize,>=angle 90]
+(B)edge[bend left] node[above]{$s$}(C)
+(B)edge[bend right] node[below]{$t$}(C);
+\end{tikzpicture}
+\]
+Here, $T$ is the set of \emph{transitions} and $S$ is the set of \emph{species}, and then $\mathbb{N}[S]$ is the free commutative monoid on the set $S$. Each transition then has a formal linear combination of species given by an element of $\mathbb{N}[S]$ as its source and target as prescribed by the functions $s$ and $t$, respectively. An example of a Petri net is given by:
+\[
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=species] (I) at (0,1) {H};
+		\node [style=species] (T) at (0,-1) {O};
+		\node [style=transition] (W) at (2,0) {$\alpha$};
+		\node [style=species] (Water) at (4,0) {$\textnormal{H}_2$O};
+%		\node [style=transition] (Something) at (6,0) {\tiny{Something}};
+%		\node [style=species] (A) at (8,1) {O$\textnormal{H}^{-}$};
+%		\node [style=species] (B) at (8,-1) {$\textnormal{H}_3 \textnormal{O}^{+}$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=inarrow, bend right=40, looseness=1.00] (I) to (W);
+		\draw [style=inarrow, bend left=40, looseness=1.00] (I) to (W);
+		\draw [style=inarrow, bend right=40, looseness=1.00] (T) to (W);
+		\draw [style=inarrow] (W) to (Water);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Water) to (Something);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Water) to (Something);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Something) to (A);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Something) to (B);
+	\end{pgfonlayer}
+\end{tikzpicture}
+\]
+This Petri net has a single transition $\alpha$ with $2\textnormal{H}+\textnormal{O}$ as its source and $\textnormal{H}_2 \textnormal{O}$ as its target. See the original paper for more details on Petri nets \cite{BM}.
+
+Each set of species $S$ gives rise to a discrete Petri net $L(S)$ with $S$ as its set of species and no transitions. Master and the first author show the existence of a left adjoint $L \colon \mathrm{Set} \to \mathrm{Petri}$ where $\mathrm{Petri}$ is the category whose objects are Petri nets and whose `morphisms are morphisms of Petri nets'. They also show that $\mathrm{Petri}$ has finite colimits and thus using Theorem \ref{SC} obtain a symmetric monoidal double category $\mathbb{O}\bold{pen}(\mathrm{Petri})$ of open Petri nets which has:
+\begin{enumerate}
+\item{objects given by sets,}
+\item{vertical 1-morphisms given by functions,}
+\item{horizontal 1-cells as open Petri nets which are given by cospans in $\mathrm{Petri}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$L(X)$};
+\node (E) at (-2,0) {$P$};
+\node (F) at (-1,0) {$L(Y)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$I$} (E)
+(F) edge node [above] {$O$} (E);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms as maps of cospans in $\mathrm{Petri}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$L(X)$};
+\node (F) at (5,0) {$L(Y)$};
+\node (G) at (4,0) {$P$};
+\node (E') at (3,-1) {$L(X^\prime)$};
+\node (F') at (5,-1) {$L(Y^\prime)$};
+\node (G') at (4,-1) {$P^\prime$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$O$} (G)
+(E) edge node[left]{$L(f)$} (E')
+(F) edge node[right]{$L(g)$} (F')
+(G) edge node[left]{$\alpha$} (G')
+(E) edge node[above]{$I$} (G)
+(E') edge node[above]{$I^\prime$} (G')
+(F') edge node[above]{$O^\prime$} (G');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+We can also obtain a similar double category using decorated cospans: define a pseudofunctor $F \colon \mathrm{Set} \to \mathrm{Cat}$ where given a set $s$, $F(s)$ is the (large) category of all Petri net structures with $s$ as its set of species. This functor $F$ is symmetric lax monoidal as both $(\mathrm{Set},+,\emptyset)$ and $(\mathrm{Cat},\times,1)$ are symmetric monoidal and given Petri nets $P \in F(s)$ and $P^\prime \in F(s^\prime)$, we can place them side by side and consider them together as a single Petri net $P+P^\prime \in F(s+s^\prime)$ with set of species $s+s^\prime$, and thus we have natural transformations $\phi_{s,s^\prime} \colon F(s) \times F(s^\prime) \to F(s+s^\prime)$ for any two sets $s$ and $s^\prime$. The other structure morphism between monoidal units $\phi \colon 1_{\mathrm{Petri}} \to F(\emptyset)$ is defined by the unique morphism from the empty Petri net with the empty set for species to the only possible Petri net on the empty set, which is also the empty Petri net. All of the diagrams that are required to commute are straightforward. Using Theorem \ref{DC}, we obtain a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ which has:
+\begin{enumerate}
+\item{objects given by sets,}
+\item{vertical 1-morphisms given by functions,}
+\item{horizontal 1-cells given by pairs:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$X$};
+\node (E) at (-2,0) {$Z$};
+\node (F) at (-1,0) {$Y$};
+\node (A) at (0,0) {$P \in F(Z)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms as maps of cospans in $\mathrm{Set}$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$X$};
+\node (F) at (5,0) {$Y$};
+\node (G) at (4,0) {$Z$};
+\node (E') at (3,-1) {$X^\prime$};
+\node (F') at (5,-1) {$Y^\prime$};
+\node (G') at (4,-1) {$Z^\prime$};
+\node (A) at (6,0) {$P \in F(Z)$};
+\node (B) at (6,-1) {$P^\prime \in F(Z^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$o$} (G)
+(E) edge node[left]{$f$} (E')
+(F) edge node[right]{$g$} (F')
+(G) edge node[left]{$h$} (G')
+(E) edge node[above]{$i$} (G)
+(E') edge node[above]{$i^\prime$} (G')
+(F') edge node[above]{$o^\prime$} (G');
+\end{tikzpicture}
+\]
+together with a morphism of Petri nets $\iota \colon F(h)(P) \to P^\prime$ in $F(Z^\prime)$.}
+\end{enumerate}
+Thus we have a symmetric monoidal double category $\mathbb{O}\bold{pen}(\mathrm{Petri})$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\mathbb{O}\bold{pen}(\mathrm{Petri}) \sim \mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ of symmetric monoidal double categories by Theorem \ref{Equiv}.
 
 \section{Appendix}
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
@@ -4673,6 +4787,8 @@ Daniel Cicala, person that Christina emailed about lax slice category?
 \bibitem{BF} J.\ C.\ Baez and B.\ Fong, A compositional framework for passive linear networks. Available as \href{http://arxiv.org/abs/1504.05625}{arXiv:1504.05625}.
 
 \bibitem{BFP} J.\ C.\ Baez, B.\ Fong and B.\ Pollard, A compositional framework for Markov processes, \textsl{Jour. Math. Phys.} \textbf{57} (2016), 033301. Available as \href{http://arxiv.org/abs/1508.06448}{arXiv:1508.06448}.
+
+\bibitem{BM} J.\ C. \ Baez and J.\ Master, Open Petri nets. Available as \href{https://arxiv.org/abs/1808.05415}{arXiv:1808.05415}.
 
 \bibitem{BP} J.\ C.\ Baez and B.\ Pollard, A compositional framework for chemical reaction networks, in preparation.
 
