@@ -4184,7 +4184,7 @@ together with a graph morphism $\iota \colon F(h)(G_1) \to G_2$ in $F(P_2)$.}
 \end{enumerate}
 We thus have two symmetric monoidal double categories: $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ obtained from structured cospans and $\mathbb{F}\textnormal{Cospan}(\mathrm{Set})$ obtained from decorated cospans. Both of these double categories have $\mathrm{Set}$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms, and by Theorem \ref{Equiv}, we have an equivalence of symmetric monoidal double categories $$_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}) \sim \mathbb{F}\textnormal{Cospan}(\mathrm{Set}).$$
 
-\subsection{Electrial circuits}
+\subsection{Passive linear circuits}
 In a previous work \cite{BP}, Fong and the first author used decorated cospans to construct a symmetric monoidal category of `open passive linear circuits'. Roughly speaking, given a field $k$, a passive linear circuit is given by a `$k$-graph' which is a diagram in $\mathrm{FinSet}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -4210,7 +4210,7 @@ Here the finite sets $E$ and $V$ are the sets of edges and vertices, respectivel
 \]
 where the apex $V$ is equipped with the structure of a passive linear circuit. See the original paper for more details \cite{BP}.
 
-Let $\mathrm{Graph}_k$ be the category whose objects are given by $k$-graphs and morphisms by morphisms of $k$-graphs, where a morphism of $k$-graphs is given by a pair of functions $f \colon E \to E^\prime$ and $g \colon V \to V^\prime$ between the edge sets and vertex sets, respectively, of two $k$-graphs that respect the source and target functions of each. In a previous work introducing structured cospans, the first two authors showed that the category $\mathrm{Graph}_k$ has finite colimits. We can then obtain a double category of open passive linear circuits by defining a left adjoint $L \colon \mathrm{Set} \to \mathrm{Graph}_k$ that assigns to a set $V$ the discrete electrical circuit $L(V)$ given by passive linear circuit with $V$ as its set of vertices and no edges. The resulting symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ has:
+Let $\mathrm{Graph}_k$ be the category whose objects are given by $k$-graphs and morphisms by morphisms of $k$-graphs, where a morphism of $k$-graphs is given by a pair of functions $f \colon E \to E^\prime$ and $g \colon V \to V^\prime$ between the edge sets and vertex sets, respectively, of two $k$-graphs that respect the source and target functions of each. In a previous work introducing structured cospans, the first two authors showed that the category $\mathrm{Graph}_k$ has finite colimits. We can then obtain a double category of open passive linear circuits by defining a left adjoint $L \colon \mathrm{Set} \to \mathrm{Graph}_k$ that assigns to a set $V$ the discrete passive linear circuit $L(V)$ given by passive linear circuit with $V$ as its set of vertices and no edges. The resulting symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ has:
 \begin{enumerate}
 \item{finite sets as objects,}
 \item{functions as vertical 1-morphisms,}
@@ -4267,7 +4267,61 @@ and}
 \]
 }
 \end{enumerate}
-We can also obtain a similar double category using decorated cospans...
+We can also obtain a similar double category using decorated cospans: define a pseudofunctor $F \colon \mathrm{FinSet} \to \mathrm{Cat}$ that assigns to a finite set $V$ the category of all $k$-graph structures on the finite set $V$ and to a function $f \colon V \to V^\prime$ the corresponding functor $F(f) \colon F(V) \to F(V^\prime)$ between decoration categories. Both categories $\mathrm{FinSet}$ and $\mathrm{Cat}$ are symmetric monoidal and the pseudofunctor $F \colon \mathrm{FinSet} \to \mathrm{Cat}$ is symmetric lax monoidal, as given a $k$-graph structure on a finite set $V_1$ denoted by an element $K_1 \in F(V_1)$ and a $k$-graph structure on a finite set $V_2$ denoted by an element $K_2 \in F(V_2)$, we can consider the $k$-graph structures simultaneously as a single graph structure $\phi_{V_1,V_2}(K_1,K_2)$ on the finite set $V_1+V_2$. Thus we get a family of natural transformations $$\phi_{V_1,V_2} \colon F(V_1) \times F(V_2) \to F(V_1+V_2)$$ as well as a morphism $\phi \colon 1_{\mathrm{Graph}_k} \to F(\emptyset)$ which together satisfy coherence conditions of a monoidal functor. The braiding is also clear as the following diagram commutes:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$F(V_1) \times F(V_2)$};
+\node (G) at (5,0) {$F(V_2) \times F(V_1)$};
+\node (E') at (3,-1) {$F(V_1+V_2)$};
+\node (G') at (5,-1) {$F(V_2+V_1)$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node[left]{$\phi_{V_1,V_2}$} (E')
+(G) edge node[right]{$\phi_{V_2,V_1}$} (G')
+(E) edge node[above]{$\beta_{V_1,V_2}$} (G)
+(E') edge node[above]{$F(\beta_{V_1,V_2})$} (G');
+\end{tikzpicture}
+\]
+Thus the pseudofunctor $F$ is symmetric lax monoidal and so by Theorem \ref{DC} we get a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ which has:
+\begin{enumerate}
+\item{objects as finite sets,}
+\item{vertical 1-morphisms as functions,}
+\item{horizontal 1-cells as cospans of finite sets together with the structure of a $k$-graph given by an element of the image of the apex under the pseudofunctor $F$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$U$};
+\node (E) at (-2,0) {$V$};
+\node (F) at (-1,0) {$W$};
+\node (A) at (0,0) {$K \in F(V)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms as maps of cospans of finite sets 
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$U$};
+\node (F) at (5,0) {$W$};
+\node (G) at (4,0) {$V$};
+\node (E') at (3,-1) {$U^\prime$};
+\node (F') at (5,-1) {$W^\prime$};
+\node (G') at (4,-1) {$V^\prime$};
+\node (A) at (6,0) {$K \in F(V)$};
+\node (B) at (6,-1) {$K^\prime \in F(V^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$o$} (G)
+(E) edge node[left]{$f$} (E')
+(F) edge node[right]{$g$} (F')
+(G) edge node[left]{$h$} (G')
+(E) edge node[above]{$i$} (G)
+(E') edge node[above]{$i^\prime$} (G')
+(F') edge node[above]{$o^\prime$} (G');
+\end{tikzpicture}
+\]
+together with a morphism of $k$-graphs $\iota \colon F(h)(K) \to K^\prime$ in $F(V^\prime)$.}
+\end{enumerate}
+These two double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ are equivalent by Theorem \ref{Equiv}.
 \subsection{Markov processes}
 
 \subsection{Petri nets}
