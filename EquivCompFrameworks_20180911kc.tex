@@ -4210,7 +4210,7 @@ Here the finite sets $E$ and $V$ are the sets of edges and vertices, respectivel
 \]
 where the apex $V$ is equipped with the structure of a passive linear circuit. See the original paper for more details \cite{BP}.
 
-Let $\mathrm{Graph}_k$ be the category whose objects are given by $k$-graphs and morphisms by morphisms of $k$-graphs, where a morphism of $k$-graphs is given by a pair of functions $f \colon E \to E^\prime$ and $g \colon V \to V^\prime$ between the edge sets and vertex sets, respectively, of two $k$-graphs that respect the source and target functions of each. In a previous work introducing structured cospans, the first two authors showed that the category $\mathrm{Graph}_k$ has finite colimits. We can then obtain a double category of open passive linear circuits by defining a left adjoint $L \colon \mathrm{Set} \to \mathrm{Graph}_k$ that assigns to a set $V$ the discrete passive linear circuit $L(V)$ given by passive linear circuit with $V$ as its set of vertices and no edges. The resulting symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ has:
+Let $\mathrm{Graph}_k$ be the category whose objects are given by $k$-graphs and morphisms by morphisms of $k$-graphs, where a morphism of $k$-graphs is given by a pair of functions $f \colon E \to E^\prime$ and $g \colon V \to V^\prime$ between the edge sets and vertex sets, respectively, of two $k$-graphs that respect the source and target functions of each. In a previous work introducing structured cospans, the first two authors showed that the category $\mathrm{Graph}_k$ has finite colimits \cite{BC2}. We can then obtain a double category of open passive linear circuits by defining a left adjoint $L \colon \mathrm{Set} \to \mathrm{Graph}_k$ that assigns to a set $V$ the discrete passive linear circuit $L(V)$ given by passive linear circuit with $V$ as its set of vertices and no edges. The resulting symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ has:
 \begin{enumerate}
 \item{finite sets as objects,}
 \item{functions as vertical 1-morphisms,}
@@ -4221,8 +4221,8 @@ Let $\mathrm{Graph}_k$ be the category whose objects are given by $k$-graphs and
 \node (C) at (2,0) {$Y$};
 \node (A) at (0,0) {$X$};
 \node (D) at (3,0) {$k^+$};
-\node (E) at (4,0) {$\mathbb{E}$};
-\node (F) at (5,0) {$\mathbb{V}$};
+\node (E) at (4,0) {$E$};
+\node (F) at (5,0) {$V$};
 \path[->,font=\scriptsize,>=angle 90]
 (E) edge node [above] {$r$} (D)
 (E) edge [bend left] node [above] {$s$} (F)
@@ -4301,28 +4301,115 @@ and}
 \item{2-morphisms as maps of cospans of finite sets 
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$U$};
-\node (F) at (5,0) {$W$};
-\node (G) at (4,0) {$V$};
-\node (E') at (3,-1) {$U^\prime$};
-\node (F') at (5,-1) {$W^\prime$};
-\node (G') at (4,-1) {$V^\prime$};
-\node (A) at (6,0) {$K \in F(V)$};
-\node (B) at (6,-1) {$K^\prime \in F(V^\prime)$};
+\node (E) at (3,0) {$U_1$};
+\node (F) at (5,0) {$W_1$};
+\node (G) at (4,0) {$V_1$};
+\node (E') at (3,-1) {$U_2$};
+\node (F') at (5,-1) {$W_2$};
+\node (G') at (4,-1) {$V_2$};
+\node (A) at (6,0) {$K_1 \in F(V_1)$};
+\node (B) at (6,-1) {$K_2 \in F(V_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$o$} (G)
+(F) edge node[above]{$o_1$} (G)
 (E) edge node[left]{$f$} (E')
 (F) edge node[right]{$g$} (F')
 (G) edge node[left]{$h$} (G')
-(E) edge node[above]{$i$} (G)
-(E') edge node[above]{$i^\prime$} (G')
-(F') edge node[above]{$o^\prime$} (G');
+(E) edge node[above]{$i_1$} (G)
+(E') edge node[above]{$i_2$} (G')
+(F') edge node[above]{$o_2$} (G');
 \end{tikzpicture}
 \]
-together with a morphism of $k$-graphs $\iota \colon F(h)(K) \to K^\prime$ in $F(V^\prime)$.}
+together with a morphism of $k$-graphs $\iota \colon F(h)(K_1) \to K_2$ in $F(V_2)$.}
 \end{enumerate}
 These two double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph}_k)$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ are equivalent by Theorem \ref{Equiv}.
+
 \subsection{Markov processes}
+In another previous work \cite{BFP}, Fong, Pollard and the first author used decorated cospans to construct a symmetric monoidal category of `open Markov processes'. In this framework, a Markov process on a finite set $N$ is given by a diagram in $\mathrm{Set}$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (3,0) {$(0,\infty)$};
+\node (E) at (4,0) {$E$};
+\node (F) at (5,0) {$N$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [above] {$r$} (D)
+(E) edge [bend left] node [above] {$s$} (F)
+(E) edge [bend right] node [below] {$t$} (F);
+\end{tikzpicture}
+\]
+where $E$ and $N$ are finite sets of edges and nodes, respectively. This is really just a special case of the previous example of passive linear circuits with $k = \mathbb{R}$. An open Markov process is then of course a cospan of finite sets where the apex is equipped with a Markov process:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (B) at (1,0) {$N$};
+\node (C) at (2,0) {$Y$};
+\node (A) at (0,0) {$X$};
+\node (D) at (3,0) {$k^+$};
+\node (E) at (4,0) {$E$};
+\node (F) at (5,0) {$N$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [above] {$r$} (D)
+(E) edge [bend left] node [above] {$s$} (F)
+(E) edge [bend right] node [below] {$t$} (F)
+(A)edge node[above] {$i$}(B)
+(C)edge node[above]{$o$}(B);
+\end{tikzpicture}
+\]
+Fong, Pollard and the first author then add extra structure to open Markov processes such as populations at each node to obtain a symmetric monoidal category $\mathrm{DetlBalMark}$ of open Markov processes in `detailed balance' and then construct a black box functor $\blacksquare \colon \mathrm{DetBalMark} \to \mathrm{LinRel}$ that describes the steady state behavior of an open Markov process in detailed balance. On the way to doing this, one of the categories they construct using Fong's decorated cospan machinery is a symmetric monoidal category $\mathrm{Mark}$ which has:
+\begin{enumerate}
+\item{objects as finite sets and}
+\item{morphisms as isomorphism classes of open Markov processes, where composition is by pushout.}
+\end{enumerate}
+This is done using a symmetric lax monoidal functor $F \colon \mathrm{FinSet} \to \mathrm{Set}$ which assigns to each finite set $N$ the (large) set of all Markov processes on $N$ as defined above. Viewing this functor $F$ as now a symmetric lax monoidal pseudofunctor $F \colon \mathrm{FinSet} \to \mathrm{Cat}$ that assigns to a finite set $N$ the \emph{category} $F(N)$ of all Markov processes on $N$, we then get by Theorem \ref{DC} a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ which has:
+\begin{enumerate}
+\item{finite sets as objects,}
+\item{functions as vertical 1-morphisms,}
+\item{open Markov processes as horizontal 1-cells, and}
+\item{maps of open Markov processes as 2-morphisms which are given by maps of cospans of finite sets:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$X_1$};
+\node (A') at (0,-1) {$X_2$};
+\node (C') at (2,-1) {$Y_2$};
+\node (B) at (1,0) {$N_1$};
+\node (C) at (2,0) {$Y_1$};
+\node (D) at (1,-1) {$N_2$};
+\node (E) at (3,0) {$M_1 \in F(N_1)$};
+\node (E') at (3,-1) {$M_2 \in F(N_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[left]{$f^\prime$} (C')
+(C') edge node [above] {$o_2$} (D)
+(A') edge node [above] {$i_2$} (D)
+(B) edge node [left] {$h$} (D);
+\end{tikzpicture}
+\]
+together with a map of Markov processes $\iota \colon F(h)(M_1) \to M_2$ in $F(N_2)$, where a map between two Markov processes to be given by a pair of functions $(g,h)$ that make the following diagram commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$(0,\infty)$};
+\node (E') at (3,-1) {$(0,\infty)$};
+\node (F) at (4,0) {$E_1$};
+\node (F') at (4,-1) {$E_2$};
+\node (G) at (5,0) {$N_1$};
+\node (G') at (5,-1) {$N_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above] {$r_1$} (E)
+(F) edge [bend left] node [above] {$s_1$} (G)
+(F) edge [bend right] node [below] {$t_1$} (G)
+(F') edge node[above] {$r_2$} (E')
+(F') edge [bend left] node [above] {$s_2$} (G')
+(F') edge [bend right] node [below] {$t_2$} (G')
+(F) edge node [left] {$g$} (F')
+(G) edge node [right] {$h$} (G');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+
+
+
+In a more recent work \cite{BC}, the first two authors have constructed a symmetric monoidal double category of `open Markov processes' and `coarse-grainings', where roughly speaking, a coarse-graining is a way of approximating a larger open Markov process by a smaller one by partitioning the set of states into `lumps'. This construction uses neither decorated cospans nor structured cospans.
 
 \subsection{Petri nets}
 In a previous work, Master and the first author used structured cospans to obtain a symmetric monoidal double category of `open Petri nets'. A Petri net is given by a diagram in $\mathrm{Set}$ of the form:
@@ -4380,20 +4467,20 @@ and}
 \item{2-morphisms as maps of cospans in $\mathrm{Petri}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$L(X)$};
-\node (F) at (5,0) {$L(Y)$};
-\node (G) at (4,0) {$P$};
-\node (E') at (3,-1) {$L(X^\prime)$};
-\node (F') at (5,-1) {$L(Y^\prime)$};
-\node (G') at (4,-1) {$P^\prime$};
+\node (E) at (3,0) {$L(X_1)$};
+\node (F) at (5,0) {$L(Y_1)$};
+\node (G) at (4,0) {$P_1$};
+\node (E') at (3,-1) {$L(X_2)$};
+\node (F') at (5,-1) {$L(Y_2)$};
+\node (G') at (4,-1) {$P_2$};
 \path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$O$} (G)
+(F) edge node[above]{$O_1$} (G)
 (E) edge node[left]{$L(f)$} (E')
 (F) edge node[right]{$L(g)$} (F')
 (G) edge node[left]{$\alpha$} (G')
-(E) edge node[above]{$I$} (G)
-(E') edge node[above]{$I^\prime$} (G')
-(F') edge node[above]{$O^\prime$} (G');
+(E) edge node[above]{$I_1$} (G)
+(E') edge node[above]{$I_2$} (G')
+(F') edge node[above]{$O_2$} (G');
 \end{tikzpicture}
 \]
 }
@@ -4418,22 +4505,22 @@ and}
 \item{2-morphisms as maps of cospans in $\mathrm{Set}$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$X$};
-\node (F) at (5,0) {$Y$};
-\node (G) at (4,0) {$Z$};
-\node (E') at (3,-1) {$X^\prime$};
-\node (F') at (5,-1) {$Y^\prime$};
-\node (G') at (4,-1) {$Z^\prime$};
-\node (A) at (6,0) {$P \in F(Z)$};
-\node (B) at (6,-1) {$P^\prime \in F(Z^\prime)$};
+\node (E) at (3,0) {$X_1$};
+\node (F) at (5,0) {$Y_1$};
+\node (G) at (4,0) {$Z_1$};
+\node (E') at (3,-1) {$X_2$};
+\node (F') at (5,-1) {$Y_2$};
+\node (G') at (4,-1) {$Z_2$};
+\node (A) at (6,0) {$P_1 \in F(Z_1)$};
+\node (B) at (6,-1) {$P_2 \in F(Z_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$o$} (G)
+(F) edge node[above]{$o_1$} (G)
 (E) edge node[left]{$f$} (E')
 (F) edge node[right]{$g$} (F')
 (G) edge node[left]{$h$} (G')
-(E) edge node[above]{$i$} (G)
-(E') edge node[above]{$i^\prime$} (G')
-(F') edge node[above]{$o^\prime$} (G');
+(E) edge node[above]{$i_1$} (G)
+(E') edge node[above]{$i_2$} (G')
+(F') edge node[above]{$o_2$} (G');
 \end{tikzpicture}
 \]
 together with a morphism of Petri nets $\iota \colon F(h)(P) \to P^\prime$ in $F(Z^\prime)$.}
