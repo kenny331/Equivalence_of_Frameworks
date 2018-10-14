@@ -4342,7 +4342,7 @@ where $E$ and $N$ are finite sets of edges and nodes, respectively. This is real
 \node (B) at (1,0) {$N$};
 \node (C) at (2,0) {$Y$};
 \node (A) at (0,0) {$X$};
-\node (D) at (3,0) {$k^+$};
+\node (D) at (3,0) {$(0,\infty)$};
 \node (E) at (4,0) {$E$};
 \node (F) at (5,0) {$N$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -4353,6 +4353,38 @@ where $E$ and $N$ are finite sets of edges and nodes, respectively. This is real
 (C)edge node[above]{$o$}(B);
 \end{tikzpicture}
 \]
+For example:
+\[
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.7cm,
+thick,main node/.style={circle,fill=white!20,draw,font=\sffamily\Large\bfseries},terminal/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]]
+\node[main node](1) {$b_1$};
+\node[main node](2) [left=0.8cm of 1] {$a_1$};.5
+\node[main node](3) [below right=0.7cm and 2.4cm of 1] {$c_2$};
+\node[main node](5) [above right=0.7cm and 2.4cm of 1] {$c_1$};
+\node[main node](4) [above right=0.7cm and 2.4cm of 3] {$d_1$};
+\node(A) [left=1cm of 2,circle,draw,inner sep=1pt,fill=gray,color=purple] {};
+\node(C) [right=1cm of 4,circle,draw,inner sep=1pt,fill=gray,color=purple] {};
+\node[left=1.25 cm of 2,color=purple] {$S$};
+\node[right=1.25 cm of 4,color=purple] {$T$};
+\path[every node/.style={font=\sffamily\small}, shorten >=1pt]
+(3) edge [bend right =15] node[below] {$e_6$} (4)
+(5) edge [bend left =15] node[below] {$e_5$} (4)
+(2) edge [bend left=15] node[below] {$e_1$} (1)
+(1) edge [bend left =15] node[below] {$e_2$} (5)
+(5) edge [bend right =15] node[right] {$e_4$} (3)
+(1) edge [bend right =15] node[below] {$e_3$} (3)
+(3) edge [bend right =15] node[above] {$6$} (4)
+(5) edge [bend left =15] node[above] {$6$} (4)
+(2) edge [bend left=15] node[above] {$5$} (1)
+(1) edge [bend left =15] node[above] {$8$} (5)
+(5) edge [bend right =15] node[left] {$4$} (3)
+(1) edge [bend right =15] node[above] {$8$} (3);
+\path[color=purple, very thick, shorten >=10pt, ->, >=stealth] (C) edge (4);
+\path[color=purple, very thick, shorten >=10pt, ->, >=stealth] (A) edge (2);
+\end{tikzpicture}
+\]
+Here we have an open Markov process on the finite set $N = \{a_1,b_1,c_1,c_2,d_1 \}$ with input and output sets given by the singletons $S$ and $T$, respectively.
+
 Fong, Pollard and the first author then add extra structure to open Markov processes such as populations at each node to obtain a symmetric monoidal category $\mathrm{DetlBalMark}$ of open Markov processes in `detailed balance' and then construct a black box functor $\blacksquare \colon \mathrm{DetBalMark} \to \mathrm{LinRel}$ that describes the steady state behavior of an open Markov process in detailed balance. On the way to doing this, one of the categories they construct using Fong's decorated cospan machinery is a symmetric monoidal category $\mathrm{Mark}$ which has:
 \begin{enumerate}
 \item{objects as finite sets and}
@@ -4406,8 +4438,44 @@ together with a map of Markov processes $\iota \colon F(h)(M_1) \to M_2$ in $F(N
 \]
 }
 \end{enumerate}
-
-
+A symmetric monoidal double category of open Markov processes can also be obtained using structured cospans by defining a functor $L \colon \mathrm{FinSet} \to \mathrm{Mark}$ which assigns to a finite set $N$ the discrete Markov process $L(N)$ with no edges and to a function $f \colon N \to N^\prime$ the induced map of discrete Markov processes. Both categories $\mathrm{FinSet}$ and $\mathrm{Mark}$ have finite colimits and the functor $L$ is left adjoint to the forgetful functor $R \colon \mathrm{Mark} \to \mathrm{FinSet}$ which maps a Markov process to its underlying finite set of states. By Theorem \ref{SC}, we get a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Mark})$ which has:
+\begin{enumerate}
+\item{objects as finite sets,}
+\item{vertical 1-morphisms as functions,}
+\item{horizontal 1-cells as cospans in $\mathrm{Mark}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$L(N_1)$};
+\node (E) at (-2,0) {$M$};
+\node (F) at (-1,0) {$L(N_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$I$} (E)
+(F) edge node [above] {$O$} (E);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms as maps of cospans in $\mathrm{Mark}$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$L(N_1)$};
+\node (F) at (5,0) {$L(N_2)$};
+\node (G) at (4,0) {$M$};
+\node (E') at (3,-1) {$L(N_1^\prime)$};
+\node (F') at (5,-1) {$L(N_2^\prime)$};
+\node (G') at (4,-1) {$M^\prime$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$O$} (G)
+(E) edge node[left]{$L(f_1)$} (E')
+(F) edge node[right]{$L(f_2)$} (F')
+(G) edge node[left]{$(g,h)$} (G')
+(E) edge node[above]{$I$} (G)
+(E') edge node[above]{$I^\prime$} (G')
+(F') edge node[above]{$O^\prime$} (G');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+The two double categories $\mathbb{F}\textnormal{Cospan}(\mathrm{FinSet})$ and $_L \mathbb{C} \textnormal{sp}(\mathrm{Mark})$ are equivalent by Theorem \ref{Equiv}.
 
 In a more recent work \cite{BC}, the first two authors have constructed a symmetric monoidal double category of `open Markov processes' and `coarse-grainings', where roughly speaking, a coarse-graining is a way of approximating a larger open Markov process by a smaller one by partitioning the set of states into `lumps'. This construction uses neither decorated cospans nor structured cospans.
 
