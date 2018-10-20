@@ -44,27 +44,27 @@
 
 \begin{abstract}
 \noindent
-The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, morphisms are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textrm{A} \to \textrm{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textrm{A}$. Horizontal 1-cells are then cospans in $\textrm{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework which also uses cospans and goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textrm{A} \to \textrm{Set}$ is used to `decorate' the apices of cospans in $\textrm{A}$ with elements of $\textrm{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
+The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textrm{A} \to \textrm{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textrm{A}$. Horizontal 1-cells are then cospans in $\textrm{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textrm{A} \to \textrm{Set}$ is used to `decorate' the apices of cospans in $\textrm{A}$ with elements of $\textrm{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
 \end{abstract}
 
 \section{Introduction}
-Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
+Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (C) at (2,0) {$b$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (C) at (2,0) {$a_2$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-We call $c$ the $\textbf{apex}$ of the cospan and $a$ and $b$ the $\textbf{feet}$ of the cospan. The morphisms $i$ and $o$ are called the $\textbf{legs}$. Cospans are ideal for realizing networks and more generally `open' systems where here open means each system or network comes with prescribed inputs and outputs which are represented by the feet of the cospan $a$ and $b$, respectively. Two open systems viewed as cospans such that the outputs of the first and the inputs of the second coincide can then naturally be composed via pushout. For example, we can compose the above cospan with the following:
+We call $b$ the $\textbf{apex}$ of the cospan and $a_1$ and $a_2$ the $\textbf{feet}$ of the cospan. The morphisms $i$ and $o$ are called the $\textbf{legs}$. Cospans are ideal for realizing networks and more generally `open' systems where here open means that each system or network comes with prescribed inputs and outputs which are represented by the feet of the cospan $a$ and $b$, respectively. Two open systems viewed as cospans such that the outputs of the first and the inputs of the second coincide can then naturally be composed via pushout to obtain an open system whose inputs are that of the first and outputs are that of the second. For example, we can compose the above cospan with the following:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$b$};
-\node (B) at (1,1) {$f$};
-\node (C) at (2,0) {$e$};
+\node (A) at (0,0) {$a_2$};
+\node (B) at (1,1) {$b^\prime$};
+\node (C) at (2,0) {$a_3$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i^\prime$} (B)
 (C) edge node[above]{$o^\prime$} (B);
@@ -73,34 +73,34 @@ We call $c$ the $\textbf{apex}$ of the cospan and $a$ and $b$ the $\textbf{feet}
 to obtain a new cospan whose left foot is the left foot of the first, whose right foot is the right foot of the second, and whose apex and legs are given by the pushout.
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,1) {$f$};
-\node (E) at (4,0) {$e$};
-\node (F) at (2,2) {$c+_b f$};
-\node (G) at (2,1.25) {$c+f$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,1) {$b^\prime$};
+\node (E) at (4,0) {$a_3$};
+\node (F) at (2,2) {$b+_{a_2} b^\prime$};
+\node (G) at (2,1) {$b+b^\prime$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
 (C) edge node[above]{$i^\prime$} (D)
 (E) edge node[above]{$o^\prime$} (D)
-(B) edge node[left]{$\psi j_c$} (F)
-(D) edge node[right]{$\psi j_f$} (F)
-(B) edge node[above]{$j_c$} (G)
-(D) edge node[above]{$j_f$} (G)
+(B) edge node[left]{$\psi j_b$} (F)
+(D) edge node[right]{$\psi j_{b^\prime}$} (F)
+(B) edge node[above]{$j_b$} (G)
+(D) edge node[above]{$j_{b^\prime}$} (G)
 (G) edge node [left] {$\psi$} (F);
 \end{tikzpicture}
 \]
 
-In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textrm{A},+,0) \to (\textrm{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textrm{A}$ with an element of the image of its apex under the functor $F$, in the case of the first cospan above, a morphism $d \colon 1 \to F(c)$. Here $F(c)$ is the collection of all $F$-decorations on the object $c$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
+In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textrm{A},+,0) \to (\textrm{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textrm{A}$ with an element of the image of its apex under the functor $F$. In the case of the first cospan above, an element of the image of the apex under the functor $F$ is given by a morphism $d \colon 1 \to F(b)$. Here, $1$ is any terminal object in $\mathrm{Set}$, $F(b)$ is the collection of all $F$-decorations on the object $b$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$I$};
-\node (E) at (4,0) {$F(c)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0) {$F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -110,16 +110,16 @@ In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite
 To obtain a decoration on the composition of two composable $F$-decorated cospans:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (F) at (3,0) {$b$};
-\node (G) at (4,0) {$f$};
-\node (H) at (5,0) {$e$};
-\node (D) at (0.5,-0.5) {$I$};
-\node (E) at (1.5,-0.5) {$F(c)$};
-\node (D') at (3.5,-0.5) {$I$};
-\node (E') at (4.5,-0.5) {$F(f)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (F) at (3,0) {$a_2$};
+\node (G) at (4,0) {$b^\prime$};
+\node (H) at (5,0) {$a_3$};
+\node (D) at (0.5,-0.5) {$1$};
+\node (E) at (1.5,-0.5) {$F(b)$};
+\node (D') at (3.5,-0.5) {$1$};
+\node (E') at (4.5,-0.5) {$F(b^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -129,28 +129,28 @@ To obtain a decoration on the composition of two composable $F$-decorated cospan
 (D') edge node [above] {$d_2$} (E');
 \end{tikzpicture}
 \]
-we use the natural map from a coproduct to a pushout as well as the natural map that comes as part of the structure of a lax monoidal functor:
- $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c) \times F(f) \xrightarrow{\phi_{c,f}} F(c+ f) \xrightarrow{F(j_{c,f})} F(c+_b f).$$
-
+we use the natural map from a coproduct to a pushout as well as the structure maps, or `laxators', that come as part of the structure of a lax monoidal functor:
+ $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+ b^\prime) \xrightarrow{F(j_{b,b^\prime})} F(b+_{a_2} b^\prime).$$
 From this symmetric lax monoidal functor $F \colon \textrm{A} \to \mathrm{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\mathrm{A})$ which has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$ and}
-\item{morphisms as isomorphism classes of $F$-decorated cospans, where an $F$-decorated cospan is given as above, and two $F$-decorated cospans are in the same isomorphism class if there exists an isomorphism between the apices such that the following diagrams commute:
+\item{morphisms as isomorphism classes of $F$-decorated cospans, where an $F$-decorated cospan is given as above, and two $F$-decorated cospans are in the same isomorphism class if there exists an isomorphism $f \colon b \to b^\prime$ between the apices such that the following diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C) at (2,0) {$b$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (B') at (1,-1) {$b^\prime$};
+\node (C) at (2,0) {$a_2$};
 \node (D) at (3,0) {$1$};
-\node (E) at (4,0.5) {$F(c)$};
-\node (E') at (4,-0.5) {$F(c^\prime)$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
 (A) edge node[below]{$i^\prime$} (B')
 (C) edge node[below]{$o^\prime$} (B')
 (B) edge node [left] {$f$} (B')
+(B) edge node [right] {$\sim$} (B')
 (D) edge node [above] {$d$} (E)
 (D) edge node [below] {$d^\prime$} (E')
 (E) edge node [right] {$F(f)$} (E');
@@ -158,26 +158,69 @@ From this symmetric lax monoidal functor $F \colon \textrm{A} \to \mathrm{Set}$,
 \]
 }
 \end{enumerate}
-There are some subtleties to this approach. To illustrate, consider the example where $F \colon \textrm{FinSet} \to \textrm{Set}$ is the symmetric lax monoidal functor that assigns to a finite set $N$ the (large) set of all possible graph structures on the finite set $N$, where a graph structure on $N$ is given by a diagram in $\textrm{Set}$ of the form:
+
+
+As an example, let $F \colon \textrm{FinSet} \to \textrm{Set}$ be the symmetric lax monoidal functor that assigns to a finite set $b$ the (large) set of all possible graph structures on the finite set $b$, where a graph structure on $b$ is given by a diagram in $\textrm{Set}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
-\node (B) at (1,0) {$N.$};
+\node (B) at (1,0) {$b.$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge[bend left] node[above]{$s$} (B)
 (A) edge[bend right] node[below]{$t$} (B);
 \end{tikzpicture}
 \]
-Let $N=\{ v_1,v_2 \}$ be a two element set. Then one element of the set $F(N)$, in other words, one possible decoration, which is a graph structure, on the set $N$ is given by a single edge $e$ whose source and target are $v_1$ and $v_2$, respectively.
+Let $b=\{ v_1,v_2 \}$ be a two element set. Then one element of the (large) set $F(b)$, which is the collection of all graph structures on the finite set $b$, is given by a single edge $e$ whose source and target are $v_1$ and $v_2$, respectively.
 \[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$v_1$};
-\node (B) at (1,0) {$v_2$};
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+  \node [style={circle,fill=teal}] (n1) at (1,10) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,10)  {$v_2$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$e$} (B);
+(n1) edge node[above]{$e$} (n2);
 \end{tikzpicture}
 \]
-Denote this element of $F(N)$ as $d$. We could label the edge $e$ something else, for instance, $e^\prime$, and this single edge would another element of $F(N)$.
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$v_1$};
+%\node (B) at (1,0) {$v_2$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$e$} (B);
+%\end{tikzpicture}
+%\]
+Denote this element of $F(b)$ as $d \colon 1 \to F(b)$. Let $a_1=\{ 1 \}$ and $a_2=\{2,3\}$ and define functions $i \colon a_1 \to b$ and $o \colon a_2 \to b$ by $i(1)=v_1$ and $o(2)=o(3)=v_2$. Then we have an $F$-decorated cospan: 
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0) {$F(b)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(D) edge node [above] {$d$} (E);
+\end{tikzpicture}
+\]
+which is given by the open graph:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (a) at (-2,10) {$1$};
+\node (b) at (7,10.5) {$2$};
+\node (c) at (7,9.5) {$3$};
+\node (i) at (-0.5,11) {$i$};
+\node (o) at (5.5,11) {$o$};
+  \node [style={circle,fill=teal}] (n1) at (1,10) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,10)  {$v_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed,bend right] node[below] {$$} (n2)
+(c) edge[dashed,bend left] node[above] {$$} (n2)
+(n1) edge node[above]{$e$} (n2);
+\end{tikzpicture}
+\]
+We could label the edge $e$ something else, for instance, $e^\prime$, and this single edge would another element of $F(N)$.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$v_1$};
