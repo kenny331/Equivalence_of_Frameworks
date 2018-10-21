@@ -215,11 +215,133 @@ which is given by the open graph:
   \node[style={circle,fill=teal}] (n2) at (4,10)  {$v_2$};
 \path[->,font=\scriptsize,>=angle 90]
 (a) edge[dashed] node[above] {$$} (n1)
-(b) edge[dashed,bend right] node[below] {$$} (n2)
-(c) edge[dashed,bend left] node[above] {$$} (n2)
+(b) edge[dashed] node[below] {$$} (n2)
+(c) edge[dashed] node[above] {$$} (n2)
 (n1) edge node[above]{$e$} (n2);
 \end{tikzpicture}
 \]
+We can compose this open graph with another whose set inputs coincide with the set of outputs of the above open graph, namely the set $a_2=\{2,3\}$. For example:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+%\node (a) at (-2,10) {$1$};
+\node (b) at (7,10.5) {$2$};
+\node (c) at (7,9.5) {$3$};
+%\node (i) at (-0.5,11) {$i$};
+\node (o) at (8.5,11.5) {$i^\prime$};
+\node (d) at (16,10) {$4$};
+\node (e) at (14.5,11.5) {$o^\prime$};
+  \node [style={circle,fill=teal}] (n1) at (10,11.5) {$v_4$};
+  \node[style={circle,fill=teal}] (n2) at (10,8.5)  {$v_3$};
+  \node[style={circle,fill=teal}] (n3) at (13,10)  {$v_5$};
+\path[->,font=\scriptsize,>=angle 90]
+%(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed] node[below] {$$} (n1)
+(c) edge[dashed] node[above] {$$} (n2)
+(n1) edge[bend left] node[above]{$e_2$} (n3)
+(n3) edge[bend left] node[below]{$e_3$} (n2)
+(n2) edge[bend left] node[left]{$e_1$} (n1)
+(d) edge[dashed] node[above]{$$}(n3);
+\end{tikzpicture}
+\]
+This second open graph can be represented by the $F$-decorated cospan:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_2$};
+\node (B) at (1,0) {$b^\prime$};
+\node (C) at (2,0) {$a_3$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0) {$F(b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i^\prime$} (B)
+(C) edge node[above]{$o^\prime$} (B)
+(D) edge node [above] {$d^\prime$} (E);
+\end{tikzpicture}
+\]
+The composite of these two open graphs is then given by:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (a) at (-2,10) {$1$};
+%\node (b) at (7,10.5) {$2$};
+\node (c) at (10,10) {$4$};
+\node (i) at (-0.5,11) {$i$};
+\node (o) at (8.5,11) {$o^\prime$};
+  \node [style={circle,fill=teal}] (n1) at (1,10) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,10)  {$v_2$};
+  \node[style={circle,fill=teal}] (n3) at (7,10)  {$v_5$};
+\path[->,font=\scriptsize,>=angle 90]
+(a) edge[dashed] node[above] {$$} (n1)
+%(b) edge[dashed] node[below] {$$} (n2)
+(c) edge[dashed] node[above] {$$} (n3)
+(n1) edge node[above]{$e$} (n2)
+(n2) edge[bend left] node[above]{$e_2$} (n3)
+(n2) edge[loop below]node{$e_1$} (n2)
+(n3) edge[bend left] node[below]{$e_3$} (n2);
+\end{tikzpicture}
+\]
+where we identify $v_2=v_3=v_4$ in taking the pushout of the two cospans of finite sets. The composite open graph is represented by the $F$-decorated cospan:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1.25,0) {$b+_{a_2}b^\prime$};
+\node (C) at (2.5,0) {$a_3$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0) {$F(b+_{a_2}b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\psi j_b i$} (B)
+(C) edge node[above]{$\psi j_{b^\prime} o^\prime$} (B)
+(D) edge node [above] {$d''$} (E);
+\end{tikzpicture}
+\]
+where $j$ is the natural map into a coproduct and $\psi$ the natural map from a coproduct into a pushout. 
+
+We can also consider the above two open graphs in parallel:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (a') at (7,12.5) {$1$};
+\node (b') at (16,12.5) {$2$};
+\node (c') at (16,11.5) {$3$};
+\node (i') at (8.5,13.5) {$i+i^\prime$};
+\node (o') at (14.5,13.5) {$o+o^\prime$};
+  \node [style={circle,fill=teal}] (n1') at (10,13) {$v_1$};
+  \node[style={circle,fill=teal}] (n2') at (13,13)  {$v_2$};
+\node (b) at (7,11.5) {$2$};
+\node (c) at (7,10.5) {$3$};
+\node (d) at (16,10.5) {$4$};
+  \node [style={circle,fill=teal}] (n1) at (10,11.5) {$v_4$};
+  \node[style={circle,fill=teal}] (n2) at (10,8.5)  {$v_3$};
+  \node[style={circle,fill=teal}] (n3) at (13,10)  {$v_5$};
+\path[->,font=\scriptsize,>=angle 90]
+(a') edge[dashed] node[above] {$$} (n1')
+(b') edge[dashed] node[below] {$$} (n2')
+(c') edge[dashed] node[above] {$$} (n2')
+(n1') edge node[above]{$e$} (n2')
+(b) edge[dashed] node[below] {$$} (n1)
+(c) edge[dashed] node[above] {$$} (n2)
+(n1) edge[bend left] node[above]{$e_2$} (n3)
+(n3) edge[bend left] node[below]{$e_3$} (n2)
+(n2) edge[bend left] node[left]{$e_1$} (n1)
+(d) edge[dashed] node[above]{$$}(n3);
+\end{tikzpicture}
+\]
+which is represented by the tensor product of the above two $F$-decorated cospans:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1+a_2$};
+\node (B) at (1.25,0) {$b+b^\prime$};
+\node (C) at (2.5,0) {$a_2+a_3$};
+\node (D) at (3.5,0) {$1$};
+\node (E) at (4.5,0) {$F(b+b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i+i^\prime$} (B)
+(C) edge node[above]{$o+ o^\prime$} (B)
+(D) edge node [above] {$d+d^\prime$} (E);
+\end{tikzpicture}
+\]
+
+There are some subtleties to this framework...
 We could label the edge $e$ something else, for instance, $e^\prime$, and this single edge would another element of $F(N)$.
 \[
 \begin{tikzpicture}[scale=1.5]
