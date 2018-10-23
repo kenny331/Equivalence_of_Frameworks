@@ -4,7 +4,6 @@
 \documentclass{amsart}
 \input{Equiv_preamble.tex}
 \usepackage[foot]{amsaddr}
-\usepackage{comment}
 
 \title{An equivalence of compositional frameworks}
 
@@ -59,7 +58,8 @@ The first two authors have developed a compositional framework well-suited for s
 
 \tableofcontents
 
-
+\section*{Various issues-in-progress}
+{\chris If Kenny likes, we can use this as a section for all the current issues that need to be resolved, or what we are currently working on or something!}
 
 \section{Introduction}
 Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
@@ -3266,6 +3266,8 @@ and}
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 \end{enumerate}
 We now show that these two symmetric monoidal double categories are equivalent. 
+
+{\chris Statement of Theorem, and proof, will be heavily edited soon!}
 \begin{thm}\label{Equiv}
 Let $\mathrm{A}$ and $\mathrm{X}$ be categories with finite colimits and $F \colon \mathrm{A} \to \mathbf{Cat}$ a symmetric lax monoidal pseudofunctor. Let $L \colon \mathrm{A} \to \int{F} \cong \mathrm{X}$ be the left adjoint of the Grothendieck construction $R \colon \int{F} \to \mathrm{A}$ of $F$. Then the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ utilizing structured cospans and the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ utilizing decorated cospans are equivalent as symmetric monoidal double categories.
 \end{thm}
@@ -5245,7 +5247,7 @@ In a pseudo double category, the second equation above requires an insertion of 
   1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 \section{Acknowledgements}
-Daniel Cicala, person that Christina emailed about lax slice category?
+Daniel Cicala, person that Christina emailed about lax slice category? {\chris did you use it after all?}
 \begin{thebibliography}{100}
 
 \bibitem{BC} J.\ C.\ Baez and K.\ Courser, Coarse-graining open Markov processes. Available as \href{https://arxiv.org/abs/1710.11343}{arXiv:1710.11343}.
