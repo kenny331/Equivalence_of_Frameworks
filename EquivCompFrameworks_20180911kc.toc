@@ -1,0 +1,13 @@
+\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}
+\contentsline {section}{\tocsection {}{2}{A symmetric monoidal double category of decorated cospans}}{7}{section.2}
+\contentsline {section}{\tocsection {}{3}{Maps of decorated cospan double categories}}{23}{section.3}
+\contentsline {section}{\tocsection {}{4}{From pseudofunctors to left adjoints}}{31}{section.4}
+\contentsline {section}{\tocsection {}{5}{An equivalence of symmetric monoidal double categories}}{33}{section.5}
+\contentsline {section}{\tocsection {}{6}{Applications}}{46}{section.6}
+\contentsline {subsection}{\tocsubsection {}{6.1}{Graphs}}{46}{subsection.6.1}
+\contentsline {subsection}{\tocsubsection {}{6.2}{Passive linear circuits}}{47}{subsection.6.2}
+\contentsline {subsection}{\tocsubsection {}{6.3}{Markov processes}}{49}{subsection.6.3}
+\contentsline {subsection}{\tocsubsection {}{6.4}{Petri nets}}{51}{subsection.6.4}
+\contentsline {section}{\tocsection {}{7}{Appendix}}{52}{section.7}
+\contentsline {section}{\tocsection {}{8}{Acknowledgements}}{56}{section.8}
+\contentsline {section}{\tocsection {}{}{References}}{56}{section*.2}

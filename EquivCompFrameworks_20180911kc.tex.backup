@@ -3,26 +3,12 @@
 % 2019/09/11 - KC
 \documentclass{amsart}
 \input{Equiv_preamble.tex}
-\usepackage[foot]{amsaddr}
-\usepackage{comment}
 
 \title{An equivalence of compositional frameworks}
 
-\author{John\ C.\ Baez$^{*,\bullet}$, Kenny Courser$^*$, and Christina Vasilakopoulou$^*$}
-\address{$^*$Department of Mathematics, University of California, Riverside CA, USA 92521}
-\address{$^\bullet$Centre for Quantum Technologies, National University of Singapore, Singapore 117543}
-\email{baez@ucr.edu, kcour001@ucr.edu, vasilak@ucr.edu}
-
-
 \begin{document}
-\begin{abstract}
-\noindent
-The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textrm{A} \to \textrm{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textrm{A}$. Horizontal 1-cells are then cospans in $\textrm{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textrm{A} \to \textrm{Set}$ is used to `decorate' the apices of cospans in $\textrm{A}$ with elements of $\textrm{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
-\end{abstract}
-
 \maketitle
 
-\begin{comment}
 \begin{center}   
  % {\bf Structured cospans \\}   
   \vspace{0.3cm}
@@ -55,11 +41,13 @@ The first two authors have developed a compositional framework well-suited for s
   {\small \today}
   \vspace{0.3cm}   
 \end{center}   
-\end{comment}
+
+\begin{abstract}
+\noindent
+The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textrm{A} \to \textrm{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textrm{A}$. Horizontal 1-cells are then cospans in $\textrm{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textrm{A} \to \textrm{Set}$ is used to `decorate' the apices of cospans in $\textrm{A}$ with elements of $\textrm{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
+\end{abstract}
 
 \tableofcontents
-
-
 
 \section{Introduction}
 Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
