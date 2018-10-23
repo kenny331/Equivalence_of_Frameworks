@@ -5,4 +5,5 @@
 *.aux
 *.bbl
 *.out
-
+*.toc
+*.backup
