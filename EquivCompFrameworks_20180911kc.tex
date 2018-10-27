@@ -110,7 +110,7 @@ to obtain a new cospan whose left foot is the left foot of the first, whose righ
 \end{tikzpicture}
 \]
 
-In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textrm{A},+,0) \to (\textrm{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textrm{A}$ with an element of the image of its apex under the functor $F$. In the case of the first cospan above, an element of the image of the apex under the functor $F$ is given by a morphism $d \colon 1 \to F(b)$. Here, $1$ is any terminal object in $\mathrm{Set}$, $F(b)$ is the collection of all $F$-decorations on the object $b$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
+In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textrm{A},+,0) \to (\textrm{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textrm{A}$ with an element of the image of its apex under the functor $F$. In the case of the first cospan above, an element of the image of the apex under the functor $F$ is given by a morphism $d \colon 1 \to F(b)$, and we call $d$ a \textbf{decoration} on $b$. Here, $1$ is any terminal object in $\mathrm{Set}$, $F(b)$ is the collection of all $F$-decorations on the object $b$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -358,7 +358,105 @@ which is represented by the tensor product of the above two $F$-decorated cospan
 \end{tikzpicture}
 \]
 
-There are some subtleties to this framework...Also, the second author in a previous work extended...
+There are some subtleties to this framework; consider two decorated cospans with the same inputs and outputs.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (F) at (3,0) {$a_1$};
+\node (G) at (4,0) {$b^\prime$};
+\node (H) at (5,0) {$a_2$};
+\node (D) at (0.5,-0.5) {$1$};
+\node (E) at (1.5,-0.5) {$F(b)$};
+\node (D') at (3.5,-0.5) {$1$};
+\node (E') at (4.5,-0.5) {$F(b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(F) edge node[above]{$i^\prime$} (G)
+(H) edge node[above]{$o^\prime$} (G)
+(D) edge node [above] {$d$} (E)
+(D') edge node [above] {$d^\prime$} (E');
+\end{tikzpicture}
+\]
+For these two $F$-decorated cospans to be in the same isomorphism class, the following triangle is to commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$d$} (E)
+(D) edge node [below] {$d^\prime$} (E')
+(E) edge node [right] {$F(f)$} (E');
+\end{tikzpicture}
+\]
+This commutative triangle in $\mathsf{Set}$ in the context of the symmetric lax monoidal functor $F \colon \mathsf{FinSet} \to \mathsf{Set}$ says the following: given a decoration $d \in F(b)$, which is a graph structure with underlying set of vertices $b$, the function $F(f)$ pushes forward the graph structure $d$ to the graph structure $d^\prime \in F(b^\prime)$ with underlying set of vertices $b^\prime$, and \emph{precisely} this graph structure. The graph structure is given by set of edges of $d$. For example, if we take $b = \{v_1 ,v_2\}$ as before and let $d \in F(b)$ be given by:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (a) at (-2,10) {$1$};
+\node (b) at (7,10) {$2$};
+\node (i) at (-0.5,11) {$i$};
+\node (o) at (5.5,11) {$o$};
+  \node [style={circle,fill=teal}] (n1) at (1,10) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,10)  {$v_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed] node[below] {$$} (n2)
+(n1) edge node[above]{$e$} (n2);
+\end{tikzpicture}
+\]
+Let $b^\prime = \{w_1,w_2\}$ and a define bijection $f \colon b \to b^\prime$ by $f(v_i)=w_i$ for $i=1,2$. Then the requirement $F(f)(d)=d^\prime$ says that $d^\prime \in F(b^\prime)$ must be given by:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (a) at (-2,10) {$1$};
+\node (b) at (7,10) {$2$};
+\node (i) at (-0.5,11) {$i^\prime$};
+\node (o) at (5.5,11) {$o^\prime$};
+  \node [style={circle,fill=teal}] (n1) at (1,10) {$w_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,10)  {$w_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed] node[below] {$$} (n2)
+(n1) edge node[above]{$e$} (n2);
+\end{tikzpicture}
+\]
+The point to be made here is that the single edge of $d^\prime$ must also be $e$. If we were to label it say, $e^\prime$, there is no bijection $f \colon b \to b^\prime$ such that the triangle on the right commutes, and hence no isomorphism between these two $F$-decorated cospans.
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+\node (D) at (9,11.5) {$1$};
+\node (E) at (11,12.5) {$F(b)$};
+\node (E') at (11,10.5) {$F(b^\prime)$};
+\node (a) at (-2,11.5) {$1$};
+\node (b) at (7,11.5) {$2$};
+\node (i) at (-0.5,12.5) {$i$};
+\node (o) at (5.5,12.5) {$o$};
+\node (i') at (-0.5,10.5) {$i^\prime$};
+\node (o') at (5.5,10.5) {$o^\prime$};
+\node (A) at (2.5,11.5) {$\nexists F(f) \Downarrow$};
+  \node [style={circle,fill=teal}] (n1) at (1,13) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,13)  {$v_2$};
+  \node [style={circle,fill=red}] (n1') at (1,10) {$w_1$};
+  \node[style={circle,fill=red}] (n2') at (4,10)  {$w_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$d$} (E)
+(D) edge node [below] {$d^\prime$} (E')
+(E) edge[dashed] node [right] {$\nexists F(f)$} (E')
+(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed] node[above] {$$} (n2)
+(a) edge[dashed] node[below] {$$} (n1')
+(b) edge[dashed] node[below] {$$} (n2')
+(n1) edge node[above]{$e$} (n2)
+(n1') edge node[above]{$e^\prime$} (n2');
+\end{tikzpicture}
+\]
+Thus these two $F$-decorated cospans constitute distinct isomorphism classes. This nuisance is amplified when viewed from a higher categorical perspective.
+
+The second author in a previous work extended...
 
 We could label the edge $e$ something else, for instance, $e^\prime$, and this single edge would another element of $F(N)$.
 \[
