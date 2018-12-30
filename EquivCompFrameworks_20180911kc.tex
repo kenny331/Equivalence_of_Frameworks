@@ -423,20 +423,84 @@ The point to be made here is that the single edge of $d^\prime$ must also be $e$
 \]
 Thus these two $F$-decorated cospans constitute distinct isomorphism classes. This nuisance is amplified when viewed from a higher categorical perspective.
 
-The second author in a previous work extended...
-
-We could label the edge $e$ something else, for instance, $e^\prime$, and this single edge would another element of $F(N)$.
+In a previous work, the second author extended Fong's theory of decorated cospans to a symmetric monoidal bicategory of decorated cospans \cite{Cour}. Namely, under the same hypotheses used by Fong amounting to a category $\mathsf{A}$ with finite colimits and a symmetric lax monoidal functor $F \colon (\mathsf{A},+,0) \to (\mathsf{Set}, \times, 1)$, there exists a symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{A})$ which has:
+\begin{enumerate}
+\item objects as those of $\mathsf{A}$,
+\item morphisms as $F$-decorated cospans in $\mathsf{A}$, which again are pairs
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$v_1$};
-\node (B) at (1,0) {$v_2$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0) {$F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$e^\prime$} (B);
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(D) edge node [above] {$d$} (E);
 \end{tikzpicture}
 \]
-Denote this second element of $F(N)$ as $d^\prime$. These two graphs constitute distinct isomorphism classes in the symmetric monoidal category $F$Cospan$(\textrm{FinSet})$, as $f=\id_N$ and thus $F(f)=\id_{F(N)}$, but clearly $d \neq d^\prime$. The issue here is that the functor $F$ is decorating each finite set $N$ not only with extra structure, but with extra \emph{stuff}. Moreover, the finite set $N$ is being decorated with \emph{different} stuff in each instance and this difference in stuff is not entirely detected by the function $F(f)$. This phenomenon doesn't occur when the decorations only involve extra structure, and this has been utilized in other works \cite{BFP,BP,Yass}.
+and
+\item 2-morphisms as pairs of commuting diagrams where the left diagram is a map of cospans in $\mathsf{A}$ and the right diagram is a commutative triangle in $\mathsf{Set}$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (B') at (1,-1) {$b^\prime$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node[below]{$i^\prime$} (B')
+(C) edge node[below]{$o^\prime$} (B')
+(B) edge node [left] {$f$} (B')
+%(B) edge node [right] {$\sim$} (B')
+(D) edge node [above] {$d$} (E)
+(D) edge node [below] {$d^\prime$} (E')
+(E) edge node [right] {$F(f)$} (E');
+\end{tikzpicture}
+\]
+\end{enumerate}
+Returning to the previous example where we take the functor $F$ to be the functor $F \colon \mathsf{FinSet} \to \mathsf{Set}$, the situation becomes more dire. Previously, in the ordinary symmetric monoidal category $F$Cospan$(\mathsf{FinSet})$ the following two $F$-decorated cospans resided in distinct isomorphism classes:
+\[
+\begin{tikzpicture}
+  [scale=.8,auto=left]
+%\node (D) at (9,11.5) {$1$};
+\node (E) at (9,13) {$d \in F(b)$};
+\node (E') at (9,10) {$d^\prime \in F(b^\prime)$};
+\node (a) at (-2,13) {$1$};
+\node (a') at (-2,10) {$1$};
+\node (b) at (7,13) {$2$};
+\node (b') at (7,10) {$2$};
+\node (i) at (-0.5,13.5) {$i$};
+\node (o) at (5.5,13.5) {$o$};
+\node (i') at (-0.5,10.5) {$i^\prime$};
+\node (o') at (5.5,10.5) {$o^\prime$};
+%\node (A) at (2.5,11.5) {$\nexists F(f) \Downarrow$};
+  \node [style={circle,fill=teal}] (n1) at (1,13) {$v_1$};
+  \node[style={circle,fill=teal}] (n2) at (4,13)  {$v_2$};
+  \node [style={circle,fill=red}] (n1') at (1,10) {$w_1$};
+  \node[style={circle,fill=red}] (n2') at (4,10)  {$w_2$};
+\path[->,font=\scriptsize,>=angle 90]
+%(D) edge node [above] {$d$} (E)
+%(D) edge node [below] {$d^\prime$} (E')
+%(E) edge[dashed] node [right] {$\nexists F(f)$} (E')
+(a) edge[dashed] node[above] {$$} (n1)
+(b) edge[dashed] node[above] {$$} (n2)
+(a') edge[dashed] node[below] {$$} (n1')
+(b') edge[dashed] node[below] {$$} (n2')
+(n1) edge node[above]{$e$} (n2)
+(n1') edge node[above]{$e^\prime$} (n2');
+\end{tikzpicture}
+\]
+In the symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{FinSet})$, the above two $F$-decorated cospans are two morphisms - with \emph{no 2-morphism between them!} The culprit for this is the same as before - the requirement that the triangle of decorations in $\mathsf{Set}$ commute `on the nose'. In this paper we construct a similar symmetric monoidal bicategory $F$Csp which will remedy this situation, and whose decategorification will remedy the analogous problem for decorated cospan categories above. 
 
-One approach to remedying this nuisance is to instead view $F$ as a functor $F \colon \textrm{A} \to \mathbf{Cat}$ and then consider $F(c)$ not as a \emph{set} of decorations on the element $c$ but as a \emph{category} of decorations on the element $c$. Then one can construct a similar symmetric monoidal category similar to Fong's, which will be called $D(H(\mathbb{F}\textnormal{Cospan}(\mathrm{A})))$ for reasons that will be explained later. This symmetric monoidal category will have:
+It is worth noting that in both examples involving sets and graphs above, we are decorating each finite set with extra \emph{stuff}. This phenomenon does not occur when the decorations only involve extra structure, and this has been utilized in other works \cite{BFP,BP,Yass}.
+
+Our approach is to instead view the functor $F$ as a pseudofunctor $F \colon \textrm{A} \to \mathbf{Cat}$ and then consider $F(a)$ not as a \emph{set} of decorations on the object $a$ but as a \emph{category} of decorations on the element $a$. Then we first construct a symmetric monoidal double category $F \mathbb{C}$sp. This symmetric monoidal double category will have:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$ and}
 \item{morphisms as isomorphism classes of cospans of $\mathrm{A}$ together with an element of image of the apex under the functor $F$.
