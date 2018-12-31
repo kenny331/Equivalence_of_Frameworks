@@ -465,7 +465,7 @@ and
 \]
 \end{enumerate}
 Returning to the previous example where we take the functor $F$ to be the functor $F \colon \mathsf{FinSet} \to \mathsf{Set}$, the situation becomes more dire. Previously, in the ordinary symmetric monoidal category $F$Cospan$(\mathsf{FinSet})$ the following two $F$-decorated cospans resided in distinct isomorphism classes:
-\[
+\begin{equation}\label{eqn:no2morphism}
 \begin{tikzpicture}
   [scale=.8,auto=left]
 %\node (D) at (9,11.5) {$1$};
@@ -495,26 +495,117 @@ Returning to the previous example where we take the functor $F$ to be the functo
 (n1) edge node[above]{$e$} (n2)
 (n1') edge node[above]{$e^\prime$} (n2');
 \end{tikzpicture}
-\]
+\end{equation}
 In the symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{FinSet})$, the above two $F$-decorated cospans are two morphisms - with \emph{no 2-morphism between them!} The culprit for this is the same as before - the requirement that the triangle of decorations in $\mathsf{Set}$ commute `on the nose'. In this paper we construct a similar symmetric monoidal bicategory $F$Csp which will remedy this situation, and whose decategorification will remedy the analogous problem for decorated cospan categories above. 
 
 It is worth noting that in both examples involving sets and graphs above, we are decorating each finite set with extra \emph{stuff}. This phenomenon does not occur when the decorations only involve extra structure, and this has been utilized in other works \cite{BFP,BP,Yass}.
 
-Our approach is to instead view the functor $F$ as a pseudofunctor $F \colon \textrm{A} \to \mathbf{Cat}$ and then consider $F(a)$ not as a \emph{set} of decorations on the object $a$ but as a \emph{category} of decorations on the element $a$. Then we first construct a symmetric monoidal double category $F \mathbb{C}$sp. This symmetric monoidal double category will have:
+Our approach is to instead view the functor $F$ as a pseudofunctor $F \colon \textrm{A} \to \mathbf{Cat}$ and take advantage of the 2-categorical structure of $\mathbf{Cat}$. Given an object $a \in \mathsf{A}$, this then allows us to view $F(a)$ not as a \emph{set} of decorations on the object $a$ but as a \emph{category} of decorations on the object $a$. From this pseudofunctor, we construct a symmetric monoidal double category $F \mathbb{C}$sp. Double categories were first introduced by Ehresmann \cite{Ehresmann63, Ehresmann65} and symmetric monoidal double categories by Shulman \cite{Shul}. They have long been used in topology and other branches of pure mathematics \cite{Brown1,Brown2}.  More recently they have been used to study open dynamical systems \cite{LS} and open Markov processes \cite{BC}. While a mere category has only objects and morphisms, a double category has a few more types of entities:
+\[
+\begin{tikzpicture}[scale=1]
+\node (D) at (-4,0.5) {$A$};
+\node (E) at (-2,0.5) {$B$};
+\node (F) at (-4,-1) {$C$};
+\node (A) at (-2,-1) {$D$};
+\node (B) at (-3,-0.25) {$\Downarrow a$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above]{$M$}(E)
+(E) edge node [right]{$g$}(A)
+(D) edge node [left]{$f$}(F)
+(F) edge node [above]{$N$} (A);
+\end{tikzpicture}
+\]
+We call $A, B, C$ and $D$ `objects', $f$ and $g$ `vertical 1-morphisms', $M$ and $N$ `horizontal 1-cells', and $a$ a `2-morphism'.   We can compose vertical 1-morphisms to get new vertical 1-morphisms and compose horizontal 1-cells to get new horizontal 1-cells.  We can compose the 2-morphisms in two ways: horizontally by setting squares side by side, and vertically by setting one on top of the other.   In a `strict' double category all these forms of composition are associative.  In a `pseudo' double category, horizontal 1-cells compose in a weakly associative manner: that is, the associative law holds only up to an invertible 2-morphism, called the `associator', which obeys a coherence law.
+
+The symmetric monoidal double category $F \mathbb{C}$sp we construct has:
 \begin{enumerate}
-\item{objects as those of $\mathrm{A}$ and}
-\item{morphisms as isomorphism classes of cospans of $\mathrm{A}$ together with an element of image of the apex under the functor $F$.
+\item{objects as those of $\mathrm{A}$,}
+\item{vertical 1-morphisms as morphisms of $\mathrm{A}$,}
+\item{horizontal 1-cells as $F$-decorated cospans in $\mathrm{A}$
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$d \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
+and}
+\item{2-morphisms as maps of cospans together with a natural transformation.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1'$};
+\node (B) at (1,0.5) {$b$};
+\node (B') at (1,-0.5) {$b^\prime$};
+\node (C) at (2,0.5) {$a_2$};
+\node (C') at (2,-0.5) {$a_2;$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
+\node (F) at (3.65,0) {$\Swarrow \iota$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node {$$} (A')
+(C) edge node {$$} (C')
+(A') edge node[above]{$i^\prime$} (B')
+(C') edge node[above]{$o^\prime$} (B')
+(B) edge node [left] {$f$} (B')
+(D) edge node [above] {$d$} (E)
+(D) edge node [below] {$d^\prime$} (E')
+(E) edge node [right] {$F(f)$} (E');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+Note that the natural transformation is a family of morphisms in the category $F(b^\prime)$ indexed by $1$, and so is the same as just a morphism $\iota \colon F(f)(d) \to d^\prime$ in $F(b^\prime)$. We will typically write the transformation $\iota$ in later sections as a morphism in $F(b^\prime)$ to conserve space. In the context of the example above involving graphs, this morphism $\iota$ will be a map between two possibly distinct sets of edges and thus already solves the problem.
+
+This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $H(F \mathbb{C}\textnormal{sp})$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $H(F \mathbb{C}\textnormal{sp})$ has:
+\begin{enumerate}
+\item{objects as those of $\mathrm{A}$,}
+\item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\mathsf{A}$
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$d \in F(b)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms as maps of cospans with the same feet together with a natrual transformation.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (B') at (1,-1) {$b^\prime$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$1$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
+\node (F) at (3.65,0) {$\Swarrow \iota$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node[below]{$i^\prime$} (B')
+(C) edge node[below]{$o^\prime$} (B')
+(B) edge node [left] {$f$} (B')
+(D) edge node [above] {$d$} (E)
+(D) edge node [below] {$d^\prime$} (E')
+(E) edge node [right] {$F(f)$} (E');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+This bicategory $H(F\mathbb{C}\textnormal{sp})$ is superior to the original bicategory $F$Cospan$(A)$ constructed by the second author \cite{Cour} in that it has the 2-morphisms that one would expect such a bicategory to have, such as \ref{eqn:no2morphism}. \textbf{marker}
+
 Except now, given another morphism:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -528,29 +619,10 @@ Except now, given another morphism:
 \end{tikzpicture}
 \]
 these two morphisms are in the same isomorphism class if the following diagrams commute
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$1$};
-\node (E) at (4,0.5) {$F(c)$};
-\node (E') at (4,-0.5) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A) edge node[below]{$i^\prime$} (B')
-(C) edge node[below]{$o^\prime$} (B')
-(B) edge node [left] {$f$} (B')
-(D) edge node [above] {$d$} (E)
-(D) edge node [below] {$d^\prime$} (E')
-(E) edge node [right] {$F(f)$} (E');
-\end{tikzpicture}
-\]
+
 and there exists an isomorphism $\iota \colon F(f)(d) \to d^\prime$ in the category $F(c^\prime)$.
-}
-\end{enumerate}
+
+
 Note that the existence of an isomorphism $\iota \colon F(f)(d) \to d^\prime$ is equivalent to the triangle above on the right commuting up to a 2-isomorphism.
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -607,22 +679,7 @@ to:
 \]
 Morally speaking, these two simple single-edged graphs should belong to the same isomorphism class, as there is a natural isomorphism of graphs between them.
 
-In the present work, we construct a symmetric monoidal `double category' $\mathbb{F}\textnormal{Cospan}(\textrm{A})$. Double categories were first introduced by Ehresmann \cite{Ehresmann63, Ehresmann65} and symmetric monoidal double categories by Shulman \cite{Shul}. They have long been used in topology and other branches of pure mathematics \cite{Brown1,Brown2}.  More recently they have been used to study open dynamical systems \cite{LS} and open Markov processes \cite{BC}. While a mere category has only objects and morphisms, a double category has a few more types of entities:
-\[
-\begin{tikzpicture}[scale=1]
-\node (D) at (-4,0.5) {$A$};
-\node (E) at (-2,0.5) {$B$};
-\node (F) at (-4,-1) {$C$};
-\node (A) at (-2,-1) {$D$};
-\node (B) at (-3,-0.25) {$\Downarrow a$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above]{$M$}(E)
-(E) edge node [right]{$g$}(A)
-(D) edge node [left]{$f$}(F)
-(F) edge node [above]{$N$} (A);
-\end{tikzpicture}
-\]
-We call $A, B, C$ and $D$ `objects', $f$ and $g$ `vertical 1-morphisms', $M$ and $N$ `horizontal 1-cells', and $a$ a `2-morphism'.   We can compose vertical 1-morphisms to get new vertical 1-morphisms and compose horizontal 1-cells to get new horizontal 1-cells.  We can compose the 2-morphisms in two ways: horizontally by setting squares side by side, and vertically by setting one on top of the other.   In a `strict' double category all these forms of composition are associative.  In a `pseudo' double category, horizontal 1-cells compose in a weakly associative manner: that is, the associative law holds only up to an invertible 2-morphism, called the `associator', which obeys a coherence law. The double category $\mathbb{F}\textnormal{Cospan}(\textrm{A})$ that we construct in this paper has:
+In the present work, we construct a symmetric monoidal `double category' $\mathbb{F}\textnormal{Cospan}(\textrm{A})$. The double category $\mathbb{F}\textnormal{Cospan}(\textrm{A})$ that we construct in this paper has:
 \begin{enumerate}
 \item{objects as those of $\textrm{A}$,}
 \item{vertical 1-morphisms as morphisms of $\textrm{A}$,}
