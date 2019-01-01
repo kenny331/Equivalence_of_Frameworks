@@ -29,6 +29,7 @@ The first two authors have developed a compositional framework well-suited for s
 \item Fix notation for structured and decorated cospans.
 \item {\chris I think structured cospans should be introduced/recalled way earlier! This is a paper that compares the two,
 and both should be presented early.}
+\item Sure, I'm fine with that. What section do you think we should bring it up in, or maybe create a new section entirely to mention it?
 \end{itemize}
 
 \section{Introduction}
@@ -393,7 +394,7 @@ Let $b^\prime = \{w_1,w_2\}$ and a define bijection $f \colon b \to b^\prime$ by
 \]
 The point to be made here is that the single edge of $d^\prime$ must also be $e$. If we were to label it say, $e^\prime$, there is no bijection $f \colon b \to b^\prime$ such that the triangle on the right commutes, and hence no isomorphism between these two $F$-decorated cospans.
 \[
-\begin{tikzpicture}
+\begin{tikzpicture}\label{distinctisoclasses}
   [scale=.8,auto=left]
 \node (D) at (9,11.5) {$1$};
 \node (E) at (11,12.5) {$F(b)$};
@@ -465,8 +466,8 @@ and
 \]
 \end{enumerate}
 Returning to the previous example where we take the functor $F$ to be the functor $F \colon \mathsf{FinSet} \to \mathsf{Set}$, the situation becomes more dire. Previously, in the ordinary symmetric monoidal category $F$Cospan$(\mathsf{FinSet})$ the following two $F$-decorated cospans resided in distinct isomorphism classes:
-\begin{equation}\label{eqn:no2morphism}
-\begin{tikzpicture}
+\[
+\begin{tikzpicture}\label{no2morphism}
   [scale=.8,auto=left]
 %\node (D) at (9,11.5) {$1$};
 \node (E) at (9,13) {$d \in F(b)$};
@@ -495,7 +496,7 @@ Returning to the previous example where we take the functor $F$ to be the functo
 (n1) edge node[above]{$e$} (n2)
 (n1') edge node[above]{$e^\prime$} (n2');
 \end{tikzpicture}
-\end{equation}
+\]
 In the symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{FinSet})$, the above two $F$-decorated cospans are two morphisms - with \emph{no 2-morphism between them!} The culprit for this is the same as before - the requirement that the triangle of decorations in $\mathsf{Set}$ commute `on the nose'. In this paper we construct a similar symmetric monoidal bicategory $F$Csp which will remedy this situation, and whose decategorification will remedy the analogous problem for decorated cospan categories above. 
 
 It is worth noting that in both examples involving sets and graphs above, we are decorating each finite set with extra \emph{stuff}. This phenomenon does not occur when the decorations only involve extra structure, and this has been utilized in other works \cite{BFP,BP,Yass}.
@@ -564,7 +565,7 @@ and}
 \end{enumerate}
 Note that the natural transformation is a family of morphisms in the category $F(b^\prime)$ indexed by $1$, and so is the same as just a morphism $\iota \colon F(f)(d) \to d^\prime$ in $F(b^\prime)$. We will typically write the transformation $\iota$ in later sections as a morphism in $F(b^\prime)$ to conserve space. In the context of the example above involving graphs, this morphism $\iota$ will be a map between two possibly distinct sets of edges and thus already solves the problem.
 
-This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $H(F \mathbb{C}\textnormal{sp})$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $H(F \mathbb{C}\textnormal{sp})$ has:
+This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp} \coloneqq H(F \mathbb{C}\textnormal{sp})$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
 \item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\mathsf{A}$
@@ -580,7 +581,7 @@ This double category is in fact fibrant and so a result of Shulman \cite{Shul} a
 \end{tikzpicture}
 \]
 and}
-\item{2-morphisms as maps of cospans with the same feet together with a natrual transformation.
+\item{2-morphisms as maps of $F$-decorated cospans in $\mathsf{A}$ with the same feet together with a natrual transformation.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -604,170 +605,43 @@ and}
 \]
 }
 \end{enumerate}
-This bicategory $H(F\mathbb{C}\textnormal{sp})$ is superior to the original bicategory $F$Cospan$(A)$ constructed by the second author \cite{Cour} in that it has the 2-morphisms that one would expect such a bicategory to have, such as \ref{eqn:no2morphism}. \textbf{marker}
+This bicategory $F\mathbf{Csp}$ is superior to the original bicategory $F$Cospan$(A)$ constructed by the second author \cite{Cour} in that it has the 2-morphisms that one would expect such a bicategory to have, such as (\ref{no2morphism}). 
 
-Except now, given another morphism:
+Finally, we can decategorify the symmetric monoidal bicategory $F \mathbf{Csp}$ to obtain a symmetric monoidal category $F \textnormal{Csp} \coloneqq D(F\mathbf{Csp})$. This symmetric monoidal category $F$Csp has:
+
+\begin{enumerate}
+\item{objects as those of $\mathsf{A}$ and}
+\item{morphisms as isomorphism classes of $F$-decorated cospans in $\mathsf{A}$ with the same feet together with a natural isomorphism, where two $F$-decorated cospans are in the same isomorphism class if $f$ and $\iota$ are isomorphisms.
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c^\prime$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d^\prime \in F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i^\prime$} (B)
-(C) edge node[above]{$o^\prime$} (B);
-\end{tikzpicture}
-\]
-these two morphisms are in the same isomorphism class if the following diagrams commute
-
-and there exists an isomorphism $\iota \colon F(f)(d) \to d^\prime$ in the category $F(c^\prime)$.
-
-
-Note that the existence of an isomorphism $\iota \colon F(f)(d) \to d^\prime$ is equivalent to the triangle above on the right commuting up to a 2-isomorphism.
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (4,0) {$\iota \Swarrow$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (B') at (1,-1) {$b^\prime$};
+\node (C) at (2,0) {$a_2$};
 \node (D) at (3,0) {$1$};
-\node (E) at (4.5,1) {$F(c)$};
-\node (E') at (4.5,-1) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$d$} (E)
-(D) edge node [below] {$d^\prime$} (E')
-(E) edge node [right] {$F(f)$} (E');
-\end{tikzpicture}
-\]
-In other words, the isomorphism $\iota$ is a \emph{natural} isomorphism. We will typically just write this as $\iota \colon F(f)(d) \to d^\prime$ to conserve space.
-
-In this new category, the added structure of an isomorphism in the category of decorations shapes the isomorphism classes to look as one would expect. Fong's symmetric monoidal category has been extended to a bicategory by the first author \cite{Cour} and this was one of the original illuminations of the above obstacle. In this bicategory, objects and morphisms are given as in Fong's category modulo taking cospans up to isomorphism class and 2-morphisms are given by a pair of commuting diagrams:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$1$};
-\node (E) at (4,0.5) {$F(c)$};
-\node (E') at (4,-0.5) {$F(c^\prime)$};
+\node (E) at (4,0.5) {$F(b)$};
+\node (E') at (4,-0.5) {$F(b^\prime)$};
+\node (F) at (3.5,0) {$\Swarrow \iota$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
 (A) edge node[below]{$i^\prime$} (B')
 (C) edge node[below]{$o^\prime$} (B')
 (B) edge node [left] {$f$} (B')
+(B) edge node [right] {$\sim$} (B')
 (D) edge node [above] {$d$} (E)
 (D) edge node [below] {$d^\prime$} (E')
-(E) edge node [right] {$F(f)$} (E');
+(E) edge node [right] {$F(f)$} (E')
+(E) edge node [left] {$\sim$} (E');
 \end{tikzpicture}
 \]
-In this case, there would be no 2-morphism from:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$v_1$};
-\node (B) at (1,0) {$v_2$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$e$} (B);
-\end{tikzpicture}
-\]
-to:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$v_1$};
-\node (B) at (1,0) {$v_2.$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$e^\prime$} (B);
-\end{tikzpicture}
-\]
-Morally speaking, these two simple single-edged graphs should belong to the same isomorphism class, as there is a natural isomorphism of graphs between them.
-
-In the present work, we construct a symmetric monoidal `double category' $\mathbb{F}\textnormal{Cospan}(\textrm{A})$. The double category $\mathbb{F}\textnormal{Cospan}(\textrm{A})$ that we construct in this paper has:
-\begin{enumerate}
-\item{objects as those of $\textrm{A}$,}
-\item{vertical 1-morphisms as morphisms of $\textrm{A}$,}
-\item{horizontal 1-cells as $F$-decorated cospans of $\textrm{A}$, which are pairs:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms as pairs of commuting diagrams:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (A') at (0,-1) {$a^\prime$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C') at (2,-1) {$b^\prime$};
-\node (D) at (3,-0.5) {$1$};
-\node (E) at (4,0) {$F(c)$};
-\node (E') at (4,-1) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$i$} (B)
-(A') edge node[above]{$i^\prime$} (B')
-(C') edge node[above]{$o^\prime$} (B')
-(A) edge node [left]{$f$} (A')
-(B) edge node [left]{$h$} (B')
-(C) edge node [left]{$g$} (C')
-(D) edge node [above] {$d$} (E)
-(D) edge node [below] {$d^\prime$} (E')
-(E) edge node [left] {$F(h)$} (E');
-\end{tikzpicture}
-\]
-together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
+}
 \end{enumerate}
-We can then obtain a symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\textrm{A}))$ as the `horizontal bicategory' of the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\textrm{A})$ using a result of Shulman \cite{Shul}. This bicategory will have:
-\begin{enumerate}
-\item{objects as those of $\textrm{A}$,}
-\item{morphisms as pairs:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms as pairs of commuting diagrams:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$1$};
-\node (E) at (4,0.5) {$F(c)$};
-\node (E') at (4,-0.5) {$F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A) edge node[below]{$i^\prime$} (B')
-(C) edge node[below]{$o^\prime$} (B')
-(B) edge node [left] {$f$} (B')
-(D) edge node [above] {$d$} (E)
-(D) edge node [below] {$d^\prime$} (E')
-(E) edge node [right] {$F(f)$} (E');
-\end{tikzpicture}
-\]
-together with a morphism $\iota \colon F(f)(d) \to d^\prime$ of $F(c^\prime)$.}
+This symmetric monoidal category $F$Csp has isomorphism classes as one would expect, and in the context of the example with finite sets and graphs above solves the problem in (\ref{distinctisoclasses}). In this particular example, $\iota \colon F(f)(d) \xrightarrow{\sim} d^\prime$ is a bijection between possibly different sets of edges which respects the source and target of each edge.
 
-\end{enumerate}
-Then we can obtain the above improved symmetric monoidal category as a decategorification of the symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\textrm{A}))$.
+The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$, obtain the underlying symmetric monoidal bicategory $F \mathbf{Csp}$ via a result of Shulman, and decategorify this symmetric monoidal bicategory to obtain the symmetric monoidal category $F$Csp. In Section \ref{MapsDecCospansDoubleCat} we define maps between decorated cospan double categories which are double functors of an appropriate type. In Section \ref{some other section} we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction, which naturally leads to another compositional framework known as `Structured cospans'. In Section \ref{EquivDoubleCats} we briefly review the framework Structured cospans and prove that the double categorical versions of decorated cospans and structured cospans are equivalent when both are appropriate. Finally, in Section \ref{Applications}, we present a few examples that can be realized with either framework and discuss the realized equivalences.
 
-The outline for the paper is as follows: In the second section, we construct the symmetric monoidal double category $F\textnormal{Cospan}(\textrm{A})$ mentioned above as well as a result of Shulman that allows us to obtain a symmetric monoidal bicategory whose decategorification is an improved version of Fong's symmetric monoidal category. In the third section we define maps between decorated cospan double categories which are double functors of an appropriate type. In the fourth section we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction. In the fifth section we briefly review another compositional framework which uses cospans equipped with extra structure due to the first two authors, namely `structured cospans' and prove that the double categorical versions of decorated cospans and structured cospans are equivalent, and in the final section, we present a few examples that can be realized with either framework and discuss the realized equivalences.
-
-\section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoublecat}
+\section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
 In this section we build the symmetric monoidal double category mentioned in the introduction. 
 \textbf{Add more here.}
 \begin{thm}
@@ -2394,7 +2268,7 @@ and there exists an isomorphism $\iota \colon F(f)(d) \to d^\prime$ in $F(c^\pri
 \end{cor}
 In this symmetric monoidal category, isomorphism classes are as they should morally be, and the instance of two graphs having different edge sets does not prevent them from being in the same isomorphism class due to the isomorphism $\iota$.
 
-\section{Maps of decorated cospan double categories}
+\section{Maps of decorated cospan double categories}\label{MapsDecCospansDoubleCat}
 Let $F \colon \mathrm{A} \to \mathbf{Cat}$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \ref{main1} of the previous section, we get a symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$. This symmetric monoidal double category has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
@@ -3126,7 +3000,7 @@ where $$F^\prime(\ell)(!_{1_\mathrm{A^\prime}} + E(d))=F^\prime(H(\ell^\prime)\k
 
 
 
-\section{From pseudofunctors to left adjoints}
+\section{From pseudofunctors to left adjoints}\label{some other section}
 In this section we investigate the necessary conditions to obtain a category $\mathrm{X}$ and a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ from a category $\mathrm{A}$ with finite colimits and a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. The main tool that allows us to do this will be the Grothendieck construction which we recall:
 
 \begin{defn}
@@ -3333,7 +3207,7 @@ Under certain conditions, the functor resulting from the Grothendieck constructi
 
 
 
-\section{An equivalence of symmetric monoidal double categories}
+\section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
 In this section we prove that two different frameworks which utilize symmetric monoidal double categories, namely decorated cospans and `structured cospans', are equivalent under the conditions required from the previous section that allow for a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ to be obtained from a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. The double category version of decorataed cospans is given in Section \ref{DecCospansDoublecat}. The other framework also utilizing symmetric monoidal double categories due to the first two authors and which goes by the name of `structured cospans', is explained below. Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
 \[
   \xymatrix@-.5pc{
@@ -4471,7 +4345,7 @@ Then we can find a 2-isomorphism $\epsilon_N \colon \mathbb{E} \mathbb{G} (N) \x
 \end{tikzpicture}
 \]
 $$\iota \colon F(e)(x) \to x$$
-\section{Applications}
+\section{Applications}\label{Applications}
 In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by the first author and others by way of `black-boxing'. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathrm{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathrm{Circ} \to \mathrm{LinRel}$$ $$\blacksquare_2 \colon \mathrm{Mark} \to \mathrm{LinRel}$$ $$\blacksquare_3 \colon \mathrm{Petri} \to \mathrm{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories. \textbf{Make this better...}
 \subsection{Graphs}
 As a first example that was also mentioned in the introduction, let $L \colon \mathrm{Set} \to \mathrm{Graph}$ be the functor that assigns to a set $N$ the \emph{discrete graph} on $N$ which is the edgeless graph $L(N)$ with no edges and $N$ as its set of vertices. Both $\mathrm{Set}$ and $\mathrm{Graph}$ are cocartesian monoidal and the functor $L \colon \mathrm{Set} \to \mathrm{Graph}$ is left adjoint to the forgetful functor $R \colon \mathrm{Graph} \to \mathrm{Set}$ which assigns to a graph $G$ its underlying set of vertices $U(G)$. Using structured cospans and appealing to Theorem \ref{SC}, we get a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{Graph})$ which has:
