@@ -642,136 +642,136 @@ This symmetric monoidal category $F$Csp has isomorphism classes as one would exp
 The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$, obtain the underlying symmetric monoidal bicategory $F \mathbf{Csp}$ via a result of Shulman, and decategorify this symmetric monoidal bicategory to obtain the symmetric monoidal category $F$Csp. In Section \ref{MapsDecCospansDoubleCat} we define maps between decorated cospan double categories which are double functors of an appropriate type. In Section \ref{some other section} we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction, which naturally leads to another compositional framework known as `Structured cospans'. In Section \ref{EquivDoubleCats} we briefly review the framework Structured cospans and prove that the double categorical versions of decorated cospans and structured cospans are equivalent when both are appropriate. Finally, in Section \ref{Applications}, we present a few examples that can be realized with either framework and discuss the realized equivalences.
 
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
-In this section we build the symmetric monoidal double category mentioned in the introduction. 
-\textbf{Add more here.}
+In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}.
 \begin{thm}
-Let $\mathrm{A}$ be a category with finite colimits and $F \colon \mathrm{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $\mathbb{F} \textnormal{Cospan}(\mathrm{A})$ which has:
+Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $F\mathbb{C}$sp which has:
 \begin{enumerate}
-\item{objects as those of $\mathrm{A}$,}
-\item{vertical 1-morphisms as morphisms of $\mathrm{A}$,}
-\item{horizontal 1-cells as pairs:
+\item{objects as those of $\mathsf{A}$,}
+\item{vertical 1-morphisms as morphisms of $\mathsf{A}$,}
+\item{horizontal 1-cells as $F$-decorated cospans in $\mathsf{A}$ which are pairs:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$d \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
 and}
-\item{2-morphisms as maps of cospans in $\mathrm{A}$
+\item{2-morphisms as maps of $F$-decorated cospans in $\mathsf{A}$
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\node (E) at (3,0.5) {$d \in F(c)$};
-\node (F) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1^\prime$};
+\node (B) at (1,0.5) {$b$};
+\node (C) at (2,0.5) {$a_2$};
+\node (C') at (2,-0.5) {$a_2^\prime$};
+\node (D) at (1,-0.5) {$b^\prime$};
+\node (E) at (3,0.5) {$d \in F(b)$};
+\node (F) at (3,-0.5) {$d^\prime \in F(b^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[left]{$g$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
+(A') edge node[above] {$i'$} (D)
+(C') edge node[above] {$o'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
+together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(b^\prime)$.}
 \end{enumerate}
 \end{thm}
 \begin{proof}
-The unit structure functor $U \colon \mathbb{F}\textnormal{Cospan}(\mathrm{A})_0 \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})_1$ is defined on objects as: 
+The unit structure functor $U \colon F\mathbb{C}\textnormal{sp}_0 \to F\mathbb{C}\textnormal{sp}_1$ is defined on objects as: 
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (-1,0) {$c \mapsto$};
-\node (A) at (0,0) {$c$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$c$};
-\node (D) at (3,0) {$!_c \in F(c)$};
+\node (E) at (-1,0) {$a$};
+\node (F) at (-.5,0) {$\mapsto$};
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$a$};
+\node (C) at (2,0) {$a$};
+\node (D) at (3,0) {$!_a \in F(a)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $!_c \in F(c)$ is the trivial decoration on $c$ given by the composition of the unique map $F(!) \colon F(0) \to F(c)$ and the morphism $\phi \colon 1 \to F(0)$  which comes from the symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. For morphisms, the structure functor $U$ is defined as:
+where $!_a \in F(a)$ is the trivial decoration on $a$ given by the composition of the unique map $F(!) \colon F(0) \to F(a)$ and the morphism $\phi \colon 1 \to F(0)$  which comes from the structure of the lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. For morphisms, the structure functor $U$ is defined as:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (G) at (-1,0.5) {$c$};
-\node (G') at (-1,-0.5) {$c^\prime$};
-\node (A) at (0,0.5) {$c$};
-\node (A') at (0,-0.5) {$c^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$c$};
-\node (C') at (2,-0.5) {$c^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\node (E) at (3,0.5) {$!_c \in F(c)$};
-\node (F) at (3,-0.5) {$!_{c^\prime} \in F(c^\prime)$};
+\node (G) at (-1,0.5) {$a$};
+\node (G') at (-1,-0.5) {$a^\prime$};
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a^\prime$};
+\node (B) at (1,0.5) {$a$};
+\node (C) at (2,0.5) {$a$};
+\node (C') at (2,-0.5) {$a^\prime$};
+\node (D) at (1,-0.5) {$a^\prime$};
+\node (E) at (3,0.5) {$!_a \in F(a)$};
+\node (F) at (3,-0.5) {$!_{a^\prime} \in F(a^\prime)$};
 \node (H) at (-0.5,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$1$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[left]{$f$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
+(A') edge node[above] {$1$} (D)
+(C') edge node[above] {$1$} (D)
 (B) edge node [left] {$f$} (D)
 (G) edge node [left] {$f$} (G');
 \end{tikzpicture}
 \]
-together with the morphism $\iota_{!_f} = F(f) F(!) \phi \colon 1 \to F(c^\prime)$. We also have source and target structure functors $S, T \colon \mathbb{F}\textnormal{Cospan}(\mathrm{A})_1 \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})_0$ where the source of a horizontal 1-cell
+together with the morphism $\iota_{!_f} = F(f) F(!) \phi \colon 1 \to F(a^\prime)$. We also have source and target structure functors $S, T \colon F\mathbb{C}\textnormal{sp}_1 \to F\mathbb{C}\textnormal{sp}_0$ where the source of the horizontal 1-cell
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$d \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-is the object $a$ in $\mathrm{A}$ and the source of a 2-morphism
+is the object $a_1$ in $\mathsf{A}$ and the source of the 2-morphism
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\node (E) at (3,0.5) {$d \in F(c)$};
-\node (F) at (3,-0.5) {$d^\prime \in F(c^\prime)$};
+\node (B) at (1,0.5) {$b$};
+\node (C) at (2,0.5) {$a_2$};
+\node (C') at (2,-0.5) {$a_2^\prime$};
+\node (D) at (1,-0.5) {$b^\prime$};
+\node (E) at (3,0.5) {$d \in F(b)$};
+\node (F) at (3,-0.5) {$d^\prime \in F(b^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[left]{$g$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
+(A') edge node[above] {$i'$} (D)
+(C') edge node[above] {$o'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
 $$\iota \colon F(h)(d) \to d^\prime$$
-is the source of the underlying map of cospans in $\mathrm{A}$, namely the morphism $f$ in $\mathrm{A}$; the target structure functor is defined similarly. The functors satisfy the equations $$SU(c)=1(c)=TU(c)$$for all objects $c$ of $\mathrm{A}$.
+is the source of the underlying map of cospans in $\mathsf{A}$, namely the morphism $f$ in $\mathsf{A}$; the target structure functor is defined similarly. These structure functors satisfy the equations $$SU(a)=1(a)=TU(a)$$for all objects $a$ of $\mathsf{A}$.
 
-Given two composable horizontal 1-cells:
+Given two composable horizontal 1-cells $M$ and $N$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$d \in F(c)$};
-\node (E) at (3,0) {$b$};
-\node (F) at (4,0) {$c^\prime$};
-\node (G) at (5,0) {$e$};
-\node (H) at (4,-0.5) {$d^\prime \in F(c^\prime)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (1,-0.5) {$d \in F(b)$};
+\node (E) at (3,0) {$a_2$};
+\node (F) at (4,0) {$b^\prime$};
+\node (G) at (5,0) {$a_3$};
+\node (H) at (4,-0.5) {$d^\prime \in F(b^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -779,16 +779,16 @@ Given two composable horizontal 1-cells:
 (G) edge node[above]{$o^\prime$} (F);
 \end{tikzpicture}
 \]
-the composite is given by:
+the composite $N \odot M$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,1) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,1) {$c^\prime$};
-\node (E) at (4,0) {$e$};
-\node (F) at (2,2) {$c+c^\prime$};
-\node (G) at (2,3) {$c+_{b} c^\prime$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,1) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,1) {$b^\prime$};
+\node (E) at (4,0) {$a_3$};
+\node (F) at (2,2) {$b+b^\prime$};
+\node (G) at (2,3) {$b+_{a_2} b^\prime$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -797,29 +797,29 @@ the composite is given by:
 (B) edge node [above] {$j$} (F)
 (D) edge node [above] {$j^\prime$} (F)
 (F) edge node [left] {$\psi$} (G)
-(A) edge node [left] {$\psi j i$} (G)
-(E) edge node [right] {$\psi j^\prime o^\prime$} (G);
+(A) edge[bend left] node [left] {$\psi j i$} (G)
+(E) edge[bend right] node [right] {$\psi j^\prime o^\prime$} (G);
 \end{tikzpicture}
 \]
-with the corresponding decoration of the apex $\hat{d} \in F(c+_b c^\prime)$ given by:
-$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d \times d^\prime} F(c) \times F(c^\prime) \xrightarrow{\phi_{c,c^\prime}} F(c+c^\prime) \xrightarrow{F(\psi)} F(c+_{b}c^\prime)$$
-where $\psi \colon c + c^\prime \to c+_b c^\prime$ is the natural map from the coproduct to the pushout and $\phi_{c,c^\prime} \colon F(c) \times F(c^\prime) \to F(c+c^\prime)$ is the natural transformation of the symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
+with the corresponding decoration of the apex $\hat{d} \in F(b+_{a_2} b^\prime)$ given by:
+$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d \times d^\prime} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+b^\prime) \xrightarrow{F(\psi)} F(b+_{a_2}b^\prime)$$
+where $\psi \colon b + b^\prime \to b+_{a_2} b^\prime$ is the natural map from the coproduct to the pushout and $\phi_{b,b^\prime} \colon F(b) \times F(b^\prime) \to F(b+b^\prime)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
 
 Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$d_1 \in F(c)$};
-\node (E) at (3,0) {$b$};
-\node (F) at (4,0) {$c^\prime$};
-\node (G) at (5,0) {$e$};
-\node (H) at (4,-0.5) {$d_2 \in F(c^\prime)$};
-\node (I) at (6,0) {$e$};
-\node (J) at (7,0) {$c''$};
-\node (K) at (8,0) {$f$};
-\node (L) at (7,-0.5) {$d_3 \in F(c'')$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (1,-0.5) {$d_{M_1} \in F(b)$};
+\node (E) at (3,0) {$a_2$};
+\node (F) at (4,0) {$b^\prime$};
+\node (G) at (5,0) {$a_3$};
+\node (H) at (4,-0.5) {$d_{M_2} \in F(b^\prime)$};
+\node (I) at (6,0) {$a_3$};
+\node (J) at (7,0) {$b''$};
+\node (K) at (8,0) {$a_4$};
+\node (L) at (7,-0.5) {$d_{M_3} \in F(b'')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -829,17 +829,17 @@ Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 (K) edge node[above]{$o''$} (J);
 \end{tikzpicture}
 \]
-we get a natural isomorphism $a \colon (M_1 \odot M_2) \odot M_3 \to M_1 \odot (M_2 \odot M_3)$ which is a globular 2-morphism given by a map of cospans $(\id_a,\sigma,\id_f)$:
+we get a natural isomorphism $a_{M_1,M_2,M_3} \colon (M_1 \odot M_2) \odot M_3 \to M_1 \odot (M_2 \odot M_3)$ which is a globular 2-morphism given by a map of cospans $(\id_{a_1},\sigma,\id_{a_4})$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a$};
-\node (B) at (1.5,0.5) {$(c+_b c^\prime)+_e c''$};
-\node (C) at (3,0.5) {$f$};
-\node (C') at (3,-0.5) {$f$};
-\node (D) at (1.5,-0.5) {$c+_b(c^\prime +_e c'')$};
-\node (E) at (4.5,0.5) {$d \in F((c+_b c^\prime)+_e c'')$};
-\node (F) at (4.5,-0.5) {$d^\prime \in F(c+_b (c^\prime +_e c''))$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1$};
+\node (B) at (1.5,0.5) {$(b+_{a_2} b^\prime)+_{a_3} b''$};
+\node (C) at (3,0.5) {$a_4$};
+\node (C') at (3,-0.5) {$a_4$};
+\node (D) at (1.5,-0.5) {$b+_{a_2}(b^\prime +_{a_3} b'')$};
+\node (E) at (5.5,0.5) {$d_{(M_1 \odot M_2) \odot M_3} \in F((b+_{a_2} b^\prime)+_{a_3} b'')$};
+\node (F) at (5.5,-0.5) {$d_{M_1 \odot (M_2 \odot M_3)} \in F(b+_{a_2} (b^\prime +_{a_3} b''))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
@@ -847,36 +847,36 @@ we get a natural isomorphism $a \colon (M_1 \odot M_2) \odot M_3 \to M_1 \odot (
 (C) edge node[left]{$1$} (C')
 (A') edge node {$$} (D)
 (C') edge node {$$} (D)
-(B) edge node [left] {$\sigma$} (D);
+(B) edge node [left] {$a$} (D);
 \end{tikzpicture}
 \]
-with elements of the image of the cospan's apices under the pseudofunctor $F$ given by:
-$$ d \coloneqq 1 \xrightarrow{\zeta_1} F(c+_b c^\prime) \times F(c'') \xrightarrow{F(\phi_{c+_b c^\prime, c''})} F((c+_{b}c^\prime) +c'') \xrightarrow{F(j_{c+_b c^\prime,c''})} F((c+_b c^\prime)+_e c'')$$ $$\zeta_1 = d_3 \lambda^{-1} F(j_{c,c^\prime}) \phi_{c,c^\prime} (d_1 \times d_2) \lambda^{-1}$$
+with the decorations on the cospan's apices given by:
+$$ d_{(M_1 \odot M_2) \odot M_3} \coloneqq 1 \xrightarrow{\zeta_1} F(b+_{a_2} b^\prime) \times F(b'') \xrightarrow{\phi_{b+_{a_2} b^\prime, b''}} F((b+_{a_2}b^\prime) +b'') \xrightarrow{F(j_{b+_{a_2} b^\prime,b''})} F((b+_{a_2} b^\prime)+_{a_3} b'')$$ $$\zeta_1 = d_{M_3} \lambda^{-1} F(j_{b,b^\prime}) \phi_{b,b^\prime} (d_{M_1} \times d_{M_2}) \lambda^{-1}$$
 and
-$$ d^\prime \coloneqq 1 \xrightarrow{\zeta_2} F(c) \times F(c^\prime +_e c'') \xrightarrow{F(\phi_{c, c^\prime +_e c''})} F(c+(c^\prime +_e c'')) \xrightarrow{F(j_{c,c^\prime +_e c''})} F(c+_b (c^\prime+_e c''))$$ $$\zeta_2 = d_1 \lambda^{-1} F(j_{c^\prime,c''}) \phi_{c^\prime,c''} (d_2 \times d_3) \lambda^{-1}$$
-together with an isomorphism $\iota_a \colon F(\sigma)(d) \to d^\prime$. We also have left and right unitors where given a horizontal 1-cell $M$:
+$$ d_{M_1 \odot (M_2 \odot M_3)} \coloneqq 1 \xrightarrow{\zeta_2} F(b) \times F(b^\prime +_{a_3} b'') \xrightarrow{\phi_{b, b^\prime +_{a_3} b''}} F(b+(b^\prime +_{a_3} b'')) \xrightarrow{F(j_{b,b^\prime +_{a_3} b''})} F(b+_{a_2} (b^\prime+_{a_3} b''))$$ $$\zeta_2 = d_{M_1} \lambda^{-1} F(j_{b^\prime,b''}) \phi_{b^\prime,b''} (d_{M_2} \times d_{M_3}) \lambda^{-1}$$
+together with the isomorphism $\iota_a \colon F(a)(d_{(M_1 \odot M_2) \odot M_3}) \to d_{M_1 \odot (M_2 \odot M_3)}$. Note that the map $a \colon (b+_{a_2} b')+_{a_3}b'' \to b+_{a_2}(b'+_{a_3}b'')$ is the universal map between two colimits of the same diagram. We also have left and right unitors where given a horizontal 1-cell $M$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$d \in F(c)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3,0) {$d \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
+if we, say, compose with the identity horizontal 1-cell of $a_2$ on the right:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$d \in F(c)$};
-\node (E) at (3,0) {$b$};
-\node (F) at (4,0) {$b$};
-\node (G) at (5,0) {$b$};
-\node (H) at (4,-0.5) {$!_b \in F(b)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (1,-0.5) {$d \in F(b)$};
+\node (E) at (3,0) {$a_2$};
+\node (F) at (4,0) {$a_2$};
+\node (G) at (5,0) {$a_2$};
+\node (H) at (4,-0.5) {$!_{a_2} \in F(a_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -884,40 +884,40 @@ if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
 (G) edge node[above]{$1$} (F);
 \end{tikzpicture}
 \]
-where $!_b = F(!)  \phi \colon 1 \to F(b)$ is the trivial decoration on $b$. Composing these then gives:
+where $!_{a_2} = F(!)  \phi \colon 1 \to F(a_2)$ is the trivial decoration on $a_2$, composing these then gives:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$c+_b b$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3,0) {$\hat{d} \in F(c +_b b)$};
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$b+_{a_2} a_2$};
+\node (C) at (2,0) {$a_2$};
+\node (D) at (3.5,0) {$d_{M+!_{a_2}} \in F(b +_{a_2} a_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_c i$} (B)
-(C) edge node[above]{$j \psi_b$} (B);
+(A) edge node[above]{$j \psi_b i$} (B)
+(C) edge node[above]{$j \psi_{a_2}$} (B);
 \end{tikzpicture}
 \]
-where $\psi_b \colon b \to c+b$ is the natural map into the coproduct and likewise for $\psi_c$ and $j \colon c+b \to c+_b b$ is the natural map from the coproduct to the pushout. The decoration $\hat{d} \colon 1 \to F(c+_b b)$ is given by: $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d \times !_b} F(c) \times F(b) \xrightarrow{\phi_{c,b}} F(c+b) \xrightarrow{F(j_{c,b})} F(c+_b b).$$ We then have that the right unitor of the original horizontal 1-cell $M$ is given by the globular 2-morphism $(\id_a,\gamma,\id_b)$ from the above composite to $M$:
+where $\psi_b \colon b \to b+a_2$ is the natural map into the coproduct and likewise for $\psi_{a_2}$ and $j \colon b+a_2 \to b+_{a_2} a_2$ is the natural map from the coproduct to the pushout. The decoration $d_{M+!_{a_2}} \colon 1 \to F(b+_{a_2} a_2)$ is given by: $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_{M} \times !_{a_2}} F(b) \times F(a_2) \xrightarrow{\phi_{b,a_2}} F(b+a_2) \xrightarrow{F(j_{b,a_2})} F(b+_{a_2} a_2).$$ We then have that the right unitor $R \colon M \odot 1_{a_2} \xrightarrow{\sim} M$ is given by the globular 2-morphism $(\id_{a_1},r,\id_{a_2})$ from the above composite to $M$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a$};
-\node (B) at (1.5,0.5) {$c+_b b$};
-\node (C) at (3,0.5) {$b$};
-\node (C') at (3,-0.5) {$b$};
-\node (D) at (1.5,-0.5) {$c$};
-\node (E) at (4.5,0.5) {$\hat{d} \in F((c+_b b)$};
-\node (F) at (4.5,-0.5) {$d \in F(c)$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1$};
+\node (B) at (1.5,0.5) {$b+_{a_2} a_2$};
+\node (C) at (3,0.5) {$a_2$};
+\node (C') at (3,-0.5) {$a_2$};
+\node (D) at (1.5,-0.5) {$b$};
+\node (E) at (4.5,0.5) {$d_{M+!_{a_2}} \in F(b+_{a_2} a_2)$};
+\node (F) at (4.5,-0.5) {$d_{M} \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_c i$} (B)
-(C) edge node[above]{$j \psi_b$} (B)
-(A) edge node[left]{$\id_a$} (A')
-(C) edge node[left]{$\id_b$} (C')
+(A) edge node[above]{$j \psi_b i$} (B)
+(C) edge node[above]{$j \psi_{a_2}$} (B)
+(A) edge node[left]{$\id_{a_1}$} (A')
+(C) edge node[left]{$\id_{a_2}$} (C')
 (A') edge node [above]{$i$} (D)
 (C') edge node [above]{$o$} (D)
-(B) edge node [left] {$\gamma$} (D);
+(B) edge node [left] {$r$} (D);
 \end{tikzpicture}
 \]
-where $\gamma \colon c+_b b \xrightarrow{\sim} c$ together with an isomorphism $\iota_\rho \colon F(\gamma)(\hat{d}) \to d$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities. The left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms:
+where $r \colon b+_{a_2} a_2 \xrightarrow{\sim} b$ is a universal map together with the isomorphism $\iota_r \colon F(r)(d_{M+!_{a_2}}) \to d_M$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities. The left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
