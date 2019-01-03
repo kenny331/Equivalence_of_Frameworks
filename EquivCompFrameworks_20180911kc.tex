@@ -644,7 +644,7 @@ The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, w
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
 In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}.
 \begin{thm}
-Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a double category $F\mathbb{C}$sp which has:
+Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a (pseudo) double category $F\mathbb{C}$sp which has:
 \begin{enumerate}
 \item{objects as those of $\mathsf{A}$,}
 \item{vertical 1-morphisms as morphisms of $\mathsf{A}$,}
@@ -917,45 +917,45 @@ where $\psi_b \colon b \to b+a_2$ is the natural map into the coproduct and like
 (B) edge node [left] {$r$} (D);
 \end{tikzpicture}
 \]
-where $r \colon b+_{a_2} a_2 \xrightarrow{\sim} b$ is a universal map together with the isomorphism $\iota_r \colon F(r)(d_{M+!_{a_2}}) \to d_M$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities. The left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms:
+where $r \colon b+_{a_2} a_2 \xrightarrow{\sim} b$ is a universal map together with the isomorphism $\iota_r \colon F(r)(d_{M+!_{a_2}}) \to d_M$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities. The left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms $\alpha, \beta, \alpha^\prime$ and $\beta^\prime$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b^\prime$};
-\node (D) at (1,-0.5) {$c^\prime$};
-\node (E) at (3,0.5) {$d_1 \in F(c)$};
-\node (F) at (3,-0.5) {$d_1^\prime \in F(c^\prime)$};
-\node (G) at (4,0.5) {$b$};
-\node (H) at (5,0.5) {$e$};
-\node (I) at (6,0.5) {$x$};
-\node (G') at (4,-0.5) {$b^\prime$};
-\node (H') at (5,-0.5) {$e^\prime$};
-\node (I') at (6,-0.5) {$x^\prime$};
-\node (J) at (7,0.5) {$d_2 \in F(e)$};
-\node (K) at (7,-0.5) {$d_2^\prime \in F(e^\prime)$};
-\node (L) at (1,-1) {$\iota_1 \colon F(h_1)(d_1) \to d_1^\prime$};
-\node (M) at (5,-1) {$\iota_2 \colon F(h_2)(d_2) \to d_2^\prime$};
-\node (A'') at (0,-1.5) {$a^\prime$};
-\node (A''') at (0,-2.5) {$a''$};
-\node (B'') at (1,-1.5) {$c^\prime$};
-\node (C'') at (2,-1.5) {$b^\prime$};
-\node (C''') at (2,-2.5) {$b''$};
-\node (D'') at (1,-2.5) {$c''$};
-\node (E'') at (3,-1.5) {$d_1^\prime \in F(c^\prime)$};
-\node (F'') at (3,-2.5) {$d_1'' \in F(c'')$};
-\node (G'') at (4,-1.5) {$b^\prime$};
-\node (H'') at (5,-1.5) {$e^\prime$};
-\node (I'') at (6,-1.5) {$x^\prime$};
-\node (G''') at (4,-2.5) {$b''$};
-\node (H''') at (5,-2.5) {$e''$};
-\node (I''') at (6,-2.5) {$x''$};
-\node (J'') at (7,-1.5) {$d_2^\prime \in F(e^\prime)$};
-\node (K'') at (7,-2.5) {$d_2'' \in F(e'')$};
-\node (L'') at (1,-3) {$\iota_1^\prime \colon F(h_1^\prime)(d_1^\prime) \to d_1''$};
-\node (M'') at (5,-3) {$\iota_2^\prime \colon F(h_2^\prime)(d_2^\prime) \to d_2''$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1^\prime$};
+\node (B) at (1,0.5) {$b$};
+\node (C) at (2,0.5) {$a_2$};
+\node (C') at (2,-0.5) {$a_2^\prime$};
+\node (D) at (1,-0.5) {$b^\prime$};
+\node (E) at (3,0.5) {$d_{M_1} \in F(b)$};
+\node (F) at (3,-0.5) {$d_{M_2} \in F(b^\prime)$};
+\node (G) at (4,0.5) {$a_2$};
+\node (H) at (5,0.5) {$c$};
+\node (I) at (6,0.5) {$a_3$};
+\node (G') at (4,-0.5) {$a_2^\prime$};
+\node (H') at (5,-0.5) {$c^\prime$};
+\node (I') at (6,-0.5) {$a_3^\prime$};
+\node (J) at (7,0.5) {$d_{N_1} \in F(c)$};
+\node (K) at (7,-0.5) {$d_{N_2} \in F(c^\prime)$};
+\node (L) at (1,-1) {$\iota_\alpha \colon F(h_1)(d_{M_1}) \to d_{M_2}$};
+\node (M) at (5,-1) {$\iota_\beta \colon F(h_2)(d_{N_1}) \to d_{N_2}$};
+\node (A'') at (0,-1.5) {$a_1^\prime$};
+\node (A''') at (0,-2.5) {$a_1''$};
+\node (B'') at (1,-1.5) {$b^\prime$};
+\node (C'') at (2,-1.5) {$a_2^\prime$};
+\node (C''') at (2,-2.5) {$a_2''$};
+\node (D'') at (1,-2.5) {$b''$};
+\node (E'') at (3,-1.5) {$d_{M_2} \in F(b^\prime)$};
+\node (F'') at (3,-2.5) {$d_{M_3} \in F(b'')$};
+\node (G'') at (4,-1.5) {$a_2^\prime$};
+\node (H'') at (5,-1.5) {$c^\prime$};
+\node (I'') at (6,-1.5) {$a_3^\prime$};
+\node (G''') at (4,-2.5) {$a_2''$};
+\node (H''') at (5,-2.5) {$c''$};
+\node (I''') at (6,-2.5) {$a_3''$};
+\node (J'') at (7,-1.5) {$d_{N_2} \in F(b^\prime)$};
+\node (K'') at (7,-2.5) {$d_{N_3} \in F(b'')$};
+\node (L'') at (1,-3) {$\iota_{\alpha^\prime} \colon F(h_1^\prime)(d_{M_2}) \to d_{M_3}$};
+\node (M'') at (5,-3) {$\iota_{\beta^\prime} \colon F(h_2^\prime)(d_{N_2}) \to d_{N_3}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -990,128 +990,129 @@ where $r \colon b+_{a_2} a_2 \xrightarrow{\sim} b$ is a universal map together w
 if we first compose horizontally we obtain:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a^\prime$};
-\node (B) at (1.5,0.5) {$c+_b e$};
-\node (C) at (3,0.5) {$x$};
-\node (C') at (3,-0.5) {$x^\prime$};
-\node (D) at (1.5,-0.5) {$c^\prime +_{b^\prime} e^\prime$};
-\node (E) at (4.5,0.5) {$d_{1,2} \in F(c+_b e)$};
-\node (F) at (4.5,-0.5) {$d_{1,2}^\prime \in F(c^\prime +_{b^\prime} e^\prime)$};
-\node (G) at (1.5,-1) {$\iota_{1,2} \colon F(h_1 +_g h_2)(d_{1,2}) \to d_{1,2}^\prime$};
-\node (A'') at (0,-1.5) {$a^\prime$};
-\node (A''') at (0,-2.5) {$a''$};
-\node (B'') at (1.5,-1.5) {$c^\prime +_{b^\prime} e^\prime$};
-\node (C'') at (3,-1.5) {$x^\prime$};
-\node (C''') at (3,-2.5) {$x''$};
-\node (D'') at (1.5,-2.5) {$c'' +_{b''} e''$};
-\node (E'') at (4.5,-1.5) {$d_{1,2}^\prime \in F(c^\prime+_{b^\prime} e^\prime)$};
-\node (F'') at (4.5,-2.5) {$d_{1,2}'' \in F(c'' +_{b''} e'')$};
-\node (G'') at (1.5,-3) {$\iota_{1,2}^\prime \colon F(h_1^\prime +_{g^\prime} h_2^\prime)(d_{1,2}^\prime) \to d_{1,2}''.$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1^\prime$};
+\node (B) at (1.5,0.5) {$b+_{a_2} c$};
+\node (C) at (3,0.5) {$a_3$};
+\node (C') at (3,-0.5) {$a_3^\prime$};
+\node (D) at (1.5,-0.5) {$b^\prime +_{a_2^\prime} c^\prime$};
+\node (E) at (4.5,0.5) {$d_{M_1 \odot N_1} \in F(b+_{a_2} c)$};
+\node (F) at (4.5,-0.5) {$d_{M_2 \odot N_2} \in F(b^\prime +_{a_2^\prime} c^\prime)$};
+\node (G) at (1.5,-1) {$\iota_{\alpha \odot \beta} \colon F(h_1 +_g h_2)(d_{M_1 \odot N_1}) \to d_{M_1^\prime \odot N_1^\prime}$};
+\node (A'') at (0,-1.5) {$a_1^\prime$};
+\node (A''') at (0,-2.5) {$a_1''$};
+\node (B'') at (1.5,-1.5) {$b^\prime +_{a_2^\prime} c^\prime$};
+\node (C'') at (3,-1.5) {$a_3^\prime$};
+\node (C''') at (3,-2.5) {$a_3''$};
+\node (D'') at (1.5,-2.5) {$b'' +_{a_2''} c''$};
+\node (E'') at (4.5,-1.5) {$d_{M_2 \odot N_2} \in F(b^\prime+_{a_2^\prime} c^\prime)$};
+\node (F'') at (4.5,-2.5) {$d_{M_3 \odot N_3} \in F(b'' +_{a_2''} c'')$};
+\node (G'') at (1.5,-3) {$\iota_{\alpha^\prime \odot \beta^\prime} \colon F(h_1^\prime +_{g^\prime} h_2^\prime)(d_{M_2 \odot N_2}) \to d_{M_3 \odot N_3}.$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_a i_1$} (B)
-(C) edge node[above]{$j \psi_x o_2$} (B)
+(A) edge node[above]{$j \psi_{a_1} i_1$} (B)
+(C) edge node[above]{$j \psi_{a_3} o_2$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[left]{$k$} (C')
-(A') edge node [above]{$j \psi_{a^\prime} i_1^\prime$} (D)
-(C') edge node [above]{$j \psi_{x^\prime} o_2^\prime$} (D)
+(A') edge node [above]{$j \psi_{a_1^\prime} i_1^\prime$} (D)
+(C') edge node [above]{$j \psi_{a_3^\prime} o_2^\prime$} (D)
 (B) edge node [left] {$h_1 +_g h_2$} (D)
-(A'') edge node[above]{$j \psi_{a^\prime} i_1^\prime$} (B'')
-(C'') edge node[above]{$j \psi_{x^\prime} o_2^\prime$} (B'')
+(A'') edge node[above]{$j \psi_{a_1^\prime} i_1^\prime$} (B'')
+(C'') edge node[above]{$j \psi_{a_3^\prime} o_2^\prime$} (B'')
 (A'') edge node[left]{$f^\prime$} (A''')
 (C'') edge node[left]{$k^\prime$} (C''')
-(A''') edge node [above]{$j \psi_{a''} i_1''$} (D'')
-(C''') edge node [above]{$j \psi_{x''} o_2''$} (D'')
+(A''') edge node [above]{$j \psi_{a_1''} i_1''$} (D'')
+(C''') edge node [above]{$j \psi_{a_3''} o_2''$} (D'')
 (B'') edge node [left] {$h_1^\prime +_{g^\prime} h_2^\prime$} (D'');
 \end{tikzpicture}
 \]
 To obtain the morphism of decorations for a horizontal composite, we have as initial data:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (4,0) {$\iota_1 \Swarrow$};
+\node (A) at (4,0) {$\iota_\alpha \Swarrow$};
 \node (D) at (3,0) {$1$};
-\node (E) at (4.5,0.5) {$F(c)$};
-\node (E') at (4.5,-0.5) {$F(c^\prime)$};
-\node (A') at (6.5,0) {$\iota_2 \Swarrow$};
+\node (E) at (4.5,0.5) {$F(b)$};
+\node (E') at (4.5,-0.5) {$F(b^\prime)$};
+\node (A') at (6.5,0) {$\iota_\beta \Swarrow$};
 \node (D') at (5.5,0) {$1$};
-\node (E'') at (7,0.5) {$F(e)$};
-\node (E''') at (7,-0.5) {$F(e^\prime)$};
+\node (E'') at (7,0.5) {$F(c)$};
+\node (E''') at (7,-0.5) {$F(c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$d_1$} (E)
-(D) edge node [below] {$d_1^\prime$} (E')
+(D) edge node [above] {$d_{M_1}$} (E)
+(D) edge node [below] {$d_{M_2}$} (E')
 (E) edge node [right] {$F(h_1)$} (E')
-(D') edge node [above] {$d_2$} (E'')
-(D') edge node [below] {$d_2^\prime$} (E''')
+(D') edge node [above] {$d_{N_1}$} (E'')
+(D') edge node [below] {$d_{N_2}$} (E''')
 (E'') edge node [right] {$F(h_2)$} (E''');
 \end{tikzpicture}
 \]
-and then multiply these viewed as two 2-morphisms in $\mathbf{Cat}$ which results in:
+These two 2-morphisms $\iota_\alpha$ and $\iota_\beta$ are two 2-morphisms in the monoidal 2-category $(\mathbf{Cat},\times,1)$ and so we can tensor them which results in:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (4.75,0) {$\iota_1 \times \iota_2 \Swarrow$};
+\node (A) at (4.75,0) {$\iota_\alpha \times \iota_\beta \Swarrow$};
 \node (D) at (3,0) {$1 \xrightarrow{\lambda^{-1}} 1 \times 1$};
-\node (E) at (5.5,0.5) {$F(c) \times F(e)$};
-\node (E') at (5.5,-0.5) {$F(c^\prime) \times F(e^\prime)$};
-\node (B) at (7.5,0.5) {$F(c+e)$};
-\node (B') at (7.5,-0.5) {$F(c^\prime + e^\prime)$};
-\node (C) at (9,0.5) {$F(c+_b e)$};
-\node (C') at (9,-0.5) {$F(c^\prime +_{b^\prime} e^\prime)$};
+\node (E) at (5.5,0.5) {$F(b) \times F(c)$};
+\node (E') at (5.5,-0.5) {$F(b^\prime) \times F(c^\prime)$};
+\node (B) at (7.5,0.5) {$F(b+c)$};
+\node (B') at (7.5,-0.5) {$F(b^\prime + c^\prime)$};
+\node (C) at (9.25,0.5) {$F(b+_{a_2} c)$};
+\node (C') at (9.25,-0.5) {$F(b^\prime +_{a_2^\prime} c^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
-(E) edge node [above] {$\phi_{c,e}$} (B)
-(E') edge node [above] {$\phi_{c^\prime,e^\prime}$} (B')
-(B) edge node [above] {$F(j_{c,e})$} (C)
-(B') edge node [above] {$F(j_{c^\prime,e^\prime})$} (C')
+(E) edge node [above] {$\phi_{b,c}$} (B)
+(E') edge node [above] {$\phi_{b^\prime,c^\prime}$} (B')
+(B) edge node [above] {$F(j_{b,c})$} (C)
+(B') edge node [above] {$F(j_{b^\prime,c^\prime})$} (C')
 (C) edge node [right] {$F(h_1 +_g h_2)$} (C')
 (B) edge node [right] {$F(h_1 + h_2)$} (B')
-(D) edge node [above] {$d_1 \times d_2$} (E)
-(D) edge node [below] {$d_1^\prime \times d_2^\prime$} (E')
+(D) edge node [above] {$d_{M_1} \times d_{N_1}$} (E)
+(D) edge node [below] {$d_{M_2} \times d_{N_2}$} (E')
 (E) edge node [right] {$F(h_1) \times F(h_2)$} (E');
 \end{tikzpicture}
 \]
-where the middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying diagram commutes. The objects $d_{1,2}$ and $d^\prime_{1,2}$ are given by top and bottom composite of arrows and the morphism of decorations $\iota_{1,2}$ is given by composing $\iota_1 \times \iota_2$ with the two commuting squares. Returning to the interchange law, composing the two horizontal compositions above vertically then results in:
+where the middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying diagram commutes. The decorations $d_{M_1 \odot N_1}$ and $d_{M_2 \odot N_2}$ are given respectively by top and bottom composite of arrows and the morphism of decorations $\iota_{\alpha \odot \beta}$ is given by composing $\iota_\alpha \times \iota_\beta$ with the two commuting squares, which can equivalently be viewed as a morphism in $F(b' +_{a_2'} c')$. 
+
+Returning to the interchange law, composing the two horizontal compositions above vertically then results in:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (2,0.5) {$c+_b e$};
-\node (C) at (4,0.5) {$x$};
-\node (C') at (4,-0.5) {$x''$};
-\node (D) at (2,-0.5) {$c'' +_{b''} e''$};
-\node (E) at (5.5,0.5) {$d_{1,2} \in F(c+_b e)$};
-\node (F) at (5.5,-0.5) {$d_{1,2}'' \in F(c'' +_{b''} e'')$};
-\node (G) at (2,-1) {$(\iota_{1,2}^\prime \iota_{1,2}) \colon F((h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2))(d_{1,2}) \to d_{1,2}''.$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1''$};
+\node (B) at (2,0.5) {$b+_{a_2} c$};
+\node (C) at (4,0.5) {$a_3$};
+\node (C') at (4,-0.5) {$a_3''$};
+\node (D) at (2,-0.5) {$b'' +_{a_2''} c''$};
+\node (E) at (5.5,0.5) {$d_{M_1 \odot N_1} \in F(b+_{a_2} c)$};
+\node (F) at (5.5,-0.5) {$d_{M_3 \odot N_3} \in F(b'' +_{a_2''} c'')$};
+\node (G) at (2,-1) {$\iota_{(a^\prime \odot \beta^\prime)(\alpha \odot \beta)} \colon F((h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2))(d_{M_1 \odot N_1}) \to d_{M_3 \odot N_3}.$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_a i_1$} (B)
-(C) edge node[above]{$j \psi_x o_2$} (B)
+(A) edge node[above]{$j \psi_{a_1} i_1$} (B)
+(C) edge node[above]{$j \psi_{a_3} o_2$} (B)
 (A) edge node[left]{$f^\prime f$} (A')
 (C) edge node[left]{$k^\prime k$} (C')
-(A') edge node [above]{$j \psi_{a''} i_1''$} (D)
-(C') edge node [above]{$j \psi_{x''} o_2''$} (D)
+(A') edge node [above]{$j \psi_{a_1''} i_1''$} (D)
+(C') edge node [above]{$j \psi_{a_3''} o_2''$} (D)
 (B) edge node [left] {$(h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2)$} (D);
 \end{tikzpicture}
 \]
-\textbf{F being pseudo might do something here...}
 The vertical composite of two morphisms of decorations is straightforward. On the other hand, if we first compose vertically we obtain:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (1,0.5) {$c$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b''$};
-\node (D) at (1,-0.5) {$c''$};
-\node (E) at (3,0.5) {$d_1 \in F(c)$};
-\node (F) at (3,-0.5) {$d_1'' \in F(c'')$};
-\node (G) at (4,0.5) {$b$};
-\node (H) at (5,0.5) {$e$};
-\node (I) at (6,0.5) {$x$};
-\node (G') at (4,-0.5) {$b''$};
-\node (H') at (5,-0.5) {$e''$};
-\node (I') at (6,-0.5) {$x''$};
-\node (J) at (7,0.5) {$d_2 \in F(e)$};
-\node (K) at (7,-0.5) {$d_2'' \in F(e'')$};
-\node (L) at (1,-1) {$\iota_1^\prime \iota_1 \colon F(h_1^\prime h_1)(d_1) \to d_1''$};
-\node (M) at (5,-1) {$\iota_2^\prime \iota_2 \colon F(h_2^\prime h_2)(d_2) \to d_2''$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1''$};
+\node (B) at (1,0.5) {$b$};
+\node (C) at (2,0.5) {$a_2$};
+\node (C') at (2,-0.5) {$a_2''$};
+\node (D) at (1,-0.5) {$b''$};
+\node (E) at (3,0.5) {$d_{M_1} \in F(b)$};
+\node (F) at (3,-0.5) {$d_{M_3} \in F(b'')$};
+\node (G) at (4,0.5) {$a_2$};
+\node (H) at (5,0.5) {$c$};
+\node (I) at (6,0.5) {$a_3$};
+\node (G') at (4,-0.5) {$a_2''$};
+\node (H') at (5,-0.5) {$c''$};
+\node (I') at (6,-0.5) {$a_3''$};
+\node (J) at (7,0.5) {$d_{N_1} \in F(c)$};
+\node (K) at (7,-0.5) {$d_{N_3} \in F(c'')$};
+\node (L) at (1,-1) {$\iota_{\alpha^\prime \alpha} \colon F(h_1^\prime h_1)(d_{M_1}) \to d_{M_3}$};
+\node (M) at (5,-1) {$\iota_{\beta^\prime \beta} \colon F(h_2^\prime h_2)(d_{N_1}) \to d_{N_3}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -1132,22 +1133,22 @@ The vertical composite of two morphisms of decorations is straightforward. On th
 and then composing horizontally results in:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (2,0.5) {$c+_b e$};
-\node (C) at (4,0.5) {$x$};
-\node (C') at (4,-0.5) {$x''$};
-\node (D) at (2,-0.5) {$c'' +_{b''} e''$};
-\node (E) at (5.5,0.5) {$d_{1,2} \in F(c+_b e)$};
-\node (F) at (5.5,-0.5) {$d_{1,2}'' \in F(c'' +_{b''} e'')$};
-\node (G) at (2,-1) {$(\iota_1^\prime \iota_1,\iota_2^\prime \iota_2) \colon F((h_1^\prime h_1)+_{g^\prime g} (h_2^\prime h_2))(d_{1,2}) \to d_{1,2}''.$};
+\node (A) at (0,0.5) {$a_1$};
+\node (A') at (0,-0.5) {$a_1''$};
+\node (B) at (2,0.5) {$b+_{a_2} c$};
+\node (C) at (4,0.5) {$a_3$};
+\node (C') at (4,-0.5) {$a_3''$};
+\node (D) at (2,-0.5) {$b'' +_{a_2''} c''$};
+\node (E) at (5.5,0.5) {$d_{M_1 \odot N_1} \in F(b+_{a_2} c)$};
+\node (F) at (5.5,-0.5) {$d_{M_3 \odot N_3} \in F(b'' +_{a_3''} c'')$};
+\node (G) at (2,-1) {$\iota_{(\alpha^\prime \alpha) \odot (\beta^\prime \beta)} \colon F((h_1^\prime h_1)+_{g^\prime g} (h_2^\prime h_2))(d_{M_1 \odot N_1}) \to d_{M_3 \odot N_3}.$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_a i_1$} (B)
-(C) edge node[above]{$j \psi_x o_2$} (B)
+(A) edge node[above]{$j \psi_{a_1} i_1$} (B)
+(C) edge node[above]{$j \psi_{a_3} o_2$} (B)
 (A) edge node[left]{$f^\prime f$} (A')
 (C) edge node[left]{$k^\prime k$} (C')
-(A') edge node [above]{$j \psi_{a''} i_1''$} (D)
-(C') edge node [above]{$j \psi_{x''} o_2''$} (D)
+(A') edge node [above]{$j \psi_{a_1''} i_1''$} (D)
+(C') edge node [above]{$j \psi_{a_3''} o_2''$} (D)
 (B) edge node [left] {$(h_1^\prime h_1) +_{g^\prime g} (h_2^\prime h_2)$} (D);
 \end{tikzpicture}
 \]
@@ -1173,7 +1174,7 @@ and then composing horizontally results in:
 %(H) edge node [above] {$F(j_{c'',e''})$} (E);
 %\end{tikzpicture}
 %\]
-As is usual concerning the interchange law of double categories of this nature, only the `interior' of the two compositions appears different, but the two morphisms $(h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2) \colon c+_b e \to c'' +_{b''} e''$ and $(h_1^\prime h_1) +_{g^\prime g} (h_2^\prime h_2) \colon c+_b e \to c'' +_{b''}e''$ are the same universal map realized in two different ways. The two morphisms of decorations are two compositions of 2-morphisms in $\mathbf{Cat}$ for which the interchange law already holds, and as a result, the morphisms $$(\iota_{1,2}^\prime \iota_{1,2}) \colon F((h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2))(d_{1,2}) \to d_{1,2}''$$ and $$(\iota_1^\prime \iota_1,\iota_2^\prime \iota_2) \colon F((h_1^\prime h_1)+_{g^\prime g} (h_2^\prime h_2))(d_{1,2}) \to d_{1,2}''$$ are also the same.
+As is usual concerning the interchange law of double categories of this nature, only the `interior' of the two compositions appears different, but the two morphisms $(h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2) \colon b+_{a_2} c \to b'' +_{a_2''} c''$ and $(h_1^\prime h_1) +_{g^\prime g} (h_2^\prime h_2) \colon b+_{a_2} c \to b'' +_{a_2''}c''$ are the same universal map realized in two different ways. The two morphisms of decorations $\iota_{(\alpha^\prime \odot \beta^\prime)(\alpha \odot \beta)}$ and $\iota_{(\alpha^\prime \alpha) \odot (\beta^\prime \beta)}$ are obtained as two different compositions of four 2-morphisms in $\mathbf{Cat}$, namely horizontally then vertically and vertically then horizontally. As $\mathbf{Cat}$ is a 2-category, the interchange law for these 2-morphisms already holds, and as a result, the morphisms $$\iota_{(\alpha' \odot \beta')(\alpha \odot \beta)} \colon F((h_1^\prime +_{g^\prime} h_2^\prime)(h_1 +_g h_2))(d_{M_1 \odot N_1}) \to d_{M_3 \odot N_3}$$ and $$\iota_{(\alpha^\prime \alpha)\odot(\beta^\prime \beta)} \colon F((h_1^\prime h_1)+_{g^\prime g} (h_2^\prime h_2))(d_{M_1 \odot N_1}) \to d_{M_3 \odot N_3}$$ are also the same. Thus the interchange law for 2-morphisms holds and $F\mathbb{C}$sp is a double category.
 \end{proof}
 
 \begin{thm}\label{DC}
