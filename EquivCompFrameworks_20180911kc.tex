@@ -3374,12 +3374,12 @@ We now show that these two symmetric monoidal double categories are equivalent.
 
 {\chris Statement of Theorem, and proof, will be heavily edited soon!}
 \begin{thm}\label{Equiv}
-Let $\mathrm{A}$ and $\mathrm{X}$ be categories with finite colimits and $F \colon \mathrm{A} \to \mathbf{Cat}$ a symmetric lax monoidal pseudofunctor. Let $L \colon \mathrm{A} \to \int{F} \cong \mathrm{X}$ be the left adjoint of the Grothendieck construction $R \colon \int{F} \to \mathrm{A}$ of $F$. Then the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ utilizing structured cospans and the symmetric monoidal double category $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ utilizing decorated cospans are equivalent as symmetric monoidal double categories.
+Let $\mathsf{A}$ and $\mathsf{X}$ be categories with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a symmetric lax monoidal pseudofunctor. Let $L \colon \mathsf{A} \to \int{F} \cong \mathsf{X}$ be the left adjoint of the Grothendieck construction $R \colon \int{F} \to \mathsf{A}$ of $F$. Then the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ utilizing structured cospans and the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ utilizing decorated cospans are equivalent as symmetric monoidal double categories.
 \end{thm}
 \begin{proof}
-To prove this, we define a double functor $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathrm{X}) \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})$ as follows: the object component of the double functor $\mathbb{E}$ is given by $\mathbb{E}_0 = \id_{\mathrm{A}}$ as both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ have objects and morphisms of $\mathrm{A}$ as objects and vertical 1-morphisms, respectively. The functor $\mathbb{E}_0$ is trivially an equivalence of categories.
+To prove this, we define a double functor $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ as follows: the object component of the double functor $\mathbb{E}$ is given by $\mathbb{E}_0 = \id_{\mathsf{A}}$ as both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and $F\mathbb{C}\textnormal{sp}$ have objects and morphisms of $\mathsf{A}$ as objects and vertical 1-morphisms, respectively. The functor $\mathbb{E}_0$ is trivially an equivalence of categories.
 
-Given a horizontal 1-cell of $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$, which is a cospan in $\mathrm{X}$ of the form:
+Given a horizontal 1-cell $M$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$, which is a cospan in $\mathsf{X}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c)$};
@@ -3390,7 +3390,7 @@ Given a horizontal 1-cell of $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$, which i
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-the image of this horizontal 1-cell under the arrow component $\mathbb{E}_1$ is the pair:
+the image $\mathbb{E}_1(M)$ is given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
@@ -3402,7 +3402,7 @@ the image of this horizontal 1-cell under the arrow component $\mathbb{E}_1$ is 
 (C) edge node[above]{$R(o) {\eta_{c^\prime}}$} (B);
 \end{tikzpicture}
 \]
-where $R\colon \mathrm{X} \to \mathrm{A}$ is the right adjoint to the functor $L \colon \mathrm{A} \to \mathrm{X}$ and $\eta \colon 1_{\mathrm{A}} \to RL$ is the unit of the adjunction $L \dashv R$ which is an isomorphism since $L$ is fully faithful. \textbf{Hopefully...actually, it's a `lari'!} Similarly, the image of a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$:
+where $R\colon \mathsf{X} \to \mathsf{A}$ is the right adjoint to the functor $L \colon \mathsf{A} \to \mathsf{X}$ and $\eta \colon 1_{\mathsf{A}} \to RL$ is the unit of the adjunction $L \dashv R$ which is an isomorphism since $L$ is fully faithful. \textbf{Hopefully...actually, it's a `lari'!} Similarly, the image of a 2-morphism $\alpha \colon M \to N$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3421,7 +3421,7 @@ where $R\colon \mathrm{X} \to \mathrm{A}$ is the right adjoint to the functor $L
 (C) edge node [left]{$L(g)$} (C');
 \end{tikzpicture}
 \]
-is the 2-morphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ given by:
+is given by the 2-morphism $\mathbb{E}_1(\alpha) \colon \mathbb{E}_1(M) \to \mathbb{E}_1(N)$ in $\mathbb{F}\textnormal{Cospan}(\mathsf{A})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3442,7 +3442,7 @@ is the 2-morphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ given by:
 (C) edge node [left]{$g$} (C');
 \end{tikzpicture}
 \]
-together with a morphism $\iota \colon F(R(h))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. First, to see that this functor is essentially surjective, given a horizontal 1-cell in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$:
+together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. First, to see that this functor is essentially surjective, given a horizontal 1-cell in $F\mathbb{C}\textnormal{sp}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3454,7 +3454,7 @@ together with a morphism $\iota \colon F(R(h))(x) \to x^\prime$ in $F(R(x^\prime
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-we can find a 2-isomorphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ whose codomain is the above horizontal 1-cell and whose domain is the image of the following horizontal 1-cell in $_L \mathbb{C}\textnormal{sp}(\mathbf{D})$:
+we can find a 2-isomorphism in $F\mathbb{C}\textnormal{sp}$ whose codomain is the above horizontal 1-cell and whose domain is the image of the following horizontal 1-cell in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3465,7 +3465,7 @@ we can find a 2-isomorphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ whose
 (C) edge node[above]{$o^\prime$} (B);
 \end{tikzpicture}
 \]
-with the 2-isomorphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ given by:
+with the 2-isomorphism in $F\mathbb{C}\textnormal{sp}$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3489,7 +3489,7 @@ with the 2-isomorphism in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ given by:
 $$\iota \colon F({(R(e)\eta_c)}^{-1})(x) \to x$$
 where $e \colon L(c) \to x$ is given by the map from the trivial decoration on $c$ to $x \in F(c)$. The object and arrow components $\mathbb{E}_0$ and $\mathbb{E}_1$ satisfy the equations $S \mathbb{E}_1 = \mathbb{E}_0 S$ and $T \mathbb{E}_1 = \mathbb{E}_0 T$.
 
-To show that the double functor $\mathbb{E}$ is fully faithful, we need to show that the map  $$\mathbb{E}_1 \colon _f { _L \mathbb{C}\textnormal{sp}(\mathrm{X})}_g(M,N) \to _{\mathbb{E}(f)} {\mathbb{F}\textnormal{Cospan}(\mathrm{A})}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ is bijective for arbitrary vertical 1-morphisms $f$ and $g$ and horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathbf{D})$. Consider a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$:
+To show that the double functor $\mathbb{E}$ is fully faithful, we need to show that the map  $$\mathbb{E}_1 \colon _f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N) \to _{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ is bijective for arbitrary vertical 1-morphisms $f$ and $g$ and horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$. Consider a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3512,7 +3512,7 @@ To show that the double functor $\mathbb{E}$ is fully faithful, we need to show 
 (C) edge node [left]{$L(g)$} (C');
 \end{tikzpicture}
 \]
-The set $$_f { _L \mathbb{C}\textnormal{sp}(\mathrm{X})}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ where $f$ and $g$ are morphisms of $\mathrm{A}$ and $\alpha$ is a morphism of $\mathrm{X}$. The image of the above 2-morphism under the double functor $\mathbb{E}$ is given by:
+Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ rendering the above diagram commutative where $f$ and $g$ are morphisms of $\mathsf{A}$ and $\alpha$ is a morphism of $\mathsf{X}$. The image of the above 2-morphism under the double functor $\mathbb{E}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3538,9 +3538,9 @@ The set $$_f { _L \mathbb{C}\textnormal{sp}(\mathrm{X})}_g(M,N)$$ consists of tr
 \end{tikzpicture}
 \]
 together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ of $F(R(x^\prime))$.
-Thus the set $$_{\mathbb{E}(f)} {\mathbb{F}\textnormal{Cospan}(\mathrm{A})}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\iota).$$ The morphisms $R(\alpha) \colon R(x) \to R(x^\prime)$ and $\iota \colon F(R(\alpha))(x) \to x^\prime$ together carry all of the information of the morphism $\alpha \colon x \to x^\prime$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x^\prime=(c^\prime,x^\prime \in F(c^\prime))$ of $\mathrm{X}=\int{F}$, a morphism from $\alpha \colon x \to x^\prime$ is a pair $$(h \colon c \to c^\prime, \iota \colon F(h)(x) \to x^\prime)$$ where $h \colon c \to c^\prime$ is given by $R(\alpha) \colon R(x) \to R(x^\prime)$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
+Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\iota)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\mathsf{A}$ and $\iota$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \colon R(x) \to R(x^\prime)$ and $\iota \colon F(R(\alpha))(x) \to x^\prime$ together determine the morphism $\alpha \colon x \to x^\prime$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x^\prime=(c^\prime,x^\prime \in F(c^\prime))$ of $\mathsf{X}=\int{F}$, a morphism from $\alpha \colon x \to x^\prime$ is a pair $$(h \colon c \to c^\prime, \iota \colon F(h)(x) \to x^\prime)$$ where $h \colon c \to c^\prime$ is given by $R(\alpha) \colon R(x) \to R(x^\prime)$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
 
-Next we show that the double functor $\mathbb{E}$ is strong by exhibiting natural isomorphisms $$\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N)$$ for every pair of composable horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and for each object $c \in { _L \mathbb{C}\textnormal{sp}(\mathrm{X})}$ a natural isomorphism $$\mathbb{E}_c \colon \hat{U}_{\mathbb{E}(c)} \xrightarrow{\sim} \mathbb{E}(U_c)$$ where $U$ and $\hat{U}$ are the unit structure functors of $_L \mathbb{C} \textnormal{sp}(\mathrm{X})$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$, respectively. For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
+Next we show that the double functor $\mathbb{E}$ is strong by exhibiting a natural isomorphism $$\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N)$$ for every pair of composable horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and for each object $c \in { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}$ a natural isomorphism $$\mathbb{E}_c \colon \hat{U}_{\mathbb{E}(c)} \xrightarrow{\sim} \mathbb{E}(U_c)$$ where $U$ and $\hat{U}$ are the unit structure functors of $_L \mathbb{C} \textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$, respectively. For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
@@ -3576,7 +3576,7 @@ and so $\mathbb{E}(U_c)$ is given by the pair:
 (C) edge node[above]{$\eta_c$} (B);
 \end{tikzpicture}
 \]
-Then we can obtain the natural isomorphism $\mathbb{E}_c$ as the 2-morphism
+Then we can obtain the natural isomorphism $\mathbb{E}_c \colon \hat{U}_{\mathbb{E}(c)} \xrightarrow{\sim} \mathbb{E}(U_c)$ as the 2-morphism
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
@@ -3586,7 +3586,7 @@ Then we can obtain the natural isomorphism $\mathbb{E}_c$ as the 2-morphism
 \node (B') at (1,-1) {$R(L(c))$};
 \node (C') at (2,-1) {$c$};
 \node (D) at (3,0) {$!_c \in F(c)$};
-\node (D') at (3.25,-1) {$!_c \in F(R(L(c)))$};
+\node (D') at (3.25,-1) {$!_{R(L(c))} \in F(R(L(c)))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
@@ -3597,10 +3597,10 @@ Then we can obtain the natural isomorphism $\mathbb{E}_c$ as the 2-morphism
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-$$\iota \colon F(\eta_c)(!_c) \xrightarrow{!} L(c)$$
-of $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$. Seems reasonable...
+$$\iota \colon F(\eta_c)(!_c) \xrightarrow{!} !_{R(L(c))}$$
+of $F\mathbb{C}\textnormal{sp}$.
 
-Next, given composable horizontal 1-cells $M$ and $N$ in $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$:
+Next, given composable horizontal 1-cells $M$ and $N$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3662,7 +3662,7 @@ $$\hat{x} \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times x
 (C) edge node[above]{$J \zeta o^\prime$} (B);
 \end{tikzpicture}
 \]
-where $\zeta$ is each inclusion into the coproduct and $J$ is the natural map from the coproduct to the pushout. Then $E(M \odot N)$ is given by
+where $\zeta$ is a natural map into a coproduct and $J$ is the natural map from the coproduct to the pushout. Then $E(M \odot N)$ is given by
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3696,8 +3696,8 @@ and so $\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-First, if the right adjoint $R \colon \mathrm{X} \to \mathrm{A}$ is also a left adjoint, then $R$ also preserves all colimits and we have an isomorphism $$\kappa \colon R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \colon c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \coloneqq \kappa j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
-Next, to see that the above diagram commutes, it suffices to show that for the object $c_1 \in \mathrm{A}$, $$R(J \zeta i)\eta_{c_1}(c_1) = R(J)R(\zeta)R(i)\eta_{c_1}(c_1) \stackrel{!}{=} \sigma j \psi R(i)\eta_{c_1}(c_1).$$ This follows as $R(i) \eta_{c_1} \colon c_1 \to R(x)$ and the following diagram commutes:
+First, if the right adjoint $R \colon \mathsf{X} \to \mathsf{A}$ is also a left adjoint, then $R$ also preserves all colimits and we have an isomorphism $$\kappa \colon R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \colon \mathsf{A} \to \mathsf{X}$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \colon c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \coloneqq \kappa j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
+Next, to see that the above diagram commutes, it suffices to show that for the object $c_1 \in \mathrm{A}$, $$R(J)R(\zeta)R(i)\eta_{c_1}(c_1) = R(J \zeta i)\eta_{c_1}(c_1)  \stackrel{!}{=} \sigma j \psi R(i)\eta_{c_1}(c_1) = \kappa j_{\eta_{c_2}} \psi R(i) \eta_{c_1}(c_1).$$ This follows as $R(i) \eta_{c_1} \colon c_1 \to R(x)$ and the following diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (B) at (0,0) {$R(x)$};
@@ -3716,44 +3716,44 @@ Next, to see that the above diagram commutes, it suffices to show that for the o
 (D') edge node [right]{$\kappa$} (B');
 \end{tikzpicture}
 \]
-Lastly, this map of cospans comes with an isomorphism $\iota \colon F(\sigma)(\hat{x}) \to (x+_{L(c_2)}x^\prime)$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathrm{X}) \xrightarrow{\sim} \mathbb{F}\textnormal{Cospan}(\mathrm{A})$ is part of a double equivalence by Theorem \ref{ShulDubEquiv}.
+Lastly, this map of cospans comes with an isomorphism $\iota \colon F(\sigma)(\hat{x}) \to (x+_{L(c_2)}x^\prime)$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \xrightarrow{\sim} F\mathbb{C}\textnormal{sp}$ is part of a double equivalence by Theorem \ref{ShulDubEquiv}.
 
-Next, if both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ are symmetric monoidal, as they are if both $\mathrm{A}$ and $\mathrm{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathrm{X}) \to \mathbb{F} \textnormal{Cospan}(\mathrm{A})$ will be symmetric monoidal. First note that we have an isomorphism $\epsilon \colon 1_{\mathbb{F}\textnormal{Cospan}(\mathrm{A})} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathrm{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathrm{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ have $\mathrm{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathrm{A}}$. The diagrams containing these morphisms that are required to commute do so trivially.
+Next, if both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\mathsf{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \colon 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
 
-For the arrow component $\mathbb{E}_1$, we have an isomorphism $\delta \colon U_{1_{\mathbb{F}\textnormal{Cospan}(\mathrm{A})}} \to \mathbb{E}(U_{1_{_L \mathbb{C}\textnormal{sp}(\mathrm{X})}})$ where the horizontal 1-cell $U_{1_{\mathbb{F}\textnormal{Cospan}(\mathrm{A})}}$ is given by:
+For the arrow component $\mathbb{E}_1$, we have an isomorphism $\delta \colon U_{1_{F\mathbb{C}\textnormal{sp}}} \to \mathbb{E}(U_{1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})}})$ where the horizontal 1-cell $U_{1_{F\mathbb{C}\textnormal{sp}}}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathrm{A}$};
-\node (B) at (1,0) {$1_\mathrm{A}$};
-\node (C) at (2,0) {$1_\mathrm{A}$};
-\node (D) at (3,0) {$!_{1_{\mathrm{A}}} \in F(1_\mathrm{A})$};
+\node (A) at (0,0) {$1_\mathsf{A}$};
+\node (B) at (1,0) {$1_\mathsf{A}$};
+\node (C) at (2,0) {$1_\mathsf{A}$};
+\node (D) at (3,0) {$!_{1_{\mathsf{A}}} \in F(1_\mathsf{A})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $!_{1_{\mathrm{A}}} = \phi \colon 1 \to F(1_\mathrm{A})$ is the trivial decoration which comes from the structure of the symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. The horizontal 1-cell $U_{1_{_L \mathbb{C}\textnormal{sp}(\mathrm{X})}}$ is given by:
+where $!_{1_{\mathsf{A}}} = \phi \colon 1 \to F(1_\mathsf{A})$ is the trivial decoration which comes from the structure of the symmetric lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. The horizontal 1-cell $U_{1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})}}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(1_\mathrm{A})$};
-\node (B) at (1,0) {$L(1_\mathrm{A})$};
-\node (C) at (2,0) {$L(1_\mathrm{A})$};
+\node (A) at (0,0) {$L(1_\mathsf{A})$};
+\node (B) at (1,0) {$L(1_\mathsf{A})$};
+\node (C) at (2,0) {$L(1_\mathsf{A})$};
 %\node (D) at (3,0.5) {$I \in F(1_\mathrm{A})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where here we make use of the fact that the left adjoint $L \colon (\mathrm{A},+,1_\mathrm{A}) \to (\mathrm{X},+,1_\mathrm{X})$ preserves all colimits and thus $L(1_\mathrm{A}) \cong 1_\mathrm{X}$. The horizontal 1-cell $\mathbb{E}(U_{1_{_L \mathbb{C} \textnormal{sp}(\mathrm{X})}})$ is given by the pair:
+where here we make use of the fact that the left adjoint $L \colon (\mathsf{A},+,1_\mathsf{A}) \to (\mathsf{X},+,1_\mathsf{X})$ preserves all colimits and thus $L(1_\mathsf{A}) \cong 1_\mathsf{X}$. The horizontal 1-cell $\mathbb{E}(U_{1_{_L \mathbb{C} \textnormal{sp}(\mathsf{X})}})$ is then given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathrm{A}$};
-\node (B) at (1.25,0) {$R(L(1_\mathrm{A}))$};
-\node (C) at (2.5,0) {$1_\mathrm{A}$};
-\node (D) at (4,0) {$!_{1_\mathrm{A}} \in F(R(L(1_\mathrm{A}))) \cong F(1_\mathrm{A})$};
+\node (A) at (0,0) {$1_\mathsf{A}$};
+\node (B) at (1.25,0) {$R(L(1_\mathsf{A}))$};
+\node (C) at (2.5,0) {$1_\mathsf{A}$};
+\node (D) at (4.5,0) {$!_{R(L(1_\mathsf{A}))} \in F(R(L(1_\mathsf{A})))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{${\eta_{1_\mathrm{A}}}$} (B)
-(C) edge node[above]{${\eta_{1_\mathrm{A}}}$} (B);
+(A) edge node[above]{${\eta_{1_\mathsf{A}}}$} (B)
+(C) edge node[above]{${\eta_{1_\mathsf{A}}}$} (B);
 \end{tikzpicture}
 \]
 The isomorphism $\delta$ is then given by the 2-morphism:
@@ -3778,7 +3778,7 @@ The isomorphism $\delta$ is then given by the 2-morphism:
 \end{tikzpicture}
 \]
 $$\iota_{{\eta_{1_\mathrm{A}}}} \colon F({\eta_{1_\mathrm{A}}}(!_{1_\mathrm{A}})) \to !_{1_\mathrm{A}}$$
-of $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$.
+of $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$. This is just the natural isomorphism $\mathbb{E}_{1_\mathsf{A}}$ from earlier.
 
 Given two horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$:
 \[
