@@ -3759,28 +3759,28 @@ where here we make use of the fact that the left adjoint $L \colon (\mathsf{A},+
 The isomorphism $\delta$ is then given by the 2-morphism:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathrm{A}$};
-\node (B) at (1,0) {$1_{\mathrm{A}}$};
-\node (C) at (2,0) {$1_\mathrm{A}$};
-\node (A') at (0,-1) {$1_\mathrm{A}$};
-\node (B') at (1,-1) {$R(L(1_\mathrm{A}))$};
-\node (C') at (2,-1) {$1_\mathrm{A}$};
-\node (D) at (3,0) {$!_{1_\mathrm{A}} \in F(1_\mathrm{A})$};
-\node (D') at (3.75,-1) {$!_{1_\mathrm{A}} \in F(R(L(1_\mathrm{A}))) \cong F(1_\mathrm{A})$};
+\node (A) at (0,0) {$1_\mathsf{A}$};
+\node (B) at (1,0) {$1_{\mathsf{A}}$};
+\node (C) at (2,0) {$1_\mathsf{A}$};
+\node (A') at (0,-1) {$1_\mathsf{A}$};
+\node (B') at (1,-1) {$R(L(1_\mathsf{A}))$};
+\node (C') at (2,-1) {$1_\mathsf{A}$};
+\node (D) at (3,0) {$!_{1_\mathsf{A}} \in F(1_\mathsf{A})$};
+\node (D') at (3.75,-1) {$!_{R(L(1_\mathsf{A}))} \in F(R(L(1_\mathsf{A})))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
-(A') edge node[above]{${\eta_{1_\mathrm{A}}}$} (B')
-(C') edge node[above]{${\eta_{1_\mathrm{A}}}$} (B')
+(A') edge node[above]{${\eta_{1_\mathsf{A}}}$} (B')
+(C') edge node[above]{${\eta_{1_\mathsf{A}}}$} (B')
 (A) edge node [left]{$1$} (A')
-(B) edge node [left]{${\eta_{1_\mathrm{A}}}$} (B')
+(B) edge node [left]{${\eta_{1_\mathsf{A}}}$} (B')
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-$$\iota_{{\eta_{1_\mathrm{A}}}} \colon F({\eta_{1_\mathrm{A}}}(!_{1_\mathrm{A}})) \to !_{1_\mathrm{A}}$$
-of $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$. This is just the natural isomorphism $\mathbb{E}_{1_\mathsf{A}}$ from earlier.
+$$\iota_{{\eta_{1_\mathsf{A}}}} \colon F({\eta_{1_\mathsf{A}}})(!_{1_\mathsf{A}})) \to !_{R(L(1_\mathsf{A}))}$$
+of $F\mathbb{C}\textnormal{sp}$. This is just the natural isomorphism $\mathbb{E}_{1_\mathsf{A}}$ from earlier.
 
-Given two horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$:
+Given two horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3847,24 +3847,24 @@ and $\mathbb{E}(M \otimes N)$ is given by:
 \node (A) at (0,0) {$c_1+c_1^\prime$};
 \node (B) at (2,0) {$R(x+x^\prime)$};
 \node (C) at (4,0) {$c_2+c_2^\prime$};
-\node (D) at (2,-0.5) {$x+x^\prime \in F(R(x+x^\prime))$};
+\node (D) at (2,-0.5) {$x+x^\prime \in F(R(x+x^\prime)).$};
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$R(i+i^\prime) \eta_{c_1+c_1^\prime}$} (B)
 (C) edge node[above]{$R(o+o^\prime) \eta_{c_2+c_2^\prime}$} (B);
 \end{tikzpicture}
 \]
-We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\sim} E(M \otimes N)$ in $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ given by:
+We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\sim} E(M \otimes N)$ in $F\mathbb{C}\textnormal{sp}$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1+c_1^\prime$};
+\node (A) at (-0.5,0) {$c_1+c_1^\prime$};
 \node (B) at (2,0) {$R(x)+R(x^\prime)$};
-\node (C) at (4,0) {$c_2+c_2^\prime$};
-\node (A') at (0,-1) {$c_1+c_1^\prime$};
+\node (C) at (4.5,0) {$c_2+c_2^\prime$};
+\node (A') at (-0.5,-1) {$c_1+c_1^\prime$};
 \node (B') at (2,-1) {$R(x+x^\prime)$};
-\node (C') at (4,-1) {$c_2+c_2^\prime$};
-\node (D) at (5.75,0) {$\hat{x} \in F(R(x)+R(x^\prime))$};
-\node (D') at (5.75,-1) {$x+x^\prime \in F(R(x+x^\prime))$};
+\node (C') at (4.5,-1) {$c_2+c_2^\prime$};
+\node (D) at (6.25,0) {$\hat{x} \in F(R(x)+R(x^\prime))$};
+\node (D') at (6.25,-1) {$x+x^\prime \in F(R(x+x^\prime))$};
 \node (E) at (2,-1.5) {$\iota_\mu \colon F(\kappa)(\hat{x}) \to x+x^\prime$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$R(i)\eta_{c_1} + R(i^\prime)\eta_{c_1^\prime}$} (B)
@@ -3876,7 +3876,9 @@ We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\s
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. Let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ given by:
+where $\kappa$ is an isomorphism as $R \colon \mathsf{X} \to \mathsf{A}$ preserves finite colimits.
+
+The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. Let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3901,10 +3903,10 @@ The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares
 The left unitality square:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_{\mathbb{F}\textnormal{Cospan}(\mathrm{A})} \otimes \mathbb{E}(M_1)$};
-\node (B) at (3,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathrm{X})}) \otimes \mathbb{E}(M_1)$};
+\node (A) at (0,0) {$1_{F\mathbb{C}\textnormal{sp}} \otimes \mathbb{E}(M_1)$};
+\node (B) at (3,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})}) \otimes \mathbb{E}(M_1)$};
 \node (C) at (0,-1) {$\mathbb{E}(M_1)$};
-\node (D) at (3,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathrm{X})} \otimes M_1)$};
+\node (D) at (3,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})} \otimes M_1)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\delta \otimes 1$} (B)
 (B) edge node[right]{$\mu_{1,M_1}$} (D)
@@ -3915,22 +3917,22 @@ The left unitality square:
 has underlying maps of cospans given by:
 \[
 		\begin{tikzpicture}
-			\node (d) at (7.5,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathrm{X})}) \otimes \mathbb{E}(M_1)$};
-			\node (a) at (-4,0) {$1_\mathrm{A}+c_1$};
-			\node (b) at (0.5,0) {$R(L(1_\mathrm{A})) + R(x_1)$};
-			\node (c) at (5,0) {$1_\mathrm{A}+c_1^\prime$};
-			\node (d2) at (7.5,1) {$1_{\mathbb{F}\textnormal{Cospan}(\mathrm{A})} \otimes \mathbb{E}(M_1)$};
-			\node (a2) at (-4,1) {$1_\mathrm{A}+c_1$};
-			\node (b2) at (0.5,1) {$1_\mathrm{A}+R(x_1)$};
-			\node (c2) at (5,1) {$1_\mathrm{A}+c_1^\prime$};
+			\node (d) at (7.5,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})}) \otimes \mathbb{E}(M_1)$};
+			\node (a) at (-4,0) {$1_\mathsf{A}+c_1$};
+			\node (b) at (0.5,0) {$R(L(1_\mathsf{A})) + R(x_1)$};
+			\node (c) at (5,0) {$1_\mathsf{A}+c_1^\prime$};
+			\node (d2) at (7.5,1) {$1_{F\mathbb{C}\textnormal{sp}} \otimes \mathbb{E}(M_1)$};
+			\node (a2) at (-4,1) {$1_\mathsf{A}+c_1$};
+			\node (b2) at (0.5,1) {$1_\mathsf{A}+R(x_1)$};
+			\node (c2) at (5,1) {$1_\mathsf{A}+c_1^\prime$};
 			\node (d3) at (7.5,2) {$\mathbb{E}(M_1)$};
                                 \node (a3) at (-4,2) {$c_1$};
 			\node (b3) at (0.5,2) {$R(x_1)$};
 			\node (c3) at (5,2) {$c_1^\prime$};
-			\node (d4) at (7.5,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathrm{X})} \otimes M_1)$};
-                                \node (a5) at (-4,-1) {$1_\mathrm{A}+c_1^\prime$};
-			\node (b5) at (0.5,-1) {$R(L(1_\mathrm{A})+x_1)$};
-			\node (c5) at (5,-1) {$1_\mathrm{A}+c_1^\prime$};
+			\node (d4) at (7.5,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})} \otimes M_1)$};
+                                \node (a5) at (-4,-1) {$1_\mathsf{A}+c_1^\prime$};
+			\node (b5) at (0.5,-1) {$R(L(1_\mathsf{A})+x_1)$};
+			\node (c5) at (5,-1) {$1_\mathsf{A}+c_1^\prime$};
 			\node (d5) at (7.5,-2) {$\mathbb{E}(M_1)$};
                                 \node (a6) at (-4,-2) {$c_1$};
 			\node (b6) at (0.5,-2) {$R(x_1)$};
@@ -3940,49 +3942,49 @@ has underlying maps of cospans given by:
 			(d2) edge node [left] {$\delta \otimes 1$} (d)
 			(d) edge node [left] {$\mu_{1,M_1}$} (d4)
 			(d4) edge node [left] {$\mathbb{E}(\lambda)$} (d5)
-			(a) edge node[above]{$\eta_{1_\mathrm{A}}+R(i_1)\eta_{c_1}$} (b)
-			(c) edge node[above]{$\eta_{1_\mathrm{A}}+R(o_1)\eta_{c_1^\prime}$} (b)
+			(a) edge node[above]{$\eta_{1_\mathsf{A}}+R(i_1)\eta_{c_1}$} (b)
+			(c) edge node[above]{$\eta_{1_\mathsf{A}}+R(o_1)\eta_{c_1^\prime}$} (b)
                                 (a2) edge node[above]{$1+R(i_1)\eta_{c_1}$} (b2)
 			(c2) edge node[above]{$1+R(o_1)\eta_{c_1^\prime}$} (b2)
                                 (a2) edge node[left]{$1$} (a)
-                                (b2) edge node[left]{$\eta_{1_\mathrm{A}}+1$} (b)
+                                (b2) edge node[left]{$\eta_{1_\mathsf{A}}+1$} (b)
 (b2) edge node[right]{$\iota_2$} (b)
 			(c2) edge node[left]{$1$} (c)
                                 (a3) edge node[above]{$R(i_1)\eta_{c_1}$} (b3)
 			(c3) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b3)
-                                (a2) edge node[left]{$\lambda_{\mathrm{A}}$} (a3)
-                                (b2) edge node[left]{$\lambda_{\mathrm{A}}$} (b3)
+                                (a2) edge node[left]{$\lambda_{\mathsf{A}}$} (a3)
+                                (b2) edge node[left]{$\lambda_{\mathsf{A}}$} (b3)
 (b2) edge node[right]{$\iota_1$} (b3)
-			(c2) edge node[left]{$\lambda_{\mathrm{A}}$} (c3)
-                                (a5) edge node[above]{$(\mu_{L(1_\mathrm{A}),d_1})(\eta_{1_\mathrm{A}}+R(i_1)\eta_{c_1})$} (b5)
-			(c5) edge node[above]{$(\mu_{L(1_\mathrm{A}),d_1})(\eta_{1_\mathrm{A}}+R(o_1)\eta_{c_1^\prime})$} (b5)
+			(c2) edge node[left]{$\lambda_{\mathsf{A}}$} (c3)
+                                (a5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(i_1)\eta_{c_1})$} (b5)
+			(c5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(o_1)\eta_{c_1^\prime})$} (b5)
                                 (a) edge node[left]{$1$} (a5)
-                                (b) edge node[left]{$\mu_{L(1_\mathrm{A}),d_1}$} (b5)
+                                (b) edge node[left]{$\mu_{L(1_\mathsf{A}),x_1}$} (b5)
 (b) edge node[right]{$\iota_3$} (b5)
 			(c) edge node[left]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b6)
-                                (a5) edge node[left]{$\lambda_{\mathrm{A}}$} (a6)
-                                (b5) edge node[left]{$R(\lambda_{\mathrm{X}})$} (b6)
+                                (a5) edge node[left]{$\lambda_{\mathsf{A}}$} (a6)
+                                (b5) edge node[left]{$R(\lambda_{\mathsf{X}})$} (b6)
  (b5) edge node[right]{$\iota_4$} (b6)
-			(c5) edge node[left]{$\lambda_{\mathrm{A}}$} (c6);
+			(c5) edge node[left]{$\lambda_{\mathsf{A}}$} (c6);
 		\end{tikzpicture}
 	\]
 with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_1))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-.5,0) {$F(\lambda_{\mathrm{A}})(!_{1_\mathrm{A}}+x_1)$};
-\node (C) at (4,0) {$F(R(\lambda_{\mathrm{X}})(\mu_{L(1_\mathrm{A}),x_1}))(!_{R(L(1_\mathrm{A}))} +x_1$)};
+\node (A) at (-.5,0) {$F(\lambda_{\mathsf{A}})(!_{1_\mathsf{A}}+x_1)$};
+\node (C) at (4,0) {$F(R(\lambda_{\mathsf{X}})(\mu_{L(1_\mathsf{A}),x_1}))(!_{R(L(1_\mathsf{A}))} +x_1$)};
 \node (D) at (-.5,-1) {$x_1$};
-\node (E) at (4,-1) {$F(R(\lambda_\mathrm{X}))(x_{!+1})$};
+\node (E) at (4,-1) {$F(R(\lambda_\mathsf{X}))(x_{!+1})$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(R(\lambda_{\mathrm{X}})(\mu_{L(1_\mathrm{A}),x_1}))(\iota_2)$} (C)
+(A) edge node[above]{$F(R(\lambda_{\mathsf{X}})(\mu_{L(1_\mathsf{A}),x_1}))(\iota_2)$} (C)
 (A) edge node[left]{$\iota_1$} (D)
 (E) edge node[above]{$\iota_4$} (D)
-(C) edge node[right]{$F(R(\lambda_\mathrm{X}))(\iota_3)$} (E);
+(C) edge node[right]{$F(R(\lambda_\mathsf{X}))(\iota_3)$} (E);
 \end{tikzpicture}
 \]
-where $x_{!+1}$ is the decoration $x_1$ on the element $R(L(1_\mathrm{A})+x_1) \in \mathrm{A}$. The above square commutes because $$F(\lambda_\mathrm{A})(!_{1_\mathrm{A}}+x_1) = F(R(\lambda_\mathrm{X})(\mu_{L(1_\mathrm{A}),x_1})(\eta_{1_\mathrm{A}}+1))(!_{1_\mathrm{A}}+x_1)$$ as the above diagram of maps of cospans commutes. The right unitality square is similar. The associator hexagon:
+where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\mathsf{A})+x_1) \in \mathsf{A}$. The above square commutes because $$F(\lambda_\mathsf{A})(!_{1_\mathsf{A}}+x_1) = F(R(\lambda_\mathsf{X})(\mu_{L(1_\mathsf{A}),x_1})(\eta_{1_\mathsf{A}}+1))(!_{1_\mathsf{A}}+x_1)$$ as the corresponding left unitality square for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. The right unitality square is similar. The associator hexagon:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)) \otimes \mathbb{E}(M_3)$};
@@ -4054,16 +4056,16 @@ has underlying maps of cospans given by:
 			(c2) edge node[left]{$1$} (c3)
                                 (a4) edge node[above]{$R(i_1+(i_2+i_3))\eta_{c_1+(c_2+c_3)}$} (b4)
 			(c4) edge node[above]{$R(o_1+(o_2+o_3))\eta_{c_1^\prime+(c_2^\prime+c_3^\prime)}$} (b4)
-                                (a3) edge node[left]{$a_\mathrm{A}$} (a4)
-                                (b3) edge node[left]{$R(a_\mathrm{X})$} (b4)
+                                (a3) edge node[left]{$a_\mathsf{A}$} (a4)
+                                (b3) edge node[left]{$R(a_\mathsf{X})$} (b4)
 (b3) edge node[right]{$\iota_3$} (b4)
-			(c3) edge node[left]{$a_\mathrm{A}$} (c4)
+			(c3) edge node[left]{$a_\mathsf{A}$} (c4)
                                 (a5) edge node[above]{$R(i_1)\eta_{c_1}+(R(i_2)\eta_{c_2}+R(i_3)\eta_{c_3})$} (b5)
 			(c5) edge node[above]{$R(o_1)\eta_{c_1^\prime}+(R(o_2)\eta_{c_2^\prime}+R(o_3)\eta_{c_3^\prime})$} (b5)
-                                (a) edge node[left]{$a_\mathrm{A}$} (a5)
-                                (b) edge node[left]{$a_\mathrm{A}$} (b5)
+                                (a) edge node[left]{$a_\mathsf{A}$} (a5)
+                                (b) edge node[left]{$a_\mathsf{A}$} (b5)
 (b) edge node[right]{$\iota_4$} (b5)
-			(c) edge node[left]{$a_\mathrm{A}$} (c5)
+			(c) edge node[left]{$a_\mathsf{A}$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}+R(i_2+i_3)\eta_{c_2+c_3}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}+R(o_2+o_3)\eta_{c_2^\prime+c_3^\prime}$} (b6)
                                 (a5) edge node[left]{$1$} (a6)
@@ -4081,22 +4083,22 @@ has underlying maps of cospans given by:
 with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_1+(x_2+x_3)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F((\kappa)(1+\kappa)(a_\mathrm{A}))((x_1+x_2)+x_3)$};
+\node (A) at (0,0) {$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3)$};
 \node (B) at (5,0) {$F((R(a_\mathrm{X}))(\kappa))((x_1+x_2)+x_3)$};
 \node (C) at (5,-1) {$F(R(a_\mathrm{X}))((x_1+x_2)+x_3)$};
 \node (D) at (5,-2) {$x_1+(x_2+x_3)$};
 \node (E) at (0,-1) {$F((\kappa)(1+\kappa))((x_1+x_2)+x_3)$};
 \node (F) at (0,-2) {$F(\kappa)(x_1+(x_2+x_3))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F((R(a_\mathrm{X}))(\kappa))(\iota_1)$} (B)
-(B) edge node[right]{$F(R(a_\mathrm{X}))(\iota_2)$} (C)
+(A) edge node[above]{$F((R(a_\mathsf{X}))(\kappa))(\iota_1)$} (B)
+(B) edge node[right]{$F(R(a_\mathsf{X}))(\iota_2)$} (C)
 (C) edge node[right]{$\iota_3$} (D)
 (A) edge node[left]{$F((\kappa)(1+\kappa))(\iota_4)$} (E)
 (E) edge node[left]{$F(\kappa)(\iota_5)$} (F)
 (F) edge node[above]{$\iota_6$} (D);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathrm{A}))((x_1+x_2)+x_3) = F((R(a_\mathrm{X}))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the above diagram of maps of cospans commutes. Lastly, the braiding square:
+The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3) = F((R(a_\mathsf{X}))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the corresponding associator hexagon for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Lastly, the braiding square:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)$};
@@ -4104,7 +4106,7 @@ The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathrm{A}))((x_1+x_2
 \node (C) at (0,-1) {$\mathbb{E}(M_1 \otimes M_2)$};
 \node (D) at (3,-1) {$\mathbb{E}(M_2 \otimes M_1)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\beta$} (B)
+(A) edge node[above]{$\beta^\prime$} (B)
 (B) edge node[right]{$\mu_{M_2,M_1}$} (D)
 (A) edge node[left]{$\mu_{M_1,M_2}$} (C)
 (C) edge node[above]{$\mathbb{E}(\beta)$} (D);
@@ -4134,7 +4136,7 @@ has underlying map of cospans given by:
 			\node (b6) at (0.5,-2) {$R(x_2+x_1)$};
 			\node (c6) at (5,-2) {$c_2^\prime + c_1^\prime$};
 			\path[->,font=\scriptsize,>=angle 90]
-(d) edge node[left]{$\beta$} (d2)
+(d) edge node[left]{$\beta^\prime$} (d2)
 (d2) edge node[left]{$\mu_{M_2,M_1}$}(d3)
 (d) edge node[left] {$\mu_{M_1,M_2}$}(d4)
 (d4)edge node[left]{$\mathbb{E}(\beta)$}(d5)
@@ -4142,10 +4144,10 @@ has underlying map of cospans given by:
 			(c) edge node[above]{$R(o_1) \eta_{c_1^\prime} + R(o_2) \eta_{c_2^\prime}$} (b)
                                 (a2) edge node[above]{$R(i_2) \eta_{c_2} + R(i_1) \eta_{c_1}$} (b2)
 			(c2) edge node[above]{$R(o_2) \eta_{c_2^\prime} + R(o_1) \eta_{c_1^\prime}$} (b2)
-                                (a) edge node[left]{$\beta_\mathrm{A}$} (a2)
-                                (b) edge node[left]{$\beta_\mathrm{A}$} (b2)
+                                (a) edge node[left]{$\beta_\mathsf{A}$} (a2)
+                                (b) edge node[left]{$\beta_\mathsf{A}$} (b2)
 (b) edge node[right]{$\iota_1$} (b2)
-			(c) edge node[left]{$\beta_\mathrm{A}$} (c2)
+			(c) edge node[left]{$\beta_\mathsf{A}$} (c2)
                                 (a3) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b3)
 			(c3) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b3)
                                 (a2) edge node[left]{$1$} (a3)
@@ -4160,27 +4162,27 @@ has underlying map of cospans given by:
 			(c) edge node[left]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b6)
 			(c6) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b6)
-                                (a5) edge node[left]{$\beta_\mathrm{A}$} (a6)
-                                (b5) edge node[left]{$R(\beta_\mathrm{X})$} (b6)
+                                (a5) edge node[left]{$\beta_\mathsf{A}$} (a6)
+                                (b5) edge node[left]{$R(\beta_\mathsf{X})$} (b6)
  (b5) edge node[right]{$\iota_4$} (b6)
-			(c5) edge node[left]{$\beta_\mathrm{A}$} (c6);
+			(c5) edge node[left]{$\beta_\mathsf{A}$} (c6);
 		\end{tikzpicture}
 	\]
 with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_2+x_1))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-.5,0) {$F((\kappa)(\beta_\mathrm{A}))(x_1+x_2)$};
+\node (A) at (-.5,0) {$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2)$};
 \node (C) at (4,0) {$F(\kappa)(x_2+x_1)$};
-\node (D) at (-.5,-1) {$F(R(\beta_\mathrm{X}))(x_1+x_2)$};
+\node (D) at (-.5,-1) {$F(R(\beta_\mathsf{X}))(x_1+x_2)$};
 \node (E) at (4,-1) {$x_2+x_1$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F(\kappa)(\iota_1)$} (C)
-(A) edge node[left]{$F(R(\beta_\mathrm{X}))(\iota_3)$} (D)
+(A) edge node[left]{$F(R(\beta_\mathsf{X}))(\iota_3)$} (D)
 (D) edge node[above]{$\iota_4$} (E)
 (C) edge node[right]{$\iota_2$} (E);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(\beta_\mathrm{A}))(x_1+x_2) = F((R(\beta_\mathrm{X}))(\kappa))(x_1+x_2)$$ as the above diagram of maps of cospans commutes. Thus the double functor $\mathbb{E} \colon _L\mathbb{C}\textnormal{sp}(\mathrm{X}) \to \mathbb{F}\textnormal{Cospan}(\mathrm{A})$ is symmetric monoidal.
+The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((R(\beta_\mathsf{X}))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Thus the double functor $\mathbb{E} \colon _L\mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
 \end{proof}
 Using a result of Shulman \cite{Shul}, each of the isofibrant symmetric monoidal double categories $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ and $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ give rise to underlying symmetric monoidal bicategories, namely $\mathbb{F}\textnormal{Cospan}(\mathrm{A})$ induces a symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\mathrm{A}))$ which has:
 \begin{enumerate}
