@@ -16,7 +16,7 @@
 \begin{document}
 \begin{abstract}
 \noindent
-The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textrm{A} \to \textrm{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textrm{A}$. Horizontal 1-cells are then cospans in $\textrm{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textrm{A} \to \textrm{Set}$ is used to `decorate' the apices of cospans in $\textrm{A}$ with elements of $\textrm{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
+The first two authors have developed a compositional framework well-suited for studying networks that are built out of finite sets equipped with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \colon \textsf{A} \to \textsf{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category $\mathbb{X}$ with the objects and morphisms, respectively, of the category $\textsf{A}$. Horizontal 1-cells are then cospans in $\textsf{X}$ of a particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \colon \textsf{A} \to \textsf{Set}$ is used to `decorate' the apices of cospans in $\textsf{A}$ with elements of $\textsf{Set}$ giving the cospans extra structure. Using a slight variation of Fong's framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
 \end{abstract}
 
 \maketitle
@@ -77,7 +77,7 @@ to obtain a new cospan whose left foot is the left foot of the first, whose righ
 \end{tikzpicture}
 \]
 
-In Fong's theory of decorated cospans, given a category $\textrm{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textrm{A},+,0) \to (\textrm{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textrm{A}$ with an element of the image of its apex under the functor $F$. In the case of the first cospan above, an element of the image of the apex under the functor $F$ is given by a morphism $d \colon 1 \to F(b)$, and we call $d$ a \textbf{decoration} on $b$. Here, $1$ is any terminal object in $\mathrm{Set}$, $F(b)$ is the collection of all $F$-decorations on the object $b$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
+In Fong's theory of decorated cospans, given a category $\textsf{A}$ with finite colmits, a symmetric lax monoidal functor $F \colon (\textsf{A},+,0) \to (\textsf{Set},\times,1)$ is used to `decorate' the apex of a cospan in $\textsf{A}$ with an element of the image of its apex under the functor $F$. In the case of the first cospan above, an element of the image of the apex under the functor $F$ is given by a morphism $d \colon 1 \to F(b)$, and we call $d$ a \textbf{decoration} on $b$. Here, $1$ is any terminal object in $\mathsf{Set}$, $F(b)$ is the collection of all $F$-decorations on the object $b$ and the morphism $d$ is selecting a particular one. Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -115,9 +115,9 @@ To obtain a decoration on the composition of two composable $F$-decorated cospan
 \]
 we use the natural map from a coproduct to a pushout as well as the structure maps, or `laxators', that come as part of the structure of a lax monoidal functor:
  $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+ b^\prime) \xrightarrow{F(j_{b,b^\prime})} F(b+_{a_2} b^\prime).$$
-From this symmetric lax monoidal functor $F \colon \textrm{A} \to \mathrm{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\mathrm{A})$ which has:
+From this symmetric lax monoidal functor $F \colon \textsf{A} \to \mathsf{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\mathsf{A})$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathrm{A}$ and}
+\item{objects as those of $\mathsf{A}$ and}
 \item{morphisms as isomorphism classes of $F$-decorated cospans, where an $F$-decorated cospan is given as above, and two $F$-decorated cospans are in the same isomorphism class if there exists an isomorphism $f \colon b \to b^\prime$ between the apices such that the following diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -144,7 +144,7 @@ From this symmetric lax monoidal functor $F \colon \textrm{A} \to \mathrm{Set}$,
 \end{enumerate}
 
 
-As an example, let $F \colon \textrm{FinSet} \to \textrm{Set}$ be the symmetric lax monoidal functor that assigns to a finite set $b$ the (large) set of all possible graph structures on the finite set $b$, where a graph structure on $b$ is given by a diagram in $\textrm{Set}$ of the form:
+As an example, let $F \colon \textsf{FinSet} \to \textsf{Set}$ be the symmetric lax monoidal functor that assigns to a finite set $b$ the (large) set of all possible graph structures on the finite set $b$, where a graph structure on $b$ is given by a diagram in $\textsf{Set}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
