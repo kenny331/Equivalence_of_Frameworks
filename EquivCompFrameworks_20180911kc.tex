@@ -28,6 +28,7 @@ The first two authors have developed a compositional framework well-suited for s
 \begin{itemize}
 \item {\chris I think structured cospans should be introduced/recalled way earlier! This is a paper that compares the two,
 and both should be presented early.} Sure, I'm fine with that. What section do you think we should bring it up in, or maybe create a new section entirely to mention it? {\chris I think a new section right before that equivalence section would be great!}
+\item {\chris Discuss the name of Decorated and Structured cospan double categories one last time? :)}
 \end{itemize}
 
 \section{Introduction}
@@ -3392,7 +3393,7 @@ We now show that these two symmetric monoidal double categories are equivalent.
 
 {\chris in progress}
 \begin{thm}\label{Equiv}
-Let $\mathsf{A}$ and $\mathsf{X}$ be categories with (chosen) finite colimits, and $F \colon(\mathsf{A},+,0) \to (\mathbf{Cat},\times,\mathbf{1})$ a symmetric lax monoidal pseudofunctor. The symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans is equivalent to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ of structured cospans, where $L \colon \mathsf{A} \to \int{F} \cong \mathsf{X}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\colon \int{F} \to \mathsf{A}$ by \cref{thm:Grothendieck} under the assumptions of \cref{thm:mainthmDX}.
+Let $\mathsf{A}$ and $\mathsf{X}$ be categories with finite colimits, and $F \colon(\mathsf{A},+,0) \to (\mathbf{Cat},\times,\mathbf{1})$ a symmetric lax monoidal pseudofunctor. The symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans is equivalent to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ of structured cospans, where $L \colon \mathsf{A} \to \int{F} \cong \mathsf{X}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\colon \int{F} \to \mathsf{A}$ by \cref{thm:Grothendieck} under the assumptions of \cref{thm:mainthmDX}.
 \end{thm}
 \begin{proof}
 To prove this, we define a double functor $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ as follows: the object component of the double functor $\mathbb{E}$ is given by $\mathbb{E}_0 = \id_{\mathsf{A}}$ as both double categories $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ and $F\mathbb{C}\textnormal{sp}$ have objects and morphisms of $\mathsf{A}$ as objects and vertical 1-morphisms, respectively. The functor $\mathbb{E}_0$ is trivially an equivalence of categories.
