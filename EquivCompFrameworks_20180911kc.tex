@@ -21,17 +21,17 @@ The first two authors have developed a compositional framework well-suited for s
 
 \maketitle
 
+\setcounter{tocdepth}{1} % comment this out if you want to see the subsections in the table of contents
 \tableofcontents
 
 \section*{Various issues-in-progress}
 {\chris If Kenny likes, we can use this as a section for all the current issues that need to be resolved, or what we are currently working on or something!}
 \begin{itemize}
-\item {\chris I think structured cospans should be introduced/recalled way earlier! This is a paper that compares the two,
-and both should be presented early.} Sure, I'm fine with that. What section do you think we should bring it up in, or maybe create a new section entirely to mention it? {\chris I think a new section right before that equivalence section would be great!}
 \item {\chris Discuss the name of Decorated and Structured cospan double categories one last time? :)}
 \item {\chris I'm starting a few macros to help us write faster and adjust accordingly if we need to later. On that note, could Kenny `clean' the preamble at some point? I.e. erase the commands not used here, to make it easier to navigate? I would do it but I wouldn't want to erase something you use!}
 \end{itemize}
 
+\begin{comment}
 \section{Introduction}
 Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
 \[
@@ -639,7 +639,150 @@ Finally, we can decategorify the symmetric monoidal bicategory $F \mathbf{Csp}$ 
 \end{enumerate}
 This symmetric monoidal category $F$Csp has isomorphism classes as one would expect, and in the context of the example with finite sets and graphs above solves the problem in (\ref{distinctisoclasses}). In this particular example, $\iota \colon F(f)(d) \xrightarrow{\sim} d^\prime$ is a bijection between possibly different sets of edges which respects the source and target of each edge.
 
+\subsection*{Outline}
+
+{\chris Amend at the end}
 The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$, obtain the underlying symmetric monoidal bicategory $F \mathbf{Csp}$ via a result of Shulman, and decategorify this symmetric monoidal bicategory to obtain the symmetric monoidal category $F$Csp. In Section \ref{MapsDecCospansDoubleCat} we define maps between decorated cospan double categories which are double functors of an appropriate type. In Section \ref{some other section} we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction, which naturally leads to another compositional framework known as `Structured cospans'. In Section \ref{EquivDoubleCats} we briefly review the framework Structured cospans and prove that the double categorical versions of decorated cospans and structured cospans are equivalent when both are appropriate. Finally, in Section \ref{Applications}, we present a few examples that can be realized with either framework and discuss the realized equivalences.
+
+\subsection*{Acknowledgements}
+Daniel Cicala, person that Christina emailed about lax slice category? {\chris did you use it after all?} No, I did not.
+\end{comment}
+
+
+
+
+\section{A symmetric monoidal double category of structured cospans}\label{sec:structuredcospans}
+
+In this section, we recall the double category of \emph{structured cospans}, a formalism introduced to the first two authors. One of the main goals of this paper is to provide a double equivalence between this double category and one of \emph{decorated cospans}, described in detail in the subsequent section.
+
+Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
+\[
+  \xymatrix@-.5pc{
+    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
+    B\ar[d]^g\\
+    C \ar[r]|{|}_N & D
+  }
+\]
+We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
+\begin{defn}
+A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \colon _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
+\end{defn}
+\begin{defn}
+A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
+\begin{enumerate}
+\item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \colon \mathbb{F}(a) \to x$, and}
+\item{For each horizontal 1-cell $N \colon x_1 \tobar x_2$  of $\mathbb{X}$, we can find a horizontal 1-cell $M \colon a_1 \tobar a_2$ of $\mathbb{A}$ and a 2-isomorphism $a_{N}$ of $\mathbb{X}$ as in the following diagram:
+\[
+  \xymatrix@-.5pc{
+    \mathbb{F}(a_1) \ar[r]|{|}^{\mathbb{F}(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
+    \mathbb{F}(a_1) \ar[d]^{\alpha_{x_2}}\\
+    x_1 \ar[r]|{|}_N & x_2
+  }
+\]
+}
+\end{enumerate}
+\end{defn}
+\begin{defn}
+A double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \colon \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \colon \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
+\end{defn}
+\begin{thm}[Shulman,7.8]\label{ShulDubEquiv}
+Given a strong double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$, $\mathbb{F}$ is part of a double equivalence if and only if $\mathbb{F}$ is full, faithful and essentially surjective.
+\end{thm}
+
+\begin{prop}
+Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and let $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{A}$ and $\mathbb{X}$ are equivalent as symmetric monoidal double categories.
+\end{prop}
+
+Our next goal is to show that the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of Section \ref{DecCospansDoubleCat} is equivalent as a symmetric monoidal double category to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ obtained using structured cospans.
+
+\begin{thm}\label{SC}
+Given a category $\mathsf{X}$ with finite colimits and a category $\mathsf{A}$ with finite coproducts and a finite coproduct preserving functor $L \colon \mathsf{A} \to \mathsf{X}$ with $\mathsf{A}$ and $\mathsf{X}$ regarded as cocartesian monoidal categories, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ which has:
+\begin{enumerate}
+\item{objects given by objects of $\mathsf{A}$,}
+\item{vertical 1-morphisms given by morphisms of $\mathsf{A}$,}
+\item{horizontal 1-cells given by cospans of $\mathsf{X}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(c)$};
+\node (B) at (1,0) {$x$};
+\node (C) at (2,0) {$L(c^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$$} (B)
+(C) edge node[above]{$$} (B);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms given by maps of cospans of $\mathsf{X}$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(c_1)$};
+\node (B) at (1,0) {$x$};
+\node (C) at (2,0) {$L(c_2)$};
+\node (A') at (0,-1) {$L(c_1^\prime)$};
+\node (B') at (1,-1) {$x^\prime$};
+\node (C') at (2,-1) {$L(c_2^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$$} (B)
+(C) edge node[above]{$$} (B)
+(A') edge node[above]{$$} (B')
+(C') edge node[above]{$$} (B')
+(A) edge node [left]{$L(f)$} (A')
+(B) edge node [left]{$\alpha$} (B')
+(C) edge node [left]{$L(g)$} (C');
+\end{tikzpicture}
+\]
+Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\mathsf{X}$ and tensoring of objects is under binary coproducts in $\mathsf{A}$.
+}
+\end{enumerate}
+\end{thm}
+\begin{proof}
+See the first two authors' work on structured cospans \cite{BC2}.
+\end{proof}
+In the previous section, we started with a symmetric lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$ and created a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ which has:
+\begin{enumerate}
+\item{objects of $\mathsf{A}$ as objects,}
+\item{morphisms of $\mathsf{A}$ as vertical 1-morphisms,}
+\item{horizontal 1-cells are given by $F$-decorated cospans, which are pairs:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$c_1$};
+\node (B) at (1,0) {$c$};
+\node (C) at (2,0) {$c_2$};
+\node (D) at (3,0) {$x \in F(c)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B);
+\end{tikzpicture}
+\]
+and}
+\item{2-morphisms are given by maps of cospans in $\mathsf{A}$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$c_1$};
+\node (B) at (1,0) {$c$};
+\node (C) at (2,0) {$c_2$};
+\node (A') at (0,-1) {$c_1^\prime$};
+\node (B') at (1,-1) {$c^\prime$};
+\node (C') at (2,-1) {$c_2^\prime$};
+\node (D) at (3,0) {$x \in F(c)$};
+\node (D') at (3,-1) {$x^\prime \in F(c^\prime)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[above]{$i^\prime$} (B')
+(C') edge node[above]{$o^\prime$} (B')
+(A) edge node [left]{$f$} (A')
+(B) edge node [left]{$h$} (B')
+(C) edge node [left]{$g$} (C');
+\end{tikzpicture}
+\]
+together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
+\end{enumerate}
+
+
+
+
+
 
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
 In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}.
@@ -2311,6 +2454,7 @@ and there exists an isomorphism $\iota \colon F(f)(d) \to d^\prime$ in $F(c^\pri
 \end{cor}
 In this symmetric monoidal category, isomorphism classes are as they should morally be, and the instance of two graphs having different edge sets does not prevent them from being in the same isomorphism class due to the isomorphism $\iota$.
 
+\begin{comment}
 \section{Maps of decorated cospan double categories}\label{MapsDecCospansDoubleCat}
 Let $F \colon \mathsf{A} \to \mathbf{Cat}$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \ref{DC} of the previous section, we get a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$. This symmetric monoidal double category has:
 \begin{enumerate}
@@ -3031,20 +3175,19 @@ Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$ and two 
 
 
 %is given by $$1 \to F(c_1) \times F(c_2) \xrightarrow{} F(c_1 + c_2) \xrightarrow{} F(c_1 + _b c_2)$$ and then applying the functor $E$ results in $1 \to E(F(c_1+_b c_2))$, which by the comutative square is the same as $1 \to F^\prime(H(c_1+_b c_2))$. On the other hand, applying the functor $E$ to each decoration results in $$1 \to E(F(c_1)) \times E(F(c_2)) \xrightarrow{} E(F(c_1) \times F(c_2)) \xrightarrow{} E(F(c_1+c_2)) \xrightarrow E(F(c_1+_b c_2)) \xrightarrow{} F^\prime(H(c_1 +_b c_2))$$
+\end{comment}
+
+
+%\section{From pseudofunctors to left adjoints}\label{some other section}
 
 
 
 
+\section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
+In this section we prove that two different frameworks which utilize symmetric monoidal double categories, namely decorated cospans and structured cospans described in \cref{sec:structuredcospans,DecCospansDoubleCat}, are equivalent. This is established by \cref{Equiv}, under some assumptions relevant to the existence of a left adjoints for opfibrations. We begin by elaborating this underlying framework, using results mainly from \cite{CV} and \cite{MV}.
 
 
-
-
-
-
-
-
-
-\section{From pseudofunctors to left adjoints}\label{some other section}
+{\chris in so much progress}
 In this section we investigate the necessary conditions to obtain a category $\mathrm{X}$ and a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ from a category $\mathrm{A}$ with finite colimits and a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. The main tool that allows us to do this will be the Grothendieck construction which we recall:
 
 \begin{defn}
@@ -3265,131 +3408,9 @@ Suppose that $\D$ and $\C$ have chosen pushouts and initial objects, and a funct
 
 
 
+under the conditions required from the previous section that allow for a left adjoint $L \colon \mathsf{A} \to \mathsf{X}$ to be obtained from a symmetric lax {\chris have to specify lax VS weak which is the standard terminology, happy to use lax though} monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$.
+%The double category version of decorated cospans is given in Section \ref{DecCospansDoubleCat}. 
 
-\section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
-In this section we prove that two different frameworks which utilize symmetric monoidal double categories, namely decorated cospans and structured cospans described in {\chris refer to somewhere}, are equivalent under the conditions required from the previous section that allow for a left adjoint $L \colon \mathsf{A} \to \mathsf{X}$ to be obtained from a symmetric lax {\chris have to specify lax VS weak which is the standard terminology, happy to use lax though} monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. The double category version of decorated cospans is given in Section \ref{DecCospansDoubleCat}. The other framework also utilizing symmetric monoidal double categories due to the first two authors and which goes by the name of `structured cospans', is introduced below {\chris I see, prefer earlier!}. Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
-\[
-  \xymatrix@-.5pc{
-    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-    B\ar[d]^g\\
-    C \ar[r]|{|}_N & D
-  }
-\]
-We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
-\begin{defn}
-A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \colon _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
-\end{defn}
-\begin{defn}
-A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
-\begin{enumerate}
-\item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \colon \mathbb{F}(a) \to x$, and}
-\item{For each horizontal 1-cell $N \colon x_1 \tobar x_2$  of $\mathbb{X}$, we can find a horizontal 1-cell $M \colon a_1 \tobar a_2$ of $\mathbb{A}$ and a 2-isomorphism $a_{N}$ of $\mathbb{X}$ as in the following diagram:
-\[
-  \xymatrix@-.5pc{
-    \mathbb{F}(a_1) \ar[r]|{|}^{\mathbb{F}(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
-    \mathbb{F}(a_1) \ar[d]^{\alpha_{x_2}}\\
-    x_1 \ar[r]|{|}_N & x_2
-  }
-\]
-}
-\end{enumerate}
-\end{defn}
-\begin{defn}
-A double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \colon \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \colon \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
-\end{defn}
-\begin{thm}[Shulman,7.8]\label{ShulDubEquiv}
-Given a strong double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$, $\mathbb{F}$ is part of a double equivalence if and only if $\mathbb{F}$ is full, faithful and essentially surjective.
-\end{thm}
-
-\begin{prop}
-Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and let $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{A}$ and $\mathbb{X}$ are equivalent as symmetric monoidal double categories.
-\end{prop}
-
-Our next goal is to show that the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of Section \ref{DecCospansDoubleCat} is equivalent as a symmetric monoidal double category to the symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ obtained using structured cospans.
-
-\begin{thm}\label{SC}
-Given a category $\mathsf{X}$ with finite colimits and a category $\mathsf{A}$ with finite coproducts and a finite coproduct preserving functor $L \colon \mathsf{A} \to \mathsf{X}$ with $\mathsf{A}$ and $\mathsf{X}$ regarded as cocartesian monoidal categories, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ which has:
-\begin{enumerate}
-\item{objects given by objects of $\mathsf{A}$,}
-\item{vertical 1-morphisms given by morphisms of $\mathsf{A}$,}
-\item{horizontal 1-cells given by cospans of $\mathsf{X}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(c)$};
-\node (B) at (1,0) {$x$};
-\node (C) at (2,0) {$L(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms given by maps of cospans of $\mathsf{X}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(c_1)$};
-\node (B) at (1,0) {$x$};
-\node (C) at (2,0) {$L(c_2)$};
-\node (A') at (0,-1) {$L(c_1^\prime)$};
-\node (B') at (1,-1) {$x^\prime$};
-\node (C') at (2,-1) {$L(c_2^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A') edge node[above]{$$} (B')
-(C') edge node[above]{$$} (B')
-(A) edge node [left]{$L(f)$} (A')
-(B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
-\end{tikzpicture}
-\]
-Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\mathsf{X}$ and tensoring of objects is under binary coproducts in $\mathsf{A}$.
-}
-\end{enumerate}
-\end{thm}
-\begin{proof}
-See the first two authors' work on structured cospans \cite{BC2}.
-\end{proof}
-In the previous section, we started with a symmetric lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$ and created a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ which has:
-\begin{enumerate}
-\item{objects of $\mathsf{A}$ as objects,}
-\item{morphisms of $\mathsf{A}$ as vertical 1-morphisms,}
-\item{horizontal 1-cells are given by $F$-decorated cospans, which are pairs:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$c_2$};
-\node (D) at (3,0) {$x \in F(c)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms are given by maps of cospans in $\mathsf{A}$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$c_1$};
-\node (B) at (1,0) {$c$};
-\node (C) at (2,0) {$c_2$};
-\node (A') at (0,-1) {$c_1^\prime$};
-\node (B') at (1,-1) {$c^\prime$};
-\node (C') at (2,-1) {$c_2^\prime$};
-\node (D) at (3,0) {$x \in F(c)$};
-\node (D') at (3,-1) {$x^\prime \in F(c^\prime)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A') edge node[above]{$i^\prime$} (B')
-(C') edge node[above]{$o^\prime$} (B')
-(A) edge node [left]{$f$} (A')
-(B) edge node [left]{$h$} (B')
-(C) edge node [left]{$g$} (C');
-\end{tikzpicture}
-\]
-together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
-\end{enumerate}
 We now show that these two symmetric monoidal double categories are equivalent. 
 
 \begin{thm}\label{Equiv}
@@ -4447,6 +4468,9 @@ where
 \end{tikzpicture}
 \]
 commutes.
+
+
+\begin{comment}
 \section{Applications}\label{Applications}
 In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by Baez, Fong, Master and Pollard by way of `black-boxing' \cite{BCR,BF,BFP,BM,BP}. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathsf{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathsf{Circ} \to \mathsf{LinRel}$$ $$\blacksquare_2 \colon \mathsf{Mark} \to \mathsf{LinRel}$$ $$\blacksquare_3 \colon \mathsf{Petri} \to \mathsf{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories \cite{BC,BM} and is discussed in Chapter \ref{Chapter6}.
 \subsection{Graphs}
@@ -4941,7 +4965,10 @@ and}
 together with a morphism of Petri nets $\iota \colon F(h)(P_1) \to P_2$ in $F(Z_2)$.}
 \end{enumerate}
 Thus we have a symmetric monoidal double category $\mathbb{O}\mathbf{pen}(\mathrm{Petri})$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\mathbb{O}\mathbf{pen}(\mathrm{Petri}) \sim F\mathbb{C}\textnormal{sp}$ of symmetric monoidal double categories by Theorem \ref{Equiv}.
+\end{comment}
 
+
+\begin{comment}
 \section{Appendix}
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
 
@@ -5412,8 +5439,8 @@ In a pseudo double category, the second equation above requires an insertion of 
   We say that a double category is \textbf{fibrant} if every vertical
   1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
-\section{Acknowledgements}
-Daniel Cicala, person that Christina emailed about lax slice category? {\chris did you use it after all?} No, I did not.
+\end{comment}
+
 \begin{thebibliography}{100}
 
 \bibitem{BC} J.\ C.\ Baez and K.\ Courser, Coarse-graining open Markov processes. Available as \href{https://arxiv.org/abs/1710.11343}{arXiv:1710.11343}.
@@ -5478,6 +5505,8 @@ Daniel Cicala, person that Christina emailed about lax slice category? {\chris d
 
 %   \bibitem{ML} S.\ Mac Lane, {\sl Categories for the Working Mathematician},
 %     Springer, Berlin, 1998.
+
+\bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
 
 %\bibitem{Pol} B.\ Pollard, Open Markov processes: A compositional perspective on non-equilibrium steady states in biology, %%%\emph{Entropy} $\mathbf{18}$ (2016), 140. Available as \href{http://arxiv.org/abs/1601.00711}{arXiv:1601.00711}.
 
