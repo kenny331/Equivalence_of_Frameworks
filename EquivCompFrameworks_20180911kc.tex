@@ -3306,27 +3306,7 @@ A functor $P \colon \mathrm{D} \to \mathrm{A}$ is a \textbf{(Grothendieck) opfib
 Let $P \colon \mathrm{D} \to \mathrm{A}$ and $P^\prime \colon \mathrm{D^\prime} \to \mathrm{A}$ be opfibrations over a category $\mathrm{A}$. A \define{morphism of opfibrations} is a functor $F \colon \mathrm{D} \to \mathrm{D}^\prime$ such that $F(p)$ is cocartesian with respect to $P^\prime$ if $p$ is cocartesian with respect to $P$ and $P=P^\prime F$.
 \end{defn}
 
-Let $\OpFib(\A)$ denote the 2-subcategory of the slice $\mathbf{Cat}/ \A$ of opfibrations over $\A$, opfibrations morphisms and natural transformations with vertical components.
-
-{\chris in progress}
-The Grothendieck construction is a 2-functor $\int F \colon [ \mathrm{A},\mathbf{Cat}] \to \mathbf{Cat}/ \mathrm{A}$ which factors through the image of the embedding $\textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}$: $$\int F \colon [ \mathrm{A}, \mathbf{Cat} ] \to \textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}.$$
-
-{\chris edit appropriately, notation etc.}
-\begin{thm}\label{thm:Grothendieck}
-    \begin{enumerate}
-        \item Every opfibration $\U \maps \D \to \C$ gives rise to a pseudofunctor $F_U \maps \C {\to}Cat$.
-        \item Every opindexed category $F \maps \C \to Cat$ gives rise to  an opfibration $\U_F \colon \int F\to\C$.
-        \item The above correspondences yield an equivalence of 2-categories 
-        \begin{displaymath}
-            ICat(\C) \simeq opFib(\C)
-        \end{displaymath}
-        so that $F_{\U_F} \cong F$ and $\U_{F_\U} \cong \U$.
-%        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
-%        \begin{equation}\label{eq:Gr_equiv}
-%        \ICat\simeq\Fib    
-%        \end{equation}
-    \end{enumerate}
-\end{thm}
+Let $\OpFib(\A)$ denote the 2-subcategory of the slice $\mathbf{Cat}/ \A$ of opfibrations over $\A$, opfibrations morphisms and natural transformations with vertical components. In fact, there is a 2-equivalence between opfibrations over $\A$ and pseudofunctors $\A\to\ca{Cat}$ induced by the so-called Grothendieck construction.
 
 {\chris I don't mind this presentation of the Grothendieck construction which I admit not having seeing before. If we are to keep, we should put a reference. Otherwise we could stay more low level about this and just briefly describe what's going on.}
 \begin{defn}
@@ -3377,6 +3357,27 @@ This can also be thought of as a morphism and a 2-morphism:
 \end{enumerate}
 \end{defn}
 
+The Grothendieck construction gives rise to a 2-functor $[\A,\mathbf{Cat}] \to \mathbf{Cat}/ \mathrm{A}$ which factors through the image of the embedding $\textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}$ as per the following theorem.
+%: $$\int F \colon [ \mathrm{A}, \mathbf{Cat} ] \to \textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}.$$
+
+\begin{thm}\label{thm:Grothendieck}\hfill
+    \begin{enumerate}
+        \item Every opfibration $\U \maps \D \to \C$ gives rise to a pseudofunctor $F_U \maps \C {\to}Cat$.
+        \item Every opindexed category $F \maps \C \to Cat$ gives rise to  an opfibration $\U_F \colon \int F\to\C$.
+        \item The above correspondences yield an equivalence of 2-categories 
+        \begin{displaymath}
+            ICat(\C) \simeq opFib(\C)
+        \end{displaymath}
+        so that $F_{\U_F} \cong F$ and $\U_{F_\U} \cong \U$.
+%        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
+%        \begin{equation}\label{eq:Gr_equiv}
+%        \ICat\simeq\Fib    
+%        \end{equation}
+    \end{enumerate}
+\end{thm}
+
+
+
 
 
 %\begin{defn}
@@ -3402,14 +3403,14 @@ This can also be thought of as a morphism and a 2-morphism:
 %\]
 %\end{defn}
 
+{\chris A little bit for monoidal Grothendieck here}
 
-Under certain conditions, the functor resulting from the Grothendieck construction $p \colon \int{F} \to \mathrm{A}$ will be right adjoint to the desired left adjoint $L \colon \mathrm{A} \to \mathrm{X}$.
+For our purposes, we are interested in the fact that under certain conditions, the induced monoidal opfibration by the Grothendieck construction $ \int{F} \to \A$ will be a right adjoint to some adjoint $L_F \colon \A \to \X$, and moreover the unit of the adjunction is the identity; this is called \emph{lari} in [Gray].
 
-{\chris  moved and motivated appropriately}
+{\chris in progress, probably split up in two}
 \begin{thm}\label{thm:mainthmDX}\cite{CV}
-Suppose that $\D$ and $\C$ have chosen pushouts and initial objects, and a functor $\U\colon\D\to\C$ strictly preserves them. Then $\U$ is a right adjoint left inverse if and only if $\U$ is an opfibration.
+Suppose that $\X$ and $\A$ have chosen pushouts and initial objects, and a functor $\U\colon\X\to\A$ strictly preserves them. Then $\U$ is a right adjoint left inverse if and only if $\U$ is an opfibration.
 \end{thm}
-
 
 In the above described setting, a symmetric lax monoidal functor gives rise to a double category of decorated cospans as well as a double category of structured cospans. The result below establishes their equivalence.  
 
