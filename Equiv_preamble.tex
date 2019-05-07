@@ -137,7 +137,7 @@
 
 % Only show numbers for equations that are actually referenced (or
 % whose tags are specified manually) - uses mathtools.
-\mathtoolsset{showonlyrefs,showmanualtags}
+%\mathtoolsset{showonlyrefs,showmanualtags}
 
 \def\tobar{\mathrel{\mkern3mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
                     \mkern-12mu{\to}}}
@@ -166,5 +166,6 @@
 mark=at position 0.4 with {\draw[-] (0,.4ex) -- (0,-.4ex);}}}}}
 \newcommand{\tickar}{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand replacement=\&]{}\ar[r,tick]\&{}\end{tikzcd}}
 \newcommand{\cspn}[5]{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand replacement=\&]{#1}\ar[r,"#4"] \& {#2} \& {#3}\ar[l,"#5"']\end{tikzcd}}
-\newcommand{\opICat}{\bicat{opICat}}
+\newcommand{\OpICat}{\bicat{OpICat}}%probably too much to use?
+\newcommand{\pse}{\mathrm{ps}}
 \newcommand{\OpFib}{\bicat{OpFib}}
