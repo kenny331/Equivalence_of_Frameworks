@@ -27,7 +27,7 @@ The first two authors have developed a compositional framework well-suited for s
 \section*{Various issues-in-progress}
  
 \begin{itemize}
-\item {\chris Discuss the name of Decorated and Structured cospan double categories one last time? :)}
+\item {\chris Discuss notation for Decorated and Structured cospan double categories one last time? :)}
 \item {\chris Where should we put some standard things we use? For exampe, lax monoidal pseudofunctor should be recalled early. Together with pseudonatural transformations I believe. For now, I put them in an unnamed section}
 \item {\chris Notation between \cref{Equiv} and \cref{thm:decoratedcospans} right now does not match! Need to fix.}
 %\item {\chris There might be a way to completely hide the details of version 'fibres have, reindexing preserve' if that's what we want to do.}
@@ -790,7 +790,7 @@ Given a category $\mathsf{X}$ with finite colimits and a category $\mathsf{A}$ w
 \item{objects given by objects of $\mathsf{A}$,}
 \item{vertical 1-morphisms given by morphisms of $\mathsf{A}$,}
 \item{horizontal 1-cells given by cospans of $\mathsf{X}$ of the form:
-\[
+\begin{equation}\label{eq:structuredcospan}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c)$};
 \node (B) at (1,0) {$x$};
@@ -799,7 +799,7 @@ Given a category $\mathsf{X}$ with finite colimits and a category $\mathsf{A}$ w
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B);
 \end{tikzpicture}
-\]
+\end{equation}
 and}
 \item{2-morphisms given by maps of cospans of $\mathsf{X}$ of the form:
 \begin{equation}\label{eq:2cellsStrCsp}
@@ -3358,6 +3358,7 @@ $\inta F$ has
 \item objects pairs $(a, x \in F(a))$ and
 \item a morphism from $(a, x \in F(a))$ to $(b, y\in F(b))$ is a pair $(f \colon a \to b,\delta \colon F(f)(x) \to y)\in\A\times F(b)$.
 \end{itemize}
+{\chris Might need to write the composition rule? Depending on the final proof of Big Theorem.}
 This is an opfibred category over $\A$ via the obvious forgetful functor, with fibre categories $(\inta F)_a=F(a)$ and reindexing functors $f_!=F(f)$.
 \end{defn}
 %This can also be thought of as a morphism and a 2-morphism:
@@ -3464,7 +3465,11 @@ On a different but related subject, for our purposes we are interested in the ex
 \end{prop}
 
 \begin{proof}\emph{(Sketch)}
- The left adjoint $L\colon\A\to\X$ maps an object $a$ to the initial object in its fibre $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$.
+ The left adjoint $L\colon\A\to\X$ maps an object $a$ to the initial object in its fibre $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$. On morphisms $f\colon a\to a'$, $L(f)$ is defined by
+ \begin{equation}\label{eq:Lonarrows}
+  \bot_a\xrightarrow{\Cocart(f,\bot_a)}f_!(\bot_a)\xrightarrow{\;\stackrel{\chi_a}{\cong}\;}\bot_{a'}
+ \end{equation}
+where $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
 \end{proof}
 
 \begin{rmk}\label{rmk:important}
@@ -3516,11 +3521,25 @@ to construct a left adjoint $L_F\colon\A\to\inta F$ which is also a right invers
 \end{displaymath}
 roughly describes the processes between the original $F$ and the resulting $L_F$.
 
-Using this functor $L_F$ between finitely cocomplete categories that preserves all colimits that exist (as a left adjoint), we can construct the double category of structured cospans $\scsp{L_F}{\inta F}$. Its objects and vertical morphisms are again those of the category $\A$, whereas horizontal 1-cells $a\tickar b$ are now cospans of the form $\cspn{L_F(a)}{v}{L_F(b)}{}{}$ in the Grothendieck category $\inta F$, which consist of two pairs of morphisms 
+Using this functor $L_F$ between finitely cocomplete categories that preserves all colimits that exist (as a left adjoint), we can construct the double category of structured cospans $\scsp{L_F}{\inta F}$. Its objects and vertical morphisms are again those of the category $\A$, whereas horizontal 1-cells $a\tickar b$ as in \cref{eq:structuredcospan} are now cospans of the form $\cspn{L_F(a)}{v}{L_F(b)}{}{}$ in the Grothendieck category $\inta F$. Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{$\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}$}}(c,x)\xleftarrow{\scalebox{0.7}{$\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}$}}(b,\bot_b)
 \end{equation}
-according to \cref{def:GrothCat}. The 2-morphisms in this double category are as in \cref{eq:2cellsStrCsp}. {\chris will expand.}
+where $x\in F(c)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in this double category are as described in \cref{eq:2cellsStrCsp}, in this context fully unravelled below:
+\begin{displaymath}
+ \begin{tikzcd}[sep=1.5in,ampersand replacement=\&]
+ (a,\bot_a)\ar[r,"{\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}}"]\ar[d,"{\begin{cases}f\colon a\to a' &\textrm{in }\A \\\chi_a\colon F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (c,x) \ar[d,"{\begin{cases}k\colon c\to c' &\textrm{in }\A \\h\colon F(k)(x)\to x' &\textrm{in }F(c')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}}"']\ar[d,"{\begin{cases}g\colon b\to b' &\textrm{in }\A \\\chi_b\colon F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
+ (a',\bot_{a'})\ar[r,"{\begin{cases}i'\colon a'\to c' &\textrm{in }\A \\!\colon F(i')(\bot_{a'})\to x' &\textrm{in }F(c')\end{cases}}"'] \& (c',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\colon b'\to c' &\textrm{in }\A \\!\colon F(o')(\bot_{b'})\to x' &\textrm{in }F(c')\end{cases}}"]
+ \end{tikzcd}
+\end{displaymath}
+where the outside vertical legs come from the definition of $L_F$ on arrows, \cref{eq:Lonarrows}. 
+{\chris The above diagram might be a bit overwhelming, but all info is there. Choose which parts are required for a smooth proof!}
+The square commutativities translate to $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also by composition in the Grothendieck category, to
+\begin{gather*}
+ F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{h}x'= \\
+ F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'
+\end{gather*}
+in the category $F(c')$. However, since all maps are unique in the above equality {\chris discuss with John and Kenny}, this gives no extra conditions for the morphisms involved, and similarly for the equality including $o, o'$.
 
 In order to prove that there is a double equivalence (\cref{ShulDubEquiv}) between $\dcsp{F}$ and $\scsp{L_F}{\inta F}$, we define a %n identity-on-objects and vertical morphism
 double functor
@@ -3531,11 +3550,18 @@ as follows. The object component of $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is 
 \begin{displaymath}
  a\xrightarrow{\; i \;}c\xleftarrow{\; o \;}b\;\textrm{ with decoration }x\in F(c)
 \end{displaymath}
-Notice that this really is a bijective correspondence since the unique maps from the initial objects in the fibres provide no extra information.
+Notice that this really is a bijective correspondence since the unique maps from the initial objects in the fibres provide no extra information. Finally, given a 2-morphism of $L_F$-structured cospans as described above, $\mathbb{E}_1$ maps it to the underlying cospan 2-morphism
+\begin{displaymath}
+ \begin{tikzcd}
+a\ar[r,"i"]\ar[d,"f"'] & c\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
+a'\ar[r,"i'"']& c' & b'\ar[l,"o'"]
+ \end{tikzcd}
+\end{displaymath}
+ in $\A$ along with the map $h\colon Fk(x)\to x'$ in $F(c')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}.
 
 
 
-{\chris in progress}
+{\chris Now the checking of the equivalence should follow! perhaps in less detail than currently?}
 which is a cospan in $\mathsf{X}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]

@@ -16,6 +16,7 @@
 \usetikzlibrary{backgrounds,circuits,circuits.ee.IEC,shapes}
 \usepackage{comment}
 \usepackage[capitalize]{cleveref}
+\crefname{equation}{}{}
 \definecolor{rewritecolor}{rgb}{0,.9,1}
 \tikzset{rewritenode/.style={shape=circle,fill=rewritecolor,scale=0.25,font=\Huge}}
 \tikzset{RWopen/.style={shape=circle,draw=black,fill=white,scale=0.5,font=\Huge}}
@@ -128,11 +129,11 @@
 \newcommand{\fhat}{\ensuremath{\hat{f}}}
 
 % Also number formulas with the theorem counter
-\let\c@equation\c@thm
-\numberwithin{equation}{section}
+%\let\c@equation\c@thm
+%\numberwithin{equation}{section}
 
 % Only show numbers for equations that are actually referenced (or
-% whose tags are specified manually) - uses mathtools.
+% whose tags are specified manually) - uses mathtools. %Christina: for some reason, the command below made it impossible to label any equation!
 %\mathtoolsset{showonlyrefs,showmanualtags}
 
 \def\tobar{\mathrel{\mkern3mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
@@ -167,3 +168,4 @@ mark=at position 0.4 with {\draw[-] (0,.4ex) -- (0,-.4ex);}}}}}
 \newcommand{\pse}{\mathrm{ps}}
 \newcommand{\OpFib}{\bicat{OpFib}}
 \newcommand{\inta}{\raisebox{.3\depth}{$\smallint\hspace{-.02in}$}}
+\newcommand{\Cocart}{\mathrm{Cocart}}
