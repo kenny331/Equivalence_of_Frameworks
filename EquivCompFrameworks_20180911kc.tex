@@ -2586,7 +2586,7 @@ and}
 \]
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 \end{enumerate}
-Given another symmetric lax monoidal pseudofunctor $F^\prime \colon \mathsf{A^\prime} \to \mathbf{Cat}$, we can obtain another symmetric monoidal double category $F^\prime \mathbb{C}\textnormal{sp}$. Then a map from $F\mathbb{C}\textnormal{sp}$ to $F^\prime \mathbb{C}\textnormal{sp}$ will be a double functor $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F' \mathbb{C}\textnormal{sp}$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \colon \mathsf{A} \to \mathsf{A^\prime}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
+Given another symmetric lax monoidal pseudofunctor $F^\prime \colon \mathsf{A^\prime} \to \mathbf{Cat}$, we can obtain another symmetric monoidal double category $F^\prime \mathbb{C}\textnormal{sp}$. A map from $F\mathbb{C}\textnormal{sp}$ to $F^\prime \mathbb{C}\textnormal{sp}$ will then be a double functor $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F' \mathbb{C}\textnormal{sp}$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \colon \mathsf{A} \to \mathsf{A^\prime}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2597,7 +2597,7 @@ Given another symmetric lax monoidal pseudofunctor $F^\prime \colon \mathsf{A^\p
 \node (A') at (3.5,0) {$H(a)$};
 \node (B') at (4.5,0) {$H(c)$};
 \node (C') at (5.5,0) {$H(b)$};
-\node (D') at (4.5,-0.5) {$E(d) \in F^\prime(H(c))$};
+\node (D') at (4.5,-0.5) {$\theta_c E(d) \phi \in F^\prime(H(c))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -2623,34 +2623,35 @@ and on 2-morphisms by:
 \node (C'') at (6.25,0.5) {$H(b)$};
 \node (C''') at (6.25,-0.5) {$H(b^\prime)$};
 \node (D'') at (5.25,-0.5) {$H(c^\prime)$};
-\node (E'') at (7.5,0.5) {$E(d) \in F^\prime(H(c))$};
-\node (F'') at (7.5,-0.5) {$E(d^\prime) \in F^\prime(H(c^\prime))$};
-\node (G'') at (5.25,-1) {$E(\iota) \colon F^\prime(H(h))(E(d)) \to E(d^\prime)$};
+\node (E'') at (8,0.5) {$\theta_c E(d) \phi \in F^\prime(H(c))$};
+\node (F'') at (8,-0.5) {$\theta_{c'} E(d^\prime) \phi \in F^\prime(H(c^\prime))$};
+\node (G'') at (5.25,-1) {$E(\iota) \colon F^\prime(H(h))(\theta_c E(d)\phi) \to (\theta_{c'}E(d^\prime)\phi)$};
 \node (H) at (3.5,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$g$} (C')
+(C) edge node[right]{$g$} (C')
 (A') edge node {$$} (D)
 (C') edge node {$$} (D)
 (B) edge node [left] {$h$} (D)
 (A'') edge node[above]{$$} (B'')
 (C'') edge node[above]{$$} (B'')
 (A'') edge node[left]{$H(f)$} (A''')
-(C'') edge node[left]{$H(g)$} (C''')
+(C'') edge node[right]{$H(g)$} (C''')
 (A''') edge node {$$} (D'')
 (C''') edge node {$$} (D'')
 (B'') edge node [left] {$H(h)$} (D'');
 \end{tikzpicture}
 \]
-where $E \colon \mathbf{Cat} \to \mathbf{Cat}$ is a symmetric lax monoidal pseudofuctor such that the following diagram commutes:
+where $E \colon \mathbf{Cat} \to \mathbf{Cat}$ is a symmetric lax monoidal pseudofuctor such that the following diagram commutes up to isomorphism $\theta \colon EF \Rightarrow F'H$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathsf{A}$};
 \node (B) at (1,0) {$\mathbf{Cat}$};
 \node (C) at (0,-1) {$\mathsf{A^\prime}$};
 \node (D) at (1,-1) {$\mathbf{Cat}$};
+\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -2658,46 +2659,51 @@ where $E \colon \mathbf{Cat} \to \mathbf{Cat}$ is a symmetric lax monoidal pseud
 (C) edge node[above]{$F^\prime$} (D);
 \end{tikzpicture}
 \]
-Recall that we can think of the element $d \in F(c)$ as a morphism $d \colon 1 \to F(c)$ and the morphism $\iota \colon F(h)(d) \to d^\prime$ of $F(c^\prime)$ as a 2-morphism  in $\mathbf{Cat}$:
+Recall that we can think of the object $d \in F(c)$ as a morphism $d \colon 1 \to F(c)$ and the functor $\iota \colon F(h)(d) \to d^\prime$ of $F(c^\prime)$ as a natural transformation  in $\mathbf{Cat}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,-0.5) {$1$};
 \node (B) at (1,0) {$F(c)$};
 \node (D) at (1,-1) {$F(c^\prime)$};
-\node (C) at (0.75,-0.5) {$\Swarrow$};
+\node (C) at (0.75,-0.5) {$\Swarrow \iota$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$d$} (B)
 (A) edge node[below]{$d^\prime$} (D)
 (B) edge node[right]{$F(h)$} (D);
 \end{tikzpicture}
 \]
-Applying the pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ to this diagram yields:
+Applying the symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ to this diagram yields:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,-0.5) {$1 \xrightarrow{\sim} E(1)$};
-\node (B) at (1.5,0) {$E(F(c))$};
-\node (D) at (1.5,-1) {$E(F(c^\prime))$};
-\node (C) at (1,-0.5) {$\Swarrow$};
+\node (A) at (0,-0.5) {$1 \xrightarrow{\phi} E(1)$};
+\node (B) at (2,0) {$E(F(c))$};
+\node (D) at (2,-1) {$E(F(c^\prime))$};
+\node (C) at (1.5,-0.5) {$\Swarrow E(\iota)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$E(d)$} (B)
 (A) edge node[below]{$E(d^\prime)$} (D)
 (B) edge node[right]{$E(F(h))$} (D);
 \end{tikzpicture}
 \]
-Then because the above square commutes, this is the same as 
+Then because the above square commutes up to the isomorphism $\theta \colon EF \Rightarrow F'H$, we get:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,-0.5) {$1 \xrightarrow{\sim} E(1)$};
-\node (B) at (1.5,0) {$F^\prime(H(c))$};
-\node (D) at (1.5,-1) {$F^\prime(H(c^\prime))$};
-\node (C) at (1,-0.5) {$\Swarrow$};
+\node (A) at (0,-0.5) {$1 \xrightarrow{\phi} E(1)$};
+\node (B) at (2,0) {$E(F(c))$};
+\node (D) at (2,-1) {$E(F(c'))$};
+\node (C) at (1.5,-0.5) {$\Swarrow E(\iota)$};
+\node (E) at (4,0) {$F^\prime(H(c))$};
+\node (F) at (4,-1) {$F^\prime(H(c'))$};
 \path[->,font=\scriptsize,>=angle 90]
+(B) edge node [above] {$\theta_c$} (E)
+(D) edge node [above] {$\theta_{c'}$} (F)
+(E) edge node [right] {$F'(H(h))$} (F)
 (A) edge node[above]{$E(d)$} (B)
 (A) edge node[below]{$E(d^\prime)$} (D)
-(B) edge node[right]{$F^\prime(H((h))$} (D);
+(B) edge node[right]{$E(F((h))$} (D);
 \end{tikzpicture}
 \]
-which is the same as a morphism $E(\iota) \colon F^\prime(H(h))(E(d)) \to E(d^\prime)$ in $F^\prime(H(c^\prime))$. To check that the above recipe is functorial, given two vertically composable 2-morphisms in $F\mathbb{C}\textnormal{sp}$:
+which results in a 2-morphism $E(\iota) \colon F^\prime(H(h))(\theta_c E(d)\phi) \to (\theta_{c'} E(d^\prime)\phi)$ in $F^\prime(H(c^\prime))$. To check that the above recipe is functorial, given two vertically composable 2-morphisms in $F\mathbb{C}\textnormal{sp}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -2722,14 +2728,14 @@ which is the same as a morphism $E(\iota) \colon F^\prime(H(h))(E(d)) \to E(d^\p
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$g$} (C')
+(C) edge node[right]{$g$} (C')
 (A') edge node [above]{$$} (D)
 (C') edge node [above]{$$} (D)
 (B) edge node [left] {$h$} (D)
 (A'') edge node[above]{$$} (B'')
 (C'') edge node[above]{$$} (B'')
 (A'') edge node[left]{$f^\prime$} (A''')
-(C'') edge node[left]{$g^\prime$} (C''')
+(C'') edge node[right]{$g^\prime$} (C''')
 (A''') edge node [above]{$$} (D'')
 (C''') edge node [above]{$$} (D'')
 (B'') edge node [left] {$h^\prime$} (D'');
@@ -2751,7 +2757,7 @@ if we first compose these, the result is:
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$f^\prime f$} (A')
-(C) edge node[left]{$g^\prime g$} (C')
+(C) edge node[right]{$g^\prime g$} (C')
 (A') edge node [above]{$$} (D)
 (C') edge node [above]{$$} (D)
 (B) edge node [left] {$h^\prime h$} (D);
@@ -2766,14 +2772,14 @@ and then the image of this 2-morphism under the double functor $\mathbb{H}$ is g
 \node (C) at (3,0.5) {$H(b)$};
 \node (C') at (3,-0.5) {$H(b'')$};
 \node (D) at (1.5,-0.5) {$H(c'')$};
-\node (E) at (4.5,0.5) {$E(d) \in F^\prime(H(c))$};
-\node (F) at (4.5,-0.5) {$E(d'') \in F^\prime(H(c''))$};
-\node (G) at (1.5,-1) {$E(\iota ^\prime \iota) \colon F^\prime(H(h^\prime h))(E(d)) \to E(d'').$};
+\node (E) at (5,0.5) {$\theta_c E(d) \phi \in F^\prime(H(c))$};
+\node (F) at (5,-0.5) {$\theta_{c''} E(d'') \phi \in F^\prime(H(c''))$};
+\node (G) at (1.5,-1) {$E(\iota ^\prime \iota) \colon F^\prime(H(h^\prime h))(\theta_c E(d)\phi) \to (\theta_{c''}E(d'')\phi).$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$H(f^\prime f)$} (A')
-(C) edge node[left]{$H(g^\prime g)$} (C')
+(C) edge node[right]{$H(g^\prime g)$} (C')
 (A') edge node [above]{$$} (D)
 (C') edge node [above]{$$} (D)
 (B) edge node [left] {$H(h^\prime h)$} (D);
@@ -2788,30 +2794,30 @@ On the other hand, applying the double functor $\mathbb{H}$ first gives:
 \node (C) at (3,0.5) {$H(b)$};
 \node (C') at (3,-0.5) {$H(b^\prime)$};
 \node (D) at (1.5,-0.5) {$H(c^\prime)$};
-\node (E) at (4.5,0.5) {$E(d) \in F^\prime(H(c))$};
-\node (F) at (4.5,-0.5) {$E(d^\prime) \in F^\prime(H(c^\prime))$};
-\node (G) at (1.5,-1) {$E(\iota) \colon F^\prime(H(h))(E(d)) \to E(d^\prime)$};
+\node (E) at (5,0.5) {$\theta_c E(d) \phi \in F^\prime(H(c))$};
+\node (F) at (5,-0.5) {$\theta_{c'} E(d^\prime) \phi \in F^\prime(H(c^\prime))$};
+\node (G) at (1.5,-1) {$E(\iota) \colon F^\prime(H(h))(\theta_c E(d)\phi) \to (\theta_{c'} E(d^\prime)\phi)$};
 \node (A'') at (0,-1.5) {$H(a^\prime)$};
 \node (A''') at (0,-2.5) {$H(a'')$};
 \node (B'') at (1.5,-1.5) {$H(c^\prime)$};
 \node (C'') at (3,-1.5) {$H(b^\prime)$};
 \node (C''') at (3,-2.5) {$H(b'')$};
 \node (D'') at (1.5,-2.5) {$H(c'')$};
-\node (E'') at (4.5,-1.5) {$E(d^\prime) \in F^\prime(H(c^\prime))$};
-\node (F'') at (4.5,-2.5) {$E(d'') \in F^\prime(H(c''))$};
-\node (G'') at (1.5,-3) {$E(\iota^\prime) \colon F^\prime(H(h^\prime))(E(d^\prime)) \to E(d'')$};
+\node (E'') at (5,-1.5) {$\theta_{c'} E(d^\prime) \phi \in F^\prime(H(c^\prime))$};
+\node (F'') at (5,-2.5) {$\theta_{c''} E(d'') \phi \in F^\prime(H(c''))$};
+\node (G'') at (1.5,-3) {$E(\iota^\prime) \colon F^\prime(H(h^\prime))(\theta_{c'} E(d^\prime)\phi) \to (\theta_{c''}E(d'')\phi)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$H(f)$} (A')
-(C) edge node[left]{$H(g)$} (C')
+(C) edge node[right]{$H(g)$} (C')
 (A') edge node [above]{$$} (D)
 (C') edge node [above]{$$} (D)
 (B) edge node [left] {$H(h)$} (D)
 (A'') edge node[above]{$$} (B'')
 (C'') edge node[above]{$$} (B'')
 (A'') edge node[left]{$H(f^\prime)$} (A''')
-(C'') edge node[left]{$H(g^\prime)$} (C''')
+(C'') edge node[right]{$H(g^\prime)$} (C''')
 (A''') edge node [above]{$$} (D'')
 (C''') edge node [above]{$$} (D'')
 (B'') edge node [left] {$H(h^\prime)$} (D'');
@@ -2826,14 +2832,14 @@ and then composing these gives:
 \node (C) at (3,0.5) {$H(b)$};
 \node (C') at (3,-0.5) {$H(b'')$};
 \node (D) at (1.5,-0.5) {$H(c'')$};
-\node (E) at (4.5,0.5) {$E(d) \in F^\prime(H(c))$};
-\node (F) at (4.5,-0.5) {$E(d'') \in F^\prime(H(c''))$};
-\node (G) at (1.5,-1) {$E(\iota ^\prime \iota) \colon F^\prime(H(h^\prime h))(E(d)) \to E(d'').$};
+\node (E) at (5,0.5) {$\theta_c E(d) \phi \in F^\prime(H(c))$};
+\node (F) at (5,-0.5) {$\theta_{c''} E(d'') \phi \in F^\prime(H(c''))$};
+\node (G) at (1.5,-1) {$E(\iota ^\prime \iota) \colon F^\prime(H(h^\prime h))(\theta_c E(d)\phi) \to (\theta_{c''}E(d'')\phi).$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
 (A) edge node[left]{$H(f^\prime f)$} (A')
-(C) edge node[left]{$H(g^\prime g)$} (C')
+(C) edge node[right]{$H(g^\prime g)$} (C')
 (A') edge node [above]{$$} (D)
 (C') edge node [above]{$$} (D)
 (B) edge node [left] {$H(h^\prime h)$} (D);
@@ -2847,11 +2853,11 @@ Given two composable horizontal 1-cells $M$ and $N$ in $F\mathbb{C}\textnormal{s
 \node (A) at (0,0) {$a_1$};
 \node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
+\node (D) at (1,-0.5) {$d_M \in F(c_1)$};
 \node (E) at (3,0) {$b$};
 \node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$a_2$};
-\node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
+\node (H) at (4,-0.5) {$d_N \in F(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -2865,35 +2871,35 @@ composing first gives $M \odot N$:
 \node (A) at (0,0) {$a_1$};
 \node (B) at (1.5,0) {$c_1+_b c_2$};
 \node (C) at (3,0) {$a_2$};
-\node (D) at (1.5,-0.5) {$d \in F(c_1 +_b c_2)$};
+\node (D) at (1.5,-0.5) {$d_{M \odot N} \in F(c_1 +_b c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\psi j_{c_1} i_1$} (B)
 (C) edge node[above]{$\psi j_{c_2} o_2$} (B);
 \end{tikzpicture}
 \]
-where $$d \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(\psi)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\mathbb{H}(M \odot N)$:
+where $$d \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(j)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\mathbb{H}(M \odot N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (2,0) {$H(c_1+_b c_2)$};
 \node (C) at (4,0) {$H(a_2)$};
-\node (D) at (2,-0.5) {$E(d) \in F^\prime(H(c_1 +_b c_2))$};
+\node (D) at (2,-0.5) {$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F^\prime(H(c_1 +_b c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(\psi j_{c_1} i_1)$} (B)
 (C) edge node[above]{$H(\psi j_{c_2} o_2)$} (B);
 \end{tikzpicture}
 \]
-where $$E(d) \colon 1 \xrightarrow{E(d)} E(F(c_1 +_b c_2)) = F^\prime(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\mathbb{H}$ is given respectively by $\mathbb{H}(M)$ and $\mathbb{H}(N)$:
+where $$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \colon 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F^\prime(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\mathbb{H}$ is given respectively by $\mathbb{H}(M)$ and $\mathbb{H}(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (1,0) {$H(c_1)$};
 \node (C) at (2,0) {$H(b)$};
-\node (D) at (1,-0.5) {$E(d_1) \in F^\prime(H(c_1))$};
+\node (D) at (1,-0.5) {$\theta_{c_1} E(d_M)\phi \in F^\prime(H(c_1))$};
 \node (E) at (3,0) {$H(b)$};
 \node (F) at (4,0) {$H(c_2)$};
 \node (G) at (5,0) {$H(a_2)$};
-\node (H) at (4,-0.5) {$E(d_2) \in F^\prime(H(c_2))$};
+\node (H) at (4,-0.5) {$\theta_{c_2} E(d_N) \phi \in F^\prime(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)$} (B)
 (C) edge node[above]{$H(o_1)$} (B)
@@ -2907,13 +2913,13 @@ Composing these then gives $\mathbb{H}(M) \odot \mathbb{H}(N)$:
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (2.25,0) {$H(c_1)+_{H(b)} H(c_2)$};
 \node (C) at (4.5,0) {$H(a_2)$};
-\node (D) at (2.25,-0.5) {$d^\prime \in F^\prime(H(c_1) +_{H(b)} H(c_2))$};
+\node (D) at (2.25,-0.5) {$d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \in F^\prime(H(c_1) +_{H(b)} H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\Psi j_{H(c_1)} H(i_1)$} (B)
 (C) edge node[above]{$\Psi j_{H(c_2)} H(o_2)$} (B);
 \end{tikzpicture}
 \]
-where $$d^\prime \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime(H(c_1)+ H(c_2)) \xrightarrow{F^\prime (H(\Psi))} F^\prime(H(c_1) +_{H(b)} H(c_2)).$$
+where $$\hspace{-.4in}\scriptstyle{d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \colon 1 \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_M) \times E(d_N)) \phi} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime(H(c_1)+ H(c_2)) \xrightarrow{F^\prime (J)} F^\prime(H(c_1) +_{H(b)} H(c_2)).}$$
 We then have a comparison constraint: $$\mathbb{H}_{M,N} \colon \mathbb{H}(M) \odot \mathbb{H}(N) \xrightarrow{\sim} \mathbb{H}(M \odot N)$$given by the globular 2-isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -2923,20 +2929,20 @@ We then have a comparison constraint: $$\mathbb{H}_{M,N} \colon \mathbb{H}(M) \o
 \node (C) at (5,0.5) {$H(a_2)$};
 \node (C') at (5,-0.5) {$H(a_2)$};
 \node (D) at (2.5,-0.5) {$H(c_1 +_b c_2)$};
-\node (E) at (7,0.5) {$d^\prime \in F^\prime(H(c_1)+_{H(b_1)}H(c_2))$};
-\node (F) at (7,-0.5) {$E(d) \in F^\prime(H(c_1 +_b c_2))$};
-\node (G) at (2.5,-1) {$\iota_{\kappa^{-1}} \colon F^\prime(\kappa^{-1})(d^\prime) \to E(d).$};
+\node (E) at (7.5,0.5) {$d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \in F^\prime(H(c_1)+_{H(b_1)}H(c_2))$};
+\node (F) at (7.5,-0.5) {$d_{\mathbb{H}(M \odot N)} \in F^\prime(H(c_1 +_b c_2))$};
+\node (G) at (2.5,-1) {$\iota_{\kappa^{-1}} \colon F^\prime(\kappa^{-1})(d_{\mathbb{H}(M) \odot \mathbb{H}(N)}) \to d_{\mathbb{H}(M \odot N)}.$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\Psi j_{H(c_1)} H(i_1)$} (B)
 (C) edge node[above]{$\Psi j_{H(c_2)} H(o_2)$} (B)
 (A) edge node[left]{$1$} (A')
-(C) edge node[left]{$1$} (C')
+(C) edge node[right]{$1$} (C')
 (A') edge node [above]{$H(\psi j_{c_1} i_1)$} (D)
 (C') edge node [above]{$H(\psi j_{c_2} o_2)$} (D)
 (B) edge node [left] {$\kappa^{-1}$} (D);
 \end{tikzpicture}
 \]
-where $\kappa$ is the isomorphism $$\kappa \colon H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ comes from the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A^\prime}$. The above diagram commutes by a similar argument to the one used in Theorem \ref{Equiv}. Similarly we have a unit comparison constraint $$\mathbb{H}_U \colon U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
+where $\kappa$ is the isomorphism $$\kappa \colon H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A^\prime}$. The above diagram commutes by a similar argument to the one used in Theorem \ref{Equiv}. Similarly, for every object $c \in \mathsf{A}$, we have a unit comparison constraint $$\mathbb{H}_U \colon U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$H(c)$};
@@ -2946,18 +2952,18 @@ where $\kappa$ is the isomorphism $$\kappa \colon H(c_1 +_b c_2) \xrightarrow{\s
 \node (C') at (3,-0.5) {$H(c)$};
 \node (D) at (1.5,-0.5) {$H(c)$};
 \node (E) at (4.5,0.5) {$!_{H(c)} \in F^\prime(H(c))$};
-\node (F) at (4.5,-0.5) {$E(!_c) \in F^\prime(H(c))$};
+\node (F) at (4.5,-0.5) {$\theta_c E(!_c) \phi \in F^\prime(H(c))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
 (A) edge node[left]{$1$} (A')
-(C) edge node[left]{$1$} (C')
+(C) edge node[right]{$1$} (C')
 (A') edge node [above]{$1$} (D)
 (C') edge node [above]{$1$} (D)
 (B) edge node [left] {$1$} (D);
 \end{tikzpicture}
 \]
-where the morphism of decorations is the morphism $\iota \colon !_{H(c)} \to E(!_c)$ in $F'(H(c))$. These comparison constrains satisfy the coherence axioms of a monoidal category, namely:
+where the morphism of decorations is the morphism $\iota \colon !_{H(c)} \to (\theta_c E(!_c) \phi)$ in $F'(H(c))$. These comparison constrains satisfy the coherence axioms of a monoidal category, namely:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(\mathbb{H}(M) \odot \mathbb{H}(N)) \odot \mathbb{H}(P)$};
@@ -2996,17 +3002,17 @@ where the morphism of decorations is the morphism $\iota \colon !_{H(c)} \to E(!
 (D') edge node[above]{$\mathbb{H}(\rho^\prime)$} (C');
 \end{tikzpicture}
 \]
-The diagrams involving the morphisms of decorations are similar to those in Theorem \ref{DC}. This shows that $\mathbb{H}=(H,E)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \colon \mathsf{A} \to \mathsf{A}^\prime$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}$:
+The diagrams involving the morphisms of decorations are similar to those in Theorem \ref{DC}. This shows that $\mathbb{H}=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \colon \mathsf{A} \to \mathsf{A}^\prime$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
 \node (B) at (1,0) {$c_1$};
 \node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$d_1 \in F(c_1)$};
+\node (D) at (1,-0.5) {$d_{M_1}\in F(c_1)$};
 \node (E) at (3,0) {$a_2$};
 \node (F) at (4,0) {$c_2$};
 \node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$d_2 \in F(c_2)$};
+\node (H) at (4,-0.5) {$d_{M_2} \in F(c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -3020,20 +3026,20 @@ their tensor product $M_1 \otimes M_2$ in $F\mathbb{C}\textnormal{sp}$ is given 
 \node (A) at (0,0) {$a_1+a_2$};
 \node (B) at (1.5,0) {$c_1+c_2$};
 \node (C) at (3,0) {$b_1+b_2$};
-\node (D) at (1.5,-0.5) {$d_1+d_2 \in F(c_1+c_2)$};
+\node (D) at (1.5,-0.5) {$d_{M_1 \otimes M_2} \in F(c_1+c_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1+i_2$} (B)
 (C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
-$$d_1+d_2 \colon 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2)$$
+$$d_{M_1 \otimes M_2} \colon 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2)$$
 and the image of this horizontal 1-cell under the double functor $\mathbb{H}$ is $\mathbb{H}(M_1 \otimes M_2)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1+a_2)$};
 \node (B) at (2,0) {$H(c_1+c_2)$};
 \node (C) at (4,0) {$H(b_1+b_2)$};
-\node (D) at (2,-0.5) {$E(d_1+d_2) \in E(F(c_1+c_2)) = F^\prime(H(c_1+c_2))$};
+\node (D) at (2,-0.5) {$d_{\mathbb{H}(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F^\prime(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1+i_2)$} (B)
 (C) edge node[above]{$H(o_1+o_2)$} (B);
@@ -3043,13 +3049,13 @@ On the other hand, the image of $M_1$ and $M_2$ is given by $\mathbb{H}(M_1)$ an
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
-\node (B) at (1,0) {$H(c_1)$};
-\node (C) at (2,0) {$H(b_1)$};
-\node (D) at (1,-0.5) {$E(d_1) \in F^\prime(H(c_1))$};
-\node (E) at (3,0) {$H(a_2)$};
-\node (F) at (4,0) {$H(c_2)$};
-\node (G) at (5,0) {$H(b_2)$};
-\node (H) at (4,-0.5) {$E(d_2) \in F^\prime(H(c_2))$};
+\node (B) at (1.5,0) {$H(c_1)$};
+\node (C) at (3,0) {$H(b_1)$};
+\node (D) at (1.5,-0.5) {$d_{\mathbb{H}(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F^\prime(H(c_1))$};
+\node (E) at (4.5,0) {$H(a_2)$};
+\node (F) at (6,0) {$H(c_2)$};
+\node (G) at (7.5,0) {$H(b_2)$};
+\node (H) at (6,-0.5) {$d_{\mathbb{H}(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F^\prime(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)$} (B)
 (C) edge node[above]{$H(o_1)$} (B)
@@ -3063,13 +3069,13 @@ and their tensor product $\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)$ is given by:
 \node (A) at (0,0) {$H(a_1)+H(a_2)$};
 \node (B) at (2.5,0) {$H(c_1)+H(c_2)$};
 \node (C) at (5,0) {$H(b_1)+H(b_2)$};
-\node (D) at (2.5,-0.5) {$E(d_1)+E(d_2) \in F^\prime(H(c_1)+H(c_2))$};
+\node (D) at (2.5,-0.5) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F^\prime(H(c_1)+H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)+H(i_2)$} (B)
 (C) edge node[above]{$H(o_1)+H(o_2)$} (B);
 \end{tikzpicture}
 \]
-$$E(d_1)+E(d_2) \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime (H(c_1)+H(c_2)).$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \colon \mathbb{H}(M_1) \otimes \mathbb{H}(M_2) \to \mathbb{H}(M_1 \otimes M_2)$ in $F'\mathbb{C}\textnormal{sp}$ given by:
+$$\hspace{-.4in} \scriptstyle{d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \colon 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F^\prime(H(c_1)) \times F^\prime(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F^\prime (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \colon \mathbb{H}(M_1) \otimes \mathbb{H}(M_2) \to \mathbb{H}(M_1 \otimes M_2)$ in $F'\mathbb{C}\textnormal{sp}$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$H(a_1)+H(a_2)$};
@@ -3078,8 +3084,8 @@ $$E(d_1)+E(d_2) \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \ti
 \node (C) at (5,0.5) {$H(b_1)+H(b_2)$};
 \node (C') at (5,-0.5) {$H(b_1+b_2)$};
 \node (D) at (2.5,-0.5) {$H(c_1+c_2)$};
-\node (E) at (2.5,1) {$E(d_1)+E(d_2) \in F^\prime(H(c_1)+H(c_2))$};
-\node (F) at (2.5,-1) {$E(d_1+d_2) \in F^\prime(H(c_1+c_2))$};
+\node (E) at (2.5,1) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F^\prime(H(c_1)+H(c_2))$};
+\node (F) at (2.5,-1) {$d_{\mathbb{H}(M_1 \otimes M_2)} \in F^\prime(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)+H(i_2)$} (B)
 (C) edge node[above]{$H(o_1)+H(o_2)$} (B)
@@ -3090,16 +3096,16 @@ $$E(d_1)+E(d_2) \colon 1 \xrightarrow{E(d_1) \times E(d_2)} F^\prime(H(c_1)) \ti
 (B) edge node [left] {$\kappa$} (D);
 \end{tikzpicture}
 \]
-$$\iota_\kappa \colon F^\prime(\kappa)(E(d_1)+E(d_2)) \to E(d_1+d_2)$$
+$$\iota_\kappa \colon F^\prime(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)}) \to d_{\mathbb{H}(M_1 \otimes M_2)}$$
 where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimits. This natural 2-isomorphism together with the associators of $F\mathbb{C}\textnormal{sp}$ and $F'\mathbb{C}\textnormal{sp}$, respectively $\alpha$ and $\alpha^\prime$, make the following diagram commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)$};
 \node (B) at (0,-0.5) {$\mathbb{H}(M_1 \otimes M_2) \otimes \mathbb{H}(M_3)$};
 \node (C) at (0,-1.5) {$\mathbb{H}((M_1 \otimes M_2) \otimes M_3)$};
-\node (A') at (3,0.5) {$\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))$};
-\node (B') at (3,-0.5) {$\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)$};
-\node (C') at (3,-1.5) {$\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))$};
+\node (A') at (4,0.5) {$\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))$};
+\node (B') at (4,-0.5) {$\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)$};
+\node (C') at (4,-1.5) {$\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\mu_{M_1,M_2} \otimes 1$} (B)
 (B) edge node[left]{$\mu_{M_1 \otimes M_2,M_3}$} (C)
@@ -3109,15 +3115,15 @@ where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimi
 (A') edge node [right]{$1 \otimes \mu_{M_2 \otimes M_3}$} (B');
 \end{tikzpicture}
 \]
-with the corresponding diagram of decorations:
+with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$F^\prime(\alpha \kappa \kappa)((E(d_1)+E(d_2))+E(d_3))$};
-\node (B) at (0,-0.5) {$F^\prime(\alpha \kappa)(E(d_1+d_2)+E(d_3))$};
-\node (C) at (0,-1.5) {$F^\prime(\alpha)(E((d_1+d_2)+d_3))$};
-\node (A') at (5,0.5) {$F^\prime(\kappa \kappa)(E(d_1)+(E(d_2)+E(d_3)))$};
-\node (B') at (5,-0.5) {$F^\prime(\kappa)(E(d_1)+E(d_2+d_3))$};
-\node (C') at (5,-1.5) {$E(d_1+(d_2+d_3))$};
+\node (A) at (0,0.5) {$F^\prime(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$};
+\node (B) at (0,-0.5) {$F^\prime(\alpha \kappa)(d_{\mathbb{H}(M_1 \otimes M_2) \otimes \mathbb{H}(M_3)})$};
+\node (C) at (0,-1.5) {$F^\prime(\alpha)(d_{\mathbb{H}((M_1 \otimes M_2) \otimes M_3)})$};
+\node (A') at (5,0.5) {$F^\prime(\kappa \kappa)(d_{\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))})$};
+\node (B') at (5,-0.5) {$F^\prime(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)})$};
+\node (C') at (5,-1.5) {$d_{\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$F^\prime(\alpha \kappa)(\iota_\kappa + 1)$} (B)
 (B) edge node[left]{$F^\prime(\alpha)(\iota_\kappa)$} (C)
@@ -3127,8 +3133,8 @@ with the corresponding diagram of decorations:
 (A') edge node [right]{$F^\prime(\kappa)(1+\iota_\kappa)$} (B');
 \end{tikzpicture}
 \]
-where $$F^\prime(\alpha \kappa \kappa)((E(d_1)+E(d_2))+E(d_3)) = F^\prime(\kappa \kappa \alpha^\prime)((E(d_1)+E(d_2))+E(d_3))$$
-as the corresponding hexagon for the symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ commutes. 
+where $$F^\prime(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)}) = F^\prime(\kappa \kappa \alpha^\prime)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$$
+as the corresponding hexagon for the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A'}$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta^\prime$ of $F \mathbb{C}\textnormal{sp}_1$ and $F' \mathbb{C}\textnormal{sp}_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A'}$.
 
 We also have that the monoidal unit of $F\mathbb{C}\textnormal{sp}_1$ is given by:
 \[
@@ -3153,7 +3159,7 @@ where $1_\mathsf{A}$ is the monoidal unit of the finitely cocartesian category $
 %\node (G) at (5,0) {$1_\mathsf{A^\prime}$};
 %\node (H) at (6,0) {$1_\mathsf{A^\prime}$};
 %\node (I) at (5,-0.5) {$!_{1_{\mathsf{A^\prime}}} \in F^\prime(1_{\mathsf{A^\prime}})$};
-\node (D) at (1,-0.5) {$E(!_{1_\mathsf{A}}) \in F^\prime(H(1_\mathsf{A}))$};
+\node (D) at (1,-0.5) {$\theta_{1_\mathsf{A}}E(!_{1_\mathsf{A}}) \phi \in F^\prime(H(1_\mathsf{A}))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
@@ -3170,25 +3176,25 @@ as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\mathbb{C}\
 \node (C) at (3,0.5) {$1_{\mathsf{A^\prime}}$};
 \node (C') at (3,-0.5) {$H(1_\mathsf{A})$};
 \node (D) at (1.5,-0.5) {$H(1_\mathsf{A})$};
-\node (E) at (4.5,0.5) {$!_{1_\mathsf{A^\prime}} \in F^\prime(1_\mathsf{A^\prime})$};
-\node (F) at (4.5,-0.5) {$E(!_{1_\mathsf{A}}) \in F^\prime(H(1_\mathsf{A}))$};
+\node (E) at (5,0.5) {$!_{1_\mathsf{A^\prime}} \in F^\prime(1_\mathsf{A^\prime})$};
+\node (F) at (5,-0.5) {$\theta_{1_\mathsf{A}} E(!_{1_\mathsf{A}}) \phi \in F^\prime(H(1_\mathsf{A}))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
 (A) edge node[left]{$\kappa$} (A')
-(C) edge node[left]{$\kappa$} (C')
+(C) edge node[right]{$\kappa$} (C')
 (A') edge node [above]{$1$} (D)
 (C') edge node [above]{$1$} (D)
 (B) edge node [left] {$\kappa$} (D);
 \end{tikzpicture}
 \]
-together with the morphism $\iota_\mu \colon F^\prime(\kappa)(!_{1_\mathsf{A^\prime}}) \to E(!_{1_\mathsf{A}})$ in $F^\prime(H(1_\mathsf{A}))$. The following square then commutes: 
+together with the morphism $\iota_\mu \colon F^\prime(\kappa)(!_{1_\mathsf{A^\prime}}) \to (\theta_{1_\mathsf{A}} E(!_{1_\mathsf{A}})\phi)$ in $F^\prime(H(1_\mathsf{A}))$. The following square then commutes for any horizontal 1-cell $M$ of $F \mathbb{C}\textnormal{sp}$: 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$1_\mathsf{A^\prime} \otimes \mathbb{H}(M)$};
 \node (B) at (2.5,0) {$\mathbb{H}(1_\mathsf{A}) \otimes \mathbb{H}(M)$};
 \node (C) at (0,-1) {$\mathbb{H}(M)$};
-\node (D) at (2.5,-1) {$\mathbb{H}(1_\mathsf{A} + M)$};
+\node (D) at (2.5,-1) {$\mathbb{H}(1_\mathsf{A} \otimes M)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\mu \otimes 1$} (B)
 (A) edge node[left]{$\ell$} (C)
@@ -3199,27 +3205,28 @@ together with the morphism $\iota_\mu \colon F^\prime(\kappa)(!_{1_\mathsf{A^\pr
 where we have abbreviated the monoidal units of $F\mathbb{C}\textnormal{sp}_1$ and $F'\mathbb{C}\textnormal{sp}_1$ as $1_\mathsf{A}$ and $1_\mathsf{A^\prime}$, respectively. The diagram of corresponding decorations is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$F^\prime(\ell)(!_{1_\mathsf{A^\prime}} + E(d))$};
-\node (B) at (0,-0.5) {$E(d)$};
-\node (A') at (4,0.5) {$F^\prime(H(\ell^\prime) \kappa)(E(!_{1_\mathsf{A}})+E(d))$};
-\node (B') at (4,-0.5) {$F^\prime(H(\ell^\prime))(E(!_{1_\mathsf{A}} + d))$};
+\node (A) at (0,0.5) {$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$};
+\node (B) at (0,-0.5) {$d_{\mathbb{H}(M)}$};
+\node (A') at (4,0.5) {$F^\prime(H(\ell^\prime) \kappa)(d_{!_{\mathbb{H}(1_\mathsf{A})}}\otimes d_{\mathbb{H}(M)})$};
+\node (B') at (4,-0.5) {$F^\prime(H(\ell^\prime))(d_{\mathbb{H}(1_\mathsf{A} \otimes M)})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\iota_\ell$} (B)
-(A) edge node[above]{$F^\prime(H(\ell^\prime)\kappa)(\iota_{\mu+1})$} (A')
+(A) edge node[above]{$F^\prime(H(\ell^\prime)\kappa)(\iota_{\mu \otimes 1})$} (A')
 (A') edge node [right]{$F^\prime(H(\ell^\prime))(\iota_\kappa)$} (B')
 (B') edge node [above] {$\iota_{H(\ell^\prime)}$} (B);
 \end{tikzpicture}
 \]
-where $$F^\prime(\ell)(!_{1_\mathrm{A^\prime}} + E(d))=F^\prime(H(\ell^\prime)\kappa(\mu+1))(!_{1_\mathrm{A^\prime}} + E(d))$$ since the corresponding square involving left unitors for the symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ commutes. The other square involving the right unitors $r$ and $r^\prime$ is similar. Note that because $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
+where $$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})=F^\prime(H(\ell^\prime)\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r^\prime$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
 
 \begin{thm}
-Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$ and two symmetric lax monoidal pseudofunctors $F \colon \mathsf{A} \to \mathbf{Cat}$ and $F' \colon \mathsf{A}' \to \mathbf{Cat}$, a map $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ is given by a pair $(H,E)$ where $H \colon \mathsf{A} \to \mathsf{A}'$ is a finite colimit preserving functor and a symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ that make the following square commute.
+Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two symmetric lax monoidal pseudofunctors $F \colon \mathsf{A} \to \mathbf{Cat}$ and $F' \colon \mathsf{A}' \to \mathbf{Cat}$, a finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A}'$, a symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ and a 2-isomorphism $\theta \colon EF \Rightarrow F^\prime H$ as in the following diagram, the triple $(H,E,\theta)$ induces a double functor $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ as defined above.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathsf{A}$};
 \node (B) at (1,0) {$\mathbf{Cat}$};
 \node (C) at (0,-1) {$\mathsf{A^\prime}$};
 \node (D) at (1,-1) {$\mathbf{Cat}$};
+\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -3601,7 +3608,7 @@ where $R\colon \mathsf{X} \to \mathsf{A}$ is the right adjoint to the functor $L
 (C') edge node[above]{$o^\prime$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
+(C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
 is given by the 2-morphism $\mathbb{E}_1(\alpha) \colon \mathbb{E}_1(M) \to \mathbb{E}_1(N)$ in $\mathbb{F}\textnormal{Cospan}(\mathsf{A})$ given by:
@@ -3622,10 +3629,120 @@ is given by the 2-morphism $\mathbb{E}_1(\alpha) \colon \mathbb{E}_1(M) \to \mat
 (C') edge node[above]{$R(o^\prime) \eta_{c_2^\prime}$} (B')
 (A) edge node [left]{$f$} (A')
 (B) edge node [left]{$R(\alpha)$} (B')
-(C) edge node [left]{$g$} (C');
+(C) edge node [right]{$g$} (C');
 \end{tikzpicture}
 \]
-together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. First, to see that this functor is essentially surjective, given a horizontal 1-cell in $F\mathbb{C}\textnormal{sp}$:
+together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$.  That $\mathbb{E}_0$ is a functor is clear. For $\mathbb{E}_1$, given two vertically composable 2-morphisms $M$ and $M'$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$,
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(c_1)$};
+\node (B) at (1,0) {$x$};
+\node (C) at (2,0) {$L(c_2)$};
+\node (A') at (0,-1) {$L(c_1^\prime)$};
+\node (B') at (1,-1) {$x^\prime$};
+\node (C') at (2,-1) {$L(c_2^\prime)$};
+\node (A'') at (0,-2) {$L(c_1^\prime)$};
+\node (B'') at (1,-2) {$x'$};
+\node (C'') at (2,-2) {$L(c_2')$};
+\node (A''') at (0,-3) {$L(c_1'')$};
+\node (B''') at (1,-3) {$x''$};
+\node (C''') at (2,-3) {$L(c_2'')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[above]{$i^\prime$} (B')
+(C') edge node[above]{$o^\prime$} (B')
+(A) edge node [left]{$L(f)$} (A')
+(B) edge node [left]{$\alpha$} (B')
+(C) edge node [right]{$L(g)$} (C')
+(A'') edge node[above]{$i'$} (B'')
+(C'') edge node[above]{$o'$} (B'')
+(A''') edge node[above]{$i''$} (B''')
+(C''') edge node[above]{$o''$} (B''')
+(A'') edge node [left]{$L(f')$} (A''')
+(B'') edge node [left]{$\alpha'$} (B''')
+(C'') edge node [right]{$L(g')$} (C''');
+\end{tikzpicture}
+\]
+their vertical composite $M'M$ is given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(c_1)$};
+\node (B) at (1,0) {$x$};
+\node (C) at (2,0) {$L(c_2)$};
+\node (A') at (0,-1) {$L(c_1'')$};
+\node (B') at (1,-1) {$x''$};
+\node (C') at (2,-1) {$L(c_2'')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[above]{$i''$} (B')
+(C') edge node[above]{$o''$} (B')
+(A) edge node [left]{$L(f'f)$} (A')
+(B) edge node [left]{$\alpha' \alpha$} (B')
+(C) edge node [right]{$L(g' g)$} (C');
+\end{tikzpicture}
+\]
+and the image of this 2-morphism $\mathbb{E}_1(M'M)$ is given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$c_1$};
+\node (B) at (1.5,0) {$R(x)$};
+\node (C) at (3,0) {$c_2$};
+\node (A') at (0,-1) {$c_1''$};
+\node (B') at (1.5,-1) {$R(x'')$};
+\node (C') at (3,-1) {$c_2''$};
+\node (D) at (4,0) {$x \in F(R(x))$};
+\node (D') at (4,-1) {$x'' \in F(R(x''))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$R(i) \eta_{c_1}$} (B)
+(C) edge node[above]{$R(o) \eta_{c_2}$} (B)
+(A') edge node[above]{$R(i'') \eta_{c_1''}$} (B')
+(C') edge node[above]{$R(o'') \eta_{c_2''}$} (B')
+(A) edge node [left]{$f'f$} (A')
+(B) edge node [left]{$R(\alpha' \alpha)$} (B')
+(C) edge node [right]{$g'g$} (C');
+\end{tikzpicture}
+\]
+together with a morphism $\iota_{M' M} \colon F(R(\alpha' \alpha))(x) \to x''$ in $F(R(x''))$. On the other hand, the individual images $\mathbb{E}_1(M)$ and $\mathbb{E}_1(M')$ are given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$c_1$};
+\node (B) at (1.5,0) {$R(x)$};
+\node (C) at (3,0) {$c_2$};
+\node (A') at (0,-1) {$c_1'$};
+\node (B') at (1.5,-1) {$R(x')$};
+\node (C') at (3,-1) {$c_2'$};
+\node (D) at (4,0) {$x \in F(R(x))$};
+\node (D') at (4,-1) {$x' \in F(R(x'))$};
+\node (A'') at (0,-2) {$c_1'$};
+\node (B'') at (1.5,-2) {$R(x')$};
+\node (C'') at (3,-2) {$c_2'$};
+\node (A''') at (0,-3) {$c_1''$};
+\node (B''') at (1.5,-3) {$R(x'')$};
+\node (C''') at (3,-3) {$c_2''$};
+\node (D'') at (4,-2) {$x' \in F(R(x'))$};
+\node (D''') at (4,-3) {$x'' \in F(R(x''))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$R(i) \eta_{c_1}$} (B)
+(C) edge node[above]{$R(o) \eta_{c_2}$} (B)
+(A') edge node[above]{$R(i') \eta_{c_1'}$} (B')
+(C') edge node[above]{$R(o') \eta_{c_2'}$} (B')
+(A) edge node [left]{$f$} (A')
+(B) edge node [left]{$R(\alpha)$} (B')
+(C) edge node [right]{$g$} (C')
+(A'') edge node[above]{$R(i') \eta_{c_1'}$} (B'')
+(C'') edge node[above]{$R(o') \eta_{c_2'}$} (B'')
+(A''') edge node[above]{$R(i'') \eta_{c_1''}$} (B''')
+(C''') edge node[above]{$R(o'') \eta_{c_2''}$} (B''')
+(A'') edge node [left]{$f'$} (A''')
+(B'') edge node [left]{$R(\alpha')$} (B''')
+(C'') edge node [right]{$g'$} (C''');
+\end{tikzpicture}
+\]
+together with morphisms $\iota_M \colon F(R(\alpha))(x) \to x'$ in $F(R(x'))$ and $\iota_{M'} \colon F(R(\alpha')(x') \to x''$ in $F(R(x''))$, respectively. The vertical composite $\mathbb{E}_1(M')\mathbb{E}_1(M)$ of the above two 2-morphisms is given by $\mathbb{E}_1(M'M)$ as $R$ is a functor and $\iota_{M'M}=\iota_{M'} \iota_M$. The functors $\mathbb{E}_0$ and $\mathbb{E}_1$ satisfy the equations $\mathbb{E}_0 S = S \mathbb{E}_1$ and $\mathbb{E}_0 T = T \mathbb{E}_1$.
+
+To see that this functor is essentially surjective, given a horizontal 1-cell in $F\mathbb{C}\textnormal{sp}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3666,13 +3783,13 @@ with the 2-isomorphism in $F\mathbb{C}\textnormal{sp}$ given by:
 (C') edge node[above]{$o$} (B')
 (A) edge node [left]{$1$} (A')
 (B) edge node [left]{${(R(e) \eta_c)}^{-1}$} (B')
-(C) edge node [left]{$1$} (C');
+(C) edge node [right]{$1$} (C');
 \end{tikzpicture}
 \]
 $$\iota \colon F({(R(e)\eta_c)}^{-1})(x) \to x$$
-where $e \colon L(c) \to x$ is given by the map from the trivial decoration on $c$ to $x \in F(c)$. The object and arrow components $\mathbb{E}_0$ and $\mathbb{E}_1$ satisfy the equations $S \mathbb{E}_1 = \mathbb{E}_0 S$ and $T \mathbb{E}_1 = \mathbb{E}_0 T$.
+where $e \colon L(c) \to x$ is given by the map from the trivial decoration on $c$ to $x \in F(c)$. %The object and arrow components $\mathbb{E}_0$ and $\mathbb{E}_1$ satisfy the equations $S \mathbb{E}_1 = \mathbb{E}_0 S$ and $T \mathbb{E}_1 = \mathbb{E}_0 T$.
 
-To show that the double functor $\mathbb{E}$ is fully faithful, we need to show that the map  $$\mathbb{E}_1 \colon _f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N) \to _{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ is bijective for arbitrary vertical 1-morphisms $f$ and $g$ and horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$. Consider a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$:
+To show that the double functor $\mathbb{E}$ is fully faithful, we need to show that the map  $$\mathbb{E}_1 \colon _f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N) \to {_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}}(\mathbb{E}(M),\mathbb{E}(N))$$ is bijective for arbitrary vertical 1-morphisms $f$ and $g$ and horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$.  Consider a 2-morphism in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ with horizontal source and target $M$ and $N$, respectively and vertical source and target $f$ and $g$, respectively:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3692,7 +3809,7 @@ To show that the double functor $\mathbb{E}$ is fully faithful, we need to show 
 (C') edge node[above]{$o^\prime$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
+(C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
 Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ rendering the above diagram commutative where $f$ and $g$ are morphisms of $\mathsf{A}$ and $\alpha$ is a morphism of $\mathsf{X}$. The image of the above 2-morphism under the double functor $\mathbb{E}$ is given by:
@@ -3717,7 +3834,7 @@ Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N)$$ consists 
 (C') edge node[above]{$R(o^\prime)\eta_{c_2^\prime}$} (B')
 (A) edge node [left]{$f$} (A')
 (B) edge node [left]{$R(\alpha)$} (B')
-(C) edge node [left]{$g$} (C');
+(C) edge node [right]{$g$} (C');
 \end{tikzpicture}
 \]
 together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ of $F(R(x^\prime))$.
@@ -3825,7 +3942,7 @@ and so $\mathbb{E}(M) \odot \mathbb{E}(N)$ is given by:
 \node (A) at (0,0) {$c_1$};
 \node (B) at (1.5,0) {$R(x)+_{c_2}R(x^\prime)$};
 \node (C) at (3,0) {$c_3$};
-\node (G) at (1.5,-0.5) {$\hat{x} \in F(R(x)+_{c_2}R(x^\prime))$};
+\node (G) at (1.5,-0.5) {$d_{\mathbb{E}(M) \odot \mathbb{E}(N)} = \hat{x} \in F(R(x)+_{c_2}R(x^\prime))$};
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$j \psi R(i) \eta_{c_1}$} (B)
@@ -3851,7 +3968,7 @@ where $\zeta$ is a natural map into a coproduct and $J$ is the natural map from 
 \node (A) at (0,0) {$c_1$};
 \node (B) at (1.5,0) {$R(x+_{L(c_2)}x^\prime)$};
 \node (C) at (3,0) {$c_3$};
-\node (G) at (1.5,-0.5) {$x+_{L(c_2)} x^\prime \in F(R(x+_{L(c_2)}x^\prime))$};
+\node (G) at (1.5,-0.5) {$d_{\mathbb{E}(M \odot N)} = x+_{L(c_2)} x^\prime \in F(R(x+_{L(c_2)}x^\prime))$};
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$R(J \zeta i) \eta_{c_1}$} (B)
@@ -3867,8 +3984,8 @@ and so $\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\
 \node (A') at (0,-1) {$c_1$};
 \node (B') at (1.5,-1) {$R(x+_{L(c_2)}x^\prime)$};
 \node (C') at (3,-1) {$c_3$};
-\node (D) at (5.5 ,0) {$\hat{x} \in F(R(x)+_{c_2}R(x^\prime))$};
-\node (D') at (5.5,-1) {$x+_{L(c_2)}x^\prime \in F(R(x+_{L(c_2)}x^\prime))$};
+\node (D) at (5.5 ,0) {$d_{\mathbb{E}(M) \odot \mathbb{E}(N)} \in F(R(x)+_{c_2}R(x^\prime))$};
+\node (D') at (5.5,-1) {$d_{\mathbb{E}(M \odot N)} \in F(R(x+_{L(c_2)}x^\prime))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$j \psi R(i) \eta_{c_1}$} (B)
 (C) edge node[above]{$j \psi R(o^\prime) \eta_{c_3}$} (B)
@@ -3879,7 +3996,7 @@ and so $\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-First, if the right adjoint $R \colon \mathsf{X} \to \mathsf{A}$ is also a left adjoint, then $R$ also preserves all colimits and we have an isomorphism $$\kappa \colon R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \colon \mathsf{A} \to \mathsf{X}$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \colon c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \coloneqq \kappa j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
+together with a morphism of decorations which is obtained as follows. First, as $R \colon \mathsf{X} \to \mathsf{A}$ preserves finite colimits, we have an isomorphism $$\kappa \colon R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \colon \mathsf{A} \to \mathsf{X}$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \colon c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \coloneqq \kappa j_{\eta_{c_2}} \colon R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
 Next, to see that the above diagram commutes, it suffices to show that for the object $c_1 \in \mathrm{A}$, $$R(J)R(\zeta)R(i)\eta_{c_1}(c_1) = R(J \zeta i)\eta_{c_1}(c_1)  \stackrel{!}{=} \sigma j \psi R(i)\eta_{c_1}(c_1) = \kappa j_{\eta_{c_2}} \psi R(i) \eta_{c_1}(c_1).$$ This follows as $R(i) \eta_{c_1} \colon c_1 \to R(x)$ and the following diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3899,9 +4016,9 @@ Next, to see that the above diagram commutes, it suffices to show that for the o
 (D') edge node [right]{$\kappa$} (B');
 \end{tikzpicture}
 \]
-Lastly, this map of cospans comes with an isomorphism $\iota \colon F(\sigma)(\hat{x}) \to (x+_{L(c_2)}x^\prime)$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \xrightarrow{\sim} F\mathbb{C}\textnormal{sp}$ is part of a double equivalence by Theorem \ref{ShulDubEquiv}.
+Lastly, this map of cospans comes with an isomorphism $$\iota \colon F(\sigma)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \xrightarrow{\sim} F\mathbb{C}\textnormal{sp}$ is part of a double equivalence by Theorem \ref{ShulDubEquiv}.
 
-Next, if both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\mathsf{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \colon 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
+Next, we show that if both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\mathsf{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \colon 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
 
 For the arrow component $\mathbb{E}_1$, we have an isomorphism $\delta \colon U_{1_{F\mathbb{C}\textnormal{sp}}} \to \mathbb{E}(U_{1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})}})$ where the horizontal 1-cell $U_{1_{F\mathbb{C}\textnormal{sp}}}$ is given by:
 \[
@@ -4003,65 +4120,65 @@ and so $\mathbb{E}(M) \otimes \mathbb{E}(N)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1+c_1^\prime$};
-\node (B) at (2.25,0) {$R(x)+R(x^\prime)$};
-\node (C) at (4.5,0) {$c_2+c_2^\prime$};
-\node (D) at (2.25,-0.5) {$\hat{x} \in F(R(x)+R(x^\prime))$}; 
+\node (B) at (3.25,0) {$R(x)+R(x^\prime)$};
+\node (C) at (6.5,0) {$c_2+c_2^\prime$};
+\node (D) at (3.25,-0.5) {$d_{\mathbb{E}(M) \otimes \mathbb{E}(N)} \in F(R(x)+R(x^\prime))$}; 
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$R(i) \eta_{c_1} +R(i^\prime) \eta_{c_1^\prime}$} (B)
 (C) edge node[above]{$R(o) \eta_{c_2} + R(o) \eta_{c_2^\prime}$} (B);
 \end{tikzpicture}
 \]
-where $$\hat{x} \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times x^\prime} F(R(x)) \times F(R(x^\prime)) \xrightarrow{\phi_{R(x),R(x^\prime)}} F(R(x)+R(x^\prime)).$$ On the other hand, $M \otimes N$ is given by
+where $$d_{\mathbb{E}(M) \otimes \mathbb{E}(N)} \colon 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times x^\prime} F(R(x)) \times F(R(x^\prime)) \xrightarrow{\phi_{R(x),R(x^\prime)}} F(R(x)+R(x^\prime)).$$ On the other hand, $M \otimes N$ is given by
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1+c_1^\prime)$};
-\node (B) at (1.5,0) {$x+x^\prime$};
-\node (C) at (3,0) {$L(c_2+c_2^\prime)$};
+\node (B) at (2,0) {$x+x^\prime$};
+\node (C) at (4,0) {$L(c_2+c_2^\prime)$};
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i+i^\prime$} (B)
-(C) edge node[above]{$o+o^\prime$} (B);
+(A) edge node[above]{$(i+i^\prime)\phi_{c_1,c_1'}^{-1}$} (B)
+(C) edge node[above]{$(o+o^\prime)\phi_{c_2,c_2'}^{-1}$} (B);
 \end{tikzpicture}
 \]
 and $\mathbb{E}(M \otimes N)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1+c_1^\prime$};
-\node (B) at (2,0) {$R(x+x^\prime)$};
-\node (C) at (4,0) {$c_2+c_2^\prime$};
-\node (D) at (2,-0.5) {$x+x^\prime \in F(R(x+x^\prime)).$};
+\node (B) at (4,0) {$R(x+x^\prime)$};
+\node (C) at (8,0) {$c_2+c_2^\prime$};
+\node (D) at (4,-0.5) {$d_{\mathbb{E}(M \odot N)} \in F(R(x+x^\prime)).$};
 %\node (D) at (3,0.5) {$!_c \in F(c)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$R(i+i^\prime) \eta_{c_1+c_1^\prime}$} (B)
-(C) edge node[above]{$R(o+o^\prime) \eta_{c_2+c_2^\prime}$} (B);
+(A) edge node[above]{$R((i+i^\prime)\phi_{c_1,c_1'}^{-1}) \eta_{c_1+c_1^\prime}$} (B)
+(C) edge node[above]{$R((o+o^\prime)\phi_{c_2,c_2'}^{-1}) \eta_{c_2+c_2^\prime}$} (B);
 \end{tikzpicture}
 \]
 We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\sim} E(M \otimes N)$ in $F\mathbb{C}\textnormal{sp}$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-0.5,0) {$c_1+c_1^\prime$};
-\node (B) at (2,0) {$R(x)+R(x^\prime)$};
+\node (A) at (-2.5,0) {$c_1+c_1^\prime$};
+\node (B) at (1,0) {$R(x)+R(x^\prime)$};
 \node (C) at (4.5,0) {$c_2+c_2^\prime$};
-\node (A') at (-0.5,-1) {$c_1+c_1^\prime$};
-\node (B') at (2,-1) {$R(x+x^\prime)$};
+\node (A') at (-2.5,-1) {$c_1+c_1^\prime$};
+\node (B') at (1,-1) {$R(x+x^\prime)$};
 \node (C') at (4.5,-1) {$c_2+c_2^\prime$};
-\node (D) at (6.25,0) {$\hat{x} \in F(R(x)+R(x^\prime))$};
-\node (D') at (6.25,-1) {$x+x^\prime \in F(R(x+x^\prime))$};
-\node (E) at (2,-1.5) {$\iota_\mu \colon F(\kappa)(\hat{x}) \to x+x^\prime$};
+\node (D) at (6.55,0) {$d_{\mathbb{E}(M) \otimes \mathbb{E}(N)} \in F(R(x)+R(x^\prime))$};
+\node (D') at (6.55,-1) {$d_{\mathbb{E}(M \otimes N)} \in F(R(x+x^\prime))$};
+\node (E) at (2,-1.5) {$\iota_\mu \colon F(\kappa)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$R(i)\eta_{c_1} + R(i^\prime)\eta_{c_1^\prime}$} (B)
 (C) edge node[above]{$R(o)\eta_{c_2} + R(o^\prime)\eta_{c_2^\prime}$} (B)
-(A') edge node[above]{$R(i+i^\prime)\eta_{c_1+c_1^\prime}$} (B')
-(C') edge node[above]{$R(o+o^\prime)\eta_{c_2+c_2^\prime}$} (B')
+(A') edge node[above]{$R((i+i^\prime)\phi_{c_1,c_1'}^{-1}) \eta_{c_1+c_1^\prime}$} (B')
+(C') edge node[above]{$R((o+o^\prime)\phi_{c_2,c_2'}^{-1}) \eta_{c_2+c_2^\prime}$} (B')
 (A) edge node [left]{$1$} (A')
 (B) edge node [left]{$\kappa$} (B')
-(C) edge node [left]{$1$} (C');
+(C) edge node [right]{$1$} (C');
 \end{tikzpicture}
 \]
-where $\kappa$ is an isomorphism as $R \colon \mathsf{X} \to \mathsf{A}$ preserves finite colimits.
+where $\kappa$ is the isomorphism which comes from $R \colon \mathsf{X} \to \mathsf{A}$ preserving finite colimits.
 
-The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. Let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
+The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. To see this, let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -4093,32 +4210,32 @@ The left unitality square:
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\delta \otimes 1$} (B)
 (B) edge node[right]{$\mu_{1,M_1}$} (D)
-(A) edge node[left]{$\lambda$} (C)
+(A) edge node[left]{$\lambda'$} (C)
 (D) edge node[above]{$\mathbb{E}(\lambda)$} (C);
 \end{tikzpicture}
 \]
-has underlying maps of cospans given by:
+has an underlying diagram of maps of cospans given by:
 \[
 		\begin{tikzpicture}
 			\node (d) at (7.5,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})}) \otimes \mathbb{E}(M_1)$};
-			\node (a) at (-4,0) {$1_\mathsf{A}+c_1$};
-			\node (b) at (0.5,0) {$R(L(1_\mathsf{A})) + R(x_1)$};
+			\node (a) at (-6,0) {$1_\mathsf{A}+c_1$};
+			\node (b) at (-0.5,0) {$R(L(1_\mathsf{A})) + R(x_1)$};
 			\node (c) at (5,0) {$1_\mathsf{A}+c_1^\prime$};
 			\node (d2) at (7.5,1) {$1_{F\mathbb{C}\textnormal{sp}} \otimes \mathbb{E}(M_1)$};
-			\node (a2) at (-4,1) {$1_\mathsf{A}+c_1$};
-			\node (b2) at (0.5,1) {$1_\mathsf{A}+R(x_1)$};
+			\node (a2) at (-6,1) {$1_\mathsf{A}+c_1$};
+			\node (b2) at (-0.5,1) {$1_\mathsf{A}+R(x_1)$};
 			\node (c2) at (5,1) {$1_\mathsf{A}+c_1^\prime$};
 			\node (d3) at (7.5,2) {$\mathbb{E}(M_1)$};
-                                \node (a3) at (-4,2) {$c_1$};
-			\node (b3) at (0.5,2) {$R(x_1)$};
+                                \node (a3) at (-6,2) {$c_1$};
+			\node (b3) at (-0.5,2) {$R(x_1)$};
 			\node (c3) at (5,2) {$c_1^\prime$};
 			\node (d4) at (7.5,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})} \otimes M_1)$};
-                                \node (a5) at (-4,-1) {$1_\mathsf{A}+c_1^\prime$};
-			\node (b5) at (0.5,-1) {$R(L(1_\mathsf{A})+x_1)$};
+                                \node (a5) at (-6,-1) {$1_\mathsf{A}+c_1^\prime$};
+			\node (b5) at (-0.5,-1) {$R(L(1_\mathsf{A})+x_1)$};
 			\node (c5) at (5,-1) {$1_\mathsf{A}+c_1^\prime$};
 			\node (d5) at (7.5,-2) {$\mathbb{E}(M_1)$};
-                                \node (a6) at (-4,-2) {$c_1$};
-			\node (b6) at (0.5,-2) {$R(x_1)$};
+                                \node (a6) at (-6,-2) {$c_1$};
+			\node (b6) at (-0.5,-2) {$R(x_1)$};
 			\node (c6) at (5,-2) {$c_1^\prime$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(d2) edge node [left]{$\lambda$} (d3)
@@ -4132,25 +4249,25 @@ has underlying maps of cospans given by:
                                 (a2) edge node[left]{$1$} (a)
                                 (b2) edge node[left]{$\eta_{1_\mathsf{A}}+1$} (b)
 (b2) edge node[right]{$\iota_2$} (b)
-			(c2) edge node[left]{$1$} (c)
+			(c2) edge node[right]{$1$} (c)
                                 (a3) edge node[above]{$R(i_1)\eta_{c_1}$} (b3)
 			(c3) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b3)
                                 (a2) edge node[left]{$\lambda_{\mathsf{A}}$} (a3)
                                 (b2) edge node[left]{$\lambda_{\mathsf{A}}$} (b3)
 (b2) edge node[right]{$\iota_1$} (b3)
-			(c2) edge node[left]{$\lambda_{\mathsf{A}}$} (c3)
+			(c2) edge node[right]{$\lambda_{\mathsf{A}}$} (c3)
                                 (a5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(i_1)\eta_{c_1})$} (b5)
 			(c5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(o_1)\eta_{c_1^\prime})$} (b5)
                                 (a) edge node[left]{$1$} (a5)
                                 (b) edge node[left]{$\mu_{L(1_\mathsf{A}),x_1}$} (b5)
 (b) edge node[right]{$\iota_3$} (b5)
-			(c) edge node[left]{$1$} (c5)
+			(c) edge node[right]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b6)
                                 (a5) edge node[left]{$\lambda_{\mathsf{A}}$} (a6)
                                 (b5) edge node[left]{$R(\lambda_{\mathsf{X}})$} (b6)
  (b5) edge node[right]{$\iota_4$} (b6)
-			(c5) edge node[left]{$\lambda_{\mathsf{A}}$} (c6);
+			(c5) edge node[right]{$\lambda_{\mathsf{A}}$} (c6);
 		\end{tikzpicture}
 	\]
 with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_1))$:
@@ -4167,7 +4284,7 @@ with the corresponding maps of decorations amounting to the following commutativ
 (C) edge node[right]{$F(R(\lambda_\mathsf{X}))(\iota_3)$} (E);
 \end{tikzpicture}
 \]
-where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\mathsf{A})+x_1) \in \mathsf{A}$. The above square commutes because $$F(\lambda_\mathsf{A})(!_{1_\mathsf{A}}+x_1) = F(R(\lambda_\mathsf{X})(\mu_{L(1_\mathsf{A}),x_1})(\eta_{1_\mathsf{A}}+1))(!_{1_\mathsf{A}}+x_1)$$ as the corresponding left unitality square for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. The right unitality square is similar. The associator hexagon:
+where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\mathsf{A})+x_1) \in \mathsf{A}$. The above square commutes because $$F(\lambda_\mathsf{A})(!_{1_\mathsf{A}}+x_1) = F(R(\lambda_\mathsf{X})(\mu_{L(1_\mathsf{A}),x_1})(\eta_{1_\mathsf{A}}+1))(!_{1_\mathsf{A}}+x_1)$$ as the corresponding left unitality square for the finite colimit preserving functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. The right unitality square is similar. The associator hexagon:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)) \otimes \mathbb{E}(M_3)$};
@@ -4182,7 +4299,7 @@ where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\mathsf{A})+x_1) \i
 (A') edge node[above]{$1 \otimes \mu_{M_2,M_3}$} (B')
 (B') edge node[above]{$\mu_{M_1,M_2 \otimes M_3}$} (C')
 (A) edge node [left]{$a^\prime$} (A')
-(C) edge node [left]{$\mathbb{E}(a)$} (C');
+(C) edge node [right]{$\mathbb{E}(a)$} (C');
 \end{tikzpicture}
 \]
 has underlying maps of cospans given by:
@@ -4196,26 +4313,26 @@ has underlying maps of cospans given by:
 \node (d6) at (1.5,5) {$\mathbb{E}(M_1) \otimes \mathbb{E}(M_2 \otimes M_3)$};
 \node (d7) at (1.5,4) {$\mathbb{E}(M_1 \otimes (M_2 \otimes M_3))$};
 			\node (a) at (-4.25,0) {$(c_1+c_2)+c_3$};
-			\node (b) at (1.5,0) {$(R(x_1)+R(x_2))+R(x_3)$};
-			\node (c) at (7.25,0) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
+			\node (b) at (2.5,0) {$(R(x_1)+R(x_2))+R(x_3)$};
+			\node (c) at (9.25,0) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
 			\node (a2) at (-4.25,1) {$(c_1+c_2)+c_3$};
-			\node (b2) at (1.5,1) {$R(x_1+x_2)+R(x_3)$};
-			\node (c2) at (7.25,1) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
+			\node (b2) at (2.5,1) {$R(x_1+x_2)+R(x_3)$};
+			\node (c2) at (9.25,1) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
                                 \node (a3) at (-4.25,2) {$(c_1+c_2)+c_3$};
-			\node (b3) at (1.5,2) {$R((x_1+x_2)+x_3)$};
-			\node (c3) at (7.25,2) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
+			\node (b3) at (2.5,2) {$R((x_1+x_2)+x_3)$};
+			\node (c3) at (9.25,2) {$(c_1^\prime+c_2^\prime)+c_3^\prime$};
                                 \node (a4) at (-4.25,3) {$c_1+(c_2+c_3)$};
-			\node (b4) at (1.5,3) {$R(x_1+(x_2+x_3))$};
-			\node (c4) at (7.25,3) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
+			\node (b4) at (2.5,3) {$R(x_1+(x_2+x_3))$};
+			\node (c4) at (9.25,3) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
                                 \node (a5) at (-4.25,-1) {$c_1+(c_2+c_3)$};
-			\node (b5) at (1.5,-1) {$R(x_1)+(R(x_2)+R(x_3))$};
-			\node (c5) at (7.25,-1) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
+			\node (b5) at (2.5,-1) {$R(x_1)+(R(x_2)+R(x_3))$};
+			\node (c5) at (9.25,-1) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
                                 \node (a6) at (-4.25,-2) {$c_1+(c_2+c_3)$};
-			\node (b6) at (1.5,-2) {$R(x_1)+R(x_2+x_3)$};
-			\node (c6) at (7.25,-2) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
+			\node (b6) at (2.5,-2) {$R(x_1)+R(x_2+x_3)$};
+			\node (c6) at (9.25,-2) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
                                 \node (a7) at (-4.25,-3) {$c_1+(c_2+c_3)$};
-			\node (b7) at (1.5,-3) {$R(x_1+(x_2+x_3))$};
-			\node (c7) at (7.25,-3) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
+			\node (b7) at (2.5,-3) {$R(x_1+(x_2+x_3))$};
+			\node (c7) at (9.25,-3) {$c_1^\prime + (c_2^\prime + c_3^\prime)$};
 			\path[->,font=\scriptsize,>=angle 90]
 (d) edge node[left] {$\mu_{M_1,M_2} \otimes 1$} (d2)
 (d2) edge node[left] {$\mu_{M_1 \otimes M_2,M_3}$} (d3)
@@ -4230,40 +4347,40 @@ has underlying maps of cospans given by:
                                 (a) edge node[left]{$1$} (a2)
                                 (b) edge node[left]{$\kappa + 1$} (b2)
 (b) edge node[right]{$\iota_1$} (b2)
-			(c) edge node[left]{$1$} (c2)
+			(c) edge node[right]{$1$} (c2)
                                 (a3) edge node[above]{$R((i_1+i_2)+i_3)\eta_{(c_1+c_2)+c_3}$} (b3)
 			(c3) edge node[above]{$R((o_1+o_2)+o_3)\eta_{(c_1^\prime+c_2^\prime)+c_3^\prime}$} (b3)
                                 (a2) edge node[left]{$1$} (a3)
                                 (b2) edge node[left]{$\kappa$} (b3)
 (b2) edge node[right]{$\iota_2$} (b3)
-			(c2) edge node[left]{$1$} (c3)
+			(c2) edge node[right]{$1$} (c3)
                                 (a4) edge node[above]{$R(i_1+(i_2+i_3))\eta_{c_1+(c_2+c_3)}$} (b4)
 			(c4) edge node[above]{$R(o_1+(o_2+o_3))\eta_{c_1^\prime+(c_2^\prime+c_3^\prime)}$} (b4)
                                 (a3) edge node[left]{$a_\mathsf{A}$} (a4)
                                 (b3) edge node[left]{$R(a_\mathsf{X})$} (b4)
 (b3) edge node[right]{$\iota_3$} (b4)
-			(c3) edge node[left]{$a_\mathsf{A}$} (c4)
+			(c3) edge node[right]{$a_\mathsf{A}$} (c4)
                                 (a5) edge node[above]{$R(i_1)\eta_{c_1}+(R(i_2)\eta_{c_2}+R(i_3)\eta_{c_3})$} (b5)
 			(c5) edge node[above]{$R(o_1)\eta_{c_1^\prime}+(R(o_2)\eta_{c_2^\prime}+R(o_3)\eta_{c_3^\prime})$} (b5)
                                 (a) edge node[left]{$a_\mathsf{A}$} (a5)
                                 (b) edge node[left]{$a_\mathsf{A}$} (b5)
 (b) edge node[right]{$\iota_4$} (b5)
-			(c) edge node[left]{$a_\mathsf{A}$} (c5)
+			(c) edge node[right]{$a_\mathsf{A}$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}+R(i_2+i_3)\eta_{c_2+c_3}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}+R(o_2+o_3)\eta_{c_2^\prime+c_3^\prime}$} (b6)
                                 (a5) edge node[left]{$1$} (a6)
                                 (b5) edge node[left]{$1+\kappa$} (b6)
  (b5) edge node[right]{$\iota_5$} (b6)
-			(c5) edge node[left]{$1$} (c6)
+			(c5) edge node[right]{$1$} (c6)
                                 (a7) edge node[above]{$R(i_1+(i_2+i_3))\eta_{c_1+(c_2+c_3)}$} (b7)
 			(c7) edge node[above]{$R(o_1+(o_2+o_3))\eta_{c_1^\prime+(c_2^\prime+c_3^\prime)}$} (b7)
                                 (a6) edge node[left]{$1$} (a7)
                                 (b6) edge node[left]{$\kappa$} (b7)
 (b6) edge node[right]{$\iota_6$} (b7)
-			(c6) edge node[left]{$1$} (c7);
+			(c6) edge node[right]{$1$} (c7);
 		\end{tikzpicture}
 	\]
-with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_1+(x_2+x_3)))$:
+Here we have omitted the natural isomorphisms $\phi_{c_i,c_j} \colon L(c_i) + L(c_j) \to L(c_i + c_j)$ on the inward pointing morphisms which make up the legs of each cospan due to limited space. The corresponding maps of decorations amount to the following commutative diagram in $F(R(x_1+(x_2+x_3)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3)$};
@@ -4281,7 +4398,7 @@ with the corresponding maps of decorations amounting to the following commutativ
 (F) edge node[above]{$\iota_6$} (D);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3) = F((R(a_\mathsf{X}))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the corresponding associator hexagon for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Lastly, the braiding square:
+The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3) = F((R(a_\mathsf{X}))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the corresponding associator hexagon for the finite colimit preserving functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Lastly, the braiding square:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)$};
@@ -4330,28 +4447,28 @@ has underlying map of cospans given by:
                                 (a) edge node[left]{$\beta_\mathsf{A}$} (a2)
                                 (b) edge node[left]{$\beta_\mathsf{A}$} (b2)
 (b) edge node[right]{$\iota_1$} (b2)
-			(c) edge node[left]{$\beta_\mathsf{A}$} (c2)
+			(c) edge node[right]{$\beta_\mathsf{A}$} (c2)
                                 (a3) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b3)
 			(c3) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b3)
                                 (a2) edge node[left]{$1$} (a3)
                                 (b2) edge node[left]{$\kappa$} (b3)
 (b2) edge node[right]{$\iota_2$} (b3)
-			(c2) edge node[left]{$1$} (c3)
+			(c2) edge node[right]{$1$} (c3)
                                 (a5) edge node[above]{$R(i_1+i_2)\eta_{c_1+c_2}$} (b5)
 			(c5) edge node[above]{$R(o_1+o_2)\eta_{c_1^\prime+c_2^\prime}$} (b5)
                                 (a) edge node[left]{$1$} (a5)
                                 (b) edge node[left]{$\kappa$} (b5)
 (b) edge node[right]{$\iota_3$} (b5)
-			(c) edge node[left]{$1$} (c5)
+			(c) edge node[right]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b6)
 			(c6) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b6)
                                 (a5) edge node[left]{$\beta_\mathsf{A}$} (a6)
                                 (b5) edge node[left]{$R(\beta_\mathsf{X})$} (b6)
  (b5) edge node[right]{$\iota_4$} (b6)
-			(c5) edge node[left]{$\beta_\mathsf{A}$} (c6);
+			(c5) edge node[right]{$\beta_\mathsf{A}$} (c6);
 		\end{tikzpicture}
 	\]
-with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_2+x_1))$:
+Again, we have omitted the natural isomorphisms $\phi_{c_i,c_j}$ on the inward pointing morphisms on each cospan leg due to space restrictions. The corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_2+x_1))$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (-.5,0) {$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2)$};
@@ -4365,7 +4482,7 @@ with the corresponding maps of decorations amounting to the following commutativ
 (C) edge node[right]{$\iota_2$} (E);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((R(\beta_\mathsf{X}))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the symmetric monoidal functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Thus the double functor $\mathbb{E} \colon _L\mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
+The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((R(\beta_\mathsf{X}))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the finite colimit preserving functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Thus the double functor $\mathbb{E} \colon _L\mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
 \end{proof}
 Using a result of Shulman \cite{Shul}, each of the isofibrant symmetric monoidal double categories $F\mathbb{C}\textnormal{sp}$ and $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ give rise to underlying symmetric monoidal bicategories, namely $F\mathbb{C}\textnormal{sp}$ induces a symmetric monoidal bicategory $F\mathbf{Csp} \coloneqq H(F\mathbb{C}\textnormal{sp})$ which has:
 \begin{enumerate}
@@ -4387,7 +4504,7 @@ An equivalence of fibrant double categories induces a biequivalence of horizonta
 The bicategories $F\mathbf{Csp}$ and $H( {_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ are biequivalent.
 \end{cor}
 
-\textbf{Is this biequivalnce symmetric monoidal? Probably}
+\textbf{Is this biequivalnce symmetric monoidal? Mike says yes, but it follows from a result that he has yet to officially publish. It's a result of a paper he's currently working on with someone.}
 \newline
 
 
@@ -4434,11 +4551,11 @@ where $!_{c} \colon L(c) \to x$ is the unique morphism from the trival decoratio
 (C') edge node[above]{$O^\prime$} (B')
 (A) edge node [left]{$f$} (A')
 (B) edge node [left]{$h$} (B')
-(C) edge node [left]{$g$} (C');
+(C) edge node [right]{$g$} (C');
 \end{tikzpicture}
 \]
 $$\iota \colon F(h)(x) \to x^\prime$$
-the image in $\mathbb{G}(f,h,g,\iota)$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ is given by the 2-morphism:
+the image $\mathbb{G}(f,h,g,\iota)$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ is given by the 2-morphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -4454,12 +4571,12 @@ the image in $\mathbb{G}(f,h,g,\iota)$ in $_L \mathbb{C}\textnormal{sp}(\mathsf{
 (C') edge node[above]{$!_{c^\prime} L(O^\prime)$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
+(C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
 where $\alpha \colon x \to x^\prime$ is the morphism in the Grothendieck construction of $F$ given by $\alpha = (h \colon c \to c^\prime, \iota \colon F(h)(x) \to x^\prime)$. 
 
-Next, we exhibit natural isomorphisms $\eta \colon \id_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})} \cong \mathbb{G} \mathbb{E}$ and $\epsilon \colon \mathbb{E} \mathbb{G} \cong \id_{F\mathbb{C}\textnormal{sp}}$. Specifically, these are double natural isomorphisms given by double transformations \cite{Shul2} $\eta$ and $\epsilon$ whose object and arrow components are isomorphisms.
+Next, we exhibit natural isomorphisms $\eta \colon \id_{ _L \mathbb{C}\textnormal{sp}(\mathsf{X})} \cong \mathbb{G} \mathbb{E}$ and $\epsilon \colon \mathbb{E} \mathbb{G} \cong \id_{F\mathbb{C}\textnormal{sp}}$. Specifically, these are double natural isomorphisms given by double transformations \cite{Shul2} $\eta$ and $\epsilon$ whose object and arrow components are natural isomorphisms.
 
 First we compute the composites $\mathbb{G} \mathbb{E}$ and $\mathbb{E} \mathbb{G}$. On the object categories, both composites are $\id_\mathsf{A}$ and we have natural isomorphisms $\eta \colon \id_{\mathsf{A}} \cong \mathbb{G}_0 \mathbb{E}_0$ and $\epsilon \colon \mathbb{E}_0 \mathbb{G}_0 \cong \id_{\mathsf{A}}$.
 
@@ -4513,7 +4630,7 @@ Then we can find a 2-isomorphism $\eta_M \colon M \xrightarrow{\sim} \mathbb{G}\
 (C') edge node[above]{$!_{R(x)}L(R(o)\eta_{c_2})$} (B')
 (A) edge node [left]{$1$} (A')
 (B) edge node [left]{$1$} (B')
-(C) edge node [left]{$1$} (C');
+(C) edge node [right]{$1$} (C');
 \end{tikzpicture}
 \]
 where
@@ -4584,11 +4701,11 @@ Then we have a 2-isomorphism $\epsilon_N \colon \mathbb{E} \mathbb{G} (N) \xrigh
 (A') edge node[above]{$I$} (B')
 (C') edge node[above]{$O$} (B')
 (A) edge node [left]{$1$} (A')
-(B) edge node [left]{$e$} (B')
-(C) edge node [left]{$1$} (C');
+(B) edge node [left]{$\hat{e}$} (B')
+(C) edge node [right]{$1$} (C');
 \end{tikzpicture}
 \]
-$$\iota \colon F(e)(x) \to x$$
+$$\iota \colon F(\hat{e})(x) \to x$$
 where 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -4601,7 +4718,7 @@ where
 (A) edge node[above]{$\eta_{c_1}$} (B)
 (B) edge node[above]{$R(L(I))$} (C)
 (C) edge node[above]{$R(!_c)$} (D)
-(D) edge node[above]{$e$} (E)
+(D) edge node[above]{$\hat{e}$} (E)
 (A) edge[bend right] node [above]{$I$} (E);
 \end{tikzpicture}
 \]
