@@ -3535,15 +3535,15 @@ Using this functor $L_F$ between finitely cocomplete categories that preserves a
 where $x\in F(c)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in this double category are as described in \cref{eq:2cellsStrCsp}, in this context fully unravelled below:
 \begin{displaymath}
  \begin{tikzcd}[sep=1.5in,ampersand replacement=\&]
- (a,\bot_a)\ar[r,"{\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}}"]\ar[d,"{\begin{cases}f\colon a\to a' &\textrm{in }\A \\\chi_a\colon F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (c,x) \ar[d,"{\begin{cases}k\colon c\to c' &\textrm{in }\A \\h\colon F(k)(x)\to x' &\textrm{in }F(c')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}}"']\ar[d,"{\begin{cases}g\colon b\to b' &\textrm{in }\A \\\chi_b\colon F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
+ (a,\bot_a)\ar[r,"{\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}}"]\ar[d,"{\begin{cases}f\colon a\to a' &\textrm{in }\A \\\chi_a\colon F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (c,x) \ar[d,"{\begin{cases}k\colon c\to c' &\textrm{in }\A \\ \iota\colon F(k)(x)\to x' &\textrm{in }F(c')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}}"']\ar[d,"{\begin{cases}g\colon b\to b' &\textrm{in }\A \\\chi_b\colon F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
  (a',\bot_{a'})\ar[r,"{\begin{cases}i'\colon a'\to c' &\textrm{in }\A \\!\colon F(i')(\bot_{a'})\to x' &\textrm{in }F(c')\end{cases}}"'] \& (c',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\colon b'\to c' &\textrm{in }\A \\!\colon F(o')(\bot_{b'})\to x' &\textrm{in }F(c')\end{cases}}"]
  \end{tikzcd}
 \end{displaymath}
 where the outside vertical legs come from the definition of $L_F$ on arrows, \cref{eq:Lonarrows}. 
-{\chris The above diagram might be a bit overwhelming, but all info is there. Choose which parts are required for a smooth proof!}
+{\chris The above diagram might be a bit overwhelming, but all info is there. Choose which parts are required for a smooth proof!} {\chris Also, iota and letter i look alarmingly similar. Should we change iota to some other distinctive greek letter?}
 The square commutativities translate to $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also by composition in the Grothendieck category, to
 \begin{gather*}
- F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{h}x'= \\
+ F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{\iota}x'= \\
  F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'
 \end{gather*}
 in the category $F(c')$. However, since all maps are unique in the above equality {\chris discuss with John and Kenny}, this gives no extra conditions for the morphisms involved, and similarly for the equality including $o, o'$.
