@@ -3128,7 +3128,8 @@ Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of deco
 
 The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. 
 
-In \cite{MV}, the Grothendieck construction is generalized to the monoidal setting, namely lax monoidal structures on a pseudofunctor $F\colon\A\to\bicat{Cat}$ bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves liftings, see \cite[Thm. 3.10]{MV}. If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\colon\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations:
+The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
+In \cite{MV}, the classic Grothendieck construction is generalized to the monoidal setting: lax monoidal structures on a pseudofunctor $F\colon\A\to\bicat{Cat}$ bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves liftings, see \cite[Thm. 3.10]{MV}. If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\colon\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations, summarized as
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\colon(\A,+,0)\to(\bicat{Cat},\times,1) \notag\\
 \Updownarrow \notag\\
@@ -3188,7 +3189,7 @@ In this case, $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the 
 \end{displaymath}
 Moreover, if $U=U_F$ for a pseudofunctor $F\colon\A\to\bicat{Cat}$ under \cref{thm:Grothendieck}, the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$, therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category, for $u_a$ the unique map from $0_\A$ as above. 
 
-Finally, if that pseudofunctor is lax monoidal $(F,\phi,\phi_0)\colon(\A,+,0)\to(\bicat{Cat},\times,\mathbf{1})$ to begin with, the monoidal Grothendieck construction in the cocartesian case discussed earlier (\cref{eq:explicitstructure1}) expresses $\bot_a$ as the image of the composite
+Finally, if that pseudofunctor is lax monoidal $(F,\phi,\phi_0)\colon(\A,+,0)\to(\bicat{Cat},\times,\mathbf{1})$ to begin with, the monoidal Grothendieck construction in the cocartesian case discussed earlier \cref{eq:explicitstructure1} expresses $\bot_a$ as the image of the composite
 \begin{equation}\label{eq:initialinfibre}
 \mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 \end{equation}
@@ -3207,7 +3208,7 @@ Suppose $\U\colon\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ ha
 %Suppose that $\X$ and $\A$ have chosen pushouts and initial objects, and a functor $\U\colon\X\to\A$ strictly preserves them. Then $\U$ is a right %adjoint left inverse if and only if $\U$ is an opfibration.
 %\end{thm}
 
-We have now laid all the necessary background to formally establish an equivalence between the double category of decorated cospans and the double category of structured cospans, constructed from a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
+We have now laid all the necessary background to formally construct an equivalence between the double category of decorated cospans and the double category of structured cospans, constructed from a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
 
 
 \begin{proof}[Proof of \cref{Equiv}]
@@ -5016,7 +5017,7 @@ A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\colon\bic
 {\chris Hiding various details under the rug - e.g. what a symmetric monoidal bicategory is. Should be fine? Also, not sure if we need monoidal transformations?}
 
 \subsection{Fibrations}\label{sec:fibrations}
-We now recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Herm}, \cite{Borc}.
+We recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Herm}, \cite{Borc}.
 
 A functor $U \maps \X \to \A$ is a \textbf{Grothendieck opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \colon a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $x$ along $f$, namely a morphism $\beta$ in $\X$ with domain $x$ above $f$ with the following universal property: for any $g\colon b\to b'$ in $\A$ and $\gamma\colon x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\colon y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
 \begin{displaymath}
