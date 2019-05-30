@@ -34,8 +34,9 @@ The first two authors have developed a compositional framework well-suited for s
 
 
 
-%\begin{comment}
+
 \section{Introduction}
+\begin{comment}
 Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -648,16 +649,8 @@ This symmetric monoidal category $F$Csp has isomorphism classes as one would exp
 The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$, obtain the underlying symmetric monoidal bicategory $F \mathbf{Csp}$ via a result of Shulman, and decategorify this symmetric monoidal bicategory to obtain the symmetric monoidal category $F$Csp. In Section \ref{MapsDecCospansDoubleCat} we define maps between decorated cospan double categories which are double functors of an appropriate type. In Section \ref{some other section} we investigate when a symmetric lax monoidal pseudofunctor gives rise to a left adjoint via the Grothendieck construction, which naturally leads to another compositional framework known as `Structured cospans'. In Section \ref{EquivDoubleCats} we briefly review the framework Structured cospans and prove that the double categorical versions of decorated cospans and structured cospans are equivalent when both are appropriate. Finally, in Section \ref{Applications}, we present a few examples that can be realized with either framework and discuss the realized equivalences.
 
 \subsection*{Acknowledgements}
-Daniel Cicala, person that Christina emailed about lax slice category? {\chris did you use it after all?} No, I did not.
-%\end{comment}
-
-
-
-
-
-
-
-
+Daniel Cicala, various others.
+\end{comment}
 
 
 
@@ -3031,6 +3024,8 @@ Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two sym
 \]
 \end{thm}
 
+Details of the constructions and the proof of the above theorem can be found at \cite{CourPhD}.
+
 %\newpage
 %Scratch work for Petri net problem
 %\newline
@@ -5117,9 +5112,10 @@ Thus we have a symmetric monoidal double category $\mathbb{O}\mathbf{pen}(\mathr
 %\end{comment}
 
 
-%\begin{comment}
+
 \section{Appendix}
 
+\begin{comment}
 {\chris Put various stuff here, fix in the very end}
 Recall that a pseudofunctor $F\colon\bicat{A}\to\bicat{B}$ between bicategories $\bicat{A}$ and $\bicat{B}$ is functorial up to coherent natural isomorphism, namely for composable arrows we have $F(g\circ f)\cong Fg\circ Ff$ and $F(1_a)\cong1_{Fa}$ satisfying standard axioms. 
 Given pseudofunctors $F,G\colon \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of {\chris notation below needs fixing}
@@ -5868,7 +5864,7 @@ and for horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$ of $\lC$,
 	\end{itemize}
 The monoidal lax double functor is \define{braided} if $\mathbb{F}_0$ and $\mathbb{F}_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal functors, and lax monoidal or oplax monoidal if the isomorphisms and families of natural isomorphisms of items (1)-(4) above are merely morphisms and natural transformations going in the appropriate directions.
 \end{defn}
-%\end{comment}
+\end{comment}
 
 \begin{thebibliography}{100}
 
@@ -5907,6 +5903,8 @@ Cambridge University Press, 1994
 \bibitem{CV} D.\ Cicala and C.\ Vasilakopoulou, On Adjoints and Fibrations. In preparation.
 
 \bibitem{Cour} K.\ Courser, A bicategory of decorated cospans, \emph{Theor.\ Appl.\ Cat.} \textbf{32} (2017), 995--1027. Also available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
+
+\bibitem{CourPhD} K.\ Courser, Cospans for Networks, PhD Thesis, University of California at Riverside (2019)
 
 %\bibitem{Ehresmann63} C.\ Ehresmann, Cat\'egories structur\'ees III: Quintettes et applications covariantes,  \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{5} (1963), 1--22.
 
