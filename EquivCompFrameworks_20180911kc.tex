@@ -655,7 +655,9 @@ Daniel Cicala, various others.
 
 
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
-In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}.
+In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}. 
+The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}.
+
 \begin{thm}\label{thm:decoratedcospans}
 Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a (pseudo) double category $F\mathbb{C}$sp which has:
 \begin{enumerate}
@@ -698,7 +700,7 @@ and}
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(b^\prime)$.}
 \end{enumerate}
 \end{thm}
-\textbf{Kenny: We should try to make this theorem shorter.}
+\textbf{Kenny: We should try to make this theorem shorter.} {\chris I agree!}
 \begin{proof}
 The unit structure functor $U \colon F\mathbb{C}\textnormal{sp}_0 \to F\mathbb{C}\textnormal{sp}_1$ is defined on objects as: 
 \[
@@ -1194,7 +1196,7 @@ As is usual concerning the interchange law of double categories of this nature, 
 \begin{thm}\label{DC}
 Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a symmetric lax monoidal pseudofunctor. Then the double category $F\mathbb{C}$sp is symmetric monoidal.
 \end{thm}
-\textbf{Kenny: We should try to make this theorem shorter.}
+\textbf{Kenny: We should try to make this theorem shorter.} {\chris Yes!}
 \begin{proof}
 First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\mathsf{A}$ is symmetric monoidal under binary coproducts and the left and right unitors, associators and braidings are given as natural maps. The category of arrows $F\mathbb{C}\textnormal{sp}_1$ has:
 \begin{enumerate}
@@ -3062,10 +3064,11 @@ Details of the constructions and the proof of the above theorem can be found at 
 
 
 %is given by $$1 \to F(c_1) \times F(c_2) \xrightarrow{} F(c_1 + c_2) \xrightarrow{} F(c_1 + _b c_2)$$ and then applying the functor $E$ results in $1 \to E(F(c_1+_b c_2))$, which by the comutative square is the same as $1 \to F^\prime(H(c_1+_b c_2))$. On the other hand, applying the functor $E$ to each decoration results in $$1 \to E(F(c_1)) \times E(F(c_2)) \xrightarrow{} E(F(c_1) \times F(c_2)) \xrightarrow{} E(F(c_1+c_2)) \xrightarrow E(F(c_1+_b c_2)) \xrightarrow{} F^\prime(H(c_1 +_b c_2))$$
-%end{comment}
+
+
 
 \section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
-
+\begin{comment}
 
 {\chris moved here preliminary}
 In this section, we recall the double category of \emph{structured cospans}, a formalism introduced to the first two authors. One of the main goals of this paper is to provide a double equivalence between this double category and one of \emph{decorated cospans}, described in detail in the subsequent section.
@@ -4393,7 +4396,6 @@ The bicategories $F\mathbf{Csp}$ and $H( {_L \mathbb{C}\textnormal{sp}(\mathsf{X
 \textbf{Is this biequivalnce symmetric monoidal? Mike says yes, but it follows from a result that he has yet to officially publish. It's a result of a paper he's currently working on with someone.}
 \newline
 
-\begin{comment}
 
 We can also define the part of the double equivalence $\mathbb{G} \colon F\mathbb{C}\textnormal{sp} \to {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ which goes in the other direction: again, the object component of this double functor will be $\mathbb{G}_0 = \id_{\mathsf{A}}$.
 
@@ -4614,8 +4616,9 @@ commutes.
 \end{comment}
 
 
-%\begin{comment}
+
 \section{Applications}\label{Applications}
+\begin{comment}
 In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by Baez, Fong, Master and Pollard by way of `black-boxing' \cite{BCR,BF,BFP,BM,BP}. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathsf{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathsf{Circ} \to \mathsf{LinRel}$$ $$\blacksquare_2 \colon \mathsf{Mark} \to \mathsf{LinRel}$$ $$\blacksquare_3 \colon \mathsf{Petri} \to \mathsf{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories in recent works \cite{BC,BM}.
 \subsection{Graphs}
 As a first example that was also mentioned in the introduction, let $L \colon \mathsf{Set} \to \mathsf{Graph}$ be the functor that assigns to a set $N$ the \emph{discrete graph} on $N$ which is the edgeless graph $L(N)$ with no edges and $N$ as its set of vertices. Both $\mathsf{Set}$ and $\mathsf{Graph}$ are cocartesian monoidal and the functor $L \colon \mathsf{Set} \to \mathsf{Graph}$ is left adjoint to the forgetful functor $R \colon \mathsf{Graph} \to \mathsf{Set}$ which assigns to a graph $G$ its underlying set of vertices $U(G)$. Using structured cospans and appealing to Theorem \ref{SC}, we get a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{Graph})$ which has:
@@ -5109,14 +5112,16 @@ and}
 together with a morphism of Petri nets $\iota \colon F(h)(P_1) \to P_2$ in $F(Z_2)$.}
 \end{enumerate}
 Thus we have a symmetric monoidal double category $\mathbb{O}\mathbf{pen}(\mathrm{Petri})$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\mathbb{O}\mathbf{pen}(\mathrm{Petri}) \sim F\mathbb{C}\textnormal{sp}$ of symmetric monoidal double categories by Theorem \ref{Equiv}.
-%\end{comment}
+\end{comment}
 
 
 
 \section{Appendix}
 
-\begin{comment}
-{\chris Put various stuff here, fix in the very end}
+%\begin{comment}
+\subsection{2-categories}\label{sec:2cats}
+For standard 2-categorical material, we refer the reader to there and there.
+
 Recall that a pseudofunctor $F\colon\bicat{A}\to\bicat{B}$ between bicategories $\bicat{A}$ and $\bicat{B}$ is functorial up to coherent natural isomorphism, namely for composable arrows we have $F(g\circ f)\cong Fg\circ Ff$ and $F(1_a)\cong1_{Fa}$ satisfying standard axioms. 
 Given pseudofunctors $F,G\colon \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of {\chris notation below needs fixing}
 \begin{itemize}
@@ -5199,6 +5204,7 @@ A \define{symmetric lax monoidal} pseudofunctor...
 {\chris Not sure if we need monoidal transformations?}
 
 
+\subsection{Double categories}\label{sec:doublecats}
 {\chris Moved from earlier, probably merge with what follows}
 Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
 \[
@@ -5864,7 +5870,7 @@ and for horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$ of $\lC$,
 	\end{itemize}
 The monoidal lax double functor is \define{braided} if $\mathbb{F}_0$ and $\mathbb{F}_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal functors, and lax monoidal or oplax monoidal if the isomorphisms and families of natural isomorphisms of items (1)-(4) above are merely morphisms and natural transformations going in the appropriate directions.
 \end{defn}
-\end{comment}
+%\end{comment}
 
 \begin{thebibliography}{100}
 
