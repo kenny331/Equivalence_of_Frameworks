@@ -116,7 +116,7 @@ A \define{lax monoidal} pseudofunctor is....
 A \define{symmetric lax monoidal} pseudofunctor...
 {\chris Not sure if we need monoidal transformations?}
 
-\begin{comment}
+%\begin{comment}
 \section{Introduction}
 Networks are playing an increasingly prominent role in our understanding of the world and as a result, methods of characterizing and studying networks have become evermore necessary. Applied category theory provides such an avenue and much work has been done towards this effort  \cite{BC,BCR,BF,BFP,BP,Cour,Fong,JM,LS,Yass}. One of the more recent frameworks developed that is suitable for studying networks is Fong's `decorated cospans' \cite{Fong}. A $\textbf{cospan}$ in any category is a diagram of the form:
 \[
@@ -731,7 +731,7 @@ The outline for the paper is as follows: In Section \ref{DecCospansDoubleCat}, w
 
 \subsection*{Acknowledgements}
 Daniel Cicala, person that Christina emailed about lax slice category? {\chris did you use it after all?} No, I did not.
-\end{comment}
+%\end{comment}
 
 
 
@@ -918,6 +918,7 @@ and}
 together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(b^\prime)$.}
 \end{enumerate}
 \end{thm}
+\textbf{Kenny: We should try to make this theorem shorter.}
 \begin{proof}
 The unit structure functor $U \colon F\mathbb{C}\textnormal{sp}_0 \to F\mathbb{C}\textnormal{sp}_1$ is defined on objects as: 
 \[
@@ -1413,6 +1414,7 @@ As is usual concerning the interchange law of double categories of this nature, 
 \begin{thm}\label{DC}
 Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a symmetric lax monoidal pseudofunctor. Then the double category $F\mathbb{C}$sp is symmetric monoidal.
 \end{thm}
+\textbf{Kenny: We should try to make this theorem shorter.}
 \begin{proof}
 First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\mathsf{A}$ is symmetric monoidal under binary coproducts and the left and right unitors, associators and braidings are given as natural maps. The category of arrows $F\mathbb{C}\textnormal{sp}_1$ has:
 \begin{enumerate}
@@ -2544,7 +2546,7 @@ and there exists an isomorphism $\iota \colon F(f)(d) \to d^\prime$ in $F(c^\pri
 \end{cor}
 In this symmetric monoidal category, isomorphism classes are as they should morally be, and the instance of two graphs having different edge sets does not prevent them from being in the same isomorphism class due to the isomorphism $\iota$.
 
-\begin{comment}
+%\begin{comment}
 \section{Maps of decorated cospan double categories}\label{MapsDecCospansDoubleCat}
 Let $F \colon \mathsf{A} \to \mathbf{Cat}$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \ref{DC} of the previous section, we get a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$. This symmetric monoidal double category has:
 \begin{enumerate}
@@ -2659,6 +2661,8 @@ where $E \colon \mathbf{Cat} \to \mathbf{Cat}$ is a symmetric lax monoidal pseud
 (C) edge node[above]{$F^\prime$} (D);
 \end{tikzpicture}
 \]
+
+\begin{comment}
 Recall that we can think of the object $d \in F(c)$ as a morphism $d \colon 1 \to F(c)$ and the functor $\iota \colon F(h)(d) \to d^\prime$ of $F(c^\prime)$ as a natural transformation  in $\mathbf{Cat}$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3218,8 +3222,10 @@ where we have abbreviated the monoidal units of $F\mathbb{C}\textnormal{sp}_1$ a
 \]
 where $$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})=F^\prime(H(\ell^\prime)\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r^\prime$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
 
+\end{comment}
+
 \begin{thm}
-Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two symmetric lax monoidal pseudofunctors $F \colon \mathsf{A} \to \mathbf{Cat}$ and $F' \colon \mathsf{A}' \to \mathbf{Cat}$, a finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A}'$, a symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ and a 2-isomorphism $\theta \colon EF \Rightarrow F^\prime H$ as in the following diagram, the triple $(H,E,\theta)$ induces a double functor $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ as defined above.
+Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two symmetric lax monoidal pseudofunctors $F \colon \mathsf{A} \to \mathbf{Cat}$ and $F' \colon \mathsf{A}' \to \mathbf{Cat}$, a finite colimit preserving functor $H \colon \mathsf{A} \to \mathsf{A}'$, a symmetric lax monoidal pseudofunctor $E \colon \mathbf{Cat} \to \mathbf{Cat}$ and a 2-isomorphism $\theta \colon EF \Rightarrow F^\prime H$ as in the following diagram, the triple $(H,E,\theta)$ induces a symmetric monoidal (strong) double functor $\mathbb{H} \colon F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ as defined above.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathsf{A}$};
@@ -3272,7 +3278,7 @@ Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two sym
 
 
 %is given by $$1 \to F(c_1) \times F(c_2) \xrightarrow{} F(c_1 + c_2) \xrightarrow{} F(c_1 + _b c_2)$$ and then applying the functor $E$ results in $1 \to E(F(c_1+_b c_2))$, which by the comutative square is the same as $1 \to F^\prime(H(c_1+_b c_2))$. On the other hand, applying the functor $E$ to each decoration results in $$1 \to E(F(c_1)) \times E(F(c_2)) \xrightarrow{} E(F(c_1) \times F(c_2)) \xrightarrow{} E(F(c_1+c_2)) \xrightarrow E(F(c_1+_b c_2)) \xrightarrow{} F^\prime(H(c_1 +_b c_2))$$
-\end{comment}
+%end{comment}
 
 \section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
 In this section we prove that the two different double categorical network frameworks, namely structured cospans and decorated cospans described respectively in \cref{DecCospansDoubleCat,sec:structuredcospans}, are equivalent under certain assumptions. This is established by \cref{Equiv}, which relies on conditions relevant to the existence of left adjoints for opfibrations. We begin by sketching this underlying framework, which is worked out in detail in \cite{MV} and \cite{CV}.
@@ -4178,7 +4184,7 @@ We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\s
 \]
 where $\kappa$ is the isomorphism which comes from $R \colon \mathsf{X} \to \mathsf{A}$ preserving finite colimits.
 
-The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. To see this, let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
+The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. \textbf{Kenny: I think this might be a good place to cut the monoidal stuff.} To see this, let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -4507,6 +4513,7 @@ The bicategories $F\mathbf{Csp}$ and $H( {_L \mathbb{C}\textnormal{sp}(\mathsf{X
 \textbf{Is this biequivalnce symmetric monoidal? Mike says yes, but it follows from a result that he has yet to officially publish. It's a result of a paper he's currently working on with someone.}
 \newline
 
+\begin{comment}
 
 We can also define the part of the double equivalence $\mathbb{G} \colon F\mathbb{C}\textnormal{sp} \to {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ which goes in the other direction: again, the object component of this double functor will be $\mathbb{G}_0 = \id_{\mathsf{A}}$.
 
@@ -4724,8 +4731,10 @@ where
 \]
 commutes.
 
+\end{comment}
 
-\begin{comment}
+
+%\begin{comment}
 \section{Applications}\label{Applications}
 In this section we present several examples each of which may be realized in the context of decorated cospans or in the context of structured cospans. The first example regarding graphs was mentioned in the introduction and used as a reoccurring theme throughout the paper. The next three examples which take on more of an applied flavor, consists of electrical circuits, Markov processes and Petri nets. Each of these has been studied extensively by Baez, Fong, Master and Pollard by way of `black-boxing' \cite{BCR,BF,BFP,BM,BP}. Black-boxing is a way of interpreting the behavior of an open system, that is, a system with prescribed inputs and outputs such as the terminals of an electrical circuit, by observing the activity at the inputs and the outputs. The semantics of the activity at an open system's inputs and outputs is typically described in a category such as $\mathsf{LinRel}$ of finite dimensonal vector spaces and linear relations. Thus, in each case, black-boxing results in functors such as: $$\blacksquare_1 \colon \mathsf{Circ} \to \mathsf{LinRel}$$ $$\blacksquare_2 \colon \mathsf{Mark} \to \mathsf{LinRel}$$ $$\blacksquare_3 \colon \mathsf{Petri} \to \mathsf{LinRel}.$$ Each of these black-boxing functors also possess other convenient properties such as being symmetric monoidal. The first two of these were first done using Fong's theory of decorated cospans and then extended by the first two authors using structured cospans. The last two of these were also extended by being realized as double functors between double categories in recent works \cite{BC,BM}.
 \subsection{Graphs}
@@ -5220,10 +5229,10 @@ and}
 together with a morphism of Petri nets $\iota \colon F(h)(P_1) \to P_2$ in $F(Z_2)$.}
 \end{enumerate}
 Thus we have a symmetric monoidal double category $\mathbb{O}\mathbf{pen}(\mathrm{Petri})$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\mathbb{O}\mathbf{pen}(\mathrm{Petri}) \sim F\mathbb{C}\textnormal{sp}$ of symmetric monoidal double categories by Theorem \ref{Equiv}.
-\end{comment}
+%\end{comment}
 
 
-\begin{comment}
+%\begin{comment}
 \section{Appendix}
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
 
@@ -5694,7 +5703,157 @@ In a pseudo double category, the second equation above requires an insertion of 
   We say that a double category is \textbf{fibrant} if every vertical
   1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
-\end{comment}
+
+\begin{defn}
+Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \colon\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \colon \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
+
+Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \colon 1_{\mathbb{F}(a)} \to \mathbb{F}(1_{a})$ (the identity comparison), and every horizontal composition $N_{1} \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_{1},N_{2}) \colon \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2}) \to \mathbb{F}(N_{1} \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
+
+\begin{enumerate}
+
+\item For a horizontal composite, $\beta \odot \alpha$,
+
+
+\begin{equation}\label{eq:square}
+  \xymatrix@-.5pc{
+    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})}  \ar[d] \ar@{}[dr]|{\mathbb{F}(\alpha)}&
+    \mathbb{F}(B) \ar[d] \ar[r]|{|}^{\mathbb{F}(N_{1})} \ar@{}[dr]|{\mathbb{F}(\beta)}&
+    \mathbb{F}(C) \ar[d] &
+     &
+    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})} \ar@{}[drr]|{\phi(N_{1},N_{2})} \ar[d]_{1} &
+    \mathbb{F}(B) \ar[r]|{|}^{\mathbb{F}(N_{1})} &
+    \mathbb{F}(C) \ar[d]^{1} \\
+    \mathbb{F}(A') \ar[r]|{|}_{\mathbb{F}(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_{1}&
+    \mathbb{F}(B') \ar[r]|{|}_{\mathbb{F}(N_{3})} &
+    \mathbb{F}(C') \ar[d]^{1}&
+    = &
+    \mathbb{F}(A) \ar[rr]|{|}^{\mathbb{F}(N_{1} \odot N_{2})} \ar[d] \ar@{}[drr]|{\mathbb{F}(\beta \odot \alpha)}&
+     &
+    \mathbb{F}(C) \ar[d] \\
+    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} & 
+     & 
+    \mathbb{F}(C') &
+     &
+    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} &
+     &
+    \mathbb{F}(C') \\
+  }.
+\end{equation}
+
+\item For a horizontal 1-cell $N \colon A \to B$, the following diagrams are commutative (under horizontal composition).
+
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\mathbb{F}(N) \odot 1_{\mathbb{F}(A)}$};
+\node (C) at (3,1) {$\mathbb{F}(N)$};
+\node (A') at (1,-1) {$\mathbb{F}(N) \odot \mathbb{F}(1_{A})$};
+\node (C') at (3,-1) {$\mathbb{F}(N \odot 1_{A})$};
+\node (B) at (5,1) {$1_{\mathbb{F}(B)} \odot \mathbb{F}(N)$};
+\node (B') at (5,-1) {$\mathbb{F}(1_{B}) \odot \mathbb{F}(N)$};
+\node (D) at (7,1) {$\mathbb{F}(N)$};
+\node (D') at (7,-1) {$\mathbb{F}(1_{B} \odot N)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$1 \odot \phi_{A}$} (A')
+(C') edge node[right]{$\mathbb{F} \rho$} (C)
+(A) edge node[above]{$\rho_{\mathbb{F}(N)}$} (C)
+(A') edge node[above]{$\phi(N,1_{A})$} (C')
+(B) edge node[left]{$\phi_{B} \odot 1$} (B')
+(B') edge node[above]{$\phi(1_{B},N)$} (D')
+(B) edge node[above]{$\lambda_{\mathbb{F}(N)}$} (D)
+(D') edge node[right]{$F \lambda$} (D);
+\end{tikzpicture}
+\]
+
+\item For consecutive horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$, the following diagram is commutative.
+
+ \[\xymatrix{
+    (\mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2})) \odot \mathbb{F}(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_{1},N_{2}) \odot 1}
+    & \mathbb{F}(N_{1}) \odot (\mathbb{F}(N_{2}) \odot \mathbb{F}(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
+    \mathbb{F}(N_{1} \odot N_{2}) \odot \mathbb{F}(N_{3}) \ar[d]_{\phi(N_{1} \odot N_{2},N_{3})} &
+    \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2} \odot N_{3}) \ar[d]^{\phi(N_{1},N_{2} \odot N_{3})}\\
+    \mathbb{F}((N_{1} \odot N_{2}) \odot N_{3})\ar[r]^{\mathbb{F}a} &
+    \mathbb{F}(N_{1} \odot (N_{2} \odot N_{3}))}\]
+\end{enumerate}
+We say the double functor $\mathbb{F}$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
+\end{defn}
+
+\begin{defn}
+\label{defn:monoidal_double_functor}
+A \define{(strong) monoidal lax double functor} $\mathbb{F} \colon \mathbb{C} \to \mathbb{D}$ between monoidal double categories $\mathbb{C}$ and $\mathbb{D}$ is a lax double functor $\mathbb{F} \maps \mathbb{C} \to \mathbb{D}$ such that
+	\begin{itemize}
+		\item $\mathbb{F}_0$ and $\mathbb{F}_1$ are monoidal functors, meaning that there exists
+
+\begin{enumerate}
+\item{an isomorphism $\epsilon \colon 1_{\lD} \to \mathbb{F}(1_{\lC})$}
+\item{a natural isomorphism $\mu_{A,B} \colon \mathbb{F}(A) \otimes \mathbb{F}(B) \to \mathbb{F}(A \otimes B)$ for all objects $A$ and $B$ of $\lC$}
+\item{an isomorphism $\delta \colon U_{1_{\lD}} \to \mathbb{F}(U_{1_{\lC}})$}
+\item{a natural isomorphism $\nu_{M,N} \colon \mathbb{F}(M) \otimes \mathbb{F}(N) \to \mathbb{F}(M \otimes N)$ for all horizontal 1-cells $N$ and $M$ of $\lC$}
+\end{enumerate}
+such that the following diagrams commute: for objects $A,B$ and $C$ of $\lC$,
+ \[\xymatrix{
+    (\mathbb{F}(A) \otimes \mathbb{F}(B)) \otimes \mathbb{F}(C) \ar[r]^{\alpha^\prime}\ar[d]_{\mu_{A,B} \otimes 1}
+    & \mathbb{F}(A) \otimes (\mathbb{F}(B) \otimes \mathbb{F}(C)) \ar[d]^{1 \otimes \mu_{B,C}}\\
+    \mathbb{F}(A \otimes B) \otimes \mathbb{F}(C) \ar[d]_{\mu_{A \otimes B,C}} &
+    \mathbb{F}(A) \otimes \mathbb{F}(B \otimes C) \ar[d]^{\mu_{A,B \otimes C}}\\
+    \mathbb{F}((A \otimes B) \otimes C)\ar[r]^{\mathbb{F}\alpha} &
+    \mathbb{F}(A \otimes (B \otimes C))}\]
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\mathbb{F}(A) \otimes 1_{\lD}$};
+\node (C) at (3,1) {$\mathbb{F}(A)$};
+\node (A') at (1,-1) {$\mathbb{F}(A) \otimes \mathbb{F}(1_{\lC})$};
+\node (C') at (3,-1) {$\mathbb{F}(A \otimes 1_{\lC})$};
+\node (B) at (5,1) {$1_{\lD} \otimes \mathbb{F}(A)$};
+\node (B') at (5,-1) {$\mathbb{F}(1_{\lC}) \otimes \mathbb{F}(A)$};
+\node (D) at (7,1) {$\mathbb{F}(A)$};
+\node (D') at (7,-1) {$\mathbb{F}(1_{\lC} \otimes A)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$1 \otimes \epsilon$} (A')
+(C') edge node[right]{$\mathbb{F}(r_{A})$} (C)
+(A) edge node[above]{$r_{\mathbb{F}(A)}$} (C)
+(A') edge node[above]{$\mu_{A,1_{\lC}}$} (C')
+(B) edge node[left]{$\epsilon \otimes 1$} (B')
+(B') edge node[above]{$\mu_{1_{\lC},A}$} (D')
+(B) edge node[above]{$\ell_{\mathbb{F}(A)}$} (D)
+(D') edge node[right]{$\mathbb{F}(\ell_{A})$} (D);
+\end{tikzpicture}
+\]
+and for horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$ of $\lC$,
+ \[\xymatrix{
+    (\mathbb{F}(N_{1}) \otimes \mathbb{F}(N_{2})) \otimes \mathbb{F}(N_{3}) \ar[r]^{\alpha^\prime}\ar[d]_{\nu_{N_{1},N_{2}} \otimes 1}
+    & \mathbb{F}(N_{1}) \otimes (\mathbb{F}(N_{2}) \otimes \mathbb{F}(N_{3})) \ar[d]^{1 \otimes \nu_{N_{2},N_{3}}}\\
+    \mathbb{F}(N_{1} \otimes N_{2}) \otimes \mathbb{F}(N_{3}) \ar[d]_{\nu_{N_{1} \otimes N_{2},N_{3}}} &
+    \mathbb{F}(N_{1}) \otimes \mathbb{F}(N_{2} \otimes N_{3}) \ar[d]^{\nu_{N_{1},N_{2} \otimes N_{3}}}\\
+    \mathbb{F}((N_{1} \otimes N_{2}) \otimes N_{3})\ar[r]^{\mathbb{F}\alpha} &
+    \mathbb{F}(N_{1} \otimes (N_{2} \otimes N_{3}))}\]
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,1) {$\mathbb{F}(N_{1}) \otimes U_{1_{\lD}}$};
+\node (C) at (3,1) {$\mathbb{F}(N_{1})$};
+\node (A') at (0,-1) {$\mathbb{F}(N_{1}) \otimes \mathbb{F}(U_{1_{\lC}})$};
+\node (C') at (3,-1) {$\mathbb{F}(N_{1} \otimes U_{1_{\lC}})$};
+\node (B) at (5,1) {$U_{1_{\lD}} \otimes \mathbb{F}(N_{1})$};
+\node (B') at (5,-1) {$\mathbb{F}(U_{1_{\lC}}) \otimes \mathbb{F}(N_{1})$};
+\node (D) at (8,1) {$\mathbb{F}(N_{1})$};
+\node (D') at (8,-1) {$\mathbb{F}(U_{1_{\lC}} \otimes N_{1})$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$1 \otimes \delta$} (A')
+(C') edge node[right]{$\mathbb{F}(r_{N_{1}})$} (C)
+(A) edge node[above]{$r_{\mathbb{F}(N_{1})}$} (C)
+(A') edge node[above]{$\nu_{N_{1},U_{1_{\lC}}}$} (C')
+(B) edge node[left]{$\delta \otimes 1$} (B')
+(B') edge node[above]{$\nu_{U_{1_{\lC}},N_{1}}$} (D')
+(B) edge node[above]{$\ell_{\mathbb{F}(N_{1})}$} (D)
+(D') edge node[right]{$\mathbb{F}(\ell_{N_{1}})$} (D);
+\end{tikzpicture}
+\]
+
+		\item $S\mathbb{F}_1= \mathbb{F}_0S$ and $T\mathbb{F}_1 = \mathbb{F}_0T$ are equations between monoidal functors, and
+		\item the composition and unit comparisons $\phi(N_1,N_2) \maps \mathbb{F}_1(N_1) \odot \mathbb{F}_1(N_2) \to \mathbb{F}_1(N_1\odot N_2)$ and $\phi_A \maps U_{\mathbb{F}_0 (A)} \to \mathbb{F}_1(U_A)$ are monoidal natural transformations.
+	\end{itemize}
+The monoidal lax double functor is \define{braided} if $\mathbb{F}_0$ and $\mathbb{F}_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal functors, and lax monoidal or oplax monoidal if the isomorphisms and families of natural isomorphisms of items (1)-(4) above are merely morphisms and natural transformations going in the appropriate directions.
+\end{defn}
+%\end{comment}
 
 \begin{thebibliography}{100}
 
