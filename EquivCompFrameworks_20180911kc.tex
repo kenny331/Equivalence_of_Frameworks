@@ -3237,11 +3237,11 @@ where $x\in F(c)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in
 where the outside vertical legs come from the definition of $L_F$ on arrows, \cref{eq:Lonarrows}. 
 {\chris The above diagram might be a bit overwhelming, but all info is there. Choose which parts are required for a smooth proof!} {\chris Also, iota and the letter i look alarmingly similar. Should we change iota to some other distinctive greek letter?}
 The square commutativities translate to $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also by composition in the Grothendieck category, to
-\begin{gather*}
+\begin{gather}\label{eq:Grothcommutativity}
  F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{\iota}x'= \\
- F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'
-\end{gather*}
-in the category $F(c')$. However, since all maps are unique in the above equality {\chris discuss with John and Kenny}, this gives no extra conditions for the morphisms involved, and similarly for the equality including $o, o'$.
+ F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'\nonumber
+\end{gather}
+in the category $F(c')$. However, since all maps are unique in the above equality, emanating from initial objects (since reindexing functors preserve those), this gives no extra conditions for the morphisms involved; similarly for the equality including $o, o'$.
 
 In order to prove that there is a double equivalence (\cref{ShulDubEquiv}) between $\dcsp{F}$ and $\scsp{L_F}{\inta F}$, we define a %n identity-on-objects and vertical morphism
 double functor
@@ -3259,11 +3259,10 @@ a\ar[r,"i"]\ar[d,"f"'] & c\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
 a'\ar[r,"i'"']& c' & b'\ar[l,"o'"]
  \end{tikzcd}
 \end{displaymath}
- in $\A$ along with the map $h\colon Fk(x)\to x'$ in $F(c')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}.
+ in $\A$ along with the map $\iota\colon Fk(x)\to x'$ in $F(c')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}. Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
+ {\chris Christina commented out big chunks of proof. They are right below if we want to revive parts of them, if we think the reader needs deeper level of detail.}
 
-
-
-{\chris Now the checking of the equivalence should follow! perhaps in less detail than currently?}
+\begin{comment}
 which is a cospan in $\mathsf{X}$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3534,8 +3533,18 @@ Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}_g(M,N)$$ consists 
 \]
 together with a morphism $\iota \colon F(R(\alpha))(x) \to x^\prime$ of $F(R(x^\prime))$.
 Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\iota)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\mathsf{A}$ and $\iota$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \colon R(x) \to R(x^\prime)$ and $\iota \colon F(R(\alpha))(x) \to x^\prime$ together determine the morphism $\alpha \colon x \to x^\prime$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x^\prime=(c^\prime,x^\prime \in F(c^\prime))$ of $\mathsf{X}=\inta{F}$, a morphism from $\alpha \colon x \to x^\prime$ is a pair $$(h \colon c \to c^\prime, \iota \colon F(h)(x) \to x^\prime)$$ where $h \colon c \to c^\prime$ is given by $R(\alpha) \colon R(x) \to R(x^\prime)$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
+\end{comment}
+Functoriality of $\mathbb{E}_1$ can be verified, and moreover $(\mathbb{E}_0,\mathbb{E}_1)$ indeed define a strong double functor: there exist natural isomorphisms
+\begin{gather*}
+ \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N) \\
+U_{\mathbb{E}(c,x)} \xrightarrow{\sim} \mathbb{E}(U_{(c,x)})
+\end{gather*}
+for any pair of composable horizontal 1-cells $M$ and $N$ and any object $(c,x)$ of $\scsp{L_F}{\inta F}$
+{\chris in progress}
 
-Next we show that the double functor $\mathbb{E}$ is strong by exhibiting a natural isomorphism $$\mathbb{E}_{M,N} \colon \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N)$$ for every pair of composable horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and for each object $c \in { _L \mathbb{C}\textnormal{sp}(\mathsf{X})}$ a natural isomorphism $$\mathbb{E}_c \colon \hat{U}_{\mathbb{E}(c)} \xrightarrow{\sim} \mathbb{E}(U_c)$$ where $U$ and $\hat{U}$ are the unit structure functors of $_L \mathbb{C} \textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$, respectively. For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
+
+
+For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
@@ -3711,7 +3720,15 @@ Next, to see that the above diagram commutes, it suffices to show that for the o
 (D') edge node [right]{$\kappa$} (B');
 \end{tikzpicture}
 \]
-Lastly, this map of cospans comes with an isomorphism $$\iota \colon F(\sigma)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \xrightarrow{\sim} F\mathbb{C}\textnormal{sp}$ is part of a double equivalence by Theorem \ref{ShulDubEquiv}.
+Lastly, this map of cospans comes with an isomorphism $$\iota \colon F(\sigma)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so 
+
+{\chris Up to here}
+
+Based on the above description of its mapping, it follows that the strong double functor $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is full, faithful and essentially surjective on objects as per \cref{def:fullfaithful,def:essentiallysurj}. Therefore $\mathbb{E} \colon \scsp{L_F}{\inta F} \to \dcsp{F}$ is a double equivalence, by \cref{ShulDubEquiv}.
+{\chris In fact, Christina and Kenny believe it is an isomorphism of double categories! Bijective on all levels of objects and morphisms...should we say?}
+
+
+
 
 Next, we show that if both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\mathsf{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \colon 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
 
@@ -3873,7 +3890,10 @@ We then have a 2-isomorphism $\mu_{M,N} \colon E(M) \otimes E(N) \xrightarrow{\s
 \]
 where $\kappa$ is the isomorphism which comes from $R \colon \mathsf{X} \to \mathsf{A}$ preserving finite colimits.
 
-The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. \textbf{Kenny: I think this might be a good place to cut the monoidal stuff.} To see this, let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
+The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. \textbf{Kenny: I think this might be a good place to cut the monoidal stuff.}{\chris Deal! They are right below.}
+
+\begin{comment}
+To see this, let $M_1,M_2$ and $M_3$ be horizontal 1-cells in $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -4178,7 +4198,12 @@ Again, we have omitted the natural isomorphisms $\phi_{c_i,c_j}$ on the inward p
 \end{tikzpicture}
 \]
 The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((R(\beta_\mathsf{X}))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the finite colimit preserving functor $R \colon (\mathsf{X},1_\mathsf{X},+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Thus the double functor $\mathbb{E} \colon _L\mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
+\end{comment}
+
 \end{proof}
+
+
+
 Using a result of Shulman \cite{Shul}, each of the isofibrant symmetric monoidal double categories $F\mathbb{C}\textnormal{sp}$ and $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ give rise to underlying symmetric monoidal bicategories, namely $F\mathbb{C}\textnormal{sp}$ induces a symmetric monoidal bicategory $F\mathbf{Csp} \coloneqq H(F\mathbb{C}\textnormal{sp})$ which has:
 \begin{enumerate}
 \item{objects as those of $\mathsf{A}$,}
@@ -5329,10 +5354,10 @@ Following the notation of Shulman \cite{Shul2}, given a double category $\mathbb
   }
 \]
 We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
-\begin{defn}
+\begin{defn}\label{def:fullfaithful}
 A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \colon _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
 \end{defn}
-\begin{defn}
+\begin{defn}\label{def:essentiallysurj}
 A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
 \begin{enumerate}
 \item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \colon \mathbb{F}(a) \to x$, and}
