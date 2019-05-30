@@ -656,7 +656,7 @@ Daniel Cicala, various others.
 
 \section{A symmetric monoidal double category of decorated cospans}\label{DecCospansDoubleCat}
 In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and then finally decategorify the obtained symmetric monoidal bicategory to obtain a symmetric monoidal category $F$Csp which is a generalization of Fong's original decorated cospan category \cite{Fong}. 
-The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}.
+The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}, and the basics of (pseudo) double categories are recalled in \cref{sec:doublecats}.
 
 \begin{thm}\label{thm:decoratedcospans}
 Let $\mathsf{A}$ be a category with finite colimits and $F \colon \mathsf{A} \to \mathbf{Cat}$ a lax monoidal pseudofunctor. Then there exists a (pseudo) double category $F\mathbb{C}$sp which has:
@@ -5119,44 +5119,52 @@ Thus we have a symmetric monoidal double category $\mathbb{O}\mathbf{pen}(\mathr
 \section{Appendix}
 
 %\begin{comment}
+ 
+{\chris Here, I basically rearranged things to make them come in a certain order, and also added a few things for monoidal bicats, maybe more is needed or not. Didn't change Kenny's notation or writings almost at all}
+
+In this chapter, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
+
 \subsection{2-categories}\label{sec:2cats}
-For standard 2-categorical material, we refer the reader to there and there.
+For standard 2-categorical material, we refer the reader to e.g. \cite{KS} or \cite{DS} for monoidal structures.
 
 Recall that a pseudofunctor $F\colon\bicat{A}\to\bicat{B}$ between bicategories $\bicat{A}$ and $\bicat{B}$ is functorial up to coherent natural isomorphism, namely for composable arrows we have $F(g\circ f)\cong Fg\circ Ff$ and $F(1_a)\cong1_{Fa}$ satisfying standard axioms. 
-Given pseudofunctors $F,G\colon \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of {\chris notation below needs fixing}
+Given pseudofunctors $F,G\colon \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of
 \begin{itemize}
 \item for each object $a \in \bicat{A}$, a morphism $\sigma_a \colon F(a) \to G(a)$ in $\bicat{B}$ 
-\item for every pair of objects $a$ and $b$ of $\mathbf{A}$, we have natural isomorphisms
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\mathbf{A}(a,b)$};
-\node (B) at (2,0) {$\mathbf{X}(F(a),F(b))$};
-\node (C) at (0,-1) {$\mathbf{X}(G(a),G(b))$};
-\node (D) at (2,-1) {$\mathbf{X}(F(a),G(b))$};
-\node (E) at (1,-0.5) {$\sigma_{a,b} \Nearrow$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F$} (B)
-(B) edge node[right]{$(\sigma_{b})_*$} (D)
-(A) edge node[left]{$G$} (C)
-(C) edge node[above]{$(\sigma_a)^*$} (D);
-\end{tikzpicture}
-\]
-where $(\sigma_a)^*$ and $(\sigma_b)_*$ are the functors induced by precomposition and postcompositon, respectively. Thus for each morphism $f \colon a \to b$ in $\mathbf{A}$, we have an invertible 2-morphism $\sigma_f \colon G(f) \sigma_a \xrightarrow{\sim} \sigma_{b} F(f)$ in $\mathbf{X}$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F(a)$};
-\node (B) at (1,0) {$F(b)$};
-\node (C) at (0,-1) {$G(a)$};
-\node (D) at (1,-1) {$G(b)$};
-\node (E) at (0.5,-0.5) {$\sigma_f \Nearrow$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(f)$} (B)
-(B) edge node[right]{$\sigma_{b}$} (D)
-(A) edge node[left]{$\sigma_a$} (C)
-(C) edge node[above]{$G(f)$} (D);
-\end{tikzpicture}
-\]
-which is compatible with composition and identities.
+\item 
+%for every pair of objects $a$ and $b$ of $\mathbf{A}$, we have natural isomorphisms
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$\mathbf{A}(a,b)$};
+%\node (B) at (2,0) {$\mathbf{X}(F(a),F(b))$};
+%\node (C) at (0,-1) {$\mathbf{X}(G(a),G(b))$};
+%\node (D) at (2,-1) {$\mathbf{X}(F(a),G(b))$};
+%\node (E) at (1,-0.5) {$\sigma_{a,b} \Nearrow$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$F$} (B)
+%(B) edge node[right]{$(\sigma_{b})_*$} (D)
+%(A) edge node[left]{$G$} (C)
+%(C) edge node[above]{$(\sigma_a)^*$} (D);
+%\end{tikzpicture}
+%\]
+%where $(\sigma_a)^*$ and $(\sigma_b)_*$ are the functors induced by precomposition and postcompositon, respectively. Thus 
+for each morphism $f \colon a \to b$ in $\mathbf{A}$, an invertible natural 2-morphism $\sigma_f \colon G(f) \sigma_a \xrightarrow{\sim} \sigma_{b} F(f)$ in $\mathbf{B}$
+%:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$F(a)$};
+%\node (B) at (1,0) {$F(b)$};
+%\node (C) at (0,-1) {$G(a)$};
+%\node (D) at (1,-1) {$G(b)$};
+%\node (E) at (0.5,-0.5) {$\sigma_f \Nearrow$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$F(f)$} (B)
+%(B) edge node[right]{$\sigma_{b}$} (D)
+%(A) edge node[left]{$\sigma_a$} (C)
+%(C) edge node[above]{$G(f)$} (D);
+%\end{tikzpicture}
+%\]
+compatible with composition and identities.
 \end{itemize}
 %such that for each composable pair of morphisms $f \colon a \to b$ and $g \colon b \to c$ of $\mathbf{A}$, the following diagrams commute:
 %\[
@@ -5197,59 +5205,13 @@ which is compatible with composition and identities.
 %\]
 %Christina: I removed the above, they are not needed I believe
 We denote by $[\A,\bicat{Cat}]_\pse$ the 2-category 
-of pseudofunctors, pseudonatural transformations and modifications from an ordinary category $\A$ viewed as a 2-category with trivial 2-cells, into $\bicat{Cat}$. Classicaly this has been referred to as the 2-category of \emph{opindexed categories}, since an indexed category is a contravariant pseudofunctor into $\bicat{Cat}$.
+of pseudofunctors, pseudonatural transformations and modifications from an ordinary category $\A$ viewed as a 2-category with trivial 2-cells, into $\bicat{Cat}$. This is also referred to as the 2-category of \emph{opindexed categories}, since an indexed category is a contravariant pseudofunctor into $\bicat{Cat}$.
 
-A \define{lax monoidal} pseudofunctor is....
-A \define{symmetric lax monoidal} pseudofunctor...
-{\chris Not sure if we need monoidal transformations?}
+A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\colon\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\colon Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\colon I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoida' pseudofunctor. A \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories comes with invertible $F(b)\circ \mu_{a,b}\cong \mu_{b,a}\circ b$, where $b$ is the braiding. 
+{\chris Hiding various details under the rug - e.g. what a symmetric monoidal bicategory is. Should be fine? Also, not sure if we need monoidal transformations?}
 
 
 \subsection{Double categories}\label{sec:doublecats}
-{\chris Moved from earlier, probably merge with what follows}
-Once again following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
-\[
-  \xymatrix@-.5pc{
-    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-    B\ar[d]^g\\
-    C \ar[r]|{|}_N & D
-  }
-\]
-We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
-\begin{defn}
-A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \colon _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
-\end{defn}
-\begin{defn}
-A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
-\begin{enumerate}
-\item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \colon \mathbb{F}(a) \to x$, and}
-\item{For each horizontal 1-cell $N \colon x_1 \tobar x_2$  of $\mathbb{X}$, we can find a horizontal 1-cell $M \colon a_1 \tobar a_2$ of $\mathbb{A}$ and a 2-isomorphism $a_{N}$ of $\mathbb{X}$ as in the following diagram:
-\[
-  \xymatrix@-.5pc{
-    \mathbb{F}(a_1) \ar[r]|{|}^{\mathbb{F}(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
-    \mathbb{F}(a_1) \ar[d]^{\alpha_{x_2}}\\
-    x_1 \ar[r]|{|}_N & x_2
-  }
-\]
-}
-\end{enumerate}
-\end{defn}
-\begin{defn}
-A double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \colon \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \colon \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
-\end{defn}
-
-Formally, two strong double functors between two double categories form a \emph{double equivalence} if {\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. Similarly to ordinary equivalence of categories, {\chris cite shulman's theorem here [Shulman,7.8]} allows us to use the following equivalent characterization.
-
-\begin{thm}\label{ShulDubEquiv}
-A strong double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective. {\chris on objects?}
-\end{thm}
-
-\begin{prop}
-Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and let $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{A}$ and $\mathbb{X}$ are equivalent as symmetric monoidal double categories.
-\end{prop}
-
-{\chris Here ends what I moved}
-
-
 
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
 
@@ -5317,6 +5279,124 @@ A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-mor
 \begin{defn}
 Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
 \end{defn}
+
+\begin{defn}
+Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \colon\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \colon \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
+
+Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \colon 1_{\mathbb{F}(a)} \to \mathbb{F}(1_{a})$ (the identity comparison), and every horizontal composition $N_{1} \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_{1},N_{2}) \colon \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2}) \to \mathbb{F}(N_{1} \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
+
+\begin{enumerate}
+
+\item For a horizontal composite, $\beta \odot \alpha$,
+
+
+\begin{equation}\label{eq:square}
+  \xymatrix@-.5pc{
+    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})}  \ar[d] \ar@{}[dr]|{\mathbb{F}(\alpha)}&
+    \mathbb{F}(B) \ar[d] \ar[r]|{|}^{\mathbb{F}(N_{1})} \ar@{}[dr]|{\mathbb{F}(\beta)}&
+    \mathbb{F}(C) \ar[d] &
+     &
+    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})} \ar@{}[drr]|{\phi(N_{1},N_{2})} \ar[d]_{1} &
+    \mathbb{F}(B) \ar[r]|{|}^{\mathbb{F}(N_{1})} &
+    \mathbb{F}(C) \ar[d]^{1} \\
+    \mathbb{F}(A') \ar[r]|{|}_{\mathbb{F}(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_{1}&
+    \mathbb{F}(B') \ar[r]|{|}_{\mathbb{F}(N_{3})} &
+    \mathbb{F}(C') \ar[d]^{1}&
+    = &
+    \mathbb{F}(A) \ar[rr]|{|}^{\mathbb{F}(N_{1} \odot N_{2})} \ar[d] \ar@{}[drr]|{\mathbb{F}(\beta \odot \alpha)}&
+     &
+    \mathbb{F}(C) \ar[d] \\
+    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} & 
+     & 
+    \mathbb{F}(C') &
+     &
+    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} &
+     &
+    \mathbb{F}(C') \\
+  }.
+\end{equation}
+
+\item For a horizontal 1-cell $N \colon A \to B$, the following diagrams are commutative (under horizontal composition).
+
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\mathbb{F}(N) \odot 1_{\mathbb{F}(A)}$};
+\node (C) at (3,1) {$\mathbb{F}(N)$};
+\node (A') at (1,-1) {$\mathbb{F}(N) \odot \mathbb{F}(1_{A})$};
+\node (C') at (3,-1) {$\mathbb{F}(N \odot 1_{A})$};
+\node (B) at (5,1) {$1_{\mathbb{F}(B)} \odot \mathbb{F}(N)$};
+\node (B') at (5,-1) {$\mathbb{F}(1_{B}) \odot \mathbb{F}(N)$};
+\node (D) at (7,1) {$\mathbb{F}(N)$};
+\node (D') at (7,-1) {$\mathbb{F}(1_{B} \odot N)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$1 \odot \phi_{A}$} (A')
+(C') edge node[right]{$\mathbb{F} \rho$} (C)
+(A) edge node[above]{$\rho_{\mathbb{F}(N)}$} (C)
+(A') edge node[above]{$\phi(N,1_{A})$} (C')
+(B) edge node[left]{$\phi_{B} \odot 1$} (B')
+(B') edge node[above]{$\phi(1_{B},N)$} (D')
+(B) edge node[above]{$\lambda_{\mathbb{F}(N)}$} (D)
+(D') edge node[right]{$F \lambda$} (D);
+\end{tikzpicture}
+\]
+
+\item For consecutive horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$, the following diagram is commutative.
+
+ \[\xymatrix{
+    (\mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2})) \odot \mathbb{F}(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_{1},N_{2}) \odot 1}
+    & \mathbb{F}(N_{1}) \odot (\mathbb{F}(N_{2}) \odot \mathbb{F}(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
+    \mathbb{F}(N_{1} \odot N_{2}) \odot \mathbb{F}(N_{3}) \ar[d]_{\phi(N_{1} \odot N_{2},N_{3})} &
+    \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2} \odot N_{3}) \ar[d]^{\phi(N_{1},N_{2} \odot N_{3})}\\
+    \mathbb{F}((N_{1} \odot N_{2}) \odot N_{3})\ar[r]^{\mathbb{F}a} &
+    \mathbb{F}(N_{1} \odot (N_{2} \odot N_{3}))}\]
+\end{enumerate}
+We say the double functor $\mathbb{F}$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
+\end{defn}
+
+{\chris Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?}
+\begin{defn}
+A double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \colon \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \colon \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
+\end{defn}
+
+
+Following the notation of Shulman \cite{Shul2}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
+\[
+  \xymatrix@-.5pc{
+    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
+    B\ar[d]^g\\
+    C \ar[r]|{|}_N & D
+  }
+\]
+We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
+\begin{defn}
+A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \colon _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
+\end{defn}
+\begin{defn}
+A (possibly lax or oplax) double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
+\begin{enumerate}
+\item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \colon \mathbb{F}(a) \to x$, and}
+\item{For each horizontal 1-cell $N \colon x_1 \tobar x_2$  of $\mathbb{X}$, we can find a horizontal 1-cell $M \colon a_1 \tobar a_2$ of $\mathbb{A}$ and a 2-isomorphism $a_{N}$ of $\mathbb{X}$ as in the following diagram:
+\[
+  \xymatrix@-.5pc{
+    \mathbb{F}(a_1) \ar[r]|{|}^{\mathbb{F}(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
+    \mathbb{F}(a_1) \ar[d]^{\alpha_{x_2}}\\
+    x_1 \ar[r]|{|}_N & x_2
+  }
+\]
+}
+\end{enumerate}
+\end{defn}
+
+Formally, two strong double functors between two double categories form a \emph{double equivalence} if {\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. Similarly to ordinary equivalence of categories, {\chris cite shulman's theorem here [Shulman,7.8]} allows us to use the following equivalent characterization.
+
+\begin{thm}\label{ShulDubEquiv}
+A strong double functor $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective. {\chris on objects?}
+\end{thm}
+
+\begin{prop}
+Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and let $\mathbb{F} \colon \mathbb{A} \to \mathbb{X}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{A}$ and $\mathbb{X}$ are equivalent as symmetric monoidal double categories.
+\end{prop}
+
 
 \begin{defn}
   A \textbf{monoidal double category} is a double category equipped the following
@@ -5721,78 +5801,6 @@ In a pseudo double category, the second equation above requires an insertion of 
   1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
-\begin{defn}
-Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \colon\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \colon \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \colon \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
-
-Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \colon 1_{\mathbb{F}(a)} \to \mathbb{F}(1_{a})$ (the identity comparison), and every horizontal composition $N_{1} \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_{1},N_{2}) \colon \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2}) \to \mathbb{F}(N_{1} \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
-
-\begin{enumerate}
-
-\item For a horizontal composite, $\beta \odot \alpha$,
-
-
-\begin{equation}\label{eq:square}
-  \xymatrix@-.5pc{
-    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})}  \ar[d] \ar@{}[dr]|{\mathbb{F}(\alpha)}&
-    \mathbb{F}(B) \ar[d] \ar[r]|{|}^{\mathbb{F}(N_{1})} \ar@{}[dr]|{\mathbb{F}(\beta)}&
-    \mathbb{F}(C) \ar[d] &
-     &
-    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})} \ar@{}[drr]|{\phi(N_{1},N_{2})} \ar[d]_{1} &
-    \mathbb{F}(B) \ar[r]|{|}^{\mathbb{F}(N_{1})} &
-    \mathbb{F}(C) \ar[d]^{1} \\
-    \mathbb{F}(A') \ar[r]|{|}_{\mathbb{F}(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_{1}&
-    \mathbb{F}(B') \ar[r]|{|}_{\mathbb{F}(N_{3})} &
-    \mathbb{F}(C') \ar[d]^{1}&
-    = &
-    \mathbb{F}(A) \ar[rr]|{|}^{\mathbb{F}(N_{1} \odot N_{2})} \ar[d] \ar@{}[drr]|{\mathbb{F}(\beta \odot \alpha)}&
-     &
-    \mathbb{F}(C) \ar[d] \\
-    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} & 
-     & 
-    \mathbb{F}(C') &
-     &
-    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} &
-     &
-    \mathbb{F}(C') \\
-  }.
-\end{equation}
-
-\item For a horizontal 1-cell $N \colon A \to B$, the following diagrams are commutative (under horizontal composition).
-
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\mathbb{F}(N) \odot 1_{\mathbb{F}(A)}$};
-\node (C) at (3,1) {$\mathbb{F}(N)$};
-\node (A') at (1,-1) {$\mathbb{F}(N) \odot \mathbb{F}(1_{A})$};
-\node (C') at (3,-1) {$\mathbb{F}(N \odot 1_{A})$};
-\node (B) at (5,1) {$1_{\mathbb{F}(B)} \odot \mathbb{F}(N)$};
-\node (B') at (5,-1) {$\mathbb{F}(1_{B}) \odot \mathbb{F}(N)$};
-\node (D) at (7,1) {$\mathbb{F}(N)$};
-\node (D') at (7,-1) {$\mathbb{F}(1_{B} \odot N)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1 \odot \phi_{A}$} (A')
-(C') edge node[right]{$\mathbb{F} \rho$} (C)
-(A) edge node[above]{$\rho_{\mathbb{F}(N)}$} (C)
-(A') edge node[above]{$\phi(N,1_{A})$} (C')
-(B) edge node[left]{$\phi_{B} \odot 1$} (B')
-(B') edge node[above]{$\phi(1_{B},N)$} (D')
-(B) edge node[above]{$\lambda_{\mathbb{F}(N)}$} (D)
-(D') edge node[right]{$F \lambda$} (D);
-\end{tikzpicture}
-\]
-
-\item For consecutive horizontal 1-cells $N_{1},N_{2}$ and $N_{3}$, the following diagram is commutative.
-
- \[\xymatrix{
-    (\mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2})) \odot \mathbb{F}(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_{1},N_{2}) \odot 1}
-    & \mathbb{F}(N_{1}) \odot (\mathbb{F}(N_{2}) \odot \mathbb{F}(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
-    \mathbb{F}(N_{1} \odot N_{2}) \odot \mathbb{F}(N_{3}) \ar[d]_{\phi(N_{1} \odot N_{2},N_{3})} &
-    \mathbb{F}(N_{1}) \odot \mathbb{F}(N_{2} \odot N_{3}) \ar[d]^{\phi(N_{1},N_{2} \odot N_{3})}\\
-    \mathbb{F}((N_{1} \odot N_{2}) \odot N_{3})\ar[r]^{\mathbb{F}a} &
-    \mathbb{F}(N_{1} \odot (N_{2} \odot N_{3}))}\]
-\end{enumerate}
-We say the double functor $\mathbb{F}$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
-\end{defn}
 
 \begin{defn}
 \label{defn:monoidal_double_functor}
@@ -5910,8 +5918,9 @@ Cambridge University Press, 1994
 
 \bibitem{Cour} K.\ Courser, A bicategory of decorated cospans, \emph{Theor.\ Appl.\ Cat.} \textbf{32} (2017), 995--1027. Also available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
 
-\bibitem{CourPhD} K.\ Courser, Cospans for Networks, PhD Thesis, University of California at Riverside (2019)
+\bibitem{CourPhD} K.\ Courser, Open Systems: a Double Categorical Perspective, PhD Thesis, University of California at Riverside (2019)
 
+\bibitem{DS} B.\ Day and R.\ Street, Monoidal Bicategories and Hopf Algebroids, \emph{Adv. Math.}, 129(1):99--157, 1997.
 %\bibitem{Ehresmann63} C.\ Ehresmann, Cat\'egories structur\'ees III: Quintettes et applications covariantes,  \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{5} (1963), 1--22.
 
 %\bibitem{Ehresmann65} C.\ Ehresmann, {\sl Cat\'egories et Structures,} Dunod, Paris, 1965.
@@ -5936,6 +5945,8 @@ Cambridge University Press, 1994
 %\bibitem{Hoff} A.\ Hoffnung, Spans in 2-categories: a monoidal tricategory. Available as \href{http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}.
 
 \bibitem{JM} J.\ C.\ Baez and J.\ Master, A compositional framework for Petri nets. In preparation.
+
+\bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, \emph{Lecture Notes in Mathematics} vol. 40, pages 75---103, Springer Berlin/Heidelberg, 1974.
 
 \bibitem{LS} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as \href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
 
