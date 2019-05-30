@@ -27,6 +27,7 @@ The first two authors have developed a compositional framework well-suited for s
 \section*{Various issues-in-progress}
  
 \begin{itemize}
+\item {\chris Would a title like `An equivalence of compositional frameworks for networks' or `An equivalence of compositional network frameworks' be more informative? Otherwise, compositional framework on its own doesn't say much!}
 \item {\chris Discuss notation for Decorated and Structured cospan double categories one last time? :)}
 \item {\chris Notation between \cref{Equiv} and \cref{thm:decoratedcospans} right now does not match! Need to fix. Slightly prefer a,b,c for objects of A, then $a'$ and $b'$ for other objects, and x an object of the category F(c) namely the decoration. The previously used `d' is slightly confusing around all these a's, b's and c's that are in a different category. Also I prefer $a$ and $b$ rather than $a_1$ and $a_2$.}
 %\item {\chris There might be a way to completely hide the details of version 'fibres have, reindexing preserve' if that's what we want to do.}
@@ -3070,38 +3071,35 @@ Details of the constructions and the proof of the above theorem can be found at 
 \section{An equivalence of symmetric monoidal double categories} \label{EquivDoubleCats}
 %\begin{comment}
 
-{\chris moved here preliminary}
-In this section, we recall the double category of \emph{structured cospans}, a formalism introduced to the first two authors. One of the main goals of this paper is to provide a double equivalence between this double category and one of \emph{decorated cospans}, described in detail in the subsequent section.
+In \cite{BC2}, the first two authors introduces the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double equivalence between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. Below we recall the double category structured cospans form.
 
 
 {\chris Wait, why do you need to consider them as monoidal in the assumptions of the theorem?}
-
 \begin{thm}\label{SC}
 Given a category $\mathsf{X}$ with finite colimits and a category $\mathsf{A}$ with finite coproducts and a finite coproduct preserving functor $L \colon \mathsf{A} \to \mathsf{X}$ with $\mathsf{A}$ and $\mathsf{X}$ regarded as cocartesian monoidal categories, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ which has:
-\begin{enumerate}
+\begin{itemize}
 \item{objects given by objects of $\mathsf{A}$,}
 \item{vertical 1-morphisms given by morphisms of $\mathsf{A}$,}
-\item{horizontal 1-cells given by cospans of $\mathsf{X}$ of the form:
+\item{horizontal 1-cells $a\tickar b$ given by cospans of $\mathsf{X}$ of the form:
 \begin{equation}\label{eq:structuredcospan}
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(c)$};
+\node (A) at (0,0) {$L(a)$};
 \node (B) at (1,0) {$x$};
-\node (C) at (2,0) {$L(c^\prime)$};
+\node (C) at (2,0) {$L(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B);
 \end{tikzpicture}
-\end{equation}
-and}
-\item{2-morphisms given by maps of cospans of $\mathsf{X}$ of the form:
+\end{equation}}
+\item 2-morphisms given by maps of cospans of $\mathsf{X}$ of the form:
 \begin{equation}\label{eq:2cellsStrCsp}
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(c_1)$};
+\node (A) at (0,0) {$L(a)$};
 \node (B) at (1,0) {$x$};
-\node (C) at (2,0) {$L(c_2)$};
-\node (A') at (0,-1) {$L(c_1^\prime)$};
-\node (B') at (1,-1) {$x^\prime$};
-\node (C') at (2,-1) {$L(c_2^\prime)$};
+\node (C) at (2,0) {$L(b)$};
+\node (A') at (0,-1) {$L(a')$};
+\node (B') at (1,-1) {$x'$};
+\node (C') at (2,-1) {$L(b')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
@@ -3109,214 +3107,26 @@ and}
 (C') edge node[above]{$$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
+(C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \end{equation}
+\end{itemize}
 Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\mathsf{X}$ and tensoring of objects is under binary coproducts in $\mathsf{A}$.
-}
-\end{enumerate}
 \end{thm}
 \begin{proof}
 See the first two authors' work on structured cospans \cite{BC2}.
 \end{proof}
-{\chris Below, I commented out a nice short recalled version of decorated cospans, since now their definition is later. Use if we want to recall at some point later}
-%In the previous section, we started with a symmetric lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$ and created a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ which has:
-%\begin{enumerate}
-%\item{objects of $\mathsf{A}$ as objects,}
-%\item{morphisms of $\mathsf{A}$ as vertical 1-morphisms,}
-%\item{horizontal 1-cells are given by $F$-decorated cospans, which are pairs:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$c_1$};
-%\node (B) at (1,0) {$c$};
-%\node (C) at (2,0) {$c_2$};
-%\node (D) at (3,0) {$x \in F(c)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B);
-%\end{tikzpicture}
-%\]
-%and}
-%\item{2-morphisms are given by maps of cospans in $\mathsf{A}$:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$c_1$};
-%\node (B) at (1,0) {$c$};
-%\node (C) at (2,0) {$c_2$};
-%\node (A') at (0,-1) {$c_1^\prime$};
-%\node (B') at (1,-1) {$c^\prime$};
-%\node (C') at (2,-1) {$c_2^\prime$};
-%\node (D) at (3,0) {$x \in F(c)$};
-%\node (D') at (3,-1) {$x^\prime \in F(c^\prime)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B)
-%(A') edge node[above]{$i^\prime$} (B')
-%(C') edge node[above]{$o^\prime$} (B')
-%(A) edge node [left]{$f$} (A')
-%(B) edge node [left]{$h$} (B')
-%(C) edge node [left]{$g$} (C');
-%\end{tikzpicture}
-%\]
-%together with a morphism $\iota \colon F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
-%\end{enumerate}
 
-{\chris here ends old}
+The desired equivalence between these two different double categorical network frameworks, namely structured cospans and decorated cospans,
+is established by the following theorem. We denote by $\bicat{fcocCat}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors.
 
-
-In this section we prove that the two different double categorical network frameworks, namely structured cospans and decorated cospans described respectively in \cref{DecCospansDoubleCat,sec:structuredcospans}, are equivalent under certain assumptions. This is established by \cref{Equiv}, which relies on conditions relevant to the existence of left adjoints for opfibrations. We begin by sketching this underlying framework, which is worked out in detail in \cite{MV} and \cite{CV}.
-%In this section we investigate the necessary conditions to obtain a category $\mathrm{X}$ and a left adjoint $L \colon \mathrm{A} \to \mathrm{X}$ from a category $\mathrm{A}$ with finite colimits and a symmetric lax monoidal pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$. The main tool that allows us to do this will be the Grothendieck construction which we recall:
-First of all, we recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Herm}, \cite{Borc}.
-
-A functor $U \maps \X \to \A$ is a \textbf{Grothendieck opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \colon a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $x$ along $f$, namely a morphism $\beta$ in $\X$ with domain $x$ above $f$ with the following universal property: for any $g\colon b\to b'$ in $\A$ and $\gamma\colon x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\colon y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
-\begin{displaymath}
-\xymatrix @R=.1in @C=.6in
-{&& y'\ar @{.>}@/_/[dd] &&\\
-x\ar[r]_-{\beta} \ar @{.>}@/_/[dd]
-\ar[urr]^-{\gamma} & 
-y \ar @{.>}@/_/[dd] \ar @{-->}[ur]_-{\exists! \delta}
-&& \textrm{in }\X\\
-&& b' &&\\
-a\ar[r]_-{f=U\beta} \ar[urr]^-{g\circ f=U\gamma}
- & b \ar[ur]_-g && \textrm{in }\A}
-\end{displaymath}
-
-
-%\begin{defn}
-%Let $P \colon \ca{X} \to \ca{A}$ be a functor. A morphism $f \colon d_{1} \to d_{2}$ in the category $\mathrm{D}$ is \textbf{cocartesian (with respect to the functor P)} if for any object $d^\prime$ in $\mathrm{D}$ and morphism $g \colon d_{1} \to d^\prime$ and every $p \colon P(d_{2}) \to P(d^\prime)$ such that $P(g)=p P(f)$, there exists a unique $h \colon d_{2} \to d^\prime$ such that $g=hf$ and $p=P(h)$.
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$d^\prime$};
-%\node (B) at (0,-1) {$d_{2}$};
-%\node (C) at (1.5,-1) {$d_{1}$};
-%\node (H) at (2,-0.25) {$P$};
-%\node (D) at (2,-.5) {$\mapsto$};
-%\node (E) at (3,0) {$P(d^\prime)$};
-%\node (F) at (3,-1) {$P(d_{2})$};
-%\node (G) at (4.5,-1) {$P(d_{1})$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(B) edge[dashed] node[above,left]{$\exists ! h$} (A)
-%(C) edge node[above,right]{$g$} (A)
-%(F) edge node[above,left]{$p=P(h)$} (E)
-%(G) edge node[above]{$P(f)$} (F)
-%(G) edge node[above,right]{$P(g)$} (E)
-%(C)edge node[above]{$f$}(B);
-%\end{tikzpicture}
-%\]
-%\end{defn}
-%\begin{defn}
-%A functor $P \colon \mathrm{D} \to \mathrm{A}$ is a \textbf{(Grothendieck) opfibration} if for any object $d$ in $\mathbf{D}$ and morphism $f \colon c %\to P(d)$ there exists a cocartesian morphism $\phi \colon d^\prime \to d$ such that $P(\phi)=f$.
-%\end{defn}
-%\begin{defn}
-%Let $P \colon \mathrm{D} \to \mathrm{A}$ and $P^\prime \colon \mathrm{D^\prime} \to \mathrm{A}$ be opfibrations over a category $\mathrm{A}$. A \define{morphism of opfibrations} is a functor $F \colon \mathrm{D} \to \mathrm{D}^\prime$ such that $F(p)$ is cocartesian with respect to $P^\prime$ if $p$ is cocartesian with respect to $P$ and $P=P^\prime F$.
-%\end{defn}
-The category $\X$ is called the \textbf{total} category and $\A$ is called the \textbf{base} category of the opfibration. For any $a\in\A$, the \textbf{fibre category} $\X_a$ consists of all objects that map to $a$ and vertical morphisms between them, i.e. mapping to $1_a$.
-Assuming the axiom of choice, we may select a cocartesian arrow over each $f\maps a\to b$ in $\A$ and $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\colon\X _a\to\X _b$ between the fibre categories, which by the liftings universal property adhere to natural $(1_a)_!\cong1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$. If these isomorphisms are equalities, we have the notion of a \textbf{split} opfibration.
-%Christina: decide later if needed
-%Notice that as a result,
-%any arrow in the total category of an opfibration factorizes uniquely into a vertical morphism (above the identity) followed by a (co)cartesian one:
-%\[
-%\xymatrix @C=.4in @R=.2in
-%{x \ar @{.>}[dd]\ar[rr]^\gamma \ar[drr]_-{\Cocart(g,C)} && D &\\
-%&& f_!C \ar @{-->}[u]_-{\delta} \ar @{.>}[d] & \textrm{in }\C  \\
-%X\ar[rr]_-{g} && Y & \textrm{in }\X.}
-%\]
-
-Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\mathbf{Cat}/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings and natural transformations with vertical components. In fact, there is a 2-equivalence between opfibrations and pseudofunctors, see Section ?, induced by the so-called \emph{Grothendieck construction}.
-%{\chris I don't mind this presentation of the Grothendieck construction which I admit not having seeing before. If we are to keep, we should put a reference. Otherwise we could stay more low level about this and just briefly describe what's going on.}
-%\begin{defn}
-%Let $\mathbf{Cat}_{\textnormal{lax},\star}$ denote the \define{2-category of lax-pointed categories} which has:
-%\begin{enumerate}
-%\item{objects as pairs $(\mathrm{A},c)$ where $\mathrm{A}$ is a category and $c$ is an object of $\mathrm{A}$, and}
-%\item{a morphism from $(\mathrm{A},c)$ to $(\mathrm{X},y)$ is a pair $(F,f)$ where $F \colon \mathrm{A} \to \mathrm{X}$ is a functor and $f \colon F(c) \to y$ is a morphism in $\mathrm{X}$.}
-%\end{enumerate}
-%\end{defn}
-%\begin{defn}
-%Given a pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$, the \define{Grothendieck construction of} $F$ is given by the `strict 2-pullback' of the following cospan:
-% \[
-%\begin{tikzpicture}[scale=1.5]
-%\node (D) at (1,1) {$\inta F$};
-%\node (A) at (0,0) {$\mathrm{A}$};
-%\node (B) at (1,-1) {$\mathbf{Cat}$};
-%\node (C) at (2,0) {$\mathbf{Cat}_{\textnormal{lax},\star}$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(D) edge[dashed] node[above]{$p$} (A)
-%(D) edge[dashed] node[above]{$q$} (C)
-%(A) edge node[below]{$F$} (B)
-%(C) edge node[below]{$P$} (B);
-%\end{tikzpicture}
-%\]
-%where $P \colon \mathbf{Cat}_{\textnormal{lax},\star} \to \mathbf{Cat}$ is the forgetful functor. 
-\begin{defn}\label{def:GrothCat}
-For any pseudofunctor $F\colon\A\to\bicat{Cat}$ where $\A$ is a category viewed as a 2-category with trivial 2-cells, the \textbf{Grothendieck category}
-$\inta F$ has
-\begin{itemize}
-\item objects pairs $(a, x \in F(a))$ and
-\item a morphism from $(a, x \in F(a))$ to $(b, y\in F(b))$ is a pair $(f \colon a \to b,\delta \colon F(f)(x) \to y)\in\A\times F(b)$.
-\end{itemize}
-{\chris Might need to write the composition rule? Depending on the final proof of Big Theorem.}
-This is an opfibred category over $\A$ via the obvious forgetful functor, with fibre categories $(\inta F)_a=F(a)$ and reindexing functors $f_!=F(f)$.
-\end{defn}
-%This can also be thought of as a morphism and a 2-morphism:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$\star$};
-%\node (B) at (1,0.5) {$F(c)$};
-%\node (C) at (1,-0.5) {$F(c^\prime)$};
-%\node (D) at (2,0.5) {$c$};
-%\node (E) at (2,-0.5) {$c^\prime$};
-%\node (F) at (0.65,0) {$\Swarrow \alpha$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$d$} (B)
-%(B) edge node[right]{$F(f)$} (C)
-%(A) edge node[below]{$d^\prime$} (C)
-%(D) edge node[left] {$f$} (E);
-%\end{tikzpicture}
-%\]
-The above in fact provides the one direction of the following well-known equivalence.
-%gives rise to a 2-functor $[\A,\bicat{Cat}]_\pse\to \mathbf{Cat}/ \A$ which factors through the embedding $\OpFib(\A) \hookrightarrow \bicat{Cat} / \A$ as per the following theorem.
-%: $$\inta F \colon [ \mathrm{A}, \mathbf{Cat} ] \to \textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}.$$
-
-\begin{thm}\label{thm:Grothendieck}\hfill
-    \begin{enumerate}
-        \item Every opfibration $\U \maps \X \to \A$ gives rise to a pseudofunctor $F_U \maps \A \to \bicat{Cat}$.
-        \item Every pseudofunctor $F \maps \A \to \bicat{Cat}$ gives rise to  an opfibration $\U_F \colon \inta F\to\A$.
-        \item The above correspondences yield an equivalence of 2-categories 
-        \begin{displaymath}
-            [\A,\bicat{Cat}]_\pse \simeq \OpFib(\A)
-        \end{displaymath}
-        so that $F_{\U_F} \cong F$ and $\U_{F_\U} \cong \U$.
-%        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
-%        \begin{equation}\label{eq:Gr_equiv}
-%        \ICat\simeq\Fib    
-%        \end{equation}
-    \end{enumerate}
+\begin{thm}\label{Equiv}
+Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\colon(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor, which factors through $\bicat{fcocCat}$ as an ordinary pseudofunctor. 
+Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans (\cref{thm:decoratedcospans}) is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans (\cref{SC}), where $L_F \colon \mathsf{A} \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\colon \inta{F} \to \mathsf{A}$. %by \cref{thm:Grothendieck}, 
+%under the assumptions of \cref{cor:fcocMonGroth}.
 \end{thm}
 
-
-
-%\begin{defn}
-%Let $P \colon \mathbf{D} \to \mathrm{A}$ be a functor. A morphism $f \colon d_{1} \to d_{2}$ in the category $\mathbf{D}$ is \textbf{cartesian (with respect to the functor P)} if for any object $d^\prime$ in $\mathbf{D}$ and morphism $g \colon d^\prime \to d_{2}$ and every $p \colon P(d^\prime) \to P(d_{1})$ such that $P(g)=P(f)p$, there exists a unique $h \colon d^\prime \to d_{1}$ such that $g=fh$ and $p=P(h)$.
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$d^\prime$};
-%\node (B) at (0,-1.5) {$d_{1}$};
-%\node (C) at (1.5,-1.5) {$d_{2}$};
-%\node (H) at (2,-0.5) {$P$};
-%\node (D) at (2,-.75) {$\mapsto$};
-%\node (E) at (3,0) {$P(d^\prime)$};
-%\node (F) at (3,-1.5) {$P(d_{1})$};
-%\node (G) at (4.5,-1.5) {$P(d_{2})$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge[dashed] node[above,left]{$\exists ! h$} (B)
-%(A) edge node[above]{$g$} (C)
-%(E) edge node[above,left]{$p=P(h)$} (F)
-%(F) edge node[above]{$P(f)$} (G)
-%(E) edge node[above,right]{$P(g)$} (G)
-%(B)edge node[above]{$f$}(C);
-%\end{tikzpicture}
-%\]
-%\end{defn}
+The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. 
 
 In \cite{MV}, the Grothendieck construction is generalized to the monoidal setting, namely lax monoidal structures on a pseudofunctor $F\colon\A\to\bicat{Cat}$ bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves liftings, see \cite[Thm. 3.10]{MV}. If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\colon\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations:
 \begin{gather}
@@ -3399,13 +3209,8 @@ Suppose $\U\colon\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ ha
 
 We have now laid all the necessary background to formally establish an equivalence between the double category of decorated cospans and the double category of structured cospans, constructed from a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
 
-\begin{thm}\label{Equiv}
-Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\colon(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor. %such that as an ordinary pseudofunctor, it factors through $\bicat{fcocCat}$. 
-Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans (\cref{thm:decoratedcospans}) is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans (\cref{SC}), where $L_F \colon \mathsf{A} \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\colon \inta{F} \to \mathsf{A}$ %by \cref{thm:Grothendieck}, 
-under the assumptions of \cref{cor:fcocMonGroth}.
-\end{thm}
 
-\begin{proof}
+\begin{proof}[Proof of \cref{Equiv}]
 Recall that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms those of $\A$, horizontal 1-cells $a\tickar b$ are cospans $\cspn{a}{c}{b}{}{}$ in $\A$ along with $x\in F(c)$, and 2-morphisms are cospan maps $k\colon c\to c'$ together with a morphism $(Fk)(x)\to x'$, see \cref{eq:FCsp2morph}.
 
 By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{fcocCat}$, the (monoidal) Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U_F\colon(\inta{F},+,0)\to(\A,+,0)$ preserves all finite colimits. %Christina: maybe the cocartesian structures are redundant to write here, since U_F really preserves all finite colimits anyways.
@@ -5209,6 +5014,161 @@ of pseudofunctors, pseudonatural transformations and modifications from an ordin
 
 A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\colon\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\colon Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\colon I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoida' pseudofunctor. A \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories comes with invertible $F(b)\circ \mu_{a,b}\cong \mu_{b,a}\circ b$, where $b$ is the braiding. 
 {\chris Hiding various details under the rug - e.g. what a symmetric monoidal bicategory is. Should be fine? Also, not sure if we need monoidal transformations?}
+
+\subsection{Fibrations}\label{sec:fibrations}
+We now recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Herm}, \cite{Borc}.
+
+A functor $U \maps \X \to \A$ is a \textbf{Grothendieck opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \colon a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $x$ along $f$, namely a morphism $\beta$ in $\X$ with domain $x$ above $f$ with the following universal property: for any $g\colon b\to b'$ in $\A$ and $\gamma\colon x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\colon y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
+\begin{displaymath}
+\xymatrix @R=.1in @C=.6in
+{&& y'\ar @{.>}@/_/[dd] &&\\
+x\ar[r]_-{\beta} \ar @{.>}@/_/[dd]
+\ar[urr]^-{\gamma} & 
+y \ar @{.>}@/_/[dd] \ar @{-->}[ur]_-{\exists! \delta}
+&& \textrm{in }\X\\
+&& b' &&\\
+a\ar[r]_-{f=U\beta} \ar[urr]^-{g\circ f=U\gamma}
+ & b \ar[ur]_-g && \textrm{in }\A}
+\end{displaymath}
+
+
+%\begin{defn}
+%Let $P \colon \ca{X} \to \ca{A}$ be a functor. A morphism $f \colon d_{1} \to d_{2}$ in the category $\mathrm{D}$ is \textbf{cocartesian (with respect to the functor P)} if for any object $d^\prime$ in $\mathrm{D}$ and morphism $g \colon d_{1} \to d^\prime$ and every $p \colon P(d_{2}) \to P(d^\prime)$ such that $P(g)=p P(f)$, there exists a unique $h \colon d_{2} \to d^\prime$ such that $g=hf$ and $p=P(h)$.
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$d^\prime$};
+%\node (B) at (0,-1) {$d_{2}$};
+%\node (C) at (1.5,-1) {$d_{1}$};
+%\node (H) at (2,-0.25) {$P$};
+%\node (D) at (2,-.5) {$\mapsto$};
+%\node (E) at (3,0) {$P(d^\prime)$};
+%\node (F) at (3,-1) {$P(d_{2})$};
+%\node (G) at (4.5,-1) {$P(d_{1})$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(B) edge[dashed] node[above,left]{$\exists ! h$} (A)
+%(C) edge node[above,right]{$g$} (A)
+%(F) edge node[above,left]{$p=P(h)$} (E)
+%(G) edge node[above]{$P(f)$} (F)
+%(G) edge node[above,right]{$P(g)$} (E)
+%(C)edge node[above]{$f$}(B);
+%\end{tikzpicture}
+%\]
+%\end{defn}
+%\begin{defn}
+%A functor $P \colon \mathrm{D} \to \mathrm{A}$ is a \textbf{(Grothendieck) opfibration} if for any object $d$ in $\mathbf{D}$ and morphism $f \colon c %\to P(d)$ there exists a cocartesian morphism $\phi \colon d^\prime \to d$ such that $P(\phi)=f$.
+%\end{defn}
+%\begin{defn}
+%Let $P \colon \mathrm{D} \to \mathrm{A}$ and $P^\prime \colon \mathrm{D^\prime} \to \mathrm{A}$ be opfibrations over a category $\mathrm{A}$. A \define{morphism of opfibrations} is a functor $F \colon \mathrm{D} \to \mathrm{D}^\prime$ such that $F(p)$ is cocartesian with respect to $P^\prime$ if $p$ is cocartesian with respect to $P$ and $P=P^\prime F$.
+%\end{defn}
+The category $\X$ is called the \textbf{total} category and $\A$ is called the \textbf{base} category of the opfibration. For any $a\in\A$, the \textbf{fibre category} $\X_a$ consists of all objects that map to $a$ and vertical morphisms between them, i.e. mapping to $1_a$.
+Assuming the axiom of choice, we may select a cocartesian arrow over each $f\maps a\to b$ in $\A$ and $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\colon\X _a\to\X _b$ between the fibre categories, which by the liftings universal property adhere to natural $(1_a)_!\cong1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$. If these isomorphisms are equalities, we have the notion of a \textbf{split} opfibration.
+%Christina: decide later if needed
+%Notice that as a result,
+%any arrow in the total category of an opfibration factorizes uniquely into a vertical morphism (above the identity) followed by a (co)cartesian one:
+%\[
+%\xymatrix @C=.4in @R=.2in
+%{x \ar @{.>}[dd]\ar[rr]^\gamma \ar[drr]_-{\Cocart(g,C)} && D &\\
+%&& f_!C \ar @{-->}[u]_-{\delta} \ar @{.>}[d] & \textrm{in }\C  \\
+%X\ar[rr]_-{g} && Y & \textrm{in }\X.}
+%\]
+
+Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\mathbf{Cat}/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings and natural transformations with vertical components. In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called \emph{Grothendieck construction}.
+%{\chris I don't mind this presentation of the Grothendieck construction which I admit not having seeing before. If we are to keep, we should put a reference. Otherwise we could stay more low level about this and just briefly describe what's going on.}
+%\begin{defn}
+%Let $\mathbf{Cat}_{\textnormal{lax},\star}$ denote the \define{2-category of lax-pointed categories} which has:
+%\begin{enumerate}
+%\item{objects as pairs $(\mathrm{A},c)$ where $\mathrm{A}$ is a category and $c$ is an object of $\mathrm{A}$, and}
+%\item{a morphism from $(\mathrm{A},c)$ to $(\mathrm{X},y)$ is a pair $(F,f)$ where $F \colon \mathrm{A} \to \mathrm{X}$ is a functor and $f \colon F(c) \to y$ is a morphism in $\mathrm{X}$.}
+%\end{enumerate}
+%\end{defn}
+%\begin{defn}
+%Given a pseudofunctor $F \colon \mathrm{A} \to \mathbf{Cat}$, the \define{Grothendieck construction of} $F$ is given by the `strict 2-pullback' of the following cospan:
+% \[
+%\begin{tikzpicture}[scale=1.5]
+%\node (D) at (1,1) {$\inta F$};
+%\node (A) at (0,0) {$\mathrm{A}$};
+%\node (B) at (1,-1) {$\mathbf{Cat}$};
+%\node (C) at (2,0) {$\mathbf{Cat}_{\textnormal{lax},\star}$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(D) edge[dashed] node[above]{$p$} (A)
+%(D) edge[dashed] node[above]{$q$} (C)
+%(A) edge node[below]{$F$} (B)
+%(C) edge node[below]{$P$} (B);
+%\end{tikzpicture}
+%\]
+%where $P \colon \mathbf{Cat}_{\textnormal{lax},\star} \to \mathbf{Cat}$ is the forgetful functor. 
+\begin{defn}\label{def:GrothCat}
+For any pseudofunctor $F\colon\A\to\bicat{Cat}$ where $\A$ is a category viewed as a 2-category with trivial 2-cells, the \textbf{Grothendieck category}
+$\inta F$ has
+\begin{itemize}
+\item objects pairs $(a, x \in F(a))$ and
+\item a morphism from $(a, x \in F(a))$ to $(b, y\in F(b))$ is a pair $(f \colon a \to b,\delta \colon F(f)(x) \to y)\in\A\times F(b)$.
+\end{itemize}
+{\chris Might need to write the composition rule? Depending on the final proof of Big Theorem.}
+This is an opfibred category over $\A$ via the obvious forgetful functor, with fibre categories $(\inta F)_a=F(a)$ and reindexing functors $f_!=F(f)$.
+\end{defn}
+%This can also be thought of as a morphism and a 2-morphism:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$\star$};
+%\node (B) at (1,0.5) {$F(c)$};
+%\node (C) at (1,-0.5) {$F(c^\prime)$};
+%\node (D) at (2,0.5) {$c$};
+%\node (E) at (2,-0.5) {$c^\prime$};
+%\node (F) at (0.65,0) {$\Swarrow \alpha$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$d$} (B)
+%(B) edge node[right]{$F(f)$} (C)
+%(A) edge node[below]{$d^\prime$} (C)
+%(D) edge node[left] {$f$} (E);
+%\end{tikzpicture}
+%\]
+The above in fact provides the one direction of the following well-known equivalence.
+%gives rise to a 2-functor $[\A,\bicat{Cat}]_\pse\to \mathbf{Cat}/ \A$ which factors through the embedding $\OpFib(\A) \hookrightarrow \bicat{Cat} / \A$ as per the following theorem.
+%: $$\inta F \colon [ \mathrm{A}, \mathbf{Cat} ] \to \textnormal{Opfib}(\mathrm{A}) \hookrightarrow \mathbf{Cat} / \mathrm{A}.$$
+
+\begin{thm}\label{thm:Grothendieck}\hfill
+    \begin{enumerate}
+        \item Every opfibration $\U \maps \X \to \A$ gives rise to a pseudofunctor $F_U \maps \A \to \bicat{Cat}$.
+        \item Every pseudofunctor $F \maps \A \to \bicat{Cat}$ gives rise to  an opfibration $\U_F \colon \inta F\to\A$.
+        \item The above correspondences yield an equivalence of 2-categories 
+        \begin{displaymath}
+            [\A,\bicat{Cat}]_\pse \simeq \OpFib(\A)
+        \end{displaymath}
+        so that $F_{\U_F} \cong F$ and $\U_{F_\U} \cong \U$.
+%        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
+%        \begin{equation}\label{eq:Gr_equiv}
+%        \ICat\simeq\Fib    
+%        \end{equation}
+    \end{enumerate}
+\end{thm}
+
+
+
+%\begin{defn}
+%Let $P \colon \mathbf{D} \to \mathrm{A}$ be a functor. A morphism $f \colon d_{1} \to d_{2}$ in the category $\mathbf{D}$ is \textbf{cartesian (with respect to the functor P)} if for any object $d^\prime$ in $\mathbf{D}$ and morphism $g \colon d^\prime \to d_{2}$ and every $p \colon P(d^\prime) \to P(d_{1})$ such that $P(g)=P(f)p$, there exists a unique $h \colon d^\prime \to d_{1}$ such that $g=fh$ and $p=P(h)$.
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$d^\prime$};
+%\node (B) at (0,-1.5) {$d_{1}$};
+%\node (C) at (1.5,-1.5) {$d_{2}$};
+%\node (H) at (2,-0.5) {$P$};
+%\node (D) at (2,-.75) {$\mapsto$};
+%\node (E) at (3,0) {$P(d^\prime)$};
+%\node (F) at (3,-1.5) {$P(d_{1})$};
+%\node (G) at (4.5,-1.5) {$P(d_{2})$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge[dashed] node[above,left]{$\exists ! h$} (B)
+%(A) edge node[above]{$g$} (C)
+%(E) edge node[above,left]{$p=P(h)$} (F)
+%(F) edge node[above]{$P(f)$} (G)
+%(E) edge node[above,right]{$P(g)$} (G)
+%(B)edge node[above]{$f$}(C);
+%\end{tikzpicture}
+%\]
+%\end{defn}
+
+
 
 
 \subsection{Double categories}\label{sec:doublecats}
