@@ -798,7 +798,7 @@ Given two composable horizontal 1-cells $M$ and $N$:
 \end{tikzpicture}
 \]
 the composite $N \odot M$ is given by:
-\[
+\begin{equation}\label{eq:dcospanscomposition}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
 \node (B) at (1,1) {$b$};
@@ -818,7 +818,7 @@ the composite $N \odot M$ is given by:
 (A) edge[bend left] node [left] {$\psi j i$} (G)
 (E) edge[bend right] node [right] {$\psi j^\prime o^\prime$} (G);
 \end{tikzpicture}
-\]
+\end{equation}
 with the corresponding decoration of the apex $\hat{d} \in F(b+_{a_2} b^\prime)$ given by:
 $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d \times d^\prime} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+b^\prime) \xrightarrow{F(\psi)} F(b+_{a_2}b^\prime)$$
 where $\psi \colon b + b^\prime \to b+_{a_2} b^\prime$ is the natural map from the coproduct to the pushout and $\phi_{b,b^\prime} \colon F(b) \times F(b^\prime) \to F(b+b^\prime)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \colon \mathsf{A} \to \mathbf{Cat}$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
@@ -3261,7 +3261,7 @@ a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
  \end{tikzcd}
 \end{displaymath}
  in $\A$ along with the map $\iota\colon Fk(x)\to x'$ in $F(m')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}. Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
- {\chris Christina commented out big chunks of proof. They are right below if we want to revive parts of them, if we think the reader needs deeper level of detail.}
+ {\chris Christina commented out big chunks of proof. They are right below if we want to revive parts of them, if we think the reader needs deeper level of detail. The idea is that the above description suffices as fully faithful and essentially surjective evidence, but perhaps we would like to spell that out more. On to strongness next.}
 
 \begin{comment}
 which is a cospan in $\mathsf{X}$ of the form:
@@ -3538,12 +3538,40 @@ Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\ma
 Functoriality of $\mathbb{E}_1$ can be verified, and moreover $(\mathbb{E}_0,\mathbb{E}_1)$ indeed define a strong double functor: there exist natural isomorphisms
 \begin{gather*}
  \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N) \\
-U_{\mathbb{E}(m,x)} \xrightarrow{\sim} \mathbb{E}(U_{(m,x)})
+U_{\mathbb{E}m} \xrightarrow{\sim} \mathbb{E}(U_m)
 \end{gather*}
-for any pair of composable horizontal 1-cells $M$ and $N$ and any object $(m,x)$ of $\scsp{L_F}{\inta F}$
-{\chris in progress}
+for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $\scsp{L_F}{\inta F}$. In more detail, $\mathbb{E}(M)\odot \mathbb{E}(N)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
+\begin{displaymath}
+ \begin{tikzcd}
+  & m+_bn & \\
+  a\ar[ur,"j_m\circ i"] && b,\ar[ul,"j_n\circ o"']
+ \end{tikzcd}
+ \begin{tikzcd}
+  1\ar[r,"x\times y"]\ar[drr,dashed] & F(m)\times F(n)\ar[r,"\phi_{m,n}"] & F(m+ n)\ar[d,"F(j)"] \\ 
+  && F(m+_b n)
+ \end{tikzcd}
+\end{displaymath}
+where $j_m, j_n$ denote the maps into a pushout.
+On the other hand, first composing $M$ and $N$ in the Grothendieck category $\scsp{L_F}{\inta F}$ using fibrewise pushouts constructed using \cref{lem:fibrewiselimits} ({\chris I could make this specific construction into a lemma earlier if you want, I have it in my notes}) produces 
+\begin{displaymath}
+ \begin{tikzcd}
+ && (m+_b n,F(j_m)x+_{\bot_{m+_bn}}F(j_n)y) && \\
+ & (m,x) \ar[ur] && (n,y)\ar[ul] \\
+ (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
+ \end{tikzcd}
+\end{displaymath}
+which is mapped, under $\mathbb{E}$, to precisely the cospan $\cspn{a}{m+_bn}{b}{}{}$ as above, and the decorations are the same {\chris isomorphic would be enough but they look equal to me!} due to the following commutative diagram
+\begin{displaymath}
+ \begin{tikzcd}
+F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(j_m)\times F(j_n)"'] && F(m+n)\ar[d,"F(j)"] \\
+F(m+_bn)\times F(m+_bn)\ar[r,"\phi"] & F((m+_bn)+(m+_bn))\ar[r,"F\nabla"] & F(m+_bn)
+ \end{tikzcd}
+\end{displaymath}
+since taking a pushout over an initial object is really a coproduct, and the fibrewise coproduct in $F(m+_bn)$ is given as in \cref{eq:explicitstructure1}.
 
+Regarding the identity morphisms, $U_m$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component of the morphisms and isomorphisms between initial objects in the fibres. Thus $\mathbb{E}(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, whereas $U_{\mathbb{E}(m)}$ is exactly the same thing.
 
+{\chris Below, up to my next comment, is Kenny's earlier proof on the same thing.}
 
 For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
 \[
@@ -3723,13 +3751,12 @@ Next, to see that the above diagram commutes, it suffices to show that for the o
 \]
 Lastly, this map of cospans comes with an isomorphism $$\iota \colon F(\sigma)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$$ in $F(R(x+_{L(c_2)}x^\prime))$. This shows that $\mathbb{E}$ is strong, and so 
 
-{\chris Up to here}
+{\chris Up to here was Kenny's strong functoriality.}
 
 Based on the above description of its mapping, it follows that the strong double functor $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is full, faithful and essentially surjective on objects as per \cref{def:fullfaithful,def:essentiallysurj}. Therefore $\mathbb{E} \colon \scsp{L_F}{\inta F} \to \dcsp{F}$ is a double equivalence, by \cref{ShulDubEquiv}.
 {\chris In fact, Christina and Kenny believe it is an isomorphism of double categories! Bijective on all levels of objects and morphisms...should we say?}
 
-
-
+{\chris Have not edited below, but everything should be fine up to notation changes. Happy to do if needed in the future.}
 
 Next, we show that if both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\mathsf{X}$ have finite colimits, then this equivalence of double categories $\mathbb{E} \colon _L \mathbb{C}\textnormal{sp}(\mathsf{X}) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \colon 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\mathsf{X})})$ and natural isomorphisms $\mu_{c_1,c_2} \colon \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\mathsf{X})}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\mathsf{X})$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
 
