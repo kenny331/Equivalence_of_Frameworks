@@ -27,10 +27,11 @@ The first two authors have developed a compositional framework well-suited for s
 \section*{Various issues-in-progress}
  
 \begin{itemize}
-\item {\chris Would a title like `An equivalence of compositional frameworks for networks' or `An equivalence of compositional network frameworks' be more informative? Otherwise, compositional framework on its own doesn't say much!}
-\item {\chris Discuss notation for Decorated and Structured cospan double categories one last time? :)}
 \item {\chris Notation between \cref{Equiv} and \cref{thm:decoratedcospans} right now does not match! Need to fix. Slightly prefer a,b,c for objects of A, then $a'$ and $b'$ for other objects, and x an object of the category F(c) namely the decoration. The previously used `d' is slightly confusing around all these a's, b's and c's that are in a different category. Also I prefer $a$ and $b$ rather than $a_1$ and $a_2$.}
+
+{\chris After a brief discussion in John's office, for \cref{Equiv} I used $a,b,c$ for the feet and $m,n$ for the apices so we can serially compose. Of course can change as we like.}
 %\item {\chris There might be a way to completely hide the details of version 'fibres have, reindexing preserve' if that's what we want to do.}
+
 \end{itemize}
 
 
@@ -3212,7 +3213,7 @@ We have now laid all the necessary background to formally construct an equivalen
 
 
 \begin{proof}[Proof of \cref{Equiv}]
-Recall that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms those of $\A$, horizontal 1-cells $a\tickar b$ are cospans $\cspn{a}{c}{b}{}{}$ in $\A$ along with $x\in F(c)$, and 2-morphisms are cospan maps $k\colon c\to c'$ together with a morphism $(Fk)(x)\to x'$, see \cref{eq:FCsp2morph}.
+Recall that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms those of $\A$, horizontal 1-cells $a\tickar b$ are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ along with $x\in F(m)$, and 2-morphisms are cospan maps $k\colon m\to m'$ together with a morphism $(Fk)(x)\to x'$, see \cref{eq:FCsp2morph}.
 
 By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{fcocCat}$, the (monoidal) Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U_F\colon(\inta{F},+,0)\to(\A,+,0)$ preserves all finite colimits. %Christina: maybe the cocartesian structures are redundant to write here, since U_F really preserves all finite colimits anyways.
 Since in particular it preserves the initial object, \cref{prop:opfibtolari} through \cref{lem:fibrewiselimits} applies 
@@ -3225,13 +3226,13 @@ roughly describes the processes between the original $F$ and the resulting $L_F$
 
 Using this functor $L_F$ between finitely cocomplete categories that preserves all colimits that exist (as a left adjoint), we can construct the double category of structured cospans $\scsp{L_F}{\inta F}$. Its objects and vertical morphisms are again those of the category $\A$, whereas horizontal 1-cells $a\tickar b$ as in \cref{eq:structuredcospan} are now cospans of the form $\cspn{L_F(a)}{v}{L_F(b)}{}{}$ in the Grothendieck category $\inta F$. Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
- (a,\bot_a)\xrightarrow{\scalebox{0.7}{$\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}$}}(c,x)\xleftarrow{\scalebox{0.7}{$\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}$}}(b,\bot_b)
+ (a,\bot_a)\xrightarrow{\scalebox{0.7}{$\begin{cases}i\colon a\to m &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}$}}(m,x)\xleftarrow{\scalebox{0.7}{$\begin{cases}o\colon b\to m &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}$}}(b,\bot_b)
 \end{equation}
-where $x\in F(c)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in this double category are as described in \cref{eq:2cellsStrCsp}, in this context fully unravelled below:
+where $x\in F(m)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in this double category are as described in \cref{eq:2cellsStrCsp}, in this context fully unravelled below:
 \begin{displaymath}
  \begin{tikzcd}[sep=1.5in,ampersand replacement=\&]
- (a,\bot_a)\ar[r,"{\begin{cases}i\colon a\to c &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(c)\end{cases}}"]\ar[d,"{\begin{cases}f\colon a\to a' &\textrm{in }\A \\\chi_a\colon F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (c,x) \ar[d,"{\begin{cases}k\colon c\to c' &\textrm{in }\A \\ \iota\colon F(k)(x)\to x' &\textrm{in }F(c')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\colon b\to c &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(c)\end{cases}}"']\ar[d,"{\begin{cases}g\colon b\to b' &\textrm{in }\A \\\chi_b\colon F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
- (a',\bot_{a'})\ar[r,"{\begin{cases}i'\colon a'\to c' &\textrm{in }\A \\!\colon F(i')(\bot_{a'})\to x' &\textrm{in }F(c')\end{cases}}"'] \& (c',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\colon b'\to c' &\textrm{in }\A \\!\colon F(o')(\bot_{b'})\to x' &\textrm{in }F(c')\end{cases}}"]
+ (a,\bot_a)\ar[r,"{\begin{cases}i\colon a\to m &\textrm{in }\A \\!\colon F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}}"]\ar[d,"{\begin{cases}f\colon a\to a' &\textrm{in }\A \\\chi_a\colon F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (m,x) \ar[d,"{\begin{cases}k\colon m\to m' &\textrm{in }\A \\ \iota\colon F(k)(x)\to x' &\textrm{in }F(m')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\colon b\to m &\textrm{in }\A \\!\colon F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}}"']\ar[d,"{\begin{cases}g\colon b\to b' &\textrm{in }\A \\\chi_b\colon F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
+ (a',\bot_{a'})\ar[r,"{\begin{cases}i'\colon a'\to m' &\textrm{in }\A \\!\colon F(i')(\bot_{a'})\to x' &\textrm{in }F(m')\end{cases}}"'] \& (m',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\colon b'\to m' &\textrm{in }\A \\!\colon F(o')(\bot_{b'})\to x' &\textrm{in }F(m')\end{cases}}"]
  \end{tikzcd}
 \end{displaymath}
 where the outside vertical legs come from the definition of $L_F$ on arrows, \cref{eq:Lonarrows}. 
@@ -3241,7 +3242,7 @@ The square commutativities translate to $k\circ i=i'\circ f$ and $k\circ o=o'\ci
  F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{\iota}x'= \\
  F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'\nonumber
 \end{gather}
-in the category $F(c')$. However, since all maps are unique in the above equality, emanating from initial objects (since reindexing functors preserve those), this gives no extra conditions for the morphisms involved; similarly for the equality including $o, o'$.
+in the category $F(m')$. However, since all maps are unique in the above equality, emanating from initial objects (since reindexing functors preserve those), this gives no extra conditions for the morphisms involved; similarly for the equality including $o, o'$.
 
 In order to prove that there is a double equivalence (\cref{ShulDubEquiv}) between $\dcsp{F}$ and $\scsp{L_F}{\inta F}$, we define a %n identity-on-objects and vertical morphism
 double functor
@@ -3250,16 +3251,16 @@ double functor
 \end{displaymath}
 as follows. The object component of $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is $\mathbb{E}_0 = \id_{\mathsf{A}}$ since both double categories have $\mathsf{A}$ as their vertical category; trivially, $\mathbb{E}_0$ is an equivalence of categories. Given a horizontal 1-cell in $\scsp{L_F}{\inta F}$ like \cref{eq:scsphor1cell}, the arrow component $\mathbb{E}_1$ of the double functor simply maps it to the decorated cospan
 \begin{displaymath}
- a\xrightarrow{\; i \;}c\xleftarrow{\; o \;}b\;\textrm{ with decoration }x\in F(c)
+ a\xrightarrow{\; i \;}m\xleftarrow{\; o \;}b\;\textrm{ with decoration }x\in F(m)
 \end{displaymath}
 Notice that this really is a bijective correspondence since the unique maps from the initial objects in the fibres provide no extra information. Finally, given a 2-morphism of $L_F$-structured cospans as described above, $\mathbb{E}_1$ maps it to the underlying cospan 2-morphism
 \begin{displaymath}
  \begin{tikzcd}
-a\ar[r,"i"]\ar[d,"f"'] & c\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
-a'\ar[r,"i'"']& c' & b'\ar[l,"o'"]
+a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
+a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
  \end{tikzcd}
 \end{displaymath}
- in $\A$ along with the map $\iota\colon Fk(x)\to x'$ in $F(c')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}. Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
+ in $\A$ along with the map $\iota\colon Fk(x)\to x'$ in $F(m')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}. Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
  {\chris Christina commented out big chunks of proof. They are right below if we want to revive parts of them, if we think the reader needs deeper level of detail.}
 
 \begin{comment}
@@ -3537,9 +3538,9 @@ Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\ma
 Functoriality of $\mathbb{E}_1$ can be verified, and moreover $(\mathbb{E}_0,\mathbb{E}_1)$ indeed define a strong double functor: there exist natural isomorphisms
 \begin{gather*}
  \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N) \\
-U_{\mathbb{E}(c,x)} \xrightarrow{\sim} \mathbb{E}(U_{(c,x)})
+U_{\mathbb{E}(m,x)} \xrightarrow{\sim} \mathbb{E}(U_{(m,x)})
 \end{gather*}
-for any pair of composable horizontal 1-cells $M$ and $N$ and any object $(c,x)$ of $\scsp{L_F}{\inta F}$
+for any pair of composable horizontal 1-cells $M$ and $N$ and any object $(m,x)$ of $\scsp{L_F}{\inta F}$
 {\chris in progress}
 
 
