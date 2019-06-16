@@ -1206,10 +1206,10 @@ First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\mathsf
 \item{objects as $F$-decorated cospans which are pairs:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$b$};
-\node (C) at (2,0) {$a_2$};
-\node (D) at (3,0) {$d \in F(b)$};
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$m$};
+\node (C) at (2,0) {$b$};
+\node (D) at (3,0) {$x \in F(b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -1219,58 +1219,58 @@ and}
 \item{morphisms as maps of cospans in $\mathsf{A}$
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a_1$};
-\node (A') at (0,-0.5) {$a_1^\prime$};
-\node (B) at (1,0.5) {$b$};
-\node (C) at (2,0.5) {$a_2$};
-\node (C') at (2,-0.5) {$a_2^\prime$};
-\node (D) at (1,-0.5) {$b^\prime$};
-\node (E) at (3,0.5) {$d \in F(b)$};
-\node (F) at (3,-0.5) {$d^\prime \in F(b^\prime)$};
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a^\prime$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b^\prime$};
+\node (D) at (1,-0.5) {$m^\prime$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x^\prime \in F(m^\prime)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$g$} (C')
+(C) edge node[right]{$g$} (C')
 (A') edge node [above]{$i^\prime$} (D)
 (C') edge node [above]{$o^\prime$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a morphism $\iota \colon F(h)(d) \to d^\prime$.
+together with a morphism $\iota \colon F(h)(x) \to x^\prime$.
 }
 \end{enumerate}
 Given two objects $M_1$ and $M_2$ of $F\mathbb{C}\textnormal{sp}_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$b$};
-\node (C) at (2,0) {$a_2$};
-\node (D) at (1,-0.5) {$d_{M_1} \in F(b)$};
-\node (E) at (3,0) {$a_1^\prime$};
-\node (F) at (4,0) {$b^\prime$};
-\node (G) at (5,0) {$a_2^\prime$};
-\node (H) at (4,-0.5) {$d_{M_2} \in F(b^\prime)$};
+\node (B) at (1,0) {$m_1$};
+\node (C) at (2,0) {$b_1$};
+\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+\node (E) at (3,0) {$a_2$};
+\node (F) at (4,0) {$m_2$};
+\node (G) at (5,0) {$b_2$};
+\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(E) edge node[above]{$i^\prime$} (F)
-(G) edge node[above]{$o^\prime$} (F);
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(E) edge node[above]{$i_2$} (F)
+(G) edge node[above]{$o_2$} (F);
 \end{tikzpicture}
 \]
 their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the cospans of $\mathsf{A}$
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1+a_1^\prime$};
-\node (B) at (1.25,0) {$b+b^\prime$};
-\node (C) at (2.5,0) {$a_2+a_2^\prime$};
-\node (D) at (4.25,0) {$d_{M_1 \otimes M_2} \in F(b+b')$};
+\node (A) at (0,0) {$a_1+a_2$};
+\node (B) at (1.25,0) {$m_1+m_2$};
+\node (C) at (2.5,0) {$b_1+b_2$};
+\node (D) at (4.25,0) {$x_1+x_2 \in F(m_1+m_2)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i+i'$} (B)
-(C) edge node[above]{$o+o'$} (B);
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
-and where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F:$ $$d_{M_1 \otimes M_2} \coloneqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_{M_1} \times d_{M_2}} F(b) \times F(b') \xrightarrow{\phi_{b,b'}} F(b+b').$$The monoidal unit 0 is given by:
+and where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F:$ $$x_1+x_2 \coloneqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$The monoidal unit 0 is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
@@ -1289,10 +1289,10 @@ where $0$ is the monoidal unit of $\mathsf{A}$ and $!_0 \colon 1 \to F(0)$ is th
 \node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
 \node (D) at (1,-0.5) {$!_0 \in F(0)$};
-\node (E) at (3,0) {$a_1$};
-\node (F) at (4,0) {$b$};
-\node (G) at (5,0) {$a_2$};
-\node (H) at (4,-0.5) {$d_M \in F(b)$};
+\node (E) at (3,0) {$a$};
+\node (F) at (4,0) {$m$};
+\node (G) at (5,0) {$b$};
+\node (H) at (4,-0.5) {$x \in F(m)$};
 \node (I) at (2.5,0) {$\otimes$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!$} (B)
@@ -1304,53 +1304,53 @@ where $0$ is the monoidal unit of $\mathsf{A}$ and $!_0 \colon 1 \to F(0)$ is th
 results in:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$0+a_1$};
-\node (B) at (1,0) {$0+b$};
-\node (C) at (2,0) {$0+a_2$};
-\node (D) at (3.5,0) {$d_{0 \otimes M} \in F(0+b)$};
+\node (A) at (0,0) {$0+a$};
+\node (B) at (1,0) {$0+m$};
+\node (C) at (2,0) {$0+b$};
+\node (D) at (3.5,0) {$!_0 + x \in F(0+m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!+i$} (B)
 (C) edge node[above]{$!+o$} (B);
 \end{tikzpicture}
 \]
-where $d_{0\otimes M} \in F(0+b)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_0 \times d_M} F(0) \times F(b) \xrightarrow{\phi_{0,b}} F(0+b).$$The left unitor is then an isomorphism in $F\mathbb{C}\textnormal{sp}_1$ given by:
+where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$The left unitor is then an isomorphism in $F\mathbb{C}\textnormal{sp}_1$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$0+a_1$};
-\node (A') at (0,-0.5) {$a_1$};
-\node (B) at (1,0.5) {$0+b$};
-\node (C) at (2,0.5) {$0+a_2$};
-\node (C') at (2,-0.5) {$a_2$};
-\node (D) at (1,-0.5) {$b$};
-\node (E) at (3.5,0.5) {$d_{0+M} \in F(0+b)$};
-\node (F) at (3.5,-0.5) {$d_M \in F(b)$};
+\node (A) at (0,0.5) {$0+a$};
+\node (A') at (0,-0.5) {$a$};
+\node (B) at (1,0.5) {$0+m$};
+\node (C) at (2,0.5) {$0+b$};
+\node (C') at (2,-0.5) {$b$};
+\node (D) at (1,-0.5) {$m$};
+\node (E) at (3.5,0.5) {$!_0 + x \in F(0+m)$};
+\node (F) at (3.5,-0.5) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!+i$} (B)
 (C) edge node[above]{$!+o$} (B)
 (A) edge node[left]{$\ell$} (A')
-(C) edge node[left]{$\ell$} (C')
+(C) edge node[right]{$\ell$} (C')
 (A') edge node [above]{$i$} (D)
 (C') edge node [above]{$o$} (D)
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-where $\ell$ is the left unitor of $(\mathsf{A},+,0)$, together with the isomorphism $\iota_{\lambda} \colon F(\ell)(d_{0 \otimes M}) \to d_M$. The right unitor is similar.
+where $\ell$ is the left unitor of $(\mathsf{A},+,0)$, together with the isomorphism $\iota_{\lambda} \colon F(\ell)(!_0 + x) \to x$. The right unitor is similar.
 
 Given three objects $M_1, M_2$ and $M_3$ in $F\mathbb{C}\textnormal{sp}_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$c_1$};
+\node (B) at (1,0) {$m_1$};
 \node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$d_{M_1} \in F(c_1)$};
+\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,0) {$c_2$};
+\node (F) at (4,0) {$m_2$};
 \node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$d_{M_2} \in F(c_2)$};
+\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
 \node (I) at (6,0) {$a_3$};
-\node (J) at (7,0) {$c_3$};
+\node (J) at (7,0) {$m_3$};
 \node (K) at (8,0) {$b_3$};
-\node (L) at (7,-0.5) {$d_{M_3} \in F(c_3)$};
+\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -1364,66 +1364,66 @@ tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(a_1+a_2)+a_3$};
-\node (B) at (2.25,0){$(c_1+c_2)+c_3$};
+\node (B) at (2.25,0){$(m_1+m_2)+m_3$};
 \node (C) at (4.5,0) {$(b_1+b_2)+b_3$};
-\node (D) at (2.25,-0.5) {$d_{(M_1 \otimes M_2) \otimes M_3} \in F((c_1+c_2)+c_3)$};
+\node (D) at (2.25,-0.5) {$(x_1+x_2)+x_3 \in F((m_1+m_2)+m_3)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$(i_1+i_2)+i_3$} (B)
 (C) edge node[above]{$(o_1+o_2)+o_3$} (B);
 \end{tikzpicture}
 \]
-where $d_{(M_1 \otimes M_2) \otimes M_3} \colon 1 \to F((c_1+c_2)+c_3)$ is given by: $$1 \xrightarrow{(d_{M_1} \times d_{M_2}) \times d_{M_3})} (F(c_1) \times F(c_2)) \times F(c_3) \xrightarrow{\phi_{c_1,c_2} \times 1} F(c_1+c_2) \times F(c_3) \xrightarrow{\phi_{c_1+c_2,c_3}} F((c_1+c_2)+c_3)$$whereas tensoring the last two and then the first results in $M_1 \otimes (M_2 \otimes M_3)$:
+where $(x_1+x_2)+x_3 \colon 1 \to F((m_1+m_2)+m_3)$ is given by: $$1 \xrightarrow{(x_1 \times x_2) \times x_3} (F(m_1) \times F(m_2)) \times F(m_3) \xrightarrow{\phi_{m_1,m_2} \times 1} F(m_1+m_2) \times F(m_3) \xrightarrow{\phi_{m_1+m_2,m_3}} F((m_1+m_2)+m_3)$$whereas tensoring the last two and then the first results in $M_1 \otimes (M_2 \otimes M_3)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+(a_2+a_3)$};
-\node (B) at (2.25,0) {$c_1+(c_2+c_3)$};
+\node (B) at (2.25,0) {$m_1+(m_2+m_3)$};
 \node (C) at (4.5,0) {$b_1+(b_2+b_3)$};
-\node (D) at (2.25,-0.5) {$d_{M_1 \otimes (M_2 \otimes M_3)} \in F(c_1+(c_2+c_3))$};
+\node (D) at (2.25,-0.5) {$x_1+(x_2+x_3) \in F(m_1+(m_2+m_3))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1+(i_2+i_3)$} (B)
 (C) edge node[above]{$o_1+(o_2+o_3)$} (B);
 \end{tikzpicture}
 \]
-where $d_{M_1 \otimes (M_2 \otimes M_3)} \colon 1 \to F(c_1+(c_2+c_3))$ is given by: $$1 \xrightarrow{d_{M_1} \times (d_{M_2} \times d_{M_3})} F(c_1) \times (F(c_2) \times F(c_3)) \xrightarrow{1 \times \phi_{c_2,c_3}} F(c_1) \times F(c_2+c_3) \xrightarrow{\phi_{c_1,c_2+c_3}} F(c_1+(c_2+c_3)).$$If we let $a$ denote the associator of $(\mathsf{A},+,0)$, the associator of $F\mathbb{C}\textnormal{sp}_1$ is then a map of cospans in $\mathsf{A}$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
+where $x_1+(x_2+x_3) \colon 1 \to F(m_1+(m_2+m_3))$ is given by: $$1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).$$If we let $a$ denote the associator of $(\mathsf{A},+,0)$, the associator of $F\mathbb{C}\textnormal{sp}_1$ is then a map of cospans in $\mathsf{A}$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
 \node (A') at (0,-0.5) {$a_1+(a_2+a_3)$};
-\node (B) at (2.25,0.5) {$(c_1+c_2)+c_3$};
+\node (B) at (2.25,0.5) {$(m_1+m_2)+m_3$};
 \node (C) at (4.5,0.5) {$(b_1+b_2)+b_3$};
 \node (C') at (4.5,-0.5) {$b_1+(b_2+b_3)$};
-\node (D) at (2.25,-0.5) {$c_1+(c_2+c_3)$};
-\node (E) at (7,0.5) {$d_{(M_1 \otimes M_2) \otimes M_3} \in F((c_1+c_2)+c_3)$};
-\node (F) at (7,-0.5) {$d_{M_1 \otimes (M_2 \otimes M_3)} \in F(c_1+(c_2+c_3))$};
+\node (D) at (2.25,-0.5) {$m_1+(m_2+m_3)$};
+\node (E) at (7,0.5) {$(x_1+x_2)+x_3 \in F((m_1+m_2)+m_3)$};
+\node (F) at (7,-0.5) {$x_1+(x_2+x_3) \in F(m_1+(m_2+m_3))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$(i_1+i_2)+i_3$} (B)
 (C) edge node[above]{$(o_1+o_2)+o_3$} (B)
 (A) edge node[left]{$a$} (A')
-(C) edge node[left]{$a$} (C')
+(C) edge node[right]{$a$} (C')
 (A') edge node [above]{$i_1+(i_2+i_3)$} (D)
 (C') edge node [above]{$o_1+(o_2+o_3)$} (D)
 (B) edge node [left] {$a$} (D);
 \end{tikzpicture}
 \]
-together with the isomorphism $\iota_a \colon F(a)(d_{(M_1 \otimes M_2) \otimes M_3}) \to d_{M_1 \otimes (M_2 \otimes M_3)}$. If we denote the above associator simply as $a$ and the left and right unitors as $\lambda$ and $\rho$, respectively, then given four objects in $F\mathbb{C}\textnormal{sp}_1$, say $M_1, M_2, M_3$ and $M_4$:
+together with the isomorphism $\iota_a \colon F(a)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$. These associators and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. \textbf{Kenny: Probably cut stuff out below this.} If we denote the above associator simply as $a$ and the left and right unitors as $\lambda$ and $\rho$, respectively, then given four objects in $F\mathbb{C}\textnormal{sp}_1$, say $M_1, M_2, M_3$ and $M_4$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$c_1$};
+\node (B) at (1,0) {$m_1$};
 \node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$d_{M_1} \in F(c_1)$};
+\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
 \node (E) at (3,0) {$a_2$};
-\node (F) at (4,0) {$c_2$};
+\node (F) at (4,0) {$m_2$};
 \node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$d_{M_2} \in F(c_2)$};
+\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
 \node (I) at (0,-1.5) {$a_3$};
-\node (J) at (1,-1.5) {$c_3$};
+\node (J) at (1,-1.5) {$m_3$};
 \node (K) at (2,-1.5) {$b_3$};
-\node (L) at (1,-2) {$d_{M_3} \in F(c_3)$};
+\node (L) at (1,-2) {$x_3 \in F(m_3)$};
 \node (M) at (3,-1.5) {$a_4$};
-\node (N) at (4,-1.5) {$c_4$};
+\node (N) at (4,-1.5) {$m_4$};
 \node (O) at (5,-1.5) {$b_4$};
-\node (P) at (4,-2) {$d_{M_4} \in F(c_4)$};
+\node (P) at (4,-2) {$x_4 \in F(m_4)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
@@ -1435,7 +1435,7 @@ together with the isomorphism $\iota_a \colon F(a)(d_{(M_1 \otimes M_2) \otimes 
 (O) edge node[above]{$o_4$} (N);
 \end{tikzpicture}
 \]
-then as $\mathbb{C}\textnormal{sp}(\mathsf{A})$ is a symmetric monoidal double category, the following pentagon of underlying cospans commutes:
+then as $\mathbb{C}\textnormal{sp}(\mathsf{A})$ is a symmetric monoidal double category, the following pentagon of underlying cospans and maps of cospans commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$((M_1 \otimes M_2) \otimes M_3) \otimes M_4$};
@@ -1451,23 +1451,23 @@ then as $\mathbb{C}\textnormal{sp}(\mathsf{A})$ is a symmetric monoidal double c
 (E) edge node[right]{$1 \otimes a$} (C);
 \end{tikzpicture}
 \]
-as well as the following pentagon of corresponding decorations in the category $F(c_1 +(c_2 +(c_3+c_4)))$:
+as well as the following pentagon of corresponding decorations in the category $F(m_1 +(m_2 +(m_3+m_4)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-.5,0) {$F(aa)(d_{((M_1 \otimes M_2) \otimes M_3) \otimes M_4}) $};
-\node (B) at (2.25,1) {$F(a)(d_{(M_1 \otimes M_2) \otimes (M_3 \otimes M_4)})$};
-\node (C) at (5,0) {$d_{M_1 \otimes (M_2 \otimes (M_3 \otimes M_4))}$};
-\node (D) at (-.5,-1) {$F((1 \otimes a)a)(d_{(M_1 \otimes (M_2 \otimes M_3)) \otimes M_4}) $};
-\node (E) at (5,-1) {$F(1 \otimes a)(d_{M_1 \otimes ((M_2 \otimes M_3) \otimes M_4)}) $};
+\node (A) at (-.5,0) {$F(aa)(((x_1+x_2)+x_3)+x_4) $};
+\node (B) at (2.25,1) {$F(a)((x_1+x_2)+(x_3+x_4))$};
+\node (C) at (5,0) {$x_1+(x_2+(x_3+x_4))$};
+\node (D) at (-.5,-1) {$F((1 \otimes a)a)((x_1+(x_2+x_3))+x_4) $};
+\node (E) at (5,-1) {$F(1 \otimes a)(x_1+((x_2+x_3)+x_4)) $};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$F(a)(\iota_a)$} (B)
+(A) edge node[above]{$F(a)(\iota_a)$} (B)
 (B) edge node[above]{$\iota_a$} (C)
 (A) edge node[left]{$F((1 \otimes a)a)(\iota_{a \otimes 1})$} (D)
 (D) edge node[above]{$F(1 \otimes a)(\iota_a)$} (E)
 (E) edge node[right]{$\iota_{1 \otimes a}$} (C);
 \end{tikzpicture}
 \]
-since $$F(aa)(d_{((M_1 \otimes M_2) \otimes M_3) \otimes M_4})=F((1 \otimes a)a(a \otimes 1))(d_{((M_1 \otimes M_2) \otimes M_3) \otimes M_4})$$ as the corresponding pentagon in the symmetric monoidal category $(\mathsf{A},+,0)$ commutes.
+since $$F(aa)(((x_1+x_2)+x_3)+x_4)=F((1 \otimes a)a(a \otimes 1))(((x_1+x_2)+x_3)+x_4)$$ as the corresponding pentagon in the symmetric monoidal category $(\mathsf{A},+,0)$ commutes, and then appliying the pseudofunctor $F$ to said pentagon yields a commutative pentagon in $\mathbf{Cat}$.
 
 Similarly, if we denote the left and right unitors as $\lambda$ and $\rho$, respectively, then the following triangle of underlying maps of cospans commutes:
 \[
