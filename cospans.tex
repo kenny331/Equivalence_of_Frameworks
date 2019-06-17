@@ -1650,7 +1650,7 @@ and where $\psi$ and $j$ are the natural maps into a coproduct and from a coprod
 (A) edge node[above]{$j \psi (i_1+i_1')$} (B)
 (C) edge node[above]{$j \psi (o_2 + o_2^\prime)$} (B)
 (A) edge node[left]{$1$} (A')
-(C) edge node[left]{$1$} (C')
+(C) edge node[right]{$1$} (C')
 (A') edge node [above]{$(j \psi i_1')+(j \psi i_1)$} (D)
 (C') edge node [above]{$(j \psi o_2)+(j \psi o_2^\prime)$} (D)
 (B) edge node [left] {$\hat{\chi}$} (D);
@@ -1718,7 +1718,7 @@ We then have another globular isomorphism $$\mu_{a,b} \colon U_{a+b} \to U_a + U
 (A) edge node[above]{$1_{a+b}$} (B)
 (C) edge node[above]{$1_{a+b}$} (B)
 (A) edge node[left]{$1$} (A')
-(C) edge node[left]{$1$} (C')
+(C) edge node[right]{$1$} (C')
 (A') edge node [above]{$1_a + 1_b$} (D)
 (C') edge node [above]{$1_a + 1_b$} (D)
 (B) edge node [left] {$1$} (D);
@@ -1727,7 +1727,7 @@ We then have another globular isomorphism $$\mu_{a,b} \colon U_{a+b} \to U_a + U
 $$\iota_{a,b} \colon !_{a+b} \xrightarrow{\sim} !_a + !_b$$
 where $!_{a+b}$ and $!_a + !_b$ are both initial objects in $F(a+b)$, hence isomorphic.
 
-There are a fair amount of coherence diagrams to verify, many of which are similar in flavor and make use of the two above globular ismorphisms. We check a few to give a sense of what these are like. For example,  given horizontal 1-cells $M_i,N_i,P_i$, the following commutative diagram expresses the associativity isomorphism as a transformation of double categories.
+There are a fair amount of coherence diagrams to verify, many of which are similar in flavor and make use of the two above globular ismorphisms. We check a few to give a sense of what these are like. For example,  given horizontal 1-cells $M_i,N_i,P_i$ for $i=1,2$, the following commutative diagram expresses the associativity isomorphism as a transformation of double categories.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)$};
@@ -1748,36 +1748,36 @@ There are a fair amount of coherence diagrams to verify, many of which are simil
 Here, $a$ is the associator of $F\mathbb{C}\textnormal{sp}_1$ and $\chi$ is the first globular isomorphism above. To see that this diagram does indeed commute, we first consider this diagram with respect to only the underlying cospans of each horizontal 1-cell. For notation:
 	\[
 		\begin{tikzpicture}
-			\node (k) at (0,0) {$k$};
-			\node (l) at (1,0) {$l$};
-			\node (m) at (2,0) {$m$};
+			\node (k) at (0,0) {$a$};
+			\node (l) at (1,0) {$m_1$};
+			\node (m) at (2,0) {$b$};
 			\node (M1) at (-1,0) {$M_1 =$};
 			\node (N1) at (3,0) {$N_1 =$};
-			\node (q) at (4,0) {$q$};
-			\node (r) at (5,0) {$r$};
-			\node (s) at (6,0) {$s$};
+			\node (q) at (4,0) {$a'$};
+			\node (r) at (5,0) {$n_1$};
+			\node (s) at (6,0) {$b'$};
 			\node (P1) at (7,0) {$P_1 =$};
-			\node (v) at (8,0) {$v$};
-			\node (w) at (9,0) {$w$};
-			\node (x) at (10,0) {$x$};
-			\node (m2) at (0,-1.5) {$m$};
-			\node (n) at (1,-1.5) {$n$};
-			\node (p) at (2,-1.5) {$p$};
+			\node (v) at (8,0) {$a''$};
+			\node (w) at (9,0) {$p_1$};
+			\node (x) at (10,0) {$b''$};
+			\node (m2) at (0,-1.5) {$b$};
+			\node (n) at (1,-1.5) {$m_2$};
+			\node (p) at (2,-1.5) {$c$};
 			\node (M2) at (-1,-1.5) {$M_2 =$};
 			\node (N2) at (3,-1.5) {$N_2 =$};
-			\node (s2) at (4,-1.5) {$s$};
-			\node (t) at (5,-1.5) {$t$};
-			\node (u) at (6,-1.5) {$u$};
+			\node (s2) at (4,-1.5) {$b'$};
+			\node (t) at (5,-1.5) {$n_2$};
+			\node (u) at (6,-1.5) {$c'$};
 			\node (P2) at (7,-1.5) {$P_2 =$};
-			\node (x2) at (8,-1.5) {$x$};
-			\node (y) at (9,-1.5) {$y$};
-			\node (z) at (10,-1.5) {$z$};
-\node (dM1) at (1,-0.5) {$d_{M_1} \in F(l)$};
-\node (dM2) at (1,-2) {$d_{M_2} \in F(n)$};
-\node (dN1) at (5,-0.5) {$d_{N_1} \in F(r)$};
-\node (dN2) at (5,-2) {$d_{N_2} \in F(t)$};
-\node (dP1) at (9,-0.5) {$d_{P_1} \in F(w)$};
-\node (dP2) at (9,-2) {$d_{P_2} \in F(y)$};
+			\node (x2) at (8,-1.5) {$b''$};
+			\node (y) at (9,-1.5) {$p_2$};
+			\node (z) at (10,-1.5) {$c''$};
+\node (dM1) at (1,-0.5) {$x_1 \in F(m_1)$};
+\node (dM2) at (1,-2) {$x_2 \in F(m_2)$};
+\node (dN1) at (5,-0.5) {$y_1 \in F(n_1)$};
+\node (dN2) at (5,-2) {$y_2 \in F(n_2)$};
+\node (dP1) at (9,-0.5) {$z_1 \in F(p_1)$};
+\node (dP2) at (9,-2) {$z_2 \in F(p_2)$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(k) edge node[above]{$$} (l)
 			(m) edge node[above]{$$} (l)
@@ -1796,33 +1796,33 @@ Here, $a$ is the associator of $F\mathbb{C}\textnormal{sp}_1$ and $\chi$ is the 
 The above diagram then becomes:
 \[
 		\begin{tikzpicture}
-			\node (a) at (-4,0) {$k+m$};
-			\node (b) at (1,0) {$((l+r)+w) +_{((m+s)+x)}((n+t)+y)$};
-			\node (c) at (6,0) {$v+x$};
-			\node (a2) at (-4,1) {$k+m$};
-			\node (b2) at (1,1) {$(l+(r+w)) +_{(m+(s+x))}(n+(t+y))$};
-			\node (c2) at (6,1) {$v+x$};
-                                \node (a3) at (-4,2) {$k+m$};
-			\node (b3) at (1,2) {$(l+_m n)+((r+w)+_{(s+x)}(t+y))$};
-			\node (c3) at (6,2) {$v+x$};
-                                \node (a4) at (-4,3) {$k+m$};
-			\node (b4) at (1,3) {$(l+_m n)+((r+_s t)+(w+_x y))$};
-			\node (c4) at (6,3) {$v+x$};
-                                \node (a5) at (-4,-1) {$k+m$};
-			\node (b5) at (1,-1) {$((l+r)+_{(m+s)}(n+t))+(w+_x y)$};
-			\node (c5) at (6,-1) {$v+x$};
-                                \node (a6) at (-4,-2) {$k+m$};
-			\node (b6) at (1,-2) {$((l+_m n)+(r+_s t))+(w+_x y)$};
-			\node (c6) at (6,-2) {$v+x$};
-                                \node (a7) at (-4,-3) {$k+m$};
-			\node (b7) at (1,-3) {$(l+_m n)+((r+_s t)+(w+_x y))$};
-			\node (c7) at (6,-3) {$v+x$};
+			\node (a) at (-4,0) {$(a+a')+a''$};
+			\node (b) at (1,0) {$((m_1+n_1)+p_1) +_{((b+b')+b'')}((m_2+n_2)+p_2)$};
+			\node (c) at (6,0) {$(c+c')+c''$};
+			\node (a2) at (-4,1) {$a+(a'+a'')$};
+			\node (b2) at (1,1) {$(m_1+(n_1+p_1)) +_{(b+(b'+b''))}(m_2+(n_2+p_2))$};
+			\node (c2) at (6,1) {$c+(c'+c'')$};
+                                \node (a3) at (-4,2) {$a+(a'+a'')$};
+			\node (b3) at (1,2) {$(m_1+_b m_2)+((n_1+p_1)+_{(b'+b'')}(n_2+p_2))$};
+			\node (c3) at (6,2) {$c+(c'+c'')$};
+                                \node (a4) at (-4,3) {$a+(a'+a'')$};
+			\node (b4) at (1,3) {$(m_1+_b m_2)+((n_1+_{b'} n_2)+(p_1+_{b''} p_2))$};
+			\node (c4) at (6,3) {$c+(c'+c'')$};
+                                \node (a5) at (-4,-1) {$(a+a')+a''$};
+			\node (b5) at (1,-1) {$((m_1+n_1)+_{(b+b')}(m_2+n_2))+(p_1+_{b''} p_2)$};
+			\node (c5) at (6,-1) {$(c+c')+c''$};
+                                \node (a6) at (-4,-2) {$(a+a')+a''$};
+			\node (b6) at (1,-2) {$((m_1+_b m_2)+(n_1+_{b'} n_2))+(p_1+_{b''} p_2)$};
+			\node (c6) at (6,-2) {$(c+c')+c''$};
+                                \node (a7) at (-4,-3) {$a+(a'+a'')$};
+			\node (b7) at (1,-3) {$(m_1+_b m_2)+((n_1+_{b'} n_2)+(p_1+_{b''} p_2))$};
+			\node (c7) at (6,-3) {$c+(c'+c'')$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
 			(c) edge node[above]{$$} (b)
                                 (a2) edge node[above]{$$} (b2)
 			(c2) edge node[above]{$$} (b2)
-                                (a) edge node[above]{$$} (a2)
+                                (a) edge node[left]{$$} (a2)
                                 (b) edge node[left]{$a \odot a$} (b2)
 (b) edge node[right]{$\iota_1$} (b2)
 			(c) edge node[above]{$$} (c2)
@@ -1858,15 +1858,15 @@ The above diagram then becomes:
 			(c6) edge node[above]{$$} (c7);
 		\end{tikzpicture}
 	\]
-Here all of the vertical 1-morphisms on the left and right are identities, the middle vertical 1-morphisms are the 2-morphisms from the previous commutative diagram, and the horizontal vertical 1-morphisms pointing towards the middle are natural maps into each colimit, all of which are naturally isomorphic to each other as all the middle objects are colimits of the same diagram, namely the previous collection of cospans, taken in various ways. The above diagram of maps of cospans can then be visualized as a hexagonal prism in which all the faces commute by identifying the top and the bottom as the same. As for the morphisms of decorations, each isomorphism $\iota_n$ goes from the domain under the image of the functor $F$ applied to natural isomorphism adjacent to it to the codomain as written, meaning that, for example: $$\iota_1 \colon F(a \odot a)(d_{((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)}) \to d_{(M_1 \otimes (N_1 \otimes P_1)) \odot (M_2 \otimes (N_2 \otimes P_2))}.$$  The following diagram commutes in the category $F((l+_m n) + ((r+_s t) + (w+_x y)))$:
+Here all of the vertical 1-morphisms on the left and right are associators or identities, the middle vertical 1-morphisms labeled on the left are the 2-morphisms from the previous commutative diagram, and the horizontal vertical 1-morphisms pointing towards the middle are natural maps into each colimit, all of which are naturally isomorphic to each other as all the middle objects are colimits of the same diagram, namely the previous collection of cospans, taken in various ways. The above diagram of maps of cospans can then be visualized as a hexagonal prism in which all the faces commute by identifying the top and the bottom as the same. As for the morphisms of decorations, which are labeled on the right of the interior vertical 1-morphisms, each isomorphism $\iota_n$ goes from the domain under the image of the functor $F$ applied to natural isomorphism adjacent to it to the codomain as written, meaning that, for example: $$\iota_1 \colon F(a \odot a)(((x_1+y_1)+z_1) \odot ((x_2+y_2)+z_2)) \to (x_1+(y_1+z_1)) \odot (x_2+(y_2+z_2)).$$  The following diagram commutes in the category $F((m_1+_b m_2) + ((n_1+_{b'} n_2) + (p_1+_{b''} p_2)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$F( a (\chi \otimes 1)\chi)(d_{((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)})$};
-\node (A') at (4.5,0.5) {$F((1 \otimes \chi) \chi)(d_{(M_1 \otimes (N_1 \otimes P_1)) \odot (M_2 \otimes (N_2 \otimes P_2))})$};
-\node (B) at (0,-0.5) {$F(a(\chi  \otimes 1))(d_{((M_1 \otimes N_1) \odot (M_2 \otimes N_2)) \otimes (P_1 \odot P_2)})$};
-\node (C) at (4.5,-0.5) {$F(1 \otimes \chi)(d_{(M_1 \odot M_2) \otimes ((N_1 \otimes P_1) \odot (N_2 \otimes P_2))})$};
-\node (C') at (0,-1.5) {$F(a)(d_{((M_1 \odot M_2) \otimes (N_1 \odot N_2)) \otimes (P_1 \odot P_2)})$};
-\node (D) at (4.5,-1.5) {$d_{(M_1 \odot M_2) \otimes ((N_1 \odot N_2) \otimes (P_1 \odot P_2))}$};
+\node (A) at (0,0.5) {$F( a (\chi \otimes 1)\chi)(((x_1+y_1)+z_1) \odot ((x_2+y_2)+z_2))$};
+\node (A') at (6,0.5) {$F((1 \otimes \chi) \chi)((x_1+(y_1+z_1)) \odot (x_2+(y_2+z_2)))$};
+\node (B) at (0,-0.5) {$F(a(\chi  \otimes 1))(((x_1+y_1) \odot (x_2+y_2)) + (z_1 \odot z_2))$};
+\node (C) at (6,-0.5) {$F(1 \otimes \chi)((x_1 \odot x_2) + ((y_1+z_1) \odot (y_2+z_2)))$};
+\node (C') at (0,-1.5) {$F(a)(((x_1 \odot x_2)+(y_1 \odot y_2)) + (z_1 \odot z_2))$};
+\node (D) at (6,-1.5) {$(x_1 \odot x_2) + ((y_1 \odot y_2) + (z_1 \odot z_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F((1 \otimes \chi) \chi)(\iota_1)$} (A')
 (A) edge node[left]{$F(a(\chi \otimes 1))(\iota_4)$} (B)
@@ -1876,8 +1876,8 @@ Here all of the vertical 1-morphisms on the left and right are identities, the m
 (C') edge node [above] {$\iota_6$} (D);
 \end{tikzpicture}
 \]
-since $$F(a(\chi \otimes 1)\chi)(d_{((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)}) = F((1 \otimes \chi) \chi (a \odot a))(d_{((M_1 \otimes N_1) \otimes P_1) \odot ((M_2 \otimes N_2) \otimes P_2)})$$
-as the above underlying diagram of maps of cospans commutes.
+since $$F(a(\chi \otimes 1)\chi)(((x_1+y_1)+z_1) \odot ((x_2+y_2)+z_2)) = F((1 \otimes \chi) \chi (a \odot a))(((x_1+y_1)+z_1) \odot ((x_2+y_2)+z_2))$$
+as the above underlying diagram of maps of cospans commutes and then applying the pseudofunctor $F$ yields a commutative diagram in $\mathbf{Cat}$.
 
 Another requirement for a double category to be symmetric monoidal is that the braiding $$\beta_{ ( \_, \_ ) } \colon F\mathbb{C}\textnormal{sp}_1 \times F\mathbb{C}\textnormal{sp}_1 \to F\mathbb{C}\textnormal{sp}_1 \times F\mathbb{C}\textnormal{sp}_1$$ be a transformation of double categories, and one of the diagrams that is required to commute is the following:
 \[
@@ -1896,21 +1896,21 @@ Another requirement for a double category to be symmetric monoidal is that the b
 Using the same notation as the previous coherence diagram, the diagram for the underlying maps of cospans becomes:
 \[
 		\begin{tikzpicture}
-			\node (a) at (-4,0) {$k+m$};
-			\node (b) at (1,0) {$(l+_m n) + (r+_s t)$};
-			\node (c) at (6,0) {$s+u$};
-			\node (a2) at (-4,1) {$k+m$};
-			\node (b2) at (1,1) {$(r +_s t) + (l +_m n)$};
-			\node (c2) at (6,1) {$s+u$};
-                                \node (a3) at (-4,2) {$k+m$};
-			\node (b3) at (1,2) {$(r+l) +_{(s+m)} (t+n)$};
-			\node (c3) at (6,2) {$s+u$};
-                                \node (a5) at (-4,-1) {$k+m$};
-			\node (b5) at (1,-1) {$(l+r) +_{(m+s)} (n+t)$};
-			\node (c5) at (6,-1) {$s+u$};
-                                \node (a6) at (-4,-2) {$k+m$};
-			\node (b6) at (1,-2) {$(r+l) +_{(s+m)} (t+n)$};
-			\node (c6) at (6,-2) {$s+u$};
+			\node (a) at (-4,0) {$a+a'$};
+			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c) at (6,0) {$c+c'$};
+			\node (a2) at (-4,1) {$a'+a$};
+			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c2) at (6,1) {$c'+c$};
+                                \node (a3) at (-4,2) {$a'+a$};
+			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c3) at (6,2) {$c'+c$};
+                                \node (a5) at (-4,-1) {$a+a'$};
+			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c5) at (6,-1) {$c+c'$};
+                                \node (a6) at (-4,-2) {$a'+a$};
+			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c6) at (6,-2) {$c'+c$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
 			(c) edge node[above]{$$} (b)
@@ -1940,13 +1940,13 @@ Using the same notation as the previous coherence diagram, the diagram for the u
 			(c5) edge node[above]{$$} (c6);
 		\end{tikzpicture}
 	\]
-All the comments about the previous underlying coherence diagram of maps of cospans apply to this one. As for the decorations, the following diagram commutes in the category $F((r+l)+_{(s+m)}(t+n))$:
+All the comments about the previous underlying coherence diagram of maps of cospans apply to this one. As for the decorations, the following diagram commutes in the category $F((y_1+x_1)+_{(b'+b)}(y_2+x_2))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F(\chi \beta)(d_{(M_1 \odot M_2) \otimes (N_1 \odot N_2)})$};
-\node (B) at (3,0) {$F(\chi)(d_{(N_1 \odot N_2) \otimes (M_1 \odot M_2)})$};
-\node (C) at (0,-1) {$F(\beta \odot \beta)(d_{(M_1 \otimes N_1) \odot (M_2 \otimes N_2)})$};
-\node (D) at (3,-1) {$d_{(N_1 \otimes M_1) \odot (N_2 \otimes M_2)}$};
+\node (A) at (0,0) {$F(\chi \beta)((x_1 \odot x_2)+(y_1 \odot y_2))$};
+\node (B) at (4,0) {$F(\chi)((y_1 \odot y_2)+(x_1 \odot x_2))$};
+\node (C) at (0,-1) {$F(\beta \odot \beta)((x_1+y_1) \odot (x_2 + y_2))$};
+\node (D) at (4,-1) {$(y_1+x_1) \odot (y_2+x_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F(\chi)(\iota_1)$} (B)
 (B) edge node[right]{$\iota_2$} (D)
@@ -1954,8 +1954,8 @@ All the comments about the previous underlying coherence diagram of maps of cosp
 (C) edge node[above]{$\iota_4$} (D);
 \end{tikzpicture}
 \]
-since $$F(\chi \beta)(d_{(M_1 \odot M_2) \otimes (N_1 \odot N_2)}) = F((\beta \odot \beta)\chi)(d_{(M_1 \odot M_2) \otimes (N_1 \odot N_2)})$$
-as the above underlying diagram of maps of cospans commutes. The other diagrams are shown to commute similarly.
+since $$F(\chi \beta)((x_1 \odot x_2)+(y_1 \odot y_2)) = F((\beta \odot \beta)\chi)((x_1 \odot x_2)+(y_1 \odot y_2))$$
+as the above underlying diagram of maps of cospans commutes and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\mathbf{Cat}$. The other diagrams are shown to commute similarly.
 \end{proof}
 
 \begin{lem}
