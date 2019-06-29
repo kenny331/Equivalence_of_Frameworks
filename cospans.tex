@@ -3118,10 +3118,10 @@ See the first two authors' work on structured cospans \cite{BC2}.
 \end{proof}
 
 The desired equivalence between these two different double categorical network frameworks, namely structured cospans and decorated cospans,
-is established by the following theorem. We denote by $\bicat{fcocCat}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors.
+is established by the following theorem. We denote by $\bicat{Rex}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors.
 
 \begin{thm}\label{Equiv}
-Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\colon(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor, which factors through $\bicat{fcocCat}$ as an ordinary pseudofunctor. 
+Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\colon(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor, which factors through $\bicat{Rex}$ as an ordinary pseudofunctor. 
 Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans (\cref{thm:decoratedcospans}) is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans (\cref{SC}), where $L_F \colon \mathsf{A} \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\colon \inta{F} \to \mathsf{A}$. %by \cref{thm:Grothendieck}, 
 %under the assumptions of \cref{cor:fcocMonGroth}.
 \end{thm}
@@ -3155,11 +3155,11 @@ the following are equivalent:
 \end{enumerate}
 \end{lem}
 
-The first part formulates the existence of colimits \emph{locally} in each fibre, which can equivalently be expressed by the corresponding pseudofunctor $F\colon\A\to\bicat{Cat}$ landing on the sub-2-category $\bicat{fcocCat}$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining these, we can deduce the following.
+The first part formulates the existence of colimits \emph{locally} in each fibre, which can equivalently be expressed by the corresponding pseudofunctor $F\colon\A\to\bicat{Cat}$ landing on the sub-2-category $\bicat{Rex}$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining these, we can deduce the following.
 
 \begin{cor}\label{cor:fcocMonGroth}
  Suppose $\A$ is a finitely cocomplete category and $F\colon(\A,+,0)\to(\bicat{Cat},\times,1)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} 
- factors through $\bicat{fcocCat}$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $\U_F\colon\inta F\to\A$ preserves them. 
+ factors through $\bicat{Rex}$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $\U_F\colon\inta F\to\A$ preserves them. 
 \end{cor}
 
 On a different but related subject, for our purposes we are interested in the existence of a left adjoint $L_F$ to the induced monoidal opfibration $ \inta{F} \to \A$ by the Grothendieck construction as discussed above. The following result provides sufficient conditions for that, which go hand-in-hand with \cref{cor:fcocMonGroth} and \cref{lem:fibrewiselimits}.
@@ -3214,7 +3214,7 @@ We have now laid all the necessary background to formally construct an equivalen
 \begin{proof}[Proof of \cref{Equiv}]
 Recall that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms those of $\A$, horizontal 1-cells $a\tickar b$ are cospans $\cspn{a}{c}{b}{}{}$ in $\A$ along with $x\in F(c)$, and 2-morphisms are cospan maps $k\colon c\to c'$ together with a morphism $(Fk)(x)\to x'$, see \cref{eq:FCsp2morph}.
 
-By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{fcocCat}$, the (monoidal) Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U_F\colon(\inta{F},+,0)\to(\A,+,0)$ preserves all finite colimits. %Christina: maybe the cocartesian structures are redundant to write here, since U_F really preserves all finite colimits anyways.
+By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{Rex}$, the (monoidal) Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U_F\colon(\inta{F},+,0)\to(\A,+,0)$ preserves all finite colimits. %Christina: maybe the cocartesian structures are redundant to write here, since U_F really preserves all finite colimits anyways.
 Since in particular it preserves the initial object, \cref{prop:opfibtolari} through \cref{lem:fibrewiselimits} applies 
 %which equivalently means that all fibres have initial objects and the reindexing functors preserve them by , %Christina: there is a little bit of circularity here. We knew fibres have and reindexing functors preserve from the factorization already! Change Gray accordingly perhaps?
 to construct a left adjoint $L_F\colon\A\to\inta F$ which is also a right inverse, namely $U_FL_F=\mathrm{id}_\A$. Explicitly, this left adjoint is given by $L(a)=(a,\bot_a)$, picking the initial object in the finitely cocomplete fibre also expressed as $F(u_a)\circ\phi_0(*)$ in \cref{eq:initialinfibre}. Diagrammatically,
