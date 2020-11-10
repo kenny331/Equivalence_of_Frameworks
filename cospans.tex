@@ -52,9 +52,9 @@ are nicely modeled using cospans, which are diagrams of this form:
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-We call $b$ the \define{apex}, $a_1$ and $a_2$ the \define{feet}, and $i$ and $o$ the \define{legs}.   The feet describe `interfaces' of the corresponding open system.  However, we often want the system itself---the apex---to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.
+We call $b$ the \define{apex}, $a_1$ and $a_2$ the \define{feet}, and $i$ and $o$ the \define{legs}.   The feet describe `interfaces' of the corresponding open system, while the apex describes the system itself.    However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.
 
-Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+,0) \to (\textsf{Set},\times,1)$ can be used to `decorate' the apex of a cospan in $\A$ with some extra data: an element of the image of its apex under the functor $F$. In the case of the cospan above, this is an element $d \in F(b)$, which we call a \textbf{decoration} on $b$.  Thus a decorated cospan is given by a pair:
+Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+,0) \to (\textsf{Set},\times,1)$ can be used to `decorate' the apex of a cospan in $\A$ with some extra data: an element of the image of its apex under $F$. In the case of the cospan above, this would be an element $d \in F(b)$, which we call a \textbf{decoration} on $b$.  Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
