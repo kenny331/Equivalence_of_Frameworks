@@ -88,9 +88,9 @@ To obtain a decoration on the composition of two composable $F$-decorated cospan
 \]
 we use the natural map from a coproduct to a pushout as well as the structure maps, or `laxators', that come as part of the structure of a lax monoidal functor:
  $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+ b^\prime) \xrightarrow{F(j_{b,b^\prime})} F(b+_{a_2} b^\prime).$$
-From this symmetric lax monoidal functor $F \maps \A \to \mathsf{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\mathsf{A})$ which has:
+From this symmetric lax monoidal functor $F \maps \A \to \mathsf{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\A)$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$ and}
+\item{objects as those of $\A$ and}
 \item{morphisms as isomorphism classes of $F$-decorated cospans, where an $F$-decorated cospan is given as above, and two $F$-decorated cospans are in the same isomorphism class if there exists an isomorphism $f \maps b \to b^\prime$ between the apices such that the following diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -396,10 +396,10 @@ The point to be made here is that the single edge of $d^\prime$ must also be $e$
 \]
 Thus these two $F$-decorated cospans constitute distinct isomorphism classes. This nuisance is amplified when viewed from a higher categorical perspective.
 
-In a previous work, the second author extended Fong's theory of decorated cospans to a symmetric monoidal bicategory of decorated cospans \cite{Cour}. Namely, under the same hypotheses used by Fong amounting to a category $\mathsf{A}$ with finite colimits and a symmetric lax monoidal functor $F \maps (\mathsf{A},+,0) \to (\mathsf{Set}, \times, 1)$, there exists a symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{A})$ which has:
+In a previous work, the second author extended Fong's theory of decorated cospans to a symmetric monoidal bicategory of decorated cospans \cite{Cour}. Namely, under the same hypotheses used by Fong amounting to a category $\A$ with finite colimits and a symmetric lax monoidal functor $F \maps (\A,+,0) \to (\mathsf{Set}, \times, 1)$, there exists a symmetric monoidal bicategory $F\mathbf{Cospan}(\A)$ which has:
 \begin{enumerate}
-\item objects as those of $\mathsf{A}$,
-\item morphisms as $F$-decorated cospans in $\mathsf{A}$, which again are pairs
+\item objects as those of $\A$,
+\item morphisms as $F$-decorated cospans in $\A$, which again are pairs
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -414,7 +414,7 @@ In a previous work, the second author extended Fong's theory of decorated cospan
 \end{tikzpicture}
 \]
 and
-\item 2-morphisms as pairs of commuting diagrams where the left diagram is a map of cospans in $\mathsf{A}$ and the right diagram is a commutative triangle in $\mathsf{Set}$.
+\item 2-morphisms as pairs of commuting diagrams where the left diagram is a map of cospans in $\A$ and the right diagram is a commutative triangle in $\mathsf{Set}$.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -473,7 +473,7 @@ In the symmetric monoidal bicategory $F\mathbf{Cospan}(\mathsf{FinSet})$, the ab
 
 It is worth noting that in both examples involving sets and graphs above, we are decorating each finite set with extra \emph{stuff}. This phenomenon does not occur when the decorations only involve extra structure, and this has been utilized in other works \cite{BFP,BP,Yass}.
 
-Our approach is to instead view the functor $F$ as a pseudofunctor $F \maps \textrm{A} \to \Cat$ and take advantage of the 2-categorical structure of $\Cat$. Given an object $a \in \mathsf{A}$, this then allows us to view $F(a)$ not as a \emph{set} of decorations on the object $a$ but as a \emph{category} of decorations on the object $a$. From this pseudofunctor, we construct a symmetric monoidal double category $F \mathbb{C}$sp. Double categories were first introduced by Ehresmann \cite{Ehresmann63, Ehresmann65} and symmetric monoidal double categories by Shulman \cite{Shul}. They have long been used in topology and other branches of pure mathematics \cite{Brown1,Brown2}.  More recently they have been used to study open dynamical systems \cite{LS} and open Markov processes \cite{BC}. While a mere category has only objects and morphisms, a double category has a few more types of entities:
+Our approach is to instead view the functor $F$ as a pseudofunctor $F \maps \textrm{A} \to \Cat$ and take advantage of the 2-categorical structure of $\Cat$. Given an object $a \in \A$, this then allows us to view $F(a)$ not as a \emph{set} of decorations on the object $a$ but as a \emph{category} of decorations on the object $a$. From this pseudofunctor, we construct a symmetric monoidal double category $F \mathbb{C}$sp. Double categories were first introduced by Ehresmann \cite{Ehresmann63, Ehresmann65} and symmetric monoidal double categories by Shulman \cite{Shul}. They have long been used in topology and other branches of pure mathematics \cite{Brown1,Brown2}.  More recently they have been used to study open dynamical systems \cite{LS} and open Markov processes \cite{BC}. While a mere category has only objects and morphisms, a double category has a few more types of entities:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -540,7 +540,7 @@ Note that the natural transformation is a family of morphisms in the category $F
 This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp} \mapseqq H(F \mathbb{C}\textnormal{sp})$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
-\item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\mathsf{A}$
+\item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -553,7 +553,7 @@ This double category is in fact fibrant and so a result of Shulman \cite{Shul} a
 \end{tikzpicture}
 \]
 and}
-\item{2-morphisms as maps of $F$-decorated cospans in $\mathsf{A}$ with the same feet together with a natrual transformation.
+\item{2-morphisms as maps of $F$-decorated cospans in $\A$ with the same feet together with a natrual transformation.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -582,8 +582,8 @@ This bicategory $F\mathbf{Csp}$ is superior to the original bicategory $F$Cospan
 Finally, we can decategorify the symmetric monoidal bicategory $F \mathbf{Csp}$ to obtain a symmetric monoidal category $F \textnormal{Csp} \mapseqq D(F\mathbf{Csp})$. This symmetric monoidal category $F$Csp has:
 
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$ and}
-\item{morphisms as isomorphism classes of $F$-decorated cospans in $\mathsf{A}$ with the same feet together with a natural isomorphism, where two $F$-decorated cospans are in the same isomorphism class if $f$ and $\tau$ are isomorphisms.
+\item{objects as those of $\A$ and}
+\item{morphisms as isomorphism classes of $F$-decorated cospans in $\A$ with the same feet together with a natural isomorphism, where two $F$-decorated cospans are in the same isomorphism class if $f$ and $\tau$ are isomorphisms.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -636,11 +636,11 @@ In this section we build the symmetric monoidal double category $F \mathbb{C}$sp
 %!!!John: So one thing we should do is give a little explanation of (the new) decorated cospans, introducing vocabulary. And another thing we should do is give a little explanation of double categories, mainly to introduce vocabulary and symbols. I bet there's a lot of this in the appendix but still we should try to be nice to our readers.
 
 \begin{thm}\label{thm:decoratedcospans}
-Let $\mathsf{A}$ be a category with finite colimits and $F \maps \mathsf{A} \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\mathbb{C}$sp which has:
+Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\mathbb{C}$sp which has:
 \begin{itemize}
-\item{objects as those of $\mathsf{A}$,}
-\item{vertical 1-morphisms as morphisms of $\mathsf{A}$,}
-\item{horizontal 1-cells as $F$-decorated cospans in $\mathsf{A}$ which are pairs
+\item{objects as those of $\A$,}
+\item{vertical 1-morphisms as morphisms of $\A$,}
+\item{horizontal 1-cells as $F$-decorated cospans in $\A$ which are pairs
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -652,7 +652,7 @@ Let $\mathsf{A}$ be a category with finite colimits and $F \maps \mathsf{A} \to 
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]}
-\item{2-morphisms as maps of $F$-decorated cospans in $\mathsf{A}$
+\item{2-morphisms as maps of $F$-decorated cospans in $\A$
 \begin{equation}\label{eq:FCsp2morph}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -695,7 +695,7 @@ The unit structure functor $U \maps F\mathbb{C}\textnormal{sp}_0 \to F\mathbb{C}
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $!_a \in F(a)$ is the trivial decoration on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from the structure of the lax monoidal pseudofunctor $F \maps \mathsf{A} \to \Cat$. For morphisms, the structure functor $U$ is defined as:
+where $!_a \in F(a)$ is the trivial decoration on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. For morphisms, the structure functor $U$ is defined as:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-1,0.5) {$a$};
@@ -732,7 +732,7 @@ together with the morphism $\tau_{!_f} = F(f) F(!) \phi \maps 1 \to F(a^\prime)$
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-is the object $a$ in $\mathsf{A}$ and the source of the 2-morphism
+is the object $a$ in $\A$ and the source of the 2-morphism
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -754,7 +754,7 @@ is the object $a$ in $\mathsf{A}$ and the source of the 2-morphism
 \end{tikzpicture}
 \]
 $$\tau \maps F(h)(m) \to m^\prime$$
-is the source of the underlying map of cospans in $\mathsf{A}$, namely the morphism $f$ in $\mathsf{A}$; the target structure functor is defined similarly. These structure functors satisfy the equations $$SU(a)=\id_a=TU(a)$$for all objects $a$ of $\mathsf{A}$.
+is the source of the underlying map of cospans in $\A$, namely the morphism $f$ in $\A$; the target structure functor is defined similarly. These structure functors satisfy the equations $$SU(a)=\id_a=TU(a)$$for all objects $a$ of $\A$.
 
 Given two composable horizontal 1-cells $M$ and $N$:
 \[
@@ -798,7 +798,7 @@ the composite $N \odot M$ is given by:
 \end{equation}
 with the corresponding decoration of the apex $x \odot y \in F(m+_{b} n)$ given by:
 $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
-where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \maps \mathsf{A} \to \Cat$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
+where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
 
 Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
@@ -1173,12 +1173,12 @@ As is usual concerning the interchange law of double categories of this nature, 
 \end{proof}
 
 \begin{thm}\label{DC}
-Let $\mathsf{A}$ be a category with finite colimits and $F \maps \mathsf{A} \to \Cat$ a symmetric lax monoidal pseudofunctor. Then the double category $F\mathbb{C}$sp is symmetric monoidal.
+Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a symmetric lax monoidal pseudofunctor. Then the double category $F\mathbb{C}$sp is symmetric monoidal.
 \end{thm}
 %!!!Kenny: We should try to make this theorem shorter.
 %Christina: Yes! Again, I think that it can be simplified and easier for the reader to follow. Should tackle after we do the previous theorem. Also notice that a big part of the following proof is commented out below. 
 \begin{proof}
-First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\mathsf{A}$ is symmetric monoidal under binary coproducts and the left and right unitors, associators and braidings are given as natural maps. The category of arrows $F\mathbb{C}\textnormal{sp}_1$ has:
+First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\A$ is symmetric monoidal under binary coproducts and the left and right unitors, associators and braidings are given as natural maps. The category of arrows $F\mathbb{C}\textnormal{sp}_1$ has:
 \begin{enumerate}
 \item{objects as $F$-decorated cospans which are pairs:
 \[
@@ -1193,7 +1193,7 @@ First we note that the category of objects $F\mathbb{C}\textnormal{sp}_0=\mathsf
 \end{tikzpicture}
 \]
 and}
-\item{morphisms as maps of cospans in $\mathsf{A}$
+\item{morphisms as maps of cospans in $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -1235,7 +1235,7 @@ Given two objects $M_1$ and $M_2$ of $F\mathbb{C}\textnormal{sp}_1$:
 (G) edge node[above]{$o_2$} (F);
 \end{tikzpicture}
 \]
-their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the cospans of $\mathsf{A}$
+their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the cospans of $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+a_2$};
@@ -1259,7 +1259,7 @@ and where the decoration on the apex is obtained using the natural transformatio
 (C) edge node[above]{$!$} (B);
 \end{tikzpicture}
 \]
-where $0$ is the monoidal unit of $\mathsf{A}$ and $!_0 \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \mathsf{A} \to \Cat$. Tensoring an object with the monoidal unit, say, on the left:
+where $0$ is the monoidal unit of $\A$ and $!_0 \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. Tensoring an object with the monoidal unit, say, on the left:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
@@ -1311,7 +1311,7 @@ where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-where $\ell$ is the left unitor of $(\mathsf{A},+,0)$, together with the isomorphism $\tau_{\lambda} \maps F(\ell)(!_0 + x) \to x$. The right unitor is similar.
+where $\ell$ is the left unitor of $(\A,+,0)$, together with the isomorphism $\tau_{\lambda} \maps F(\ell)(!_0 + x) \to x$. The right unitor is similar.
 
 Given three objects $M_1, M_2$ and $M_3$ in $F\mathbb{C}\textnormal{sp}_1$:
 \[
@@ -1361,7 +1361,7 @@ where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is given by: $$1 \xrightarrow
 (C) edge node[above]{$o_1+(o_2+o_3)$} (B);
 \end{tikzpicture}
 \]
-where $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is given by: $$1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).$$If we let $a$ denote the associator of $(\mathsf{A},+,0)$, the associator of $F\mathbb{C}\textnormal{sp}_1$ is then a map of cospans in $\mathsf{A}$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
+where $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is given by: $$1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).$$If we let $a$ denote the associator of $(\A,+,0)$, the associator of $F\mathbb{C}\textnormal{sp}_1$ is then a map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
@@ -1416,7 +1416,7 @@ If we denote the above associator simply as $a$ and the left and right unitors a
 (O) edge node[above]{$o_4$} (N);
 \end{tikzpicture}
 \]
-then as $\mathbb{C}\textnormal{sp}(\mathsf{A})$ is a symmetric monoidal double category, the following pentagon of underlying cospans and maps of cospans commutes:
+then as $\mathbb{C}\textnormal{sp}(\A)$ is a symmetric monoidal double category, the following pentagon of underlying cospans and maps of cospans commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$((M_1 \otimes M_2) \otimes M_3) \otimes M_4$};
@@ -1448,7 +1448,7 @@ as well as the following pentagon of corresponding decorations in the category $
 (E) edge node[right]{$\tau_{1 \otimes a}$} (C);
 \end{tikzpicture}
 \]
-since $$F(aa)(((x_1+x_2)+x_3)+x_4)=F((1 \otimes a)a(a \otimes 1))(((x_1+x_2)+x_3)+x_4)$$ as the corresponding pentagon in the symmetric monoidal category $(\mathsf{A},+,0)$ commutes, and then appliying the pseudofunctor $F$ to said pentagon yields a commutative pentagon in $\Cat$.
+since $$F(aa)(((x_1+x_2)+x_3)+x_4)=F((1 \otimes a)a(a \otimes 1))(((x_1+x_2)+x_3)+x_4)$$ as the corresponding pentagon in the symmetric monoidal category $(\A,+,0)$ commutes, and then appliying the pseudofunctor $F$ to said pentagon yields a commutative pentagon in $\Cat$.
 
 Similarly, if we denote the left and right unitors as $\lambda$ and $\rho$, respectively, then the following triangle of cospans and underlying maps of cospans commutes:
 \[
@@ -1474,7 +1474,7 @@ as well as the following triangle of corresponding decorations in the category $
 (A) edge node[above]{$F(1 \otimes \lambda)(\tau_a)$} (C);
 \end{tikzpicture}
 \]
-since $$F(\rho \otimes 1)((x_1+0)+x_2)=F((1 \otimes \lambda)a)((x_1+0)+x_2)$$ as the corresponding triangle in the symmetric monoidal category $(\mathsf{A},+,0)$ commutes and applying the pseudofunctor $F$ to this commutative triangle results in a commutative triangle in $\Cat$.
+since $$F(\rho \otimes 1)((x_1+0)+x_2)=F((1 \otimes \lambda)a)((x_1+0)+x_2)$$ as the corresponding triangle in the symmetric monoidal category $(\A,+,0)$ commutes and applying the pseudofunctor $F$ to this commutative triangle results in a commutative triangle in $\Cat$.
 
 For a tensor product of objects $M_1 \otimes M_2$ in $F\mathbb{C}\textnormal{sp}_1$, the source and target structure functors $S,T \maps F\mathbb{C}\textnormal{sp}_1 \to F\mathbb{C}\textnormal{sp}_0$ satisfy the following equations: $$S(M_1 \otimes M_2)=S(M_1) \otimes S(M_2)$$ $$T(M_1 \otimes M_2)=T(M_1) \otimes T(M_2).$$
 For two objects $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}_1$, we have a braiding $\beta_{M_1,M_2} \maps M_1 \otimes M_2 \to M_2 \otimes M_1$ given by:
@@ -1498,7 +1498,7 @@ For two objects $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}_1$, we have a bra
 (B) edge node [left] {$\beta_{m_1,m_2}$} (D);
 \end{tikzpicture}
 \]
-$$\tau_{\beta_{M_1,M_2}} \maps F(\beta_{m_1,m_2})(x_1+x_2) \xrightarrow{\sim} x_2+x_1$$ where the vertical 1-morphisms are given by braidings in $(\mathsf{A},+,0)$. This braiding makes the following triangle of underlying cospans commute:
+$$\tau_{\beta_{M_1,M_2}} \maps F(\beta_{m_1,m_2})(x_1+x_2) \xrightarrow{\sim} x_2+x_1$$ where the vertical 1-morphisms are given by braidings in $(\A,+,0)$. This braiding makes the following triangle of underlying cospans commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$M_1 \otimes M_2$};
@@ -2128,7 +2128,7 @@ Let $\mathbb{X}$ be an isofibrant symmetric monoidal pseudo double category. The
 \begin{thm}
 Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to \Cat$ a symmetric lax monoidal pseudofunctor. Then there exists a symmetric monoidal bicategory $F \mathbf{Csp} \mapseqq H(F\mathbb{C}\textnormal{sp})$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$,}
+\item{objects as those of $\A$,}
 \item{morphisms as $F$-decorated cospans:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -2142,7 +2142,7 @@ Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to \Cat$ a sym
 \end{tikzpicture}
 \]
 and}
-\item{2-morphisms as maps of cospans in $\mathsf{A}$ of the form:
+\item{2-morphisms as maps of cospans in $\A$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2167,7 +2167,7 @@ together with a morphism $\tau \maps F(h)(d) \to d^\prime$ in $F(c^\prime)$.}
 This follows immediately by applying \cref{Shul} to the fibrant symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$.
 \end{proof}
 
-This symmetric monoidal bicategory $F\mathbf{Csp}$ is a superior version of the symmetric monoidal bicategory $F$Cospan$(\mathsf{A})$ constructed earlier by the second author \cite{Cour} in that there is greater flexibility in what 2-morphisms are allowed. 
+This symmetric monoidal bicategory $F\mathbf{Csp}$ is a superior version of the symmetric monoidal bicategory $F$Cospan$(\A)$ constructed earlier by the second author \cite{Cour} in that there is greater flexibility in what 2-morphisms are allowed. 
 
 %The previous bicategory constructed by the second author suffered even more so from the issue discussed in the introduction. Given a symmetric lax monoidal functor $F \maps \mathrm{A} \to \mathrm{Set}$, a result of Fong \cite{Fong} yields a symmetric monoidal category $F \textnormal{Cospan}(\mathrm{A})$ which has:
 %\begin{enumerate}
@@ -2268,8 +2268,8 @@ We can then decategorify this symmetric monoidal bicategory to obtain a symmetri
 \begin{cor}
 Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to \Cat$ a symmetric lax monoidal pseudofunctor.  Then there exists a symmetric monoidal category $F\textnormal{Csp}$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$ and}
-\item{morphisms as isomorphism classes of $F$-decorated cospans of $\mathsf{A}$, where an $F$-decorated cospan is given by a pair:
+\item{objects as those of $\A$ and}
+\item{morphisms as isomorphism classes of $F$-decorated cospans of $\A$, where an $F$-decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2315,10 +2315,10 @@ In this symmetric monoidal category, isomorphism classes are as they should mora
 
 
 
-%Let $F \maps \mathsf{A} \to \Cat$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \cref{DC} of the previous section, we get a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$. This symmetric monoidal double category has:
+%Let $F \maps \A \to \Cat$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \cref{DC} of the previous section, we get a symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$. This symmetric monoidal double category has:
 %\begin{enumerate}
-%\item{objects as those of $\mathsf{A}$,}
-%\item{vertical 1-morphisms as morphisms of $\mathsf{A}$,}
+%\item{objects as those of $\A$,}
+%\item{vertical 1-morphisms as morphisms of $\A$,}
 %\item{horizontal 1-cells as pairs:
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -2332,7 +2332,7 @@ In this symmetric monoidal category, isomorphism classes are as they should mora
 %\end{tikzpicture}
 %\]
 %and}
-%\item{2-morphisms as maps of cospans in $\mathsf{A}$
+%\item{2-morphisms as maps of cospans in $\A$
 %\[
 %\begin{tikzpicture}[scale=1.5]
 %\node (A) at (0,0.5) {$a$};
@@ -2357,7 +2357,7 @@ In this symmetric monoidal category, isomorphism classes are as they should mora
 %\end{enumerate}
 
 Regarding maps between symmetric monoidal double categories, consider another symmetric lax monoidal pseudofunctor $F^\prime \maps \mathsf{A^\prime} \to \Cat$%, we can obtain another symmetric monoidal double category $F^\prime \mathbb{C}\textnormal{sp}$.
-a morphism from $F\mathbb{C}\textnormal{sp}$ to $F^\prime \mathbb{C}\textnormal{sp}$ will then be a double functor $\mathbb{H} \maps F\mathbb{C}\textnormal{sp} \to F' \mathbb{C}\textnormal{sp}$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \maps \mathsf{A} \to \mathsf{A^\prime}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
+a morphism from $F\mathbb{C}\textnormal{sp}$ to $F^\prime \mathbb{C}\textnormal{sp}$ will then be a double functor $\mathbb{H} \maps F\mathbb{C}\textnormal{sp} \to F' \mathbb{C}\textnormal{sp}$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \maps \A \to \mathsf{A^\prime}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2418,7 +2418,7 @@ and on 2-morphisms by:
 where $E \maps \Cat \to \Cat$ is a symmetric lax monoidal pseudofuctor such that the following diagram commutes up to isomorphism $\theta \maps EF \Rightarrow F'H$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\mathsf{A}$};
+\node (A) at (0,0) {$\A$};
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\mathsf{A^\prime}$};
 \node (D) at (1,-1) {$\Cat$};
@@ -2715,7 +2715,7 @@ We then have a comparison constraint: $$\mathbb{H}_{M,N} \maps \mathbb{H}(M) \od
 (B) edge node [left] {$\kappa^{-1}$} (D);
 \end{tikzpicture}
 \]
-where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \mathsf{A} \to \mathsf{A^\prime}$. The above diagram commutes by a similar argument to the one used in Theorem \cref{Equiv}. Similarly, for every object $c \in \mathsf{A}$, we have a unit comparison constraint $$\mathbb{H}_U \maps U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
+where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \mathsf{A^\prime}$. The above diagram commutes by a similar argument to the one used in Theorem \cref{Equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\mathbb{H}_U \maps U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$H(c)$};
@@ -2775,7 +2775,7 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 (D') edge node[above]{$\mathbb{H}(\rho^\prime)$} (C');
 \end{tikzpicture}
 \]
-The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\mathbb{H}=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \maps \mathsf{A} \to \mathsf{A}^\prime$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}$:
+The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\mathbb{H}=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A^\prime$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\mathbb{C}\textnormal{sp}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -2907,32 +2907,32 @@ with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 \end{tikzpicture}
 \]
 where $$F^\prime(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)}) = F^\prime(\kappa \kappa \alpha^\prime)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$$
-as the corresponding hexagon for the finite colimit preserving functor $H \maps \mathsf{A} \to \mathsf{A'}$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta^\prime$ of $F \mathbb{C}\textnormal{sp}_1$ and $F' \mathbb{C}\textnormal{sp}_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \mathsf{A} \to \mathsf{A'}$.
+as the corresponding hexagon for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta^\prime$ of $F \mathbb{C}\textnormal{sp}_1$ and $F' \mathbb{C}\textnormal{sp}_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$.
 
 We also have that the monoidal unit of $F\mathbb{C}\textnormal{sp}_1$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathsf{A}$};
-\node (B) at (1,0) {$1_\mathsf{A}$};
-\node (C) at (2,0) {$1_\mathsf{A}$};
-\node (D) at (1,-0.5) {$!_{1_\mathsf{A}} \in F(1_\mathsf{A})$};
+\node (A) at (0,0) {$1_\A$};
+\node (B) at (1,0) {$1_\A$};
+\node (C) at (2,0) {$1_\A$};
+\node (D) at (1,-0.5) {$!_{1_\A} \in F(1_\A)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $1_\mathsf{A}$ is the monoidal unit of the cocartesian category $\mathsf{A}$. The image of this horizontal 1-cell under $\mathbb{H}$ is given by:
+where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\mathbb{H}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$H(1_\mathsf{A})$};
-\node (B) at (1,0) {$H(1_\mathsf{A})$};
-\node (C) at (2,0) {$H(1_\mathsf{A})$};
+\node (A) at (0,0) {$H(1_\A)$};
+\node (B) at (1,0) {$H(1_\A)$};
+\node (C) at (2,0) {$H(1_\A)$};
 %\node (E) at (3,0) {$=$};
 %\node (F) at (4,0) {$1_\mathsf{A^\prime}$};
 %\node (G) at (5,0) {$1_\mathsf{A^\prime}$};
 %\node (H) at (6,0) {$1_\mathsf{A^\prime}$};
 %\node (I) at (5,-0.5) {$!_{1_{\mathsf{A^\prime}}} \in F^\prime(1_{\mathsf{A^\prime}})$};
-\node (D) at (1,-0.5) {$\theta_{1_\mathsf{A}}E(!_{1_\mathsf{A}}) \phi \in F^\prime(H(1_\mathsf{A}))$};
+\node (D) at (1,-0.5) {$\theta_{1_\A}E(!_{1_\A}) \phi \in F^\prime(H(1_\A))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
@@ -2944,13 +2944,13 @@ as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\mathbb{C}\
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$1_{\mathsf{A^\prime}}$};
-\node (A') at (0,-0.5) {$H(1_\mathsf{A})$};
+\node (A') at (0,-0.5) {$H(1_\A)$};
 \node (B) at (1.5,0.5) {$1_{\mathsf{A^\prime}}$};
 \node (C) at (3,0.5) {$1_{\mathsf{A^\prime}}$};
-\node (C') at (3,-0.5) {$H(1_\mathsf{A})$};
-\node (D) at (1.5,-0.5) {$H(1_\mathsf{A})$};
+\node (C') at (3,-0.5) {$H(1_\A)$};
+\node (D) at (1.5,-0.5) {$H(1_\A)$};
 \node (E) at (5,0.5) {$!_{1_\mathsf{A^\prime}} \in F^\prime(1_\mathsf{A^\prime})$};
-\node (F) at (5,-0.5) {$\theta_{1_\mathsf{A}} E(!_{1_\mathsf{A}}) \phi \in F^\prime(H(1_\mathsf{A}))$};
+\node (F) at (5,-0.5) {$\theta_{1_\A} E(!_{1_\A}) \phi \in F^\prime(H(1_\A))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
@@ -2961,13 +2961,13 @@ as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\mathbb{C}\
 (B) edge node [left] {$\kappa$} (D);
 \end{tikzpicture}
 \]
-together with the morphism $\tau_\mu \maps F^\prime(\kappa)(!_{1_\mathsf{A^\prime}}) \to (\theta_{1_\mathsf{A}} E(!_{1_\mathsf{A}})\phi)$ in $F^\prime(H(1_\mathsf{A}))$. The following square then commutes for any horizontal 1-cell $M$ of $F \mathbb{C}\textnormal{sp}$: 
+together with the morphism $\tau_\mu \maps F^\prime(\kappa)(!_{1_\mathsf{A^\prime}}) \to (\theta_{1_\A} E(!_{1_\A})\phi)$ in $F^\prime(H(1_\A))$. The following square then commutes for any horizontal 1-cell $M$ of $F \mathbb{C}\textnormal{sp}$: 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$1_\mathsf{A^\prime} \otimes \mathbb{H}(M)$};
-\node (B) at (2.5,0) {$\mathbb{H}(1_\mathsf{A}) \otimes \mathbb{H}(M)$};
+\node (B) at (2.5,0) {$\mathbb{H}(1_\A) \otimes \mathbb{H}(M)$};
 \node (C) at (0,-1) {$\mathbb{H}(M)$};
-\node (D) at (2.5,-1) {$\mathbb{H}(1_\mathsf{A} \otimes M)$};
+\node (D) at (2.5,-1) {$\mathbb{H}(1_\A \otimes M)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\mu \otimes 1$} (B)
 (A) edge node[left]{$\ell$} (C)
@@ -2975,13 +2975,13 @@ together with the morphism $\tau_\mu \maps F^\prime(\kappa)(!_{1_\mathsf{A^\prim
 (D) edge node[above]{$\mathbb{H}(\ell^\prime)$} (C);
 \end{tikzpicture}
 \]
-where we have abbreviated the monoidal units of $F\mathbb{C}\textnormal{sp}_1$ and $F'\mathbb{C}\textnormal{sp}_1$ as $1_\mathsf{A}$ and $1_\mathsf{A^\prime}$, respectively. The diagram of corresponding decorations is given by:
+where we have abbreviated the monoidal units of $F\mathbb{C}\textnormal{sp}_1$ and $F'\mathbb{C}\textnormal{sp}_1$ as $1_\A$ and $1_\mathsf{A^\prime}$, respectively. The diagram of corresponding decorations is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$};
 \node (B) at (0,-0.5) {$d_{\mathbb{H}(M)}$};
-\node (A') at (4,0.5) {$F^\prime(H(\ell^\prime) \kappa)(d_{!_{\mathbb{H}(1_\mathsf{A})}}\otimes d_{\mathbb{H}(M)})$};
-\node (B') at (4,-0.5) {$F^\prime(H(\ell^\prime))(d_{\mathbb{H}(1_\mathsf{A} \otimes M)})$};
+\node (A') at (4,0.5) {$F^\prime(H(\ell^\prime) \kappa)(d_{!_{\mathbb{H}(1_\A)}}\otimes d_{\mathbb{H}(M)})$};
+\node (B') at (4,-0.5) {$F^\prime(H(\ell^\prime))(d_{\mathbb{H}(1_\A \otimes M)})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\tau_\ell$} (B)
 (A) edge node[above]{$F^\prime(H(\ell^\prime)\kappa)(\tau_{\mu \otimes 1})$} (A')
@@ -2989,15 +2989,15 @@ where we have abbreviated the monoidal units of $F\mathbb{C}\textnormal{sp}_1$ a
 (B') edge node [above] {$\tau_{H(\ell^\prime)}$} (B);
 \end{tikzpicture}
 \]
-where $$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})=F^\prime(H(\ell^\prime)\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \mathsf{A} \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r^\prime$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
+where $$F^\prime(\ell)(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})=F^\prime(H(\ell^\prime)\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A^\prime}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r^\prime$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
 
 \end{comment}
 
 \begin{thm}
-Given two finitely cocomplete categories $\mathsf{A}$ and $\mathsf{A}'$, two symmetric lax monoidal pseudofunctors $F \maps \mathsf{A} \to \Cat$ and $F' \maps \mathsf{A}' \to \Cat$, a finite colimit preserving functor $H \maps \mathsf{A} \to \mathsf{A}'$, a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a 2-isomorphism $\theta \maps EF \Rightarrow F^\prime H$ as in the following diagram, the triple $(H,E,\theta)$ induces a symmetric monoidal (strong) double functor $\mathbb{H} \maps F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ as defined above.
+Given two finitely cocomplete categories $\A$ and $\A'$, two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a 2-isomorphism $\theta \maps EF \Rightarrow F^\prime H$ as in the following diagram, the triple $(H,E,\theta)$ induces a symmetric monoidal (strong) double functor $\mathbb{H} \maps F\mathbb{C}\textnormal{sp} \to F'\mathbb{C}\textnormal{sp}$ as defined above.
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\mathsf{A}$};
+\node (A) at (0,0) {$\A$};
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\mathsf{A^\prime}$};
 \node (D) at (1,-1) {$\Cat$};
@@ -3059,10 +3059,10 @@ In \cite{BC2}, the first two authors introduces the symmetric monoidal double ca
 
 
 \begin{thm}\label{SC}
-Given a category $\X$ with finite colimits and a category $\mathsf{A}$ with finite coproducts and a finite coproduct preserving functor $L \maps \mathsf{A} \to \X$ with $\mathsf{A}$ and $\X$, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\X)$ which has:
+Given a category $\X$ with finite colimits and a category $\A$ with finite coproducts and a finite coproduct preserving functor $L \maps \A \to \X$ with $\A$ and $\X$, there exists a symmetric monoidal double category $_L \mathbb{C}\textnormal{sp}(\X)$ which has:
 \begin{itemize}
-\item{objects given by objects of $\mathsf{A}$,}
-\item{vertical 1-morphisms given by morphisms of $\mathsf{A}$,}
+\item{objects given by objects of $\A$,}
+\item{vertical 1-morphisms given by morphisms of $\A$,}
 \item{horizontal 1-cells $a\tickar b$ given by cospans of $\X$ of the form:
 \begin{equation}\label{eq:structuredcospan}
 \begin{tikzpicture}[scale=1.5]
@@ -3094,7 +3094,7 @@ Given a category $\X$ with finite colimits and a category $\mathsf{A}$ with fini
 \end{tikzpicture}
 \end{equation}
 \end{itemize}
-Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\X$ and tensoring of objects is under binary coproducts in $\mathsf{A}$.
+Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\X$ and tensoring of objects is under binary coproducts in $\A$.
 \end{thm}
 \begin{proof}
 See the first two authors' work on structured cospans \cite{BC2}.
@@ -3105,7 +3105,7 @@ is established by the following theorem. We denote by $\bicat{Rex}$ the 2-catego
 
 \begin{thm}\label{Equiv}
 Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\maps(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor. 
-Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans given in \cref{thm:decoratedcospans} is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans given in \cref{SC}, where $L_F \maps \mathsf{A} \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\maps \inta{F} \to \mathsf{A}$. %by \cref{thm:Grothendieck}, 
+Then the symmetric monoidal double category $F\mathbb{C}\textnormal{sp}$ of decorated cospans given in \cref{thm:decoratedcospans} is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans given in \cref{SC}, where $L_F \maps \A \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\maps \inta{F} \to \A$. %by \cref{thm:Grothendieck}, 
 %under the assumptions of \cref{cor:fcocMonGroth}.
 \end{thm}
 
@@ -3231,7 +3231,7 @@ double functor
 \begin{displaymath}
 \mathbb{E}\maps\scsp{L_F}{\inta F} \longrightarrow\dcsp{F}
 \end{displaymath}
-as follows. The object component of $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is $\mathbb{E}_0 = \id_{\mathsf{A}}$ since both double categories have $\mathsf{A}$ as their vertical category; trivially, $\mathbb{E}_0$ is an equivalence of categories. Given a horizontal 1-cell in $\scsp{L_F}{\inta F}$ like \cref{eq:scsphor1cell}, the arrow component $\mathbb{E}_1$ of the double functor simply maps it to the decorated cospan
+as follows. The object component of $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is $\mathbb{E}_0 = \id_{\A}$ since both double categories have $\A$ as their vertical category; trivially, $\mathbb{E}_0$ is an equivalence of categories. Given a horizontal 1-cell in $\scsp{L_F}{\inta F}$ like \cref{eq:scsphor1cell}, the arrow component $\mathbb{E}_1$ of the double functor simply maps it to the decorated cospan
 \begin{displaymath}
  a\xrightarrow{\; i \;}m\xleftarrow{\; o \;}b\;\textrm{ with decoration }x\in F(m)
 \end{displaymath}
@@ -3268,7 +3268,7 @@ the image $\mathbb{E}_1(M)$ is given by the pair:
 (C) edge node[above]{$R(o) {\eta_{c^\prime}}$} (B);
 \end{tikzpicture}
 \]
-where $R\maps \X \to \mathsf{A}$ is the right adjoint to the functor $L \maps \mathsf{A} \to \X$ and $\eta \maps 1_{\mathsf{A}} \to RL$ is the unit of the adjunction $L \dashv R$ which is an isomorphism since $L$ is fully faithful. \textbf{Hopefully...actually, it's a `lari'!} Similarly, the image of a 2-morphism $\alpha \maps M \to N$ in $_L \mathbb{C}\textnormal{sp}(\X)$:
+where $R\maps \X \to \A$ is the right adjoint to the functor $L \maps \A \to \X$ and $\eta \maps 1_{\A} \to RL$ is the unit of the adjunction $L \dashv R$ which is an isomorphism since $L$ is fully faithful. \textbf{Hopefully...actually, it's a `lari'!} Similarly, the image of a 2-morphism $\alpha \maps M \to N$ in $_L \mathbb{C}\textnormal{sp}(\X)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3287,7 +3287,7 @@ where $R\maps \X \to \mathsf{A}$ is the right adjoint to the functor $L \maps \m
 (C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
-is given by the 2-morphism $\mathbb{E}_1(\alpha) \maps \mathbb{E}_1(M) \to \mathbb{E}_1(N)$ in $\mathbb{F}\textnormal{Cospan}(\mathsf{A})$ given by:
+is given by the 2-morphism $\mathbb{E}_1(\alpha) \maps \mathbb{E}_1(M) \to \mathbb{E}_1(N)$ in $\mathbb{F}\textnormal{Cospan}(\A)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3308,7 +3308,7 @@ is given by the 2-morphism $\mathbb{E}_1(\alpha) \maps \mathbb{E}_1(M) \to \math
 (C) edge node [right]{$g$} (C');
 \end{tikzpicture}
 \]
-together with a morphism $\tau \maps F(R(\alpha))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \maps \mathsf{A} \to \Cat$.  That $\mathbb{E}_0$ is a functor is clear. For $\mathbb{E}_1$, given two vertically composable 2-morphisms $M$ and $M'$ in $_L \mathbb{C}\textnormal{sp}(\X)$,
+together with a morphism $\tau \maps F(R(\alpha))(x) \to x^\prime$ in $F(R(x^\prime)) \subseteq \mathrm{X}$ which comes from the Grothendieck construction of the pseudofunctor $F \maps \A \to \Cat$.  That $\mathbb{E}_0$ is a functor is clear. For $\mathbb{E}_1$, given two vertically composable 2-morphisms $M$ and $M'$ in $_L \mathbb{C}\textnormal{sp}(\X)$,
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(c_1)$};
@@ -3488,7 +3488,7 @@ To show that the double functor $\mathbb{E}$ is fully faithful, we need to show 
 (C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
-Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\X)}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ rendering the above diagram commutative where $f$ and $g$ are morphisms of $\mathsf{A}$ and $\alpha$ is a morphism of $\X$. The image of the above 2-morphism under the double functor $\mathbb{E}$ is given by:
+Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\X)}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ rendering the above diagram commutative where $f$ and $g$ are morphisms of $\A$ and $\alpha$ is a morphism of $\X$. The image of the above 2-morphism under the double functor $\mathbb{E}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c_1$};
@@ -3514,7 +3514,7 @@ Thus the set $$_f { _L \mathbb{C}\textnormal{sp}(\X)}_g(M,N)$$ consists of tripl
 \end{tikzpicture}
 \]
 together with a morphism $\tau \maps F(R(\alpha))(x) \to x^\prime$ of $F(R(x^\prime))$.
-Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\tau)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\mathsf{A}$ and $\tau$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \maps R(x) \to R(x^\prime)$ and $\tau \maps F(R(\alpha))(x) \to x^\prime$ together determine the morphism $\alpha \maps x \to x^\prime$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x^\prime=(c^\prime,x^\prime \in F(c^\prime))$ of $\X=\inta{F}$, a morphism from $\alpha \maps x \to x^\prime$ is a pair $$(h \maps c \to c^\prime, \tau \maps F(h)(x) \to x^\prime)$$ where $h \maps c \to c^\prime$ is given by $R(\alpha) \maps R(x) \to R(x^\prime)$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
+Thus the set $$_{\mathbb{E}(f)} {F\mathbb{C}\textnormal{sp}}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\tau)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\A$ and $\tau$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \maps R(x) \to R(x^\prime)$ and $\tau \maps F(R(\alpha))(x) \to x^\prime$ together determine the morphism $\alpha \maps x \to x^\prime$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x^\prime=(c^\prime,x^\prime \in F(c^\prime))$ of $\X=\inta{F}$, a morphism from $\alpha \maps x \to x^\prime$ is a pair $$(h \maps c \to c^\prime, \tau \maps F(h)(x) \to x^\prime)$$ where $h \maps c \to c^\prime$ is given by $R(\alpha) \maps R(x) \to R(x^\prime)$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
 \end{comment}
 Functoriality of $\mathbb{E}_1$ can be verified, and moreover $(\mathbb{E}_0,\mathbb{E}_1)$ indeed define a strong double functor: there exist natural isomorphisms
 \begin{gather*}
@@ -3714,7 +3714,7 @@ and so $\mathbb{E}_{M,N} \maps \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\s
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-together with a morphism of decorations which is obtained as follows. First, as $R \maps \X \to \mathsf{A}$ preserves finite colimits, we have an isomorphism $$\kappa \maps R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \maps \mathsf{A} \to \X$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \maps c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \maps R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \mapseqq \kappa j_{\eta_{c_2}} \maps R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
+together with a morphism of decorations which is obtained as follows. First, as $R \maps \X \to \A$ preserves finite colimits, we have an isomorphism $$\kappa \maps R(x) +_{R(L(c_2))} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$ Also, since the left adjoint $L \maps \A \to \X$ is fully faithful, the unit of the adjunction $L \dashv R$ at the object $c_2$ gives an isomorphism $\eta_{c_2} \maps c_2 \to R(L(c_2))$ which results in an isomorphism $$j_{\eta_{c_2}} \maps R(x) +_{c_2} R(x^\prime) \to R(x) +_{R(L(c_2))} R(x^\prime).$$ Composing these two results in an isomorphism $$\sigma \mapseqq \kappa j_{\eta_{c_2}} \maps R(x) +_{c_2} R(x^\prime) \to R(x+_{L(c_2)}x^\prime).$$
 Next, to see that the above diagram commutes, it suffices to show that for the object $c_1 \in \mathrm{A}$, $$R(J)R(\zeta)R(i)\eta_{c_1}(c_1) = R(J \zeta i)\eta_{c_1}(c_1)  \stackrel{!}{=} \sigma j \psi R(i)\eta_{c_1}(c_1) = \kappa j_{\eta_{c_2}} \psi R(i) \eta_{c_1}(c_1).$$ This follows as $R(i) \eta_{c_1} \maps c_1 \to R(x)$ and the following diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3743,67 +3743,67 @@ Based on the above description of its mapping, it follows that the strong double
 
 %!!!Christina Have not edited below, but everything should be fine up to notation changes. Happy to do if needed in the future.
 
-Next, we show that if both double categories $_L \mathbb{C}\textnormal{sp}(\X)$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\mathsf{A}$ and $\X$ have finite colimits, then this equivalence of double categories $\mathbb{E} \maps _L \mathbb{C}\textnormal{sp}(\X) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \maps 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\X)})$ and natural isomorphisms $\mu_{c_1,c_2} \maps \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\X)}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\X)$ and $F\mathbb{C}\textnormal{sp}$ have $\mathsf{A}$ as their category of objects and $\mathbb{E}_0=\id_{\mathsf{A}}$. The diagrams utilizing these maps that are required to commute do so trivially.
+Next, we show that if both double categories $_L \mathbb{C}\textnormal{sp}(\X)$ and $F\mathbb{C}\textnormal{sp}$ are symmetric monoidal, as they are if both $\A$ and $\X$ have finite colimits, then this equivalence of double categories $\mathbb{E} \maps _L \mathbb{C}\textnormal{sp}(\X) \to F\mathbb{C}\textnormal{sp}$ will be symmetric monoidal. First, note that we have an isomorphism $\epsilon \maps 1_{F\mathbb{C}\textnormal{sp}} \to \mathbb{E}(1_{_L \mathbb{C}\textnormal{sp}(\X)})$ and natural isomorphisms $\mu_{c_1,c_2} \maps \mathbb{E}(c_1) \otimes \mathbb{E}(c_2) \to \mathbb{E}(c_1 \otimes c_2)$ for every pair of objects $c_1,c_2 \in {_L \mathbb{C} \textnormal{sp}(\X)}$ both of which are given by identities since both double categories $_L \mathbb{C}\textnormal{sp}(\X)$ and $F\mathbb{C}\textnormal{sp}$ have $\A$ as their category of objects and $\mathbb{E}_0=\id_{\A}$. The diagrams utilizing these maps that are required to commute do so trivially.
 
 For the arrow component $\mathbb{E}_1$, we have an isomorphism $\delta \maps U_{1_{F\mathbb{C}\textnormal{sp}}} \to \mathbb{E}(U_{1_{_L \mathbb{C}\textnormal{sp}(\X)}})$ where the horizontal 1-cell $U_{1_{F\mathbb{C}\textnormal{sp}}}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathsf{A}$};
-\node (B) at (1,0) {$1_\mathsf{A}$};
-\node (C) at (2,0) {$1_\mathsf{A}$};
-\node (D) at (3,0) {$!_{1_{\mathsf{A}}} \in F(1_\mathsf{A})$};
+\node (A) at (0,0) {$1_\A$};
+\node (B) at (1,0) {$1_\A$};
+\node (C) at (2,0) {$1_\A$};
+\node (D) at (3,0) {$!_{1_{\A}} \in F(1_\A)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $!_{1_{\mathsf{A}}} = \phi \maps 1 \to F(1_\mathsf{A})$ is the trivial decoration which comes from the structure of the symmetric lax monoidal pseudofunctor $F \maps \mathsf{A} \to \Cat$. The horizontal 1-cell $U_{1_{_L \mathbb{C}\textnormal{sp}(\X)}}$ is given by:
+where $!_{1_{\A}} = \phi \maps 1 \to F(1_\A)$ is the trivial decoration which comes from the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. The horizontal 1-cell $U_{1_{_L \mathbb{C}\textnormal{sp}(\X)}}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(1_\mathsf{A})$};
-\node (B) at (1,0) {$L(1_\mathsf{A})$};
-\node (C) at (2,0) {$L(1_\mathsf{A})$};
+\node (A) at (0,0) {$L(1_\A)$};
+\node (B) at (1,0) {$L(1_\A)$};
+\node (C) at (2,0) {$L(1_\A)$};
 %\node (D) at (3,0.5) {$I \in F(1_\mathrm{A})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where here we make use of the fact that the left adjoint $L \maps (\mathsf{A},+,1_\mathsf{A}) \to (\X,+,1_\X)$ preserves all colimits and thus $L(1_\mathsf{A}) \cong 1_\X$. The horizontal 1-cell $\mathbb{E}(U_{1_{_L \mathbb{C} \textnormal{sp}(\X)}})$ is then given by the pair:
+where here we make use of the fact that the left adjoint $L \maps (\A,+,1_\A) \to (\X,+,1_\X)$ preserves all colimits and thus $L(1_\A) \cong 1_\X$. The horizontal 1-cell $\mathbb{E}(U_{1_{_L \mathbb{C} \textnormal{sp}(\X)}})$ is then given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathsf{A}$};
-\node (B) at (1.25,0) {$R(L(1_\mathsf{A}))$};
-\node (C) at (2.5,0) {$1_\mathsf{A}$};
-\node (D) at (4.5,0) {$!_{R(L(1_\mathsf{A}))} \in F(R(L(1_\mathsf{A})))$};
+\node (A) at (0,0) {$1_\A$};
+\node (B) at (1.25,0) {$R(L(1_\A))$};
+\node (C) at (2.5,0) {$1_\A$};
+\node (D) at (4.5,0) {$!_{R(L(1_\A))} \in F(R(L(1_\A)))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{${\eta_{1_\mathsf{A}}}$} (B)
-(C) edge node[above]{${\eta_{1_\mathsf{A}}}$} (B);
+(A) edge node[above]{${\eta_{1_\A}}$} (B)
+(C) edge node[above]{${\eta_{1_\A}}$} (B);
 \end{tikzpicture}
 \]
 The isomorphism $\delta$ is then given by the 2-morphism:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathsf{A}$};
-\node (B) at (1,0) {$1_{\mathsf{A}}$};
-\node (C) at (2,0) {$1_\mathsf{A}$};
-\node (A') at (0,-1) {$1_\mathsf{A}$};
-\node (B') at (1,-1) {$R(L(1_\mathsf{A}))$};
-\node (C') at (2,-1) {$1_\mathsf{A}$};
-\node (D) at (3,0) {$!_{1_\mathsf{A}} \in F(1_\mathsf{A})$};
-\node (D') at (3.75,-1) {$!_{R(L(1_\mathsf{A}))} \in F(R(L(1_\mathsf{A})))$};
+\node (A) at (0,0) {$1_\A$};
+\node (B) at (1,0) {$1_{\A}$};
+\node (C) at (2,0) {$1_\A$};
+\node (A') at (0,-1) {$1_\A$};
+\node (B') at (1,-1) {$R(L(1_\A))$};
+\node (C') at (2,-1) {$1_\A$};
+\node (D) at (3,0) {$!_{1_\A} \in F(1_\A)$};
+\node (D') at (3.75,-1) {$!_{R(L(1_\A))} \in F(R(L(1_\A)))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B)
-(A') edge node[above]{${\eta_{1_\mathsf{A}}}$} (B')
-(C') edge node[above]{${\eta_{1_\mathsf{A}}}$} (B')
+(A') edge node[above]{${\eta_{1_\A}}$} (B')
+(C') edge node[above]{${\eta_{1_\A}}$} (B')
 (A) edge node [left]{$1$} (A')
-(B) edge node [left]{${\eta_{1_\mathsf{A}}}$} (B')
+(B) edge node [left]{${\eta_{1_\A}}$} (B')
 (C) edge node [left]{$1$} (C');
 \end{tikzpicture}
 \]
-$$\tau_{{\eta_{1_\mathsf{A}}}} \maps F({\eta_{1_\mathsf{A}}})(!_{1_\mathsf{A}})) \to !_{R(L(1_\mathsf{A}))}$$
-of $F\mathbb{C}\textnormal{sp}$. This is just the natural isomorphism $\mathbb{E}_{1_\mathsf{A}}$ from earlier.
+$$\tau_{{\eta_{1_\A}}} \maps F({\eta_{1_\A}})(!_{1_\A})) \to !_{R(L(1_\A))}$$
+of $F\mathbb{C}\textnormal{sp}$. This is just the natural isomorphism $\mathbb{E}_{1_\A}$ from earlier.
 
 Given two horizontal 1-cells $M$ and $N$ of $_L \mathbb{C}\textnormal{sp}(\X)$:
 \[
@@ -3901,7 +3901,7 @@ We then have a 2-isomorphism $\mu_{M,N} \maps E(M) \otimes E(N) \xrightarrow{\si
 (C) edge node [right]{$1$} (C');
 \end{tikzpicture}
 \]
-where $\kappa$ is the isomorphism which comes from $R \maps \X \to \mathsf{A}$ preserving finite colimits.
+where $\kappa$ is the isomorphism which comes from $R \maps \X \to \A$ preserving finite colimits.
 
 The isomorphisms $\delta$ and $\mu$ satisfy the left and right unitality squares, associativity hexagon and braiding square. 
 %Kenny: I think this might be a good place to cut the monoidal stuff.
@@ -3948,21 +3948,21 @@ has an underlying diagram of maps of cospans given by:
 \[
 		\begin{tikzpicture}
 			\node (d) at (7.5,0) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\X)}) \otimes \mathbb{E}(M_1)$};
-			\node (a) at (-6,0) {$1_\mathsf{A}+c_1$};
-			\node (b) at (-0.5,0) {$R(L(1_\mathsf{A})) + R(x_1)$};
-			\node (c) at (5,0) {$1_\mathsf{A}+c_1^\prime$};
+			\node (a) at (-6,0) {$1_\A+c_1$};
+			\node (b) at (-0.5,0) {$R(L(1_\A)) + R(x_1)$};
+			\node (c) at (5,0) {$1_\A+c_1^\prime$};
 			\node (d2) at (7.5,1) {$1_{F\mathbb{C}\textnormal{sp}} \otimes \mathbb{E}(M_1)$};
-			\node (a2) at (-6,1) {$1_\mathsf{A}+c_1$};
-			\node (b2) at (-0.5,1) {$1_\mathsf{A}+R(x_1)$};
-			\node (c2) at (5,1) {$1_\mathsf{A}+c_1^\prime$};
+			\node (a2) at (-6,1) {$1_\A+c_1$};
+			\node (b2) at (-0.5,1) {$1_\A+R(x_1)$};
+			\node (c2) at (5,1) {$1_\A+c_1^\prime$};
 			\node (d3) at (7.5,2) {$\mathbb{E}(M_1)$};
                                 \node (a3) at (-6,2) {$c_1$};
 			\node (b3) at (-0.5,2) {$R(x_1)$};
 			\node (c3) at (5,2) {$c_1^\prime$};
 			\node (d4) at (7.5,-1) {$\mathbb{E}(1_{ _L \mathbb{C}\textnormal{sp}(\X)} \otimes M_1)$};
-                                \node (a5) at (-6,-1) {$1_\mathsf{A}+c_1^\prime$};
-			\node (b5) at (-0.5,-1) {$R(L(1_\mathsf{A})+x_1)$};
-			\node (c5) at (5,-1) {$1_\mathsf{A}+c_1^\prime$};
+                                \node (a5) at (-6,-1) {$1_\A+c_1^\prime$};
+			\node (b5) at (-0.5,-1) {$R(L(1_\A)+x_1)$};
+			\node (c5) at (5,-1) {$1_\A+c_1^\prime$};
 			\node (d5) at (7.5,-2) {$\mathbb{E}(M_1)$};
                                 \node (a6) at (-6,-2) {$c_1$};
 			\node (b6) at (-0.5,-2) {$R(x_1)$};
@@ -3972,49 +3972,49 @@ has an underlying diagram of maps of cospans given by:
 			(d2) edge node [left] {$\delta \otimes 1$} (d)
 			(d) edge node [left] {$\mu_{1,M_1}$} (d4)
 			(d4) edge node [left] {$\mathbb{E}(\lambda)$} (d5)
-			(a) edge node[above]{$\eta_{1_\mathsf{A}}+R(i_1)\eta_{c_1}$} (b)
-			(c) edge node[above]{$\eta_{1_\mathsf{A}}+R(o_1)\eta_{c_1^\prime}$} (b)
+			(a) edge node[above]{$\eta_{1_\A}+R(i_1)\eta_{c_1}$} (b)
+			(c) edge node[above]{$\eta_{1_\A}+R(o_1)\eta_{c_1^\prime}$} (b)
                                 (a2) edge node[above]{$1+R(i_1)\eta_{c_1}$} (b2)
 			(c2) edge node[above]{$1+R(o_1)\eta_{c_1^\prime}$} (b2)
                                 (a2) edge node[left]{$1$} (a)
-                                (b2) edge node[left]{$\eta_{1_\mathsf{A}}+1$} (b)
+                                (b2) edge node[left]{$\eta_{1_\A}+1$} (b)
 (b2) edge node[right]{$\tau_2$} (b)
 			(c2) edge node[right]{$1$} (c)
                                 (a3) edge node[above]{$R(i_1)\eta_{c_1}$} (b3)
 			(c3) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b3)
-                                (a2) edge node[left]{$\lambda_{\mathsf{A}}$} (a3)
-                                (b2) edge node[left]{$\lambda_{\mathsf{A}}$} (b3)
+                                (a2) edge node[left]{$\lambda_{\A}$} (a3)
+                                (b2) edge node[left]{$\lambda_{\A}$} (b3)
 (b2) edge node[right]{$\tau_1$} (b3)
-			(c2) edge node[right]{$\lambda_{\mathsf{A}}$} (c3)
-                                (a5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(i_1)\eta_{c_1})$} (b5)
-			(c5) edge node[above]{$(\mu_{L(1_\mathsf{A}),d_1})(\eta_{1_\mathsf{A}}+R(o_1)\eta_{c_1^\prime})$} (b5)
+			(c2) edge node[right]{$\lambda_{\A}$} (c3)
+                                (a5) edge node[above]{$(\mu_{L(1_\A),d_1})(\eta_{1_\A}+R(i_1)\eta_{c_1})$} (b5)
+			(c5) edge node[above]{$(\mu_{L(1_\A),d_1})(\eta_{1_\A}+R(o_1)\eta_{c_1^\prime})$} (b5)
                                 (a) edge node[left]{$1$} (a5)
-                                (b) edge node[left]{$\mu_{L(1_\mathsf{A}),x_1}$} (b5)
+                                (b) edge node[left]{$\mu_{L(1_\A),x_1}$} (b5)
 (b) edge node[right]{$\tau_3$} (b5)
 			(c) edge node[right]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}$} (b6)
-                                (a5) edge node[left]{$\lambda_{\mathsf{A}}$} (a6)
+                                (a5) edge node[left]{$\lambda_{\A}$} (a6)
                                 (b5) edge node[left]{$R(\lambda_{\X})$} (b6)
  (b5) edge node[right]{$\tau_4$} (b6)
-			(c5) edge node[right]{$\lambda_{\mathsf{A}}$} (c6);
+			(c5) edge node[right]{$\lambda_{\A}$} (c6);
 		\end{tikzpicture}
 	\]
 with the corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_1))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-.5,0) {$F(\lambda_{\mathsf{A}})(!_{1_\mathsf{A}}+x_1)$};
-\node (C) at (4,0) {$F(R(\lambda_{\X})(\mu_{L(1_\mathsf{A}),x_1}))(!_{R(L(1_\mathsf{A}))} +x_1$)};
+\node (A) at (-.5,0) {$F(\lambda_{\A})(!_{1_\A}+x_1)$};
+\node (C) at (4,0) {$F(R(\lambda_{\X})(\mu_{L(1_\A),x_1}))(!_{R(L(1_\A))} +x_1$)};
 \node (D) at (-.5,-1) {$x_1$};
 \node (E) at (4,-1) {$F(R(\lambda_\X))(x_{!+1})$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(R(\lambda_{\X})(\mu_{L(1_\mathsf{A}),x_1}))(\tau_2)$} (C)
+(A) edge node[above]{$F(R(\lambda_{\X})(\mu_{L(1_\A),x_1}))(\tau_2)$} (C)
 (A) edge node[left]{$\tau_1$} (D)
 (E) edge node[above]{$\tau_4$} (D)
 (C) edge node[right]{$F(R(\lambda_\X))(\tau_3)$} (E);
 \end{tikzpicture}
 \]
-where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\mathsf{A})+x_1) \in \mathsf{A}$. The above square commutes because $$F(\lambda_\mathsf{A})(!_{1_\mathsf{A}}+x_1) = F(R(\lambda_\X)(\mu_{L(1_\mathsf{A}),x_1})(\eta_{1_\mathsf{A}}+1))(!_{1_\mathsf{A}}+x_1)$$ as the corresponding left unitality square for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. The right unitality square is similar. The associator hexagon:
+where $x_{!+1}$ is the decoration $x_1$ on the object $R(L(1_\A)+x_1) \in \A$. The above square commutes because $$F(\lambda_\A)(!_{1_\A}+x_1) = F(R(\lambda_\X)(\mu_{L(1_\A),x_1})(\eta_{1_\A}+1))(!_{1_\A}+x_1)$$ as the corresponding left unitality square for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\A,1_\A,+)$ commutes. The right unitality square is similar. The associator hexagon:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)) \otimes \mathbb{E}(M_3)$};
@@ -4086,16 +4086,16 @@ has underlying maps of cospans given by:
 			(c2) edge node[right]{$1$} (c3)
                                 (a4) edge node[above]{$R(i_1+(i_2+i_3))\eta_{c_1+(c_2+c_3)}$} (b4)
 			(c4) edge node[above]{$R(o_1+(o_2+o_3))\eta_{c_1^\prime+(c_2^\prime+c_3^\prime)}$} (b4)
-                                (a3) edge node[left]{$a_\mathsf{A}$} (a4)
+                                (a3) edge node[left]{$a_\A$} (a4)
                                 (b3) edge node[left]{$R(a_\X)$} (b4)
 (b3) edge node[right]{$\tau_3$} (b4)
-			(c3) edge node[right]{$a_\mathsf{A}$} (c4)
+			(c3) edge node[right]{$a_\A$} (c4)
                                 (a5) edge node[above]{$R(i_1)\eta_{c_1}+(R(i_2)\eta_{c_2}+R(i_3)\eta_{c_3})$} (b5)
 			(c5) edge node[above]{$R(o_1)\eta_{c_1^\prime}+(R(o_2)\eta_{c_2^\prime}+R(o_3)\eta_{c_3^\prime})$} (b5)
-                                (a) edge node[left]{$a_\mathsf{A}$} (a5)
-                                (b) edge node[left]{$a_\mathsf{A}$} (b5)
+                                (a) edge node[left]{$a_\A$} (a5)
+                                (b) edge node[left]{$a_\A$} (b5)
 (b) edge node[right]{$\tau_4$} (b5)
-			(c) edge node[right]{$a_\mathsf{A}$} (c5)
+			(c) edge node[right]{$a_\A$} (c5)
                                 (a6) edge node[above]{$R(i_1)\eta_{c_1}+R(i_2+i_3)\eta_{c_2+c_3}$} (b6)
 			(c6) edge node[above]{$R(o_1)\eta_{c_1^\prime}+R(o_2+o_3)\eta_{c_2^\prime+c_3^\prime}$} (b6)
                                 (a5) edge node[left]{$1$} (a6)
@@ -4113,7 +4113,7 @@ has underlying maps of cospans given by:
 Here we have omitted the natural isomorphisms $\phi_{c_i,c_j} \maps L(c_i) + L(c_j) \to L(c_i + c_j)$ on the inward pointing morphisms which make up the legs of each cospan due to limited space. The corresponding maps of decorations amount to the following commutative diagram in $F(R(x_1+(x_2+x_3)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3)$};
+\node (A) at (0,0) {$F((\kappa)(1+\kappa)(a_\A))((x_1+x_2)+x_3)$};
 \node (B) at (5,0) {$F((R(a_\mathrm{X}))(\kappa))((x_1+x_2)+x_3)$};
 \node (C) at (5,-1) {$F(R(a_\mathrm{X}))((x_1+x_2)+x_3)$};
 \node (D) at (5,-2) {$x_1+(x_2+x_3)$};
@@ -4128,7 +4128,7 @@ Here we have omitted the natural isomorphisms $\phi_{c_i,c_j} \maps L(c_i) + L(c
 (F) edge node[above]{$\tau_6$} (D);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(1+\kappa)(a_\mathsf{A}))((x_1+x_2)+x_3) = F((R(a_\X))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the corresponding associator hexagon for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Lastly, the braiding square:
+The above square commutes because $$F((\kappa)(1+\kappa)(a_\A))((x_1+x_2)+x_3) = F((R(a_\X))(\kappa)(\kappa+1))((x_1+x_2)+x_3)$$ as the corresponding associator hexagon for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\A,1_\A,+)$ commutes. Lastly, the braiding square:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\mathbb{E}(M_1) \otimes \mathbb{E}(M_2)$};
@@ -4174,10 +4174,10 @@ has underlying map of cospans given by:
 			(c) edge node[above]{$R(o_1) \eta_{c_1^\prime} + R(o_2) \eta_{c_2^\prime}$} (b)
                                 (a2) edge node[above]{$R(i_2) \eta_{c_2} + R(i_1) \eta_{c_1}$} (b2)
 			(c2) edge node[above]{$R(o_2) \eta_{c_2^\prime} + R(o_1) \eta_{c_1^\prime}$} (b2)
-                                (a) edge node[left]{$\beta_\mathsf{A}$} (a2)
-                                (b) edge node[left]{$\beta_\mathsf{A}$} (b2)
+                                (a) edge node[left]{$\beta_\A$} (a2)
+                                (b) edge node[left]{$\beta_\A$} (b2)
 (b) edge node[right]{$\tau_1$} (b2)
-			(c) edge node[right]{$\beta_\mathsf{A}$} (c2)
+			(c) edge node[right]{$\beta_\A$} (c2)
                                 (a3) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b3)
 			(c3) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b3)
                                 (a2) edge node[left]{$1$} (a3)
@@ -4192,16 +4192,16 @@ has underlying map of cospans given by:
 			(c) edge node[right]{$1$} (c5)
                                 (a6) edge node[above]{$R(i_2+i_1)\eta_{c_2+c_1}$} (b6)
 			(c6) edge node[above]{$R(o_2+o_1)\eta_{c_2^\prime+c_1^\prime}$} (b6)
-                                (a5) edge node[left]{$\beta_\mathsf{A}$} (a6)
+                                (a5) edge node[left]{$\beta_\A$} (a6)
                                 (b5) edge node[left]{$R(\beta_\X)$} (b6)
  (b5) edge node[right]{$\tau_4$} (b6)
-			(c5) edge node[right]{$\beta_\mathsf{A}$} (c6);
+			(c5) edge node[right]{$\beta_\A$} (c6);
 		\end{tikzpicture}
 	\]
 Again, we have omitted the natural isomorphisms $\phi_{c_i,c_j}$ on the inward pointing morphisms on each cospan leg due to space restrictions. The corresponding maps of decorations amounting to the following commutative diagram in $F(R(x_2+x_1))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-.5,0) {$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2)$};
+\node (A) at (-.5,0) {$F((\kappa)(\beta_\A))(x_1+x_2)$};
 \node (C) at (4,0) {$F(\kappa)(x_2+x_1)$};
 \node (D) at (-.5,-1) {$F(R(\beta_\X))(x_1+x_2)$};
 \node (E) at (4,-1) {$x_2+x_1$};
@@ -4212,7 +4212,7 @@ Again, we have omitted the natural isomorphisms $\phi_{c_i,c_j}$ on the inward p
 (C) edge node[right]{$\tau_2$} (E);
 \end{tikzpicture}
 \]
-The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((R(\beta_\X))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\mathsf{A},1_\mathsf{A},+)$ commutes. Thus the double functor $\mathbb{E} \maps _L\mathbb{C}\textnormal{sp}(\X) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
+The above square commutes because $$F((\kappa)(\beta_\A))(x_1+x_2) = F((R(\beta_\X))(\kappa))(x_1+x_2)$$ as the corresponding braiding square for the finite colimit preserving functor $R \maps (\X,1_\X,+) \to (\A,1_\A,+)$ commutes. Thus the double functor $\mathbb{E} \maps _L\mathbb{C}\textnormal{sp}(\X) \to F\mathbb{C}\textnormal{sp}$ is symmetric monoidal.
 \end{comment}
 
 \end{proof}
@@ -4221,13 +4221,13 @@ The above square commutes because $$F((\kappa)(\beta_\mathsf{A}))(x_1+x_2) = F((
 
 Using a result of Shulman \cite{Shul}, each of the isofibrant symmetric monoidal double categories $F\mathbb{C}\textnormal{sp}$ and $_L \mathbb{C}\textnormal{sp}(\mathrm{X})$ give rise to underlying symmetric monoidal bicategories, namely $F\mathbb{C}\textnormal{sp}$ induces a symmetric monoidal bicategory $F\mathbf{Csp} \mapseqq H(F\mathbb{C}\textnormal{sp})$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$,}
+\item{objects as those of $\A$,}
 \item{morphisms as horizontal 1-cells of $F\mathbb{C}\textnormal{sp}$, and}
 \item{2-morphisms as globular 2-morphisms of $F\mathbb{C}\textnormal{sp}$.}
 \end{enumerate} 
 Likewise, $_L \mathbb{C}\textnormal{sp}(\X)$ induces a symmetric monoidal bicategory $H( {_L \mathbb{C}\textnormal{sp}(\X)})$ which has:
 \begin{enumerate}
-\item{objects as those of $\mathsf{A}$,}
+\item{objects as those of $\A$,}
 \item{morphisms as horizontal 1-cells of $_L \mathbb{C}\textnormal{sp}(\X)$, and}
 \item{2-morphisms as globular 2-morphisms of $_L \mathbb{C}\textnormal{sp}(\X)$.}
 \end{enumerate}
@@ -4243,7 +4243,7 @@ The bicategories $F\mathbf{Csp}$ and $H( {_L \mathbb{C}\textnormal{sp}(\X)})$ ar
 %!!!Kenny: Is this biequivalnce symmetric monoidal? Mike says yes, but it follows from a result that he has yet to officially publish. It's a result of a paper he's currently working on with someone.
 
 \begin{comment}
-We can also define the part of the double equivalence $\mathbb{G} \maps F\mathbb{C}\textnormal{sp} \to {_L \mathbb{C} \textnormal{sp}(\X)}$ which goes in the other direction: again, the object component of this double functor will be $\mathbb{G}_0 = \id_{\mathsf{A}}$.
+We can also define the part of the double equivalence $\mathbb{G} \maps F\mathbb{C}\textnormal{sp} \to {_L \mathbb{C} \textnormal{sp}(\X)}$ which goes in the other direction: again, the object component of this double functor will be $\mathbb{G}_0 = \id_{\A}$.
 
 Given a horizontal 1-cell $M$ of $F\mathbb{C}\textnormal{sp}$:
 \[
@@ -4313,7 +4313,7 @@ where $\alpha \maps x \to x^\prime$ is the morphism in the Grothendieck construc
 
 Next, we exhibit natural isomorphisms $\eta \maps \id_{ _L \mathbb{C}\textnormal{sp}(\X)} \cong \mathbb{G} \mathbb{E}$ and $\epsilon \maps \mathbb{E} \mathbb{G} \cong \id_{F\mathbb{C}\textnormal{sp}}$. Specifically, these are double natural isomorphisms given by double transformations \cite{Shul2} $\eta$ and $\epsilon$ whose object and arrow components are natural isomorphisms.
 
-First we compute the composites $\mathbb{G} \mathbb{E}$ and $\mathbb{E} \mathbb{G}$. On the object categories, both composites are $\id_\mathsf{A}$ and we have natural isomorphisms $\eta \maps \id_{\mathsf{A}} \cong \mathbb{G}_0 \mathbb{E}_0$ and $\epsilon \maps \mathbb{E}_0 \mathbb{G}_0 \cong \id_{\mathsf{A}}$.
+First we compute the composites $\mathbb{G} \mathbb{E}$ and $\mathbb{E} \mathbb{G}$. On the object categories, both composites are $\id_\A$ and we have natural isomorphisms $\eta \maps \id_{\A} \cong \mathbb{G}_0 \mathbb{E}_0$ and $\epsilon \maps \mathbb{E}_0 \mathbb{G}_0 \cong \id_{\A}$.
 
 Given a horizontal 1-cell $M$ in $_L \mathbb{C} \textnormal{sp}(\X)$:
 \[
