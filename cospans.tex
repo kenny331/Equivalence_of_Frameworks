@@ -36,35 +36,34 @@ monoidal pseudofunctor using a well known construction of Grothendieck.
 
 \section{Introduction}
 
-An `open system' is any sort of system that can interact with the outside world.  Open systems
-are nicely modeled using cospans, which are diagrams of this form:
+An `open system' is any sort of system that can interact with the outside world.  Experience has shown that open systems are nicely modeled using cospans \cite{CourserThesis, FongThesis, PollardThesis}. A cospan in some category $\A$ is a diagram of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,1) {$b$};
-\node (C) at (2,0) {$a_2$};
+\node (A) at (0,0) {$a$};
+\node (B) at (1,1) {$m$};
+\node (C) at (2,0) {$b$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-We call $b$ the \define{apex}, $a_1$ and $a_2$ the \define{feet}, and $i$ and $o$ the \define{legs}.   The feet describe `interfaces' of the corresponding open system, while the apex describes the system itself.    However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.
+We call $m$ the \define{apex}, $a$ and $b$ the \define{feet}, and $i$ and $o$ the \define{legs} of the cospan.   The apex describes the system itself.  The feet describe `interfaces'  through which the system can interact with the outside world.  The legs describe how the interfaces are included in the system.   If the category $\A$ has finite colimits we can compose cospans using pushouts: this describes the operation of attaching tw open systems together `in series' by identifying one interface of the first with one of the second.  We can also `tensor' cospans using coproducts: this describes setting open systems side by side, `in parallel'.  Via these operations we obtain a symmetric monoidal double category with cospans in $\A$ as its horizontal 1-cells \cite{Courser,Niefield}.
 
-Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+,0) \to (\textsf{Set},\times,1)$ can be used to `decorate' the apex of a cospan in $\A$ with some extra data: an element of the image of its apex under $F$. In the case of the cospan above, this would be an element $d \in F(b)$, which we call a \textbf{decoration} on $b$.  Thus a decorated cospan is given by a pair:
+However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+,0) \to (\textsf{Set},\times,1)$ can be used to `decorate' the apex $m$ of a cospan in $\A$ with some extra data: an element $d \in F(m)$, which we call a \textbf{decoration}.  Thus a decorated cospan is given by a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$b$};
-\node (C) at (2,0) {$a_2$};
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$m$};
+\node (C) at (2,0) {$b$};
 \node (D) at (3,0) {$1$};
-\node (E) at (4,0) {$F(b)$};
+\node (E) at (4,0) {$F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
 (D) edge node [above] {$d$} (E);
 \end{tikzpicture}
 \]
-To obtain a decoration on the composition of two composable $F$-decorated cospans:
+To obtain a decoration on the composition of two composable decorated cospans:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -87,8 +86,10 @@ To obtain a decoration on the composition of two composable $F$-decorated cospan
 \end{tikzpicture}
 \]
 we use the natural map from a coproduct to a pushout as well as the structure maps, or `laxators', that come as part of the structure of a lax monoidal functor:
- $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+ b^\prime) \xrightarrow{F(j_{b,b^\prime})} F(b+_{a_2} b^\prime).$$
-From this symmetric lax monoidal functor $F \maps \A \to \mathsf{Set}$, Fong then constructs a symmetric monoidal category $F\textnormal{Cospan}(\A)$ which has:
+\[
+1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(b) \times F(b^\prime) \xrightarrow{\phi_{b,b^\prime}} F(b+ b^\prime) \xrightarrow{F(j_{b,b^\prime})} F(b+_{a_2} b^\prime).
+\]
+Using this idea, Fong constructed a symmetric monoidal category $F\textnormal{Cospan}(\A)$ which has:
 \begin{enumerate}
 \item{objects as those of $\A$ and}
 \item{morphisms as isomorphism classes of $F$-decorated cospans, where an $F$-decorated cospan is given as above, and two $F$-decorated cospans are in the same isomorphism class if there exists an isomorphism $f \maps b \to b^\prime$ between the apices such that the following diagrams commute:
@@ -3011,7 +3012,7 @@ Given two finitely cocomplete categories $\A$ and $\A'$, two symmetric lax monoi
 \]
 \end{thm}
 
-Details of the constructions and the proof of the above theorem can be found at \cite{CourPhD}.
+Details of the constructions and the proof of the above theorem can be found at \cite{CourserThesis}.
 
 %\newpage
 %Scratch work for Petri net problem
@@ -5882,22 +5883,23 @@ The monoidal lax double functor is \define{braided} if $\mathbb{F}_0$ and $\math
 
 \begin{thebibliography}{100}
 
-\bibitem{BC} J.\ C.\ Baez and K.\ Courser, Coarse-graining open Markov processes. Available as \href{https://arxiv.org/abs/1710.11343}{arXiv:1710.11343}.
+\bibitem{BC} J.\ C.\ Baez and K.\ Courser, Coarse-graining open Markov processes, \textsl{Theory Appl.\ Categ.\ }\textbf{33} (2018), 1223--1268.  Available as \href{https://arxiv.org/abs/1710.11343}{arXiv:1710.11343}.
 
-\bibitem{BC2} J.\ C.\ Baez and K.\ Courser, Structured cospans. In preparation. THIS IS FINISHED!
+\bibitem{BC2} J.\ C.\ Baez and K.\ Courser, Structured cospans,  \textsl{Theory Appl.\ Categ.\ }\textbf{35} (2020), 1771–1822.   Available as \href{http://arxiv.org/abs/1911.04630}{arXiv:1911.04630}.
 
-\bibitem{BCR} J.\ C.\ Baez, B.\ Coya and F.\ Rebro, Props in circuit theory. In preparation. THIS IS FINISHED!!!
+\bibitem{BCR} J.\ C.\ Baez, B.\ Coya and F.\ Rebro, Props in circuit theory, \textsl{Theory Appl.\ Categ.\ }\textbf{33} (2018), 727--783.    Available as \href{https://arxiv.org/abs/1707.08321}{arXiv:1707.08321}. 
 
-\bibitem{BF} J.\ C.\ Baez and B.\ Fong, A compositional framework for passive linear networks. Available as \href{http://arxiv.org/abs/1504.05625}{arXiv:1504.05625}.
+\bibitem{BF}  J.\ C.\ Baez and B.\ Fong, A compositional framework for passive linear networks, \textsl{Theory Appl.\ Categ.\ }\textbf{33} (2018), 1158--1222.  Available as \href{http://arxiv.org/abs/1504.05625}{arXiv:1504.05625}.
 
-\bibitem{BFP} J.\ C.\ Baez, B.\ Fong and B.\ Pollard, A compositional framework for Markov processes, \textsl{Jour. Math. Phys.} \textbf{57} (2016), 033301. Available as \href{http://arxiv.org/abs/1508.06448}{arXiv:1508.06448}.
+\bibitem{BFP} J.\ C.\ Baez, B.\ Fong and B.\ S.\ Pollard, A compositional framework for Markov processes, \textsl{Jour. Math. Phys.} \textbf{57} (2016), 033301. Available as \href{http://arxiv.org/abs/1508.06448}{arXiv:1508.06448}.
 
-\bibitem{BM} J.\ C. \ Baez and J.\ Master, Open Petri nets. Available as \href{https://arxiv.org/abs/1808.05415}{arXiv:1808.05415}.
+\bibitem{BM}  J.\ C.\ Baez and J.\ Master, Open Petri nets, \textsl{Math.\ Struct.\ Comput.\ Sci.\ }\textbf{30} (2020), 314--341. Available as 
+\href{https://arxiv.org/abs/1808.05415}{arXiv:1808.05415}. 
 
-\bibitem{BP} J.\ C.\ Baez and B.\ Pollard, A compositional framework for chemical reaction networks, in preparation.
+\bibitem{BP} J.\ C.\ Baez and B.\ S.\ Pollard, A compositional framework for chemical reaction networks, \textsl{Rev.\ Math.\ Phys.\ }\textbf{29} (2017), 1750028.  Available as \href{http://arxiv.org/abs/1704.02051}{arXiv:1704.02051}.
 
-\bibitem{Borc} F. \ Borceux, Handbook of categorical algebra. 2, volume 51 of Encyclopedia of Mathematics and its Applications,
-Cambridge University Press, 1994
+\bibitem{Borc} F. \ Borceux, \textsl{Handbook of Categorical Algebra}, vol.\ 2, 
+Cambridge University Press, Cambridge, 1994
 
 \bibitem{Brown1} R.\ Brown and C.\ B.\ Spencer, Double groupoids and crossed modules, 
 \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{17} (1976), 343--362.
@@ -5914,13 +5916,14 @@ Cambridge University Press, 1994
 
 %\bibitem{CC} D.\ Cicala and K.\ Courser, Spans of cospans in a topos. Available as \href{https://arxiv.org/abs/1707.02098}{arXiv:1707.02098}.
 
-\bibitem{CV} D.\ Cicala and C.\ Vasilakopoulou, On Adjoints and Fibrations. In preparation.
+\bibitem{CV} D.\ Cicala and C.\ Vasilakopoulou, On Adjoints and fibrations. In preparation.
 
-\bibitem{Cour} K.\ Courser, A bicategory of decorated cospans, \emph{Theor.\ Appl.\ Cat.} \textbf{32} (2017), 995--1027. Also available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
+\bibitem{Courser} K.\ Courser, A bicategory of decorated cospans, \emph{Theory Appl.\ Categ.} \textbf{32} (2017), 995--1027. Available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
 
-\bibitem{CourPhD} K.\ Courser, Open Systems: a Double Categorical Perspective, PhD Thesis, University of California at Riverside (2019)
+\bibitem{CourserThesis} K.\ Courser, \textsl{Open Systems: a Double Categorical Perspective}, Ph.D.\ thesis, Department of Mathematics, U.\ C.\ Riverside, 2020.  Available as \href{https://arxiv.org/abs/2008.02394}{arxiv:2008.02394}.
 
-\bibitem{DS} B.\ Day and R.\ Street, Monoidal Bicategories and Hopf Algebroids, \emph{Adv. Math.}, 129(1):99--157, 1997.
+\bibitem{DS} B.\ Day and R.\ Street, Monoidal Bicategories and Hopf algebroids, \textsl{Adv.\ Math.} \textbf{129} (1997), 99--157.
+
 %\bibitem{Ehresmann63} C.\ Ehresmann, Cat\'egories structur\'ees III: Quintettes et applications covariantes,  \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{5} (1963), 1--22.
 
 %\bibitem{Ehresmann65} C.\ Ehresmann, {\sl Cat\'egories et Structures,} Dunod, Paris, 1965.
@@ -5929,7 +5932,11 @@ Cambridge University Press, 1994
 
 \bibitem{Ehresmann65} C.\ Ehresmann, {\sl Cat\'egories et Structures,} Dunod, Paris, 1965.
 
-\bibitem{Fong} B.\ Fong, Decorated cospans, \emph{Theor.\ Appl.\ Cat.} \textbf{30} (2015), 1096--1120. Also available as \href{http://arxiv.org/abs/1502.00872}{arXiv:1502.00872}.
+\bibitem{Fong} B.\ Fong, Decorated cospans, \emph{Theory Appl.\ Categ.} \textbf{30} (2015), 1096--1120.  Available as \href{http://arxiv.org/abs/1502.00872}{arXiv:1502.00872}.
+
+\bibitem{FongThesis} B.\ Fong, \textsl{The Algebra of Open and Interconnected Systems},
+Ph.D.\ thesis, Computer Science Department, University of Oxford, 2016.
+Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 %\bibitem{GP1} M.\ Grandis and R.\ Par\'e, Limits in double categories, \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{40} (1999), 162--220.
 
@@ -5959,16 +5966,11 @@ Cambridge University Press, 1994
 
 \bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
 
-%\bibitem{Pol} B.\ Pollard, Open Markov processes: A compositional perspective on non-equilibrium steady states in biology, %%%\emph{Entropy} $\mathbf{18}$ (2016), 140. Available as \href{http://arxiv.org/abs/1601.00711}{arXiv:1601.00711}.
-
-%\bibitem{Nie}
-%S.~Niefield,
-%Span, cospan, and other double categories.
-%\textsl{Theory Appl.\ Categ.}
-%\textbf{26} (2012), 729--742.
-%Available as \href{https://arxiv.org/abs/1201.3789}{arXiv:1201.3789}.
+\bibitem{Niefield} S.~Niefield, Span, cospan, and other double categories, \textsl{Theory Appl.\ Categ.} \textbf{26} (2012), 729--742. Available as \href{https://arxiv.org/abs/1201.3789}{arXiv:1201.3789}.
 
 %\bibitem{Panan} F.\ Clerc, H.\ Humphrey and P.\ Panangaden, Bicategories of Markov processes,  to appear.
+
+\bibitem{PollardThesis} B.\ S.\ Pollard, \textsl{Open Markov Processes and Reaction Networks}, Ph.D. thesis, U. C. Riverside, 2017.  Available as \href{https://arxiv.org/abs/1709.09743}{arXiv:1709.09743}.
 
 %\bibitem{RSW} R.\ Rosebrugh, N.\ Sabadini and R.\ F.\ C.\ Walters, Generic commutative separable algebras and cospans of graphs, \textsl{Theory Appl. Categ.} \textbf{15} (2005), 164--177. Available at \href{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}.
 
