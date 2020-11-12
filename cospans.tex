@@ -811,28 +811,28 @@ Daniel Cicala, Brendan Fong...
 
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
-In this section we build the symmetric monoidal double category $F \mathbb{C}$sp mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and finally decategorify this to obtain a symmetric monoidal category $F\mathsf{Csp}$ which is a generalization of Fong's original decorated cospan category \cite{Fong}.  The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
+In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and finally decategorify this to obtain a symmetric monoidal category $F\mathsf{Csp}$ which is a generalization of Fong's original decorated cospan category \cite{Fong}.  The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
 
 %!!!John: So one thing we should do is give a little explanation of (the new) decorated cospans, introducing vocabulary. And another thing we should do is give a little explanation of double categories, mainly to introduce vocabulary and symbols. I bet there's a lot of this in the appendix but still we should try to be nice to our readers.
 
 \begin{thm}\label{thm:decoratedcospans}
-Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\mathbb{C}$sp which has:
+Let $\A$ be a category with chosen finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ with:
 \begin{itemize}
-\item{objects as those of $\A$,}
-\item{vertical 1-morphisms as morphisms of $\A$,}
-\item{horizontal 1-cells as $F$-decorated cospans in $\A$ which are pairs
+\item{objects of $\A$ as objects,}
+\item{morphisms of $\A$ as vertical 1-morphisms,}
+\item{$F$-decorated cospans as horizontal 1-cells, where an \define{$F$-decorated cospan} is a pair given by a cospan in $\A$ together with a decoration on the cospan's apex:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
+\node (A) at (0,0) {$(a$};
 \node (B) at (1,0) {$m$};
 \node (C) at (2,0) {$b,$};
-\node (D) at (3,0) {$x \in F(m)$};
+\node (D) at (2.6,0) {$x \in F(m))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]}
-\item{2-morphisms as maps of $F$-decorated cospans in $\A$
+\item{maps of $F$-decorated cospans as 2-morphisms, where a \define{map of $F$-decorated cospans} is a pair given by a map of cospans in $\A$:
 \begin{equation}\label{eq:FCsp2morph}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -853,7 +853,7 @@ Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a lax mono
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \end{equation}
-together with a morphism $\tau \maps F(h)(m) \to m'$ in $F(m')$.}
+together with a \define{morphism of decorations} $\tau \maps F(h)(x) \to x'$ in $F(m')$.}
 \end{itemize}
 \end{thm}
 %!!!Kenny: We should try to make this theorem shorter. 
@@ -861,7 +861,70 @@ together with a morphism $\tau \maps F(h)(m) \to m'$ in $F(m')$.}
 %!!!Kenny: On second thought, I'm not sure what we can cut out of this theorem. We're already saying "the standard monoidal category diagrams are satisfied" rather than displaying them.
 %!!!Christina: I think the proof can be simplified and made shorter in general, combined with John's comment that the reader should be eased in the terminology we use here like `unit structure functor', which could also be simplified to not using such notation, just describing for example the horizontal unit 1-cell and unit 2-cell. Kenny, would you like to give it a try? Or should I or John?
 \begin{proof}
-The unit structure functor $U \maps F\lCsp_0 \to F\lCsp_1$ is defined on objects as: 
+The definition of double category may be found in Definition \ref{defn:double_category}. To show that the pseudofunctor $F$ in the theorem statement induces a double category $F\lCsp$, we must first define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$ and the composition functor $\odot$ which says how to compose two composable horizontal 1-cells or two composable 2-morphisms horizontally: $$\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1.$$
+
+The category of objects $F\lCsp_0$ is simply the category $\A$. The category of arrows $F\lCsp_1$ has $F$-decorated cospans for objects and maps of $F$-decorated cospans as morphisms. Given two vertically composable $F$-decorated cospans:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a'$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b'$};
+\node (D) at (1,-0.5) {$m'$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x' \in F(m')$};
+\node (G) at (1.5,-1) {$\tau \colon F(h)(x) \to x'$};
+\node (A'') at (0,-1.5) {$a$};
+\node (A''') at (0,-2.5) {$a'$};
+\node (B'') at (1,-1.5) {$m$};
+\node (C'') at (2,-1.5) {$b$};
+\node (C''') at (2,-2.5) {$b'$};
+\node (D'') at (1,-2.5) {$m'$};
+\node (E'') at (3,-1.5) {$x \in F(m)$};
+\node (F'') at (3,-2.5) {$x' \in F(m')$};
+\node (G'') at (1.5,-3) {$\tau' \colon F(h')(x') \to x''$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$g$} (C')
+(A') edge node[above] {$i'$} (D)
+(C') edge node[above] {$o'$} (D)
+(B) edge node [left] {$h$} (D)
+(A'') edge node[above]{$i'$} (B'')
+(C'') edge node[above]{$o'$} (B'')
+(A'') edge node[left]{$f'$} (A''')
+(C'') edge node[right]{$g'$} (C''')
+(A''') edge node[above] {$i''$} (D'')
+(C''') edge node[above] {$o''$} (D'')
+(B'') edge node [left] {$h'$} (D'');
+\end{tikzpicture}
+\]
+their composite is given by the composite of the two maps of cospans in $\A$
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a''$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b''$};
+\node (D) at (1,-0.5) {$m''$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x'' \in F(m'')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node[left]{$f'f$} (A')
+(C) edge node[right]{$g'g$} (C')
+(A') edge node[above] {$i''$} (D)
+(C') edge node[above] {$o''$} (D)
+(B) edge node [left] {$h'h$} (D);
+\end{tikzpicture}
+\]
+together with the composite morphism of decorations $\tau' \tau \colon F(h'h)(x) \to x'$ in $F(m'')$. This completes the descriptions of the category of objects $F\lCsp_0 = \A$ and the category of arrows $F\lCsp_1$.
+
+Next, we define the four structure functors $U,S,T$ and $\odot$. The unit functor $U \maps F\lCsp_0 \to F\lCsp_1$ is defined on objects as: 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (-1,0) {$a$};
@@ -875,7 +938,7 @@ The unit structure functor $U \maps F\lCsp_0 \to F\lCsp_1$ is defined on objects
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $!_a \in F(a)$ is the trivial decoration on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. For morphisms, the structure functor $U$ is defined as:
+where $!_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. For morphisms, the functor $U$ is defined as:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-1,0.5) {$a$};
@@ -900,7 +963,7 @@ where $!_a \in F(a)$ is the trivial decoration on $a$ given by the composite of 
 (G) edge node [left] {$f$} (G');
 \end{tikzpicture}
 \]
-together with the morphism $\tau_{!_f} = F(f) F(!) \phi \maps 1 \to F(a')$. We also have source and target structure functors $S, T \maps F\lCsp_1 \to F\lCsp_0$ where the source of the horizontal 1-cell
+together with the morphism $\tau_{!_f} = F(f) F(!) \phi \maps 1 \to F(a')$. For the source and target functors $S, T \maps F\lCsp_1 \to F\lCsp_0$, given an object $F\lCsp_1$, which is an $F$-decorated cospan,
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -912,7 +975,7 @@ together with the morphism $\tau_{!_f} = F(f) F(!) \phi \maps 1 \to F(a')$. We a
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-is the object $a$ in $\A$ and the source of the 2-morphism
+the source is the object $a$ and the target is the object $b$. Given a morphism of $F\lCsp_1$, which is a map of $F$-decorated cospans,
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -934,9 +997,9 @@ is the object $a$ in $\A$ and the source of the 2-morphism
 \end{tikzpicture}
 \]
 $$\tau \maps F(h)(m) \to m'$$
-is the source of the underlying map of cospans in $\A$, namely the morphism $f$ in $\A$; the target structure functor is defined similarly. These structure functors satisfy the equations $$SU(a)=\id_a=TU(a)$$for all objects $a$ of $\A$.
+the source is the morphism $f$ and the target is the morphism $g$. The three functors $S,T$ and $U$ satisfy the equations $SU=\id_{\A}=TU$.
 
-Given two composable horizontal 1-cells $M$ and $N$:
+Next we define the composite functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$, which amounts to defining how we compose two composable $F$-decorated cospans or two maps of $F$-decorated cospans with a common source and target. Given two composable $F$-decorated cospans which we respectively denote by $M$ and $N$, the capitals of their apices:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -954,7 +1017,7 @@ Given two composable horizontal 1-cells $M$ and $N$:
 (G) edge node[above]{$o'$} (F);
 \end{tikzpicture}
 \]
-the composite $N \odot M$ is given by:
+the composite $M \odot N$ is given by taking the pushout of the two cospans in $\A$ over the shared foot which is the object $b$:
 \begin{equation}\label{eq:dcospanscomposition}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -976,9 +1039,49 @@ the composite $N \odot M$ is given by:
 (E) edge[bend right] node [right] {$\psi j' o'$} (G);
 \end{tikzpicture}
 \end{equation}
-with the corresponding decoration of the apex $x \odot y \in F(m+_{b} n)$ given by:
-$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
-where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. Denoting the first and second of these horizontal 1-cells as $M$ and $N$, respectively, the source and target structure functors satisfy the equations $S(N \odot M)=S(M)$ and $T(N \odot M)=T(N)$.
+The composite decoration $x \odot y$ on the apex $m+_b n$ is given by:
+$$x \odot y = 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
+where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ is the natural transformation coming from the structure of the lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is clear that the equations $S(M \odot N)=S(M)$ and $T(M \odot N)=T(N)$ hold. Given two horizontally composable maps of $F$-decorated cospans which we respectively denote by $\alpha$ and $\beta$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a'$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b'$};
+\node (D) at (1,-0.5) {$m'$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x' \in F(m')$};
+\node (G) at (4,0.5) {$b$};
+\node (H) at (5,0.5) {$n$};
+\node (I) at (6,0.5) {$c$};
+\node (G') at (4,-0.5) {$b'$};
+\node (H') at (5,-0.5) {$n'$};
+\node (I') at (6,-0.5) {$c'$};
+\node (J) at (7,0.5) {$y \in F(n)$};
+\node (K) at (7,-0.5) {$y' \in F(n')$};
+\node (L) at (1,-1) {$\tau_\alpha \maps F(h_1)(x) \to x'$};
+\node (M) at (5,-1) {$\tau_\beta \maps F(h_2)(y) \to y'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$g$} (C')
+(A') edge node[above] {$i_1'$} (D)
+(C') edge node[above] {$o_1'$} (D)
+(B) edge node [left] {$h_1$} (D)
+(G) edge node [above] {$i_2$} (H)
+(G) edge node [left] {$g$} (G')
+(H) edge node [left] {$h_2$} (H')
+(G') edge node [above] {$i_2'$} (H')
+(I) edge node [above] {$o_2$} (H)
+(I) edge node [right] {$k$} (I')
+(I') edge node [above] {$o_2'$} (H');
+\end{tikzpicture}
+\]
+\textbf{In progress...}
+
+
 
 Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
