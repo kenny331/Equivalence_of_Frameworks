@@ -811,7 +811,9 @@ Daniel Cicala, Brendan Fong...
 
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
-In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} and finally decategorify this to obtain a symmetric monoidal category $F\mathsf{Csp}$ which is a generalization of Fong's original decorated cospan category \cite{Fong}.  The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
+In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction. Then we obtain an underlying symmetric monoidal bicategory $F \mathbf{Csp}$ using a result of Shulman \cite{Shul} 
+%!!!Christina: John suggested we might move all the horizontal bicategory and decategorified 1-category results together somewhere later/in the end.
+and finally decategorify this to obtain a symmetric monoidal category $F\mathsf{Csp}$ which is a generalization of Fong's original decorated cospan category \cite{Fong}.  The definition of a lax monoidal pseudofunctor is recalled in \cref{sec:2cats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
 
 \begin{thm}\label{thm:decoratedcospans}
 Let $\A$ be a category with chosen finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
@@ -3304,32 +3306,7 @@ Details of the constructions and the proof of the above theorem can be found at 
 
 %Now, what can we say about $\textrm{Ob}(F(P+_{L(Y)}Q))$ vs. $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))$? Well, $\textrm{Ob}(F(P+_{L(Y)}Q)) = \mathbb{N}(S_1+_Y S_2)$ and $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))= \mathbb{N}(S_1) +_{\mathbb{N}(Y)} \mathbb{N}(S_2)$.
 
-
-
-
-
-
-
-
-
 %\newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 %is given by $$1 \to F(c_1) \times F(c_2) \xrightarrow{} F(c_1 + c_2) \xrightarrow{} F(c_1 + _b c_2)$$ and then applying the functor $E$ results in $1 \to E(F(c_1+_b c_2))$, which by the comutative square is the same as $1 \to F'(H(c_1+_b c_2))$. On the other hand, applying the functor $E$ to each decoration results in $$1 \to E(F(c_1)) \times E(F(c_2)) \xrightarrow{} E(F(c_1) \times F(c_2)) \xrightarrow{} E(F(c_1+c_2)) \xrightarrow E(F(c_1+_b c_2)) \xrightarrow{} F'(H(c_1 +_b c_2))$$
@@ -3337,17 +3314,15 @@ Details of the constructions and the proof of the above theorem can be found at 
 
 
 \section{Structured versus decorated cospans} \label{EquivDoubleCats}
-%\begin{comment}
 
-In \cite{BC2}, the first two authors introduces the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double equivalence between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. Below we recall the double category structured cospans form.
-
+In \cite{BC2}, the first two authors introduce the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double equivalence between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category structured cospans form.
 
 \begin{thm}\label{SC}
-Given a category $\X$ with finite colimits and a category $\A$ with finite coproducts and a finite coproduct preserving functor $L \maps \A \to \X$ with $\A$ and $\X$, there exists a symmetric monoidal double category $_L \lCsp(\X)$ which has:
+Given categories $\X$ and $\A$ with finite colimits and $L \maps \A \to \X$ a finitely cocontinuous functor, there exists a symmetric monoidal double category $_L\lCsp(\X)$ in which
 \begin{itemize}
-\item{objects given by objects of $\A$,}
-\item{vertical 1-morphisms given by morphisms of $\A$,}
-\item{horizontal 1-cells $a\tickar b$ given by cospans of $\X$ of the form:
+\item an object is an object of $\A$,
+\item a vertical morphism is a morphism of $\A$,
+\item a horizontal 1-cell $a\tickar b$ is a cospan in $\X$ of the form
 \begin{equation}\label{eq:structuredcospan}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
@@ -3357,8 +3332,8 @@ Given a category $\X$ with finite colimits and a category $\A$ with finite copro
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B);
 \end{tikzpicture}
-\end{equation}}
-\item 2-morphisms given by maps of cospans of $\X$ of the form:
+\end{equation}
+\item a 2-morphism is a map of cospans of $\X$ of the form
 \begin{equation}\label{eq:2cellsStrCsp}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
@@ -3378,10 +3353,11 @@ Given a category $\X$ with finite colimits and a category $\A$ with finite copro
 \end{tikzpicture}
 \end{equation}
 \end{itemize}
-Composition of horizontal 1-cells and 2-morphisms is given by pushouts in $\X$ and tensoring of objects is under binary coproducts in $\A$.
+The symmetric monoidal structure is formed by using binary coproducts and the initial object.
 \end{thm}
+
 \begin{proof}
-See the first two authors' work on structured cospans \cite{BC2}.
+All relevant details can be found in \cite[Thm.~2.3\&3.9]{BC2}. In particular, the double category structure only requires that $\X$ have pushouts, since this is how composition is formed. Moreover, the symmetric monoidal structure requires that $\X$ also have binary coproducts and an initial object (thus all finite colimits), and that $\A$ have and $L$ preserve finite coproducts, see \cite[Thm.~3.2.3]{CourserThesis}.
 \end{proof}
 
 The desired equivalence between these two different double categorical network frameworks, namely structured cospans and decorated cospans,
