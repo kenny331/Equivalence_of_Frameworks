@@ -3333,7 +3333,7 @@ Given categories $\X$ and $\A$ with finite colimits and $L \maps \A \to \X$ a fi
 (C) edge node[above]{$$} (B);
 \end{tikzpicture}
 \end{equation}
-\item a 2-morphism is a map of cospans of $\X$ of the form
+\item a 2-morphism is a map of cospans in $\X$ of the form
 \begin{equation}\label{eq:2cellsStrCsp}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
@@ -3360,19 +3360,16 @@ The symmetric monoidal structure is formed by using binary coproducts and the in
 All relevant details can be found in \cite[Thm.~2.3\&3.9]{BC2}. In particular, the double category structure only requires that $\X$ have pushouts, since this is how composition is formed. Moreover, the symmetric monoidal structure requires that $\X$ also have binary coproducts and an initial object (thus all finite colimits), and that $\A$ have and $L$ preserve finite coproducts, see \cite[Thm.~3.2.3]{CourserThesis}.
 \end{proof}
 
-The desired equivalence between these two different double categorical network frameworks, namely structured cospans and decorated cospans,
-is established by the following theorem. We denote by $\bicat{Rex}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors.
+The following theorem establishes the desired equivalence between these two different double categorical network frameworks of structured and decorated cospans in a formal way. We denote by $\bicat{Rex}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors, and the symmetric monoidal double structure of decorated cospans is worked out in \cref{thm:decoratedcospans,DC}.
 
 \begin{thm}\label{Equiv}
-Suppose $\ca{A}$ is a finitely cocomplete category and $(F,\phi,\phi_0)\maps(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor. 
-Then the symmetric monoidal double category $F\lCsp$ of decorated cospans given in \cref{thm:decoratedcospans} is equivalent to the symmetric monoidal double category $\scsp{L_F}{\inta F}$ of structured cospans given in \cref{SC}, where $L_F \maps \A \to \inta{F}$ is the left adjoint of the induced Grothendieck opfibration $\U_F\maps \inta{F} \to \A$. %by \cref{thm:Grothendieck}, 
-%under the assumptions of \cref{cor:fcocMonGroth}.
+Suppose $\ca{A}$ has finite colimits and $(F,\phi,\phi_0)\maps(\ca{A},+,0) \to (\bicat{Cat},\times,\mathbf{1})$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor. 
+Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $\U\maps \inta F \to \A$.
 \end{thm}
 
-The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. 
+The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
-In \cite{MV}, the classic Grothendieck construction is generalized to the monoidal setting: lax monoidal structures on a pseudofunctor $F\maps\A\to\bicat{Cat}$ bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves liftings, see \cite[Thm. 3.10]{MV}. If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations, summarized as
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: lax monoidal structures on a pseudofunctor $F\maps\A\to\bicat{Cat}$ bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves cocartesian liftings, see \cite[Thm.~3.13]{MV}. If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations, summarized as
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+,0)\to(\bicat{Cat},\times) \notag\\
 \Updownarrow \notag\\
@@ -5311,7 +5308,7 @@ compatible with composition and identities.
 We denote by $[\A,\bicat{Cat}]_\pse$ the 2-category 
 of pseudofunctors, pseudonatural transformations and modifications from an ordinary category $\A$ viewed as a 2-category with trivial 2-cells, into $\bicat{Cat}$. This is also referred to as the 2-category of \emph{opindexed categories}, since an indexed category is a contravariant pseudofunctor into $\bicat{Cat}$.
 
-A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoida' pseudofunctor. A \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories comes with invertible $F(b)\circ \mu_{a,b}\cong \mu_{b,a}\circ b$, where $b$ is the braiding. 
+A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories comes with invertible $F(b)\circ \mu_{a,b}\cong \mu_{b,a}\circ b$, where $b$ is the braiding. 
 %!!!Christina: Hiding various details under the rug - e.g. what a symmetric monoidal bicategory is. Should be fine? Also, not sure if we need monoidal transformations?
 
 \subsection{Fibrations}\label{sec:fibrations}
@@ -6223,7 +6220,7 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 %   \bibitem{ML} S.\ Mac Lane, {\sl Categories for the Working Mathematician},
 %     Springer, Berlin, 1998.
 
-\bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
+\bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction, \emph{Theory Appl.\ Categ.} \textbf{35} (2020), no. 31, 1159--1207. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
 
 \bibitem{Niefield} S.~Niefield, Span, cospan, and other double categories, \textsl{Theory Appl.\ Categ.} \textbf{26} (2012), 729--742. Available as \href{https://arxiv.org/abs/1201.3789}{arXiv:1201.3789}.
 
