@@ -818,7 +818,7 @@ In this section we build the symmetric monoidal double category $F \lCsp$ mentio
 Let $\A$ be a category with chosen finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
-\item a vertical morphism is a morphism of $\A$,
+\item a vertical 1-morphism is a morphism of $\A$,
 \item a horizontal 1-cell is an $F$\define{-decorated cospan}: that is, 
 a cospan in $\A$:
 \[
@@ -874,14 +874,14 @@ The category of objects $F\lCsp_0$ is simply the category $\A$. The category of 
 \node (E) at (3,0.5) {$x \in F(m)$};
 \node (F) at (3,-0.5) {$x' \in F(m')$};
 \node (G) at (1.5,-1) {$\tau \colon F(h)(x) \to x'$};
-\node (A'') at (0,-1.5) {$a$};
-\node (A''') at (0,-2.5) {$a'$};
-\node (B'') at (1,-1.5) {$m$};
-\node (C'') at (2,-1.5) {$b$};
-\node (C''') at (2,-2.5) {$b'$};
-\node (D'') at (1,-2.5) {$m'$};
-\node (E'') at (3,-1.5) {$x \in F(m)$};
-\node (F'') at (3,-2.5) {$x' \in F(m')$};
+\node (A'') at (0,-1.5) {$a'$};
+\node (A''') at (0,-2.5) {$a''$};
+\node (B'') at (1,-1.5) {$m'$};
+\node (C'') at (2,-1.5) {$b'$};
+\node (C''') at (2,-2.5) {$b''$};
+\node (D'') at (1,-2.5) {$m''$};
+\node (E'') at (3,-1.5) {$x' \in F(m')$};
+\node (F'') at (3,-2.5) {$x'' \in F(m'')$};
 \node (G'') at (1.5,-3) {$\tau' \colon F(h')(x') \to x''$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
@@ -924,6 +924,7 @@ their composite is given by the composite of the two maps of cospans in $\A$
 together with the composite morphism of decorations $\tau' F(\tau) \colon F(h'h)(x) \to x'$ in $F(m'')$.
 % this was:
 % together with the composite morphism of decorations $\tau' \tau \colon F(h'h)(x) \to x'$ in $F(m'')$
+%% \tau' \tau was the notation that I was using, but I see why this was misleading. I believe it should be called \tau'(F(h')(\tau)) \instead of \tau' F(\tau), and also with target x''.
  This completes the descriptions of the category of objects $F\lCsp_0 = \A$ and the category of arrows $F\lCsp_1$.
 
 Next, we define the four structure functors $U,S,T$ and $\odot$. The unit functor $U \maps F\lCsp_0 \to F\lCsp_1$ is defined on objects as: 
@@ -998,10 +999,10 @@ the source is the object $a$ and the target is the object $b$. Given a morphism 
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-$$\tau \maps F(h)(m) \to m'$$
+$$\tau \maps F(h)(x) \to x'$$
 the source is the morphism $f$ and the target is the morphism $g$. The three functors $S,T$ and $U$ satisfy the equations $SU=\id_{\A}=TU$.
 
-Next we define the composite functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$, which amounts to defining how we compose two composable $F$-decorated cospans or two maps of $F$-decorated cospans with a common source and target. Given two composable $F$-decorated cospans which we respectively denote by $M$ and $N$, the capitals of their apices:
+Next we define the composite functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$, which amounts to defining how we compose two composable $F$-decorated cospans or horizontally compose two maps of $F$-decorated cospans with a common source and target. Given two composable $F$-decorated cospans which we respectively denote by $M$ and $N$, the capitals of their apices:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1127,7 +1128,7 @@ together with the morphism of decorations $\tau_{\alpha \odot \beta} \colon F(h_
 \]
 The middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying square commutes. The decorations $x \odot y$ and $x' \odot y'$ are given respectively by the top and bottom composite of arrows and the morphism of decorations $\tau_{\alpha \odot \beta}$ is given by composing $\tau_\alpha \times \tau_\beta$ with the two commuting squares. It is clear that the equations $S(M \odot N)=S(M)$ and $T(M \odot N)=T(N)$ hold, and this finishes defining the four structure functors $U,S,T$ and $\odot$.
 
-Lastly, our double category is required to have an associator $\alpha$ (\textbf{over using alpha, ignoring for now}) and left and right unitors $\lambda$ and $\rho$ which are natural isomorphisms governing the composition of horizontal 1-cells that are required to satisfy the standard coherence axioms for a monoidal category, as well as $S(\alpha),S(\lambda),S(\rho),T(\alpha),T(\lambda)$ and $T(\rho)$ all being identities. We will only show the associator $\alpha$, left unitor $\lambda$ and the pentagon identity, as the remaining details will be similar to these.
+Lastly, our double category is required to have an associator $\alpha$ (\textbf{overusing alpha, ignoring for now}) and left and right unitors $\lambda$ and $\rho$ which are natural isomorphisms governing the composition of horizontal 1-cells that are required to satisfy the standard coherence axioms for a monoidal category, as well as $S(\alpha),S(\lambda),S(\rho),T(\alpha),T(\lambda)$ and $T(\rho)$ all being identities. We will only show the associator $\alpha$, left unitor $\lambda$ and the pentagon identity, as the remaining details will be similar to these.
 
 First we will build the associator $\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$, which will be a globular 2-morphism; in other words, a map of $F$-decorated cospans with identities on the sides. Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
@@ -1158,7 +1159,7 @@ we first compute $(M_1 \odot M_2) \odot M_3)$ by pushing out the first two cospa
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (2,0) {$(m_1 +_b m_2) +_c m_3$};
-\node (C) at (4,0) {$b$};
+\node (C) at (4,0) {$d$};
 %\node (D) at (3,0) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
@@ -1171,7 +1172,7 @@ The composite $M_1 \odot (M_2 \odot M_3)$ is obtained similarly:
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (2,0) {$m_1 +_b (m_2 +_c m_3)$};
-\node (C) at (4,0) {$b$};
+\node (C) at (4,0) {$d$};
 %\node (D) at (3,0) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
@@ -1203,9 +1204,9 @@ $$x_1 \odot (x_2 \odot x_3) \mapseqq 1 \xrightarrow{\zeta_2} F(m_1) \times F(m_2
 together with the morphism of decorations $\tau_\alpha \colon F(\alpha)((x_1 \odot x_2) \odot x_3) \to (x_1 \odot (x_2 \odot x_3))$ that is obtained by pasting various commutative squares together, as we did for a horizontal composite above. The associator $\alpha$ will then satisfy the pentagon identity:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (-1,0) {$((M_1 \odot M_2) \odot M_3) \odot M_4$};
+\node (A) at (-0.5,0) {$((M_1 \odot M_2) \odot M_3) \odot M_4$};
 \node (B) at (3,1.05) {$(M_1 \odot (M_2 \odot M_3)) \odot M_4$};
-\node (C) at (7,0) {$M_1 \odot ((M_2 \odot M_3) \odot M_4)$};
+\node (C) at (6.5,0) {$M_1 \odot ((M_2 \odot M_3) \odot M_4)$};
 \node (D) at (1.5,-1.05) {$(M_1 \odot M_2) \odot (M_3 \odot M_4)$};
 \node (E) at (4.5,-1.05) {$M_1 \odot (M_2 \odot (M_3 \odot M_4))$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1218,17 +1219,7 @@ together with the morphism of decorations $\tau_\alpha \colon F(\alpha)((x_1 \od
 \]
 which we may realize in two stages. First, for the underlying pentagon of maps of cospans in $\A$ commuting due to the fact that $\lCsp(\A)$ is a double category with its own associator that satisfies the pentagon identity, and second, for the pentagon of morphisms of decorations due to the pasting of various commutative squares in $\Cat$.
 
-\noindent
-\textbf{In progress...}
-%we get a natural isomorphism $a_{M_1,M_2,M_3} \maps (M_1 \odot M_2) \odot M_3 \to M_1 \odot (M_2 \odot M_3)$ which is a globular 2-morphism given by a map of cospans $(\id_{a_1},\sigma,\id_{a_4})$:
-%with the decorations on the cospan's apices given by:
-%$$ (x \odot y) \odot z \mapseqq 1 \xrightarrow{\zeta_1} F(m_1+_{b} m_2) \times F(m_3) \xrightarrow{\phi_{m_1+_{b} m_2, m_3}} F((m_1+_{b}m_2) +m_3) \xrightarrow{F(j_{m_1+_{b} m_2,m_3})} F((m_1+_{b} m_2)+_{c} m_3)$$ $$\zeta_1 = (1 \times z) \rho^{-1} F(j_{m_1,m_2}) \phi_{m_1,m_2} (x \times y) \lambda^{-1}$$
-%and
-%$$ x \odot (y \odot z) \mapseqq 1 \xrightarrow{\zeta_2} F(m_1) \times F(m_2 +_{c} m_3) \xrightarrow{\phi_{m_1, m_2 +_{c} m_3}} F(m_1+(m_2 +_{c} m_3)) \xrightarrow{F(j_{m_1,m_2 +_{c} m_3})} F(m_1+_{b} (m_2+_{c} m_3))$$ $$\zeta_2 = (x \times 1) \lambda^{-1} F(j_{m_2,m_3}) \phi_{m_2,m_3} (y \odot z) \lambda^{-1}$$
-%together with the isomorphism $\tau_\sigma \maps F(\sigma)((x \odot y) \odot z) \to x \odot (y \odot z)$. Note that the map $\sigma \maps (m_1+_{b} m_2)+_{c}m_3 \to m_1+_{b}(m_2+_{c}m_3)$ is the universal map between two colimits of the same diagram. 
-
-\noindent
-We also have left and right unitors where given a horizontal 1-cell $M$:
+We next construct the left unitor. Given a horizontal 1-cell $M$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1240,58 +1231,66 @@ We also have left and right unitors where given a horizontal 1-cell $M$:
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
+the left unitor will be a globular 2-morphism $\lambda \colon 1_a \odot M \to M$, where the identity horizontal 1-cell on the object $a$ will once again make use of the trivial decoration on an object introduced earlier.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$m$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$x \in F(m)$};
-\node (E) at (3,0) {$b$};
-\node (F) at (4,0) {$b$};
-\node (G) at (5,0) {$b$};
-\node (H) at (4,-0.5) {$!_{b} \in F(b)$};
+\node (B) at (1,0) {$a$};
+\node (C) at (2,0) {$a$};
+\node (D) at (3,0) {$!_a \in F(a)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(E) edge node[above]{$1$} (F)
-(G) edge node[above]{$1$} (F);
+(A) edge node[above]{$\id_a$} (B)
+(C) edge node[above]{$\id_a$} (B);
 \end{tikzpicture}
 \]
-where $!_{b} = F(!)  \phi \maps 1 \to F(b)$ is the trivial decoration on $b$, composing these then gives:
+To compose $1_a$ and $M$, we first compose the two cospans in $\A$ by pushing out over their shared object $a$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$m+_{b} b$};
-\node (C) at (2,0) {$b$};
-\node (D) at (3.5,0) {$x \odot !_b \in F(m +_{b} b)$};
+\node (B) at (1,1) {$a$};
+\node (C) at (2,0) {$a$};
+\node (D) at (3,1) {$m$};
+\node (E) at (4,0) {$b$};
+\node (F) at (2,2) {$a+m$};
+\node (G) at (2,3) {$a+_{a} m$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_m i$} (B)
-(C) edge node[above]{$j \psi_{b}$} (B);
+(A) edge node[above]{$\id_a$} (B)
+(C) edge node[above]{$\id_a$} (B)
+(C) edge node [above] {$i$} (D)
+(E) edge node [above] {$o$} (D)
+(B) edge node [above] {$j_a$} (F)
+(D) edge node [above] {$j_m$} (F)
+(F) edge node [left] {$\psi$} (G)
+(A) edge[bend left] node [left] {$\psi j_a$} (G)
+(E) edge[bend right] node [right] {$\psi j_{m} o$} (G);
 \end{tikzpicture}
 \]
-where $\psi_m \maps m \to m+b$ is the natural map into the coproduct and likewise for $\psi_{b}$ and $j \maps m+b \to m+_{b} b$ is the natural map from the coproduct to the pushout. The decoration $x \odot !_b \maps 1 \to F(m+_{b} b)$ is given by: $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times !_{b}} F(m) \times F(b) \xrightarrow{\phi_{m,b}} F(m+b) \xrightarrow{F(j_{m,b})} F(m+_{b} b).$$ We then have that the right unitor $R \maps M \odot 1_{b} \xrightarrow{\sim} M$ is given by the globular 2-morphism $(\id_{a},r,\id_{b})$ from the above composite to $M$:
+The composite decoration $!_a \odot x$ will be given by the composite
+$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_a \times x} F(a) \times F(m) \xrightarrow{\phi_{a,m}} F(a+m) \xrightarrow{F(\psi)} F(a+_{a} m).$$
+The left unitor is then the map of $F$-decorated cospans determined by the following map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a$};
-\node (B) at (1.5,0.5) {$m+_{b} b$};
+\node (B) at (1.5,0.5) {$a+_{a} m$};
 \node (C) at (3,0.5) {$b$};
 \node (C') at (3,-0.5) {$b$};
 \node (D) at (1.5,-0.5) {$m$};
-\node (E) at (4.5,0.5) {$x \odot !_b \in F(m+_{b} b)$};
+\node (E) at (4.5,0.5) {$!_a \odot x \in F(a+_{a} m)$};
 \node (F) at (4.5,-0.5) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_m i$} (B)
-(C) edge node[above]{$j \psi_{b}$} (B)
+(A) edge node[above]{$\psi j_a$} (B)
+(C) edge node[above]{$\psi j_m o$} (B)
 (A) edge node[left]{$\id_{a}$} (A')
 (C) edge node[right]{$\id_{b}$} (C')
 (A') edge node [above]{$i$} (D)
 (C') edge node [above]{$o$} (D)
-(B) edge node [left] {$r$} (D);
+(B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-where $r \maps m+_{b} b \xrightarrow{\sim} m$ is a universal map together with the isomorphism $\tau_r \maps F(r)(x \odot !_b) \to x$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities, and the left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms $\alpha, \beta, \alpha'$ and $\beta'$:
+together with the morphism of decorations $\tau_\lambda \colon F(\ell)(!_a \odot x) \to x$; note, that $\ell \colon a+_a m \to m$ is a canonical isomorphism as both $a+_a m$ and $m$ are colimits of the span $a \xleftarrow{\id_a} a \xrightarrow{i} m$. The right unitor $\rho$ is similar, the two unitality squares are similar to the associator shown above, and it is clear that the source and target functors applied to the associator and left and right unitors yield identities.
+
+The final property that we will check is the interchange law for 2-morphisms. Suppose that we have four 2-morphisms $\alpha, \beta, \alpha'$ and $\beta'$ as shown below:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -1361,44 +1360,162 @@ where $r \maps m+_{b} b \xrightarrow{\sim} m$ is a universal map together with t
 (I''') edge node [above] {$o_2''$} (H''');
 \end{tikzpicture}
 \]
-if we first compose horizontally we obtain:
+We may compose these first vertically and then horizontally, or first horizontally and then vertically, and we must show that these two ways of composing yield the same result. Composing first vertically and then horizontally results in:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a'$};
-\node (B) at (1.5,0.5) {$m+_{b} n$};
-\node (C) at (3,0.5) {$c$};
-\node (C') at (3,-0.5) {$c'$};
-\node (D) at (1.5,-0.5) {$m' +_{b'} n'$};
-\node (E) at (4.5,0.5) {$x \odot y \in F(m+_{b} n)$};
-\node (F) at (4.5,-0.5) {$x' \odot y' \in F(m' +_{b'} n')$};
-\node (G) at (1.5,-1) {$\tau_{\alpha \odot \beta} \maps F(h_1 +_g h_2)(x \odot y) \to x' \odot y'$};
-\node (A'') at (0,-1.5) {$a'$};
-\node (A''') at (0,-2.5) {$a''$};
-\node (B'') at (1.5,-1.5) {$m' +_{b\prime} n'$};
-\node (C'') at (3,-1.5) {$c'$};
-\node (C''') at (3,-2.5) {$c''$};
-\node (D'') at (1.5,-2.5) {$m'' +_{b''} n''$};
-\node (E'') at (4.5,-1.5) {$x' \odot y' \in F(m'+_{b'} n')$};
-\node (F'') at (4.5,-2.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
-\node (G'') at (1.5,-3) {$\tau_{\alpha' \odot \beta'} \maps F(h_1' +_{g'} h_2')(x' \odot y') \to x'' \odot y''.$};
+\node (A') at (0,-0.5) {$a''$};
+\node (B) at (2,0.5) {$m+_{b} n$};
+\node (C) at (4,0.5) {$c$};
+\node (C') at (4,-0.5) {$c''$};
+\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
+\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
+\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
+\node (G) at (2,-1) {$\tau_{(\alpha' \alpha) \odot (\beta' \beta)} \maps F((h_1' h_1)+_{g' g} (h_2' h_2))(x \odot y) \to x'' \odot y''$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_{m} i_1$} (B)
-(C) edge node[above]{$j \psi_{n} o_2$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[right]{$k$} (C')
-(A') edge node [above]{$j \psi_{m'} i_1'$} (D)
-(C') edge node [above]{$j \psi_{n'} o_2'$} (D)
-(B) edge node [left] {$h_1 +_g h_2$} (D)
-(A'') edge node[above]{$j \psi_{m'} i_1'$} (B'')
-(C'') edge node[above]{$j \psi_{n'} o_2'$} (B'')
-(A'') edge node[left]{$f'$} (A''')
-(C'') edge node[right]{$k'$} (C''')
-(A''') edge node [above]{$j \psi_{m''} i_1''$} (D'')
-(C''') edge node [above]{$j \psi_{n''} o_2''$} (D'')
-(B'') edge node [left] {$h_1' +_{g'} h_2'$} (D'');
+(A) edge node[above]{$ \psi j_m i_1$} (B)
+(C) edge node[above]{$ \psi j_n o_2$} (B)
+(A) edge node[left]{$f' f$} (A')
+(C) edge node[right]{$k' k$} (C')
+(A') edge node [above]{$\psi j_{m''} i_1''$} (D)
+(C') edge node [above]{$\psi j_{n''} o_2''$} (D)
+(B) edge node [left] {$(h_1' h_1) +_{g' g} (h_2' h_2)$} (D);
 \end{tikzpicture}
 \]
+whereas first composing horizontally and then vertically results in:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a''$};
+\node (B) at (2,0.5) {$m+_{b} n$};
+\node (C) at (4,0.5) {$c$};
+\node (C') at (4,-0.5) {$c''$};
+\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
+\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
+\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
+\node (G) at (2,-1) {$\tau_{(a' \odot \beta')(\alpha \odot \beta)} \maps F((h_1' +_{g'} h_2')(h_1 +_g h_2))(x \odot y) \to x'' \odot y''.$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\psi j_{m} i_1$} (B)
+(C) edge node[above]{$\psi j_{n} o_2$} (B)
+(A) edge node[left]{$f' f$} (A')
+(C) edge node[right]{$k' k$} (C')
+(A') edge node [above]{$\psi j_{m''} i_1''$} (D)
+(C') edge node [above]{$\psi j_{n''} o_2''$} (D)
+(B) edge node [left] {$(h_1' +_{g'} h_2')(h_1 +_g h_2)$} (D);
+\end{tikzpicture}
+\]
+Everything about these two composites appears identical except for the two middle morphisms and the two morphisms of decorations. However, the two maps $(h_1' h_1) +_{g' g} (h_2' h_2) \maps m+_{b} n \to m'' +_{b''}n''$ and $(h_1' +_{g'} h_2')(h_1 +_g h_2) \maps m+_{b} n \to m'' +_{b''} n''$ are the same universal map realized in two different ways. The two morphisms of decorations $\tau_{(\alpha' \odot \beta')(\alpha \odot \beta)}$ and $\tau_{(\alpha' \alpha) \odot (\beta' \beta)}$ are also the same as they are obtained as two different compositions of four 2-morphisms in $\Cat$, namely first vertically and then horizontally and first horizontally and then vertically. The interchange law for $\Cat$ says that these two composites must be the same as well, and thus the interchange law for our double category $F\lCsp$ is also satisfied.
+ %\noindent
+%\textbf{In progress...}
+%we get a natural isomorphism $a_{M_1,M_2,M_3} \maps (M_1 \odot M_2) \odot M_3 \to M_1 \odot (M_2 \odot M_3)$ which is a globular 2-morphism given by a map of cospans $(\id_{a_1},\sigma,\id_{a_4})$:
+%with the decorations on the cospan's apices given by:
+%$$ (x \odot y) \odot z \mapseqq 1 \xrightarrow{\zeta_1} F(m_1+_{b} m_2) \times F(m_3) \xrightarrow{\phi_{m_1+_{b} m_2, m_3}} F((m_1+_{b}m_2) +m_3) \xrightarrow{F(j_{m_1+_{b} m_2,m_3})} F((m_1+_{b} m_2)+_{c} m_3)$$ $$\zeta_1 = (1 \times z) \rho^{-1} F(j_{m_1,m_2}) \phi_{m_1,m_2} (x \times y) \lambda^{-1}$$
+%and
+%$$ x \odot (y \odot z) \mapseqq 1 \xrightarrow{\zeta_2} F(m_1) \times F(m_2 +_{c} m_3) \xrightarrow{\phi_{m_1, m_2 +_{c} m_3}} F(m_1+(m_2 +_{c} m_3)) \xrightarrow{F(j_{m_1,m_2 +_{c} m_3})} F(m_1+_{b} (m_2+_{c} m_3))$$ $$\zeta_2 = (x \times 1) \lambda^{-1} F(j_{m_2,m_3}) \phi_{m_2,m_3} (y \odot z) \lambda^{-1}$$
+%together with the isomorphism $\tau_\sigma \maps F(\sigma)((x \odot y) \odot z) \to x \odot (y \odot z)$. Note that the map $\sigma \maps (m_1+_{b} m_2)+_{c}m_3 \to m_1+_{b}(m_2+_{c}m_3)$ is the universal map between two colimits of the same diagram. 
+%\noindent
+%We also have left and right unitors where given a horizontal 1-cell $M$:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a$};
+%\node (B) at (1,0) {$m$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (3,0) {$x \in F(m)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i$} (B)
+%(C) edge node[above]{$o$} (B);
+%\end{tikzpicture}
+%\]
+%if we, say, compose with the identity horizontal 1-cell of $b$ on the right:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a$};
+%\node (B) at (1,0) {$m$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (1,-0.5) {$x \in F(m)$};
+%\node (E) at (3,0) {$b$};
+%\node (F) at (4,0) {$b$};
+%\node (G) at (5,0) {$b$};
+%\node (H) at (4,-0.5) {$!_{b} \in F(b)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i$} (B)
+%(C) edge node[above]{$o$} (B)
+%(E) edge node[above]{$1$} (F)
+%(G) edge node[above]{$1$} (F);
+%\end{tikzpicture}
+%\]
+%where $!_{b} = F(!)  \phi \maps 1 \to F(b)$ is the trivial decoration on $b$, composing these then gives:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a$};
+%\node (B) at (1,0) {$m+_{b} b$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (3.5,0) {$x \odot !_b \in F(m +_{b} b)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$j \psi_m i$} (B)
+%(C) edge node[above]{$j \psi_{b}$} (B);
+%\end{tikzpicture}
+%\]
+%where $\psi_m \maps m \to m+b$ is the natural map into the coproduct and likewise for $\psi_{b}$ and $j \maps m+b \to m+_{b} b$ is the natural map from the coproduct to the pushout. The decoration $x \odot !_b \maps 1 \to F(m+_{b} b)$ is given by: $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x \times !_{b}} F(m) \times F(b) \xrightarrow{\phi_{m,b}} F(m+b) \xrightarrow{F(j_{m,b})} F(m+_{b} b).$$ We then have that the right unitor $R \maps M \odot 1_{b} \xrightarrow{\sim} M$ is given by the globular 2-morphism $(\id_{a},r,\id_{b})$ from the above composite to $M$:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a$};
+%\node (A') at (0,-0.5) {$a$};
+%\node (B) at (1.5,0.5) {$m+_{b} b$};
+%\node (C) at (3,0.5) {$b$};
+%\node (C') at (3,-0.5) {$b$};
+%\node (D) at (1.5,-0.5) {$m$};
+%\node (E) at (4.5,0.5) {$x \odot !_b \in F(m+_{b} b)$};
+%\node (F) at (4.5,-0.5) {$x \in F(m)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$j \psi_m i$} (B)
+%(C) edge node[above]{$j \psi_{b}$} (B)
+%(A) edge node[left]{$\id_{a}$} (A')
+%(C) edge node[right]{$\id_{b}$} (C')
+%(A') edge node [above]{$i$} (D)
+%(C') edge node [above]{$o$} (D)
+%(B) edge node [left] {$r$} (D);
+%\end{tikzpicture}
+%\]
+%where $r \maps m+_{b} b \xrightarrow{\sim} m$ is a universal map together with the isomorphism $\tau_r \maps F(r)(x \odot !_b) \to x$. The left unitor is similar. The source and target functor applied to the left and right unitors and associators yield identities, and the left and right unitors together with the associator satisfy the standard pentagon and triangle identities of a monoidal category or bicategory. Finally, for the interchange law, given four 2-morphisms $\alpha, \beta, \alpha'$ and $\beta'$:
+%if we first compose horizontally we obtain:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a$};
+%\node (A') at (0,-0.5) {$a'$};
+%\node (B) at (1.5,0.5) {$m+_{b} n$};
+%\node (C) at (3,0.5) {$c$};
+%\node (C') at (3,-0.5) {$c'$};
+%\node (D) at (1.5,-0.5) {$m' +_{b'} n'$};
+%\node (E) at (4.5,0.5) {$x \odot y \in F(m+_{b} n)$};
+%\node (F) at (4.5,-0.5) {$x' \odot y' \in F(m' +_{b'} n')$};
+%\node (G) at (1.5,-1) {$\tau_{\alpha \odot \beta} \maps F(h_1 +_g h_2)(x \odot y) \to x' \odot y'$};
+%\node (A'') at (0,-1.5) {$a'$};
+%\node (A''') at (0,-2.5) {$a''$};
+%\node (B'') at (1.5,-1.5) {$m' +_{b\prime} n'$};
+%\node (C'') at (3,-1.5) {$c'$};
+%\node (C''') at (3,-2.5) {$c''$};
+%\node (D'') at (1.5,-2.5) {$m'' +_{b''} n''$};
+%\node (E'') at (4.5,-1.5) {$x' \odot y' \in F(m'+_{b'} n')$};
+%\node (F'') at (4.5,-2.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
+%\node (G'') at (1.5,-3) {$\tau_{\alpha' \odot \beta'} \maps F(h_1' +_{g'} h_2')(x' \odot y') \to x'' \odot y''.$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$j \psi_{m} i_1$} (B)
+%(C) edge node[above]{$j \psi_{n} o_2$} (B)
+%(A) edge node[left]{$f$} (A')
+%(C) edge node[right]{$k$} (C')
+%(A') edge node [above]{$j \psi_{m'} i_1'$} (D)
+%(C') edge node [above]{$j \psi_{n'} o_2'$} (D)
+%(B) edge node [left] {$h_1 +_g h_2$} (D)
+%(A'') edge node[above]{$j \psi_{m'} i_1'$} (B'')
+%(C'') edge node[above]{$j \psi_{n'} o_2'$} (B'')
+%(A'') edge node[left]{$f'$} (A''')
+%(C'') edge node[right]{$k'$} (C''')
+%(A''') edge node [above]{$j \psi_{m''} i_1''$} (D'')
+%(C''') edge node [above]{$j \psi_{n''} o_2''$} (D'')
+%(B'') edge node [left] {$h_1' +_{g'} h_2'$} (D'');
+%\end{tikzpicture}
+%\]
 %To obtain the morphism of decorations for a horizontal composite, we have as initial data:
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -1420,89 +1537,88 @@ if we first compose horizontally we obtain:
 %\end{tikzpicture}
 %\]
 %These two 2-morphisms $\tau_\alpha$ and $\tau_\beta$ are two 2-morphisms in the monoidal 2-category $(\Cat,\times,1)$ and so we can tensor them which results in:
-
-Returning to the interchange law, composing the two horizontal compositions above vertically then results in:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (2,0.5) {$m+_{b} n$};
-\node (C) at (4,0.5) {$c$};
-\node (C') at (4,-0.5) {$c''$};
-\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
-\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
-\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
-\node (G) at (2,-1) {$\tau_{(a' \odot \beta')(\alpha \odot \beta)} \maps F((h_1' +_{g'} h_2')(h_1 +_g h_2))(x \odot y) \to x'' \odot y''.$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_{m} i_1$} (B)
-(C) edge node[above]{$j \psi_{n} o_2$} (B)
-(A) edge node[left]{$f' f$} (A')
-(C) edge node[right]{$k' k$} (C')
-(A') edge node [above]{$j \psi_{m''} i_1''$} (D)
-(C') edge node [above]{$j \psi_{n''} o_2''$} (D)
-(B) edge node [left] {$(h_1' +_{g'} h_2')(h_1 +_g h_2)$} (D);
-\end{tikzpicture}
-\]
-The vertical composite of two morphisms of decorations is straightforward. On the other hand, if we first compose vertically we obtain:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (1,0.5) {$m$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b''$};
-\node (D) at (1,-0.5) {$m''$};
-\node (E) at (3,0.5) {$x \in F(m)$};
-\node (F) at (3,-0.5) {$x'' \in F(m'')$};
-\node (G) at (4,0.5) {$b$};
-\node (H) at (5,0.5) {$n$};
-\node (I) at (6,0.5) {$c$};
-\node (G') at (4,-0.5) {$b''$};
-\node (H') at (5,-0.5) {$n''$};
-\node (I') at (6,-0.5) {$c''$};
-\node (J) at (7,0.5) {$y \in F(n)$};
-\node (K) at (7,-0.5) {$y'' \in F(n'')$};
-\node (L) at (1,-1) {$\tau_{\alpha' \alpha} \maps F(h_1' h_1)(x) \to x''$};
-\node (M) at (5,-1) {$\tau_{\beta' \beta} \maps F(h_2' h_2)(y) \to y''$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(A) edge node[left]{$f' f$} (A')
-(C) edge node[right]{$g' g$} (C')
-(A') edge node[above] {$i_1''$} (D)
-(C') edge node[above] {$o_1''$} (D)
-(B) edge node [left] {$h_1' h_1$} (D)
-(G) edge node [above] {$i_2$} (H)
-(G) edge node [left] {$g' g$} (G')
-(H) edge node [left] {$h_2' h_2$} (H')
-(G') edge node [above] {$i_2''$} (H')
-(I) edge node [above] {$o_2$} (H)
-(I) edge node [right] {$k' k$} (I')
-(I') edge node [above] {$o_2''$} (H');
-\end{tikzpicture}
-\]
-and then composing horizontally results in:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a''$};
-\node (B) at (2,0.5) {$m+_{b} n$};
-\node (C) at (4,0.5) {$c$};
-\node (C') at (4,-0.5) {$c''$};
-\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
-\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
-\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
-\node (G) at (2,-1) {$\tau_{(\alpha' \alpha) \odot (\beta' \beta)} \maps F((h_1' h_1)+_{g' g} (h_2' h_2))(x \odot y) \to x'' \odot y''.$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$j \psi_{m} i_1$} (B)
-(C) edge node[above]{$j \psi_{n} o_2$} (B)
-(A) edge node[left]{$f' f$} (A')
-(C) edge node[right]{$k' k$} (C')
-(A') edge node [above]{$j \psi_{m''} i_1''$} (D)
-(C') edge node [above]{$j \psi_{n''} o_2''$} (D)
-(B) edge node [left] {$(h_1' h_1) +_{g' g} (h_2' h_2)$} (D);
-\end{tikzpicture}
-\]
+%Returning to the interchange law, composing the two horizontal compositions above vertically then results in:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a$};
+%\node (A') at (0,-0.5) {$a''$};
+%\node (B) at (2,0.5) {$m+_{b} n$};
+%\node (C) at (4,0.5) {$c$};
+%\node (C') at (4,-0.5) {$c''$};
+%\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
+%\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
+%\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
+%\node (G) at (2,-1) {$\tau_{(a' \odot \beta')(\alpha \odot \beta)} \maps F((h_1' +_{g'} h_2')(h_1 +_g h_2))(x \odot y) \to x'' \odot y''.$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$j \psi_{m} i_1$} (B)
+%(C) edge node[above]{$j \psi_{n} o_2$} (B)
+%(A) edge node[left]{$f' f$} (A')
+%(C) edge node[right]{$k' k$} (C')
+%(A') edge node [above]{$j \psi_{m''} i_1''$} (D)
+%(C') edge node [above]{$j \psi_{n''} o_2''$} (D)
+%(B) edge node [left] {$(h_1' +_{g'} h_2')(h_1 +_g h_2)$} (D);
+%\end{tikzpicture}
+%\]
+%The vertical composite of two morphisms of decorations is straightforward. On the other hand, if we first compose vertically we obtain:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a$};
+%\node (A') at (0,-0.5) {$a''$};
+%\node (B) at (1,0.5) {$m$};
+%\node (C) at (2,0.5) {$b$};
+%\node (C') at (2,-0.5) {$b''$};
+%\node (D) at (1,-0.5) {$m''$};
+%\node (E) at (3,0.5) {$x \in F(m)$};
+%\node (F) at (3,-0.5) {$x'' \in F(m'')$};
+%\node (G) at (4,0.5) {$b$};
+%\node (H) at (5,0.5) {$n$};
+%\node (I) at (6,0.5) {$c$};
+%\node (G') at (4,-0.5) {$b''$};
+%\node (H') at (5,-0.5) {$n''$};
+%\node (I') at (6,-0.5) {$c''$};
+%\node (J) at (7,0.5) {$y \in F(n)$};
+%\node (K) at (7,-0.5) {$y'' \in F(n'')$};
+%\node (L) at (1,-1) {$\tau_{\alpha' \alpha} \maps F(h_1' h_1)(x) \to x''$};
+%\node (M) at (5,-1) {$\tau_{\beta' \beta} \maps F(h_2' h_2)(y) \to y''$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i_1$} (B)
+%(C) edge node[above]{$o_1$} (B)
+%(A) edge node[left]{$f' f$} (A')
+%(C) edge node[right]{$g' g$} (C')
+%(A') edge node[above] {$i_1''$} (D)
+%(C') edge node[above] {$o_1''$} (D)
+%(B) edge node [left] {$h_1' h_1$} (D)
+%(G) edge node [above] {$i_2$} (H)
+%(G) edge node [left] {$g' g$} (G')
+%(H) edge node [left] {$h_2' h_2$} (H')
+%(G') edge node [above] {$i_2''$} (H')
+%(I) edge node [above] {$o_2$} (H)
+%(I) edge node [right] {$k' k$} (I')
+%(I') edge node [above] {$o_2''$} (H');
+%\end{tikzpicture}
+%\]
+%and then composing horizontally results in:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a$};
+%\node (A') at (0,-0.5) {$a''$};
+%\node (B) at (2,0.5) {$m+_{b} n$};
+%\node (C) at (4,0.5) {$c$};
+%\node (C') at (4,-0.5) {$c''$};
+%\node (D) at (2,-0.5) {$m'' +_{b''} n''$};
+%\node (E) at (5.5,0.5) {$x \odot y \in F(m+_{b} n)$};
+%\node (F) at (5.5,-0.5) {$x'' \odot y'' \in F(m'' +_{b''} n'')$};
+%\node (G) at (2,-1) {$\tau_{(\alpha' \alpha) \odot (\beta' \beta)} \maps F((h_1' h_1)+_{g' g} (h_2' h_2))(x \odot y) \to x'' \odot y''.$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$j \psi_{m} i_1$} (B)
+%(C) edge node[above]{$j \psi_{n} o_2$} (B)
+%(A) edge node[left]{$f' f$} (A')
+%(C) edge node[right]{$k' k$} (C')
+%(A') edge node [above]{$j \psi_{m''} i_1''$} (D)
+%(C') edge node [above]{$j \psi_{n''} o_2''$} (D)
+%(B) edge node [left] {$(h_1' h_1) +_{g' g} (h_2' h_2)$} (D);
+%\end{tikzpicture}
+%\]
 %The decorations of 
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -1525,7 +1641,7 @@ and then composing horizontally results in:
 %(H) edge node [above] {$F(j_{c'',e''})$} (E);
 %\end{tikzpicture}
 %\]
-As is usual concerning the interchange law of double categories of this nature, only the `interior' of the two composites appears different, but the two morphisms $(h_1' +_{g'} h_2')(h_1 +_g h_2) \maps m+_{b} n \to m'' +_{b''} n''$ and $(h_1' h_1) +_{g' g} (h_2' h_2) \maps m+_{b} n \to m'' +_{b''}n''$ are the same universal map realized in two different ways. The two morphisms of decorations $\tau_{(\alpha' \odot \beta')(\alpha \odot \beta)}$ and $\tau_{(\alpha' \alpha) \odot (\beta' \beta)}$ are obtained as two different compositions of four 2-morphisms in $\Cat$, namely horizontally then vertically and vertically then horizontally. As $\Cat$ is a 2-category, the interchange law for these 2-morphisms already holds, and as a result, the morphisms $$\tau_{(\alpha' \odot \beta')(\alpha \odot \beta)} \maps F((h_1' +_{g'} h_2')(h_1 +_g h_2))(x \odot y) \to x'' \odot y''$$ and $$\tau_{(\alpha' \alpha)\odot(\beta' \beta)} \maps F((h_1' h_1)+_{g' g} (h_2' h_2))(x \odot y) \to x'' \odot y''$$ are also the same. Thus the interchange law for 2-morphisms holds and $F\mathbb{C}$sp is a double category.
+%As is usual concerning the interchange law of double categories of this nature, only the `interior' of the two composites appears different, but the two morphisms $(h_1' +_{g'} h_2')(h_1 +_g h_2) \maps m+_{b} n \to m'' +_{b''} n''$ and $(h_1' h_1) +_{g' g} (h_2' h_2) \maps m+_{b} n \to m'' +_{b''}n''$ are the same universal map realized in two different ways. The two morphisms of decorations $\tau_{(\alpha' \odot \beta')(\alpha \odot \beta)}$ and $\tau_{(\alpha' \alpha) \odot (\beta' \beta)}$ are obtained as two different compositions of four 2-morphisms in $\Cat$, namely horizontally then vertically and vertically then horizontally. As $\Cat$ is a 2-category, the interchange law for these 2-morphisms already holds, and as a result, the morphisms $$\tau_{(\alpha' \odot \beta')(\alpha \odot \beta)} \maps F((h_1' +_{g'} h_2')(h_1 +_g h_2))(x \odot y) \to x'' \odot y''$$ and $$\tau_{(\alpha' \alpha)\odot(\beta' \beta)} \maps F((h_1' h_1)+_{g' g} (h_2' h_2))(x \odot y) \to x'' \odot y''$$ are also the same. Thus the interchange law for 2-morphisms holds and $F\mathbb{C}$sp is a double category.
 \end{proof}
 
 \begin{thm}\label{DC}
