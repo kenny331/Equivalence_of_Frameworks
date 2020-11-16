@@ -3146,8 +3146,7 @@ All relevant details can be found in \cite[Theorems~2.3\&3.9]{BC2}. In particula
 The following theorem establishes the desired equivalence between these two different double categorical network frameworks of structured and decorated cospans in a formal way. We denote by $\bicat{Rex}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors, and the symmetric monoidal double structure of decorated cospans is worked out in \cref{thm:decorated_cospans,DC}.
 
 \begin{thm} \label{thm:equiv}
-Suppose $\ca{A}$ has finite colimits and $(F,\phi,\phi_0)\maps(\ca{A},+) \to (\bicat{Cat},\times,1)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor. 
-Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $\U\maps \inta F \to \A$.
+Suppose $\ca{A}$ has finite colimits and $(F,\phi,\phi_0)\maps(\ca{A},+) \to (\bicat{Cat},\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor.   Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
 \end{thm}
 
 The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
@@ -4499,7 +4498,8 @@ familiar---and of course, mere \emph{categories} are even more so!   Luckily, al
 phrased in the language of double categories have analogues for bicategories and categories.  
 We explain those here.
 
-As noted for example by Shulman \cite{Shulman2010}, any double category $\lX$ gives rise to a bicategory $\bX$ in which:
+As noted for example by Shulman \cite{Shulman2010}, any double category $\lX$ has a 
+\define{horizontal bicategory}, denoted $\bX$, in which:
 \begin{itemize}
 \item objects are objects of $\lX$,
 \item morphisms are horizontal 1-cells of $\lX$,
@@ -4508,23 +4508,21 @@ As noted for example by Shulman \cite{Shulman2010}, any double category $\lX$ gi
 \item vertical and horizontal composition of 2-morphisms are given by vertical and horizontal
 composition of 2-morphisms in $\lX$.
 \end{itemize}
-Furthermore, any bicategory $\bX$ whatsoever gives rise to a category $\X$ in which:
+The bicategory $\bX$ then has a \define{decategorification}, a category $\X$ in which:
 \begin{itemize}
 \item objects are objects of $\bX$,
 \item morphisms are isomorphism classes of morphisms of $\bX$.   
 \end{itemize}
-Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory, which we call $F\bCsp$, and a category, which we call $F\Csp$.
+Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory, which we call $F\bCsp$, and a category, which we call $F\Csp$.   In \cref{DC} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
 
-In \cref{DC} we gave conditions under which the double category $F\lCsp$ becomes symmetric
-monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric
-monoidal under the same conditions, and indeed this is true.  Shulman \cite[Thm.\ 1.2]{Shulman2010} showed that when $\lX$ is `fibrant', any symmetrical monoidal structure on $\lX$ gives one on $\bX$.     We can apply this to decorated cospans as follows:
+A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}.   Shulman \cite[Thm.\ 1.2]{Shulman2010} showed how when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.     We can apply this to decorated cospans as follows:
 
 \begin{lem}
 The double category $F\lCsp$ is fibrant.
 \end{lem}
 
 \begin{proof}
-Recall from \cref{defn:fibrant} that a double category is fibrant if every vertical 1-morphism has a `companion' and a `conjoint'.  Let $f \maps c \to c'$ be a vertical 1-morphism in $F\lCsp$. We can lift $f$ to a companion horizontal 1-cell $\hat{f}$:
+We show that any vertical 1-morphism $f \maps c \to c'$ in $F\lCsp$ has a companion and a conjoint.  This horizontal 1-cell $\hat{f}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c$};
@@ -4536,7 +4534,8 @@ Recall from \cref{defn:fibrant} that a double category is fibrant if every verti
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-and then obtain the following two 2-morphisms:
+is a companion of $f$ because the following two 2-morphisms, having $\hat{f}$ as
+source and target:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$c$};
@@ -4547,16 +4546,16 @@ and then obtain the following two 2-morphisms:
 \node (D) at (1,-0.5) {$c'$};
 \node (E) at (3,0.5) {$!_{c'} \in F(c')$};
 \node (F) at (3,-0.5) {$!_{c'} \in F(c')$};
-\node (G) at (4,0.5) {$c$};
-\node (H) at (5,0.5) {$c$};
-\node (I) at (6,0.5) {$c$};
-\node (G') at (4,-0.5) {$c$};
-\node (H') at (5,-0.5) {$c'$};
-\node (I') at (6,-0.5) {$c'$};
-\node (J) at (7,0.5) {$!_{c} \in F(c)$};
-\node (K) at (7,-0.5) {$!_{c'} \in F(c')$};
+\node (G) at (5,0.5) {$c$};
+\node (H) at (6,0.5) {$c$};
+\node (I) at (7,0.5) {$c$};
+\node (G') at (5,-0.5) {$c$};
+\node (H') at (6,-0.5) {$c'$};
+\node (I') at (7,-0.5) {$c'$};
+\node (J) at (8,0.5) {$!_{c} \in F(c)$};
+\node (K) at (8,-0.5) {$!_{c'} \in F(c')$};
 \node (L) at (1,-1) {$\tau_{1_{c'}} = 1_{!_{c'}}$};
-\node (M) at (5,-1) {$\tau_f \maps F(f)(!_c) \to !_{c'}$};
+\node (M) at (6,-1) {$\tau_f \maps F(f)(!_c) \to !_{c'}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B)
@@ -4574,7 +4573,7 @@ and then obtain the following two 2-morphisms:
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
-which satisfy the equations:
+satisfy the equations required of a companion:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (N) at (0,1.5) {$c$};
@@ -4679,7 +4678,7 @@ which satisfy the equations:
 (I) edge node [above] {$1$} (G);
 \end{tikzpicture}
 \]
-The right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by the $F$-decorated cospan $\check{f}$ which is just the opposite of the companion above:
+and right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$c'$};
@@ -4691,7 +4690,7 @@ The right hand sides of the above two equations are given respectively by the 2-
 (C) edge node[above]{$f$} (B);
 \end{tikzpicture}
 \]
-Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the similar equations required of a conjoint.
+Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint.
 \end{proof}
 
 
@@ -4737,103 +4736,7 @@ together with a morphism $\tau \maps F(h)(d) \to d'$ in $F(c')$.
 This follows by applying Shulman's result \cite[Thm.\ 1.2]{Shulman2010} to the fibrant symmetric monoidal double category $F\lCsp$.
 \end{proof}
 
-This symmetric monoidal bicategory $F\Csp$ is a superior version of the symmetric monoidal bicategory $F$Cospan$(\A)$ constructed earlier by the second author \cite{Courser}, in that there is greater flexibility in the allowed 2-morphisms.
-
-%The previous bicategory constructed by the second author suffered even more so from the issue discussed in the introduction. Given a symmetric lax monoidal functor $F \maps \mathrm{A} \to \mathrm{Set}$, a result of Fong \cite{Fong} yields a symmetric monoidal category $F \textnormal{Cospan}(\mathrm{A})$ which has:
-%\begin{enumerate}
-%\item{objects as those of $\mathrm{A}$ and}
-%\item{morphisms as isomorphism classes of decorated cospans in $\mathrm{A}$.}
-%\end{enumerate}
-%The second author then using a result of Shulman \cite{Shul} extended this to a bicategory also called $F \textnormal{Cospan}(\mathrm{A})$ which has:
-%\begin{enumerate}
-%\item{objects as those of $\mathrm{A}$,}
-%\item{morphisms as now just decorated cospans in $\mathrm{A}$, and}
-%\item{2-morphisms as pairs of commuting diagrams:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a$};
-%\node (B) at (1,0.5) {$c$};
-%\node (B') at (1,-0.5) {$c'$};
-%\node (C) at (2,0) {$b$};
-%\node (D) at (3,0) {$1$};
-%\node (E) at (4,0.5) {$F(c)$};
-%\node (E') at (4,-0.5) {$F(c')$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B)
-%(A) edge node[below]{$i'$} (B')
-%(C) edge node[below]{$o'$} (B')
-%(B) edge node [left] {$f$} (B')
-%(D) edge node [above] {$d$} (E)
-%(D) edge node [below] {$d'$} (E')
-%(E) edge node [right] {$F(f)$} (E');
-%\end{tikzpicture}
-%\]
-%}
-%\end{enumerate}
-%This was discussed in the introduction and it was mentioned how in the symmetric monoidal category version of $F \textnormal{Cospan}(\mathrm{A})$, that the two single-edged graphs:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$v_1$};
-%\node (B) at (1,0) {$v_2$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$e$} (B);
-%\end{tikzpicture}
-%\]
-%and
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$v_1$};
-%\node (B) at (1,0) {$v_2.$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$e'$} (B);
-%\end{tikzpicture}
-%\]
-%resided in distinct isomorphism classes. In the bicategorical version of $F \textnormal{Cospan}(\mathrm{A})$ where we are no longer considering decorated cospans up to isomorphism class, there is no 2-morphism between these two graphs due to the strict commutativity of the triangle to the right above. This problem does not occur in the symmetric monoidal bicategory $H(\mathbb{F}\textnormal{Cospan}(\mathrm{A}))$ and there is in fact a 2-(iso)morphism between these two graphs given by the map $\tau \maps F(f)(d) \to d'$ which maps the edge $e$ to the edge $e'$, where $f$ is the underlying map of vertices.
-
-%Again, let $F \maps \mathbf{FinSet} \to \mathbf{Set}$ be the symmetric lax monoidal functor that maps a finite set $N$ to the large set of all possible graph structures whose underlying set of vertices is $N$. Then a result of Fong \cite{Fong} yields a symmetric monoidal category $F\textnormal{Cospan}(\mathbf{FinSet})$ which has:
-%\begin{enumerate}
-%\item{finite sets as objects and}
-%\item{isomorphism classes of `open' graphs as morphisms, where an open graph is a cospan of finite sets whose apex is equipped with the structure of a graph.}
-%\end{enumerate}
-
-%An example of an open graph is:
-%\begin{center}
-%\begin{tikzpicture}[scale=2.15]
-%\node (N) at (0.5,-1.25) {$N=\{v_1,v_2,v_3\}$};
-%    \node[circle,draw,inner sep=1pt,fill=gray,color=gray]         (x) at (-1.4,-.43) {};
-%    \node at (-1.4,-.9) {$X$};
-%    \node       (A) at (0,0) {$v_1$};
-%    \node     (B) at (1,0) {$v_2$};
-%    \node        (C) at (0.5,-.86) {$v_3$};
-%    \node[circle,draw,inner sep=1pt,fill=gray,color=gray]         (y1) at (2.4,-.25) {};
-%    \node[circle,draw,inner sep=1pt,fill=gray,color=gray]         (y2) at (2.4,-.61) {};
-%    \node at (2.4,-.9) {$Y$};
-%    \path (B) edge  [bend right,->-] node[above] {$e_1$} (A);
-%    \path (A) edge  [bend right,->-] node[below] {$e_2$} (B);
-%    \path (A) edge  [->-] node[left] {$e_3$} (C);
-%    \path (C) edge  [->-] node[right] {$e_4$} (B);
-%    \path[color=gray, very thick, shorten >=10pt, shorten <=5pt, ->, >=stealth] (x) edge (A);
-%    \path[color=gray, very thick, shorten >=10pt, shorten <=5pt, ->, >=stealth] (y1) edge (B);
-%    \path[color=gray, very thick, shorten >=10pt, shorten <=5pt, ->, >=stealth] (y2) edge (B);
-%\end{tikzpicture}
-%\end{center}
-%Here, the sets $X$ and $Y$ serve as inputs and outputs. The second author then extended Fong's category using a result of Shulman \cite{Shul} to obtain a symmetric monoidal bicategory which has:
- 
-%the following two single-edged graphs constituted distinct isomorphism classes:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$v_1$};
-%\node (B) at (2,0) {$v_2$};
-%\node (C) at (0,-2) {$v_1$};
-%\node (D) at (2,-2) {$v_2$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$e$} (B)
-%(C) edge node[above]{$e'$} (D);
-%\end{tikzpicture}
-%\]
-
-We can then decategorify this symmetric monoidal bicategory to obtain a symmetric monoidal category generalizing the kind considered by Fong \cite{Fong}:
+This symmetric monoidal bicategory $F\bCsp$ is a superior version of the one constructed earlier by the second author \cite{Courser}, in that there is greater flexibility in the allowed 2-morphisms.    We can decategorify $F\bCsp$ to obtain a symmetric monoidal category generalizing the kind considered by Fong \cite{Fong}:
 
 \begin{cor}
 Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to (\Cat, \times)$ a symmetric lax monoidal pseudofunctor.  Then there exists a symmetric monoidal category $F\Csp$ in which:
@@ -4882,23 +4785,19 @@ and there exists an isomorphism $\tau \maps F(f)(d) \to d'$ in $F(c')$.
 \end{enumerate}
 \end{cor}
 
-In \cref{thm:equiv} we gave conditions under which the double category of \emph{decorated} cospans $F\lCsp$ is equivalent to the double category of \emph{structured} cospans ${}_L \lCsp(\int F)$.   We now show that under the same conditions we get an equivalence of bicategories and of
-categories.
+In \cref{thm:equiv} we gave conditions under which the symmetric monoidal double category of \emph{decorated} cospans $F\lCsp$ is equivalent to the  symmetric monoidal double category of \emph{structured} cospans ${}_L \lCsp(\int F)$.   We now show that under the same conditions we get an equivalence of symmetric monoidal bicategories, and of categories.
 
-We have just seen in \cref{thm:bicat} that the decorated cospan
-double category $F\lCsp$ gives rise to a bicategory $F\Csp$.   A similar result 
-is known for structured cospan double categories \cite[Cor.\ 3.10]{BC}.  Namely, if $\A$ and $\X$ are categories with (chosen???) finite colimits and $L \maps \A \to \X$ preserves colimits, the 
-the structured cospan double category ${}_L \lCsp(\X)$ is symmetric monoidal and cofibrant, so the resulting bicategory ${}_L \bCsp(\X)$ becomes symmetric monoidal as well.
+\begin{thm} \label{thm:bicat_equiv}
+Suppose $\ca{A}$ has finite colimits and $F \maps(\ca{A},+) \to (\bicat{Cat},\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor.    Define the symmetric monoidal bicategory $_L\bCsp(\inta F)$ as in \cref{thm:equiv}.   Then there is an equivalence of symmetric monoidal bicategories
+\[      F\bCsp \simeq {}_L \bCsp(\inta F)   \]
+of symmetric monoidal categories
+\[      F\Csp \simeq {}_L \Csp(\inta F)  . \]
+\end{thm}
 
+\begin{proof} Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal double categories to symmetric monoidal bicategories is  functorial in a suitable sense, implying
+that an equivalence of symmetric monoidal double categories $\lX \simeq \lY$ gives an equivalence of symmetric monoidal bicategories $\bX \simeq \bY$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the equivalence of symmetric monoidal bicategories $\bX \simeq \bY$ in turn induces an equivalence of symmetric monoidal categories $\X \simeq \Y$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
 
-Another result of Shulman \cite{Shulman2010} is the following:
-\begin{lem}[Shulman, Prop.\ B.3]
-An equivalence of fibrant double categories induces a biequivalence of horizontal bicategories.
-\end{lem}
-
-\begin{cor}
-The bicategories $F\mathbf{Csp}$ and $H( {_L \lCsp(\X)})$ are biequivalent.
-\end{cor}
+CHECK THAT OUR SORT OF EQUIVALENCE OF SYMMETRIC MONOIDAL DOUBLE CATEGORIES IS REALLY THAT USED BY HANSEN AND SHULMAN!!!
 
 %Let $F \maps \A \to \Cat$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \cref{DC} of the previous section, we get a symmetric monoidal double category $F\lCsp$. This symmetric monoidal double category has:
 %\begin{enumerate}
