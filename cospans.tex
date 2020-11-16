@@ -1731,7 +1731,7 @@ and where the decoration on the apex is obtained using the natural transformatio
 (C) edge node[above]{$!$} (B);
 \end{tikzpicture}
 \]
-where $0$ is the monoidal unit of $\A$ and $!_0 \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$.  
+where $0$ is the monoidal unit of $\A$ and $!_0 \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$, where $0_{F\lCsp_1}$ is the monoidal unit of $F\lCsp_1$.  
 
 Next we define the associator and left unitor of $F\lCsp_1$, with the right unitor being similar to the left. Given three objects $M_1, M_2$ and $M_3$ of $F\lCsp_1$:
 \[
@@ -1782,11 +1782,7 @@ where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is given by: $$1 \xrightarrow
 \end{tikzpicture}
 \]
 where $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is given by: $$1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).$$
-\noindent
-\textbf{In progress}
-
-\noindent
-If we let $a$ denote the associator of $(\A,+,0)$, the associator of $F\lCsp_1$ is then a map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
+Denoting the associator of $(\A,+,0)$ by $\alpha$, the associator of $F\lCsp_1$ is then a map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
@@ -1800,19 +1796,16 @@ If we let $a$ denote the associator of $(\A,+,0)$, the associator of $F\lCsp_1$ 
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$(i_1+i_2)+i_3$} (B)
 (C) edge node[above]{$(o_1+o_2)+o_3$} (B)
-(A) edge node[left]{$a$} (A')
-(C) edge node[right]{$a$} (C')
+(A) edge node[left]{$\alpha$} (A')
+(C) edge node[right]{$\alpha$} (C')
 (A') edge node [above]{$i_1+(i_2+i_3)$} (D)
 (C') edge node [above]{$o_1+(o_2+o_3)$} (D)
-(B) edge node [left] {$a$} (D);
+(B) edge node [left] {$\alpha$} (D);
 \end{tikzpicture}
 \]
-together with the isomorphism $\tau_a \maps F(a)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$.
+together with the decoration isomorphism $\tau_\alpha \maps F(\alpha)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$.
 
-
-
-
-Tensoring an object with the monoidal unit, say, on the left:
+For the left unitor, we first compute $0_{F\lCsp_1} \otimes M$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
@@ -1831,7 +1824,7 @@ Tensoring an object with the monoidal unit, say, on the left:
 (G) edge node[above]{$o$} (F);
 \end{tikzpicture}
 \]
-results in:
+which results in:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0+a$};
@@ -1843,7 +1836,7 @@ results in:
 (C) edge node[above]{$!+o$} (B);
 \end{tikzpicture}
 \]
-where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$The left unitor is then an isomorphism in $F\lCsp_1$ given by:
+where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$Denoting the left unitor of $(\A,+,0)$ by $\ell$, the left unitor of $F\lCsp_1$ is then an isomorphism in $F\lCsp_1$ given by the following map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$0+a$};
@@ -1864,9 +1857,83 @@ where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-where $\ell$ is the left unitor of $(\A,+,0)$, together with the isomorphism $\tau_{\lambda} \maps F(\ell)(!_0 + x) \to x$. The right unitor is similar.
+together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(!_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. See the second author's thesis \cite{CourserThesis} for more details.
 
- These associators and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. 
+To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a_1+a_2$};
+\node (A') at (0,-0.5) {$a_2+a_1$};
+\node (B) at (2,0.5) {$m_1+m_2$};
+\node (C) at (4,0.5) {$b_1+b_2$};
+\node (C') at (4,-0.5) {$b_2+b_1$};
+\node (D) at (2,-0.5) {$m_2+m_1$};
+\node (E) at (5.5,0.5) {$x_1+x_2 \in F(m_1+m_2)$};
+\node (F) at (5.5,-0.5) {$x_2+x_1 \in F(m_2+m_1)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B)
+(A) edge node[left]{$\beta$} (A')
+(C) edge node[left]{$\beta$} (C')
+(A') edge node [above]{$i_2+i_1$} (D)
+(C') edge node [above]{$o_2+o_1$} (D)
+(B) edge node [left] {$\beta$} (D);
+\end{tikzpicture}
+\]
+together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
+
+Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes M_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functors $\otimes$ and $\odot$ and the second of which relates the double functors $\otimes$ and $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a+b$};
+\node (A') at (0,-0.5) {$a+b$};
+\node (B) at (2,0.5) {$a+b$};
+\node (C) at (4,0.5) {$a+b$};
+\node (C') at (4,-0.5) {$a+b$};
+\node (D) at (2,-0.5) {$a+b$};
+\node (E) at (5.5,0.5) {$!_{a+b} \in F(a+b)$};
+\node (F) at (5.5,-0.5) {$!_a + !_b \in F(a+b)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$1_{a+b}$} (B)
+(C) edge node[above]{$1_{a+b}$} (B)
+(A) edge node[left]{$1$} (A')
+(C) edge node[right]{$1$} (C')
+(A') edge node [above]{$1_a + 1_b$} (D)
+(C') edge node [above]{$1_a + 1_b$} (D)
+(B) edge node [left] {$1$} (D);
+\end{tikzpicture}
+\]
+together with the decoration isomorphism $\tau_{a,b} \maps !_{a+b} \xrightarrow{\sim} !_a + !_b$ given by the unique map between the two initial objects $!_{a+b}$ and $!_a + !_b$ in $F(a+b)$. For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$m_1$};
+\node (C) at (2,0) {$b$};
+\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+\node (E) at (3,0) {$b$};
+\node (F) at (4,0) {$m_2$};
+\node (G) at (5,0) {$c$};
+\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
+\node (I) at (0,-1.5) {$a'$};
+\node (J) at (1,-1.5) {$n_1$};
+\node (K) at (2,-1.5) {$b'$};
+\node (L) at (1,-2) {$y_1 \in F(n_1)$};
+\node (M) at (3,-1.5) {$b'$};
+\node (N) at (4,-1.5) {$n_2$};
+\node (O) at (5,-1.5) {$c'$};
+\node (P) at (4,-2) {$y_2 \in F(n_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(E) edge node[above]{$i_2$} (F)
+(G) edge node[above]{$o_2$} (F)
+(I) edge node[above]{$i_1'$} (J)
+(K) edge node[above]{$o_1'$} (J)
+(M) edge node[above]{$i_2'$} (N)
+(O) edge node[above]{$o_2'$} (N);
+\end{tikzpicture}
+\]
+\textbf{In progress}
 %!!! Kenny: Probably cut stuff out below this.
 % Christina: Commented them out for now, but should definitely have a close look to see if anything is needed when we go over and remake this proof.
 \begin{comment}
