@@ -798,11 +798,8 @@ This symmetric monoidal category $F$Csp has isomorphism classes as one would exp
 
 \subsection*{Conventions}
 
-In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}.   Following Shulman \cite{Shulman2008}, vertical composition 
-in our double categories is strictly associative, while horizontal composition need not be.
-We use sans-serif font like $\C$ for categories, boldface like $\B$ for bicategories or
-2-categories, and blackboard bold like $\lD$ for double categories.   We also use blackboard
-bold for weak category objects in any 2-category.  For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in blackboard bold.  A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories.   
+In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}.   Following Shulman \cite{Shulman2008}, vertical composition in our double categories is strictly associative, while horizontal composition need not be. We use sans-serif font like $\C$ for categories, boldface like $\B$ for bicategories or 2-categories, and blackboard bold like $\lD$ for double categories. We also use blackboard
+bold for weak category objects in any 2-category.  For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in blackboard bold.  A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories.
 
 
 \subsection*{Acknowledgements}
@@ -3157,12 +3154,12 @@ The conditions of the above theorem relate to the existence of left adjoints for
 
 In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: lax monoidal structures on a pseudofunctor $F\maps\A\to\bicat{Cat}$ (called \emph{monoidal opindexed categories}) bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves cocartesian liftings (called \emph{monoidal fibrations}). If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
 
-\begin{lem}
+\begin{lem}\label{lem:MonGroth}
  There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into monoidal categories. 
 \end{lem}
 
 \begin{proof}
-This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In summary, we have correspondences
+This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In summary, for a cocartesian base we have correspondences
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\bicat{Cat},\times) \notag\\
 \Updownarrow \notag\\
@@ -3179,76 +3176,72 @@ where $\nabla$ is the fold map.
 \end{proof}
 
 These correspondences further restrict to the case when the Grothendieck category is specifically cocartesian monoidal itself. In that case, opfibrations
-$(\X,+)\to(\A,+)$ that strictly preserve chosen coproducts and initial object, and such that $+$ preserves cocartesian liftings, bijectively correspond to pseudofunctors into the 2-category of cocartesian categories; for more details, see \cite[Corollary 4.7]{MV} and the related discussion. %!!! Christina: someone wrote Rex there, perhaps it was me. This is a subcategory, not all finite colimits are there.
+$(\X,+)\to(\A,+)$ that strictly preserve chosen coproducts and initial object
+%, and such that $+$ preserves cocartesian liftings, Christina: this should ALWAYS be the case, by universal properties!
+bijectively correspond to pseudofunctors into the 2-category of cocartesian categories; for more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
-{\chris In progress...}
-
-Finally, using the following result we can further restrict to our current case of interest, namely opfibrations that also preserve pushouts, i.e. all finite colimits. Of course, the following statement is more general since it relates the existence of any class of colimits in the total category of an opfibration to their existence in the fibres; for a more detailed exposition and proof, see \cite{Herm}.
+Finally, we can further restrict to the setting of opfibrations that also preserve pushouts, i.e. all finite colimits, which is important for our purposes. The following result is in fact more general since it relates the existence of any class of colimits in the total category of an opfibration to their existence in the fibres; for a more detailed exposition, see \cite[Corollary~4.9]{Hermida1999}.
+%as well as Remark~4.11 therein regarding the non-necessary strictness condition. Is this obscuring or clarifying?
 
 \begin{lem}\label{lem:fibrewiselimits}
 Suppose $\ca{J}$ is a small category and $\U\maps\X\to\A$ is an opfibration. If the base $\A$ has $\ca{J}$-colimits,
 the following are equivalent:
 \begin{enumerate}
  \item all fibres have $\ca{J}$-colimits, and the reindexing functors preserve them;
- \item the total $\X$ has $\ca{J}$-colimits, and $\U$ preserves them. %removed strict for now!
+ \item the total $\X$ has $\ca{J}$-colimits, and $\U$ (strictly) preserves them.
 \end{enumerate}
 \end{lem}
 
-The first part formulates the existence of colimits \emph{locally} in each fibre, which can equivalently be expressed by the corresponding pseudofunctor $F\maps\A\to\bicat{Cat}$ landing on the sub-2-category $\bicat{Rex}$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining these, we can deduce the following.
+The first part formulates the existence of colimits \emph{locally} in each fibre, which for $\ca{J}$ a finite category can equivalently be expressed by the corresponding pseudofunctor $F\maps\A\to\bicat{Cat}$ landing on the sub-2-category $\bicat{Rex}$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining this with \cref{lem:MonGroth}, we deduce the following.
 
 \begin{cor}\label{cor:fcocMonGroth}
  Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\bicat{Cat},\times)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} 
  factors through $\bicat{Rex}$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $\U_F\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
-On a different but related subject, for our purposes we are interested in the existence of a left adjoint $L_F$ to the induced monoidal opfibration $ \inta{F} \to \A$ by the Grothendieck construction as discussed above. The following result provides sufficient conditions for that, which go hand-in-hand with \cref{cor:fcocMonGroth} and \cref{lem:fibrewiselimits}.
+On a highly related note, in what follows we are also interested in the existence of a left adjoint $L_F$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
+%, which go hand-in-hand with \cref{cor:fcocMonGroth} and \cref{lem:fibrewiselimits}.
 
-\begin{prop}\cite[Proposition~4.4]{Gray} \label{prop:opfibtolari}
+\begin{lem}\label{prop:opfibtolari}
   Let $\U \maps\X \to \A$ be an opfibration. Then
   $\U$ is a right adjoint `left inverse', a.k.a the unit is the identity, if (and only if) its fibers have
   initial objects which are preserved by the
   reindexing functors.
-\end{prop}
+\end{lem}
 
 \begin{proof}\emph{(Sketch)}
- The left adjoint $L\maps\A\to\X$ maps an object $a$ to the initial object in its fibre $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$. On morphisms $f\maps a\to a'$, $L(f)$ is defined by
+ This is \cite[Proposition~4.4]{Gray}. The left adjoint $L\maps\A\to\X$ maps an object $a$ to the initial object in its fibre $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$. On morphisms $f\maps a\to a'$, $L(f)$ is defined by
  \begin{equation}\label{eq:Lonarrows}
-  \bot_a\xrightarrow{\Rex(f,\bot_a)}f_!(\bot_a)\xrightarrow{\;\stackrel{\chi_a}{\cong}\;}\bot_{a'}
+  \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\stackrel{\chi_a}{\cong}\bot_{a'}
  \end{equation}
-where $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
+where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $f$ and $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
 \end{proof}
 
+Ongoing work \cite{CV} includes a related discussion as well as a result in the opposite direction.
+%For a discussion on the unusual strict cocontinuity condition...
+%\begin{lem}\label{prop:CV}\cite[Proposition~3.3]{CV}
+%Suppose $\U\maps\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ have chosen pushouts and initial objects and $\U$ strictly preserves them, %then $\U$ is an opfibration.
+%\end{lem}
+
 \begin{rmk}\label{rmk:important}
-Notice that under \cref{lem:fibrewiselimits}, if $\A$ has an initial object $0_\A$, the above conditions are equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. %Christina: hiding strict preservence under the rug
-In this case, $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category:
+Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
+The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
 \begin{displaymath}
 \xymatrix @C=.4in @R=.2in
 {0_\X \ar @{.>}[d]\ar[rr]^-{\mathrm{Cocart}(0_\X,u_a)} && (u_a)_!(0_X)=:\bot_a\ar @{.>}[d] & \textrm{in }\X  \\
 0_\A\ar[rr]^-{\exists!u_a} && a & \textrm{in }\A}
 \end{displaymath}
-Moreover, if $U=U_F$ for a pseudofunctor $F\maps\A\to\bicat{Cat}$ under \cref{thm:Grothendieck}, the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$, therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category, for $u_a$ the unique map from $0_\A$ as above. 
+Moreover, if the opfibration $U$ comes from the Grothendieck construction on a pseudofunctor $F\maps\A\to\bicat{Cat}$, the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$ therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category notation (\cref{def:GrothCat}).
 
-Finally, if that pseudofunctor is lax monoidal $(F,\phi,\phi_0)\maps(\A,+)\to(\bicat{Cat},\times)$ to begin with, the monoidal Grothendieck construction in the cocartesian case discussed earlier \cref{eq:explicitstructure1} expresses $\bot_a$ as the image of the composite
+Finally, if the original pseudofunctor is in fact lax monoidal $(F,\mu,\mu_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
 \begin{equation}\label{eq:initialinfibre}
 \mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 \end{equation}
 \end{rmk}
 
-%will be a right adjoint to some adjoint , and moreover the unit of the adjunction is the identity; this is called \emph{lari} in [Gray].
+We have now laid all the necessary background to formally construct an equivalence between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
 
-%!!!Christina: not sure if the below is needed after all
-In the opposite direction, we also have the following result. For a discussion on the unusual strict cocontinuity condition, we refer the reader to \cite{CV}.
-
-\begin{lem}\label{prop:CV}\cite[Proposition~3.3]{CV}
-Suppose $\U\maps\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ have chosen pushouts and initial objects and $\U$ strictly preserves them, then $\U$ is an opfibration.
-\end{lem}
-%Christina: do we need this direction after all? Discuss.
-%\begin{thm}\label{thm:mainthmDX}\cite{CV}
-%Suppose that $\X$ and $\A$ have chosen pushouts and initial objects, and a functor $\U\maps\X\to\A$ strictly preserves them. Then $\U$ is a right %adjoint left inverse if and only if $\U$ is an opfibration.
-%\end{thm}
-
-We have now laid all the necessary background to formally construct an equivalence between the double category of decorated cospans and the double category of structured cospans, constructed from a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
-
+{\chris In progress...}
 
 \begin{proof}[Proof of \cref{thm:equiv}]
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms as in $\A$, while a horizontal 1-cell $a\tickar b$ is cospan $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an object $x\in F(m)$ and a 2-morphism is a map $k\maps m\to m'$ together with a morphism $(Fk)(x)\to x'$.
@@ -5539,7 +5532,7 @@ A \define{monoidal} bicategory $\A$ comes with a pseudofunctor $\otimes\maps\A\t
 
 
 \subsection{Fibrations}\label{sec:fibrations}
-We recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Herm}, \cite{Borc}.
+We recall some basics regarding opfibrations and their relation to pseudofunctors into $\bicat{Cat}$ via the Grothendieck construction. Standard material on the theory of fibrations can be found for example in \cite{Borc,Gray}.
 
 A functor $U \maps \X \to \A$ is an \textbf{opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \maps a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $x$ along $f$, namely a morphism $\beta$ in $\X$ with domain $x$ above $f$ with the following universal property: for any $g\maps b\to b'$ in $\A$ and $\gamma\maps x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\maps y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
 \begin{displaymath}
@@ -5590,7 +5583,7 @@ Assuming the axiom of choice, we may select a cocartesian arrow over each $f\map
 %any arrow in the total category of an opfibration factorizes uniquely into a vertical morphism (above the identity) followed by a (co)cartesian one:
 %\[
 %\xymatrix @C=.4in @R=.2in
-%{x \ar @{.>}[dd]\ar[rr]^\gamma \ar[drr]_-{\Rex(g,C)} && D &\\
+%{x \ar @{.>}[dd]\ar[rr]^\gamma \ar[drr]_-{\mathrm{Cocart}(g,C)} && D &\\
 %&& f_!C \ar @{-->}[u]_-{\delta} \ar @{.>}[d] & \textrm{in }\C  \\
 %X\ar[rr]_-{g} && Y & \textrm{in }\X.}
 %\]
@@ -6428,13 +6421,15 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 %\bibitem{GP2} M.\ Grandis and R.\ Par\'e, Adjoints for double categories, 
 % \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{45} (2004), 193--240.
 
-\bibitem{Gray} J. \ Gray, Fibred and Cofibred categories, Proc. Conf. Categorical Algebra (La Jolla, California, 1965), 21---83, New York, 1966
+\bibitem{Gray} J. \ Gray, Fibred and Cofibred categories, \emph{Proc. Conf. Categorical Algebra} (La Jolla, California, 1965), 21---83, New York, 1966
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
 
 %\bibitem{Haug} R.\ Haugseng, Iterated spans and ``classical" topological field theories. Available as \href{https://arxiv.org/abs/1409.0837}{arXiv:1409.0837}.
 
 \bibitem{Herm} C. \ Hermida, Fibrations, logical predicates and indeterminates, PhD Thesis, University of Edinburgh, 1993.
+
+\bibitem{Hermida1999} C. \ Hermida, Some properties of Fib as a fibred 2-category. \emph{J. Pure Appl. Algebra}, 134(1), 83 -- 109, 1999
 
 %\bibitem{Hoff} A.\ Hoffnung, Spans in 2-categories: a monoidal tricategory. Available as \href{http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}.
 
