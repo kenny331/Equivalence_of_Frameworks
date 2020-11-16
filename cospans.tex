@@ -11,7 +11,7 @@
 \address{$^1$Department of Mathematics, University of California, Riverside CA, USA 92521}
 \address{$^2$Centre for Quantum Technologies, National University of Singapore, Singapore 117543}
 \address{$^3$Department of Mathematics, University of Patras, Greece 265 04}
-\email{baez@math.ucr.edu, kcour001@ucr.edu, cvasilak@math.upatrs.gr}
+\email{baez@math.ucr.edu, kcour001@ucr.edu, cvasilak@math.upatras.gr}
 
 
 \begin{document}
@@ -3146,10 +3146,10 @@ All relevant details can be found in \cite[Theorems~2.3\&3.9]{BC2}. In particula
 The following theorem establishes the desired equivalence between these two different double categorical network frameworks of structured and decorated cospans in a formal way. We denote by $\bicat{Rex}$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors, and the symmetric monoidal double structure of decorated cospans is worked out in \cref{thm:decorated_cospans,DC}.
 
 \begin{thm} \label{thm:equiv}
-Suppose $\ca{A}$ has finite colimits and $(F,\phi,\phi_0)\maps(\ca{A},+) \to (\bicat{Cat},\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor.   Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
+Suppose $\ca{A}$ has finite colimits and $F \maps(\ca{A},+) \to (\bicat{Cat},\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor.   Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
 \end{thm}
 
-The conditions of the above theorem relate to the existence of left adjoints for opfibrations; we first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
+The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
 In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: lax monoidal structures on a pseudofunctor $F\maps\A\to\bicat{Cat}$ (called \emph{monoidal opindexed categories}) bijectively correspond to monoidal structures on the total category $\inta F$ such that the induced opfibration is a strict monoidal functor and $\otimes_{\inta F}$ preserves cocartesian liftings (called \emph{monoidal fibrations}). If the monoidal category $\A$ is in fact cocartesian, there is a further correspondence of the two structures with an ordinary pseudofunctor $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
 
@@ -3216,7 +3216,7 @@ On a highly related note, in what follows we are also interested in the existenc
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $f$ and $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
 \end{proof}
 
-Ongoing work \cite{CV} includes a related discussion as well as a result in the opposite direction.
+Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
 %For a discussion on the unusual strict cocontinuity condition...
 %\begin{lem}\label{prop:CV}\cite[Proposition~3.3]{CV}
 %Suppose $\U\maps\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ have chosen pushouts and initial objects and $\U$ strictly preserves them, %then $\U$ is an opfibration.
@@ -3240,19 +3240,20 @@ Finally, if the original pseudofunctor is in fact lax monoidal $(F,\mu,\mu_0)$, 
 
 We have now laid all the necessary background to formally construct an equivalence between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\bicat{Cat}$.
 
-{\chris In progress...}
-
 \begin{proof}[Proof of \cref{thm:equiv}]
-Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms as in $\A$, while a horizontal 1-cell $a\tickar b$ is cospan $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an object $x\in F(m)$ and a 2-morphism is a map $k\maps m\to m'$ together with a morphism $(Fk)(x)\to x'$.
+Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$. %!!! Christina: Should we call them `generalized maps of cospans'? Since maps of cospans are usually the ones with fixed (co)domains
 
-By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{Rex}$, the (monoidal) Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U_F\maps(\inta{F},+)\to(\A,+)$ preserves all finite colimits. %Christina: maybe the cocartesian structures are redundant to write here, since U_F really preserves all finite colimits anyways.
-Since in particular it preserves the initial object, \cref{prop:opfibtolari} through \cref{lem:fibrewiselimits} applies 
+By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\bicat{Rex}$, the Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits.
+Since in particular it preserves the initial object, \cref{lem:fibrewiselimits,prop:opfibtolari} apply 
 %which equivalently means that all fibres have initial objects and the reindexing functors preserve them by , %Christina: there is a little bit of circularity here. We knew fibres have and reindexing functors preserve from the factorization already! Change Gray accordingly perhaps?
-to construct a left adjoint $L_F\maps\A\to\inta F$ which is also a right inverse, namely $U_FL_F=\mathrm{id}_\A$. Explicitly, this left adjoint is given by $L(a)=(a,\bot_a)$, picking the initial object in the finitely cocomplete fibre also expressed as $F(u_a)\circ\phi_0(*)$ in \cref{eq:initialinfibre}. Diagrammatically,
+and produce a left adjoint $L\maps\A\to\inta F$ to $U$, with $UL=1_\A$. 
+Diagrammatically,
 \begin{displaymath}
- F\maps\X\to\bicat{Cat}\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U_F"'] \\ \X \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\X\ar[r,bend left,pos=.55,"L_F"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U_F"]\end{tikzcd}
+ F\maps\A\to\bicat{Cat}\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{displaymath}
-roughly describes the processes between the original $F$ and the resulting $L_F$.
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed by $F(u_a)\circ\mu_0(*)$ as in \cref{eq:initialinfibre}. 
+
+{\chris In progress...}
 
 Using this functor $L_F$ between finitely cocomplete categories that preserves all colimits that exist (as a left adjoint), we can construct the double category of structured cospans $\scsp{L_F}{\inta F}$. Its objects and vertical morphisms are again those of the category $\A$, whereas horizontal 1-cells $a\tickar b$ as in \cref{eq:structuredcospan} are now cospans of the form $\cspn{L_F(a)}{v}{L_F(b)}{}{}$ in the Grothendieck category $\inta F$. Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
@@ -5346,7 +5347,7 @@ Thus we have a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
 \subsection{2-categories}\label{sec:2cats}
-For standard 2-categorical material, we refer the reader to e.g. \cite{KS} or \cite{DS} for monoidal structures.
+For standard 2-categorical material, we refer the reader to e.g. \cite{KS} or \cite{DS} for monoidal structures. %!!!Christina: also John's paper on monoidal 2-structures?
 Recall that a \define{pseudofunctor} $F\maps\bicat{A}\to\bicat{B}$ between bicategories $\bicat{A}$ and $\bicat{B}$ is functorial up to coherent natural isomorphism, namely for composable arrows we have $F(g\circ f)\cong Fg\circ Ff$ and $F(1_a)\cong1_{Fa}$ satisfying standard axioms. 
 Given pseudofunctors $F,G\maps \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of
 \begin{itemize}
@@ -5424,10 +5425,10 @@ compatible with composition and identities.
 %\end{tikzpicture}
 %\]
 %Christina: I removed the above, they are not needed I believe. Check again in the end.
-We denote by $[\A,\bicat{Cat}]_\pse$ the 2-category 
-of pseudofunctors, pseudonatural transformations and modifications from an ordinary category $\A$ viewed as a 2-category with trivial 2-cells, into $\bicat{Cat}$. This is also referred to as the 2-category of \emph{opindexed categories}, since an indexed category is a contravariant pseudofunctor into $\bicat{Cat}$.
+We denote by $[\bicat{A},\bicat{B}]_\pse$ the 2-category 
+of pseudofunctors, pseudonatural transformations and modifications.
 
-A \define{monoidal} bicategory $\A$ comes with a pseudofunctor $\otimes\maps\A\times\A\to\A$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between symmetric monoidal bicategories comes with an invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$.
+A \define{monoidal} bicategory $\bicat{A}$ comes with a pseudofunctor $\otimes\maps\bicat{A}\times\bicat{A}\to\bicat{A}$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. RIGHT???
 
 
 \subsection{Fibrations}\label{sec:fibrations}
