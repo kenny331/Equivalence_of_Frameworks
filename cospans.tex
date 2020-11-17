@@ -832,7 +832,7 @@ a cospan in $\A$:
 together with a \define{decoration} $x \in F(m)$,
 \item a 2-morphism is a \define{map of} $F$\define{-decorated cospans}: that is, 
 a map of cospans in $\A$:
-\begin{equation}\label{eq:FCsp2morph}
+\begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a'$};
@@ -851,7 +851,7 @@ a map of cospans in $\A$:
 (C') edge node[above] {$o'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
-\end{equation}
+\end{displaymath}
 together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m')$.
 \end{itemize}
 \end{thm}
@@ -3325,7 +3325,7 @@ As a left adjoint, this induced $L$ preserves all colimits that exist between th
 with $x\in F(m)$; recall that the reindexing functors $F(i),F(o)$ preserve all finite colimits across the fibre categories.
 Finally, the 2-morphisms of this double category in this context unravel as follows
 \begin{displaymath}
- \begin{tikzcd}[row sep=1.2in,column sep=1.7in,ampersand replacement=\&]
+ \begin{tikzcd}[row sep=1in,column sep=1.7in,ampersand replacement=\&]
  (a,\bot_a)\ar[r,"{\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}}"]\ar[d,"{\begin{cases}f\maps a\to a' &\textrm{in }\A \\\chi_a\maps F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (m,x) \ar[d,"{\begin{cases}k\maps m\to m' &\textrm{in }\A \\ \tau\maps F(k)(x)\to x' &\textrm{in }F(m')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}}"']\ar[d,"{\begin{cases}g\maps b\to b' &\textrm{in }\A \\\chi_b\maps F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
  (a',\bot_{a'})\ar[r,"{\begin{cases}i'\maps a'\to m' &\textrm{in }\A \\!\maps F(i')(\bot_{a'})\to x' &\textrm{in }F(m')\end{cases}}"'] \& (m',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\maps b'\to m' &\textrm{in }\A \\!\maps F(o')(\bot_{b'})\to x' &\textrm{in }F(m')\end{cases}}"]
  \end{tikzcd}
@@ -3338,26 +3338,58 @@ Explicitly, the above square commutativities translate to the conditions $k\circ
 \end{gather}
 in the fibre category $F(m')$, by composition in the Grothendieck category \cref{eq:compGrothcat}. Since both morphisms emanate from the mapped initial object in $F(m')$ under the finitely cocontinuous reindexing functors, they are the unique such into $x'$ therefore this gives no extra conditions; similarly for the equality including $o,o'$.
 
-{\chris In progress...}
-
-In order to prove that there is a double equivalence (\cref{ShulDubEquiv}) between $\dcsp{F}$ and $\scsp{L_F}{\inta F}$, we define a %n identity-on-objects and vertical morphism
-double functor
+Building up to an equivalence of the above described double categories, we now define a double functor
 \begin{displaymath}
-\mathbb{E}\maps\scsp{L_F}{\inta F} \longrightarrow\dcsp{F}
+\lE=(\lE_0,\lE_1)\maps\scsp{L}{\inta F} \longrightarrow\dcsp{F}
 \end{displaymath}
-as follows. The object component of $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is $\mathbb{E}_0 = \id_{\A}$ since both double categories have $\A$ as their vertical category; trivially, $\mathbb{E}_0$ is an equivalence of categories. Given a horizontal 1-cell in $\scsp{L_F}{\inta F}$ like \cref{eq:scsphor1cell}, the arrow component $\mathbb{E}_1$ of the double functor simply maps it to the decorated cospan
+which on vertical categories acts as the identity $\lE_0 = \id_{\A}$. Given a horizontal 1-cell in $\scsp{L}{\inta F}$ as in \cref{eq:scsphor1cell}, $\lE_1$ maps it to the decorated cospan $i\maps a\to m\leftarrow b:o$ with decoration $x\in F(m)$,
+%Notice that this really is a bijective correspondence since the unique maps from the initial objects in the fibres provide no extra information.
+whereas a 2-morphism of $L$-structured cospans as above is mapped to the underlying cospan 2-morphism in $\A$
 \begin{displaymath}
- a\xrightarrow{\; i \;}m\xleftarrow{\; o \;}b\;\textrm{ with decoration }x\in F(m)
-\end{displaymath}
-Notice that this really is a bijective correspondence since the unique maps from the initial objects in the fibres provide no extra information. Finally, given a 2-morphism of $L_F$-structured cospans as described above, $\mathbb{E}_1$ maps it to the underlying cospan 2-morphism
-\begin{displaymath}
- \begin{tikzcd}
+\begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
 a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
+\end{tikzcd}
+\end{displaymath}
+in $\A$ along with the map $\tau\maps Fk(x)\to x'$ in $F(m')$, namely an $F$-decorated cospan 2-morphism. 
+% Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
+With these definitions, $\lE$ is indeed a strong double functor as in \cref{def:doublefun}: both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets, and there exist globular 2-isomorphisms $\lE(M) \odot \lE(N) \simrightarrow\lE(M \odot N)$, $U_{\lE m} \simrightarrow\lE(U_m)$
+for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $\scsp{L}{\inta F}$. Explicitly, $\mathbb{E}(M)\odot \mathbb{E}(N)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
+\begin{displaymath}
+ \begin{tikzcd}
+  & m+_bn & \\
+  a\ar[ur] && b,\ar[ul]
+ \end{tikzcd}\qquad
+  1\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
+\end{displaymath}
+{\chris In progress...}
+
+On the other hand, first composing $M$ and $N$ in the Grothendieck category $\scsp{L_F}{\inta F}$ using fibrewise pushouts constructed using \cref{lem:fibrewiselimits} 
+%!!!Chris: I could make this specific construction into a lemma earlier if you want, I have it in my notes
+produces 
+\begin{displaymath}
+ \begin{tikzcd}
+ && (m+_b n,F(j_m)x+_{\bot_{m+_bn}}F(j_n)y) && \\
+ & (m,x) \ar[ur] && (n,y)\ar[ul] \\
+ (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
 \end{displaymath}
- in $\A$ along with the map $\tau\maps Fk(x)\to x'$ in $F(m')$, namely a decorated cospan 2-morphism as per \cref{eq:FCsp2morph}. Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
-%!!!Christina: commented out big chunks of proof. They are right below if we want to revive parts of them, if we think the reader needs deeper level of detail. The idea is that the above description suffices as fully faithful and essentially surjective evidence, but perhaps we would like to spell that out more. On to strongness next.
+which is mapped, under $\mathbb{E}$, to precisely the cospan $\cspn{a}{m+_bn}{b}{}{}$ as above, and the decorations are the same 
+%!!!Christina: isomorphic would be enough but they look equal to me!
+due to the following commutative diagram
+\begin{displaymath}
+ \begin{tikzcd}
+F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(j_m)\times F(j_n)"'] && F(m+n)\ar[d,"F(j)"] \\
+F(m+_bn)\times F(m+_bn)\ar[r,"\phi"] & F((m+_bn)+(m+_bn))\ar[r,"F\nabla"] & F(m+_bn)
+ \end{tikzcd}
+\end{displaymath}
+since taking a pushout over an initial object is really a coproduct, and the fibrewise coproduct in $F(m+_bn)$ is given as in \cref{eq:explicitstructure1}.
+
+Regarding the identity morphisms, $U_m$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component of the morphisms and isomorphisms between initial objects in the fibres. Thus $\mathbb{E}(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, whereas $U_{\mathbb{E}(m)}$ is exactly the same thing.
+
+
+
+
 \begin{comment}
 which is a cospan in $\X$ of the form:
 \[
@@ -3630,45 +3662,7 @@ Thus the set $$_f { _L \lCsp(\X)}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ 
 together with a morphism $\tau \maps F(R(\alpha))(x) \to x'$ of $F(R(x'))$.
 Thus the set $$_{\mathbb{E}(f)} {F\lCsp}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\tau)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\A$ and $\tau$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \maps R(x) \to R(x')$ and $\tau \maps F(R(\alpha))(x) \to x'$ together determine the morphism $\alpha \maps x \to x'$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x'=(c',x' \in F(c'))$ of $\X=\inta{F}$, a morphism from $\alpha \maps x \to x'$ is a pair $$(h \maps c \to c', \tau \maps F(h)(x) \to x')$$ where $h \maps c \to c'$ is given by $R(\alpha) \maps R(x) \to R(x')$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
 \end{comment}
-Functoriality of $\mathbb{E}_1$ can be verified, and moreover $(\mathbb{E}_0,\mathbb{E}_1)$ indeed define a strong double functor: there exist natural isomorphisms
-\begin{gather*}
- \mathbb{E}(M) \odot \mathbb{E}(N) \xrightarrow{\sim} \mathbb{E}(M \odot N) \\
-U_{\mathbb{E}m} \xrightarrow{\sim} \mathbb{E}(U_m)
-\end{gather*}
-for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $\scsp{L_F}{\inta F}$. In more detail, $\mathbb{E}(M)\odot \mathbb{E}(N)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
-\begin{displaymath}
- \begin{tikzcd}
-  & m+_bn & \\
-  a\ar[ur,"j_m\circ i"] && b,\ar[ul,"j_n\circ o"']
- \end{tikzcd}
- \begin{tikzcd}
-  1\ar[r,"x\times y"]\ar[drr,dashed] & F(m)\times F(n)\ar[r,"\phi_{m,n}"] & F(m+ n)\ar[d,"F(j)"] \\ 
-  && F(m+_b n)
- \end{tikzcd}
-\end{displaymath}
-where $j_m, j_n$ denote the maps into a pushout.
-On the other hand, first composing $M$ and $N$ in the Grothendieck category $\scsp{L_F}{\inta F}$ using fibrewise pushouts constructed using \cref{lem:fibrewiselimits} 
-%!!!Chris: I could make this specific construction into a lemma earlier if you want, I have it in my notes
-produces 
-\begin{displaymath}
- \begin{tikzcd}
- && (m+_b n,F(j_m)x+_{\bot_{m+_bn}}F(j_n)y) && \\
- & (m,x) \ar[ur] && (n,y)\ar[ul] \\
- (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
- \end{tikzcd}
-\end{displaymath}
-which is mapped, under $\mathbb{E}$, to precisely the cospan $\cspn{a}{m+_bn}{b}{}{}$ as above, and the decorations are the same 
-%!!!Christina: isomorphic would be enough but they look equal to me!
-due to the following commutative diagram
-\begin{displaymath}
- \begin{tikzcd}
-F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(j_m)\times F(j_n)"'] && F(m+n)\ar[d,"F(j)"] \\
-F(m+_bn)\times F(m+_bn)\ar[r,"\phi"] & F((m+_bn)+(m+_bn))\ar[r,"F\nabla"] & F(m+_bn)
- \end{tikzcd}
-\end{displaymath}
-since taking a pushout over an initial object is really a coproduct, and the fibrewise coproduct in $F(m+_bn)$ is given as in \cref{eq:explicitstructure1}.
 
-Regarding the identity morphisms, $U_m$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component of the morphisms and isomorphisms between initial objects in the fibres. Thus $\mathbb{E}(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, whereas $U_{\mathbb{E}(m)}$ is exactly the same thing.
 
 %!!!Christina: Below, up to my next comment, is Kenny's earlier proof on the same thing.
 \begin{comment}
@@ -3853,7 +3847,7 @@ Lastly, this map of cospans comes with an isomorphism $$\tau \maps F(\sigma)(d_{
 %!!!Christina: Up to here was Kenny's strong functoriality.
 
 Based on the above description of its mapping, it follows that the strong double functor $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is full, faithful and essentially surjective on objects as per \cref{def:fullfaithful,def:essentiallysurj}. Therefore $\mathbb{E} \maps \scsp{L_F}{\inta F} \to \dcsp{F}$ is a double equivalence, by \cref{ShulDubEquiv}.
-%!!!Christina: In fact, Christina and Kenny believe it is an isomorphism of double categories! Bijective on all levels of objects and morphisms...should we say?
+Christina: In fact, Christina and Kenny believe it is an isomorphism of double categories! Bijective on all levels of objects and morphisms...should we say?
 
 %!!!Christina Have not edited below, but everything should be fine up to notation changes. Happy to do if needed in the future.
 
@@ -6016,7 +6010,7 @@ A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-mor
 Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
 \end{defn}
 
-\begin{defn}
+\begin{defn}\label{def:doublefun}
 Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \maps\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \maps \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
 
 Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \maps 1_{\mathbb{F}(a)} \to \mathbb{F}(1_{a})$ (the identity comparison), and every horizontal composition $N_1 \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_1,N_{2}) \maps \mathbb{F}(N_1) \odot \mathbb{F}(N_{2}) \to \mathbb{F}(N_1 \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
@@ -6089,7 +6083,7 @@ Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} 
 We say the double functor $\mathbb{F}$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
 \end{defn}
 
-%ChristinaL Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
+%!!! Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
 \begin{defn}
 A double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \maps \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \maps \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
 \end{defn}
@@ -6128,7 +6122,7 @@ Formally, two strong double functors between two double categories form a \emph{
 Similarly to ordinary equivalence of categories, [Shulman,7.8] allows us to use the following equivalent characterization.
 
 \begin{thm}\label{ShulDubEquiv}
-A strong double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective. {\chris on objects?}
+A strong double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
 \end{thm}
 
 \begin{prop}
