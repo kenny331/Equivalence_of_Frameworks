@@ -716,7 +716,7 @@ and}
 \end{enumerate}
 Note that the natural transformation is a family of morphisms in the category $F(b')$ indexed by $1$, and so is the same as just a morphism $\tau \maps F(f)(d) \to d'$ in $F(b')$. We will typically write the transformation $\tau$ in later sections as a morphism in $F(b')$ to conserve space. In the context of the example above involving graphs, this morphism $\tau$ will be a map between two possibly distinct sets of edges and thus already solves the problem.
 
-This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp}$ as the `horizontal bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
+This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp} \mapseqq H(F \lCsp)$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
 \item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\A$
@@ -1882,7 +1882,7 @@ To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the brai
 \]
 together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
 
-Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functors $\otimes$ and $\odot$ and the second of which relates the double functors $\otimes$ and $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
+Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a+b$};
@@ -3343,10 +3343,10 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In
 \Updownarrow \notag\\
 \textrm{pseudofunctors }F\maps\A\to\bicat{MonCat} \notag
 \end{gather}
-The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{sec:2cats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
+The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\mu,\mu_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{sec:2cats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
 \begin{equation}\label{eq:explicitstructure1}
-\otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
-I_a\maps\mathbf{1}\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
+\otimes_a\maps F(a)\times F(a)\xrightarrow{\mu_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
+I_a\maps\mathbf{1}\xrightarrow{\mu_0}F(0)\xrightarrow{F(!)}F(a)
 \end{equation}
 where $\nabla$ is the fold map. 
 \end{proof}
@@ -3410,9 +3410,9 @@ The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0
 \end{displaymath}
 Moreover, if the opfibration $U$ comes from the Grothendieck construction on a pseudofunctor $F\maps\A\to\Cat$, the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$ therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category notation (\cref{def:GrothCat}).
 
-Finally, if the original pseudofunctor is in fact lax monoidal $(F,\phi,\phi_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
+Finally, if the original pseudofunctor is in fact lax monoidal $(F,\mu,\mu_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
 \begin{equation}\label{eq:initialinfibre}
-\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
+\mathbf{1}\xrightarrow{\mu_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 \end{equation}
 \end{rmk}
 
@@ -3425,7 +3425,7 @@ By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors throug
 \begin{displaymath}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{displaymath}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(u_a)\circ\phi_0(*)$ according to \cref{eq:initialinfibre} for $(\phi,\phi_0)$ the monoidal structure of $F$.
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(u_a)\circ\mu_0(*)$ according to \cref{eq:initialinfibre} for $(\mu,\mu_0)$ the monoidal structure of $F$.
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $\scsp{L}{\inta F}$ of \cref{SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $\dcsp{F}$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{v}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
@@ -5962,7 +5962,7 @@ compatible with composition and identities.
 We denote by $[\bicat{A},\bicat{B}]_\pse$ the 2-category 
 of pseudofunctors, pseudonatural transformations and modifications.
 
-A \define{monoidal} bicategory $\bicat{A}$ comes with a pseudofunctor $\otimes\maps\bicat{A}\times\bicat{A}\to\bicat{A}$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. RIGHT???
+A \define{monoidal} bicategory $\bicat{A}$ comes with a pseudofunctor $\otimes\maps\bicat{A}\times\bicat{A}\to\bicat{A}$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. RIGHT???
 
 
 \subsection{Fibrations}\label{sec:fibrations}
@@ -6052,7 +6052,8 @@ The above in fact provides the one direction of the following well-known equival
 \subsection{Double categories}\label{sec:doublecats}
 %!!! Christina: Kenny, would you mind cleaning this section up to? I don't believe we need the full fledged definitions here by the way.
 
-Before formally defining a `double category', it is helpful to have the following picture in mind. A double category has 2-morphisms shaped like:
+Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
+
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -6067,15 +6068,15 @@ Before formally defining a `double category', it is helpful to have the followin
 (F) edge node [above]{$N$} (A);
 \end{tikzpicture}
 \]
-We call $A, B, C$ and $D$ \textbf{objects}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between objects and a 2-morphism is a morphism between horizontal 1-cells. %We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. 
-We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+
+We call $A, B, C$ and $D$ \textbf{objects} or \textbf{0-cells}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
 
 \begin{defn}\label{defn:double_category}
-A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\lD_0$ and a category of arrows $\lD_1$ with the following functors
+A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\mathbf{D_{0}}$ and a category of arrows $\mathbf{D_1}$ with the following functors
 \begin{center}
-$U\maps \lD_0 \to \lD_1$\\
-$S,T \maps \lD_1 \rightrightarrows \lD_0$\\
-$\odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1$ (where the pullback is taken over $\lD_1 \xrightarrow[]{T} \lD_0 \xleftarrow[]{S} \lD_1$) \\
+$U\maps \mathbf{D_{0}} \to \mathbf{D_1}$\\
+$S,T \maps \mathbf{D_1} \rightrightarrows \mathbf{D_{0}}$\\
+$\odot \maps \mathbf{D_1} \times_{\mathbf{D_{0}}} \mathbf{D_1} \to \mathbf{D_1}$ (where the pullback is taken over $\mathbf{D_1} \xrightarrow[]{T} \mathbf{D_{0}} \xleftarrow[]{S} \mathbf{D_1}$) \\
 \end{center}
  such that \\
 \begin{center}
@@ -6091,7 +6092,7 @@ $\lambda \maps U_{B} \odot M \xrightarrow{\sim} M$\\
 $\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
 
 \end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called $\textbf{0-cells}$ and morphisms of $\lD_0$ are called $\textbf{vertical 1-morphisms}$. Objects of $\lD_1$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\lD_1$ are called $\textbf{2-morphisms}$. The morphisms of $\lD_1$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\mathbf{D_{0}}$ are called $\textbf{0-cells}$ and morphisms of $\mathbf{D_{0}}$ are called $\textbf{vertical 1-morphisms}$. Objects of $\mathbf{D_1}$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\mathbf{D_1}$ are called $\textbf{2-morphisms}$. The morphisms of $\mathbf{D_{0}}$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\mathbf{D_1}$ with $S(a)=f,T(a)=g$ would look like:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -6107,14 +6108,16 @@ such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ 
 \end{tikzpicture}
 \]
 \end{defn}
+
+The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
+
+\begin{defn}
 A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
+\end{defn}
 
-%The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
-
-
-%\begin{defn}
-%Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
-%\end{defn}
+\begin{defn}
+Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
+\end{defn}
 
 \begin{defn}\label{def:doublefun}
 Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \maps\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \maps \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
@@ -6195,15 +6198,15 @@ A double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{strong}
 \end{defn}
 
 
-%Following the notation of Shulman \cite{Shulman2010}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
-%\[
-%  \xymatrix@-.5pc{
-%   A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-%    B\ar[d]^g\\
-%    C \ar[r]|{|}_N & D
-%  }
-%\]
-%We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
+Following the notation of Shulman \cite{Shulman2010}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
+\[
+  \xymatrix@-.5pc{
+    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
+    B\ar[d]^g\\
+    C \ar[r]|{|}_N & D
+  }
+\]
+We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 \begin{defn}\label{def:fullfaithful}
 A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \maps _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
 \end{defn}
@@ -6224,8 +6227,8 @@ A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathb
 \end{defn}
 
 Formally, two strong double functors between two double categories form a \emph{double equivalence} if ...
-%{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}.   Say this or leave it out entirely!!!
-Similarly to ordinary equivalence of categories, \cite[Theorem 7.8]{Shulman2010} allows us to use the following equivalent characterization.
+%{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. 
+Similarly to ordinary equivalence of categories, [Shulman,7.8] allows us to use the following equivalent characterization.
 
 \begin{thm}\label{ShulDubEquiv}
 A strong double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
@@ -6240,9 +6243,9 @@ Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and le
   A \textbf{monoidal double category} is a double category equipped the following
 structure.
 \begin{enumerate}
-\item $\lD_0$ and $\lD_1$ are both monoidal categories.
-\item If $I$ is the monoidal unit of $\lD_0$, then $U_I$ is the
-  monoidal unit of $\lD_1$.
+\item $\mathbf{D_{0}}$ and $\mathbf{D_1}$ are both monoidal categories.
+\item If $I$ is the monoidal unit of $\mathbf{D_{0}}$, then $U_I$ is the
+  monoidal unit of $\mathbf{D_1}$.
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
