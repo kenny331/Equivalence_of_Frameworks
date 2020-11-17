@@ -147,13 +147,11 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 %\input{decls}
 %\UseAllTwocells
 
-\newcommand{\dblcat}[1]{\mathbb{#1}}
 \mdef\fchk{\check{f}}
 
 \definecolor{purple(x11)}{rgb}{0.5, 0.0, 0.5}
 \def\purple{\color{purple(x11)}}
 \def\chris{\purple}
-
 
 
 \newcommand{\backref}[1]{(Referred to on page #1.)}
@@ -162,6 +160,10 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \usepackage[all,2cell,cmtip]{xy}
 %\input{decls}
 \UseAllTwocells
+
+% sets
+
+\newcommand{\La}{\mathcal{L}}
 
 % categories
 
@@ -224,7 +226,6 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 
 % other gunk
 
-\newcommand{\U}{U}
 \newcommand{\dcsp}[1]{{#1}\mathbb{C}\textnormal{sp}}
 \newcommand{\scsp}[2]{_{#1}\mathbb{C}\textnormal{sp}\left(#2\right)}
 \tikzset{tick/.style={postaction={decorate,decoration={markings,
@@ -236,4 +237,5 @@ mark=at position 0.4 with {\draw[-] (0,.4ex) -- (0,-.4ex);}}}}}
 \newcommand{\pse}{\mathrm{ps}}
 \newcommand{\mapseqq}{:=}
 \newcommand{\ot}{\otimes}
+\newcommand{\To}{\Rightarrow}
 

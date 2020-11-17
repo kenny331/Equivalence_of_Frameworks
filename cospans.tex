@@ -3250,11 +3250,11 @@ Finally, we can further restrict to the setting of opfibrations that also preser
 %as well as Remark~4.11 therein regarding the non-necessary strictness condition. Is this obscuring or clarifying?
 
 \begin{lem}\label{lem:fibrewiselimits}
-Suppose $\ca{J}$ is a small category and $\U\maps\X\to\A$ is an opfibration. If the base $\A$ has $\ca{J}$-colimits,
+Suppose $\ca{J}$ is a small category and $U\maps\X\to\A$ is an opfibration. If the base $\A$ has $\ca{J}$-colimits,
 the following are equivalent:
 \begin{enumerate}
  \item all fibres have $\ca{J}$-colimits, and the reindexing functors preserve them;
- \item the total $\X$ has $\ca{J}$-colimits, and $\U$ (strictly) preserves them.
+ \item the total $\X$ has $\ca{J}$-colimits, and $U$ (strictly) preserves them.
 \end{enumerate}
 \end{lem}
 
@@ -3262,15 +3262,15 @@ The first part formulates the existence of colimits \emph{locally} in each fibre
 
 \begin{cor}\label{cor:fcocMonGroth}
  Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} 
- factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $\U_F\maps\inta F\to\A$ preserves them. 
+ factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L_F$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
 %, which go hand-in-hand with \cref{cor:fcocMonGroth} and \cref{lem:fibrewiselimits}.
 
 \begin{lem}\label{prop:opfibtolari}
-  Let $\U \maps\X \to \A$ be an opfibration. Then
-  $\U$ is a right adjoint `left inverse', a.k.a the unit is the identity, if (and only if) its fibers have
+  Let $U \maps\X \to \A$ be an opfibration. Then
+  $U$ is a right adjoint `left inverse', a.k.a the unit is the identity, if (and only if) its fibers have
   initial objects which are preserved by the
   reindexing functors.
 \end{lem}
@@ -4562,7 +4562,7 @@ commutes.
 \label{spinoffs}
 
 While double categories are a natural context for studying cospans, bicategories are more 
-familiar---and of course, mere \emph{categories} are even more so!   Luckily, all our results 
+familiar---and of course, \emph{categories} are even more so!   Luckily, all our results 
 phrased in the language of double categories have analogues for bicategories and categories.  
 We explain those here.
 
@@ -4913,8 +4913,11 @@ CHECK THAT OUR SORT OF EQUIVALENCE OF SYMMETRIC MONOIDAL DOUBLE CATEGORIES IS RE
 In this section we present several examples.  The first was mentioned in the Introduction.
 
 \subsection{Graphs}
+\label{subsec:graphs}
 
-We describe the double category of open graphs using either structured cospans or decorated cospans.   For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are arbitrary sets, though we could also restrict to finite sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, and with morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is defined to be a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+In earlier work \cite[Sec.\ 5]{BC} we explained the flaws in Fong's original construction of a category of open graphs using decorated cospans.  We also showed how to fix them using structured cospans. Our new approach to decorated cospans provides another, equivalent way to fix these flaws.
+
+For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are arbitrary sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, and with morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is defined to be a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -4941,16 +4944,16 @@ We describe the double category of open graphs using either structured cospans o
 
 Let $L \maps \Set \to \Graph$ be the functor that assigns to a set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Set$ that assigns to a graph $G$ its underlying set of vertices $U(G)$. 
 
-Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which
+Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
 \begin{itemize}
 \item objects are finite sets,
-\item a vertical 1-morphism from $M$ to $N$ is a function $f \maps M \to N$
+\item a vertical 1-morphism from $M$ to $N$ is a function $f \maps M \to N$,
 \item a horizontal 1-cell from $M$ to $N$ is an \define{open graph} from $M$ to $N$, meaning a cospan in $\Graph$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(N)$};
 \node (B) at (1,0) {$G$};
-\node (C) at (2,0) {$L(M)$};
+\node (C) at (2,0) {$L(M)$,};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -4964,7 +4967,7 @@ Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric mo
 \node (C) at (2,0) {$L(M_1)$};
 \node (A') at (0,-1) {$L(N_2)$};
 \node (B') at (1,-1) {$G_2$};
-\node (C') at (2,-1) {$L(M_2)$};
+\node (C') at (2,-1) {$L(M_2)$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$I_1$} (B)
 (C) edge node[above]{$O_1$} (B)
@@ -4977,7 +4980,7 @@ Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric mo
 \]
 \end{itemize}
 
-We can use decorated cospans to build an equivalent symmetric monoidal double category.    For any finite set $N$ there is a category $F(N)$ where:
+We can build an equivalent symmetric monoidal double category using decorated cospans.    For any finite set $N$ there is a category $F(N)$ where:
 \begin{itemize}
 \item An object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$.
 \item A morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is
@@ -4989,14 +4992,14 @@ the identity on $N$, i.e., a function $f \maps E \to E'$ such that these diagram
 \node (B) at (1,-0.5) {$N$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$s$} (B)
-(A') edge node[above]{$s'$} (B)
+(A') edge node[below]{$s'$} (B)
 (A) edge node[left]{$f$} (A');
 \node (C) at (2,0) {$E$};
 \node (C') at (2,-1) {$E'$};
 \node (D) at (3,-0.5) {$N$};
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
-(C') edge node[above]{$t'$} (D)
+(C') edge node[below]{$t'$} (D)
 (C) edge node[left]{$f$} (C');
 \end{tikzpicture}
 \]
@@ -5044,9 +5047,228 @@ which can also be thought of as an open graph,
 is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G_1) \to G_2$ in $F(P_2)$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms, and by Theorem \cref{thm:equiv}, we have an equivalence of symmetric monoidal double categories $$_L \lCsp(\Graph) \sim F\lCsp.$$
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms, and by Theorem \cref{thm:equiv}, we have an equivalence of symmetric monoidal double categories $$_L \lCsp(\Graph) \simeq F\lCsp.$$
 
-\subsection{Labeled graphs}
+\subsection{Circuits}
+\label{subsec:circuits}
+
+Building on work with Fong \cite{BF}, Coya, Rebro and the first author used structured
+cospans to describe electrical circuits with inputs and outputs \cite{BCR}.  The key idea is to use graphs with labeled edges.  The edge labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, inductors with any chosen inductance, or other circuit elements.  To study such circuits quite generally we start by fixing any set $\La$ to serve as edge labels.
+
+\begin{defn}
+Given a set $\La$ of \define{labels}, an \define{$\La$-graph} is a graph $s,t\maps E\to N$
+ equipped with a function $\ell \maps E \to \La$.
+ A \define{morphism} from the $\La$-graph 
+ \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
+ to the $\La$-graph 
+\[ \xymatrix{\La & E' \ar@<2.5pt>[r]^{s'} \ar@<-2.5pt>[r]_{t'} \ar[l]_{\ell'} & N'} \]
+is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$E$};
+\node (A') at (0,-1) {$E'$};
+\node (B) at (1,0) {$N$};
+\node (B') at (1,-1) {$N'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$s$} (B)
+(A') edge node[above]{$s'$} (B')
+(A) edge node[left]{$f$} (A')
+(B) edge node[right]{$g$} (B');
+
+\node (C) at (2,0) {$E$};
+\node (C') at (2,-1) {$E'$};
+\node (D) at (3,0) {$N$};
+\node (D') at (3,-1) {$N'$};
+\path[->,font=\scriptsize,>=angle 90]
+(C) edge node[above]{$t$} (D)
+(C') edge node[above]{$t'$} (D')
+(C) edge node[left]{$f$} (C')
+(D) edge node[right]{$g$} (D');
+
+\node (E) at (4,-0.5) {$\La$};
+\node (G) at (5,0) {$E$};
+\node (G') at (5,-1) {$E'$.};
+%\node[rotate=-90] at (4.1,-0.5) {$\sim$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node[above]{$\ell$} (E)
+(G) edge node[right]{$f$} (G')
+(G') edge node[below]{$\ell'$} (E);
+\end{tikzpicture}
+\]
+\end{defn}
+
+\begin{defn}
+\label{defn:Lgraph}
+We define $\Graph_\La$ to be the category of $\La$-graphs and morphisms between them, with composition given by
+\[  (f, g) \circ (f',g') = (f \circ f' , g \circ g')  .\]
+\end{defn}
+
+When $\La = 1$, an $\La$-graph reduces to a graph and $\Graph_\La$ reduces
+to the category $\Graph$ discussed in \cref{subsec:graphs}.  We now generalize the key
+ideas of that section from graphs to $\La$-graphs.   Everything works the same way, 
+but following previous work \cite{BCR} we call an open $\La$-graph an \define{$\La$-circuit}.
+
+There is a functor $U \maps \Graph_\La \to \Fin\Set$ that takes an $\La$-graph to its underlying set of nodes. This has a left adjoint $L \maps \Fin\Set \to \Graph_\La$ sending
+any set to the $\La$-graph with that set of nodes and no edges.  Both $\Fin\Set$ and $\Graph_\La$ have colimits, and $L$ preserves them.  Thus \cref{SC} gives us a symmetric monoidal double category ${}_L \lCsp(\Graph_\La)$ where:
+\begin{itemize}
+\item an object is a finite set,
+\item a morphism is an isomorphism class of $\La$-circuits, where an
+\define{$\La$-circuit} is a cospan in $\Graph_\La$ of this form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(S)$};
+\node (B) at (1,0) {$G$};
+\node (C) at (2,0) {$L(T)$,};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above,left]{$$} (B)
+(C)edge node[above]{$$}(B);
+\end{tikzpicture}
+\]
+and an \define{isomorphism} of $\La$-circuits is a commutative diagram in $\Graph_\La$ 
+of this form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,-0.5) {$L(S)$};
+\node (F) at (5,-0.5) {$L(T)$};
+\node (G) at (4,0) {$G$};
+\node (G') at (4,-1) {$G'$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$o$} (G)
+(G) edge node[left]{$h$} (G')
+(E) edge node[above]{$i$} (G)
+(E) edge node[below]{$i'$} (G')
+(F) edge node[below]{$o'$} (G');
+\end{tikzpicture}
+\]
+where $h$ is an isomorphism.
+\end{itemize} 
+This category has a nice universal property, found by Rosebrugh, Sabadini and
+Walters \cite{RSW}.  To state this, it is convenient to use the language of props.
+% Replaced strict symmetric with symmetric strict three times below
+Recall that a \define{prop} is a symmetric strict monoidal category whose objects are natural
+numbers, with tensor product of objects given by addition.  An \define{algebra} of a prop $\T$ in a symmetric strict monoidal category $\C$ is a symmetric strict monoidal functor $A \maps \T \to \C$.   A \define{morphism} from the algebra $A \maps \T \to \C$ to the algebra
+$A' \maps \T \to \C$ is a monoidal natural transformation $\alpha \maps A \To A'$.
+
+\begin{lem} As a symmetric monoidal category, ${}_L \Csp(\Graph_\La)$ is equivalent to a prop $\Circ_\La$.    
+\end{lem}
+
+\begin{proof}
+This is \cite[Proposition 4.3]{BCR}.
+\end{proof}
+
+\begin{prop} 
+\label{prop:LCirc_algebra}
+An algebra of $\Circ_\La$ in a symmetric strict monoidal category $\C$ is a 
+special commutative Frobenius monoid in $\C$ whose underlying object $x$ is equipped
+with an endomorphism $\ell \maps x \to x$ for each element $\ell \in \La$. 
+A morphism of algebras of $\Circ_\La$ in $\C$ is a morphism of special commutative Frobenius monoids that also preserves all these endomorphisms.
+\end{prop}
+
+\begin{proof}
+This was proved by Rosebrugh, Sabadini and Walters \cite{RSW}, and appears
+in the above form in \cite[Proposition 7.2]{BCR}.  
+\end{proof}
+
+In applications to circuits, the morphisms $\ell \maps x \to x$ describe different
+circuit elements, while the special commutative Frobenius monoid structure is used to split and join wires.  This framework is used to study a wide variety of electrical circuits in a paper with Coya and Rebro \cite{BCR}, so the reader can turn there for details.   To illustrate the ideas let us consider circuits of resistors, where a label in $\La = (0,\infty)$ serves to indicate the resistance of a resistor.   In this case a typical morphism from $1$ to $3$ in 
+$\Circ_\La$ looks like this:
+\[
+\scalebox{0.6}{
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [contact] (n1) at (-2,0) {$\bullet$};
+		\node [style = none] at (-2.1,0.3) {$$};
+		\node [contact] (n2) at (0,1) {$\bullet$};
+		\node [style = none] at (0,1.3) {$$};
+		\node [contact] (n3) at (0,-1) {$\bullet$};
+		\node [style = none] at (0,-1.3) {$$};
+		\node [contact] (n4) at (2,1) {$\bullet$};
+		\node [style = none] at (2.1,0.3) {$$};
+		\node [contact] (n5) at (2,-1) {$\bullet$};
+		\node [style = none] at (2.1,0.3) {$$};
+		
+		\node [style = none] at (-1,1.1) {$2.53$};
+		\node [style = none] at (-1,-1.1) {$0.71$};
+		\node [style = none] at (1,1.3) {$9.6$};
+		\node [style = none] at (1,-1.3) {$1.02$};
+	     \node [style = none] at (-0.4,0) {$12.4$};
+	     \node [style = none] at (1.6,0) {$6.3$};
+		
+		\node [style=none] (1) at (-3,0) {};
+		\node [style=none] (4) at (3,0) {};
+	
+		\node [style=none] (ATL) at (-3.4,1.4) {};
+		\node [style=none] (ATR) at (-2.6,1.4) {};
+		\node [style=none] (ABR) at (-2.6,-1.4) {};
+		\node [style=none] (ABL) at (-3.4,-1.4) {};
+
+		\node [style=none] (X) at (-3,1.8) {$1$};
+		\node [style=inputdot] (inI) at (-2.8,0) {};
+		
+		\node [style=none] (Z) at (3,1.8) {$3$};
+	 \node [style=inputdot] (outI') at (2.8,1) {};
+	 \node [style=inputdot] (outI'') at (2.8,0) {};
+	 \node [style=inputdot] (outI''') at (2.8,-1) {};
+
+		\node [style=none] (MTL) at (2.6,1.4) {};
+		\node [style=none] (MTR) at (3.4,1.4) {};
+		\node [style=none] (MBR) at (3.4,-1.4) {};
+		\node [style=none] (MBL) at (2.6,-1.4) {};
+	
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=inarrow, bend left=20, looseness=1.00] (n1) to (n2);
+		\draw [style=inarrow, bend right=20, looseness=1.00] (n1) to (n3);
+		\draw [style=inarrow, bend left=0, looseness=1.00] (n2) to (n4);
+		\draw [style=inarrow, bend right=0, looseness=1.00] (n3) to (n4);
+		\draw [style=inarrow, bend right=0, looseness=1.00] (n3) to (n5);
+		\draw [style=inarrow] (n2) to (n3);
+%		\draw [style=inarrow] (W) to (Water);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Water2) to (Something);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Water2) to (Something);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Something) to (A);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Something) to (B);
+		\draw [style=simple] (ATL.center) to (ATR.center);
+		\draw [style=simple] (ATR.center) to (ABR.center);
+		\draw [style=simple] (ABR.center) to (ABL.center);
+		\draw [style=simple] (ABL.center) to (ATL.center);
+%		\draw [style=simple] (BTL.center) to (BTR.center);
+%		\draw [style=simple] (BTR.center) to (BBR.center);
+%		\draw [style=simple] (BBR.center) to (BBL.center);
+%		\draw [style=simple] (BBL.center) to (BTL.center);
+		\draw [style=simple] (MTL.center) to (MTR.center);
+		\draw [style=simple] (MTR.center) to (MBR.center);
+		\draw [style=simple] (MBR.center) to (MBL.center);
+		\draw [style=simple] (MBL.center) to (MTL.center);
+%		\draw [style=inputarrow] (outI) to (A);
+%		\draw [style=inputarrow] (outS) to (B);
+		\draw [style=inputarrow] (inI) to (n1);
+		\draw [style=inputarrow] (outI') to (n4);
+		\draw [style=inputarrow] (outI'') to (n5);
+		\draw [style=inputarrow] (outI''') to (n5);
+%		\draw [style=inputarrow] (inI') to (Water2);
+%		\draw [style=inputarrow] (inS') to (Water2);
+	\end{pgfonlayer}
+\end{tikzpicture}
+}
+\]
+The edges here represent wires, and the positive real numbers labeling them describe
+the resistance of the resistor on each wire.  The points in the boxes represent `terminals': that is, points where we allow ourselves to attach a wire from another circuit.   The points in the left box are called `inputs' and the points in the right box are called `outputs'.  In electrical engineering we associate two real numbers to each terminal, called `potential' and `current'.   Any circuit of resistors imposes a specific relation between the potentials and currents at its inputs and those at its outputs.  All these relations, for all circuits of resistors, can be described using a single functor as follows.
+
+There is a symmetric monoidal category $\Fin\Rel_\R$ where the objects are finite-dimensional real vector spaces and a morphism from $V$ to $W$ is a \define{linear relation} from $V$ to $W$: that is, a relation $L \subseteq V \times W$ that is a linear subspace of $V \times W$.   Composition in $\Fin\Rel_\R$ is the usual composition of relations, and the symmetric monoidal structure is provided by direct sum.  
+
+There is a symmetric monoidal functor
+\[   \blacksquare \maps \Circ_\La \to \Fin\Rel_\R  \]
+% Added the line "sending any finite set $S$ to the vector space 
+% $\mathbb{R}^S \oplus \mathbb{R}^S$ and" to say what the black-box functor does on objects
+% Changed Prop. to Proposition 
+sending any finite set $S$ to the vector space $\R^S \oplus \R^S$ and
+sending any circuit of resistors to the relation it imposes between the potentials and currents at its inputs and those at its outputs \cite[Section 9]{BCR}.   We can construct this using Proposition \ref{prop:LCirc_algebra}, by choosing a special commutative Frobenius monoid in $\Fin\Rel_\R$ whose underlying object is equipped with an endomorphism for each resistance $R \in (0,\infty)$.   The object $\R^2 \in \Fin\Rel_\R$ is a special commutative Frobenius monoid in a standard way \cite[Section\ 8]{BCR}, so we choose this one.   To define $\blacksquare \maps \Circ_\La \to \Fin\Rel_\R$ it then suffices to choose for each $R \in (0,\infty)$ a linear relation from $\R^2$ to itself.   We use this:
+\[ \left\{(\phi_1,I_1,\phi_2,I_2) : \; I_1 = I_2 , \; \phi_2-\phi_1 = R I_1\right\} 
+ \subseteq \R^2 \oplus \R^2.\]
+This expresses two laws of electrical engineering.   Kirchhoff's current law says that the 
+current flowing into a wire equals the current flowing out: $I_1 = I_2$.   Ohm's law says that the voltage across a wire with a resistor on it, $\phi_2 - \phi_1$, is equal to the current flowing through the wire times the resistance $R$ of that resistor.
+
 
 
 
@@ -5605,7 +5827,7 @@ The above in fact provides the one direction of the following well-known equival
 
 \begin{thm}\label{thm:Grothendieck}\hfill
     \begin{enumerate}
-        \item Every opfibration $\U \maps \X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
+        \item Every opfibration $U \maps \X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
         \item Every pseudofunctor $F \maps \A \to \Cat$ gives rise to  an opfibration $\maps \inta F\to\A$.
         \item The above correspondences yield an equivalence of 2-categories 
         \begin{displaymath}
@@ -6037,7 +6259,7 @@ structure.
 	such that:
 	\begin{enumerate}
 		\setcounter{enumi}{\value{mondbl}}
-		\item $\dblcat{D}_{0}$ and $\dblcat{D}_1$ are braided monoidal categories.
+		\item $\lD_{0}$ and $\lD_1$ are braided monoidal categories.
 		\item The functors $S$ and $T$ are strict braided monoidal functors.
 		\item The following diagrams commute expressing that the braiding is a transformation of double categories.
 		\[
@@ -6075,7 +6297,7 @@ structure.
 	is a braided monoidal double category $\mathbb{D}$ such that:
 	\begin{enumerate}
 		\setcounter{enumi}{\value{mondbl}}
-		\item $\dblcat{D}_{0}$ and $\dblcat{D}_1$ are symmetric monoidal.
+		\item $\lD_{0}$ and $\lD_1$ are symmetric monoidal.
 	\end{enumerate}
 \end{defn}
 
@@ -6413,7 +6635,7 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{PollardThesis} B.\ S.\ Pollard, \textsl{Open Markov Processes and Reaction Networks}, Ph.D. thesis, U. C. Riverside, 2017.  Available as \href{https://arxiv.org/abs/1709.09743}{arXiv:1709.09743}.
 
-%\bibitem{RSW} R.\ Rosebrugh, N.\ Sabadini and R.\ F.\ C.\ Walters, Generic commutative separable algebras and cospans of graphs, \textsl{Theory Appl. Categ.} \textbf{15} (2005), 164--177. Available at \href{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}.
+\bibitem{RSW} R.\ Rosebrugh, N.\ Sabadini and R.\ F.\ C.\ Walters, Generic commutative separable algebras and cospans of graphs, \textsl{Theory Appl. Categ.} \textbf{15} (2005), 164--177. Available at \href{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}{http:/.www.tac.mta.ca/tac/volumes/15/6/15-06.pdf}.
 
 %\bibitem{Reb} F.\ Rebro, Constructing the bicategory Span$_{2}(\mathrm{A})$. Available as \href{https://arxiv.org/abs/1501.00792}{arXiv:1501.00792}.
 
