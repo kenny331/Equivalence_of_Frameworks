@@ -1882,7 +1882,7 @@ To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the brai
 \]
 together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
 
-Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes M_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functors $\otimes$ and $\odot$ and the second of which relates the double functors $\otimes$ and $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
+Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functors $\otimes$ and $\odot$ and the second of which relates the double functors $\otimes$ and $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a+b$};
@@ -1933,6 +1933,115 @@ together with the decoration isomorphism $\tau_{a,b} \maps !_{a+b} \xrightarrow{
 (O) edge node[above]{$o_2'$} (N);
 \end{tikzpicture}
 \]
+If we first tensor $M_1$ and $N_1$ as well as $M_2$ and $N_2$ and then compose these two, we obtain $(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$, which is given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a+a'$};
+\node (B) at (2.5,0) {$(m_1+n_1)+_{b+b'}(m_2+n_2)$};
+\node (C) at (5,0) {$c+c'$};
+\node (D) at (2.5,-0.5) {$(x_1+y_1)\odot(x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\psi j (i_1+i_1')$} (B)
+(C) edge node[above]{$\psi j (o_2 + o_2')$} (B);
+\end{tikzpicture}
+\]
+where the decoration $(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$ is given by:
+%$$\scriptscriptstyle{1 \xrightarrow{(\lambda^{-1} \times \lambda^{-1})\lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2))$$
+$$\scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2))$$
+where the first arrow is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\lambda^{-1} \times \lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)).$$
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$1$};
+%\node (B) at (0,-1) {$1 \times 1$};
+%\node (C) at (0,-2) {$(1 \times 1) \times (1 \times 1)$};
+%\node (D) at (0,-3) {$(F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2))$};
+%\node (E) at (0,-4) {$F(m_1+n_1) \times F(m_2+n_2)$};
+%\node (F) at (0,-5) {$F((m_1+n_1)+(m_2+n_2))$};
+%\node (G) at (0,-6) {$F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[left]{$\lambda^{-1}$} (B)
+%(B) edge node[left]{$\lambda^{-1} \times \lambda^{-1}$} (C)
+%(C) edge node[left]{$(x_1 \times y_1) \times (x_2 \times y_2)$} (D)
+%(D) edge node[left]{$\phi_{m_1,n_1} \times \phi_{m_2,n_2}$} (E)
+%(E) edge node[left]{$\phi_{m_1+n_1,m_2+n_2}$} (F)
+%(F) edge node[left]{$F(j_{m_1+n_1,m_2+n_2})$} (G);
+%\end{tikzpicture}
+%\]
+Interchanging the order in which we tensor and compose, we obtain $(M_1 \odot M_2) \otimes (N_1 \odot N_2)$, which is given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a+a'$};
+\node (B) at (2.5,0) {$(m_1+_{b} m_2) + (n_1 +_{b'} n_2)$};
+\node (C) at (5,0) {$c+c'$};
+\node (D) at (2.5,-0.5) {$(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$(\psi j i_1)+(\psi j i_1')$} (B)
+(C) edge node[above]{$(\psi j o_2)+(\psi j o_2')$} (B);
+\end{tikzpicture}
+\]
+where the decoration $(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$ is given by:
+%$$\scriptscriptstyle{1 \xrightarrow{(\lambda^{-1} \times \lambda^{-1})\lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2) \xrightarrow{F(\psi) \times F(\psi)} F(m_1 +_b m_2) \times F(n_1+_{b'}n_2) \xrightarrow{\phi_{m_1+_b m_2,n_1+_{b'}n_2}} F((m_1+_b m_2)+(n_1+_{b'}n_2))}$$
+$$\scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2) \xrightarrow{F(\psi) \times F(\psi)} F(m_1 +_b m_2) \times F(n_1+_{b'}n_2) \xrightarrow{\phi_{m_1+_b m_2,n_1+_{b'}n_2}} F((m_1+_b m_2)+(n_1+_{b'}n_2))}$$
+with the first arrow being the same as the first arrow in the previous composite.
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$1$};
+%\node (B) at (0,-1) {$1 \times 1$};
+%\node (C) at (0,-2) {$(1 \times 1) \times (1 \times 1)$};
+%\node (D) at (0,-3) {$(F(m_1) \times F(m_2)) \times (F(n_1) \times F(n_2))$};
+%\node (E) at (0,-4) {$F(m_1+m_2) \times F(n_1+n_2)$};
+%\node (F) at (0,-5) {$F(m_1+_{b}m_2) \times F(n_1+_{b'}n_2)$};
+%\node (G) at (0,-6) {$F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[left]{$\lambda^{-1}$} (B)
+%(B) edge node[left]{$\lambda^{-1} \times \lambda^{-1}$} (C)
+%(C) edge node[left]{$(x_1 \times x_2) \times (y_1 \times y_2)$} (D)
+%(D) edge node[left]{$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E)
+%(E) edge node[left]{$F(j_{m_1,m_2}) \times F(j_{n_1,n_2})$} (F)
+%(F) edge node[left]{$\phi_{m_1+_{b}m_2,n_1+_{b'}n_2}$} (G);
+%\end{tikzpicture}
+%\]
+The globular 2-morphism $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ is then given by the map of cospans in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a+a'$};
+\node (A') at (0,-0.5) {$a+a'$};
+\node (B) at (2.5,0.5) {$(m_1+n_1)+_{b+b'}(m_2+n_2)$};
+\node (C) at (5,0.5) {$c+c'$};
+\node (C') at (5,-0.5) {$c+c'$};
+\node (D) at (2.5,-0.5) {$(m_1+_{b}m_2)+(n_1+_{b'}n_2)$};
+\node (E) at (7.5,0.5) {$\scriptstyle{(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
+\node (F) at (7.5,-0.5) {$\scriptstyle{(x_1 \odot x_2)+(y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\psi j(i_1+i_1')$} (B)
+(C) edge node[above]{$\psi j(o_2 + o_2')$} (B)
+(A) edge node[left]{$1$} (A')
+(C) edge node[right]{$1$} (C')
+(A') edge node [above]{$(\psi j i_1')+(\psi j i_1)$} (D)
+(C') edge node [above]{$(\psi j o_2)+(\psi j o_2')$} (D)
+(B) edge node [left] {$\hat{\chi}$} (D);
+\end{tikzpicture}
+\]
+together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\odot(x_2+y_2)) \to (x_1 \odot x_2)+(y_1 \odot y_2)$
+where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
+
+The remaining properties are coherence diagrams that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these diagrams to give the reader a sense of how they are verified, with more details able to be found in the second author's thesis \cite{CourserThesis}. The coherence diagram that we will check is given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
+\node (B) at (3,0) {$(N_1 \odot N_2) \otimes (M_1 \odot M_2)$};
+\node (C) at (0,-.75) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
+\node (D) at (3,-.75) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\beta$} (B)
+(B) edge node[right]{$\chi$} (D)
+(A) edge node[left]{$\chi$} (C)
+(C) edge node[above]{$\beta \odot \beta$} (D);
+\end{tikzpicture}
+\]
+which expresses that the braiding is a transformation of double categories.
+
+\noindent
 \textbf{In progress}
 %!!! Kenny: Probably cut stuff out below this.
 % Christina: Commented them out for now, but should definitely have a close look to see if anything is needed when we go over and remake this proof.
