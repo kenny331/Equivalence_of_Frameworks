@@ -3033,6 +3033,15 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\mathbb{H}_{M,N} \odot 1$} (B)
 (B) edge node[left]{$\mathbb{H}_{M \odot N,P}$} (C)
+\node (A) at (0,0.5) {$(\lH(M) \odot \lH(N)) \odot \lH(P)$};
+\node (B) at (0,-0.5) {$\lH(M \odot N) \odot \lH(P)$};
+\node (C) at (0,-1.5) {$\lH((M \odot N) \odot P)$};
+\node (A') at (3,0.5) {$\lH(M) \odot (\lH(N) \odot \lH(P))$};
+\node (B') at (3,-0.5) {$\lH(M) \odot \lH(N \odot P)$};
+\node (C') at (3,-1.5) {$\lH(M \odot (N \odot P))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$\lH_{M,N} \odot 1$} (B)
+(B) edge node[left]{$\lH_{M \odot N,P}$} (C)
 (A) edge node[above]{$a$} (A')
 (C) edge node [above] {$\mathbb{H}(a')$} (C')
 (B') edge node [right] {$\mathbb{H}_{M,N \odot P}$} (C')
