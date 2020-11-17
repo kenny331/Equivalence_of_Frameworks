@@ -3266,8 +3266,9 @@ The first part formulates the existence of colimits \emph{locally} in each fibre
  factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
+Notice a subtlety in the above formulation: \cref{lem:MonGroth} provides a specifically induced monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} in the cocartesian base case. If that fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to \emph{any} other cocartesian structure on the fibres, by universal property of colimits. Therefore, we can simplify the above formulation to the one of the very \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. DOES THIS MAKE SENSE TO ALL?? 
+
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L_F$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
-%, which go hand-in-hand with \cref{cor:fcocMonGroth} and \cref{lem:fibrewiselimits}.
 
 \begin{lem}\label{prop:opfibtolari}
   Let $U \maps\X \to \A$ be an opfibration. Then
@@ -3302,7 +3303,7 @@ Moreover, if the opfibration $U$ comes from the Grothendieck construction on a p
 
 Finally, if the original pseudofunctor is in fact lax monoidal $(F,\mu,\mu_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
 \begin{equation}\label{eq:initialinfibre}
-\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
+\mathbf{1}\xrightarrow{\mu_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 \end{equation}
 \end{rmk}
 
