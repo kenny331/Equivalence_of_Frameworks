@@ -3168,7 +3168,8 @@ Details of the constructions and the proof of the above theorem can be found at 
 In \cite{BC2}, the first two authors introduce the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double equivalence between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category structured cospans form.
 
 \begin{thm}\label{SC}
-Given categories $\X$ and $\A$ with finite colimits and $L \maps \A \to \X$ a finitely cocontinuous functor, there exists a symmetric monoidal double category $_L\lCsp(\X)$ in which
+Given categories $\X$ and $\A$ with finite colimits and $L \maps \A \to \X$ a functor preserving
+finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical morphism is a morphism of $\A$,
@@ -3207,10 +3208,10 @@ The symmetric monoidal structure is formed by using binary coproducts and the in
 \end{thm}
 
 \begin{proof}
-All relevant details can be found in \cite[Theorems~2.3\&3.9]{BC2}. In particular, the double category structure only requires that $\X$ have pushouts, since this is how composition is formed. Moreover, the symmetric monoidal structure requires that $\X$ also have binary coproducts and an initial object (thus all finite colimits), and that $\A$ have and $L$ preserve finite coproducts, see \cite[Theorem~3.2.3]{CourserThesis}.
+This was proved in \cite[Theorems~2.3 \& 3.9]{BC2}. In particular, the double category structure only requires that $\X$ have pushouts, since this is how composition is formed.  The symmetric monoidal structure requires also that $\X$  has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
 \end{proof}
 
-The following theorem establishes the desired equivalence between these two different double categorical network frameworks of structured and decorated cospans in a formal way. We denote by $\Rex$ the 2-category of finitely cocomplete categories and finitely cocontinuous functors, and the symmetric monoidal double structure of decorated cospans is worked out in \cref{thm:decorated_cospans,DC}.
+The following theorem establishes the equivalence between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of finitely cocomplete categories, finitely cocontinuous functors and natural transformatoins.
 
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.   Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
@@ -4583,7 +4584,7 @@ The bicategory $\bX$ has a \define{decategorification}, a category $\X$ in which
 \end{itemize}
 Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory $F\bCsp$, and a category $F\Csp$.   In \cref{DC} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
 
-A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}.   Shulman \cite[Thm.\ 1.2]{Shulman2010} showed how when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.     We can apply this to decorated cospans as follows:
+A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}.   Shulman \cite[Thm.\ 1.2]{Shulman2010} proved that when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.    We can apply this to decorated cospans as follows:
 
 \begin{lem}
 The double category $F\lCsp$ is fibrant.
@@ -4917,7 +4918,7 @@ In this section we present several examples.  The first was mentioned in the Int
 
 In earlier work \cite[Sec.\ 5]{BC} we explained the flaws in Fong's original construction of a category of open graphs using decorated cospans.  We also showed how to fix them using structured cospans. Our new approach to decorated cospans provides another, equivalent way to fix these flaws.
 
-For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are arbitrary sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, and with morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is defined to be a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are arbitrary sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, where a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -4942,18 +4943,18 @@ For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$
 \end{tikzpicture}
 \]
 
-Let $L \maps \Set \to \Graph$ be the functor that assigns to a set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Set$ that assigns to a graph $G$ its underlying set of vertices $U(G)$. 
+We can easily build a double category with `open graphs' as horizontal 1-cells using the machinery of structured cospans.  Let $L \maps \Set \to \Graph$ be the functor that assigns to a set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Set$ that assigns to a graph $G$ its underlying set of vertices $U(G)$. 
 
 Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
 \begin{itemize}
 \item objects are finite sets,
-\item a vertical 1-morphism from $M$ to $N$ is a function $f \maps M \to N$,
-\item a horizontal 1-cell from $M$ to $N$ is an \define{open graph} from $M$ to $N$, meaning a cospan in $\Graph$ of this form:
+\item a vertical 1-morphism from $X$ to $Y$ is a function $f \maps X \to Y$,
+\item a horizontal 1-cell from $X$ to $Y$ is an \define{open graph} from $X$ to $Y$, meaning a cospan in $\Graph$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N)$};
+\node (A) at (0,0) {$L(X)$};
 \node (B) at (1,0) {$G$};
-\node (C) at (2,0) {$L(M)$,};
+\node (C) at (2,0) {$L(Y)$,};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -4962,12 +4963,12 @@ Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric mo
 \item a 2-morphism is a commuting diagram in $\Graph$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(N_1)$};
+\node (A) at (0,0) {$L(X_1)$};
 \node (B) at (1,0) {$G_1$};
-\node (C) at (2,0) {$L(M_1)$};
-\node (A') at (0,-1) {$L(N_2)$};
+\node (C) at (2,0) {$L(Y_1)$};
+\node (A') at (0,-1) {$L(X_2)$};
 \node (B') at (1,-1) {$G_2$};
-\node (C') at (2,-1) {$L(M_2)$.};
+\node (C') at (2,-1) {$L(Y_2)$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$I_1$} (B)
 (C) edge node[above]{$O_1$} (B)
@@ -4979,12 +4980,85 @@ Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric mo
 \end{tikzpicture}
 \]
 \end{itemize}
+Here is an example of an open graph:
+\[
+\scalebox{0.8}{
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [contact] (n1) at (-2,0) {$\bullet$};
+		\node [style = none] at (-2.1,0.3) {$n_1$};
+		\node [contact] (n2) at (0,1) {$\bullet$};
+		\node [style = none] at (0,1.3) {$n_2$};
+		\node [contact] (n3) at (0,-1) {$\bullet$};
+		\node [style = none] at (0,-1.3) {$n_3$};
+		\node [contact] (n4) at (2,0) {$\bullet$};
+		\node [style = none] at (2.1,0.3) {$n_4$};
+		
+		\node [style = none] at (-1,1) {$e_1$};
+		\node [style = none] at (-1,-1) {$e_2$};
+		\node [style = none] at (1,1) {$e_3$};
+		\node [style = none] at (1,-1) {$e_4$};
+	    \node [style = none] at (0.3,0) {$e_5$};
+		
+		\node [style=none] (1) at (-3,0) {1};
+		\node [style=none] (4) at (3,0) {2};
+	
+		\node [style=none] (ATL) at (-3.4,1.4) {};
+		\node [style=none] (ATR) at (-2.6,1.4) {};
+		\node [style=none] (ABR) at (-2.6,-1.4) {};
+		\node [style=none] (ABL) at (-3.4,-1.4) {};
 
-We can build an equivalent symmetric monoidal double category using decorated cospans.    For any finite set $N$ there is a category $F(N)$ where:
+		\node [style=none] (X) at (-3,1.8) {$X$};
+		\node [style=inputdot] (inI) at (-2.8,0) {};
+		
+		\node [style=none] (Z) at (3,1.8) {$Y$};
+	 \node [style=inputdot] (outI') at (2.8,0) {};
+
+		\node [style=none] (MTL) at (2.6,1.4) {};
+		\node [style=none] (MTR) at (3.4,1.4) {};
+		\node [style=none] (MBR) at (3.4,-1.4) {};
+		\node [style=none] (MBL) at (2.6,-1.4) {};
+	
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=inarrow, bend left=20, looseness=1.00] (n1) to (n2);
+		\draw [style=inarrow, bend right=20, looseness=1.00] (n1) to (n3);
+		\draw [style=inarrow, bend left=20, looseness=1.00] (n2) to (n4);
+		\draw [style=inarrow, bend right=20, looseness=1.00] (n3) to (n4);
+		\draw [style=inarrow] (n2) to (n3);
+%		\draw [style=inarrow] (W) to (Water);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Water2) to (Something);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Water2) to (Something);
+%		\draw [style=inarrow, bend left=40, looseness=1.00] (Something) to (A);
+%		\draw [style=inarrow, bend right=40, looseness=1.00] (Something) to (B);
+		\draw [style=simple] (ATL.center) to (ATR.center);
+		\draw [style=simple] (ATR.center) to (ABR.center);
+		\draw [style=simple] (ABR.center) to (ABL.center);
+		\draw [style=simple] (ABL.center) to (ATL.center);
+%		\draw [style=simple] (BTL.center) to (BTR.center);
+%		\draw [style=simple] (BTR.center) to (BBR.center);
+%		\draw [style=simple] (BBR.center) to (BBL.center);
+%		\draw [style=simple] (BBL.center) to (BTL.center);
+		\draw [style=simple] (MTL.center) to (MTR.center);
+		\draw [style=simple] (MTR.center) to (MBR.center);
+		\draw [style=simple] (MBR.center) to (MBL.center);
+		\draw [style=simple] (MBL.center) to (MTL.center);
+%		\draw [style=inputarrow] (outI) to (A);
+%		\draw [style=inputarrow] (outS) to (B);
+		\draw [style=inputarrow] (inI) to (n1);
+		\draw [style=inputarrow] (outI') to (n4);
+%		\draw [style=inputarrow] (inI') to (Water2);
+%		\draw [style=inputarrow] (inS') to (Water2);
+	\end{pgfonlayer}
+\end{tikzpicture}
+}
+\]
+
+We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any set $N$ there is a category $F(N)$ where:
 \begin{itemize}
 \item An object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$.
 \item A morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is
-the identity on $N$, i.e., a function $f \maps E \to E'$ such that these diagrams commute:
+the identity on $N$: that is, a function $f \maps E \to E'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -4996,7 +5070,7 @@ the identity on $N$, i.e., a function $f \maps E \to E'$ such that these diagram
 (A) edge node[left]{$f$} (A');
 \node (C) at (2,0) {$E$};
 \node (C') at (2,-1) {$E'$};
-\node (D) at (3,-0.5) {$N$};
+\node (D) at (3,-0.5) {$N$.};
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
 (C') edge node[below]{$t'$} (D)
@@ -5005,47 +5079,51 @@ the identity on $N$, i.e., a function $f \maps E \to E'$ such that these diagram
 \]
 \end{itemize}
 
-There is a symmetric lax monoidal pseudofunctor $F \maps (\Set, +) \to (\Cat,\times)$  that assigns to a set $N$ the category $F(N)$.    This behaves in the obvious way on morphisms --- what's that???  The lax monoidal structure arises from functors $\phi_{M,N} \maps F(M) \times F(N) \to F(M+N)$ and $\phi_0 \maps F(\emptyset) \to 1$ defined in the obvious way --- what's that???
- Using  \cref{DC}, we thus obtain a symmetric monoidal double category $F\lCsp$ in which
+In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually a functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to map any graph structure $s,t \maps E \to M$ to the graph structure $f \circ s, f \circ t \maps E \to N$. 
+
+We obtain a symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$ by equipping $F$ with suitable functors $\phi_{N,N'} \maps F(N) \times F(N') \to F(N+N')$ for every pair of sets $N$ and $N'$, and also a functor $\phi_0 \maps F(\emptyset) \to 1 \in \Set$.  The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$, which is defined using disjoint union.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.
+
+Given the symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
 \item objects are sets,
-\item a vertical 1-morphism from $M$ to $N$ is a function $f: M \to N$,
-\item a horizontal 1-cell from $M$ to $N$ is a pair
+\item a vertical 1-morphism from $X$ to $X'$ is a function $f \maps X \to X'$,
+\item a horizontal 1-cell from $X$ to $Y$ is a pair
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$M$};
-\node (B) at (1,0) {$P$};
-\node (C) at (2,0) {$N$};
-\node (D) at (3.25,0) {$G \in F(P)$};
+\node (A) at (0,0) {$X$};
+\node (B) at (1,0) {$N$};
+\node (C) at (2,0) {$Y$};
+\node (D) at (3.25,0) {$G \in F(N)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-which can also be thought of as an open graph, 
+which can also be thought of as an open graph from $X$ to $Y$,
 \item a 2-morphism
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$N_1$};
-\node (A') at (0,-1) {$N_2$};
-\node (C') at (2,-1) {$M_2$};
-\node (B) at (1,0) {$P_1$};
-\node (C) at (2,0) {$M_1$};
-\node (D) at (1,-1) {$P_2$};
-\node (E) at (3,0) {$G_1 \in F(P_1)$};
-\node (F) at (3,-1) {$G_2 \in F(P_2)$};
+\node (A) at (0,0) {$X$};
+\node (B) at (1,0) {$N$};
+\node (C) at (2,0) {$Y$};
+\node (A') at (0,-1) {$X'$};
+\node (C') at (2,-1) {$Y'$};
+\node (D) at (1,-1) {$N'$};
+\node (E) at (3,0) {$G \in F(N)$};
+\node (F) at (3,-1) {$G' \in F(N')$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(C') edge node [above] {$o_2$} (D)
-(A') edge node [above] {$i_2$} (D)
+(C') edge node [above] {$o'$} (D)
+(A') edge node [above] {$i'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G_1) \to G_2$ in $F(P_2)$.
+is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
+
 
 We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms, and by Theorem \cref{thm:equiv}, we have an equivalence of symmetric monoidal double categories $$_L \lCsp(\Graph) \simeq F\lCsp.$$
 
