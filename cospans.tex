@@ -2041,6 +2041,7 @@ The remaining properties are coherence laws that make use of these maps $\chi$ a
 \end{tikzpicture}
 \]
 which expresses that the braiding is a transformation of double categories.
+This expresses that the braiding is a transformation of double categories.
 
 \noindent
 \textbf{In progress}
@@ -2601,6 +2602,29 @@ as the above underlying diagram of maps of cospans commutes and then applying th
 \end{comment}
 \end{proof}
 
+Our construction gives not only decorated cospan double categories, but maps betwen these.
+Suppose we have two symmetric lax monoidal pseudofunctors, $F \maps \A \to \Cat$ and
+$F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan 
+double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
+\begin{itemize}
+\item a finitely cocontinous functor $H \maps \A \to \A'$, 
+\item a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$, 
+\item an isomorphism $\theta \maps EF \Rightarrow F'H$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\A$};
+\node (B) at (1,0) {$\Cat$};
+\node (C) at (0,-1) {$\A'$};
+\node (D) at (1,-1) {$\Cat$.};
+\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$F$} (B)
+(A) edge node[left]{$H$} (C)
+(B) edge node[right]{$E$} (D)
+(C) edge node[above]{$F'$} (D);
+\end{tikzpicture}
+\]
+\end{itemize}
 
 Regarding maps between symmetric monoidal double categories, consider another symmetric lax monoidal pseudofunctor $F' \maps \mathsf{A'} \to \Cat$%, we can obtain another symmetric monoidal double category $F' \lCsp$.
 a morphism from $F\lCsp$ to $F' \lCsp$ will then be a double functor $\mathbb{H} \maps F\lCsp \to F' \lCsp$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \maps \A \to \mathsf{A'}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
@@ -2903,12 +2927,14 @@ where $$d \maps 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times 
 \node (B) at (2,0) {$H(c_1+_b c_2)$};
 \node (C) at (4,0) {$H(a_2)$};
 \node (D) at (2,-0.5) {$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F'(H(c_1 +_b c_2))$};
+\node (D) at (2,-0.5) {$\lH(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F'(H(c_1 +_b c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(\psi j_{c_1} i_1)$} (B)
 (C) edge node[above]{$H(\psi j_{c_2} o_2)$} (B);
 \end{tikzpicture}
 \]
 where $$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F'(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\mathbb{H}$ is given respectively by $\mathbb{H}(M)$ and $\mathbb{H}(N)$:
+where $$\lH(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F'(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\lH$ is given respectively by $\lH(M)$ and $\lH(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
@@ -2951,6 +2977,9 @@ We then have a comparison constraint: $$\mathbb{H}_{M,N} \maps \mathbb{H}(M) \od
 \node (E) at (7.5,0.5) {$d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \in F'(H(c_1)+_{H(b_1)}H(c_2))$};
 \node (F) at (7.5,-0.5) {$d_{\mathbb{H}(M \odot N)} \in F'(H(c_1 +_b c_2))$};
 \node (G) at (2.5,-1) {$\tau_{\kappa^{-1}} \maps F'(\kappa^{-1})(d_{\mathbb{H}(M) \odot \mathbb{H}(N)}) \to d_{\mathbb{H}(M \odot N)}.$};
+\node (E) at (7.5,0.5) {$d_{\lH(M) \odot \lH(N)} \in F'(H(c_1)+_{H(b_1)}H(c_2))$};
+\node (F) at (7.5,-0.5) {$d_{\lH(M \odot N)} \in F'(H(c_1 +_b c_2))$};
+\node (G) at (2.5,-1) {$\tau_{\kappa^{-1}} \maps F'(\kappa^{-1})(d_{\lH(M) \odot \lH(N)}) \to d_{\lH(M \odot N)}.$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\Psi j_{H(c_1)} H(i_1)$} (B)
 (C) edge node[above]{$\Psi j_{H(c_2)} H(o_2)$} (B)
@@ -2962,6 +2991,7 @@ We then have a comparison constraint: $$\mathbb{H}_{M,N} \maps \mathbb{H}(M) \od
 \end{tikzpicture}
 \]
 where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$. The above diagram commutes by a similar argument to the one used in \cref{thm:equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\mathbb{H}_U \maps U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
+where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \A'$. The above diagram commutes by a similar argument to the one used in \cref{thm:equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\lH_U \maps U_{\lH(c)} \to \lH(U_c)$$ given by the globular 2-isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$H(c)$};
