@@ -3214,7 +3214,7 @@ This was proved in \cite[Theorems~2.3 \& 3.9]{BC2}. In particular, the double ca
 The following theorem establishes the equivalence between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of finitely cocomplete categories, finitely cocontinuous functors and natural transformatoins.
 
 \begin{thm} \label{thm:equiv}
-Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.   Then the symmetric monoidal double category $F\lCsp$ of decorated cospans is equivalent to the symmetric monoidal double category $_L\lCsp(\inta F)$ of structured cospans, where $L \maps \A \to \inta F$ is the left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
+Suppose $\ca{A}$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\bicat{Rex}$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are equivalent, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
@@ -5133,7 +5133,7 @@ Building on work with Fong \cite{BF}, Coya, Rebro and the first author used stru
 cospans to describe electrical circuits with inputs and outputs \cite{BCR}.  The key idea is to use graphs with labeled edges.  The edge labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, inductors with any chosen inductance, or other circuit elements.  To study such circuits quite generally we start by fixing any set $\La$ to serve as edge labels.
 
 \begin{defn}
-Given a set $\La$ of \define{labels}, an \define{$\La$-graph} is a graph $s,t\maps E\to N$
+Given a set $\La$ of \define{labels}, an $\La$-\define{graph} is a graph $s,t\maps E\to N$
  equipped with a function $\ell \maps E \to \La$.
  A \define{morphism} from the $\La$-graph 
  \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
@@ -5183,14 +5183,14 @@ We define $\Graph_\La$ to be the category of $\La$-graphs and morphisms between 
 When $\La = 1$, an $\La$-graph reduces to a graph and $\Graph_\La$ reduces
 to the category $\Graph$ discussed in \cref{subsec:graphs}.  We now generalize the key
 ideas of that section from graphs to $\La$-graphs.   Everything works the same way, 
-but following previous work \cite{BCR} we call an open $\La$-graph an \define{$\La$-circuit}.
+but following previous work \cite{BCR} we call an open $\La$-graph an $\La$-\define{circuit}.
 
 There is a functor $U \maps \Graph_\La \to \Fin\Set$ that takes an $\La$-graph to its underlying set of nodes. This has a left adjoint $L \maps \Fin\Set \to \Graph_\La$ sending
 any set to the $\La$-graph with that set of nodes and no edges.  Both $\Fin\Set$ and $\Graph_\La$ have colimits, and $L$ preserves them.  Thus \cref{SC} gives us a symmetric monoidal double category ${}_L \lCsp(\Graph_\La)$ where:
 \begin{itemize}
 \item an object is a finite set,
 \item a morphism is an isomorphism class of $\La$-circuits, where an
-\define{$\La$-circuit} is a cospan in $\Graph_\La$ of this form:
+$\La$-\define{circuit} is a cospan in $\Graph_\La$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(S)$};
@@ -5946,6 +5946,7 @@ The above in fact provides the one direction of the following well-known equival
 
 
 \subsection{Double categories}\label{sec:doublecats}
+%!!! Christina: Kenny, would you mind cleaning this section up to? I don't believe we need the full fledged definitions here by the way.
 
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
 
