@@ -6086,15 +6086,15 @@ A double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{strong}
 \end{defn}
 
 
-Following the notation of Shulman \cite{Shulman2010}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
-\[
-  \xymatrix@-.5pc{
-    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-    B\ar[d]^g\\
-    C \ar[r]|{|}_N & D
-  }
-\]
-We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
+%Following the notation of Shulman \cite{Shulman2010}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
+%\[
+%  \xymatrix@-.5pc{
+%   A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
+%    B\ar[d]^g\\
+%    C \ar[r]|{|}_N & D
+%  }
+%\]
+%We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 \begin{defn}\label{def:fullfaithful}
 A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \maps _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
 \end{defn}
@@ -6115,8 +6115,8 @@ A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathb
 \end{defn}
 
 Formally, two strong double functors between two double categories form a \emph{double equivalence} if ...
-%{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. 
-Similarly to ordinary equivalence of categories, [Shulman,7.8] allows us to use the following equivalent characterization.
+%{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}.   Say this or leave it out entirely!!!
+Similarly to ordinary equivalence of categories, \cite[Theorem 7.8]{Shulman2010} allows us to use the following equivalent characterization.
 
 \begin{thm}\label{ShulDubEquiv}
 A strong double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
