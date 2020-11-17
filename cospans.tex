@@ -3112,16 +3112,19 @@ and the image of this horizontal 1-cell under the double functor $\lH$ is $\lH(M
 \end{tikzpicture}
 \]
 On the other hand, the image of $M_1$ and $M_2$ is given by $\mathbb{H}(M_1)$ and $\mathbb{H}(M_2)$:
+On the other hand, the image of $M_1$ and $M_2$ is given by $\lH(M_1)$ and $\lH(M_2)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (1.5,0) {$H(c_1)$};
 \node (C) at (3,0) {$H(b_1)$};
 \node (D) at (1.5,-0.5) {$d_{\mathbb{H}(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F'(H(c_1))$};
+\node (D) at (1.5,-0.5) {$d_{\lH(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F'(H(c_1))$};
 \node (E) at (4.5,0) {$H(a_2)$};
 \node (F) at (6,0) {$H(c_2)$};
 \node (G) at (7.5,0) {$H(b_2)$};
 \node (H) at (6,-0.5) {$d_{\mathbb{H}(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F'(H(c_2))$};
+\node (H) at (6,-0.5) {$d_{\lH(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F'(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)$} (B)
 (C) edge node[above]{$H(o_1)$} (B)
@@ -3130,18 +3133,21 @@ On the other hand, the image of $M_1$ and $M_2$ is given by $\mathbb{H}(M_1)$ an
 \end{tikzpicture}
 \]
 and their tensor product $\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)$ is given by:
+and their tensor product $\lH(M_1) \otimes \lH(M_2)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)+H(a_2)$};
 \node (B) at (2.5,0) {$H(c_1)+H(c_2)$};
 \node (C) at (5,0) {$H(b_1)+H(b_2)$};
 \node (D) at (2.5,-0.5) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F'(H(c_1)+H(c_2))$};
+\node (D) at (2.5,-0.5) {$d_{\lH(M_1) \otimes \lH(M_2)} \in F'(H(c_1)+H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)+H(i_2)$} (B)
 (C) edge node[above]{$H(o_1)+H(o_2)$} (B);
 \end{tikzpicture}
 \]
 $$\hspace{-.4in} \scriptstyle{d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \maps 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F' (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \maps \mathbb{H}(M_1) \otimes \mathbb{H}(M_2) \to \mathbb{H}(M_1 \otimes M_2)$ in $F'\lCsp$ given by:
+$$\hspace{-.4in} \scriptstyle{d_{\lH(M_1) \otimes \lH(M_2)} \maps 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F' (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \maps \lH(M_1) \otimes \lH(M_2) \to \lH(M_1 \otimes M_2)$ in $F'\lCsp$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$H(a_1)+H(a_2)$};
@@ -3152,6 +3158,8 @@ $$\hspace{-.4in} \scriptstyle{d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \maps 
 \node (D) at (2.5,-0.5) {$H(c_1+c_2)$};
 \node (E) at (2.5,1) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F'(H(c_1)+H(c_2))$};
 \node (F) at (2.5,-1) {$d_{\mathbb{H}(M_1 \otimes M_2)} \in F'(H(c_1+c_2))$};
+\node (E) at (2.5,1) {$d_{\lH(M_1) \otimes \lH(M_2)} \in F'(H(c_1)+H(c_2))$};
+\node (F) at (2.5,-1) {$d_{\lH(M_1 \otimes M_2)} \in F'(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)+H(i_2)$} (B)
 (C) edge node[above]{$H(o_1)+H(o_2)$} (B)
@@ -3163,6 +3171,7 @@ $$\hspace{-.4in} \scriptstyle{d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \maps 
 \end{tikzpicture}
 \]
 $$\tau_\kappa \maps F'(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)}) \to d_{\mathbb{H}(M_1 \otimes M_2)}$$
+$$\tau_\kappa \maps F'(\kappa)(d_{\lH(M_1) \otimes \lH(M_2)}) \to d_{\lH(M_1 \otimes M_2)}$$
 where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimits. This natural 2-isomorphism together with the associators of $F\lCsp$ and $F'\lCsp$, respectively $\alpha$ and $\alpha'$, make the following diagram commute:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3172,11 +3181,18 @@ where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimi
 \node (A') at (4,0.5) {$\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))$};
 \node (B') at (4,-0.5) {$\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)$};
 \node (C') at (4,-1.5) {$\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))$};
+\node (A) at (0,0.5) {$(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)$};
+\node (B) at (0,-0.5) {$\lH(M_1 \otimes M_2) \otimes \lH(M_3)$};
+\node (C) at (0,-1.5) {$\lH((M_1 \otimes M_2) \otimes M_3)$};
+\node (A') at (4,0.5) {$\lH(M_1) \otimes (\lH(M_2) \otimes \lH(M_3))$};
+\node (B') at (4,-0.5) {$\lH(M_1) \otimes \lH(M_2 \otimes M_3)$};
+\node (C') at (4,-1.5) {$\lH(M_1 \otimes (M_2 \otimes M_3))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\mu_{M_1,M_2} \otimes 1$} (B)
 (B) edge node[left]{$\mu_{M_1 \otimes M_2,M_3}$} (C)
 (A) edge node[above]{$\alpha'$} (A')
 (C) edge node [above] {$\mathbb{H}(\alpha)$} (C')
+(C) edge node [above] {$\lH(\alpha)$} (C')
 (B') edge node [right] {$\mu_{M_1,M_2 \otimes M_3}$} (C')
 (A') edge node [right]{$1 \otimes \mu_{M_2 \otimes M_3}$} (B');
 \end{tikzpicture}
@@ -3190,6 +3206,12 @@ with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 \node (A') at (5,0.5) {$F'(\kappa \kappa)(d_{\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))})$};
 \node (B') at (5,-0.5) {$F'(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)})$};
 \node (C') at (5,-1.5) {$d_{\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))}$};
+\node (A) at (0,0.5) {$F'(\alpha \kappa \kappa)(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)})$};
+\node (B) at (0,-0.5) {$F'(\alpha \kappa)(d_{\lH(M_1 \otimes M_2) \otimes \lH(M_3)})$};
+\node (C) at (0,-1.5) {$F'(\alpha)(d_{\lH((M_1 \otimes M_2) \otimes M_3)})$};
+\node (A') at (5,0.5) {$F'(\kappa \kappa)(d_{\lH(M_1) \otimes (\lH(M_2) \otimes \lH(M_3))})$};
+\node (B') at (5,-0.5) {$F'(\kappa)(d_{\lH(M_1) \otimes \lH(M_2 \otimes M_3)})$};
+\node (C') at (5,-1.5) {$d_{\lH(M_1 \otimes (M_2 \otimes M_3))}$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$F'(\alpha \kappa)(\tau_\kappa + 1)$} (B)
 (B) edge node[left]{$F'(\alpha)(\tau_\kappa)$} (C)
@@ -3201,6 +3223,8 @@ with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 \]
 where $$F'(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)}) = F'(\kappa \kappa \alpha')(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$$
 as the corresponding hexagon for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta'$ of $F \lCsp_1$ and $F' \lCsp_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$.
+where $$F'(\alpha \kappa \kappa)(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)}) = F'(\kappa \kappa \alpha')(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)})$$
+as the corresponding hexagon for the finite colimit preserving functor $H \maps \A \to \A'$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta'$ of $F \lCsp_1$ and $F' \lCsp_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \A \to \A'$.
 
 We also have that the monoidal unit of $F\lCsp_1$ is given by:
 \[
@@ -3215,6 +3239,7 @@ We also have that the monoidal unit of $F\lCsp_1$ is given by:
 \end{tikzpicture}
 \]
 where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\mathbb{H}$ is given by:
+where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\lH$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(1_\A)$};
@@ -3225,6 +3250,10 @@ where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of
 %\node (G) at (5,0) {$1_\mathsf{A'}$};
 %\node (H) at (6,0) {$1_\mathsf{A'}$};
 %\node (I) at (5,-0.5) {$!_{1_{\mathsf{A'}}} \in F'(1_{\mathsf{A'}})$};
+%\node (F) at (4,0) {$1_\A'$};
+%\node (G) at (5,0) {$1_\A'$};
+%\node (H) at (6,0) {$1_\A'$};
+%\node (I) at (5,-0.5) {$!_{1_{\A'}} \in F'(1_{\A'})$};
 \node (D) at (1,-0.5) {$\theta_{1_\A}E(!_{1_\A}) \phi \in F'(H(1_\A))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
@@ -3234,15 +3263,20 @@ where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of
 \end{tikzpicture}
 \]
 as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ given by: $$\mu \maps 1_{F'\lCsp_1} \to \mathbb{H}(1_{F\lCsp_1})$$ 
+as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ given by: $$\mu \maps 1_{F'\lCsp_1} \to \lH(1_{F\lCsp_1})$$ 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$1_{\mathsf{A'}}$};
+\node (A) at (0,0.5) {$1_{\A'}$};
 \node (A') at (0,-0.5) {$H(1_\A)$};
 \node (B) at (1.5,0.5) {$1_{\mathsf{A'}}$};
 \node (C) at (3,0.5) {$1_{\mathsf{A'}}$};
+\node (B) at (1.5,0.5) {$1_{\A'}$};
+\node (C) at (3,0.5) {$1_{\A'}$};
 \node (C') at (3,-0.5) {$H(1_\A)$};
 \node (D) at (1.5,-0.5) {$H(1_\A)$};
 \node (E) at (5,0.5) {$!_{1_\mathsf{A'}} \in F'(1_\mathsf{A'})$};
+\node (E) at (5,0.5) {$!_{1_\A'} \in F'(1_\A')$};
 \node (F) at (5,-0.5) {$\theta_{1_\A} E(!_{1_\A}) \phi \in F'(H(1_\A))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
@@ -3255,12 +3289,17 @@ as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ give
 \end{tikzpicture}
 \]
 together with the morphism $\tau_\mu \maps F'(\kappa)(!_{1_\mathsf{A'}}) \to (\theta_{1_\A} E(!_{1_\A})\phi)$ in $F'(H(1_\A))$. The following square then commutes for any horizontal 1-cell $M$ of $F \lCsp$: 
+together with the morphism $\tau_\mu \maps F'(\kappa)(!_{1_\A'}) \to (\theta_{1_\A} E(!_{1_\A})\phi)$ in $F'(H(1_\A))$. The following square then commutes for any horizontal 1-cell $M$ of $F \lCsp$: 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$1_\mathsf{A'} \otimes \mathbb{H}(M)$};
 \node (B) at (2.5,0) {$\mathbb{H}(1_\A) \otimes \mathbb{H}(M)$};
 \node (C) at (0,-1) {$\mathbb{H}(M)$};
 \node (D) at (2.5,-1) {$\mathbb{H}(1_\A \otimes M)$};
+\node (A) at (0,0) {$1_\A' \otimes \lH(M)$};
+\node (B) at (2.5,0) {$\lH(1_\A) \otimes \lH(M)$};
+\node (C) at (0,-1) {$\lH(M)$};
+\node (D) at (2.5,-1) {$\lH(1_\A \otimes M)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\mu \otimes 1$} (B)
 (A) edge node[left]{$\ell$} (C)
