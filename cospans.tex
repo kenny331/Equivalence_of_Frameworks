@@ -3314,6 +3314,10 @@ where we have abbreviated the monoidal units of $F\lCsp_1$ and $F'\lCsp_1$ as $1
 \node (B) at (0,-0.5) {$d_{\mathbb{H}(M)}$};
 \node (A') at (4,0.5) {$F'(H(\ell') \kappa)(d_{!_{\mathbb{H}(1_\A)}}\otimes d_{\mathbb{H}(M)})$};
 \node (B') at (4,-0.5) {$F'(H(\ell'))(d_{\mathbb{H}(1_\A \otimes M)})$};
+\node (A) at (0,0.5) {$F'(\ell)(d_{!_{1_\A'}} \otimes d_{\lH(M)})$};
+\node (B) at (0,-0.5) {$d_{\lH(M)}$};
+\node (A') at (4,0.5) {$F'(H(\ell') \kappa)(d_{!_{\lH(1_\A)}}\otimes d_{\lH(M)})$};
+\node (B') at (4,-0.5) {$F'(H(\ell'))(d_{\lH(1_\A \otimes M)})$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$\tau_\ell$} (B)
 (A) edge node[above]{$F'(H(\ell')\kappa)(\tau_{\mu \otimes 1})$} (A')
@@ -3322,6 +3326,7 @@ where we have abbreviated the monoidal units of $F\lCsp_1$ and $F'\lCsp_1$ as $1
 \end{tikzpicture}
 \]
 where $$F'(\ell)(d_{!_{1_\mathsf{A'}}} \otimes d_{\mathbb{H}(M)})=F'(H(\ell')\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A'}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r'$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
+where $$F'(\ell)(d_{!_{1_\A'}} \otimes d_{\lH(M)})=F'(H(\ell')\kappa(\mu \otimes 1))(d_{!_{1_\A'}} \otimes d_{\lH(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \A'$ commutes. The other square involving the right unitors $r$ and $r'$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\lH$ is strong.
 
 \end{comment}
 
