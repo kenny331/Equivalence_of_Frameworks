@@ -716,7 +716,7 @@ and}
 \end{enumerate}
 Note that the natural transformation is a family of morphisms in the category $F(b')$ indexed by $1$, and so is the same as just a morphism $\tau \maps F(f)(d) \to d'$ in $F(b')$. We will typically write the transformation $\tau$ in later sections as a morphism in $F(b')$ to conserve space. In the context of the example above involving graphs, this morphism $\tau$ will be a map between two possibly distinct sets of edges and thus already solves the problem.
 
-This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp} \mapseqq H(F \lCsp)$ as the `horizontal edge bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
+This double category is in fact fibrant and so a result of Shulman \cite{Shul} allows us to extract from this symmetric monoidal double category $F \mathbb{C}$sp a symmetric monoidal bicategory $F \mathbf{Csp}$ as the `horizontal bicategory' of the double category $F \mathbb{C}$sp. This bicategory $F \mathbf{Csp}$ has:
 \begin{enumerate}
 \item{objects as those of $\mathrm{A}$,}
 \item{morphisms as the horizontal 1-cells of $F\mathbb{C}$sp, which are $F$-decorated cospans of $\A$
@@ -5947,8 +5947,7 @@ The above in fact provides the one direction of the following well-known equival
 
 \subsection{Double categories}\label{sec:doublecats}
 
-Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
-
+Before formally defining a `double category', it is helpful to have the following picture in mind. A double category has 2-morphisms shaped like:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -5963,15 +5962,15 @@ Before formally defining `pseudo double category', it is helpful to have the fol
 (F) edge node [above]{$N$} (A);
 \end{tikzpicture}
 \]
-
-We call $A, B, C$ and $D$ \textbf{objects} or \textbf{0-cells}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+We call $A, B, C$ and $D$ \textbf{objects}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between objects and a 2-morphism is a morphism between horizontal 1-cells. %We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. 
+We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
 
 \begin{defn}\label{defn:double_category}
-A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\mathbf{D_{0}}$ and a category of arrows $\mathbf{D_1}$ with the following functors
+A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\lD_0$ and a category of arrows $\lD_1$ with the following functors
 \begin{center}
-$U\maps \mathbf{D_{0}} \to \mathbf{D_1}$\\
-$S,T \maps \mathbf{D_1} \rightrightarrows \mathbf{D_{0}}$\\
-$\odot \maps \mathbf{D_1} \times_{\mathbf{D_{0}}} \mathbf{D_1} \to \mathbf{D_1}$ (where the pullback is taken over $\mathbf{D_1} \xrightarrow[]{T} \mathbf{D_{0}} \xleftarrow[]{S} \mathbf{D_1}$) \\
+$U\maps \lD_0 \to \lD_1$\\
+$S,T \maps \lD_1 \rightrightarrows \lD_0$\\
+$\odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1$ (where the pullback is taken over $\lD_1 \xrightarrow[]{T} \lD_0 \xleftarrow[]{S} \lD_1$) \\
 \end{center}
  such that \\
 \begin{center}
@@ -5987,7 +5986,7 @@ $\lambda \maps U_{B} \odot M \xrightarrow{\sim} M$\\
 $\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
 
 \end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\mathbf{D_{0}}$ are called $\textbf{0-cells}$ and morphisms of $\mathbf{D_{0}}$ are called $\textbf{vertical 1-morphisms}$. Objects of $\mathbf{D_1}$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\mathbf{D_1}$ are called $\textbf{2-morphisms}$. The morphisms of $\mathbf{D_{0}}$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\mathbf{D_1}$ with $S(a)=f,T(a)=g$ would look like:
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called $\textbf{0-cells}$ and morphisms of $\lD_0$ are called $\textbf{vertical 1-morphisms}$. Objects of $\lD_1$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\lD_1$ are called $\textbf{2-morphisms}$. The morphisms of $\lD_1$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -6003,16 +6002,14 @@ such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ 
 \end{tikzpicture}
 \]
 \end{defn}
-
-The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
-
-\begin{defn}
 A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
-\end{defn}
 
-\begin{defn}
-Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
-\end{defn}
+%The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
+
+
+%\begin{defn}
+%Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
+%\end{defn}
 
 \begin{defn}
 Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \maps\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \maps \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
@@ -6138,9 +6135,9 @@ Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and le
   A \textbf{monoidal double category} is a double category equipped the following
 structure.
 \begin{enumerate}
-\item $\mathbf{D_{0}}$ and $\mathbf{D_1}$ are both monoidal categories.
-\item If $I$ is the monoidal unit of $\mathbf{D_{0}}$, then $U_I$ is the
-  monoidal unit of $\mathbf{D_1}$.
+\item $\lD_0$ and $\lD_1$ are both monoidal categories.
+\item If $I$ is the monoidal unit of $\lD_0$, then $U_I$ is the
+  monoidal unit of $\lD_1$.
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
