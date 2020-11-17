@@ -925,7 +925,7 @@ together with the composite decoration morphism $\tau' F(\tau) \colon F(h'h)(x) 
  This completes the descriptions of the category of objects $F\lCsp_0 = \A$ and the category of arrows $F\lCsp_1$.
 
 Next, we define the four structure functors $U,S,T$ and $\odot$. The unit functor $U \maps F\lCsp_0 \to F\lCsp_1$ is defined on objects as: 
-\[
+\begin{equation}\label{eq:UFCsp}
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (-1,0) {$a$};
 \node (F) at (-.5,0) {$\mapsto$};
@@ -937,7 +937,7 @@ Next, we define the four structure functors $U,S,T$ and $\odot$. The unit functo
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
-\]
+\end{equation}
 where $!_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from $F \maps \A \to \Cat$ being lax monoidal.  For morphisms, the functor $U$ is defined as:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3401,7 +3401,7 @@ Work in progress \cite{CV} includes a related discussion as well as a result in 
 %\end{lem}
 
 \begin{rmk}\label{rmk:important}
-Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
+Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
 The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
 \begin{displaymath}
 \xymatrix @C=.4in @R=.2in
@@ -3462,41 +3462,36 @@ a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
 \end{displaymath}
 in $\A$ along with the map $\tau\maps Fk(x)\to x'$ in $F(m')$, namely an $F$-decorated cospan 2-morphism. 
 % Once again, this is a bijective correspondence since, as discussed above, the commutativity \cref{eq:Grothcommutativity} holds automatically by initiality of the domain.
-With these definitions, $\lE$ is indeed a strong double functor as in \cref{def:doublefun}: both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets, and there exist globular 2-isomorphisms $\lE(M) \odot \lE(N) \simrightarrow\lE(M \odot N)$, $U_{\lE m} \simrightarrow\lE(U_m)$
+With these definitions, $\lE$ is indeed a (pseudo) double functor as in \cref{def:doublefun}: both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets, and there exist globular 2-isomorphisms $\lE(M) \odot \lE(N) \simrightarrow\lE(M \odot N)$, $U_{\lE m} \simrightarrow\lE(U_m)$
 for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $\scsp{L}{\inta F}$. Explicitly, $\mathbb{E}(M)\odot \mathbb{E}(N)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
-\begin{displaymath}
+\begin{equation}\label{eq:1}
  \begin{tikzcd}
   & m+_bn & \\
   a\ar[ur] && b,\ar[ul]
  \end{tikzcd}\qquad
-  1\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
-\end{displaymath}
-{\chris In progress...}
-
-On the other hand, first composing $M$ and $N$ in the Grothendieck category $\scsp{L_F}{\inta F}$ using fibrewise pushouts constructed using \cref{lem:fibrewiselimits} 
-%!!!Chris: I could make this specific construction into a lemma earlier if you want, I have it in my notes
+  \mathbf{1}\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
+\end{equation}
+whereas first composing $M$ and $N$ in $\scsp{L}{\inta F}$ using pushouts in $\inta F$ (constructed by \cref{lem:fibrewiselimits}) %!!! Christina: would you like me to write how global pushouts are constructed from fiberwise ones and incorporate it earlier say at \cref{rmk:important} where we do so for initial objects?
 produces 
 \begin{displaymath}
- \begin{tikzcd}
- && (m+_b n,F(j_m)x+_{\bot_{m+_bn}}F(j_n)y) && \\
+ \begin{tikzcd}[column sep={.7in,between origins}]
+ && (m+_b n,F(\sigma_m)x+_{(\bot_{m+_bn})}F(\sigma_n)y) && \\
  & (m,x) \ar[ur] && (n,y)\ar[ul] \\
  (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
 \end{displaymath}
-which is mapped, under $\mathbb{E}$, to precisely the cospan $\cspn{a}{m+_bn}{b}{}{}$ as above, and the decorations are the same 
-%!!!Christina: isomorphic would be enough but they look equal to me!
-due to the following commutative diagram
+where $\sigma$ are the canonical maps into the pushout. %overusing notation, streamline with earlier
+Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(\sigma_m)x+F(\sigma_n)y$ -- since a pushout over an initial object is really a coproduct -- which is isomorphic to \cref{eq:1} due to the following diagram 
 \begin{displaymath}
  \begin{tikzcd}
-F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(j_m)\times F(j_n)"'] && F(m+n)\ar[d,"F(j)"] \\
-F(m+_bn)\times F(m+_bn)\ar[r,"\phi"] & F((m+_bn)+(m+_bn))\ar[r,"F\nabla"] & F(m+_bn)
+F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(\sigma_m)\times F(\sigma_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(\sigma_m+\sigma_n)"description] \\
+F(m+_bn)\times F(m+_bn)\ar[r,"\phi"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
 \end{displaymath}
-since taking a pushout over an initial object is really a coproduct, and the fibrewise coproduct in $F(m+_bn)$ is given as in \cref{eq:explicitstructure1}.
+where the bottom composite is the fibrewise coproduct in $F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand side isomorphism is due to pseudonaturality of $\phi$ whereas the right-hand side isomorphism follows from universal properties and pseudofunctoriality of $F$.
+Regarding identities, $U_m$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-components and isomorphisms between initial objects in the fibres. So $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
 
-Regarding the identity morphisms, $U_m$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component of the morphisms and isomorphisms between initial objects in the fibres. Thus $\mathbb{E}(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, whereas $U_{\mathbb{E}(m)}$ is exactly the same thing.
-
-
+{\chris IN progress...}
 
 
 \begin{comment}
@@ -3770,11 +3765,10 @@ Thus the set $$_f { _L \lCsp(\X)}_g(M,N)$$ consists of triples $$(f,\alpha,g)$$ 
 \]
 together with a morphism $\tau \maps F(R(\alpha))(x) \to x'$ of $F(R(x'))$.
 Thus the set $$_{\mathbb{E}(f)} {F\lCsp}_{\mathbb{E}(g)}(\mathbb{E}(M),\mathbb{E}(N))$$ consists of 4-tuples $$(f,R(\alpha),g,\tau)$$ rendering the above diagram commutative and where $f,g$ and $R(\alpha)$ are morphisms of $\A$ and $\tau$ is a morphism in $F(R(x'))$. The morphisms $R(\alpha) \maps R(x) \to R(x')$ and $\tau \maps F(R(\alpha))(x) \to x'$ together determine the morphism $\alpha \maps x \to x'$ in $\mathrm{X}$ and conversely; given two objects $x=(c,x \in F(c))$ and $x'=(c',x' \in F(c'))$ of $\X=\inta{F}$, a morphism from $\alpha \maps x \to x'$ is a pair $$(h \maps c \to c', \tau \maps F(h)(x) \to x')$$ where $h \maps c \to c'$ is given by $R(\alpha) \maps R(x) \to R(x')$. This shows that $\mathbb{E}$ is fully faithful. \textbf{At least in my favorite example...}
-\end{comment}
+
+..... 
 
 
-%!!!Christina: Below, up to my next comment, is Kenny's earlier proof on the same thing.
-\begin{comment}
 For any object $c$, the horizontal 1-cell $\hat{U}_{\mathbb{E}(c)}$ is given by $\hat{U}_c$ which is given by the pair:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3953,7 +3947,6 @@ Next, to see that the above diagram commutes, it suffices to show that for the o
 \]
 Lastly, this map of cospans comes with an isomorphism $$\tau \maps F(\sigma)(d_{\mathbb{E}(M) \odot \mathbb{E}(N)}) \to d_{\mathbb{E}(M \odot N)}$$ in $F(R(x+_{L(c_2)}x'))$. This shows that $\mathbb{E}$ is strong, and so 
 \end{comment}
-%!!!Christina: Up to here was Kenny's strong functoriality.
 
 Based on the above description of its mapping, it follows that the strong double functor $\mathbb{E}=(\mathbb{E}_0,\mathbb{E}_1)$ is full, faithful and essentially surjective on objects as per \cref{def:fullfaithful,def:essentiallysurj}. Therefore $\mathbb{E} \maps \scsp{L_F}{\inta F} \to \dcsp{F}$ is a double equivalence, by \cref{ShulDubEquiv}.
 Christina: In fact, Christina and Kenny believe it is an isomorphism of double categories! Bijective on all levels of objects and morphisms...should we say?
