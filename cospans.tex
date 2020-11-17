@@ -3174,7 +3174,7 @@ finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in 
 \item an object is an object of $\A$,
 \item a vertical morphism is a morphism of $\A$,
 \item a horizontal 1-cell from $a$ to $b$ is a cospan in $\X$ of the form
-\begin{equation}\label{eq:structuredcospan}
+\begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
 \node (B) at (1,0) {$x$};
@@ -3183,9 +3183,9 @@ finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in 
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B);
 \end{tikzpicture}
-\end{equation}
+\end{displaymath}
 \item a 2-morphism is a map of cospans in $\X$ of the form
-\begin{equation}\label{eq:2cellsStrCsp}
+\begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
 \node (B) at (1,0) {$x$};
@@ -3202,7 +3202,7 @@ finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in 
 (B) edge node [left]{$\alpha$} (B')
 (C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
-\end{equation}
+\end{displaymath}
 \end{itemize}
 The symmetric monoidal structure is formed by using binary coproducts and the initial object.
 \end{thm}
@@ -3262,11 +3262,11 @@ the following are equivalent:
 The first part formulates the existence of colimits \emph{locally} in each fibre, which for $\ca{J}$ a finite category can equivalently be expressed by the corresponding pseudofunctor $F\maps\A\to\Cat$ landing on the sub-2-category $\Rex$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining this with \cref{lem:MonGroth}, we deduce the following.
 
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} 
- factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
+ Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
-Notice a subtlety in the above formulation: \cref{lem:MonGroth} provides a specifically induced monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} in the cocartesian base case. If that fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to \emph{any} other cocartesian structure on the fibres, by universal property of colimits. Therefore, we can simplify the above formulation to the one of the very \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. DOES THIS MAKE SENSE TO ALL?? 
+Notice a subtlety in the above formulation: \cref{lem:MonGroth} provides a specifically induced monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} in the cocartesian base case. If that fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to \emph{any} other cocartesian structure on the fibres, by universal property of colimits. Therefore, we can simplify the above assumption to the one of the very \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. However, we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$, and that is why correspondence \cref{monGroth} is necessary.
+DOES THIS MAKE SENSE TO ALL?? %still, we ARE going to use the formation of coproducts as above. Otherwise someone might think that the monoidal Groth story was redundant here!
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L_F$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
 
@@ -3310,39 +3310,35 @@ Finally, if the original pseudofunctor is in fact lax monoidal $(F,\mu,\mu_0)$, 
 We have now laid all the necessary background to formally construct an equivalence between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\Cat$.
 
 \begin{proof}[Proof of \cref{thm:equiv}]
-Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$. %!!! Christina: Should we call them `generalized maps of cospans'? Since maps of cospans are usually the ones with fixed (co)domains
+Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $\dcsp{F}$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.%!!! Christina: Should we call them `generalized maps of cospans'? Since maps of cospans are usually the ones with fixed (co)domains
 
-By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits.
-Since in particular it preserves the initial object, \cref{lem:fibrewiselimits,prop:opfibtolari} apply 
-%which equivalently means that all fibres have initial objects and the reindexing functors preserve them by , %Christina: there is a little bit of circularity here. We knew fibres have and reindexing functors preserve from the factorization already! Change Gray accordingly perhaps?
-and produce a left adjoint $L\maps\A\to\inta F$ to $U$, with $UL=1_\A$. 
-Diagrammatically,
+By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits. Moreover, by \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
 \begin{displaymath}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{displaymath}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed by $F(u_a)\circ\mu_0(*)$ as in \cref{eq:initialinfibre}. 
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(u_a)\circ\mu_0(*)$ according to \cref{eq:initialinfibre} for $(\mu,\mu_0)$ the monoidal structure of $F$.
 
-{\chris In progress...}
-
-Using this functor $L_F$ between finitely cocomplete categories that preserves all colimits that exist (as a left adjoint), we can construct the double category of structured cospans $\scsp{L_F}{\inta F}$. Its objects and vertical morphisms are again those of the category $\A$, whereas horizontal 1-cells $a\tickar b$ as in \cref{eq:structuredcospan} are now cospans of the form $\cspn{L_F(a)}{v}{L_F(b)}{}{}$ in the Grothendieck category $\inta F$. Explicitly, they consist of two pairs of morphisms 
+As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $\scsp{L}{\inta F}$ of \cref{SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $\dcsp{F}$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{v}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{\(\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}\)}}(m,x)\xleftarrow{\scalebox{0.7}{\(\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}\)}}(b,\bot_b)
 \end{equation}
-where $x\in F(m)$, according to \cref{def:GrothCat}. Finally, the 2-morphisms in this double category are as described in \cref{eq:2cellsStrCsp}, in this context fully unravelled below:
+with $x\in F(m)$; recall that the reindexing functors $F(i),F(o)$ preserve all finite colimits across the fibre categories.
+Finally, the 2-morphisms of this double category in this context unravel as follows
 \begin{displaymath}
- \begin{tikzcd}[sep=1.5in,ampersand replacement=\&]
+ \begin{tikzcd}[row sep=1.2in,column sep=1.7in,ampersand replacement=\&]
  (a,\bot_a)\ar[r,"{\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}}"]\ar[d,"{\begin{cases}f\maps a\to a' &\textrm{in }\A \\\chi_a\maps F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (m,x) \ar[d,"{\begin{cases}k\maps m\to m' &\textrm{in }\A \\ \tau\maps F(k)(x)\to x' &\textrm{in }F(m')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}}"']\ar[d,"{\begin{cases}g\maps b\to b' &\textrm{in }\A \\\chi_b\maps F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
  (a',\bot_{a'})\ar[r,"{\begin{cases}i'\maps a'\to m' &\textrm{in }\A \\!\maps F(i')(\bot_{a'})\to x' &\textrm{in }F(m')\end{cases}}"'] \& (m',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\maps b'\to m' &\textrm{in }\A \\!\maps F(o')(\bot_{b'})\to x' &\textrm{in }F(m')\end{cases}}"]
  \end{tikzcd}
 \end{displaymath}
-where the outside vertical legs come from the definition of $L_F$ on arrows, \cref{eq:Lonarrows}. 
-%!!! The above diagram might be a bit overwhelming, but all info is there. Choose which parts are required for a smooth proof!
-The square commutativities translate to $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also by composition in the Grothendieck category, to
+where the outside vertical legs come from the definition of $L$ on arrows \cref{eq:Lonarrows}. 
+Explicitly, the above square commutativities translate to the conditions $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also to
 \begin{gather}\label{eq:Grothcommutativity}
  F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{\tau}x'= \\
  F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'\nonumber
 \end{gather}
-in the category $F(m')$. However, since all maps are unique in the above equality, emanating from initial objects (since reindexing functors preserve those), this gives no extra conditions for the morphisms involved; similarly for the equality including $o, o'$.
+in the fibre category $F(m')$, by composition in the Grothendieck category \cref{eq:compGrothcat}. Since both morphisms emanate from the mapped initial object in $F(m')$ under the finitely cocontinuous reindexing functors, they are the unique such into $x'$ therefore this gives no extra conditions; similarly for the equality including $o,o'$.
+
+{\chris In progress...}
 
 In order to prove that there is a double equivalence (\cref{ShulDubEquiv}) between $\dcsp{F}$ and $\scsp{L_F}{\inta F}$, we define a %n identity-on-objects and vertical morphism
 double functor
@@ -5897,8 +5893,12 @@ For any pseudofunctor $F\maps\A\to\Cat$ where $\A$ is a category viewed as a 2-c
 $\inta F$ has
 \begin{itemize}
 \item objects pairs $(a, x \in F(a))$ and
-\item a morphism from $(a, x \in F(a))$ to $(b, y\in F(b))$ is a pair $(f \maps a \to b,\delta \maps F(f)(x) \to y)\in\A\times F(b)$.
+\item a morphism from $(a, x \in F(a))$ to $(b, y\in F(b))$ is a pair $(f \maps a \to b,k \maps F(f)(x) \to y)\in\A\times F(b)$.
 \end{itemize}
+The unit is $(1_a\maps a\to a,F(1_a)(x)\cong x)$ and composition of $(f,k)\maps(a,x)\to(b,y)$ and $(g,\ell)\maps(b,y)\to(c,z)$ is
+\begin{equation}\label{eq:compGrothcat}
+\left(a\xrightarrow{f}b\xrightarrow{g}c, F(g\circ f)x\cong Fg(Ff(x))\xrightarrow{Ff(k)}Fg(y)\xrightarrow{\ell}z\right) 
+\end{equation}
 This is an opfibred category over $\A$ via the obvious forgetful functor, with fibre categories $(\inta F)_a=F(a)$ and reindexing functors $f_!=F(f)$.
 \end{defn}
 The above in fact provides the one direction of the following well-known equivalence.
