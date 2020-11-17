@@ -21,7 +21,7 @@ The first two authors have developed a compositional framework well-suited for s
 with extra stuff. This framework, which goes by the name of `structured cospans', utilizes double categories where the objects are seen as 
 inputs and outputs, horizontal 1-cells are `open networks', and 2-morphisms are maps between open networks. In this setup a functor $L \maps 
 \A \to \textsf{X}$, which is typically a left adjoint, is used to replace the objects and vertical 1-morphisms of a given double category 
-$\mathbb{X}$ with the objects and morphisms, respectively, of the category $\A$. Horizontal 1-cells are then cospans in $\textsf{X}$ of a 
+$\lX$ with the objects and morphisms, respectively, of the category $\A$. Horizontal 1-cells are then cospans in $\textsf{X}$ of a 
 particular form with 2-morphisms given by maps of these cospans. Fong has also developed a similar framework utilizing cospans to study open 
 networks which goes by the name of `decorated cospans'. In this setup, a lax monoidal functor $F \maps \A \to \textsf{Set}$ is used to 
 `decorate' the apices of cospans in $\A$ with elements of $\textsf{Set}$ giving the cospans extra structure. Using a slight variation of 
@@ -5606,15 +5606,15 @@ Before formally defining `pseudo double category', it is helpful to have the fol
 (F) edge node [above]{$N$} (A);
 \end{tikzpicture}
 \]
-
-We call $A, B, C$ and $D$ \textbf{objects} or \textbf{0-cells}, $f$ and $g$ \textbf{vertical 1-morphisms}, $M$ and $N$ \textbf{horizontal 1-cells} and $a$ a \textbf{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'. We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+We call $A, B, C$ and $D$ \define{objects} or \define{0-cells}, $f$ and $g$ \define{vertical 1-morphisms}, $M$ and $N$ \define{horizontal 1-cells} and $a$ a \define{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. %We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'???   Or should we put a ``tick'' in here?
+We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
 
 \begin{defn}\label{defn:double_category}
-A \textbf{pseudo double category} $\lD$, or $\textbf{double category}$ for short, consists of a category of objects $\mathbf{D_{0}}$ and a category of arrows $\mathbf{D_1}$ with the following functors
+A \textbf{(pseudo) double category} $\lD$ consists of a category of objects $\lD_0$ and a category of arrows $\lD_1$ with the following functors
 \begin{center}
-$U\maps \mathbf{D_{0}} \to \mathbf{D_1}$\\
-$S,T \maps \mathbf{D_1} \rightrightarrows \mathbf{D_{0}}$\\
-$\odot \maps \mathbf{D_1} \times_{\mathbf{D_{0}}} \mathbf{D_1} \to \mathbf{D_1}$ (where the pullback is taken over $\mathbf{D_1} \xrightarrow[]{T} \mathbf{D_{0}} \xleftarrow[]{S} \mathbf{D_1}$) \\
+$U\maps \lD_0 \to \lD_1$\\
+$S,T \maps \lD_1 \rightrightarrows \lD_0$\\
+$\odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1$ (where the pullback is taken over $\lD_1 \xrightarrow[]{T} \lD_0 \xleftarrow[]{S} \lD_1$) \\
 \end{center}
  such that \\
 \begin{center}
@@ -5630,7 +5630,7 @@ $\lambda \maps U_{B} \odot M \xrightarrow{\sim} M$\\
 $\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
 
 \end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\mathbf{D_{0}}$ are called $\textbf{0-cells}$ and morphisms of $\mathbf{D_{0}}$ are called $\textbf{vertical 1-morphisms}$. Objects of $\mathbf{D_1}$ are called $\textbf{horizontal 1-cells}$ and morphisms of $\mathbf{D_1}$ are called $\textbf{2-morphisms}$. The morphisms of $\mathbf{D_{0}}$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\mathbf{D_1}$ with $S(a)=f,T(a)=g$ would look like:
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called \define{0-cells} or \define{objects} and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}. The morphisms of $\lD_0$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -5646,21 +5646,23 @@ such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ 
 \end{tikzpicture}
 \]
 \end{defn}
-
-The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
-
-\begin{defn}
 A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
-\end{defn}
 
-\begin{defn}
-Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
-\end{defn}
+%The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
+
+
+
+
+%\begin{defn}
+%Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
+%\end{defn}
 
 \begin{defn}\label{def:doublefun}
-Let $\mathbb{A}$ and $\mathbb{B}$ be pseudo double categories. A \define{lax double functor} is a functor $\mathbb{F} \maps\mathbb{A}\to \mathbb{B}$ that takes items of $\mathbb{A}$ to items of $\mathbb{B}$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{B}_0$ and $\mathbb{F}_1 \maps \mathbb{A}_1 \to \mathbb{B}_1$ such that the following equations are satisfied: $$S \circ \mathbb{F}_1 = \mathbb{F}_0 \circ S$$ $$T \circ \mathbb{F}_1 = \mathbb{F}_0 \circ T$$ Sometimes for brevity, we will omit the subscripts and simply say $\mathbb{F}$. As to whether we mean $\mathbb{F}_0$ or $\mathbb{F}_1$ will be clear from context.
+Let $\lA$ and $\lB$ be double categories. A \define{(pseudo) double functor} is a functor $\lF \maps\lA\to \lB$ that takes items of $\lA$ to items of $\lB$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\lF_0 \maps \lA_0 \to \lB_0$ and $\lF_1 \maps \lA_1 \to \lB_1$ such that the following equations are satisfied: 
+\[   S \circ \lF_1 = \lF_0 \circ S, \qquad  T \circ \lF_1 = \lF_0 \circ T. \]
+Sometimes for brevity we omit the subscripts and simply write $\lF$.
 
-Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \maps 1_{\mathbb{F}(a)} \to \mathbb{F}(1_{a})$ (the identity comparison), and every horizontal composition $N_1 \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_1,N_{2}) \maps \mathbb{F}(N_1) \odot \mathbb{F}(N_{2}) \to \mathbb{F}(N_1 \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
+Every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \maps 1_{\lF(a)} \to \lF(1_{a})$ (the identity comparison), and every horizontal composition $N_1 \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_1,N_{2}) \maps \lF(N_1) \odot \lF(N_{2}) \to \lF(N_1 \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
 
 \begin{enumerate}
 
@@ -5669,27 +5671,27 @@ Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} 
 
 \begin{equation}\label{eq:square}
   \xymatrix@-.5pc{
-    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})}  \ar[d] \ar@{}[dr]|{\mathbb{F}(\alpha)}&
-    \mathbb{F}(B) \ar[d] \ar[r]|{|}^{\mathbb{F}(N_1)} \ar@{}[dr]|{\mathbb{F}(\beta)}&
-    \mathbb{F}(C) \ar[d] &
+    \lF(A) \ar[r]|{|}^{\lF(N_{2})}  \ar[d] \ar@{}[dr]|{\lF(\alpha)}&
+    \lF(B) \ar[d] \ar[r]|{|}^{\lF(N_1)} \ar@{}[dr]|{\lF(\beta)}&
+    \lF(C) \ar[d] &
      &
-    \mathbb{F}(A) \ar[r]|{|}^{\mathbb{F}(N_{2})} \ar@{}[drr]|{\phi(N_1,N_{2})} \ar[d]_1 &
-    \mathbb{F}(B) \ar[r]|{|}^{\mathbb{F}(N_1)} &
-    \mathbb{F}(C) \ar[d]^{1} \\
-    \mathbb{F}(A') \ar[r]|{|}_{\mathbb{F}(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_1&
-    \mathbb{F}(B') \ar[r]|{|}_{\mathbb{F}(N_{3})} &
-    \mathbb{F}(C') \ar[d]^{1}&
+    \lF(A) \ar[r]|{|}^{\lF(N_{2})} \ar@{}[drr]|{\phi(N_1,N_{2})} \ar[d]_1 &
+    \lF(B) \ar[r]|{|}^{\lF(N_1)} &
+    \lF(C) \ar[d]^{1} \\
+    \lF(A') \ar[r]|{|}_{\lF(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_1&
+    \lF(B') \ar[r]|{|}_{\lF(N_{3})} &
+    \lF(C') \ar[d]^{1}&
     = &
-    \mathbb{F}(A) \ar[rr]|{|}^{\mathbb{F}(N_1 \odot N_{2})} \ar[d] \ar@{}[drr]|{\mathbb{F}(\beta \odot \alpha)}&
+    \lF(A) \ar[rr]|{|}^{\lF(N_1 \odot N_{2})} \ar[d] \ar@{}[drr]|{\lF(\beta \odot \alpha)}&
      &
-    \mathbb{F}(C) \ar[d] \\
-    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} & 
+    \lF(C) \ar[d] \\
+    \lF(A') \ar[rr]|{|}_{\lF(N_{3} \odot N_{4})} & 
      & 
-    \mathbb{F}(C') &
+    \lF(C') &
      &
-    \mathbb{F}(A') \ar[rr]|{|}_{\mathbb{F}(N_{3} \odot N_{4})} &
+    \lF(A') \ar[rr]|{|}_{\lF(N_{3} \odot N_{4})} &
      &
-    \mathbb{F}(C') \\
+    \lF(C') \\
   }.
 \end{equation}
 
@@ -5697,22 +5699,22 @@ Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} 
 
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\mathbb{F}(N) \odot 1_{\mathbb{F}(A)}$};
-\node (C) at (3,1) {$\mathbb{F}(N)$};
-\node (A') at (1,-1) {$\mathbb{F}(N) \odot \mathbb{F}(1_{A})$};
-\node (C') at (3,-1) {$\mathbb{F}(N \odot 1_{A})$};
-\node (B) at (5,1) {$1_{\mathbb{F}(B)} \odot \mathbb{F}(N)$};
-\node (B') at (5,-1) {$\mathbb{F}(1_{B}) \odot \mathbb{F}(N)$};
-\node (D) at (7,1) {$\mathbb{F}(N)$};
-\node (D') at (7,-1) {$\mathbb{F}(1_{B} \odot N)$};
+\node (A) at (1,1) {$\lF(N) \odot 1_{\lF(A)}$};
+\node (C) at (3,1) {$\lF(N)$};
+\node (A') at (1,-1) {$\lF(N) \odot \lF(1_{A})$};
+\node (C') at (3,-1) {$\lF(N \odot 1_{A})$};
+\node (B) at (5,1) {$1_{\lF(B)} \odot \lF(N)$};
+\node (B') at (5,-1) {$\lF(1_{B}) \odot \lF(N)$};
+\node (D) at (7,1) {$\lF(N)$};
+\node (D') at (7,-1) {$\lF(1_{B} \odot N)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$1 \odot \phi_{A}$} (A')
-(C') edge node[right]{$\mathbb{F} \rho$} (C)
-(A) edge node[above]{$\rho_{\mathbb{F}(N)}$} (C)
+(C') edge node[right]{$\lF \rho$} (C)
+(A) edge node[above]{$\rho_{\lF(N)}$} (C)
 (A') edge node[above]{$\phi(N,1_{A})$} (C')
 (B) edge node[left]{$\phi_{B} \odot 1$} (B')
 (B') edge node[above]{$\phi(1_{B},N)$} (D')
-(B) edge node[above]{$\lambda_{\mathbb{F}(N)}$} (D)
+(B) edge node[above]{$\lambda_{\lF(N)}$} (D)
 (D') edge node[right]{$F \lambda$} (D);
 \end{tikzpicture}
 \]
@@ -5720,43 +5722,43 @@ Also, every object $a$ is equipped with a special globular 2-morphism $\phi_{a} 
 \item For consecutive horizontal 1-cells $N_1,N_{2}$ and $N_{3}$, the following diagram is commutative.
 
  \[\xymatrix{
-    (\mathbb{F}(N_1) \odot \mathbb{F}(N_{2})) \odot \mathbb{F}(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_1,N_{2}) \odot 1}
-    & \mathbb{F}(N_1) \odot (\mathbb{F}(N_{2}) \odot \mathbb{F}(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
-    \mathbb{F}(N_1 \odot N_{2}) \odot \mathbb{F}(N_{3}) \ar[d]_{\phi(N_1 \odot N_{2},N_{3})} &
-    \mathbb{F}(N_1) \odot \mathbb{F}(N_{2} \odot N_{3}) \ar[d]^{\phi(N_1,N_{2} \odot N_{3})}\\
-    \mathbb{F}((N_1 \odot N_{2}) \odot N_{3})\ar[r]^{\mathbb{F}a} &
-    \mathbb{F}(N_1 \odot (N_{2} \odot N_{3}))}\]
+    (\lF(N_1) \odot \lF(N_{2})) \odot \lF(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_1,N_{2}) \odot 1}
+    & \lF(N_1) \odot (\lF(N_{2}) \odot \lF(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
+    \lF(N_1 \odot N_{2}) \odot \lF(N_{3}) \ar[d]_{\phi(N_1 \odot N_{2},N_{3})} &
+    \lF(N_1) \odot \lF(N_{2} \odot N_{3}) \ar[d]^{\phi(N_1,N_{2} \odot N_{3})}\\
+    \lF((N_1 \odot N_{2}) \odot N_{3})\ar[r]^{\lF(a)} &
+    \lF(N_1 \odot (N_{2} \odot N_{3}))}\]
 \end{enumerate}
-We say the double functor $\mathbb{F}$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
+We say the double functor $\lF$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
 \end{defn}
 
 %!!! Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
-\begin{defn}
-A double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\mathbb{F}_{M,N} \maps \mathbb{F}(M) \odot \mathbb{F}(N) \xrightarrow{\sim} \mathbb{F}(M \odot N)$$and for each object $a \in \mathbb{A}$ a natural isomorphism $$\mathbb{F}_a \maps \hat{U}_{\mathbb{F}(a)} \xrightarrow{\sim} \mathbb{F}(U_a).$$
-\end{defn}
+%\begin{defn}
+%A double functor $\lF \maps \lA \to \lX$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\lF_{M,N} \maps \lF(M) \odot \lF(N) \xrightarrow{\sim} \lF(M \odot N)$$and for each object $a \in \lA$ a natural isomorphism $$\lF_a \maps \hat{U}_{\lF(a)} \xrightarrow{\sim} \lF(U_a).$$
+%\end{defn}
 
+%Following the notation of Shulman \cite{Shulman2010}, given a double category $\lA$, we write $_f \lA_g(M,N)$ for the set of 2-morphisms in $\lA$ of the form:
+%\[
+% \xymatrix@-.5pc{
+%   A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
+%    B\ar[d]^g\\
+%    C \ar[r]|{|}_N & D
+%  }
+%\]
+We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 
-Following the notation of Shulman \cite{Shulman2010}, given a double category $\mathbb{A}$, we write $_f \mathbb{A}_g(M,N)$ for the set of 2-morphisms in $\mathbb{A}$ of the form:
-\[
-  \xymatrix@-.5pc{
-    A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-    B\ar[d]^g\\
-    C \ar[r]|{|}_N & D
-  }
-\]
-We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \mathbb{A}_g(M,N)$ denotes the set of 2-morphisms in $\mathbb{A}$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 \begin{defn}\label{def:fullfaithful}
-A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{full} (respectively, \define{faithful}) if $\mathbb{F}_0 \maps \mathbb{A}_0 \to \mathbb{X}_0$ is full (respectively, faithful) and each map $$\mathbb{F}_1 \maps _f \mathbb{A}_g(M,N) \to _{\mathbb{F}(f)} \mathbb{X}_{\mathbb{F}(g)}(\mathbb{F}(M),\mathbb{F}(N))$$ is surjective (respectively, injective).
+A double functor $\lF \maps \lA \to \lX$ is \define{full} (respectively, \define{faithful}) if $\lF_0 \maps \lA_0 \to \lX_0$ is full (respectively, faithful) and each map $$\lF_1 \maps _f \lA_g(M,N) \to _{\lF(f)} \lX_{\lF(g)}(\lF(M),\lF(N))$$ is surjective (respectively, injective).
 \end{defn}
 \begin{defn}\label{def:essentiallysurj}
-A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is \define{essentially surjective} if we can simultaneously make the following choices:
+A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if we can simultaneously make the following choices:
 \begin{enumerate}
-\item{For each object $x \in \mathbb{X}$, we can find an object $a \in \mathbb{A}$ together with a vertical 1-isomorphism $\alpha_x \maps \mathbb{F}(a) \to x$, and}
-\item{For each horizontal 1-cell $N \maps x_1 \tobar x_2$  of $\mathbb{X}$, we can find a horizontal 1-cell $M \maps a_1 \tobar a_2$ of $\mathbb{A}$ and a 2-isomorphism $a_{N}$ of $\mathbb{X}$ as in the following diagram:
+\item{For each object $x \in \lX$, we can find an object $a \in \lA$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and}
+\item{For each horizontal 1-cell $N \maps x_1 \tobar x_2$  of $\lX$, we can find a horizontal 1-cell $M \maps a_1 \tobar a_2$ of $\lA$ and a 2-isomorphism $a_{N}$ of $\lX$ as in the following diagram:
 \[
   \xymatrix@-.5pc{
-    \mathbb{F}(a_1) \ar[r]|{|}^{\mathbb{F}(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
-    \mathbb{F}(a_1) \ar[d]^{\alpha_{x_2}}\\
+    \lF(a_1) \ar[r]|{|}^{\lF(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
+    \lF(a_1) \ar[d]^{\alpha_{x_2}}\\
     x_1 \ar[r]|{|}_N & x_2
   }
 \]
@@ -5765,25 +5767,28 @@ A (possibly lax or oplax) double functor $\mathbb{F} \maps \mathbb{A} \to \mathb
 \end{defn}
 
 Formally, two strong double functors between two double categories form a \emph{double equivalence} if ...
+% FINISH THIS OR DISCARD IT!!!
 %{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. 
-Similarly to ordinary equivalence of categories, [Shulman,7.8] allows us to use the following equivalent characterization.
+Much like equivalence of categories, equivalence of double categories has an alternative characterization:
 
-\begin{thm}\label{ShulDubEquiv}
-A strong double functor $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
+\begin{thm}{\cite[Thm.\ 7.8]{Shulman2010}}
+\label{ShulDubEquiv}
+A strong double functor $\lF \maps \lA \to \lX$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
 \end{thm}
 
-\begin{prop}
-Let $\mathbb{A}$ and $\mathbb{X}$ be symmetric monoidal double categories and let $\mathbb{F} \maps \mathbb{A} \to \mathbb{X}$ be a symmetric monoidal strong double functor. If $\mathbb{F}$ is part of a double equivalence, then $\mathbb{F}$ is in fact part of a symmetric monoidal double equivalence, and $\mathbb{A}$ and $\mathbb{X}$ are equivalent as symmetric monoidal double categories.
-\end{prop}
+\begin{thm}
+Let $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal strong double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
+\end{thm}
 
+\begin{proof} Where is this proved???  \end{proof}
 
 \begin{defn}\label{defn:smdc}
   A \textbf{monoidal double category} is a double category equipped the following
 structure.
 \begin{enumerate}
-\item $\mathbf{D_{0}}$ and $\mathbf{D_1}$ are both monoidal categories.
-\item If $I$ is the monoidal unit of $\mathbf{D_{0}}$, then $U_I$ is the
-  monoidal unit of $\mathbf{D_1}$.
+\item $\lD_0$ and $\lD_1$ are both monoidal categories.
+\item If $I$ is the monoidal unit of $\lD_0$, then $U_I$ is the
+  monoidal unit of $\lD_1$.
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
@@ -5979,7 +5984,7 @@ structure.
 	such that:
 	\begin{enumerate}
 		\setcounter{enumi}{\value{mondbl}}
-		\item $\lD_{0}$ and $\lD_1$ are braided monoidal categories.
+		\item $\lD_0$ and $\lD_1$ are braided monoidal categories.
 		\item The functors $S$ and $T$ are strict braided monoidal functors.
 		\item The following diagrams commute expressing that the braiding is a transformation of double categories.
 		\[
@@ -6017,7 +6022,7 @@ structure.
 	is a braided monoidal double category $\mathbb{D}$ such that:
 	\begin{enumerate}
 		\setcounter{enumi}{\value{mondbl}}
-		\item $\lD_{0}$ and $\lD_1$ are symmetric monoidal.
+		\item $\lD_0$ and $\lD_1$ are symmetric monoidal.
 	\end{enumerate}
 \end{defn}
 
@@ -6179,85 +6184,85 @@ In a pseudo double category, the second equation above requires an insertion of 
 \begin{defn}
 \label{defn:fibrant}
 We say that a double category is \textbf{fibrant} if every vertical
-1-morphism has both a companion and a conjoint and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
+1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
 
 \begin{defn}
 \label{defn:monoidal_double_functor}
-A \define{(strong) monoidal lax double functor} $\mathbb{F} \maps \mathbb{C} \to \mathbb{D}$ between monoidal double categories $\mathbb{C}$ and $\mathbb{D}$ is a lax double functor $\mathbb{F} \maps \mathbb{C} \to \mathbb{D}$ such that
+A \define{(strong) monoidal double functor} $\lF \maps \mathbb{C} \to \mathbb{D}$ between monoidal double categories $\mathbb{C}$ and $\mathbb{D}$ is a double functor $\lF \maps \mathbb{C} \to \mathbb{D}$ such that
 	\begin{itemize}
-		\item $\mathbb{F}_0$ and $\mathbb{F}_1$ are monoidal functors, meaning that there exists
+		\item $\lF_0$ and $\lF_1$ are monoidal functors, meaning that there exists
 
 \begin{enumerate}
-\item{an isomorphism $\epsilon \maps 1_{\lD} \to \mathbb{F}(1_{\lC})$}
-\item{a natural isomorphism $\mu_{A,B} \maps \mathbb{F}(A) \otimes \mathbb{F}(B) \to \mathbb{F}(A \otimes B)$ for all objects $A$ and $B$ of $\lC$}
-\item{an isomorphism $\delta \maps U_{1_{\lD}} \to \mathbb{F}(U_{1_{\lC}})$}
-\item{a natural isomorphism $\nu_{M,N} \maps \mathbb{F}(M) \otimes \mathbb{F}(N) \to \mathbb{F}(M \otimes N)$ for all horizontal 1-cells $N$ and $M$ of $\lC$}
+\item{an isomorphism $\epsilon \maps 1_{\lD} \to \lF(1_{\lC})$}
+\item{a natural isomorphism $\mu_{A,B} \maps \lF(A) \otimes \lF(B) \to \lF(A \otimes B)$ for all objects $A$ and $B$ of $\lC$}
+\item{an isomorphism $\delta \maps U_{1_{\lD}} \to \lF(U_{1_{\lC}})$}
+\item{a natural isomorphism $\nu_{M,N} \maps \lF(M) \otimes \lF(N) \to \lF(M \otimes N)$ for all horizontal 1-cells $N$ and $M$ of $\lC$}
 \end{enumerate}
 such that the following diagrams commute: for objects $A,B$ and $C$ of $\lC$,
  \[\xymatrix{
-    (\mathbb{F}(A) \otimes \mathbb{F}(B)) \otimes \mathbb{F}(C) \ar[r]^{\alpha'}\ar[d]_{\mu_{A,B} \otimes 1}
-    & \mathbb{F}(A) \otimes (\mathbb{F}(B) \otimes \mathbb{F}(C)) \ar[d]^{1 \otimes \mu_{B,C}}\\
-    \mathbb{F}(A \otimes B) \otimes \mathbb{F}(C) \ar[d]_{\mu_{A \otimes B,C}} &
-    \mathbb{F}(A) \otimes \mathbb{F}(B \otimes C) \ar[d]^{\mu_{A,B \otimes C}}\\
-    \mathbb{F}((A \otimes B) \otimes C)\ar[r]^{\mathbb{F}\alpha} &
-    \mathbb{F}(A \otimes (B \otimes C))}\]
+    (\lF(A) \otimes \lF(B)) \otimes \lF(C) \ar[r]^{\alpha'}\ar[d]_{\mu_{A,B} \otimes 1}
+    & \lF(A) \otimes (\lF(B) \otimes \lF(C)) \ar[d]^{1 \otimes \mu_{B,C}}\\
+    \lF(A \otimes B) \otimes \lF(C) \ar[d]_{\mu_{A \otimes B,C}} &
+    \lF(A) \otimes \lF(B \otimes C) \ar[d]^{\mu_{A,B \otimes C}}\\
+    \lF((A \otimes B) \otimes C)\ar[r]^{\lF\alpha} &
+    \lF(A \otimes (B \otimes C))}\]
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\mathbb{F}(A) \otimes 1_{\lD}$};
-\node (C) at (3,1) {$\mathbb{F}(A)$};
-\node (A') at (1,-1) {$\mathbb{F}(A) \otimes \mathbb{F}(1_{\lC})$};
-\node (C') at (3,-1) {$\mathbb{F}(A \otimes 1_{\lC})$};
-\node (B) at (5,1) {$1_{\lD} \otimes \mathbb{F}(A)$};
-\node (B') at (5,-1) {$\mathbb{F}(1_{\lC}) \otimes \mathbb{F}(A)$};
-\node (D) at (7,1) {$\mathbb{F}(A)$};
-\node (D') at (7,-1) {$\mathbb{F}(1_{\lC} \otimes A)$};
+\node (A) at (1,1) {$\lF(A) \otimes 1_{\lD}$};
+\node (C) at (3,1) {$\lF(A)$};
+\node (A') at (1,-1) {$\lF(A) \otimes \lF(1_{\lC})$};
+\node (C') at (3,-1) {$\lF(A \otimes 1_{\lC})$};
+\node (B) at (5,1) {$1_{\lD} \otimes \lF(A)$};
+\node (B') at (5,-1) {$\lF(1_{\lC}) \otimes \lF(A)$};
+\node (D) at (7,1) {$\lF(A)$};
+\node (D') at (7,-1) {$\lF(1_{\lC} \otimes A)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$1 \otimes \epsilon$} (A')
-(C') edge node[right]{$\mathbb{F}(r_{A})$} (C)
-(A) edge node[above]{$r_{\mathbb{F}(A)}$} (C)
+(C') edge node[right]{$\lF(r_{A})$} (C)
+(A) edge node[above]{$r_{\lF(A)}$} (C)
 (A') edge node[above]{$\mu_{A,1_{\lC}}$} (C')
 (B) edge node[left]{$\epsilon \otimes 1$} (B')
 (B') edge node[above]{$\mu_{1_{\lC},A}$} (D')
-(B) edge node[above]{$\ell_{\mathbb{F}(A)}$} (D)
-(D') edge node[right]{$\mathbb{F}(\ell_{A})$} (D);
+(B) edge node[above]{$\ell_{\lF(A)}$} (D)
+(D') edge node[right]{$\lF(\ell_{A})$} (D);
 \end{tikzpicture}
 \]
 and for horizontal 1-cells $N_1,N_{2}$ and $N_{3}$ of $\lC$,
  \[\xymatrix{
-    (\mathbb{F}(N_1) \otimes \mathbb{F}(N_{2})) \otimes \mathbb{F}(N_{3}) \ar[r]^{\alpha'}\ar[d]_{\nu_{N_1,N_{2}} \otimes 1}
-    & \mathbb{F}(N_1) \otimes (\mathbb{F}(N_{2}) \otimes \mathbb{F}(N_{3})) \ar[d]^{1 \otimes \nu_{N_{2},N_{3}}}\\
-    \mathbb{F}(N_1 \otimes N_{2}) \otimes \mathbb{F}(N_{3}) \ar[d]_{\nu_{N_1 \otimes N_{2},N_{3}}} &
-    \mathbb{F}(N_1) \otimes \mathbb{F}(N_{2} \otimes N_{3}) \ar[d]^{\nu_{N_1,N_{2} \otimes N_{3}}}\\
-    \mathbb{F}((N_1 \otimes N_{2}) \otimes N_{3})\ar[r]^{\mathbb{F}\alpha} &
-    \mathbb{F}(N_1 \otimes (N_{2} \otimes N_{3}))}\]
+    (\lF(N_1) \otimes \lF(N_{2})) \otimes \lF(N_{3}) \ar[r]^{\alpha'}\ar[d]_{\nu_{N_1,N_{2}} \otimes 1}
+    & \lF(N_1) \otimes (\lF(N_{2}) \otimes \lF(N_{3})) \ar[d]^{1 \otimes \nu_{N_{2},N_{3}}}\\
+    \lF(N_1 \otimes N_{2}) \otimes \lF(N_{3}) \ar[d]_{\nu_{N_1 \otimes N_{2},N_{3}}} &
+    \lF(N_1) \otimes \lF(N_{2} \otimes N_{3}) \ar[d]^{\nu_{N_1,N_{2} \otimes N_{3}}}\\
+    \lF((N_1 \otimes N_{2}) \otimes N_{3})\ar[r]^{\lF\alpha} &
+    \lF(N_1 \otimes (N_{2} \otimes N_{3}))}\]
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,1) {$\mathbb{F}(N_1) \otimes U_{1_{\lD}}$};
-\node (C) at (3,1) {$\mathbb{F}(N_1)$};
-\node (A') at (0,-1) {$\mathbb{F}(N_1) \otimes \mathbb{F}(U_{1_{\lC}})$};
-\node (C') at (3,-1) {$\mathbb{F}(N_1 \otimes U_{1_{\lC}})$};
-\node (B) at (5,1) {$U_{1_{\lD}} \otimes \mathbb{F}(N_1)$};
-\node (B') at (5,-1) {$\mathbb{F}(U_{1_{\lC}}) \otimes \mathbb{F}(N_1)$};
-\node (D) at (8,1) {$\mathbb{F}(N_1)$};
-\node (D') at (8,-1) {$\mathbb{F}(U_{1_{\lC}} \otimes N_1)$};
+\node (A) at (0,1) {$\lF(N_1) \otimes U_{1_{\lD}}$};
+\node (C) at (3,1) {$\lF(N_1)$};
+\node (A') at (0,-1) {$\lF(N_1) \otimes \lF(U_{1_{\lC}})$};
+\node (C') at (3,-1) {$\lF(N_1 \otimes U_{1_{\lC}})$};
+\node (B) at (5,1) {$U_{1_{\lD}} \otimes \lF(N_1)$};
+\node (B') at (5,-1) {$\lF(U_{1_{\lC}}) \otimes \lF(N_1)$};
+\node (D) at (8,1) {$\lF(N_1)$};
+\node (D') at (8,-1) {$\lF(U_{1_{\lC}} \otimes N_1)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[left]{$1 \otimes \delta$} (A')
-(C') edge node[right]{$\mathbb{F}(r_{N_1})$} (C)
-(A) edge node[above]{$r_{\mathbb{F}(N_1)}$} (C)
+(C') edge node[right]{$\lF(r_{N_1})$} (C)
+(A) edge node[above]{$r_{\lF(N_1)}$} (C)
 (A') edge node[above]{$\nu_{N_1,U_{1_{\lC}}}$} (C')
 (B) edge node[left]{$\delta \otimes 1$} (B')
 (B') edge node[above]{$\nu_{U_{1_{\lC}},N_1}$} (D')
-(B) edge node[above]{$\ell_{\mathbb{F}(N_1)}$} (D)
-(D') edge node[right]{$\mathbb{F}(\ell_{N_1})$} (D);
+(B) edge node[above]{$\ell_{\lF(N_1)}$} (D)
+(D') edge node[right]{$\lF(\ell_{N_1})$} (D);
 \end{tikzpicture}
 \]
 
-		\item $S\mathbb{F}_1= \mathbb{F}_0S$ and $T\mathbb{F}_1 = \mathbb{F}_0T$ are equations between monoidal functors, and
-		\item the composition and unit comparisons $\phi(N_1,N_2) \maps \mathbb{F}_1(N_1) \odot \mathbb{F}_1(N_2) \to \mathbb{F}_1(N_1\odot N_2)$ and $\phi_A \maps U_{\mathbb{F}_0 (A)} \to \mathbb{F}_1(U_A)$ are monoidal natural transformations.
+		\item $S\lF_1= \lF_0S$ and $T\lF_1 = \lF_0T$ are equations between monoidal functors, and
+		\item the composition and unit comparisons $\phi(N_1,N_2) \maps \lF_1(N_1) \odot \lF_1(N_2) \to \lF_1(N_1\odot N_2)$ and $\phi_A \maps U_{\lF_0 (A)} \to \lF_1(U_A)$ are monoidal natural transformations.
 	\end{itemize}
-The monoidal lax double functor is \define{braided} if $\mathbb{F}_0$ and $\mathbb{F}_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal functors, and lax monoidal or oplax monoidal if the isomorphisms and families of natural isomorphisms of items (1)-(4) above are merely morphisms and natural transformations going in the appropriate directions.
+A monoidal double functor $\lF$ is \define{braided} if $\lF_0$ and $\lF_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal.
 \end{defn}
 
 \begin{thebibliography}{100}
