@@ -3040,18 +3040,33 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 \node (B') at (7.5,0) {$\mathbb{H}(M) \odot \mathbb{H}(U_b)$};
 \node (C') at (5,-1) {$\mathbb{H}(M)$};
 \node (D') at (7.5,-1) {$\mathbb{H}(M \odot U_b)$};
+\node (A) at (0,0) {$U_{\lH(a)} \odot \lH(M)$};
+\node (B) at (2.5,0) {$\lH(U_a) \odot \lH(M)$};
+\node (C) at (0,-1) {$\lH(M)$};
+\node (D) at (2.5,-1) {$\lH(U_a \odot M)$};
+\node (A') at (5,0) {$\lH(M) \odot U_{\lH(b)}$};
+\node (B') at (7.5,0) {$\lH(M) \odot \lH(U_b)$};
+\node (C') at (5,-1) {$\lH(M)$};
+\node (D') at (7.5,-1) {$\lH(M \odot U_b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\mathbb{H}_U \odot 1$} (B)
+(A) edge node[above]{$\lH_U \odot 1$} (B)
 (A) edge node[left]{$\lambda$} (C)
 (B) edge node[right]{$\mathbb{H}_{U_a,M}$} (D)
 (D) edge node[above]{$\mathbb{H}(\lambda')$} (C)
 (A') edge node[above]{$1 \odot \mathbb{H}_U$} (B')
+(B) edge node[right]{$\lH_{U_a,M}$} (D)
+(D) edge node[above]{$\lH(\lambda')$} (C)
+(A') edge node[above]{$1 \odot \lH_U$} (B')
 (A') edge node[left]{$\rho$} (C')
 (B') edge node[right]{$\mathbb{H}_{M,U_b}$} (D')
 (D') edge node[above]{$\mathbb{H}(\rho')$} (C');
+(B') edge node[right]{$\lH_{M,U_b}$} (D')
+(D') edge node[above]{$\lH(\rho')$} (C');
 \end{tikzpicture}
 \]
 The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\mathbb{H}=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A'$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\lCsp$:
+The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\lH=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\lH_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A'$ preserves finite colimits. As for the arrow component $\lH_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\lCsp$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1$};
@@ -3083,12 +3098,14 @@ their tensor product $M_1 \otimes M_2$ in $F\lCsp$ is given by:
 \]
 $$d_{M_1 \otimes M_2} \maps 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2)$$
 and the image of this horizontal 1-cell under the double functor $\mathbb{H}$ is $\mathbb{H}(M_1 \otimes M_2)$ given by:
+and the image of this horizontal 1-cell under the double functor $\lH$ is $\lH(M_1 \otimes M_2)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1+a_2)$};
 \node (B) at (2,0) {$H(c_1+c_2)$};
 \node (C) at (4,0) {$H(b_1+b_2)$};
 \node (D) at (2,-0.5) {$d_{\mathbb{H}(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F'(H(c_1+c_2))$};
+\node (D) at (2,-0.5) {$d_{\lH(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F'(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1+i_2)$} (B)
 (C) edge node[above]{$H(o_1+o_2)$} (B);
