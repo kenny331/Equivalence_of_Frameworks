@@ -931,13 +931,13 @@ Next, we define the four structure functors $U,S,T$ and $\odot$. The unit functo
 \node (A) at (0,0) {$a$};
 \node (B) at (1,0) {$a$};
 \node (C) at (2,0) {$a$};
-\node (D) at (3,0) {$!_a \in F(a)$};
+\node (D) at (3,0) {$\bot_a \in F(a)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \end{equation}
-where $!_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from $F \maps \A \to \Cat$ being lax monoidal.  For morphisms, the functor $U$ is defined as:
+where $\bot_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the composite of the unique map $F(!) \maps F(0) \to F(a)$ and the morphism $\phi \maps 1 \to F(0)$  which comes from $F \maps \A \to \Cat$ being lax monoidal.  For morphisms, the functor $U$ is defined as:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-1,0.5) {$a$};
@@ -948,8 +948,8 @@ where $!_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the comp
 \node (C) at (2,0.5) {$a$};
 \node (C') at (2,-0.5) {$a'$};
 \node (D) at (1,-0.5) {$a'$};
-\node (E) at (3,0.5) {$!_a \in F(a)$};
-\node (F) at (3,-0.5) {$!_{a'} \in F(a')$};
+\node (E) at (3,0.5) {$\bot_a \in F(a)$};
+\node (F) at (3,-0.5) {$\bot_{a'} \in F(a')$};
 \node (H) at (-0.5,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
@@ -962,7 +962,7 @@ where $!_a \in F(a)$ is the \define{trivial decoration} on $a$ given by the comp
 (G) edge node [left] {$f$} (G');
 \end{tikzpicture}
 \]
-together with the morphism $\tau_{!_f} = F(f) F(!) \phi \maps 1 \to F(a')$. For the source and target functors $S, T \maps F\lCsp_1 \to F\lCsp_0$, given an object $F\lCsp_1$, which is an $F$-decorated cospan,
+together with the morphism $\tau_{\bot_f} = F(f) F(!) \phi \maps 1 \to F(a')$. For the source and target functors $S, T \maps F\lCsp_1 \to F\lCsp_0$, given an object $F\lCsp_1$, which is an $F$-decorated cospan,
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1124,7 +1124,7 @@ together with the decoration morphism $\tau_{\alpha \odot \beta} \colon F(h_1 +_
 \]
 The middle square commutes since $F$ is a lax monoidal pseudofunctor and the right square commutes as the underlying square commutes. The decorations $x \odot y$ and $x' \odot y'$ are given respectively by the top and bottom composite of arrows and the decoration morphism $\tau_{\alpha \odot \beta}$ is given by composing $\tau_\alpha \times \tau_\beta$ with the two commuting squares. It is clear that the equations $S(M \odot N)=S(M)$ and $T(M \odot N)=T(N)$ hold, and this finishes defining the four structure functors $U,S,T$ and $\odot$.
 
-Lastly, our double category is required to have an associator $\alpha$ (\textbf{overusing alpha, ignoring for now}) and left and right unitors $\lambda$ and $\rho$ which are natural isomorphisms governing the composition of horizontal 1-cells that are required to satisfy the standard coherence axioms for a monoidal category, as well as $S(\alpha),S(\lambda),S(\rho),T(\alpha),T(\lambda)$ and $T(\rho)$ all being identities. We will only show the associator $\alpha$, left unitor $\lambda$ and the pentagon identity, as the remaining details will be similar to these.
+Lastly, our double category is required to have an associator $\alpha$ and left and right unitors $\lambda$ and $\rho$ which are natural isomorphisms governing the composition of horizontal 1-cells that are required to satisfy the standard coherence axioms for a monoidal category, as well as $S(\alpha),S(\lambda),S(\rho),T(\alpha),T(\lambda)$ and $T(\rho)$ all being identities. We will only show the associator $\alpha$, left unitor $\lambda$ and the pentagon identity, as the remaining details will be similar to these.
 
 First we will build the associator $\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$, which will be a globular 2-morphism; in other words, a map of $F$-decorated cospans with identities on the sides. Given three composable horizontal 1-cells $M_1, M_2$ and $M_3$:
 \[
@@ -1233,7 +1233,7 @@ the left unitor will be a globular 2-morphism $\lambda \colon 1_a \odot M \to M$
 \node (A) at (0,0) {$a$};
 \node (B) at (1,0) {$a$};
 \node (C) at (2,0) {$a$};
-\node (D) at (3,0) {$!_a \in F(a)$};
+\node (D) at (3,0) {$\bot_a \in F(a)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\id_a$} (B)
 (C) edge node[above]{$\id_a$} (B);
@@ -1261,8 +1261,8 @@ To compose $1_a$ and $M$, we first compose the two cospans in $\A$ by pushing ou
 (E) edge[bend right] node [right] {$\psi j_{m} o$} (G);
 \end{tikzpicture}
 \]
-The composite decoration $!_a \odot x$ will be given by the composite
-$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_a \times x} F(a) \times F(m) \xrightarrow{\phi_{a,m}} F(a+m) \xrightarrow{F(\psi)} F(a+_{a} m).$$
+The composite decoration $\bot_a \odot x$ will be given by the composite
+$$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\bot_a \times x} F(a) \times F(m) \xrightarrow{\phi_{a,m}} F(a+m) \xrightarrow{F(\psi)} F(a+_{a} m).$$
 The left unitor is then the map of $F$-decorated cospans determined by the following map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -1272,7 +1272,7 @@ The left unitor is then the map of $F$-decorated cospans determined by the follo
 \node (C) at (3,0.5) {$b$};
 \node (C') at (3,-0.5) {$b$};
 \node (D) at (1.5,-0.5) {$m$};
-\node (E) at (4.5,0.5) {$!_a \odot x \in F(a+_{a} m)$};
+\node (E) at (4.5,0.5) {$\bot_a \odot x \in F(a+_{a} m)$};
 \node (F) at (4.5,-0.5) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\psi j_a$} (B)
@@ -1284,7 +1284,7 @@ The left unitor is then the map of $F$-decorated cospans determined by the follo
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-together with the decoration morphism $\tau_\lambda \colon F(\ell)(!_a \odot x) \to x$; note, that $\ell \colon a+_a m \to m$ is a canonical isomorphism as both $a+_a m$ and $m$ are colimits of the span $a \xleftarrow{\id_a} a \xrightarrow{i} m$. The right unitor $\rho$ is similar, the two unitality squares are similar to the associator shown above, and it is clear that the source and target functors applied to the associator and left and right unitors yield identities.
+together with the decoration morphism $\tau_\lambda \colon F(\ell)(\bot_a \odot x) \to x$; note, that $\ell \colon a+_a m \to m$ is a canonical isomorphism as both $a+_a m$ and $m$ are colimits of the span $a \xleftarrow{\id_a} a \xrightarrow{i} m$. The right unitor $\rho$ is similar, the two unitality squares are similar to the associator shown above, and it is clear that the source and target functors applied to the associator and left and right unitors yield identities.
 
 The final property that we will check is the interchange law for 2-morphisms. Suppose that we have four 2-morphisms $\alpha, \beta, \alpha'$ and $\beta'$ as shown below:
 \[
@@ -1641,7 +1641,121 @@ Everything about these two composites appears identical except for the two middl
 \end{proof}
 
 \begin{thm}\label{DC}
-Let $\A$ be a category with chosen finite colimits and $F \maps \A \to \Cat$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ of Theorem \ref{thm:decorated_cospans} is symmetric monoidal.
+Let $\A$ be a category with chosen finite colimits and $F \maps \A \to \Cat$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ of Theorem \ref{thm:decorated_cospans} is symmetric monoidal, where
+\begin{enumerate}
+\item{the tensor product of two objects $a$ and $b$ is their chosen coproduct $a+b$ in $\A$,}
+\item{the tensor product of two vertical 1-morphisms $f \colon a \to b$ and $f' \colon a' \to b'$ is the vertical 1-morphism $f+f' \colon a+a' \to b+b'$,}
+\item{the tensor product of two horizontal 1-cells $M$ and $N$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1$};
+\node (B) at (1,0) {$m_1$};
+\node (C) at (2,0) {$b_1$};
+\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+\node (E) at (3,0) {$a_2$};
+\node (F) at (4,0) {$m_2$};
+\node (G) at (5,0) {$b_2$};
+\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(E) edge node[above]{$i_2$} (F)
+(G) edge node[above]{$o_2$} (F);
+\end{tikzpicture}
+\]
+is the horizontal 1-cell $M \otimes N$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a_1+a_2$};
+\node (B) at (1.5,0) {$m_1+m_2$};
+\node (C) at (3,0) {$b_1+b_2$};
+\node (D) at (4.55,0) {$x_1+x_2 \in F(m_1+m_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B);
+\end{tikzpicture}
+\]
+$$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2)$$}
+\item{the tensor product of two 2-morphisms $\alpha$ and $\beta$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a'$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b'$};
+\node (D) at (1,-0.5) {$m'$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x' \in F(m')$};
+\node (G) at (4,0.5) {$c$};
+\node (H) at (5,0.5) {$n$};
+\node (I) at (6,0.5) {$d$};
+\node (G') at (4,-0.5) {$c'$};
+\node (H') at (5,-0.5) {$n'$};
+\node (I') at (6,-0.5) {$d'$};
+\node (J) at (7,0.5) {$y \in F(n)$};
+\node (K) at (7,-0.5) {$y' \in F(n')$};
+\node (L) at (1,-1) {$\tau_\alpha \maps F(h)(x) \to x'$};
+\node (M) at (5,-1) {$\tau_\beta \maps F(h')(y) \to y'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$g$} (C')
+(A') edge node[above] {$i_1'$} (D)
+(C') edge node[above] {$o_1'$} (D)
+(B) edge node [left] {$h$} (D)
+(G) edge node [above] {$i_2$} (H)
+(G) edge node [left] {$f'$} (G')
+(H) edge node [left] {$h'$} (H')
+(G') edge node [above] {$i_2'$} (H')
+(I) edge node [above] {$o_2$} (H)
+(I) edge node [right] {$g'$} (I')
+(I') edge node [above] {$o_2'$} (H');
+\end{tikzpicture}
+\]
+is the 2-morphism $\alpha \otimes \beta$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a+c$};
+\node (A') at (0,-0.5) {$a'+c'$};
+\node (B) at (2,0.5) {$m+n$};
+\node (C) at (4,0.5) {$b+d$};
+\node (C') at (4,-0.5) {$b'+d'$};
+\node (D) at (2,-0.5) {$m'+n'$};
+\node (E) at (5.5,0.5) {$x+y \in F(m+n)$};
+\node (F) at (5.5,-0.5) {$x'+y' \in F(m'+n')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1+i_2$} (B)
+(C) edge node[above]{$o_1+o_2$} (B)
+(A) edge node[left]{$f+f'$} (A')
+(C) edge node[left]{$g+g'$} (C')
+(A') edge node [above]{$i_1'+i_2'$} (D)
+(C') edge node [above]{$o_1'+o_2'$} (D)
+(B) edge node [left] {$h+h'$} (D);
+\end{tikzpicture}
+\]
+$$\tau_{\alpha+\beta} \colon F(h+h')(x+y) \to x'+y'$$
+where the decoration morphism $\tau_{\alpha+\beta}$ comes from the pasted diagram:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (4.75,0) {$\tau_\alpha \times \tau_\beta \Swarrow$};
+\node (D) at (3,0) {$1 \xrightarrow{\lambda^{-1}} 1 \times 1$};
+\node (E) at (5.5,0.5) {$F(m) \times F(n)$};
+\node (E') at (5.5,-0.5) {$F(m') \times F(n')$};
+\node (B) at (7.5,0.5) {$F(m+n)$};
+\node (B') at (7.5,-0.5) {$F(m' + n')$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [above] {$\phi_{m,n}$} (B)
+(E') edge node [above] {$\phi_{m',n'}$} (B')
+(B) edge node [right] {$F(h + h')$} (B')
+(D) edge node [above] {$x \times y$} (E)
+(D) edge node [below] {$x' \times y'$} (E')
+(E) edge node [right] {$F(h) \times F(h')$} (E');
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
 \end{thm}
 %!!!Kenny: We should try to make this proof shorter.
 %Christina: Yes! Again, I think that it can be simplified and easier for the reader to follow. Should tackle after we do the previous theorem. Also notice that a big part of the following proof is commented out below. 
@@ -1687,7 +1801,6 @@ and}
 together with a decoration morphism $\tau \maps F(h)(x) \to x'$.
 }
 \end{enumerate}
-
 First we define the tensor product and monoidal unit of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -1718,19 +1831,19 @@ their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the 
 (C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
-and where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F$: $$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$The monoidal unit $0_{F\lCsp_1}$ is given by:
+where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F$: $$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$The monoidal unit $0_{F\lCsp_1}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
 \node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
-\node (D) at (3,0) {$!_0 \in F(0)$};
+\node (D) at (3,0) {$\bot_0 = \phi \in F(0)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!$} (B)
 (C) edge node[above]{$!$} (B);
 \end{tikzpicture}
 \]
-where $0$ is the monoidal unit of $\A$ and $!_0 \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$, where $0_{F\lCsp_1}$ is the monoidal unit of $F\lCsp_1$.  
+where $0$ is the monoidal unit of $\A$ and $\phi \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$.  
 
 Next we define the associator and left unitor of $F\lCsp_1$, with the right unitor being similar to the left. Given three objects $M_1, M_2$ and $M_3$ of $F\lCsp_1$:
 \[
@@ -1810,7 +1923,7 @@ For the left unitor, we first compute $0_{F\lCsp_1} \otimes M$:
 \node (A) at (0,0) {$0$};
 \node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
-\node (D) at (1,-0.5) {$!_0 \in F(0)$};
+\node (D) at (1,-0.5) {$\bot_0 \in F(0)$};
 \node (E) at (3,0) {$a$};
 \node (F) at (4,0) {$m$};
 \node (G) at (5,0) {$b$};
@@ -1829,13 +1942,13 @@ which results in:
 \node (A) at (0,0) {$0+a$};
 \node (B) at (1,0) {$0+m$};
 \node (C) at (2,0) {$0+b$};
-\node (D) at (3.5,0) {$!_0 + x \in F(0+m)$};
+\node (D) at (3.5,0) {$\bot_0 + x \in F(0+m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!+i$} (B)
 (C) edge node[above]{$!+o$} (B);
 \end{tikzpicture}
 \]
-where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{!_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$Denoting the left unitor of $(\A,+,0)$ by $\ell$, the left unitor of $F\lCsp_1$ is then an isomorphism in $F\lCsp_1$ given by the following map of cospans in $\A$:
+where $\bot_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\bot_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$Denoting the left unitor of $(\A,+,0)$ by $\ell$, the left unitor of $F\lCsp_1$ is then an isomorphism in $F\lCsp_1$ given by the following map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$0+a$};
@@ -1844,7 +1957,7 @@ where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1
 \node (C) at (2,0.5) {$0+b$};
 \node (C') at (2,-0.5) {$b$};
 \node (D) at (1,-0.5) {$m$};
-\node (E) at (3.5,0.5) {$!_0 + x \in F(0+m)$};
+\node (E) at (3.5,0.5) {$\bot_0 + x \in F(0+m)$};
 \node (F) at (3.5,-0.5) {$x \in F(m)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!+i$} (B)
@@ -1856,7 +1969,7 @@ where $!_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(!_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. See the second author's thesis \cite{CourserThesis} for more details.
+together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(\bot_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. See the second author's thesis \cite{CourserThesis} for more details.
 
 To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
 \[
@@ -1879,7 +1992,7 @@ To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the brai
 (B) edge node [left] {$\beta$} (D);
 \end{tikzpicture}
 \]
-together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
+together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
 
 Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
 \[
@@ -1890,8 +2003,8 @@ Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot
 \node (C) at (4,0.5) {$a+b$};
 \node (C') at (4,-0.5) {$a+b$};
 \node (D) at (2,-0.5) {$a+b$};
-\node (E) at (5.5,0.5) {$!_{a+b} \in F(a+b)$};
-\node (F) at (5.5,-0.5) {$!_a + !_b \in F(a+b)$};
+\node (E) at (5.5,0.5) {$\bot_{a+b} \in F(a+b)$};
+\node (F) at (5.5,-0.5) {$\bot_a + \bot_b \in F(a+b)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1_{a+b}$} (B)
 (C) edge node[above]{$1_{a+b}$} (B)
@@ -1902,7 +2015,7 @@ Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot
 (B) edge node [left] {$1$} (D);
 \end{tikzpicture}
 \]
-together with the decoration isomorphism $\tau_{a,b} \maps !_{a+b} \xrightarrow{\sim} !_a + !_b$ given by the unique map between the two initial objects $!_{a+b}$ and $!_a + !_b$ in $F(a+b)$. For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
+together with the decoration isomorphism $\tau_{a,b} \maps \bot_{a+b} \xrightarrow{\sim} \bot_a + \bot_b$ given by the unique map between the two initial objects $\bot_{a+b}$ and $\bot_a + \bot_b$ in $F(a+b)$. For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2024,7 +2137,6 @@ The globular 2-morphism $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \
 together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\odot(x_2+y_2)) \to (x_1 \odot x_2)+(y_1 \odot y_2)$
 where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
 
-The remaining properties are coherence diagrams that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these diagrams to give the reader a sense of how they are verified, with more details able to be found in the second author's thesis \cite{CourserThesis}. The coherence diagram that we will check is given by:
 The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}. The coherence law that we check says that this diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -2039,11 +2151,132 @@ The remaining properties are coherence laws that make use of these maps $\chi$ a
 (C) edge node[above]{$\beta \odot \beta$} (D);
 \end{tikzpicture}
 \]
-which expresses that the braiding is a transformation of double categories.
-This expresses that the braiding is a transformation of double categories.
+This diagram expresses that the braiding is a transformation of double categories. We will see that this diagram commutes in two stages. First, for the underlying maps of cospans in $\A$. Using the notation previously introduced for the globular 2-morphism $\hat{\chi}$, the above diagram, modulo all of the decorations, is given by the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide.
+\[
+		\begin{tikzpicture}
+			\node (a) at (-4,0) {$a+a'$};
+			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c) at (6,0) {$c+c'$};
+			\node (a2) at (-4,1) {$a'+a$};
+			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c2) at (6,1) {$c'+c$};
+                                \node (a3) at (-4,2) {$a'+a$};
+			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c3) at (6,2) {$c'+c$};
+                                \node (a5) at (-4,-1) {$a+a'$};
+			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c5) at (6,-1) {$c+c'$};
+                                \node (a6) at (-4,-2) {$a'+a$};
+			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c6) at (6,-2) {$c'+c$};
+			\path[->,font=\scriptsize,>=angle 90]
+			(a) edge node[above]{$$} (b)
+			(c) edge node[above]{$$} (b)
+                                (a2) edge node[above]{$$} (b2)
+			(c2) edge node[above]{$$} (b2)
+                                (a) edge node[left]{$\beta$} (a2)
+                                (b) edge node[left]{$\beta$} (b2)
+%(b) edge node[right]{$\tau_1$} (b2)
+			(c) edge node[right]{$\beta$} (c2)
+                                (a3) edge node[above]{$$} (b3)
+			(c3) edge node[above]{$$} (b3)
+                                (a2) edge node[above]{$$} (a3)
+                                (b2) edge node[left]{$\hat{\chi}$} (b3)
+%(b2) edge node[right]{$\tau_2$} (b3)
+			(c2) edge node[above]{$$} (c3)
+                                (a5) edge node[above]{$$} (b5)
+			(c5) edge node[above]{$$} (b5)
+                                (a) edge node[above]{$$} (a5)
+                                (b) edge node[left]{$\hat{\chi}$} (b5)
+%(b) edge node[right]{$\tau_4$} (b5)
+			(c) edge node[above]{$$} (c5)
+                                (a6) edge node[above]{$$} (b6)
+			(c6) edge node[above]{$$} (b6)
+                                (a5) edge node[left]{$\beta$} (a6)
+                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
+ %(b5) edge node[right]{$\tau_5$} (b6)
+			(c5) edge node[left]{$\beta$} (c6);
+		\end{tikzpicture}
+	\]
+The unlabeled vertical 1-morphisms on the sides are identities, $\beta$ is the braiding of the symmetric monoidal category $\A$, the map $\hat{\chi}$ is the globular 2-morphism interchanging the tensor product and horizontal composition of the symmetric monoidal double category $\lCsp(\A)$, and the inwards pointing morphisms are natural maps from the each cospan's feet to its apex.
 
-\noindent
-\textbf{In progress}
+For the decorations, each of the four maps of cospans constituting the above diagram has an associated decoration isomorphism with it, which we label with $\tau_i$ for $i=1,2,3,4$.
+\[
+		\begin{tikzpicture}
+%			\node (a) at (-4,0) {$a+a'$};
+			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c) at (8,0) {$(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
+%			\node (a2) at (-4,1) {$a'+a$};
+			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c2) at (8,1) {$(y_1 \odot y_2) + (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
+%                            \node (a3) at (-4,2) {$a'+a$};
+			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c3) at (8,2) {$(y_1+x_1) \odot (y_2+x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+%                                \node (a5) at (-4,-1) {$a+a'$};
+			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c5) at (8,-1) {$(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+%                                \node (a6) at (-4,-2) {$a'+a$};
+			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c6) at (8,-2) {$(y_1+x_1) \odot (y_2+x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+			\path[->,font=\scriptsize,>=angle 90]
+%			(a) edge node[above]{$$} (b)
+%			(c) edge node[above]{$$} (b)
+%                                (a2) edge node[above]{$$} (b2)
+%			(c2) edge node[above]{$$} (b2)
+%                                (a) edge node[left]{$\beta$} (a2)
+                                (b) edge node[left]{$\beta$} (b2)
+(b) edge node[right]{$\tau_1$} (b2)
+%			(c) edge node[right]{$\beta$} (c2)
+%                                (a3) edge node[above]{$$} (b3)
+%			(c3) edge node[above]{$$} (b3)
+%                               (a2) edge node[above]{$$} (a3)
+                                (b2) edge node[left]{$\hat{\chi}$} (b3)
+(b2) edge node[right]{$\tau_2$} (b3)
+%			(c2) edge node[above]{$$} (c3)
+%                                (a5) edge node[above]{$$} (b5)
+%			(c5) edge node[above]{$$} (b5)
+%                                (a) edge node[above]{$$} (a5)
+                                (b) edge node[left]{$\hat{\chi}$} (b5)
+(b) edge node[right]{$\tau_3$} (b5)
+%			(c) edge node[above]{$$} (c5)
+%                               (a6) edge node[above]{$$} (b6)
+%			(c6) edge node[above]{$$} (b6)
+%                                (a5) edge node[left]{$\beta$} (a6)
+                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
+ (b5) edge node[right]{$\tau_4$} (b6);
+%			(c5) edge node[left]{$\beta$} (c6);
+		\end{tikzpicture}
+	\]
+Explicitly, the four decoration isomorphisms are given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\tau_1 \colon F(\beta)((x_1 \odot x_2)+(y_1 \odot y_2)) \to (y_1 \odot y_2)+(x_1 \odot x_2)$};
+\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \odot y_2)+(x_1 \odot x_2)) \to (y_1+x_1) \odot (y_2+x_2)$};
+\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \odot x_2)+(y_1 \odot y_2)) \to (x_1+y_1) \odot (x_2+y_2)$};
+\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta \odot \beta)((x_1+y_1)\odot(x_2+y_2)) \to (y_1+x_1)\odot(y_2+x_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge[color=white] node[above]{$$} (A);
+%(B) edge node[right]{$\chi$} (D)
+%(A) edge node[left]{$\chi$} (C)
+%(C) edge node[above]{$\beta \odot \beta$} (D);
+\end{tikzpicture}
+\]
+These decoration isomorphisms then form the following commutative diagram in the category $F((n_1+m_1)+_{b'+b}(n_2+m_2))$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$F(\hat{\chi} \beta)((x_1 \odot x_2)+(y_1 \odot y_2))$};
+\node (B) at (4,0) {$F(\hat{\chi})((y_1 \odot y_2)+(x_1 \odot x_2))$};
+\node (C) at (0,-1) {$F(\beta \odot \beta)((x_1+y_1) \odot (x_2 + y_2))$};
+\node (D) at (4,-1) {$(y_1+x_1) \odot (y_2+x_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$F(\hat{\chi})(\tau_1)$} (B)
+(B) edge node[right]{$\tau_2$} (D)
+(A) edge node[left]{$F(\beta \odot \beta)(\tau_3)$} (C)
+(C) edge node[above]{$\tau_4$} (D);
+\end{tikzpicture}
+\]
+where in the top left corner, we note that $$F(\hat{\chi} \beta)((x_1 \odot x_2)+(y_1 \odot y_2)) = F((\beta \odot \beta)\hat{\chi})((x_1 \odot x_2)+(y_1 \odot y_2))$$
+as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. The other diagrams in the definition of symmetric monoidal double category can be shown to commute similarly.
 %!!! Kenny: Probably cut stuff out below this.
 % Christina: Commented them out for now, but should definitely have a close look to see if anything is needed when we go over and remake this proof.
 \begin{comment}
