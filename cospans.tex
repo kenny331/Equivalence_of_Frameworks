@@ -3444,17 +3444,7 @@ Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symme
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between
-\begin{itemize}
-\item 
-\define{monoidal opindexed categories}: lax monoidal pseudofunctors $F\maps\A\to\Cat$
-\end{itemize}
-and
-\begin{itemize}
-\item \define{monoidal opfibrations}: opfibrations
-$U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.
-\end{itemize}
-If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between either of these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck construction $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.   Further, all these correspondences lift to 2-equivalences:
 
 \begin{lem}\label{lem:MonGroth}
  There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into monoidal categories. 
@@ -3469,7 +3459,7 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In
 \Updownarrow \notag\\
 \textrm{pseudofunctors }F\maps\A\to\bicat{MonCat} \notag
 \end{gather}
-The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\mu,\mu_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{sec:2cats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
+The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\mu,\mu_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
 \begin{equation}\label{eq:explicitstructure1}
 \otimes_a\maps F(a)\times F(a)\xrightarrow{\mu_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
 I_a\maps\mathbf{1}\xrightarrow{\mu_0}F(0)\xrightarrow{F(!)}F(a)
@@ -3477,7 +3467,7 @@ I_a\maps\mathbf{1}\xrightarrow{\mu_0}F(0)\xrightarrow{F(!)}F(a)
 where $\nabla$ is the fold map. 
 \end{proof}
 
-These correspondences further restrict to the case when the Grothendieck category is specifically cocartesian monoidal itself. In that case, opfibrations
+These correspondences further restrict to the case when the Grothendieck category $(X,\otimes)$ is specifically cocartesian monoidal itself. In that case, opfibrations
 $(\X,+)\to(\A,+)$ that strictly preserve chosen coproducts and initial object
 %, and such that $+$ preserves cocartesian liftings, Christina: this should ALWAYS be the case, by universal properties!
 bijectively correspond to pseudofunctors into the 2-category of cocartesian categories; for more details, see \cite[Corollary 4.7]{MV} and the related discussion.
@@ -5542,8 +5532,11 @@ They constructed this decorated cospan category via Fong's original formalism, u
 \section{}
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
-\begin{itemize}
-\item 
+\subsection{Bicategories}
+\label{subsec:bicats}
+
+%\begin{itemize}
+%\item 
 %for every pair of objects $a$ and $b$ of $\mathbf{A}$, we have natural isomorphisms
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -5560,7 +5553,7 @@ In this appendix, we gather some well-known concepts required to make the materi
 %\end{tikzpicture}
 %\]
 %where $(\sigma_a)^*$ and $(\sigma_b)_*$ are the functors induced by precomposition and postcompositon, respectively. Thus 
-for each morphism $f \maps a \to b$ in $\mathbf{A}$, an invertible natural 2-morphism $\sigma_f \maps G(f) \sigma_a \xrightarrow{\sim} \sigma_{b} F(f)$ in $\mathbf{B}$
+%for each morphism $f \maps a \to b$ in $\mathbf{A}$, an invertible natural 2-morphism $\sigma_f \maps G(f) \sigma_a \xrightarrow{\sim} \sigma_{b} F(f)$ in $\mathbf{B}$
 %:
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -5576,8 +5569,8 @@ for each morphism $f \maps a \to b$ in $\mathbf{A}$, an invertible natural 2-mor
 %(C) edge node[above]{$G(f)$} (D);
 %\end{tikzpicture}
 %\]
-compatible with composition and identities.
-\end{itemize}
+%compatible with composition and identities.
+%end{itemize}
 %such that for each composable pair of morphisms $f \maps a \to b$ and $g \maps b \to c$ of $\mathbf{A}$, the following diagrams commute:
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -5616,8 +5609,7 @@ compatible with composition and identities.
 %\end{tikzpicture}
 %\]
 %Christina: I removed the above, they are not needed I believe. Check again in the end.
-We denote by $[\bA,\bB]_\pse$ the 2-category 
-of pseudofunctors, pseudonatural transformations and modifications.
+
 
 A \define{monoidal} bicategory $\bicat{A}$ comes with a pseudofunctor $\otimes\maps\bicat{A}\times\bicat{A}\to\bicat{A}$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. RIGHT???
 A \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality.  A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
@@ -5672,6 +5664,8 @@ The above in fact provides the one direction of the following well-known equival
         \begin{displaymath}
             [\A,\Cat]_\pse \simeq \OpFib(\A)
         \end{displaymath}
+           where $[\A,\Cat]_\pse$ is the 2-category 
+of pseudofunctors from $\A$ to $\Cat$, pseudonatural transformations, and modifications.
 %        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
 %        \begin{equation}\label{eq:Gr_equiv}
 %        \ICat\simeq\Fib    
