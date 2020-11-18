@@ -1,6 +1,6 @@
-% Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % 2020/11/12 - JB
+% 2020/11/17 
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -4522,6 +4522,7 @@ Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys
 \label{thm:bicat}
 Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then there exists a symmetric monoidal bicategory $F \mathbf{Csp}$ in which:
 \begin{enumerate}
+\begin{itemize}
 \item objects are those of $\A$,
 \item morphisms are $F$-decorated cospans:
 \[
@@ -4554,6 +4555,7 @@ Let $\A$ be a category with finite colimits and $F \maps (\A, +) \to (\Cat,\time
 \]
 together with a morphism $\tau \maps F(h)(d) \to d'$ in $F(c')$.
 \end{enumerate}
+\end{itemize}
 \end{thm}
 
 \begin{proof}
@@ -5535,12 +5537,7 @@ They constructed this decorated cospan category via Fong's original formalism, u
 \section{}
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
-\subsection{2-categories}\label{sec:2cats}
-For standard 2-categorical material, we refer the reader to e.g. \cite{KS} or \cite{DS} for monoidal structures. %!!!Christina: also John's paper on monoidal 2-structures?
-Recall that a \define{pseudofunctor} $F\maps\bicat{A}\to\bicat{B}$ between bicategories $\bicat{A}$ and $\bicat{B}$ is functorial up to coherent natural isomorphism, namely for composable arrows we have $F(g\circ f)\cong Fg\circ Ff$ and $F(1_a)\cong1_{Fa}$ satisfying standard axioms. 
-Given pseudofunctors $F,G\maps \bicat{A} \to \bicat{B}$, a \define{pseudonatural transformation} $\sigma$ consists of
 \begin{itemize}
-\item for each object $a \in \bicat{A}$, a morphism $\sigma_a \maps F(a) \to G(a)$ in $\bicat{B}$ 
 \item 
 %for every pair of objects $a$ and $b$ of $\mathbf{A}$, we have natural isomorphisms
 %\[
@@ -5614,10 +5611,11 @@ compatible with composition and identities.
 %\end{tikzpicture}
 %\]
 %Christina: I removed the above, they are not needed I believe. Check again in the end.
-We denote by $[\bicat{A},\bicat{B}]_\pse$ the 2-category 
+We denote by $[\bA,\bB]_\pse$ the 2-category 
 of pseudofunctors, pseudonatural transformations and modifications.
 
 A \define{monoidal} bicategory $\bicat{A}$ comes with a pseudofunctor $\otimes\maps\bicat{A}\times\bicat{A}\to\bicat{A}$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bicat{A}\to\bicat{B}$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality. This is commonly also called `weak monoidal' pseudofunctor. A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. RIGHT???
+A \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\mu_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\mu_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality.  A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \mu_{a,b}\cong\mu_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
 
 
 \subsection{Fibrations}\label{sec:fibrations}
@@ -5708,6 +5706,7 @@ The above in fact provides the one direction of the following well-known equival
 %!!! Christina: Kenny, would you mind cleaning this section up to? I don't believe we need the full fledged definitions here by the way.
 
 Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
+Before defining double categories, it is helpful to have the following picture in mind. A double category has 2-morphisms shaped like:
 
 \[
 \begin{tikzpicture}[scale=1]
