@@ -3683,7 +3683,7 @@ This was proved in \cite[Theorems~2.3 \& 3.9]{BC2}. In particular, the double ca
 The following theorem establishes the isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of finitely cocomplete categories, finitely cocontinuous functors and natural transformations.   (In \cite{BC} we took as objects finitely cocomplete categories with chosen finite colimits, just so we could turn these into symmetric monoidal categories without any further choices!!!  Should we do that here???) {\chris Can you tell if we can get away without doing that?}
 
 \begin{thm} \label{thm:equiv}
-Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are equivalent, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
+Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
@@ -3703,7 +3703,13 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In
 \Updownarrow \notag\\
 \textrm{pseudofunctors }F\maps\A\to\bicat{MonCat} \notag
 \end{gather}
-The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\mu,\mu_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
+The second equivalence was also earlier observed by Shulman \cite{Shulman2008}.
+
+In more detail, if $(\mu,\mu_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ is given by
+\begin{equation}\label{eq:explicitstructure2}
+\Big(a,x\in F(a)\Big)\ot_{\X}\Big(b,y\in F(b)\Big)=\Big(a+b,\mu_{a,b}(x,y)\in F(a+b)\Big), \qquad I_{\X}=\Big(0_A,\mu_0\Big)
+\end{equation}
+Moreover, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
 \begin{equation}\label{eq:explicitstructure1}
 \otimes_a\maps F(a)\times F(a)\xrightarrow{\mu_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
 I_a\maps\mathbf{1}\xrightarrow{\mu_0}F(0)\xrightarrow{F(!)}F(a)
@@ -3711,7 +3717,7 @@ I_a\maps\mathbf{1}\xrightarrow{\mu_0}F(0)\xrightarrow{F(!)}F(a)
 where $\nabla$ is the fold map. 
 \end{proof}
 
-These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes)$ is specifically cocartesian monoidal itself. In that case, opfibrations $(\X,+)\to(\A,+)$ that (strictly) preserve (chosen) coproducts and initial object
+These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+)\to(\A,+)$ that (strictly) preserve coproducts and initial object
 %, and such that $+$ preserves cocartesian liftings, Christina: this should ALWAYS be the case, by universal properties!
 bijectively correspond to pseudofunctors into the 2-category of cocartesian categories; for more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
