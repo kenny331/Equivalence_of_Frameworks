@@ -3707,7 +3707,7 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In
 \end{gather}
 The second equivalence was also earlier observed by Shulman \cite{Shulman2008}.
 
-In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ is given by
+In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ (\cref{def:GrothCat}) is given by
 \begin{equation}\label{eq:explicitstructure2}
 \Big(a,x\in F(a)\Big)\ot_{\X}\Big(b,y\in F(b)\Big)=\Big(a+b,\phi_{a,b}(x,y)\in F(a+b)\Big), \qquad I_{\X}=\Big(0_A,\phi_0\Big)
 \end{equation}
@@ -3734,7 +3734,23 @@ the following are equivalent:
 \end{enumerate}
 \end{lem}
 
-The first part formulates the existence of colimits \emph{locally} in each fibre, which for $\ca{J}$ a finite category can equivalently be expressed by the corresponding pseudofunctor $F\maps\A\to\Cat$ landing on the sub-2-category $\Rex$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. Combining this with \cref{lem:MonGroth}, we deduce the following.
+The first part formulates the existence of colimits \emph{locally} in each fibre, which for $\ca{J}$ a finite category can equivalently be expressed by the corresponding pseudofunctor $F\maps\A\to\Cat$ landing on the sub-2-category $\Rex$ of finitely cocomplete categories and functors that preserve colimits. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$. As an example, suppose that $\A$ has pushouts and a Grothendieck opfibration $U\colon\inta F\to\A$ has fibrewise pushouts preserved by its reindexing functors. We can construct pushouts in $\inta F$ as follows: 
+\begin{equation}\label{eq:globalpushout}
+ \begin{tikzcd}[ampersand replacement=\&,column sep=1in,row sep=.5in]
+\& (a+_bc,w)\ar[dd,phantom, very near start,"\upback"description] \& \\
+(a,x)\ar[ur] \&\& (c,z)\ar[ul] \\
+\& (b,y)\ar[ul,"{\begin{cases}f\maps b\to a &\textrm{in }\A \\k\maps F(f)y\to x &\textrm{in }F(a)\end{cases}}"description]\ar[ur,"{\begin{cases}g\maps b\to c &\textrm{in }\A \\\ell\maps F(g)y\to z &\textrm{in }F(c)\end{cases}}"description] \&
+ \end{tikzcd}
+\end{equation}
+which is the pushout $\sigma_a\colon a\to a+_bc\leftarrow c:\sigma_c$ in $\A$ on the first variable, and $w$ is the pushout in the fibre $F(a+_bc)$
+\begin{displaymath}
+\begin{tikzcd}
+ & w \ar[dd,phantom, very near start,"\upback"description] & \\
+ F(\sigma_a)x\ar[ur] & & F(\sigma_c)z\ar[ul] \\
+ & F(\sigma_a)(Ff(y))\cong F(\sigma_n)(Fg(y))\ar[ul,"F(\sigma_a)k"]\ar[ur,"F(\sigma_c)\ell"'] &
+ \end{tikzcd}
+\end{displaymath}
+In similar ways we can construct the initial object and coproducts in a Grothendieck category. In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. %Christina: I suspect that's why for composition we get isomorphism below - using pushouts in which I cannot use the monoidal structure of the functor - whereas for coproducts and initial object we get equality since they were constructed in a very specific way. Related to the subtlety comment below.
 
 \begin{cor}\label{cor:fcocMonGroth}
  Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If its corresponding pseudofunctor $\A\to\bicat{MonCat}$ via \cref{monGroth} factors through $\Rex$, then the Grothendieck category $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
@@ -3759,28 +3775,30 @@ On a highly related note, in what follows we are also interested in the existenc
  \end{equation}
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $f$ and $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
 \end{proof}
-
-Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
+Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
 %For a discussion on the unusual strict cocontinuity condition...
 %\begin{lem}\label{prop:CV}\cite[Proposition~3.3]{CV}
 %Suppose $\U\maps\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ have chosen pushouts and initial objects and $\U$ strictly preserves them, %then $\U$ is an opfibration.
 %\end{lem}
 
-\begin{rmk}\label{rmk:important}
-Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
-The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
-\begin{displaymath}
-\xymatrix @C=.4in @R=.2in
-{0_\X \ar @{.>}[d]\ar[rr]^-{\mathrm{Cocart}(0_\X,u_a)} && (u_a)_!(0_X)=:\bot_a\ar @{.>}[d] & \textrm{in }\X  \\
-0_\A\ar[rr]^-{\exists!u_a} && a & \textrm{in }\A}
-\end{displaymath}
-Moreover, if the opfibration $U$ comes from the Grothendieck construction on a pseudofunctor $F\maps\A\to\Cat$, the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$ therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category notation (\cref{def:GrothCat}).
-
-Finally, if the original pseudofunctor is in fact lax monoidal $(F,\phi,\phi_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
-\begin{equation}\label{eq:initialinfibre}
-\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
-\end{equation}
-\end{rmk}
+%Christina: Don't think the following is needed, keep for now just in case.
+%\begin{rmk}\label{rmk:important}
+%The way in which these two conditions give one another in this case is as follows. 
+%The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
+%\begin{displaymath}
+%\xymatrix @C=.4in @R=.2in
+%{0_\X \ar @{.>}[d]\ar[rr]^-{\mathrm{Cocart}(0_\X,u_a)} && (u_a)_!(0_X)=:\bot_a\ar @{.>}[d] & \textrm{in }\X  \\
+%0_\A\ar[rr]^-{\exists!u_a} && a & \textrm{in }\A}
+%\end{displaymath}
+%Moreover, i
+%If the opfibration $U$ comes from the Grothendieck construction on a pseudofunctor $F\maps\A\to\Cat$,
+%the reindexing functors $(u_a)_!$ of the opfibration are precisely $F(u_a)$ therefore 
+%the fibrewise initial object is $\bot_a=(a,F(u_a)(0_\X))$.
+%In fact, if the original pseudofunctor is lax monoidal $(F,\phi,\phi_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
+%\begin{equation}\label{eq:initialinfibre}
+%\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
+%\end{equation}
+%\end{rmk}
 
 We have now laid all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\Cat$.
 
@@ -3791,7 +3809,7 @@ By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors throug
 \begin{displaymath}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{displaymath}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(u_a)\circ\phi_0(*)$ according to \cref{eq:initialinfibre} for $(\phi,\phi_0)$ the monoidal structure of $F$.
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$.
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $F\lCsp$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{v}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
 \begin{equation}\label{eq:scsphor1cell}
@@ -3835,7 +3853,7 @@ for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bo
  \end{tikzcd}\qquad
   \mathbf{1}\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
 \end{equation}
-whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\inta F$ (constructed by \cref{lem:fibrewiselimits}) %!!! Christina: would you like me to write how global pushouts are constructed from fiberwise ones and incorporate it earlier say at \cref{rmk:important} where we do so for initial objects?
+whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\inta F$ \cref{eq:globalpushout}
 produces 
 \begin{displaymath}
  \begin{tikzcd}[column sep={.7in,between origins}]
