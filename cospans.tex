@@ -1,8 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/11/19
-% 2020/11/12 - JB
+% 2020/11/20
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -3711,9 +3710,9 @@ the triple $(H,E,\theta)$ induces a symmetric monoidal double functor $\lH \maps
 %\newpage
 %Scratch work for Petri net problem
 %\newline
-%Let $P = (s_1,t_1 \maps T_1 \to \mathbb{N}(S_1))$ and $Q = (s_2,t_2 \maps T_2 \to \mathbb{N}(S_2))$. We want to show that the functor $F \maps \textrm{Petri} \to \textrm{CMC}$ preserves pushouts of cospans of the form $$P \xleftarrow{} L(Y) \xrightarrow{} Q$$ meaning that $F(P+_{L(Y)} Q) \cong F(P) +_{F(L(Y))} F(Q)$. Here, $L \maps \textrm{Set} \to \textrm{Petri}$ is the left adjoint which sends a set $Y$ to the discrete Petri net with $Y$ as its set of species and no transitions. Thus no transitions are identified in the pushout $P+_{L(Y)} Q$, and so the set of transitions of $P+_{L(Y)} Q$ is given by $$\textrm{Trans}(P)+\textrm{Trans}(Q).$$ Thus the morphisms \emph{contributed from transitions} in both $F(P+_{L(Y)}Q)$ and $F(P)+_{F(L(Y)} F(Q)$ are the same. If we can show that $$\textrm{Ob}(F(P+_{L(Y)}Q) \cong \textrm{Ob}(F(P)+_{F(L(Y))} F(Q)$$ then the remaining morphisms in each commutative monoidal category will be canonically isomorphic as sets.
+%Let $P = (s_1,t_1 \maps T_1 \to \N(S_1))$ and $Q = (s_2,t_2 \maps T_2 \to \N(S_2))$. We want to show that the functor $F \maps \textrm{Petri} \to \textrm{CMC}$ preserves pushouts of cospans of the form $$P \xleftarrow{} L(Y) \xrightarrow{} Q$$ meaning that $F(P+_{L(Y)} Q) \cong F(P) +_{F(L(Y))} F(Q)$. Here, $L \maps \textrm{Set} \to \textrm{Petri}$ is the left adjoint which sends a set $Y$ to the discrete Petri net with $Y$ as its set of species and no transitions. Thus no transitions are identified in the pushout $P+_{L(Y)} Q$, and so the set of transitions of $P+_{L(Y)} Q$ is given by $$\textrm{Trans}(P)+\textrm{Trans}(Q).$$ Thus the morphisms \emph{contributed from transitions} in both $F(P+_{L(Y)}Q)$ and $F(P)+_{F(L(Y)} F(Q)$ are the same. If we can show that $$\textrm{Ob}(F(P+_{L(Y)}Q) \cong \textrm{Ob}(F(P)+_{F(L(Y))} F(Q)$$ then the remaining morphisms in each commutative monoidal category will be canonically isomorphic as sets.
 
-%Now, what can we say about $\textrm{Ob}(F(P+_{L(Y)}Q))$ vs. $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))$? Well, $\textrm{Ob}(F(P+_{L(Y)}Q)) = \mathbb{N}(S_1+_Y S_2)$ and $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))= \mathbb{N}(S_1) +_{\mathbb{N}(Y)} \mathbb{N}(S_2)$.
+%Now, what can we say about $\textrm{Ob}(F(P+_{L(Y)}Q))$ vs. $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))$? Well, $\textrm{Ob}(F(P+_{L(Y)}Q)) = \N(S_1+_Y S_2)$ and $\textrm{Ob}(F(P)+_{F(L(Y))} F(Q))= \N(S_1) +_{\N(Y)} \N(S_2)$.
 
 %\newpage
 
@@ -3870,9 +3869,7 @@ In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; 
  Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
-\begin{rmk}\label{rmk:interestingrmk}
 Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibres, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category by the fibrewise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
-\end{rmk}
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
 
@@ -3989,11 +3986,11 @@ Since both double categories are symmetric monoidal under the running assumption
 \lE(M)\ot\lE(M')&\;\stackrel{\cref{eq:tensordecoration}}{=}\;a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\mathbf{1}\xrightarrow{x\times x'}F(m)\times F(m')\xrightarrow{\phi_{m,m'}}F(m+m') \\
 \lE(M\ot M')&\;\stackrel{\cref{eq:tensorstuctured}}{=}\;\lE\Big((a+a',\bot_{a+a'})\to\underbrace{(m+m',F(\iota_m)x+F(\iota_{m'})x')}_{\cref{eq:fibrewisecoprod}}\leftarrow(b+b',\bot_{b+b'})\Big)%=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\phi_{m,m'}(x,x')
 \end{align*}
-which are uniquely isomorphic $F(\iota_m)x+F(\iota_{m'})\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag}, as also discussed in \cref{rmk:interestingrmk}.
+which are uniquely isomorphic $F(\iota_m)x+F(\iota_{m'})\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag}, as also discussed after \cref{cor:fcocMonGroth}.
 Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \mathbf{1}\to F(0_A)$,
 which is an initial object and as such isomorphic to $0_{F(0)}$
 %=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
-again by \cref{eq:explicitstructure2} and the discussion in \cref{rmk:interestingrmk}.
+again by \cref{eq:explicitstructure2} and the discussion after \cref{cor:fcocMonGroth}.
 It can be verified that with the above structure, $\lE_1$ is also a braided monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
 
@@ -4361,7 +4358,7 @@ In this section we present several examples.  The first was mentioned in the Int
 
 In earlier work we explained the problems with Fong's original decorated cospan category of open graphs  \cite[Sec.\ 5]{BC}.  We also showed how to fix these using structured cospans. Our new approach to decorated cospans provides another, equivalent solution to these problems.
 
-For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are finite sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, where a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are finite sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ where the objects are graphs and a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -4522,11 +4519,11 @@ the identity on $N$: that is, a function $f \maps E \to E'$ such that these diag
 
 In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually an honest functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to any graph structure $s,t \maps E \to M$ to the graph structure $f s, f t \maps E \to N$.   
 
-We can make $F$ into a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
+We can make $F$ into a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
 \[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps F(\emptyset) \to 1 \in \Cat. \]  
-The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.
+The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   MORE ABOUT THE WEAK MONOIDALITY!!!
 
-It is well-known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
+It is well known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
 
 Starting from the symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
@@ -4574,9 +4571,9 @@ We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obta
 \subsection{Circuits}
 \label{subsec:circuits}
 
-We can also use structured or decorated cospans to describe electrical circuits \cite{BC,BCR,BF}.  The key idea is to use graphs with labeled edges, where the labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, or other circuit elements.   The whole theory of open graphs discussed in the previous section can be recapitulated for labeled graphs.  Since everything works the same way, we can be brief.
+Structured and decorated cospans are a powerful tool for studying categories where the morphisms are electrical circuits---see \cite{BCR,BF} and \cite[Section 6.1]{BC}.  The key idea is to use open graphs with labeled edges to describe circuits, where the labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, or other circuit elements.   The whole theory of open graphs discussed in the previous section can be recapitulated for labeled graphs.  Since the abstract formalism works the same way, we can be brief.   Concrete applications of this formalism are discussed in the references.
 
-Fix a set $\La$ to serve as edge labels.  Define an $\La$-\define{graph} to be a graph $s,t\maps E\to N$ equipped with a function $\ell \maps E \to \La$.  There is a category $\Graph_\La$ with $\La$-graphs as objects, where a morphism from the $\La$-graph 
+Fix a set $\La$ to serve as edge labels.  Define an $\La$-\define{graph} to be a graph $s,t\maps E\to N$ equipped with a function $\ell \maps E \to \La$.  There is a category $\Graph_\La$ where the objects are $\La$-graphs and a morphism from the $\La$-graph 
  \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
  to the $\La$-graph 
 \[ \xymatrix{\La & E' \ar@<2.5pt>[r]^{s'} \ar@<-2.5pt>[r]_{t'} \ar[l]_{\ell'} & N'} \]
@@ -4628,7 +4625,7 @@ This sets the stage for structured cospans: \cref{thm:SC} gives us a symmetric m
 \]
 For example, here is a $\La$-circuit with $\La = (0,\infty)$:
 \[
-\scalebox{0.6}{
+\scalebox{1}{
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
 		\node [contact] (n1) at (-2,0) {$\bullet$};
@@ -4657,10 +4654,10 @@ For example, here is a $\La$-circuit with $\La = (0,\infty)$:
 		\node [style=none] (ABR) at (-2.6,-1.4) {};
 		\node [style=none] (ABL) at (-3.4,-1.4) {};
 
-		\node [style=none] (X) at (-3,1.8) {$1$};
+		\node [style=none] (X) at (-3,1.8) {$X$};
 		\node [style=inputdot] (inI) at (-2.8,0) {};
 		
-		\node [style=none] (Z) at (3,1.8) {$3$};
+		\node [style=none] (Z) at (3,1.8) {$Y$};
 	 \node [style=inputdot] (outI') at (2.8,1) {};
 	 \node [style=inputdot] (outI'') at (2.8,0) {};
 	 \node [style=inputdot] (outI''') at (2.8,-1) {};
@@ -4694,7 +4691,7 @@ For example, here is a $\La$-circuit with $\La = (0,\infty)$:
 \end{tikzpicture}
 }
 \]
-The edges here can represent wires, with the positive real numbers labeling them serving to describe the resistance of a resistor on each wire.  The points in the boxes represent `terminals': that is, points where we allow ourselves to attach a wire from another circuit.
+The edges here represent wires, with the positive real numbers labeling them serving to describe the resistance of resistors on the wires.  The elements of the sets $X$ and $Y$ represent `terminals': that is, points where we allow ourselves to attach a wire from another circuit.
 
 We can also describe $\La$-circuits using decorated cospans.   There is a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat, \times)$ such that for any finite set $N$, the category $F(N)$ has:
 \begin{itemize}
@@ -4704,23 +4701,17 @@ We can also describe $\La$-circuits using decorated cospans.   There is a symmet
 This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:equiv} we can show that this is equivalent, as a symmetric monoidal double category, to ${}_L \lCsp(\Graph_\La)$.
 
 \subsection{Petri nets}
-In a previous work, Master and the first author used structured cospans to obtain a symmetric monoidal double category of `open Petri nets' \cite{BM}.  A Petri net is given by a diagram in $\Set$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (B) at (1,0) {$T$};
-\node (C) at (2,0) {$\mathbb{N}[S].$};
-\path[->,font=\scriptsize,>=angle 90]
-(B)edge[bend left] node[above]{$s$}(C)
-(B)edge[bend right] node[below]{$t$}(C);
-\end{tikzpicture}
-\]
-Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\mathbb{N}[S]$ is the underlying set of the free commutative monoid on $S$. Each transition then has a formal linear combination of species given by an element of $\mathbb{N}[S]$ as its source and target as prescribed by the functions $s$ and $t$, respectively. An example of a Petri net is given by:
+\label{subsec:petri}
+
+Petri nets are widely used as models of systems in computer science, chemistry, population biology and epidemiology \cite{GiraultValk,Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}.  We can also use decorated cospans to construct this double category.  Again this example is very similar to the example of open graphs.
+
+ A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$. Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
 \[
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=species] (I) at (0,1) {H};
 		\node [style=species] (T) at (0,-1) {O};
-		\node [style=transition] (W) at (2,0) {$\alpha$};
+		\node [style=transition] (W) at (2,0) {$\phantom{\Big|}\alpha$\phantom{\Big|}};
 		\node [style=species] (Water) at (4,0) {$\textnormal{H}_2$O};
 %		\node [style=transition] (Something) at (6,0) {\tiny{Something}};
 %		\node [style=species] (A) at (8,1) {O$\textnormal{H}^{-}$};
@@ -5675,6 +5666,8 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 %\bibitem{GP2} M.\ Grandis and R.\ Par\'e, Adjoints for double categories, 
 % \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{45} (2004), 193--240.
 
+\bibitem{GiraultValk} C.\ Girault and R.\ Valk, \textsl{Petri Nets for Systems Engineering: a Guide to Modeling, Verification, and Applications}, Springer, Berlin, 2013.
+
 \bibitem{Gray} J. \ Gray, Fibred and Cofibred categories, \emph{Proc. Conf. Categorical Algebra} (La Jolla, California, 1965), 21---83, New York, 1966
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
@@ -5705,6 +5698,8 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 \bibitem{Niefield} S.~Niefield, Span, cospan, and other double categories, \textsl{Theory Appl.\ Categ.} \textbf{26} (2012), 729--742. Available as \href{https://arxiv.org/abs/1201.3789}{arXiv:1201.3789}.
 
 %\bibitem{Panan} F.\ Clerc, H.\ Humphrey and P.\ Panangaden, Bicategories of Markov processes,  to appear.
+
+\bibitem{Peterson} J.\ L.\ Peterson, \textit{Petri Net Theory and the Modeling of Systems}, Prentice--Hall, New Jersey, 1981.  
 
 \bibitem{PollardThesis} B.\ S.\ Pollard, \textsl{Open Markov Processes and Reaction Networks}, Ph.D. thesis, U. C. Riverside, 2017.  Available as \href{https://arxiv.org/abs/1709.09743}{arXiv:1709.09743}.
 
