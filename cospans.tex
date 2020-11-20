@@ -5008,9 +5008,9 @@ In this section we present several examples.  The first was mentioned in the Int
 \subsection{Graphs}
 \label{subsec:graphs}
 
-In earlier work \cite[Sec.\ 5]{BC} we explained the flaws in Fong's original construction of a category of open graphs using decorated cospans.  We also showed how to fix them using structured cospans. Our new approach to decorated cospans provides another, equivalent way to fix these flaws.
+In earlier work we explained the problems with Fong's original decorated cospan category of open graphs  \cite[Sec.\ 5]{BC}.  We also showed how to fix these using structured cospans. Our new approach to decorated cospans provides another, equivalent solution to these problems.
 
-For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are arbitrary sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, where a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are finite sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ with graphs as objects, where a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -5035,9 +5035,7 @@ For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$
 \end{tikzpicture}
 \]
 
-We can easily build a double category with `open graphs' as horizontal 1-cells using the machinery of structured cospans.  Let $L \maps \Set \to \Graph$ be the functor that assigns to a set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Set$ that assigns to a graph $G$ its underlying set of vertices $U(G)$. 
-
-Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
+We can easily build a double category with `open graphs' as horizontal 1-cells using the machinery of structured cospans.  Let $L \maps \Fin\Set \to \Graph$ be the functor that assigns to a finite set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Fin\Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Fin\Set$ that assigns to a graph $G$ its underlying set of vertices $U(G)$.   Thus, using structured cospans and appealing to \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
 \begin{itemize}
 \item objects are finite sets,
 \item a vertical 1-morphism from $X$ to $Y$ is a function $f \maps X \to Y$,
@@ -5146,7 +5144,7 @@ Here is an example of an open graph:
 }
 \]
 
-We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any set $N$ there is a category $F(N)$ where:
+We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any finite set $N$ there is a category $F(N)$ where:
 \begin{itemize}
 \item An object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$.
 \item A morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is
@@ -5171,11 +5169,13 @@ the identity on $N$: that is, a function $f \maps E \to E'$ such that these diag
 \]
 \end{itemize}
 
-In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually a functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to map any graph structure $s,t \maps E \to M$ to the graph structure $f \circ s, f \circ t \maps E \to N$. 
+In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually an honest functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to any graph structure $s,t \maps E \to M$ to the graph structure $f s, f t \maps E \to N$.   
 
-We obtain a symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$ by equipping $F$ with suitable functors $\phi_{N,N'} \maps F(N) \times F(N') \to F(N+N')$ for every pair of sets $N$ and $N'$, and also a functor $\phi_0 \maps F(\emptyset) \to 1 \in \Set$.  The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$, which is defined using disjoint union.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.
+We can obtain a symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$ by equipping $F$ with suitable functors $\phi_{N,N'} \maps F(N) \times F(N') \to F(N+N')$ for every pair of finite sets $N$ and $N'$, and also a functor $\phi_0 \maps F(\emptyset) \to 1 \in \Cat$.  The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.
 
-Given the symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
+It is well-known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
+
+Starting from the symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
 \item objects are sets,
 \item a vertical 1-morphism from $X$ to $X'$ is a function $f \maps X \to X'$,
@@ -5216,7 +5216,7 @@ which can also be thought of as an open graph from $X$ to $Y$,
 is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms.  One can show using \cref{thm:equiv} that $_L \lCsp(\Graph)$ and $F\lCsp$ are equivalent as symmetric monoidal double categories.
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Set$ as its category of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories, and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
 
 \subsection{Circuits}
 \label{subsec:circuits}
