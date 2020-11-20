@@ -3776,9 +3776,9 @@ Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symme
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting.  Suppose $\A$ is a monoidal category.     Then there is a bijection between:
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting.  Suppose $\A$ is a monoidal category.     Then there is a bijection between the following two things:
 \begin{itemize}
-\item lax monoidal structures on a pseudofunctor $F\maps\A\to\Cat$, and
+\item lax monoidal structures on a pseudofunctor $F\maps\A\to\Cat$
 \item monoidal structures on $\inta F$ such that $U \maps \inta F \to \A$ is strict monoidal and the tensor product in $\inta F$ preserves cocartesian liftings.  
 \end{itemize}
 We call the former \define{monoidal opindexed categories}, and the latter \define{monoidal opfibrations}.     If the monoidal structure of $\A$ is cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.  These correspondences can be enhanced to 2-equivalences:
@@ -3792,9 +3792,9 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
 \Updownarrow \notag\\
-\textrm{monoidal opfibrations }U\maps(\X,\otimes)\to(\A,+) \label{monGroth}\\
+\textrm{monoidal opfibrations }U\maps(\X,\otimes)\to(\A,+) \notag\\
 \Updownarrow \notag\\
-\textrm{pseudofunctors }F\maps\A\to\bicat{MonCat} \notag
+\textrm{pseudofunctors } \tilde{F} \maps \A\to\bicat{MonCat} \notag
 \end{gather}
 The second equivalence was also earlier observed by Shulman \cite{Shulman2008}. In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{sec:2cats}, each fibre category $\X_a=F(a)$ obtains a monoidal structure via
 \begin{equation}\label{eq:explicitstructure1}
@@ -3827,22 +3827,22 @@ The first part formulates the existence of colimits \emph{locally} in each fibre
 categories it says that $\X$ is finitely cocomplete and $U$ preserves all finite colimits.  Combining this with \cref{lem:MonGroth}, we deduce the following.
 
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\A\to\bicat{MonCat}$ given in \cref{monGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U_F\maps\inta F\to\A$ preserves them. 
+ Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
-Notice a subtlety in the above formulation: \cref{lem:MonGroth} provides a specifically induced monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} in the cocartesian base case. If that fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to \emph{any} other cocartesian structure on the fibres, by universal property of colimits. Therefore, we can simplify the above assumption to the one of the very \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. However, we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$, and that is why correspondence \cref{monGroth} is necessary.
+Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibres, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. However, we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$, and that is why the correspondence in \cref{lem:MonGroth} is necessary.
 DOES THIS MAKE SENSE TO ALL?? %still, we ARE going to use the formation of coproducts as above. Otherwise someone might think that the monoidal Groth story was redundant here!
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L_F$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
 
-\begin{lem}\label{prop:opfibtolari}
+\begin{lem}[Gray] \label{prop:opfibtolari}
   Let $U \maps\X \to \A$ be an opfibration. Then
   $U$ is a right adjoint `left inverse', a.k.a the unit is the identity, if (and only if) its fibers have
   initial objects which are preserved by the
   reindexing functors.
 \end{lem}
 
-\begin{proof}\emph{(Sketch)}
+\begin{proof}
  This is \cite[Proposition~4.4]{Gray}. The left adjoint $L\maps\A\to\X$ maps an object $a$ to the initial object in its fibre $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$. On morphisms $f\maps a\to a'$, $L(f)$ is defined by
  \begin{equation}\label{eq:Lonarrows}
   \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\stackrel{\chi_a}{\cong}\bot_{a'}
@@ -3850,13 +3850,13 @@ On a highly related note, in what follows we are also interested in the existenc
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $f$ and $\chi_a$ is the unique isomorphism between the initial objects in the fibre above $a'$ since $f_!$ preserves them.
 \end{proof}
 
-Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
+%Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
+
 %For a discussion on the unusual strict cocontinuity condition...
 %\begin{lem}\label{prop:CV}\cite[Proposition~3.3]{CV}
 %Suppose $\U\maps\X\to\A$ is a right adjoint `left inverse'. If $\X$ and $\A$ have chosen pushouts and initial objects and $\U$ strictly preserves them, %then $\U$ is an opfibration.
 %\end{lem}
 
-\begin{rmk}\label{rmk:important}
 Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
 The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
 \begin{displaymath}
@@ -3870,7 +3870,7 @@ Finally, if we start with a lax monoidal pseudofunctor $(F,\phi,\phi_0)$, the mo
 \begin{equation}\label{eq:initialinfibre}
 \mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 \end{equation}
-\end{rmk}
+
 
 We have now laid all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\Cat$.
 
