@@ -2956,7 +2956,7 @@ where given a decoration morphism $\tau \colon F(h)(x) \to x'$, the decoration m
 \]
 \end{itemize}
 %Regarding maps between symmetric monoidal double categories, consider another symmetric lax monoidal pseudofunctor $F' \maps \mathsf{A'} \to \Cat$%, we can obtain another symmetric monoidal double category $F' \lCsp$.
-%a morphism from $F\lCsp$ to $F' \lCsp$ will then be a double functor $\mathbb{H} \maps F\lCsp \to F' \lCsp$ whose object component is given by a finite colimit preserving functor $\mathbb{H}_0 = H \maps \A \to \mathsf{A'}$ and whose arrow component is given by a functor $\mathbb{H}_1$ defined on horizontal 1-cells by:
+%a morphism from $F\lCsp$ to $F' \lCsp$ will then be a double functor $\H \maps F\lCsp \to F' \lCsp$ whose object component is given by a finite colimit preserving functor $\H_0 = H \maps \A \to \mathsf{A'}$ and whose arrow component is given by a functor $\H_1$ defined on horizontal 1-cells by:
 %We define the object component $\lH_0$ to be $H$ and define the arrow component $\lH_1$ on horizontal 1-cells by:
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -3136,7 +3136,7 @@ if we first compose these, the result is:
 (B) edge node [left] {$h' h$} (D);
 \end{tikzpicture}
 \]
-and then the image of this 2-morphism under the double functor $\mathbb{H}$ is given by:
+and then the image of this 2-morphism under the double functor $\H$ is given by:
 and then the image of this 2-morphism under the double functor $\lH$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3159,7 +3159,7 @@ and then the image of this 2-morphism under the double functor $\lH$ is given by
 (B) edge node [left] {$H(h' h)$} (D);
 \end{tikzpicture}
 \]
-On the other hand, applying the double functor $\mathbb{H}$ first gives:
+On the other hand, applying the double functor $\H$ first gives:
 On the other hand, applying the double functor $\lH$ first gives:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3220,7 +3220,7 @@ and then composing these gives:
 (B) edge node [left] {$H(h' h)$} (D);
 \end{tikzpicture}
 \]
-This double functor $\mathbb{H}$ satisfies the equations $S \mathbb{H}_1 = HS$ and $T \mathbb{H}_1=HT$.
+This double functor $\H$ satisfies the equations $S \H_1 = HS$ and $T \H_1=HT$.
 This double functor $\lH$ satisfies the equations $S \lH_1 = HS$ and $T \lH_1=HT$.
 
 Given two composable horizontal 1-cells $M$ and $N$ in $F\lCsp$:
@@ -3253,21 +3253,21 @@ composing first gives $M \odot N$:
 (C) edge node[above]{$\psi j_{c_2} o_2$} (B);
 \end{tikzpicture}
 \]
-where $$d \maps 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(j)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\mathbb{H}(M \odot N)$:
+where $$d \maps 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(j)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\H(M \odot N)$:
 where $$d \maps 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2) \xrightarrow{F(j)}F(c_1 +_b c_2).$$ The image of this horizontal 1-cell is then given by $\lH(M \odot N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (2,0) {$H(c_1+_b c_2)$};
 \node (C) at (4,0) {$H(a_2)$};
-\node (D) at (2,-0.5) {$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F'(H(c_1 +_b c_2))$};
+\node (D) at (2,-0.5) {$\H(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F'(H(c_1 +_b c_2))$};
 \node (D) at (2,-0.5) {$\lH(M \odot N) = \theta_{c_1 +_b c_2}E(d_{M \odot N}) \phi \in F'(H(c_1 +_b c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(\psi j_{c_1} i_1)$} (B)
 (C) edge node[above]{$H(\psi j_{c_2} o_2)$} (B);
 \end{tikzpicture}
 \]
-where $$\mathbb{H}(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F'(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\mathbb{H}$ is given respectively by $\mathbb{H}(M)$ and $\mathbb{H}(N)$:
+where $$\H(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F'(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\H$ is given respectively by $\H(M)$ and $\H(N)$:
 where $$\lH(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xrightarrow{\phi} E(1) \xrightarrow{E(d)} E(F(c_1 +_b c_2)) \xrightarrow{\theta_{c_1 +_b c_2}} F'(H(c_1 +_b c_2)).$$ On the other hand, the image of each horizontal 1-cell under the double functor $\lH$ is given respectively by $\lH(M)$ and $\lH(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3286,22 +3286,22 @@ where $$\lH(M \odot N) = \theta_{c_1 +_b c_2} E(d_{M \odot N}) \phi \maps 1 \xri
 (G) edge node[above]{$H(o_2)$} (F);
 \end{tikzpicture}
 \]
-Composing these then gives $\mathbb{H}(M) \odot \mathbb{H}(N)$:
+Composing these then gives $\H(M) \odot \H(N)$:
 Composing these then gives $\lH(M) \odot \lH(N)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (2.25,0) {$H(c_1)+_{H(b)} H(c_2)$};
 \node (C) at (4.5,0) {$H(a_2)$};
-\node (D) at (2.25,-0.5) {$d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \in F'(H(c_1) +_{H(b)} H(c_2))$};
+\node (D) at (2.25,-0.5) {$d_{\H(M) \odot \H(N)} \in F'(H(c_1) +_{H(b)} H(c_2))$};
 \node (D) at (2.25,-0.5) {$d_{\lH(M) \odot \lH(N)} \in F'(H(c_1) +_{H(b)} H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\Psi j_{H(c_1)} H(i_1)$} (B)
 (C) edge node[above]{$\Psi j_{H(c_2)} H(o_2)$} (B);
 \end{tikzpicture}
 \]
-where $$\hspace{-.4in}\scriptstyle{d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \maps 1 \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_M) \times E(d_N)) \phi} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F'(H(c_1)+ H(c_2)) \xrightarrow{F' (J)} F'(H(c_1) +_{H(b)} H(c_2)).}$$
-We then have a comparison constraint: $$\mathbb{H}_{M,N} \maps \mathbb{H}(M) \odot \mathbb{H}(N) \xrightarrow{\sim} \mathbb{H}(M \odot N)$$given by the globular 2-isomorphism:
+where $$\hspace{-.4in}\scriptstyle{d_{\H(M) \odot \H(N)} \maps 1 \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_M) \times E(d_N)) \phi} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F'(H(c_1)+ H(c_2)) \xrightarrow{F' (J)} F'(H(c_1) +_{H(b)} H(c_2)).}$$
+We then have a comparison constraint: $$\H_{M,N} \maps \H(M) \odot \H(N) \xrightarrow{\sim} \H(M \odot N)$$given by the globular 2-isomorphism:
 where $$\hspace{-.4in}\scriptstyle{d_{\lH(M) \odot \lH(N)} \maps 1 \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_M) \times E(d_N)) \phi} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F'(H(c_1)+ H(c_2)) \xrightarrow{F' (J)} F'(H(c_1) +_{H(b)} H(c_2)).}$$
 We then have a comparison constraint: $$\lH_{M,N} \maps \lH(M) \odot \lH(N) \xrightarrow{\sim} \lH(M \odot N)$$given by the globular 2-isomorphism:
 \[
@@ -3312,9 +3312,9 @@ We then have a comparison constraint: $$\lH_{M,N} \maps \lH(M) \odot \lH(N) \xri
 \node (C) at (5,0.5) {$H(a_2)$};
 \node (C') at (5,-0.5) {$H(a_2)$};
 \node (D) at (2.5,-0.5) {$H(c_1 +_b c_2)$};
-\node (E) at (7.5,0.5) {$d_{\mathbb{H}(M) \odot \mathbb{H}(N)} \in F'(H(c_1)+_{H(b_1)}H(c_2))$};
-\node (F) at (7.5,-0.5) {$d_{\mathbb{H}(M \odot N)} \in F'(H(c_1 +_b c_2))$};
-\node (G) at (2.5,-1) {$\tau_{\kappa^{-1}} \maps F'(\kappa^{-1})(d_{\mathbb{H}(M) \odot \mathbb{H}(N)}) \to d_{\mathbb{H}(M \odot N)}.$};
+\node (E) at (7.5,0.5) {$d_{\H(M) \odot \H(N)} \in F'(H(c_1)+_{H(b_1)}H(c_2))$};
+\node (F) at (7.5,-0.5) {$d_{\H(M \odot N)} \in F'(H(c_1 +_b c_2))$};
+\node (G) at (2.5,-1) {$\tau_{\kappa^{-1}} \maps F'(\kappa^{-1})(d_{\H(M) \odot \H(N)}) \to d_{\H(M \odot N)}.$};
 \node (E) at (7.5,0.5) {$d_{\lH(M) \odot \lH(N)} \in F'(H(c_1)+_{H(b_1)}H(c_2))$};
 \node (F) at (7.5,-0.5) {$d_{\lH(M \odot N)} \in F'(H(c_1 +_b c_2))$};
 \node (G) at (2.5,-1) {$\tau_{\kappa^{-1}} \maps F'(\kappa^{-1})(d_{\lH(M) \odot \lH(N)}) \to d_{\lH(M \odot N)}.$};
@@ -3328,7 +3328,7 @@ We then have a comparison constraint: $$\lH_{M,N} \maps \lH(M) \odot \lH(N) \xri
 (B) edge node [left] {$\kappa^{-1}$} (D);
 \end{tikzpicture}
 \]
-where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$. The above diagram commutes by a similar argument to the one used in \cref{thm:equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\mathbb{H}_U \maps U_{\mathbb{H}(c)} \to \mathbb{H}(U_c)$$ given by the globular 2-isomorphism:
+where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$. The above diagram commutes by a similar argument to the one used in \cref{thm:equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\H_U \maps U_{\H(c)} \to \H(U_c)$$ given by the globular 2-isomorphism:
 where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\sim} H(c_1) +_{H(b)} H(c_2)$$ which comes from the finite colimit preserving functor $H \maps \A \to \A'$. The above diagram commutes by a similar argument to the one used in \cref{thm:equiv}. Similarly, for every object $c \in \A$, we have a unit comparison constraint $$\lH_U \maps U_{\lH(c)} \to \lH(U_c)$$ given by the globular 2-isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3353,15 +3353,15 @@ where $\kappa$ is the isomorphism $$\kappa \maps H(c_1 +_b c_2) \xrightarrow{\si
 where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\theta_c E(!_c) \phi)$ in $F'(H(c))$. These comparison constrains satisfy the coherence axioms of a monoidal category, namely:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$(\mathbb{H}(M) \odot \mathbb{H}(N)) \odot \mathbb{H}(P)$};
-\node (B) at (0,-0.5) {$\mathbb{H}(M \odot N) \odot \mathbb{H}(P)$};
-\node (C) at (0,-1.5) {$\mathbb{H}((M \odot N) \odot P)$};
-\node (A') at (3,0.5) {$\mathbb{H}(M) \odot (\mathbb{H}(N) \odot \mathbb{H}(P))$};
-\node (B') at (3,-0.5) {$\mathbb{H}(M) \odot \mathbb{H}(N \odot P)$};
-\node (C') at (3,-1.5) {$\mathbb{H}(M \odot (N \odot P))$};
+\node (A) at (0,0.5) {$(\H(M) \odot \H(N)) \odot \H(P)$};
+\node (B) at (0,-0.5) {$\H(M \odot N) \odot \H(P)$};
+\node (C) at (0,-1.5) {$\H((M \odot N) \odot P)$};
+\node (A') at (3,0.5) {$\H(M) \odot (\H(N) \odot \H(P))$};
+\node (B') at (3,-0.5) {$\H(M) \odot \H(N \odot P)$};
+\node (C') at (3,-1.5) {$\H(M \odot (N \odot P))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$\mathbb{H}_{M,N} \odot 1$} (B)
-(B) edge node[left]{$\mathbb{H}_{M \odot N,P}$} (C)
+(A) edge node[left]{$\H_{M,N} \odot 1$} (B)
+(B) edge node[left]{$\H_{M \odot N,P}$} (C)
 \node (A) at (0,0.5) {$(\lH(M) \odot \lH(N)) \odot \lH(P)$};
 \node (B) at (0,-0.5) {$\lH(M \odot N) \odot \lH(P)$};
 \node (C) at (0,-1.5) {$\lH((M \odot N) \odot P)$};
@@ -3372,9 +3372,9 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 (A) edge node[left]{$\lH_{M,N} \odot 1$} (B)
 (B) edge node[left]{$\lH_{M \odot N,P}$} (C)
 (A) edge node[above]{$a$} (A')
-(C) edge node [above] {$\mathbb{H}(a')$} (C')
-(B') edge node [right] {$\mathbb{H}_{M,N \odot P}$} (C')
-(A') edge node [right]{$1 \odot \mathbb{H}_{N,P}$} (B');
+(C) edge node [above] {$\H(a')$} (C')
+(B') edge node [right] {$\H_{M,N \odot P}$} (C')
+(A') edge node [right]{$1 \odot \H_{N,P}$} (B');
 (C) edge node [above] {$\lH(a')$} (C')
 (B') edge node [right] {$\lH_{M,N \odot P}$} (C')
 (A') edge node [right]{$1 \odot \lH_{N,P}$} (B');
@@ -3382,14 +3382,14 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 \]
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$U_{\mathbb{H}(a)} \odot \mathbb{H}(M)$};
-\node (B) at (2.5,0) {$\mathbb{H}(U_a) \odot \mathbb{H}(M)$};
-\node (C) at (0,-1) {$\mathbb{H}(M)$};
-\node (D) at (2.5,-1) {$\mathbb{H}(U_a \odot M)$};
-\node (A') at (5,0) {$\mathbb{H}(M) \odot U_{\mathbb{H}(b)}$};
-\node (B') at (7.5,0) {$\mathbb{H}(M) \odot \mathbb{H}(U_b)$};
-\node (C') at (5,-1) {$\mathbb{H}(M)$};
-\node (D') at (7.5,-1) {$\mathbb{H}(M \odot U_b)$};
+\node (A) at (0,0) {$U_{\H(a)} \odot \H(M)$};
+\node (B) at (2.5,0) {$\H(U_a) \odot \H(M)$};
+\node (C) at (0,-1) {$\H(M)$};
+\node (D) at (2.5,-1) {$\H(U_a \odot M)$};
+\node (A') at (5,0) {$\H(M) \odot U_{\H(b)}$};
+\node (B') at (7.5,0) {$\H(M) \odot \H(U_b)$};
+\node (C') at (5,-1) {$\H(M)$};
+\node (D') at (7.5,-1) {$\H(M \odot U_b)$};
 \node (A) at (0,0) {$U_{\lH(a)} \odot \lH(M)$};
 \node (B) at (2.5,0) {$\lH(U_a) \odot \lH(M)$};
 \node (C) at (0,-1) {$\lH(M)$};
@@ -3399,23 +3399,23 @@ where the morphism of decorations is the morphism $\tau \maps !_{H(c)} \to (\the
 \node (C') at (5,-1) {$\lH(M)$};
 \node (D') at (7.5,-1) {$\lH(M \odot U_b)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\mathbb{H}_U \odot 1$} (B)
+(A) edge node[above]{$\H_U \odot 1$} (B)
 (A) edge node[above]{$\lH_U \odot 1$} (B)
 (A) edge node[left]{$\lambda$} (C)
-(B) edge node[right]{$\mathbb{H}_{U_a,M}$} (D)
-(D) edge node[above]{$\mathbb{H}(\lambda')$} (C)
-(A') edge node[above]{$1 \odot \mathbb{H}_U$} (B')
+(B) edge node[right]{$\H_{U_a,M}$} (D)
+(D) edge node[above]{$\H(\lambda')$} (C)
+(A') edge node[above]{$1 \odot \H_U$} (B')
 (B) edge node[right]{$\lH_{U_a,M}$} (D)
 (D) edge node[above]{$\lH(\lambda')$} (C)
 (A') edge node[above]{$1 \odot \lH_U$} (B')
 (A') edge node[left]{$\rho$} (C')
-(B') edge node[right]{$\mathbb{H}_{M,U_b}$} (D')
-(D') edge node[above]{$\mathbb{H}(\rho')$} (C');
+(B') edge node[right]{$\H_{M,U_b}$} (D')
+(D') edge node[above]{$\H(\rho')$} (C');
 (B') edge node[right]{$\lH_{M,U_b}$} (D')
 (D') edge node[above]{$\lH(\rho')$} (C');
 \end{tikzpicture}
 \]
-The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\mathbb{H}=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\mathbb{H}_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A'$ preserves finite colimits. As for the arrow component $\mathbb{H}_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\lCsp$:
+The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\H=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\H_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A'$ preserves finite colimits. As for the arrow component $\H_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\lCsp$:
 The diagrams involving the morphisms of decorations are similar to those in Theorem \cref{DC}. This shows that $\lH=(H,E,\theta)$ is a double functor. Next we show that this double functor is symmetric monoidal. First, that the object component $\lH_0=H$ is symmetric monoidal is clear as $H \maps \A \to \A'$ preserves finite colimits. As for the arrow component $\lH_1$, given two horizontal 1-cells $M_1$ and $M_2$ in $F\lCsp$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3447,33 +3447,33 @@ their tensor product $M_1 \otimes M_2$ in $F\lCsp$ is given by:
 \end{tikzpicture}
 \]
 $$d_{M_1 \otimes M_2} \maps 1 \xrightarrow{d_1 \times d_2} F(c_1) \times F(c_2) \xrightarrow{\phi_{c_1,c_2}} F(c_1+c_2)$$
-and the image of this horizontal 1-cell under the double functor $\mathbb{H}$ is $\mathbb{H}(M_1 \otimes M_2)$ given by:
+and the image of this horizontal 1-cell under the double functor $\H$ is $\H(M_1 \otimes M_2)$ given by:
 and the image of this horizontal 1-cell under the double functor $\lH$ is $\lH(M_1 \otimes M_2)$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1+a_2)$};
 \node (B) at (2,0) {$H(c_1+c_2)$};
 \node (C) at (4,0) {$H(b_1+b_2)$};
-\node (D) at (2,-0.5) {$d_{\mathbb{H}(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F'(H(c_1+c_2))$};
+\node (D) at (2,-0.5) {$d_{\H(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F'(H(c_1+c_2))$};
 \node (D) at (2,-0.5) {$d_{\lH(M_1 \otimes M_2)} = \theta_{c_1+c_2} E(d_{M_1 \otimes M_2})\phi \in F'(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1+i_2)$} (B)
 (C) edge node[above]{$H(o_1+o_2)$} (B);
 \end{tikzpicture}
 \]
-On the other hand, the image of $M_1$ and $M_2$ is given by $\mathbb{H}(M_1)$ and $\mathbb{H}(M_2)$:
+On the other hand, the image of $M_1$ and $M_2$ is given by $\H(M_1)$ and $\H(M_2)$:
 On the other hand, the image of $M_1$ and $M_2$ is given by $\lH(M_1)$ and $\lH(M_2)$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)$};
 \node (B) at (1.5,0) {$H(c_1)$};
 \node (C) at (3,0) {$H(b_1)$};
-\node (D) at (1.5,-0.5) {$d_{\mathbb{H}(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F'(H(c_1))$};
+\node (D) at (1.5,-0.5) {$d_{\H(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F'(H(c_1))$};
 \node (D) at (1.5,-0.5) {$d_{\lH(M_1)} = \theta_{c_1}E(d_{M_1})\phi \in F'(H(c_1))$};
 \node (E) at (4.5,0) {$H(a_2)$};
 \node (F) at (6,0) {$H(c_2)$};
 \node (G) at (7.5,0) {$H(b_2)$};
-\node (H) at (6,-0.5) {$d_{\mathbb{H}(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F'(H(c_2))$};
+\node (H) at (6,-0.5) {$d_{\H(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F'(H(c_2))$};
 \node (H) at (6,-0.5) {$d_{\lH(M_2)} = \theta_{c_2}E(d_{M_2})\phi \in F'(H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)$} (B)
@@ -3482,21 +3482,21 @@ On the other hand, the image of $M_1$ and $M_2$ is given by $\lH(M_1)$ and $\lH(
 (G) edge node[above]{$H(o_2)$} (F);
 \end{tikzpicture}
 \]
-and their tensor product $\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)$ is given by:
+and their tensor product $\H(M_1) \otimes \H(M_2)$ is given by:
 and their tensor product $\lH(M_1) \otimes \lH(M_2)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$H(a_1)+H(a_2)$};
 \node (B) at (2.5,0) {$H(c_1)+H(c_2)$};
 \node (C) at (5,0) {$H(b_1)+H(b_2)$};
-\node (D) at (2.5,-0.5) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F'(H(c_1)+H(c_2))$};
+\node (D) at (2.5,-0.5) {$d_{\H(M_1) \otimes \H(M_2)} \in F'(H(c_1)+H(c_2))$};
 \node (D) at (2.5,-0.5) {$d_{\lH(M_1) \otimes \lH(M_2)} \in F'(H(c_1)+H(c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$H(i_1)+H(i_2)$} (B)
 (C) edge node[above]{$H(o_1)+H(o_2)$} (B);
 \end{tikzpicture}
 \]
-$$\hspace{-.4in} \scriptstyle{d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \maps 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F' (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \maps \mathbb{H}(M_1) \otimes \mathbb{H}(M_2) \to \mathbb{H}(M_1 \otimes M_2)$ in $F'\lCsp$ given by:
+$$\hspace{-.4in} \scriptstyle{d_{\H(M_1) \otimes \H(M_2)} \maps 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F' (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \maps \H(M_1) \otimes \H(M_2) \to \H(M_1 \otimes M_2)$ in $F'\lCsp$ given by:
 $$\hspace{-.4in} \scriptstyle{d_{\lH(M_1) \otimes \lH(M_2)} \maps 1 \xrightarrow{(\phi \times \phi)(\lambda^{-1} \times \lambda^{-1})} E(1) \times E(1) \xrightarrow{(\theta_{c_1} \times \theta_{c_2})(E(d_{M_1}) \times E(d_{M_2}))} F'(H(c_1)) \times F'(H(c_2)) \xrightarrow{\Phi_{H(c_1),H(c_2)}} F' (H(c_1)+H(c_2)).}$$  We then have a natural 2-isomorphism $\mu_{M_1,M_2} \maps \lH(M_1) \otimes \lH(M_2) \to \lH(M_1 \otimes M_2)$ in $F'\lCsp$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3506,8 +3506,8 @@ $$\hspace{-.4in} \scriptstyle{d_{\lH(M_1) \otimes \lH(M_2)} \maps 1 \xrightarrow
 \node (C) at (5,0.5) {$H(b_1)+H(b_2)$};
 \node (C') at (5,-0.5) {$H(b_1+b_2)$};
 \node (D) at (2.5,-0.5) {$H(c_1+c_2)$};
-\node (E) at (2.5,1) {$d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)} \in F'(H(c_1)+H(c_2))$};
-\node (F) at (2.5,-1) {$d_{\mathbb{H}(M_1 \otimes M_2)} \in F'(H(c_1+c_2))$};
+\node (E) at (2.5,1) {$d_{\H(M_1) \otimes \H(M_2)} \in F'(H(c_1)+H(c_2))$};
+\node (F) at (2.5,-1) {$d_{\H(M_1 \otimes M_2)} \in F'(H(c_1+c_2))$};
 \node (E) at (2.5,1) {$d_{\lH(M_1) \otimes \lH(M_2)} \in F'(H(c_1)+H(c_2))$};
 \node (F) at (2.5,-1) {$d_{\lH(M_1 \otimes M_2)} \in F'(H(c_1+c_2))$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -3520,17 +3520,17 @@ $$\hspace{-.4in} \scriptstyle{d_{\lH(M_1) \otimes \lH(M_2)} \maps 1 \xrightarrow
 (B) edge node [left] {$\kappa$} (D);
 \end{tikzpicture}
 \]
-$$\tau_\kappa \maps F'(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)}) \to d_{\mathbb{H}(M_1 \otimes M_2)}$$
+$$\tau_\kappa \maps F'(\kappa)(d_{\H(M_1) \otimes \H(M_2)}) \to d_{\H(M_1 \otimes M_2)}$$
 $$\tau_\kappa \maps F'(\kappa)(d_{\lH(M_1) \otimes \lH(M_2)}) \to d_{\lH(M_1 \otimes M_2)}$$
 where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimits. This natural 2-isomorphism together with the associators of $F\lCsp$ and $F'\lCsp$, respectively $\alpha$ and $\alpha'$, make the following diagram commute:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)$};
-\node (B) at (0,-0.5) {$\mathbb{H}(M_1 \otimes M_2) \otimes \mathbb{H}(M_3)$};
-\node (C) at (0,-1.5) {$\mathbb{H}((M_1 \otimes M_2) \otimes M_3)$};
-\node (A') at (4,0.5) {$\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))$};
-\node (B') at (4,-0.5) {$\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)$};
-\node (C') at (4,-1.5) {$\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))$};
+\node (A) at (0,0.5) {$(\H(M_1) \otimes \H(M_2)) \otimes \H(M_3)$};
+\node (B) at (0,-0.5) {$\H(M_1 \otimes M_2) \otimes \H(M_3)$};
+\node (C) at (0,-1.5) {$\H((M_1 \otimes M_2) \otimes M_3)$};
+\node (A') at (4,0.5) {$\H(M_1) \otimes (\H(M_2) \otimes \H(M_3))$};
+\node (B') at (4,-0.5) {$\H(M_1) \otimes \H(M_2 \otimes M_3)$};
+\node (C') at (4,-1.5) {$\H(M_1 \otimes (M_2 \otimes M_3))$};
 \node (A) at (0,0.5) {$(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)$};
 \node (B) at (0,-0.5) {$\lH(M_1 \otimes M_2) \otimes \lH(M_3)$};
 \node (C) at (0,-1.5) {$\lH((M_1 \otimes M_2) \otimes M_3)$};
@@ -3541,7 +3541,7 @@ where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimi
 (A) edge node[left]{$\mu_{M_1,M_2} \otimes 1$} (B)
 (B) edge node[left]{$\mu_{M_1 \otimes M_2,M_3}$} (C)
 (A) edge node[above]{$\alpha'$} (A')
-(C) edge node [above] {$\mathbb{H}(\alpha)$} (C')
+(C) edge node [above] {$\H(\alpha)$} (C')
 (C) edge node [above] {$\lH(\alpha)$} (C')
 (B') edge node [right] {$\mu_{M_1,M_2 \otimes M_3}$} (C')
 (A') edge node [right]{$1 \otimes \mu_{M_2 \otimes M_3}$} (B');
@@ -3550,12 +3550,12 @@ where $\kappa$ denotes the isomorphism arising from $H$ preserving finite colimi
 with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$F'(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$};
-\node (B) at (0,-0.5) {$F'(\alpha \kappa)(d_{\mathbb{H}(M_1 \otimes M_2) \otimes \mathbb{H}(M_3)})$};
-\node (C) at (0,-1.5) {$F'(\alpha)(d_{\mathbb{H}((M_1 \otimes M_2) \otimes M_3)})$};
-\node (A') at (5,0.5) {$F'(\kappa \kappa)(d_{\mathbb{H}(M_1) \otimes (\mathbb{H}(M_2) \otimes \mathbb{H}(M_3))})$};
-\node (B') at (5,-0.5) {$F'(\kappa)(d_{\mathbb{H}(M_1) \otimes \mathbb{H}(M_2 \otimes M_3)})$};
-\node (C') at (5,-1.5) {$d_{\mathbb{H}(M_1 \otimes (M_2 \otimes M_3))}$};
+\node (A) at (0,0.5) {$F'(\alpha \kappa \kappa)(d_{(\H(M_1) \otimes \H(M_2)) \otimes \H(M_3)})$};
+\node (B) at (0,-0.5) {$F'(\alpha \kappa)(d_{\H(M_1 \otimes M_2) \otimes \H(M_3)})$};
+\node (C) at (0,-1.5) {$F'(\alpha)(d_{\H((M_1 \otimes M_2) \otimes M_3)})$};
+\node (A') at (5,0.5) {$F'(\kappa \kappa)(d_{\H(M_1) \otimes (\H(M_2) \otimes \H(M_3))})$};
+\node (B') at (5,-0.5) {$F'(\kappa)(d_{\H(M_1) \otimes \H(M_2 \otimes M_3)})$};
+\node (C') at (5,-1.5) {$d_{\H(M_1 \otimes (M_2 \otimes M_3))}$};
 \node (A) at (0,0.5) {$F'(\alpha \kappa \kappa)(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)})$};
 \node (B) at (0,-0.5) {$F'(\alpha \kappa)(d_{\lH(M_1 \otimes M_2) \otimes \lH(M_3)})$};
 \node (C) at (0,-1.5) {$F'(\alpha)(d_{\lH((M_1 \otimes M_2) \otimes M_3)})$};
@@ -3571,7 +3571,7 @@ with the corresponding diagram of decorations in $F'(H(c_1+(c_2+c_3)))$:
 (A') edge node [right]{$F'(\kappa)(1+\tau_\kappa)$} (B');
 \end{tikzpicture}
 \]
-where $$F'(\alpha \kappa \kappa)(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)}) = F'(\kappa \kappa \alpha')(d_{(\mathbb{H}(M_1) \otimes \mathbb{H}(M_2)) \otimes \mathbb{H}(M_3)})$$
+where $$F'(\alpha \kappa \kappa)(d_{(\H(M_1) \otimes \H(M_2)) \otimes \H(M_3)}) = F'(\kappa \kappa \alpha')(d_{(\H(M_1) \otimes \H(M_2)) \otimes \H(M_3)})$$
 as the corresponding hexagon for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta'$ of $F \lCsp_1$ and $F' \lCsp_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$.
 where $$F'(\alpha \kappa \kappa)(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)}) = F'(\kappa \kappa \alpha')(d_{(\lH(M_1) \otimes \lH(M_2)) \otimes \lH(M_3)})$$
 as the corresponding hexagon for the finite colimit preserving functor $H \maps \A \to \A'$ commutes. The map $\mu_{M_1,M_2}$ is also compatible with the braidings $\beta$ and $\beta'$ of $F \lCsp_1$ and $F' \lCsp_1$, respectively, and make the necessary square commute as a consequence of the corresponding commutative square involving braidings from the finite colimit preserving functor $H \maps \A \to \A'$.
@@ -3588,7 +3588,7 @@ We also have that the monoidal unit of $F\lCsp_1$ is given by:
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\mathbb{H}$ is given by:
+where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\H$ is given by:
 where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of this horizontal 1-cell under $\lH$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3612,7 +3612,7 @@ where $1_\A$ is the monoidal unit of the cocartesian category $\A$. The image of
 %(H) edge node[above]{$1$} (G);
 \end{tikzpicture}
 \]
-as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ given by: $$\mu \maps 1_{F'\lCsp_1} \to \mathbb{H}(1_{F\lCsp_1})$$ 
+as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ given by: $$\mu \maps 1_{F'\lCsp_1} \to \H(1_{F\lCsp_1})$$ 
 as $H$ preserves finite colimits. We then have a 2-isomorphism in $F'\lCsp$ given by: $$\mu \maps 1_{F'\lCsp_1} \to \lH(1_{F\lCsp_1})$$ 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -3642,10 +3642,10 @@ together with the morphism $\tau_\mu \maps F'(\kappa)(!_{1_\mathsf{A'}}) \to (\t
 together with the morphism $\tau_\mu \maps F'(\kappa)(!_{1_\A'}) \to (\theta_{1_\A} E(!_{1_\A})\phi)$ in $F'(H(1_\A))$. The following square then commutes for any horizontal 1-cell $M$ of $F \lCsp$: 
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$1_\mathsf{A'} \otimes \mathbb{H}(M)$};
-\node (B) at (2.5,0) {$\mathbb{H}(1_\A) \otimes \mathbb{H}(M)$};
-\node (C) at (0,-1) {$\mathbb{H}(M)$};
-\node (D) at (2.5,-1) {$\mathbb{H}(1_\A \otimes M)$};
+\node (A) at (0,0) {$1_\mathsf{A'} \otimes \H(M)$};
+\node (B) at (2.5,0) {$\H(1_\A) \otimes \H(M)$};
+\node (C) at (0,-1) {$\H(M)$};
+\node (D) at (2.5,-1) {$\H(1_\A \otimes M)$};
 \node (A) at (0,0) {$1_\A' \otimes \lH(M)$};
 \node (B) at (2.5,0) {$\lH(1_\A) \otimes \lH(M)$};
 \node (C) at (0,-1) {$\lH(M)$};
@@ -3654,7 +3654,7 @@ together with the morphism $\tau_\mu \maps F'(\kappa)(!_{1_\A'}) \to (\theta_{1_
 (A) edge node[above]{$\mu \otimes 1$} (B)
 (A) edge node[left]{$\ell$} (C)
 (B) edge node[right]{$\mu_{1_\mathrm{A},M}$} (D)
-(D) edge node[above]{$\mathbb{H}(\ell')$} (C);
+(D) edge node[above]{$\H(\ell')$} (C);
 (D) edge node[above]{$\lH(\ell')$} (C);
 \end{tikzpicture}
 \]
@@ -3662,10 +3662,10 @@ where we have abbreviated the monoidal units of $F\lCsp_1$ and $F'\lCsp_1$ as $1
 where we have abbreviated the monoidal units of $F\lCsp_1$ and $F'\lCsp_1$ as $1_\A$ and $1_\A'$, respectively. The diagram of corresponding decorations is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$F'(\ell)(d_{!_{1_\mathsf{A'}}} \otimes d_{\mathbb{H}(M)})$};
-\node (B) at (0,-0.5) {$d_{\mathbb{H}(M)}$};
-\node (A') at (4,0.5) {$F'(H(\ell') \kappa)(d_{!_{\mathbb{H}(1_\A)}}\otimes d_{\mathbb{H}(M)})$};
-\node (B') at (4,-0.5) {$F'(H(\ell'))(d_{\mathbb{H}(1_\A \otimes M)})$};
+\node (A) at (0,0.5) {$F'(\ell)(d_{!_{1_\mathsf{A'}}} \otimes d_{\H(M)})$};
+\node (B) at (0,-0.5) {$d_{\H(M)}$};
+\node (A') at (4,0.5) {$F'(H(\ell') \kappa)(d_{!_{\H(1_\A)}}\otimes d_{\H(M)})$};
+\node (B') at (4,-0.5) {$F'(H(\ell'))(d_{\H(1_\A \otimes M)})$};
 \node (A) at (0,0.5) {$F'(\ell)(d_{!_{1_\A'}} \otimes d_{\lH(M)})$};
 \node (B) at (0,-0.5) {$d_{\lH(M)}$};
 \node (A') at (4,0.5) {$F'(H(\ell') \kappa)(d_{!_{\lH(1_\A)}}\otimes d_{\lH(M)})$};
@@ -3677,7 +3677,7 @@ where we have abbreviated the monoidal units of $F\lCsp_1$ and $F'\lCsp_1$ as $1
 (B') edge node [above] {$\tau_{H(\ell')}$} (B);
 \end{tikzpicture}
 \]
-where $$F'(\ell)(d_{!_{1_\mathsf{A'}}} \otimes d_{\mathbb{H}(M)})=F'(H(\ell')\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A'}}} \otimes d_{\mathbb{H}(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r'$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\mathbb{H}$ is strong.
+where $$F'(\ell)(d_{!_{1_\mathsf{A'}}} \otimes d_{\H(M)})=F'(H(\ell')\kappa(\mu \otimes 1))(d_{!_{1_\mathsf{A'}}} \otimes d_{\H(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \mathsf{A'}$ commutes. The other square involving the right unitors $r$ and $r'$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\H$ is strong.
 where $$F'(\ell)(d_{!_{1_\A'}} \otimes d_{\lH(M)})=F'(H(\ell')\kappa(\mu \otimes 1))(d_{!_{1_\A'}} \otimes d_{\lH(M)})$$ since the corresponding square involving left unitors for the finite colimit preserving functor $H \maps \A \to \A'$ commutes. The other square involving the right unitors $r$ and $r'$ is similar. Note that because the comparison constraints $\mu$ and $\mu_{(\_ , \_)}$ are both isomorphisms, the symmetric monoidal double functor $\lH$ is strong.
 
 \end{comment}
@@ -5216,7 +5216,7 @@ which can also be thought of as an open graph from $X$ to $Y$,
 is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms.  One can show using Theorem \cref{thm:equiv} that $_L \lCsp(\Graph)$ and $F\lCsp$ are equivalent as symmetric monoidal double categories.
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Both of these double categories have $\Set$ as their categories of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms.  One can show using \cref{thm:equiv} that $_L \lCsp(\Graph)$ and $F\lCsp$ are equivalent as symmetric monoidal double categories.
 
 \subsection{Circuits}
 \label{subsec:circuits}
