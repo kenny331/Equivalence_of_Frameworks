@@ -3857,7 +3857,12 @@ which is the pushout $\sigma_a\colon a\to a+_bc\leftarrow c:\sigma_c$ in $\A$ on
  & F(\sigma_a)(Ff(y))\cong F(\sigma_n)(Fg(y))\ar[ul,"F(\sigma_a)k"]\ar[ur,"F(\sigma_c)\ell"'] &
  \end{tikzcd}
 \end{displaymath}
-In similar ways we can construct the initial object and coproducts in a Grothendieck category. 
+In similar ways we can construct the initial object and coproducts in a Grothendieck category, namely
+\begin{equation}\label{eq:fibrewisecoprod}
+(a,x)+(b,y)=\left(a+ b,F(\iota_a)x+F(\iota_b)y\right), \qquad 
+ 0_{\inta F}=\left(0_A,0_{F(0_A)}\right)
+\end{equation}
+where $\iota_a:a\to a+b\leftarrow b:\iota_b$ are the sum inclusions in $\A$.
 
 In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. %Christina: I suspect that's why for composition we get isomorphism below - using pushouts in which I cannot use the monoidal structure of the functor - whereas for coproducts and initial object we get equality since they were constructed in a very specific way. Related to the subtlety comment below.
 
@@ -3865,8 +3870,9 @@ In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; 
  Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them. 
 \end{cor}
 
-Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibres, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor. However, we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$, and that is why the correspondence in \cref{lem:MonGroth} is necessary.
-DOES THIS MAKE SENSE TO ALL??
+\begin{rmk}\label{rmk:interestingrmk}
+Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibres, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category by the fibrewise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
+\end{rmk}
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
 
@@ -3967,12 +3973,12 @@ whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\in
 \end{displaymath}
 where $\sigma$ are the canonical maps into the pushout. %overusing notation, streamline with earlier
 Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(\sigma_m)x+F(\sigma_n)y$, since a pushout over an initial object is really a coproduct. That decoration is isomorphic to that of \cref{eq:1} due to the following diagram 
-\begin{displaymath}
+\begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}
 F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(\sigma_m)\times F(\sigma_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(\sigma_m+\sigma_n)"description] \\
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
-\end{displaymath}
+\end{equation}
 where the bottom composite is the fibrewise coproduct in $F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand side isomorphism is due to pseudonaturality of $\phi$ whereas the right-hand side isomorphism follows from universal properties and pseudofunctoriality of $F$.
 Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibres. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}. %Do we want to check that E is a double functor one last time?
 
@@ -3981,11 +3987,13 @@ In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined abo
 Since both double categories are symmetric monoidal under the running assumptions (\cref{DC,thm:SC}), we will now show that this double isomorphism is a symmetric monoidal one, namely $\lE=(\lE_0,\lE_1)$ is a symmetric strong monoidal double functor as per \cref{defn:monoidal_double_functor}. Indeed, $\lE_0=\mathrm{id}_\A$ is a braided monoidal functor trivially. For $\lE_1$, given two structured cospans $M=(a,\bot_a)\to(m,x)\leftarrow(b,\bot_b)$ and $M'=(a',\bot_{a'})\to(m',x')\leftarrow(b',\bot_{b'})$ in $_L\lCsp(\inta F)$, we compute the appropriate decorated cospans
 \begin{align*}
 \lE(M)\ot\lE(M')&\;\stackrel{\cref{eq:tensordecoration}}{=}\;a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\mathbf{1}\xrightarrow{x\times x'}F(m)\times F(m')\xrightarrow{\phi_{m,m'}}F(m+m') \\
-\lE(M\ot M')&\;\stackrel{\cref{eq:tensorstuctured}}{=}\;\lE\Big((a+a',\bot_{a+a'})\to\underbrace{(m+m',\phi_{m,m'}(x,x'))}_{\cref{eq:explicitstructure2}}\leftarrow(b+b',\bot_{b+b'})\Big)%=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\phi_{m,m'}(x,x')
+\lE(M\ot M')&\;\stackrel{\cref{eq:tensorstuctured}}{=}\;\lE\Big((a+a',\bot_{a+a'})\to\underbrace{(m+m',F(\iota_m)x+F(\iota_{m'})x')}_{\cref{eq:fibrewisecoprod}}\leftarrow(b+b',\bot_{b+b'})\Big)%=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\phi_{m,m'}(x,x')
 \end{align*}
-which are essentially the same. {\chris Well they look equal to me...thoughts?} Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration
-$$\mathbf{1}\xrightarrow{\phi_0}F(0_A)\xrightarrow{F(\mathrm{id})}F(0_A)$$
-which is essentially the same as $\lE((0_A,\phi_0)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$ again by \cref{eq:explicitstructure2}.
+which are uniquely isomorphic $F(\iota_m)x+F(\iota_{m'})\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag}, as also discussed in \cref{rmk:interestingrmk}.
+Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \mathbf{1}\to F(0_A)$,
+which is an initial object and as such isomorphic to $0_{F(0)}$
+%=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
+again by \cref{eq:explicitstructure2} and the discussion in \cref{rmk:interestingrmk}.
 It can be verified that with the above structure, $\lE_1$ is also a braided monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
 
