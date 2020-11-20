@@ -5144,7 +5144,7 @@ Here is an example of an open graph:
 }
 \]
 
-We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any finite set $N$ there is a category $F(N)$ where:
+We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any finite set $N$, there is a category $F(N)$ where:
 \begin{itemize}
 \item An object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$.
 \item A morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is
@@ -5171,11 +5171,13 @@ the identity on $N$: that is, a function $f \maps E \to E'$ such that these diag
 
 In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually an honest functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to any graph structure $s,t \maps E \to M$ to the graph structure $f s, f t \maps E \to N$.   
 
-We can obtain a symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$ by equipping $F$ with suitable functors $\phi_{N,N'} \maps F(N) \times F(N') \to F(N+N')$ for every pair of finite sets $N$ and $N'$, and also a functor $\phi_0 \maps F(\emptyset) \to 1 \in \Cat$.  The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.
+We can make $F$ into a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
+\[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps F(\emptyset) \to 1 \in \Cat. \]  
+The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.
 
-It is well-known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
+It is well-known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
 
-Starting from the symmetric lax monoidal functor $F \maps (\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
+Starting from the symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat,\times)$, \cref{DC} gives us a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
 \item objects are sets,
 \item a vertical 1-morphism from $X$ to $X'$ is a function $f \maps X \to X'$,
@@ -5216,18 +5218,14 @@ which can also be thought of as an open graph from $X$ to $Y$,
 is a commuting diagram in $\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Set$ as its category of objects, open graphs as horizontal 1-cells and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories, and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Set$ as its category of objects, open graphs as horizontal 1-cells, and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories---and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
 
 \subsection{Circuits}
 \label{subsec:circuits}
 
-Building on work with Fong \cite{BF}, Coya, Rebro and the first author used structured
-cospans to describe electrical circuits with inputs and outputs \cite{BCR}.  The key idea is to use graphs with labeled edges.  The edge labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, inductors with any chosen inductance, or other circuit elements.  To study such circuits quite generally we start by fixing any set $\La$ to serve as edge labels.
+We can also use structured or decorated cospans to describe electrical circuits \cite{BC,BCR,BF}.  The key idea is to use graphs with labeled edges, where the labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, or other circuit elements.   The whole theory of open graphs discussed in the previous section can be recapitulated for labeled graphs.  Since everything works the same way, we can be brief.
 
-\begin{defn}
-Given a set $\La$ of \define{labels}, an $\La$-\define{graph} is a graph $s,t\maps E\to N$
- equipped with a function $\ell \maps E \to \La$.
- A \define{morphism} from the $\La$-graph 
+Fix a set $\La$ to serve as edge labels.  Define an $\La$-\define{graph} to be a graph $s,t\maps E\to N$ equipped with a function $\ell \maps E \to \La$.  There is a category $\Graph_\La$ with $\La$-graphs as objects, where a morphism from the $\La$-graph 
  \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
  to the $\La$-graph 
 \[ \xymatrix{\La & E' \ar@<2.5pt>[r]^{s'} \ar@<-2.5pt>[r]_{t'} \ar[l]_{\ell'} & N'} \]
@@ -5264,83 +5262,20 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 (G') edge node[below]{$\ell'$} (E);
 \end{tikzpicture}
 \]
-\end{defn}
+There is a functor $U \maps \Graph_\La \to \Fin\Set$ that takes an $\La$-graph to its underlying set of nodes. This has a left adjoint $L \maps \Fin\Set \to \Graph_\La$ sending any set to the $\La$-graph with that set of nodes and no edges.  Both $\Fin\Set$ and $\Graph_\La$ have colimits, and $L$ preserves them.  
 
-\begin{defn}
-\label{defn:Lgraph}
-We define $\Graph_\La$ to be the category of $\La$-graphs and morphisms between them, with composition given by
-\[  (f, g) \circ (f',g') = (f \circ f' , g \circ g')  .\]
-\end{defn}
-
-When $\La = 1$, an $\La$-graph reduces to a graph and $\Graph_\La$ reduces
-to the category $\Graph$ discussed in \cref{subsec:graphs}.  We now generalize the key
-ideas of that section from graphs to $\La$-graphs.   Everything works the same way, 
-but following previous work \cite{BCR} we call an open $\La$-graph an $\La$-\define{circuit}.
-
-There is a functor $U \maps \Graph_\La \to \Fin\Set$ that takes an $\La$-graph to its underlying set of nodes. This has a left adjoint $L \maps \Fin\Set \to \Graph_\La$ sending
-any set to the $\La$-graph with that set of nodes and no edges.  Both $\Fin\Set$ and $\Graph_\La$ have colimits, and $L$ preserves them.  Thus \cref{SC} gives us a symmetric monoidal double category ${}_L \lCsp(\Graph_\La)$ where:
-\begin{itemize}
-\item an object is a finite set,
-\item a morphism is an isomorphism class of $\La$-circuits, where an
-$\La$-\define{circuit} is a cospan in $\Graph_\La$ of this form:
+This sets the stage for structured cospans: \cref{SC} gives us a symmetric monoidal double category ${}_L \lCsp(\Graph_\La)$ where a horizontal 1-cell is an \define{open $\La$-graph}, also called an \define{$\La$-circuit}: that is, a cospan in $\Graph_\La$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(S)$};
+\node (A) at (0,0) {$L(X)$};
 \node (B) at (1,0) {$G$};
-\node (C) at (2,0) {$L(T)$,};
+\node (C) at (2,0) {$L(Y)$.};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above,left]{$$} (B)
-(C)edge node[above]{$$}(B);
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \]
-and an \define{isomorphism} of $\La$-circuits is a commutative diagram in $\Graph_\La$ 
-of this form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,-0.5) {$L(S)$};
-\node (F) at (5,-0.5) {$L(T)$};
-\node (G) at (4,0) {$G$};
-\node (G') at (4,-1) {$G'$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$o$} (G)
-(G) edge node[left]{$h$} (G')
-(E) edge node[above]{$i$} (G)
-(E) edge node[below]{$i'$} (G')
-(F) edge node[below]{$o'$} (G');
-\end{tikzpicture}
-\]
-where $h$ is an isomorphism.
-\end{itemize} 
-This category has a nice universal property, found by Rosebrugh, Sabadini and
-Walters \cite{RSW}.  To state this, it is convenient to use the language of props.
-% Replaced strict symmetric with symmetric strict three times below
-Recall that a \define{prop} is a symmetric strict monoidal category whose objects are natural
-numbers, with tensor product of objects given by addition.  An \define{algebra} of a prop $\T$ in a symmetric strict monoidal category $\C$ is a symmetric strict monoidal functor $A \maps \T \to \C$.   A \define{morphism} from the algebra $A \maps \T \to \C$ to the algebra
-$A' \maps \T \to \C$ is a monoidal natural transformation $\alpha \maps A \To A'$.
-
-\begin{lem} As a symmetric monoidal category, ${}_L \Csp(\Graph_\La)$ is equivalent to a prop $\Circ_\La$.    
-\end{lem}
-
-\begin{proof}
-This is \cite[Proposition 4.3]{BCR}.
-\end{proof}
-
-\begin{prop} 
-\label{prop:LCirc_algebra}
-An algebra of $\Circ_\La$ in a symmetric strict monoidal category $\C$ is a 
-special commutative Frobenius monoid in $\C$ whose underlying object $x$ is equipped
-with an endomorphism $\ell \maps x \to x$ for each element $\ell \in \La$. 
-A morphism of algebras of $\Circ_\La$ in $\C$ is a morphism of special commutative Frobenius monoids that also preserves all these endomorphisms.
-\end{prop}
-
-\begin{proof}
-This was proved by Rosebrugh, Sabadini and Walters \cite{RSW}, and appears
-in the above form in \cite[Proposition 7.2]{BCR}.  
-\end{proof}
-
-In applications to circuits, the morphisms $\ell \maps x \to x$ describe different
-circuit elements, while the special commutative Frobenius monoid structure is used to split and join wires.  This framework is used to study a wide variety of electrical circuits in a paper with Coya and Rebro \cite{BCR}, so the reader can turn there for details.   To illustrate the ideas let us consider circuits of resistors, where a label in $\La = (0,\infty)$ serves to indicate the resistance of a resistor.   In this case a typical morphism from $1$ to $3$ in 
-$\Circ_\La$ looks like this:
+For example, here is a $\La$-circuit with $\La = (0,\infty)$:
 \[
 \scalebox{0.6}{
 \begin{tikzpicture}
@@ -5392,353 +5327,33 @@ $\Circ_\La$ looks like this:
 		\draw [style=inarrow, bend right=0, looseness=1.00] (n3) to (n4);
 		\draw [style=inarrow, bend right=0, looseness=1.00] (n3) to (n5);
 		\draw [style=inarrow] (n2) to (n3);
-%		\draw [style=inarrow] (W) to (Water);
-%		\draw [style=inarrow, bend left=40, looseness=1.00] (Water2) to (Something);
-%		\draw [style=inarrow, bend right=40, looseness=1.00] (Water2) to (Something);
-%		\draw [style=inarrow, bend left=40, looseness=1.00] (Something) to (A);
-%		\draw [style=inarrow, bend right=40, looseness=1.00] (Something) to (B);
 		\draw [style=simple] (ATL.center) to (ATR.center);
 		\draw [style=simple] (ATR.center) to (ABR.center);
 		\draw [style=simple] (ABR.center) to (ABL.center);
 		\draw [style=simple] (ABL.center) to (ATL.center);
-%		\draw [style=simple] (BTL.center) to (BTR.center);
-%		\draw [style=simple] (BTR.center) to (BBR.center);
-%		\draw [style=simple] (BBR.center) to (BBL.center);
-%		\draw [style=simple] (BBL.center) to (BTL.center);
 		\draw [style=simple] (MTL.center) to (MTR.center);
 		\draw [style=simple] (MTR.center) to (MBR.center);
 		\draw [style=simple] (MBR.center) to (MBL.center);
 		\draw [style=simple] (MBL.center) to (MTL.center);
-%		\draw [style=inputarrow] (outI) to (A);
-%		\draw [style=inputarrow] (outS) to (B);
 		\draw [style=inputarrow] (inI) to (n1);
 		\draw [style=inputarrow] (outI') to (n4);
 		\draw [style=inputarrow] (outI'') to (n5);
 		\draw [style=inputarrow] (outI''') to (n5);
-%		\draw [style=inputarrow] (inI') to (Water2);
-%		\draw [style=inputarrow] (inS') to (Water2);
 	\end{pgfonlayer}
 \end{tikzpicture}
 }
 \]
-The edges here represent wires, and the positive real numbers labeling them describe
-the resistance of the resistor on each wire.  The points in the boxes represent `terminals': that is, points where we allow ourselves to attach a wire from another circuit.   The points in the left box are called `inputs' and the points in the right box are called `outputs'.  In electrical engineering we associate two real numbers to each terminal, called `potential' and `current'.   Any circuit of resistors imposes a specific relation between the potentials and currents at its inputs and those at its outputs.  All these relations, for all circuits of resistors, can be described using a single functor as follows.
+The edges here can represent wires, with the positive real numbers labeling them serving to describe the resistance of a resistor on each wire.  The points in the boxes represent `terminals': that is, points where we allow ourselves to attach a wire from another circuit.
 
-There is a symmetric monoidal category $\Fin\Rel_\R$ where the objects are finite-dimensional real vector spaces and a morphism from $V$ to $W$ is a \define{linear relation} from $V$ to $W$: that is, a relation $L \subseteq V \times W$ that is a linear subspace of $V \times W$.   Composition in $\Fin\Rel_\R$ is the usual composition of relations, and the symmetric monoidal structure is provided by direct sum.  
-
-There is a symmetric monoidal functor
-\[   \blacksquare \maps \Circ_\La \to \Fin\Rel_\R  \]
-% Added the line "sending any finite set $S$ to the vector space 
-% $\mathbb{R}^S \oplus \mathbb{R}^S$ and" to say what the black-box functor does on objects
-% Changed Prop. to Proposition 
-sending any finite set $S$ to the vector space $\R^S \oplus \R^S$ and
-sending any circuit of resistors to the relation it imposes between the potentials and currents at its inputs and those at its outputs \cite[Section 9]{BCR}.   We can construct this using Proposition \ref{prop:LCirc_algebra}, by choosing a special commutative Frobenius monoid in $\Fin\Rel_\R$ whose underlying object is equipped with an endomorphism for each resistance $R \in (0,\infty)$.   The object $\R^2 \in \Fin\Rel_\R$ is a special commutative Frobenius monoid in a standard way \cite[Section\ 8]{BCR}, so we choose this one.   To define $\blacksquare \maps \Circ_\La \to \Fin\Rel_\R$ it then suffices to choose for each $R \in (0,\infty)$ a linear relation from $\R^2$ to itself.   We use this:
-\[ \left\{(\phi_1,I_1,\phi_2,I_2) : \; I_1 = I_2 , \; \phi_2-\phi_1 = R I_1\right\} 
- \subseteq \R^2 \oplus \R^2.\]
-This expresses two laws of electrical engineering.   Kirchhoff's current law says that the 
-current flowing into a wire equals the current flowing out: $I_1 = I_2$.   Ohm's law says that the voltage across a wire with a resistor on it, $\phi_2 - \phi_1$, is equal to the current flowing through the wire times the resistance $R$ of that resistor.
-
-
-
-
-\begin{comment}
-
-In a previous work \cite{BP}, Fong and the first author used decorated cospans to construct a symmetric monoidal category of `open passive linear circuits'. Roughly speaking, given a field $k$, a passive linear circuit is given by a `$k$-graph' which is a diagram in $\mathsf{FinSet}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (B) at (1,0) {$E$};
-\node (C) at (2,0) {$V$};
-\node (A) at (0,0) {$k^+$};
-\path[->,font=\scriptsize,>=angle 90]
-(B)edge node[above] {$r$}(A)
-(B)edge[bend left] node[above]{$s$}(C)
-(B)edge[bend right] node[below]{$t$}(C);
-\end{tikzpicture}
-\]
-Here the finite sets $E$ and $V$ are the sets of edges and vertices, respectively, and if we take the field $k = \mathbb{R}$, the function $r \maps E \to \mathbb{R}^+$ assigns to each edge $e \in E$ a positive real number $r(e) \in \mathbb{R}^+$ which can be interpreted as the resistance at the edge $e$. An open passive linear circuit is then given by a cospan of finite sets 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (B) at (1,0) {$V$};
-\node (C) at (2,0) {$Y$};
-\node (A) at (0,0) {$X$};
-\path[->,font=\scriptsize,>=angle 90]
-(A)edge node[above] {$i$}(B)
-(C)edge node[above]{$o$}(B);
-\end{tikzpicture}
-\]
-where the apex $V$ is equipped with the structure of a passive linear circuit. See the original paper for more details \cite{BP}.
-
-Let $\Graph_k$ be the category whose objects are given by $k$-graphs and morphisms by morphisms of $k$-graphs, where a morphism of $k$-graphs is given by a pair of functions $f \maps E \to E'$ and $g \maps V \to V'$ between the edge sets and vertex sets, respectively, of two $k$-graphs that respect the source and target functions of each. In a previous work introducing structured cospans, the first two authors showed that the category $\Graph_k$ has finite colimits \cite{BC2}. We can then obtain a double category of open passive linear circuits by defining a left adjoint $L \maps \Set \to \Graph_k$ that assigns to a set $V$ the discrete passive linear circuit $L(V)$ given by passive linear circuit with $V$ as its set of vertices and no edges. The resulting symmetric monoidal double category $_L \lCsp(\Graph_k)$ has:
-\begin{enumerate}
-\item{finite sets as objects,}
-\item{functions as vertical 1-morphisms,}
-\item{open passive linear circuits as horizontal 1-cells
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (B) at (1,0) {$V$};
-\node (C) at (2,0) {$Y$};
-\node (A) at (0,0) {$X$};
-\node (D) at (3,0) {$k^+$};
-\node (E) at (4,0) {$E$};
-\node (F) at (5,0) {$V$};
-\path[->,font=\scriptsize,>=angle 90]
-(E) edge node [above] {$r$} (D)
-(E) edge [bend left] node [above] {$s$} (F)
-(E) edge [bend right] node [below] {$t$} (F)
-(A)edge node[above] {$i$}(B)
-(C)edge node[above]{$o$}(B);
-\end{tikzpicture}
-\]
-and}
-\item{maps of cospans as 2-morphisms together with a map of passive linear circuits between the apices.
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$X_1$};
-\node (A') at (0,-1) {$X_2$};
-\node (C') at (2,-1) {$Y_2$};
-\node (B) at (1,0) {$V_1$};
-\node (C) at (2,0) {$Y_1$};
-\node (D) at (1,-1) {$V_2$};
-\node (E) at (3,0) {$k^+$};
-\node (E') at (3,-1) {$k^+$};
-\node (F) at (4,0) {$E_1$};
-\node (F') at (4,-1) {$E_2$};
-\node (G) at (5,0) {$V_1$};
-\node (G') at (5,-1) {$V_2$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above] {$r_1$} (E)
-(F) edge [bend left] node [above] {$s_1$} (G)
-(F) edge [bend right] node [below] {$t_1$} (G)
-(F') edge node[above] {$r_2$} (E')
-(F') edge [bend left] node [above] {$s_2$} (G')
-(F') edge [bend right] node [below] {$t_2$} (G')
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(A) edge node[left]{$h$} (A')
-(C) edge node[left]{$h'$} (C')
-(C') edge node [above] {$o_2$} (D)
-(A') edge node [above] {$i_2$} (D)
-(B) edge node [left] {$g$} (D)
-(F) edge node [left] {$f$} (F')
-(G) edge node [right] {$g$} (G');
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
-We can also obtain a similar double category using decorated cospans: define a pseudofunctor $F \maps \mathsf{FinSet} \to \Cat$ that assigns to a finite set $V$ the category of all $k$-graph structures on the finite set $V$ and to a function $f \maps V \to V'$ the corresponding functor $F(f) \maps F(V) \to F(V')$ between decoration categories. Both categories $\mathsf{FinSet}$ and $\Cat$ are symmetric monoidal and the pseudofunctor $F \maps \mathsf{FinSet} \to \Cat$ is symmetric lax monoidal, as given a $k$-graph structure on a finite set $V_1$ denoted by an element $K_1 \in F(V_1)$ and a $k$-graph structure on a finite set $V_2$ denoted by an element $K_2 \in F(V_2)$, we can consider the $k$-graph structures simultaneously as a single graph structure $\phi_{V_1,V_2}(K_1,K_2)$ on the finite set $V_1+V_2$. Thus we get a family of natural transformations $$\phi_{V_1,V_2} \maps F(V_1) \times F(V_2) \to F(V_1+V_2)$$ as well as a morphism $\phi \maps 1_{\Graph_k} \to F(\emptyset)$ which together satisfy the coherence conditions of a monoidal functor. The braiding is also clear as the following diagram commutes:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$F(V_1) \times F(V_2)$};
-\node (G) at (5,0) {$F(V_2) \times F(V_1)$};
-\node (E') at (3,-1) {$F(V_1+V_2)$};
-\node (G') at (5,-1) {$F(V_2+V_1)$};
-\path[->,font=\scriptsize,>=angle 90]
-(E) edge node[left]{$\phi_{V_1,V_2}$} (E')
-(G) edge node[right]{$\phi_{V_2,V_1}$} (G')
-(E) edge node[above]{$\beta_{V_1,V_2}$} (G)
-(E') edge node[above]{$F(\beta_{V_1,V_2})$} (G');
-\end{tikzpicture}
-\]
-Thus the pseudofunctor $F$ is symmetric lax monoidal and so by Theorem \cref{DC} we get a symmetric monoidal double category $F\lCsp$ which has:
-\begin{enumerate}
-\item{objects as finite sets,}
-\item{vertical 1-morphisms as functions,}
-\item{horizontal 1-cells as cospans of finite sets together with the structure of a $k$-graph given by an element of the image of the apex under the pseudofunctor $F$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (D) at (-3,0) {$U$};
-\node (E) at (-2,0) {$V$};
-\node (F) at (-1,0) {$W$};
-\node (A) at (0,0) {$K \in F(V)$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$i$} (E)
-(F) edge node [above] {$o$} (E);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms as maps of cospans of finite sets 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$U_1$};
-\node (F) at (5,0) {$W_1$};
-\node (G) at (4,0) {$V_1$};
-\node (E') at (3,-1) {$U_2$};
-\node (F') at (5,-1) {$W_2$};
-\node (G') at (4,-1) {$V_2$};
-\node (A) at (6,0) {$K_1 \in F(V_1)$};
-\node (B) at (6,-1) {$K_2 \in F(V_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$o_1$} (G)
-(E) edge node[left]{$f$} (E')
-(F) edge node[right]{$g$} (F')
-(G) edge node[left]{$h$} (G')
-(E) edge node[above]{$i_1$} (G)
-(E') edge node[above]{$i_2$} (G')
-(F') edge node[above]{$o_2$} (G');
-\end{tikzpicture}
-\]
-together with a morphism of $k$-graphs $\tau \maps F(h)(K_1) \to K_2$ in $F(V_2)$.}
-\end{enumerate}
-These two double categories $_L \lCsp(\Graph_k)$ and $F\lCsp$ are equivalent by Theorem \cref{thm:equiv}.
-
-\subsection{Markov processes}
-In another previous work \cite{BFP}, Fong, Pollard and the first author used decorated cospans to construct a symmetric monoidal category of `open Markov processes'. In this framework, a Markov process on a finite set $N$ is given by a diagram in $\Set$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (D) at (3,0) {$(0,\infty)$};
-\node (E) at (4,0) {$E$};
-\node (F) at (5,0) {$N$};
-\path[->,font=\scriptsize,>=angle 90]
-(E) edge node [above] {$r$} (D)
-(E) edge [bend left] node [above] {$s$} (F)
-(E) edge [bend right] node [below] {$t$} (F);
-\end{tikzpicture}
-\]
-where $E$ and $N$ are finite sets of edges and nodes, respectively. This is really just a special case of the previous example of passive linear circuits with $k = \mathbb{R}$. An open Markov process is then of course a cospan of finite sets where the apex is equipped with a Markov process:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (B) at (1,0) {$N$};
-\node (C) at (2,0) {$Y$};
-\node (A) at (0,0) {$X$};
-\node (D) at (3,0) {$(0,\infty)$};
-\node (E) at (4,0) {$E$};
-\node (F) at (5,0) {$N$};
-\path[->,font=\scriptsize,>=angle 90]
-(E) edge node [above] {$r$} (D)
-(E) edge [bend left] node [above] {$s$} (F)
-(E) edge [bend right] node [below] {$t$} (F)
-(A)edge node[above] {$i$}(B)
-(C)edge node[above]{$o$}(B);
-\end{tikzpicture}
-\]
-For example:
-\[
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.7cm,
-thick,main node/.style={circle,fill=white!20,draw,font=\sffamily\Large\bfseries},terminal/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]]
-\node[main node](1) {$b_1$};
-\node[main node](2) [left=0.8cm of 1] {$a_1$};.5
-\node[main node](3) [below right=0.7cm and 2.4cm of 1] {$c_2$};
-\node[main node](5) [above right=0.7cm and 2.4cm of 1] {$c_1$};
-\node[main node](4) [above right=0.7cm and 2.4cm of 3] {$d_1$};
-\node(A) [left=1cm of 2,circle,draw,inner sep=1pt,fill=gray,color=purple] {};
-\node(C) [right=1cm of 4,circle,draw,inner sep=1pt,fill=gray,color=purple] {};
-\node[left=1.25 cm of 2,color=purple] {$S$};
-\node[right=1.25 cm of 4,color=purple] {$T$};
-\path[every node/.style={font=\sffamily\small}, shorten >=1pt]
-(3) edge [bend right =15] node[below] {$e_6$} (4)
-(5) edge [bend left =15] node[below] {$e_5$} (4)
-(2) edge [bend left=15] node[below] {$e_1$} (1)
-(1) edge [bend left =15] node[below] {$e_2$} (5)
-(5) edge [bend right =15] node[right] {$e_4$} (3)
-(1) edge [bend right =15] node[below] {$e_3$} (3)
-(3) edge [bend right =15] node[above] {$6$} (4)
-(5) edge [bend left =15] node[above] {$6$} (4)
-(2) edge [bend left=15] node[above] {$5$} (1)
-(1) edge [bend left =15] node[above] {$8$} (5)
-(5) edge [bend right =15] node[left] {$4$} (3)
-(1) edge [bend right =15] node[above] {$8$} (3);
-\path[color=purple, very thick, shorten >=10pt, ->, >=stealth] (C) edge (4);
-\path[color=purple, very thick, shorten >=10pt, ->, >=stealth] (A) edge (2);
-\end{tikzpicture}
-\]
-Here we have an open Markov process on the finite set $N = \{a_1,b_1,c_1,c_2,d_1 \}$ with input and output sets given by the singletons $S$ and $T$, respectively.
-
-Fong, Pollard and the first author then add extra structure to open Markov processes such as populations at each node to obtain a symmetric monoidal category $\mathsf{DetlBalMark}$ of open Markov processes in `detailed balance' and then construct a black box functor $\blacksquare \maps \mathsf{DetBalMark} \to \mathsf{LinRel}$ that describes the steady state behavior of an open Markov process in detailed balance. On the way to doing this, one of the categories they construct using Fong's decorated cospan machinery is a symmetric monoidal category $\mathsf{Mark}$ which has:
-\begin{enumerate}
-\item{objects as finite sets and}
-\item{morphisms as isomorphism classes of open Markov processes, where composition is by pushout.}
-\end{enumerate}
-This is done using a symmetric lax monoidal functor $F \maps \mathsf{FinSet} \to \Set$ which assigns to each finite set $N$ the (large) set of all Markov processes on $N$ as defined above. Viewing this functor $F$ as now a symmetric lax monoidal pseudofunctor $F \maps \mathsf{FinSet} \to \Cat$ that assigns to a finite set $N$ the \emph{category} $F(N)$ of all Markov processes on $N$, we then get by Theorem \cref{DC} a symmetric monoidal double category $F\lCsp$ which has:
-\begin{enumerate}
-\item{finite sets as objects,}
-\item{functions as vertical 1-morphisms,}
-\item{open Markov processes as horizontal 1-cells, and}
-\item{maps of open Markov processes as 2-morphisms which are given by maps of cospans of finite sets:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$X_1$};
-\node (A') at (0,-1) {$X_2$};
-\node (C') at (2,-1) {$Y_2$};
-\node (B) at (1,0) {$N_1$};
-\node (C) at (2,0) {$Y_1$};
-\node (D) at (1,-1) {$N_2$};
-\node (E) at (3,0) {$M_1 \in F(N_1)$};
-\node (E') at (3,-1) {$M_2 \in F(N_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[left]{$f'$} (C')
-(C') edge node [above] {$o_2$} (D)
-(A') edge node [above] {$i_2$} (D)
-(B) edge node [left] {$h$} (D);
-\end{tikzpicture}
-\]
-together with a map of Markov processes $\tau \maps F(h)(M_1) \to M_2$ in $F(N_2)$, where a map between two Markov processes to be given by a pair of functions $(g,h)$ that make the following diagram commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$(0,\infty)$};
-\node (E') at (3,-1) {$(0,\infty)$};
-\node (F) at (4,0) {$E_1$};
-\node (F') at (4,-1) {$E_2$};
-\node (G) at (5,0) {$N_1$};
-\node (G') at (5,-1) {$N_2$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above] {$r_1$} (E)
-(F) edge [bend left] node [above] {$s_1$} (G)
-(F) edge [bend right] node [below] {$t_1$} (G)
-(F') edge node[above] {$r_2$} (E')
-(F') edge [bend left] node [above] {$s_2$} (G')
-(F') edge [bend right] node [below] {$t_2$} (G')
-(F) edge node [left] {$g$} (F')
-(G) edge node [right] {$h$} (G');
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
-A symmetric monoidal double category of open Markov processes can also be obtained using structured cospans by defining a functor $L \maps \mathsf{FinSet} \to \mathsf{Mark}$ which assigns to a finite set $N$ the discrete Markov process $L(N)$ with no edges and to a function $f \maps N \to N'$ the induced map of discrete Markov processes. Both categories $\mathsf{FinSet}$ and $\mathsf{Mark}$ have finite colimits and the functor $L$ is left adjoint to the forgetful functor $R \maps \mathsf{Mark} \to \mathsf{FinSet}$ which maps a Markov process to its underlying finite set of states. By Theorem \cref{SC}, we get a symmetric monoidal double category $_L \lCsp(\mathsf{Mark})$ which has:
-\begin{enumerate}
-\item{objects as finite sets,}
-\item{vertical 1-morphisms as functions,}
-\item{horizontal 1-cells as cospans in $\mathrm{Mark}$ of the form:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (D) at (-3,0) {$L(N_1)$};
-\node (E) at (-2,0) {$M$};
-\node (F) at (-1,0) {$L(N_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$I$} (E)
-(F) edge node [above] {$O$} (E);
-\end{tikzpicture}
-\]
-and}
-\item{2-morphisms as maps of cospans in $\mathrm{Mark}$.
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$L(N_1)$};
-\node (F) at (5,0) {$L(N_2)$};
-\node (G) at (4,0) {$M$};
-\node (E') at (3,-1) {$L(N_1')$};
-\node (F') at (5,-1) {$L(N_2')$};
-\node (G') at (4,-1) {$M'$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$O$} (G)
-(E) edge node[left]{$L(f_1)$} (E')
-(F) edge node[right]{$L(f_2)$} (F')
-(G) edge node[left]{$(g,h)$} (G')
-(E) edge node[above]{$I$} (G)
-(E') edge node[above]{$I'$} (G')
-(F') edge node[above]{$O'$} (G');
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
-The two double categories $F\lCsp$ and $_L \mathbb{C} \textnormal{sp}(\mathsf{Mark})$ are equivalent by Theorem \cref{thm:equiv}.
-
-In a more recent work \cite{BC}, the first two authors have constructed a symmetric monoidal double category of `open Markov processes' and `coarse-grainings', where roughly speaking, a coarse-graining is a way of approximating a larger open Markov process by a smaller one by partitioning the set of states into `lumps'. This construction uses neither decorated cospans nor structured cospans.
+We can also describe $\La$-circuits using decorated cospans.   There is a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Cat, \times)$ such that for any finite set $N$, the category $F(N)$ has:
+\begin{itemize}
+\item objects being \define{$\La$-graph structures} on $N$: that is, $\La$-graphs where the set of nodes is $N$,
+\item morphisms are morphisms of $\La$-graphs that are the identity on the set of nodes.
+\end{itemize}
+This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:equiv} we can show that this is equivalent, as a symmetric monoidal double category, to ${}_L \lCsp(\Graph_\La)$.
 
 \subsection{Petri nets}
-In a previous work, Master and the first author used structured cospans to obtain a symmetric monoidal double category of `open Petri nets'. A Petri net is given by a diagram in $\Set$ of the form:
+In a previous work, Master and the first author used structured cospans to obtain a symmetric monoidal double category of `open Petri nets' \cite{BM}.  A Petri net is given by a diagram in $\Set$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (B) at (1,0) {$T$};
@@ -5748,7 +5363,7 @@ In a previous work, Master and the first author used structured cospans to obtai
 (B)edge[bend right] node[below]{$t$}(C);
 \end{tikzpicture}
 \]
-Here, $T$ is the set of \emph{transitions} and $S$ is the set of \emph{species}, and then $\mathbb{N}[S]$ is the free commutative monoid on the set $S$. Each transition then has a formal linear combination of species given by an element of $\mathbb{N}[S]$ as its source and target as prescribed by the functions $s$ and $t$, respectively. An example of a Petri net is given by:
+Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\mathbb{N}[S]$ is the underlying set of the free commutative monoid on $S$. Each transition then has a formal linear combination of species given by an element of $\mathbb{N}[S]$ as its source and target as prescribed by the functions $s$ and $t$, respectively. An example of a Petri net is given by:
 \[
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
@@ -5772,7 +5387,7 @@ Here, $T$ is the set of \emph{transitions} and $S$ is the set of \emph{species},
 	\end{pgfonlayer}
 \end{tikzpicture}
 \]
-This Petri net has a single transition $\alpha$ with $2\textnormal{H}+\textnormal{O}$ as its source and $\textnormal{H}_2 \textnormal{O}$ as its target. See the original paper for more details on Petri nets \cite{BM}.
+This Petri net has a single transition $\alpha$ with $2\textnormal{H}+\textnormal{O}$ as its source and $\textnormal{H}_2 \textnormal{O}$ as its target. 
 
 Each set of species $S$ gives rise to a discrete Petri net $L(S)$ with $S$ as its set of species and no transitions. Master and the first author show the existence of a left adjoint $L \maps \Set \to \Petri$ where $\Petri$ is the category whose objects are Petri nets and whose `morphisms are morphisms of Petri nets'. They also show that $\Petri$ has finite colimits and thus using Theorem \cref{SC} obtain a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets which has:
 \begin{enumerate}
@@ -5851,8 +5466,8 @@ and}
 \]
 together with a morphism of Petri nets $\tau \maps F(h)(P_1) \to P_2$ in $F(Z_2)$.}
 \end{enumerate}
-Thus we have a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\lCsp$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\lOpen(\Petri) \sim F\lCsp$ of symmetric monoidal double categories by \cref{thm:equiv}.
-\end{comment}
+Thus we have a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\lCsp$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\lOpen(\Petri) \simeq F\lCsp$ of symmetric monoidal double categories by \cref{thm:equiv}.
+
 
 \section{Conclusions}\label{sec:conclusions}
 
