@@ -4731,30 +4731,43 @@ Petri nets are widely used as models of systems in computer science, chemistry, 
 \]
 This Petri net has a single transition $\alpha$ with $2\textnormal{H}+\textnormal{O}$ as its source and $\textnormal{H}_2 \textnormal{O}$ as its target. 
 
-Each set of species $S$ gives rise to a discrete Petri net $L(S)$ with $S$ as its set of species and no transitions. Master and the first author show the existence of a left adjoint $L \maps \Set \to \Petri$ where $\Petri$ is the category whose objects are Petri nets and whose `morphisms are morphisms of Petri nets'. They also show that $\Petri$ has finite colimits and thus using Theorem \cref{thm:SC} obtain a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets which has:
-\begin{enumerate}
-\item{objects given by sets,}
-\item{vertical 1-morphisms given by functions,}
-\item{horizontal 1-cells as open Petri nets which are given by cospans in $\Petri$ of the form:
+There is a category $\Petri$ with Petri nets as objects, where a morphism from the Petri net 
+$s, t \maps T \to \N[S]$ to the Petri net $s', t' \maps T' \to \N[S']$ is a pair of functions $f \maps T \to T', g \maps S \to S'$ such that the following diagrams commute:
+	\[
+	\xymatrix{ 
+		T \ar[d]_f  \ar[r]^-{s} & \N[S] \ar[d]^-{\N[g]} \\	
+		T' \ar[r]^-{s'} & \N[S'] 
+	}
+	\qquad
+	\xymatrix{ 
+		T \ar[d]_f  \ar[r]^-{t} & \N[S] \ar[d]^-{\N[g]} \\	
+		T' \ar[r]^-{t'} & \N[S'] . 
+	}
+	\]
+There is a functor $R \maps \Petri \to \Set$ sending any Petri net to its set of places, and this has
+a left adjoint $L \maps \Set \to \Petri$ sending any set $S$ to the Petri net with $S$ as its set of species and no transitions \cite[Lemma 11]{BM}.   Since both $\Set$ and $\Petri$ have finite colimits and $L$ preserves them, Theorem \cref{thm:SC} yields a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets which has:
+\begin{itemize}
+\item objects given by sets,
+\item vertical 1-morphisms given by functions,
+\item horizontal 1-cells as \define{open Petri nets}, which are cospans in $\Petri$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (-3,0) {$L(X)$};
 \node (E) at (-2,0) {$P$};
 \node (F) at (-1,0) {$L(Y)$};
 \path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above] {$I$} (E)
-(F) edge node [above] {$O$} (E);
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
 \end{tikzpicture}
 \]
-and}
-\item{2-morphisms as maps of cospans in $\Petri$ of the form:
+\item 2-morphisms as maps of cospans in $\Petri$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (3,0) {$L(X_1)$};
 \node (F) at (5,0) {$L(Y_1)$};
 \node (G) at (4,0) {$P_1$};
 \node (E') at (3,-1) {$L(X_2)$};
-\node (F') at (5,-1) {$L(Y_2)$};
+\node (F') at (5,-1) {$L(Y_2)$.};
 \node (G') at (4,-1) {$P_2$};
 \path[->,font=\scriptsize,>=angle 90]
 (F) edge node[above]{$O_1$} (G)
@@ -4766,8 +4779,7 @@ and}
 (F') edge node[above]{$O_2$} (G');
 \end{tikzpicture}
 \]
-}
-\end{enumerate}
+\end{itemize}
 We can also obtain a similar double category using decorated cospans: define a pseudofunctor $F \maps \Set \to \Cat$ where given a set $s$, $F(s)$ is the category of all Petri net structures with $s$ as its set of species. This pseudofunctor $F$ is symmetric lax monoidal as both $(\Set,+,\emptyset)$ and $(\Cat,\times,1)$ are symmetric monoidal and given Petri nets $P \in F(s)$ and $P' \in F(s')$, we can place them side by side and consider them together as a single Petri net $P+P' \in F(s+s')$ with set of species $s+s'$, and thus we have natural transformations $\phi_{s,s'} \maps F(s) \times F(s') \to F(s+s')$ for any two sets $s$ and $s'$. The other structure morphism between monoidal units $\phi \maps 1_{\Petri} \to F(\emptyset)$ is defined by the unique morphism from the empty Petri net with the empty set forits set of species to the only possible Petri net on the empty set, which is also the empty Petri net. All of the diagrams that are required to commute are straightforward. Using Theorem \cref{DC}, we obtain a symmetric monoidal double category $F\lCsp$ which has:
 \begin{enumerate}
 \item{objects given by sets,}
