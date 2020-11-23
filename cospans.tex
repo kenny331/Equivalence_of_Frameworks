@@ -320,7 +320,7 @@ $$F(h'h)(x)\cong F(h')F(h)(x)\xrightarrow{F(h')(\tau)}F(h')(x')\xrightarrow{\tau
 The source and target functors map an $F$-decorated cospan to the source and target of the cospan and a map of decorated cospans \cref{eq:mapofdec} to $f$ and $g$ respectively. The unit functor maps an object $a$ to 
 \begin{equation}\label{eq:UFCsp}
 \begin{tikzcd}
-a\ar[r,"1_a"] & a & a,\ar[l,"1_a"'] & \bot_a:=1\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a)
+a\ar[r,"1_a"] & a & a,\ar[l,"1_a"'] & \bot_a:=\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a)
 \end{tikzcd}
 \end{equation}
 where $\bot_a \in F(a)$ is called the \define{trivial decoration}, and a vertical 1-morphism $f\maps a\to a'$ to
@@ -369,7 +369,7 @@ Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-de
 \end{tikzpicture}
 \end{equation}
 with decoration
-$$x\odot y:= 1\cong1 \times 1 \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
+$$x\odot y:= \one\cong\one \times \one \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
 where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ are the lax monoidal structure maps of $F$. Moreover, given two horizontally composable maps of $F$-decorated cospans $\alpha$ and $\beta$ 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -433,7 +433,7 @@ together with the decoration morphism $\tau_{\alpha \odot \beta} \colon F(h_1 +_
 \[
 \begin{tikzpicture}[scale=1.7]
 \node (A) at (4.75,0) {$\scriptstyle\Downarrow \tau_\alpha \times \tau_\beta$};
-\node (D) at (3,0) {$1 \cong 1 \times 1$};
+\node (D) at (3,0) {$\one \cong \one \times \one$};
 \node (E) at (5.5,0.5) {$F(m) \times F(n)$};
 \node () at (6.5,0) {$\cong$};
 \node () at (8.5,0) {$\cong$};
@@ -503,10 +503,10 @@ the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the is
 \]
 together with an isomorphism $F(\alpha)((x_1 \odot x_2) \odot x_3) \cong (x_1 \odot (x_2 \odot x_3))$ between the decorations 
 \begin{gather*}
-\scalebox{.8}{$1\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)\to F((m_1+_bm_2)+_cm_3)\cong F(m_1+_b(m_2+_cm_3))$} \\
-\scalebox{.8}{$1\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))\to F(m_1+_b(m_2+_cm_3))$}
+\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)\to F((m_1+_bm_2)+_cm_3)\cong F(m_1+_b(m_2+_cm_3))$} \\
+\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))\to F(m_1+_b(m_2+_cm_3))$}
 \end{gather*}
-which is constructed by pasting structure isomorphisms like above. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
+which is constructed by pasting structure isomorphisms like above. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category -- essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \begin{comment}
  The definition of double category may be found in Definition \ref{defn:double_category}. To show that the pseudofunctor $F$ in the theorem statement induces a double category $F\lCsp$, we must first define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$ and the composition functor $\odot$ which says how to compose two composable horizontal 1-cells or two composable 2-morphisms horizontally: $$\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1.$$
 
@@ -3231,7 +3231,7 @@ In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofu
 Moreover, each fibre category $\X_a=F(a)$ obtains a monoidal structure via 
 \begin{equation}\label{eq:explicitstructure1}
 \otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
-I_a\maps\mathbf{1}\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
+I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 \end{equation}
 where $\nabla$ is the fold map. 
 \end{proof}
@@ -3375,7 +3375,7 @@ for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bo
   & m+_bn & \\
   a\ar[ur] && b,\ar[ul]
  \end{tikzcd}\qquad
-  \mathbf{1}\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
+  \one\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
 \end{equation}
 whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\inta F$ as in \cref{eq:globalpushout} produces 
 \begin{displaymath}
@@ -3400,11 +3400,11 @@ In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined abo
 
 Since both double categories are symmetric monoidal under the running assumptions (\cref{DC,thm:SC}), we will now show that this double isomorphism is a symmetric monoidal one, namely $\lE=(\lE_0,\lE_1)$ is a symmetric strong monoidal double functor as per \cref{defn:monoidal_double_functor}. Indeed, $\lE_0=\mathrm{id}_\A$ is a braided monoidal functor trivially. For $\lE_1$, given two structured cospans $M=(a,\bot_a)\to(m,x)\leftarrow(b,\bot_b)$ and $M'=(a',\bot_{a'})\to(m',x')\leftarrow(b',\bot_{b'})$ in $_L\lCsp(\inta F)$, we compute the appropriate decorated cospans
 \begin{align*}
-\lE(M)\ot\lE(M')&\;\stackrel{\cref{eq:tensordecoration}}{=}\;a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\mathbf{1}\xrightarrow{x\times x'}F(m)\times F(m')\xrightarrow{\phi_{m,m'}}F(m+m') \\
+\lE(M)\ot\lE(M')&\;\stackrel{\cref{eq:tensordecoration}}{=}\;a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\one\xrightarrow{x\times x'}F(m)\times F(m')\xrightarrow{\phi_{m,m'}}F(m+m') \\
 \lE(M\ot M')&\;\stackrel{\cref{eq:tensorstuctured}}{=}\;\lE\Big((a+a',\bot_{a+a'})\to\underbrace{(m+m',F(\iota_m)x+F(\iota_{m'})x')}_{\cref{eq:fibrewisecoprod}}\leftarrow(b+b',\bot_{b+b'})\Big)%=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\phi_{m,m'}(x,x')
 \end{align*}
 which are uniquely isomorphic $F(\iota_m)x+F(\iota_{m'})\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag}, as also discussed after \cref{cor:fcocMonGroth}.
-Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \mathbf{1}\to F(0_A)$,
+Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \one\to F(0_A)$,
 which is an initial object and as such isomorphic to $0_{F(0)}$
 %=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
 again by \cref{eq:explicitstructure2} and the discussion after \cref{cor:fcocMonGroth}.
