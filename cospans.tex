@@ -41,8 +41,9 @@ An `open system' is any sort of system that can interact with the outside world.
 \]
 We call $m$ the \define{apex}, $a$ and $b$ the \define{feet}, and $i$ and $o$ the \define{legs} of the cospan.   The apex describes the system itself.  The feet describe `interfaces'  through which the system can interact with the outside world.  The legs describe how the interfaces are included in the system.   If the category $\A$ has finite colimits, we can compose cospans using pushouts: this describes the operation of attaching two open systems together in series by identifying one interface of the first with one of the second.  We can also `tensor' cospans using coproducts: this describes setting open systems side by side, in parallel.  Via these operations we obtain a symmetric monoidal double category
 %%%Christina: add the notation bb{C}sp(A) since it will be central to what follows?
-with cospans in $\A$ as its horizontal 1-cells \cite{Courser,Niefield}.
+with cospans in $\A$ as its horizontal 1-cells \cite{Niefield}.
 %%% Christina: I would be inclined to first cite Niefield and then Courser due to the chronological order.
+%%% Kenny: I think when we \cite{...}, we list the references alphabetically, but let's just cite Niefield here and achieve both.
 
 However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+) \to (\textsf{Set},\times)$ can be used to equip the apex $m$ of a cospan in $\A$ with some extra data: an element $x \in F(m)$, which we call a \textbf{decoration}.  Thus a \define{decorated cospan} is a pair:
 \[
@@ -346,6 +347,7 @@ where $\bot_a \in F(a)$ is called the \define{trivial decoration}, and a vertica
 \]
 together with the decoration morphism $F(f)F(!_a)\phi_0(*)\cong F(!_{a'})\phi_0(*)$.
 %%% Christina: the previous formula $\tau_{\bot_f} = F(f) F(!) \phi \maps 1 \to F(a')$ doesn't typecheck to me.
+%%% Kenny: \phi:1-->F(0), F(!):F(0)-->F(a), F(f):F(a)-->F(a')? Or did I make a mistake somewhere?
 Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-decorated cospans $\left(a\to m\leftarrow b,x\in F(m)\right)$ and $\left(b\to n\leftarrow c,y\in F(n)\right)$ to their pushout in $\A$ over their shared foot
 \begin{equation}\label{eq:dcospanscomposition}
 \begin{tikzpicture}
@@ -3334,6 +3336,7 @@ describes the construction of the adjunction from the original $F$. Explicitly, 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $F\lCsp$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
 %%% Not sure what v is in the above line unless you mean x?
 %%% I mean an arbitrary object in the Grothendieck category. I just made it a pair to be clearer, is it OK? Erase these comments whenever you want.
+%%% Oh, gotchya'
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{\(\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}\)}}(m,x)\xleftarrow{\scalebox{0.7}{\(\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}\)}}(b,\bot_b)
 \end{equation}
@@ -3410,10 +3413,6 @@ which is an initial object and as such isomorphic to $0_{F(0)}$
 again by \cref{eq:explicitstructure2} and the discussion after \cref{cor:fcocMonGroth}.
 It can be verified that with the above structure, $\lE_1$ is also a braided monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
-
-%%% Is this biequivalnce symmetric monoidal? Mike says yes, but it follows from a result that he has yet to officially publish. It's a result of a paper he's currently working on with someone.
-%%% Christina: Kenny, is the above comment still relevant? If not, feel free to erase!
-
 
 \section{Bicategorical and categorical aspects}
 \label{spinoffs}
@@ -4346,8 +4345,9 @@ The above in fact provides the one direction of the following well-known equival
 
 \subsection{Double categories}\label{sec:doublecats}
 %%% Christina: Kenny, would you mind cleaning this section up to? I don't believe we need the full fledged definitions here by the way.
+%%% Kenny: Sure!
 
-Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category has 2-morphisms shaped like:
+Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category $\lA$ has 2-morphisms shaped like:
 
 \[
 \begin{tikzpicture}[scale=1]
@@ -4363,8 +4363,17 @@ Before formally defining `pseudo double category', it is helpful to have the fol
 (F) edge node [above]{$N$} (A);
 \end{tikzpicture}
 \]
-We call $A, B, C$ and $D$ \define{objects} or \define{0-cells}, $f$ and $g$ \define{vertical 1-morphisms}, $M$ and $N$ \define{horizontal 1-cells} and $a$ a \define{2-morphism}. Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. %We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'???   Or should we put a ``tick'' in here?
-We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+We call $A, B, C$ and $D$ \define{objects}, $f$ and $g$ \define{vertical 1-morphisms}, $M$ and $N$ \define{horizontal 1-cells} and $a$ a \define{2-morphism}. 
+%Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. 
+%We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'???   Or should we put a ``tick'' in here?
+A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}. We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
+%We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+
+\begin{defn}\label{defn:double_category}
+A \define{(pseudo) double category} $\lA$ is a category object internal to the 2-category $\Cat$.
+\end{defn}
+
+\begin{comment}
 
 \begin{defn}\label{defn:double_category}
 A \textbf{(pseudo) double category} $\lD$ consists of a category of objects $\lD_0$ and a category of arrows $\lD_1$ with the following functors
@@ -4387,9 +4396,10 @@ $\lambda \maps U_{B} \odot M \xrightarrow{\sim} M$\\
 $\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
 
 \end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called \define{objects} or \define{0-cells}
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called \define{objects}
 %%% I'm tempted to delete 0-cells since we never use that term anywhere in any paper, but I do like the idea that "n+1 morphisms go between n cells".
 %%% Christina: I am up for deletion of 0-cells
+%%% Kenny: Okay, I deleted it.
 and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}. The morphisms of $\lD_0$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
 \[
 \begin{tikzpicture}[scale=1]
@@ -4406,17 +4416,29 @@ and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\
 \end{tikzpicture}
 \]
 \end{defn}
-A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}.
+%A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}. We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 
 %The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
 
-
+\end{comment}
 
 
 %\begin{defn}
 %Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
 %\end{defn}
+\begin{defn}\label{def:doublefun}
+Given double categories $\lA$ and $\lX$, a \define{(pseudo) double functor} $\lF \colon\lA \to \lX$ consists of:
+\begin{enumerate}
+\item{functors $\lF_0 \colon \lA_0 \to \lX_0$ and $\lF_1 \colon \lA_1 \to \lX_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
+\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(M) \odot \lF(N) \to \lF(M \odot N)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy the usual coherence axioms for a monoidal functor.}
+\end{enumerate}
+\end{defn}
 
+\begin{defn}
+Given double functors $(\lF,\phi),(\mathbb{G},\psi) \colon \lA \to \lX$, a \define{double transformation} $\alpha \colon \lF \Rightarrow \mathbb{G}$ consists of transformations $\alpha_0 \colon \lF_0 \Rightarrow \mathbb{G}_0$ and $\alpha_1 \colon \lF_1 \Rightarrow \mathbb{G}_1$ such that $S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$, and for two composable horizontal 1-cells $M$ and $N$ of $\lA$, $\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ and $\alpha \circ \phi_a = \psi_a \circ \alpha$.
+\end{defn}
+
+\begin{comment}
 \begin{defn}\label{def:doublefun}
 Let $\lA$ and $\lB$ be double categories. A \define{(pseudo) double functor} is a functor $\lF \maps\lA\to \lB$ that takes items of $\lA$ to items of $\lB$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\lF_0 \maps \lA_0 \to \lB_0$ and $\lF_1 \maps \lA_1 \to \lB_1$ such that the following equations are satisfied: 
 \[   S \circ \lF_1 = \lF_0 \circ S, \qquad  T \circ \lF_1 = \lF_0 \circ T. \]
@@ -4491,6 +4513,7 @@ Every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \maps 
 \end{enumerate}
 We say the double functor $\lF$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
 \end{defn}
+\end{comment}
 
 %%% Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
 %\begin{defn}
@@ -4505,7 +4528,6 @@ We say the double functor $\lF$ is \define{strict} if the comparison constraints
 %    C \ar[r]|{|}_N & D
 %  }
 %\]
-We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
 
 \begin{defn}\label{def:fullfaithful}
 A double functor $\lF \maps \lA \to \lX$ is \define{full} (respectively, \define{faithful}) if $\lF_0 \maps \lA_0 \to \lX_0$ is full (respectively, faithful) and each map $$\lF_1 \maps _f \lA_g(M,N) \to {_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))$$ is surjective (respectively, injective).
@@ -4539,14 +4561,23 @@ A pseudo double functor $\lF \maps \lA \to \lX$ is part of a double equivalence 
 WE NEED TO SAY BRIEFLY WHAT A DOUBLE ISOMORPHISM IS.
 
 \begin{thm}
-Let $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal strong double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
+Let $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal pseudo double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
 \end{thm}
 
 \begin{proof} Where is this proved???  \end{proof}
+%%% Kenny: This isn't proved anywhere formally, as far as I know.
 
+Let $\mathbf{Dbl}$ denote the 2-category of double categories, double functors and double transformations. One can check that $\mathbf{Dbl}$ has finite products, and in any 2-category with finite products we can define a `pseudomonoid' or a `weak' monoid, which is a categorified analogue of a monoid in which the left and right unitors and associators are not identities but natural isomorphisms. It is the 2-categorical structure of $\mathbf{Dbl}$, or more generally, any 2-category with finite limits, that enables us to do this. For example, a pseudomonoid in $\mathbf{Cat}$ is a monoidal category. We are primarily concerned with the (weak) monoidal double categories in which the associators and left and right unitors are natural isomorphisms.
+\begin{defn}\label{defn:smdc}
+A \define{monoidal double category} is a pseudomonoid internal to the monoidal 2-category $\mathbf{Dbl}$. Similarly, a \define{braided monoidal double category} is a braided pseudomonoid internal to $\mathbf{Dbl}$ and a \define{symmetric monoidal double category} is a symmetric pseudomonoid internal to $\mathbf{Dbl}$.
+\end{defn}
+For more details on the definition of (braided, symmetric) monoidal double category, we refer to Hansen and Shulman \cite{HS}.
+
+
+\begin{comment}
 \begin{defn}\label{defn:smdc}
 %  A \textbf{monoidal double category} is a double category equipped the following
-  A \textbf{monoidal double category} is a double category $\lD$ equipped with the following
+  A \textbf{monoidal double category} is a double category $\lA$ equipped with the following
 structure.
 \begin{enumerate}
 \item $\lD_0$ and $\lD_1$ are both monoidal categories.
@@ -4788,10 +4819,10 @@ structure.
 		\item $\lD_0$ and $\lD_1$ are symmetric monoidal.
 	\end{enumerate}
 \end{defn}
-
+\end{comment}
 
 \begin{defn}\label{def:companion}
-  Let $\lD$ be a double category and $f\maps A\to B$ a vertical
+  Let $\lA$ be a double category and $f\maps A\to B$ a vertical
   1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
   $\fhat\maps A\to B$ together with 2-morphisms
 	\[
@@ -4958,9 +4989,9 @@ structure.
 	}
 	\end{equation}
   A \textbf{conjoint} of $f$, denoted $\fchk \maps B\to A$, is a
-  companion of $f$ in the double category $\lD^{h\cdot\mathrm{op}}$
+  companion of $f$ in the double category $\lA^{h\cdot\mathrm{op}}$
   obtained by reversing the horizontal 1-cells, but not the vertical
-  1-morphisms, of $\lD$.
+  1-morphisms, of $\lA$.
 \end{defn}
 \noindent
 %In a pseudo double category, the second equation above requires an insertion of unit isomorphisms to make sense due to horizontal composition only holding up to isomorphism.
@@ -4971,6 +5002,13 @@ We say that a double category is \textbf{fibrant} if every vertical
 1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
+\begin{defn}\label{defn:monoidal_double_functor}
+Given (braided, symmetric) monoidal double categories $\lA$ and $\lX$, a \define{(braided, symmetric) monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a (braided, symmetric) monoidal functor with respect to $\otimes$.
+\end{defn}
+
+For more details on the definition of (braided, symmetric) monoidal functor, we refer to Hansen and Shulman \cite{HS}.
+
+\begin{comment}
 
 \begin{defn}
 \label{defn:monoidal_double_functor}
@@ -5048,6 +5086,8 @@ and for horizontal 1-cells $N_1,N_{2}$ and $N_{3}$ of $\lC$,
 	\end{itemize}
 A monoidal double functor $\lF$ is \define{braided} if $\lF_0$ and $\lF_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal.
 \end{defn}
+
+\end{comment}
 
 DEFINITION OF SYMMETRIC MONOIDAL ISOMORPHISM, BRIEFLY?
 
