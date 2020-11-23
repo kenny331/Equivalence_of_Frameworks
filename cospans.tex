@@ -3918,8 +3918,9 @@ By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors throug
 \end{displaymath}
 describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %Christina: If each adjoint picks one isomorphic initial object, can we choose the one with that choice? Well they are all isomorphic and that could help with the monoidal structure later...
 
-As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $F\lCsp$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{v}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
+As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (as for $F\lCsp$ earlier), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms 
 %%% Not sure what v is in the above line unless you mean x?
+%%% I mean an arbitrary object in the Grothendieck category. I just made it a pair to be clearer, is it OK? Erase these comments whenever you want.
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{\(\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}\)}}(m,x)\xleftarrow{\scalebox{0.7}{\(\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}\)}}(b,\bot_b)
 \end{equation}
@@ -3944,8 +3945,9 @@ Building up to an isomorphism of the above described double categories, we now d
 \lE=(\lE_0,\lE_1)\maps _L\lCsp(\inta F) \longrightarrow F\lCsp
 \end{displaymath}
 which on vertical categories acts as the identity $\lE_0 = \id_{\A}$. Given a horizontal 1-cell in $_L\lCsp(\inta F)$ as in \cref{eq:scsphor1cell}, $\lE_1$ maps it to the decorated cospan $i\maps a\to m\leftarrow b:o$ with decoration $x\in F(m)$,
-whereas a 2-morphism of $L$-structured cospans as above is mapped to the underlying cospan 2-morphism in $\A$
+whereas a 2-morphism of $L$-structured cospans as above is mapped to the underlying map of cospans in $\A$
 %%% We should call these "cospan 2-morphism"s maps of cospans to be consistent with previous work
+%%% Alright!
 \begin{displaymath}
 \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
@@ -4974,6 +4976,7 @@ $\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
 \end{center}
 such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called \define{objects} or \define{0-cells}
 %%% I'm tempted to delete 0-cells since we never use that term anywhere in any paper, but I do like the idea that "n+1 morphisms go between n cells".
+%%% Christina: I am up for deletion of 0-cells
 and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}. The morphisms of $\lD_0$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
 \[
 \begin{tikzpicture}[scale=1]
