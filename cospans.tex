@@ -3701,7 +3701,40 @@ In this appendix, we gather some well-known concepts required to make the materi
 \subsection{Bicategories}
 \label{subsec:bicats}
 
-For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality.  A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
+For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  
+Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. 
+
+A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
+\begin{equation}\label{eq:omega}
+\begin{tikzcd}[column sep=.8in, row sep=.3in]
+(F a\ot F b)\ot F c\ar[ddr,phantom,"{\cong}"]\ar[r,"{\phi_{a,b}\ot1}"]\ar[d,sloped,"\sim"'] & F (a\ot b)\ot F 
+c\ar[d,"{\phi_{a\ot b,c}}"] \\
+F a\ot( F b\ot F c)\ar[d,"{1\ot\phi_{b,c}}"'] & 
+F ((a\ot b)\ot c)\ar[d,sloped,"\sim"] \\
+F a\ot F(b\ot c)\ar[r,"{\phi_{a,b\ot c}}"'] &
+F (a\ot(b\ot c))
+\end{tikzcd}
+\end{equation}
+\begin{displaymath}
+\begin{tikzcd}[column sep=.3in,row sep=.3in]
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & F a\otimes I\ar[r,"1\otimes\mu_0"]\ar[dr,phantom,"\cong"] & F 
+a\otimes F I\ar[d,"\mu_{a,I}"] \\
+&& F(a\ot I)
+\end{tikzcd}\qquad
+\begin{tikzcd}[column sep=.3in,row sep=.3in]
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & I\otimes F a \ar[r,"\mu_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
+I\otimes F a\ar[d,"\mu_{I,a}"] \\
+&& F(I\ot a)
+\end{tikzcd}
+\end{displaymath}
+subject to coherence conditions. In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms (natural in $f,g$)
+\begin{equation}
+\begin{tikzcd}[column sep=.5in]
+ Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\cong"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
+ F(a\ot b)\ar[r,"F(f\ot g)"'] & F(a'\ot b')
+ \end{tikzcd}
+\end{equation}
+A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
 
 
 \subsection{Fibrations}\label{sec:fibrations}
