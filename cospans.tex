@@ -3901,14 +3901,21 @@ and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\
 %\end{defn}
 \begin{defn}\label{def:doublefun}
 Given double categories $\lA$ and $\lX$, a \define{(pseudo) double functor} $\lF \colon\lA \to \lX$ consists of:
-\begin{enumerate}
+\begin{itemize}
 \item{functors $\lF_0 \colon \lA_0 \to \lX_0$ and $\lF_1 \colon \lA_1 \to \lX_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
 \item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(M) \odot \lF(N) \to \lF(M \odot N)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy the usual coherence axioms for a monoidal functor.}
-\end{enumerate}
+\end{itemize}
 \end{defn}
 
 \begin{defn}
-Given double functors $(\lF,\phi),(\mathbb{G},\psi) \colon \lA \to \lX$, a \define{double transformation} $\alpha \colon \lF \Rightarrow \mathbb{G}$ consists of transformations $\alpha_0 \colon \lF_0 \Rightarrow \mathbb{G}_0$ and $\alpha_1 \colon \lF_1 \Rightarrow \mathbb{G}_1$ such that $S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$, and for two composable horizontal 1-cells $M$ and $N$ of $\lA$, $\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ and $\alpha \circ \phi_a = \psi_a \circ \alpha$.
+Given double functors $(\lF,\phi),(\mathbb{G},\psi) \colon \lA \to \lX$, a \define{double natural transformation} $\alpha \colon \lF \Rightarrow \mathbb{G}$ consists of natural transformations $\alpha_0 \colon \lF_0 \Rightarrow \mathbb{G}_0$ and $\alpha_1 \colon \lF_1 \Rightarrow \mathbb{G}_1$ such that:
+\begin{itemize}
+\item{$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$ for all horizontal 1-cells $M$ of $\lA$,}
+\item{$\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ for all composable pairs $M$ and $N$ of horizontal 1-cells in $\lA$, and}
+\item{$\alpha \circ \phi_a = \psi_a \circ \alpha$ for all objects $a$ of $\lA$.}
+\end{itemize} 
+%$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$, and for two composable horizontal 1-cells $M$ and $N$ of $\lA$, $\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ and $\alpha \circ \phi_a = \psi_a \circ \alpha$. 
+The double natural transformation $\alpha$ is a \define{double natural isomorphism} if both $\alpha_0$ and $\alpha_1$ are natural isomorphisms.
 \end{defn}
 
 \begin{comment}
@@ -4021,7 +4028,9 @@ A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if w
 \end{enumerate}
 \end{defn}
 
-Formally, two strong double functors between two double categories form a \emph{double equivalence} if ...
+\begin{defn}
+Two pseudo double functors $\lF \colon \lA \to \lX$ and $\mathbb{G} \colon \lX \to \lA$ form a \define{double equivalence} if there exist double natural transformations $\mathbb{G} \lF \cong 1_\lA$ and $\lF \mathbb{G} \cong 1_\lX$.
+\end{defn}
 % FINISH THIS OR DISCARD IT!!!
 %{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. 
 Much like equivalence of categories, equivalence of double categories has an alternative characterization:
