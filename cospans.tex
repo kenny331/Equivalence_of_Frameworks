@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/11/20
+% 2020/11/23
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -17,8 +17,7 @@
 
 \begin{document}
 \begin{abstract}
-The first two authors have recently developed a compositional framework by the name of `structured cospans' which is well-suited for studying networks.
-This framework utilizes double categories where the objects are seen as inputs and outputs and horizontal 1-cells are ‘open networks’ written as cospans, where a typically left adjoint functor $L\maps \A\to\X$ is used to replace the objects and vertical 1-morphisms of a given double category $\lX$ with those of a category $\A$. Fong has also developed a similar framework utilizing cospans to study open networks which goes by the name of ‘decorated cospans’. In this setup, a lax monoidal functor $F\maps \A\to\Set$ is used to "decorate" the apices of cospans in $\A$ with elements of $\Set$ giving the cospans extra structure. Using a slight variation of Fong’s framework, we prove that these two frameworks are equivalent in the situation where a left adjoint can be obtained from a lax monoidal pseudofunctor using a well known construction of Grothendieck.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   We prove that under certain conditions these two consstructions are equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, reaction networks and dynamical systems.
 \end{abstract}
 
 \maketitle
@@ -4233,6 +4232,11 @@ together with a morphism of Petri nets $\tau \maps F(h)(P_1) \to P_2$ in $F(Z_2)
 \end{enumerate}
 Thus we have a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri nets obtained from structured cospans and a symmetric monoidal double category $F\lCsp$ of open Petri nets obtain from decorated cospans, and of course, we have an equivalence $\lOpen(\Petri) \simeq F\lCsp$ of symmetric monoidal double categories by \cref{thm:equiv}.
 
+%%%DISCUSS OPEN COMMUTATIVE MONOIDAL CATEGORIES!!!
+
+\subsection{Reaction networks}
+
+%%% Do reaction networks and dynamical systems (which do NOT come from structured cospans).
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -4255,8 +4259,7 @@ In this appendix, we gather some well-known concepts required to make the materi
 \subsection{Bicategories}
 \label{subsec:bicats}
 
-{\chris There used to be references for more details on the material that follows. Why would we not provide them?}
-A \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality.  A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
+For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS, McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. A \define{lax monoidal} pseudofunctor between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with coherent invertible modifications for associativity and unitality.  A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
 
 
 \subsection{Fibrations}\label{sec:fibrations}
@@ -5129,7 +5132,7 @@ Cambridge University Press, Cambridge, 1994
 
 \bibitem{CV} D.\ Cicala and C.\ Vasilakopoulou, On Adjoints and fibrations. In preparation.
 
-\bibitem{Courser} K.\ Courser, A bicategory of decorated cospans, \emph{Theory Appl.\ Categ.} \textbf{32} (2017), 995--1027. Available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
+\bibitem{Courser} K.\ Courser, A bicategory of decorated cospans, \textsl{Theory Appl.\ Categ.} \textbf{32} (2017), 995--1027. Available as \href{https://arxiv.org/abs/1605.08100}{arXiv:1605.08100}.
 
 \bibitem{CourserThesis} K.\ Courser, \textsl{Open Systems: a Double Categorical Perspective}, Ph.D.\ thesis, Department of Mathematics, U.\ C.\ Riverside, 2020.  Available as \href{https://arxiv.org/abs/2008.02394}{arXiv:2008.02394}.
 
@@ -5156,7 +5159,7 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{GiraultValk} C.\ Girault and R.\ Valk, \textsl{Petri Nets for Systems Engineering: a Guide to Modeling, Verification, and Applications}, Springer, Berlin, 2013.
 
-\bibitem{Gray} J. \ Gray, Fibred and Cofibred categories, \emph{Proc. Conf. Categorical Algebra} (La Jolla, California, 1965), 21---83, New York, 1966
+\bibitem{Gray} J. \ Gray, Fibred and Cofibred categories, \textsl{Proc.\ Conf.\ Categorical Algebra} (La Jolla, California, 1965), 21---83, New York, 1966
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
 
@@ -5164,24 +5167,26 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{Herm} C. \ Hermida, Fibrations, logical predicates and indeterminates, PhD Thesis, University of Edinburgh, 1993.
 
-\bibitem{Hermida1999} C. \ Hermida, Some properties of Fib as a fibred 2-category. \emph{J. Pure Appl. Algebra}, 134(1), 83 -- 109, 1999
+\bibitem{Hermida1999} C. \ Hermida, Some properties of Fib as a fibred 2-category, \textsl{J.\ Pure Appl.\ Alg.\ } \textbf{134}, 83 -- 109, 1999
 
 %\bibitem{Hoff} A.\ Hoffnung, Spans in 2-categories: a monoidal tricategory. Available as \href{http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}.
 
 \bibitem{JM} J.\ C.\ Baez and J.\ Master, A compositional framework for Petri nets. In preparation.
 
-\bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, \emph{Lecture Notes in Mathematics} vol. 40, pages 75---103, Springer Berlin/Heidelberg, 1974.
+\bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, \textsl{Lecture Notes in Mathematics} vol. 40, pages 75---103, Springer Berlin/Heidelberg, 1974.
 
 \bibitem{LS} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as \href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
 
-%\bibitem{Lack} S.\ Lack, Limits for lax morphisms, \emph{Applied Categorical Structures} $\mathbf{30}$ (2005), 189--203. Available %at \href{http://maths.mq.edu.au/~slack/papers/talgl.pdf}{http://maths.mq.edu.au/$\sim$slack/papers/talgl.pdf}.
+%\bibitem{Lack} S.\ Lack, Limits for lax morphisms, \textsl{Applied Categorical Structures} $\mathbf{30}$ (2005), 189--203. Available %at \href{http://maths.mq.edu.au/~slack/papers/talgl.pdf}{http://maths.mq.edu.au/$\sim$slack/papers/talgl.pdf}.
 
    %\bibitem{Lerm} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as %%\href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
 
 %   \bibitem{ML} S.\ Mac Lane, {\sl Categories for the Working Mathematician},
 %     Springer, Berlin, 1998.
 
-\bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction, \emph{Theory Appl.\ Categ.} \textbf{35} (2020), 1159--1207. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
+\bibitem{McCrudden} P.\ McCrudden, Balanced coalgebroids, \textsl{Theory Appl.\ Categ.\ } \textbf{ 7} (2000), 71--147.
+
+\bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction, \textsl{Theory Appl.\ Categ.\ }\textbf{35} (2020), 1159--1207. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
 
 \bibitem{Niefield} S.~Niefield, Span, cospan, and other double categories, \textsl{Theory Appl.\ Categ.} \textbf{26} (2012), 729--742. Available as \href{https://arxiv.org/abs/1201.3789}{arXiv:1201.3789}.
 
@@ -5195,13 +5200,11 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 %\bibitem{Reb} F.\ Rebro, Constructing the bicategory Span$_{2}(\mathrm{A})$. Available as \href{https://arxiv.org/abs/1501.00792}{arXiv:1501.00792}.
 
-\bibitem{Shulman2008} M.\ Shulman, Framed bicategories and monoidal fibrations, \emph{Theory Appl.Categ.} \textbf{20} (2008), 650--738. Available as \href{https://arxiv.org/abs/0706.1286}{arXiv:0706.1286}.
+\bibitem{Shulman2008} M.\ Shulman, Framed bicategories and monoidal fibrations, \textsl{Theory Appl.Categ.} \textbf{20} (2008), 650--738. Available as \href{https://arxiv.org/abs/0706.1286}{arXiv:0706.1286}.
 
 \bibitem{Shulman2010} M.\ Shulman, Constructing symmetric monoidal bicategories. Available as \href{http://arxiv.org/abs/1004.0993}{arXiv:1004.0993}.
 
-%\bibitem{Stay} M.\ Stay, Compact closed bicategories.  Available as \href{http://arxiv.org/abs/1301.1053}{arXiv:1301.1053}.
-
-\bibitem{Yass} A.\ Yassine, Open Systems in Classical Mechanics. Available as \href{https://arxiv.org/abs/1710.11392}{arXiv:1710.11392}.
+\bibitem{Stay} M.\ Stay, Compact closed bicategories, \textsl{Theory Appl.\ Categ.\ }\textbf{31} (2016), 755--798.   Available as \href{http://arxiv.org/abs/1301.1053}{arXiv:1301.1053}.
 
 \end{thebibliography}
 \end{document}
