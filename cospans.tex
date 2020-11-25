@@ -2648,21 +2648,15 @@ Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symme
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting.  Suppose $\A$ is a monoidal category. Then there is a bijection between the following two things:
-\begin{itemize}
-\item lax monoidal structures on a pseudofunctor $F\maps\A\to\Cat$
-\item monoidal structures on $\inta F$ such that $U \maps \inta F \to \A$ is strict monoidal and the tensor product in $\inta F$ preserves cocartesian liftings.  
-\end{itemize}
-We call the former \define{monoidal opindexed categories}, and the latter \define{monoidal opfibrations}. If the monoidal structure of $\A$ is cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.  These correspondences can be enhanced to 2-equivalences:
-%-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck construction $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ into the 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.   Further, all these correspondences lift to 2-equivalences:
-{\chris There is a commented out passage of your earlier take here. I think I preferred your earlier more discussional version. Now having the two bullets above almost totally coincides with the three lines with arrows between them in the sketch of proof below. Feels like saying the same thing twice, whereas earlier you were really just giving brief definitions before diving in the theorem.}
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck construction $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ where $\bicat{MonCat}$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.   Further, all these correspondences lift to 2-equivalences:
+%{\chris There is a commented out passage of your earlier take here. I think I preferred your earlier more discussional version. Now having the two bullets above almost totally coincides with the three lines with arrows between them in the sketch of proof below. Feels like saying the same thing twice, whereas earlier you were really just giving brief definitions before diving in the theorem.}
 
 \begin{lem}\label{lem:MonGroth}
 There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into monoidal categories. 
 \end{lem}
 
 \begin{proof}
-This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In summary, for a cocartesian base we have correspondences
+This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
 \Updownarrow \notag\\
@@ -2768,7 +2762,7 @@ where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $
 %\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
 %\end{equation}
 
-We have now laid all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, with starting point a symmetric lax monoidal pseudofunctor into $\Cat$.
+We have now have all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ that factors through $\Rex$ as a pseudofunctor.
 
 \begin{proof}[Proof of \cref{thm:equiv}]
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
