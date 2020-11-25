@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/11/23
+% 2020/11/24
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -17,7 +17,7 @@
 
 \begin{document}
 \begin{abstract}
-One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   We prove that under certain conditions these two consstructions are equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, reaction networks and dynamical systems.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions are equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, reaction networks and dynamical systems.
 \end{abstract}
 
 \maketitle
@@ -3702,7 +3702,8 @@ In this appendix, we gather some well-known concepts required to make the materi
 \label{subsec:bicats}
 
 For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  
-Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications; it is \define{sylleptic} if there is an appropriate invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ and it is \define{symmetric} if one further axiom holds. 
+Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence.
+.A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
 
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
@@ -3786,6 +3787,7 @@ The above in fact provides the one direction of the following well-known equival
         \begin{displaymath}
             [\A,\Cat]_\pse \simeq \OpFib(\A)
         \end{displaymath}
+where $[\A,\Cat]_\pse$ is the 2-category of pseudofunctors from $\A$ to $\Cat$, pseudonatural transformations, and modifications.
 %        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
 %        \begin{equation}\label{eq:Gr_equiv}
 %        \ICat\simeq\Fib    
@@ -3793,7 +3795,7 @@ The above in fact provides the one direction of the following well-known equival
     \end{enumerate}
 \end{thm}
 
-
+\begin{proof}  CITE A PROOF!!!  \end{proof}
 
 %\begin{defn}
 %Let $P \maps \mathbf{D} \to \mathrm{A}$ be a functor. A morphism $f \maps d_1 \to d_{2}$ in the category $\mathbf{D}$ is \textbf{cartesian (with respect to the functor P)} if for any object $d'$ in $\mathbf{D}$ and morphism $g \maps d' \to d_{2}$ and every $p \maps P(d') \to P(d_1)$ such that $P(g)=P(f)p$, there exists a unique $h \maps d' \to d_1$ such that $g=fh$ and $p=P(h)$.
@@ -3823,57 +3825,30 @@ The above in fact provides the one direction of the following well-known equival
 
 \subsection{Double categories}\label{sec:doublecats}
 
-Before formally defining `pseudo double category', it is helpful to have the following picture in mind. A pseudo double category $\lA$ has 2-morphisms shaped like:
 
-\[
-\begin{tikzpicture}[scale=1]
-\node (D) at (-4,0.5) {$A$};
-\node (E) at (-2,0.5) {$B$};
-\node (F) at (-4,-1) {$C$};
-\node (A) at (-2,-1) {$D$};
-\node (B) at (-3,-0.25) {$\Downarrow a$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above]{$M$}(E)
-(E) edge node [right]{$g$}(A)
-(D) edge node [left]{$f$}(F)
-(F) edge node [above]{$N$} (A);
-\end{tikzpicture}
-\]
-We call $A, B, C$ and $D$ \define{objects}, $f$ and $g$ \define{vertical 1-morphisms}, $M$ and $N$ \define{horizontal 1-cells} and $a$ a \define{2-morphism}. 
-%Note that a vertical 1-morphism is a morphism between 0-cells and a 2-morphism is a morphism between horizontal 1-cells. 
+
 %We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'???   Or should we put a ``tick'' in here?
-A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}. We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
-%We follow the notation of Shulman \cite{Shulman2008} with the following definitions.
+
+For double categories we follow the notation of our paper on structured cospans \cite{BC}, which in turn follows that of Shulman \cite{Shulman2010}.
 
 \begin{defn}\label{defn:double_category}
-A \define{(pseudo) double category} $\lA$ is a category object internal to the 2-category $\Cat$.
+A \define{double category} $\lD$ consists of a \define{category of objects}
+$\lD_0$, a \define{category of arrows} $\lD_1$, functors 
+\[    U\maps \lD_0 \to \lD_1, \; S,T \maps \lD_1 \to \lD_0 , \textrm{ and }
+   \odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1\]
+such that 
+\[  S(U_{A})=A=T(U_{A}),  \quad S(M \odot N)=S(N), \quad T(M \odot N)=T(M), \]
+and natural isomorphisms called the \define{associator}
+\[ \alpha_{L,M,N} \maps (L \odot M) \odot N \to L \odot (M \odot N) , \]
+and \define{left and right unitors}
+\[		\lambda_N \maps U_{T(N)} \odot N \to N, \qquad
+     \rho_N \maps N \odot U_{S(N)} \to N \]
+such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities,
+such that the standard coherence laws hold: the pentagon identity for the 
+associator and the triangle identity for the left and right unitor.
 \end{defn}
 
-\begin{comment}
-
-\begin{defn}\label{defn:double_category}
-A \textbf{(pseudo) double category} $\lD$ consists of a category of objects $\lD_0$ and a category of arrows $\lD_1$ with the following functors
-\begin{center}
-$U\maps \lD_0 \to \lD_1$\\
-$S,T \maps \lD_1 \rightrightarrows \lD_0$\\
-$\odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1$ (where the pullback is taken over $\lD_1 \xrightarrow[]{T} \lD_0 \xleftarrow[]{S} \lD_1$) \\
-\end{center}
- such that \\
-\begin{center}
-$S(U_{A})=A=T(U_{A})$\\
-$S(M \odot N)=SN$\\
-$T(M \odot N)=TM$\\
-\end{center}
-equipped with natural isomorphisms
-\begin{center}
-
-$\alpha \maps (M \odot N) \odot P \xrightarrow{\sim} M \odot (N \odot P)$\\
-$\lambda \maps U_{B} \odot M \xrightarrow{\sim} M$\\
-$\rho \maps M \odot U_{A} \xrightarrow{\sim} M$
-
-\end{center}
-such that $S(\alpha), S(\lambda), S(\rho), T(\alpha), T(\lambda)$ and $T(\rho)$ are all identities and that the coherence axioms of a monoidal category are satisfied. Following the notation of Shulman, objects of $\lD_0$ are called \define{objects}
-and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}. The morphisms of $\lD_0$, which are vertical 1-morphisms, will be denoted $f \maps A \to C$ and we denote a 1-cell $M$ with $S(M)=A,T(M)=B$ by $M \maps A \to B$. Then a 2-morphism $a \maps M \to N$ of $\lD_1$ with $S(a)=f,T(a)=g$ would look like:
+Objects of $\lD_0$ are called \define{objects} and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}.   We can draw a 2-morphism $a \maps M \to N$ with $S(a)=f,T(a)=g$ as follows:
 \[
 \begin{tikzpicture}[scale=1]
 \node (D) at (-4,0.5) {$A$};
@@ -3888,22 +3863,16 @@ and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\
 (F) edge node [above]{$N$} (A);
 \end{tikzpicture}
 \]
-\end{defn}
-%A 2-morphism where $f$ and $g$ are identities is called a \textbf{globular 2-morphism}. We call $M$ and $N$ the \define{horizontal source and target} of the 2-morphism $a$, respectively, and likewise we call $f$ and $g$ the \define{vertical source and target} of the 2-morphism $a$, respectively. Thus $_f \lA_g(M,N)$ denotes the set of 2-morphisms in $\lA$ with horizontal source and target $M$ and $N$ and vertical source and target $f$ and $g$.
-
-%The key difference between a `strict' double category and a pseudo double category is that in a pseudo double category, horizontal composition is associative and unital only up to natural isomorphism. Equivalently, as a double category can be viewed as a category internal to $\Cat$, we can view a pseudo double category as a category `weakly' internal to $\Cat$. We will sometimes omit the word pseudo and simply say double category.
-
-\end{comment}
-
+We call $M$ and $N$ the \define{horizontal source and target} of $a$ respectively, and call $f$ and $g$ its \define{vertical source and target}.   A 2-morphism where $f$ and $g$ are identities is called \textbf{globular}.   For example, the associator and unitors in a double category are globular 2-morphisms.
 
 %\begin{defn}
 %Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
 %\end{defn}
 \begin{defn}\label{def:doublefun}
-Given double categories $\lA$ and $\lX$, a \define{(pseudo) double functor} $\lF \colon\lA \to \lX$ consists of:
+Given double categories $\lA$ and $\lX$, a \define{double functor} $\lF \colon\lA \to \lX$ consists of:
 \begin{itemize}
 \item{functors $\lF_0 \colon \lA_0 \to \lX_0$ and $\lF_1 \colon \lA_1 \to \lX_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
-\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(M) \odot \lF(N) \to \lF(M \odot N)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy the usual coherence axioms for a monoidal functor.}
+\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(M) \odot \lF(N) \to \lF(M \odot N)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy coherence axioms analogous to those of a monoidal functor.}
 \end{itemize}
 \end{defn}
 
@@ -3918,82 +3887,6 @@ Given double functors $(\lF,\phi),(\mathbb{G},\psi) \colon \lA \to \lX$, a \defi
 The double natural transformation $\alpha$ is a \define{double natural isomorphism} if both $\alpha_0$ and $\alpha_1$ are natural isomorphisms.
 \end{defn}
 
-\begin{comment}
-\begin{defn}\label{def:doublefun}
-Let $\lA$ and $\lB$ be double categories. A \define{(pseudo) double functor} is a functor $\lF \maps\lA\to \lB$ that takes items of $\lA$ to items of $\lB$ of the corresponding type, respecting vertical composition in the strict sense and the horizontal composition up to an assigned comparison $\phi$. This means that we have functors $\lF_0 \maps \lA_0 \to \lB_0$ and $\lF_1 \maps \lA_1 \to \lB_1$ such that the following equations are satisfied: 
-\[   S \circ \lF_1 = \lF_0 \circ S, \qquad  T \circ \lF_1 = \lF_0 \circ T. \]
-Sometimes for brevity we omit the subscripts and simply write $\lF$.
-
-Every object $a$ is equipped with a special globular 2-morphism $\phi_{a} \maps 1_{\lF(a)} \to \lF(1_{a})$ (the identity comparison), and every horizontal composition $N_1 \odot N_{2}$ is equipped with a special globular 2-morphism $\phi(N_1,N_{2}) \maps \lF(N_1) \odot \lF(N_{2}) \to \lF(N_1 \odot N_{2})$ (the composition comparison), in a coherent way. This means that the following diagrams commute.
-
-\begin{enumerate}
-
-\item For a horizontal composite, $\beta \odot \alpha$,
-
-
-\begin{equation}\label{eq:square}
-  \xymatrix@-.5pc{
-    \lF(A) \ar[r]|{|}^{\lF(N_{2})}  \ar[d] \ar@{}[dr]|{\lF(\alpha)}&
-    \lF(B) \ar[d] \ar[r]|{|}^{\lF(N_1)} \ar@{}[dr]|{\lF(\beta)}&
-    \lF(C) \ar[d] &
-     &
-    \lF(A) \ar[r]|{|}^{\lF(N_{2})} \ar@{}[drr]|{\phi(N_1,N_{2})} \ar[d]_1 &
-    \lF(B) \ar[r]|{|}^{\lF(N_1)} &
-    \lF(C) \ar[d]^{1} \\
-    \lF(A') \ar[r]|{|}_{\lF(N_{4})} \ar@{}[drr]|{\phi(N_{3},N_{4})} \ar[d]_1&
-    \lF(B') \ar[r]|{|}_{\lF(N_{3})} &
-    \lF(C') \ar[d]^{1}&
-    = &
-    \lF(A) \ar[rr]|{|}^{\lF(N_1 \odot N_{2})} \ar[d] \ar@{}[drr]|{\lF(\beta \odot \alpha)}&
-     &
-    \lF(C) \ar[d] \\
-    \lF(A') \ar[rr]|{|}_{\lF(N_{3} \odot N_{4})} & 
-     & 
-    \lF(C') &
-     &
-    \lF(A') \ar[rr]|{|}_{\lF(N_{3} \odot N_{4})} &
-     &
-    \lF(C') \\
-  }.
-\end{equation}
-
-\item For a horizontal 1-cell $N \maps A \to B$, the following diagrams are commutative (under horizontal composition).
-
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\lF(N) \odot 1_{\lF(A)}$};
-\node (C) at (3,1) {$\lF(N)$};
-\node (A') at (1,-1) {$\lF(N) \odot \lF(1_{A})$};
-\node (C') at (3,-1) {$\lF(N \odot 1_{A})$};
-\node (B) at (5,1) {$1_{\lF(B)} \odot \lF(N)$};
-\node (B') at (5,-1) {$\lF(1_{B}) \odot \lF(N)$};
-\node (D) at (7,1) {$\lF(N)$};
-\node (D') at (7,-1) {$\lF(1_{B} \odot N)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1 \odot \phi_{A}$} (A')
-(C') edge node[right]{$\lF \rho$} (C)
-(A) edge node[above]{$\rho_{\lF(N)}$} (C)
-(A') edge node[above]{$\phi(N,1_{A})$} (C')
-(B) edge node[left]{$\phi_{B} \odot 1$} (B')
-(B') edge node[above]{$\phi(1_{B},N)$} (D')
-(B) edge node[above]{$\lambda_{\lF(N)}$} (D)
-(D') edge node[right]{$F \lambda$} (D);
-\end{tikzpicture}
-\]
-
-\item For consecutive horizontal 1-cells $N_1,N_{2}$ and $N_{3}$, the following diagram is commutative.
-
- \[\xymatrix{
-    (\lF(N_1) \odot \lF(N_{2})) \odot \lF(N_{3}) \ar[r]^{a'}\ar[d]_{\phi(N_1,N_{2}) \odot 1}
-    & \lF(N_1) \odot (\lF(N_{2}) \odot \lF(N_{3})) \ar[d]^{1 \odot \phi(N_{2},N_{3})}\\
-    \lF(N_1 \odot N_{2}) \odot \lF(N_{3}) \ar[d]_{\phi(N_1 \odot N_{2},N_{3})} &
-    \lF(N_1) \odot \lF(N_{2} \odot N_{3}) \ar[d]^{\phi(N_1,N_{2} \odot N_{3})}\\
-    \lF((N_1 \odot N_{2}) \odot N_{3})\ar[r]^{\lF(a)} &
-    \lF(N_1 \odot (N_{2} \odot N_{3}))}\]
-\end{enumerate}
-We say the double functor $\lF$ is \define{strict} if the comparison constraints $\phi_a$ and $\phi_{N_1,N_2}$ are identities, \define{pseudo} if the comparison constraints are isomorphisms, and \define{oplax} if the comparison constraints go in the opposite direction.
-\end{defn}
-\end{comment}
 
 %%% Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
 %\begin{defn}
@@ -4010,11 +3903,14 @@ We say the double functor $\lF$ is \define{strict} if the comparison constraints
 %\]
 
 \begin{defn}\label{def:fullfaithful}
-A double functor $\lF \maps \lA \to \lX$ is \define{full} (respectively, \define{faithful}) if $\lF_0 \maps \lA_0 \to \lX_0$ is full (respectively, faithful) and each map $$\lF_1 \maps _f \lA_g(M,N) \to {_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))$$ is surjective (respectively, injective).
+A double functor $\lF \maps \lA \to \lX$ is \define{full} (resp.\ \define{faithful}) if $\lF_0 \maps \lA_0 \to \lX_0$ is full (resp.\ faithful) and each map 
+\[   lF_1 \maps _f \lA_g(M,N) \to {_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))\] 
+is surjective (respectively, injective), where $_f \lA_g(M,N)$ is set of 2-morphisms in $\A$ whose horizontal source is $M$ and whose horizontal target is $N$, and similarly for ${_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))$.
 \end{defn}
+
 \begin{defn}\label{def:essentiallysurj}
 A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if we can simultaneously make the following choices:
-\begin{enumerate}
+\begin{itemize}
 \item{For each object $x \in \lX$, we can find an object $a \in \lA$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and}
 \item{For each horizontal 1-cell $N \maps x_1 \tobar x_2$  of $\lX$, we can find a horizontal 1-cell $M \maps a_1 \tobar a_2$ of $\lA$ and a 2-isomorphism $a_{N} \colon \lF(M) \to N$ in $\lX$ as in the following diagram:
 \[
@@ -4025,283 +3921,49 @@ A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if w
   }
 \]
 }
-\end{enumerate}
+\end{itemize}
 \end{defn}
 
 \begin{defn}
-Two pseudo double functors $\lF \colon \lA \to \lX$ and $\mathbb{G} \colon \lX \to \lA$ form a \define{double equivalence} if there exist double natural transformations $\mathbb{G} \lF \cong 1_\lA$ and $\lF \mathbb{G} \cong 1_\lX$.
+Two double functors $\lF \colon \lA \to \lX$ and $\mathbb{G} \colon \lX \to \lA$ form a \define{double equivalence} if there exist double natural transformations $\mathbb{G} \lF \cong 1_\lA$ and $\lF \mathbb{G} \cong 1_\lX$.
 \end{defn}
-% FINISH THIS OR DISCARD IT!!!
-%{\chris their two-way composite is isomorphic to the identity, better expressed, possibly in a definition environment}. 
-Much like equivalence of categories, equivalence of double categories has an alternative characterization:
+
+Like equivalence of categories, equivalence of double categories has an alternative characterization:
 
 \begin{thm}{\cite[Thm.\ 7.8]{Shulman2010}}
 \label{ShulDubEquiv}
 A pseudo double functor $\lF \maps \lA \to \lX$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
 \end{thm}
 
-WE NEED TO SAY BRIEFLY WHAT A DOUBLE ISOMORPHISM IS.
+Let $\Dbl$ denote the 2-category of double categories, double functors and double transformations. One can check that $\Dbl$ has finite products, and in any 2-category with finite products we can define a `pseudomonoid', which is a categorified analogue of a monoid \cite{DS}. For example, a pseudomonoid in $\Cat$ is a monoidal category.   We can also define braided and symmetric pseudomonoids, which in $\Cat$ are braided and symmetric monoidal categories.
 
-\begin{thm}
-Let $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal pseudo double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
-\end{thm}
-
-\begin{proof} Where is this proved???  \end{proof}
-%%% Kenny: This isn't proved anywhere formally, as far as I know.
-
-Let $\mathbf{Dbl}$ denote the 2-category of double categories, double functors and double transformations. One can check that $\mathbf{Dbl}$ has finite products, and in any 2-category with finite products we can define a `pseudomonoid' or a `weak' monoid, which is a categorified analogue of a monoid in which the left and right unitors and associators are not identities but natural isomorphisms. It is the 2-categorical structure of $\mathbf{Dbl}$, or more generally, any 2-category with finite limits, that enables us to do this. For example, a pseudomonoid in $\mathbf{Cat}$ is a monoidal category. We are primarily concerned with the (weak) monoidal double categories in which the associators and left and right unitors are natural isomorphisms.
-\begin{defn}\label{defn:smdc}
-A \define{monoidal double category} is a pseudomonoid internal to the monoidal 2-category $\mathbf{Dbl}$. Similarly, a \define{braided monoidal double category} is a braided pseudomonoid internal to $\mathbf{Dbl}$ and a \define{symmetric monoidal double category} is a symmetric pseudomonoid internal to $\mathbf{Dbl}$.
+\begin{defn}
+\label{defn:monoidal_double_category}
+A \define{monoidal double category} is a pseudomonoid in $\Dbl$. Explicitly, it is a double category equipped with double functors $\otimes \maps \lD \times \lD \to \lD$ and $I \maps 1 \to \lD$ where $1$ is the terminal double category, along with invertible transformations called the \define{associator}:
+\[  \alpha \maps \otimes \, \circ \; (1_{\lD} \times \otimes ) \Rightarrow \otimes \; \circ \; (\otimes \times 1_{\lD}) ,\]
+\define{left unitor}:
+\[ \ell \maps \otimes \, \circ \; (1_{\lD} \times I) \Rightarrow 1_{\lD} ,\]
+and \define{right unitor}:
+\[ r \maps \otimes \,\circ\; (I \times 1_{\lD}) \Rightarrow 1_{\lD} \]
+satisfying the pentagon and triangle identities.
 \end{defn}
-For more details on the definition of (braided, symmetric) monoidal double category, we refer to Hansen and Shulman \cite{HS}.
 
-
-\begin{comment}
-\begin{defn}\label{defn:smdc}
-%  A \textbf{monoidal double category} is a double category equipped the following
-  A \textbf{monoidal double category} is a double category $\lA$ equipped with the following
-structure.
-\begin{enumerate}
-\item $\lD_0$ and $\lD_1$ are both monoidal categories.
-\item If $I$ is the monoidal unit of $\lD_0$, then $U_I$ is the
-  monoidal unit of $\lD_1$.
-\item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
-  = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
-  preserve the associativity and unit constraints.
-\item We have globular isomorphisms
-  \[\chi \maps (M_1\ten N_1)\odot (M_2\ten N_2)\too[\sim] (M_1\odot M_2)\ten (N_1\odot N_2)\]
-  and
-  \[\mu\maps U_{A\ten B} \too[\sim] (U_A \ten U_B)\]
-  such that the following diagrams commute:
-		\item \label{diag:MonDblCat}
-			The following diagrams commute expressing the constraint data for the double functor $\otimes$.
-			\[
-			\begin{tikzpicture}
-				\node (A) at (0,3) {\footnotesize{
-							$((M_1\otimes N_1)\odot (M_2\otimes N_2)) \odot (M_3\otimes N_3)$}
-				};
-				\node (B) at (7,3) {\footnotesize{
-						$((M_1\odot M_2)\otimes (N_1\odot N_2)) \odot (M_3\otimes N_3) $}
-				};
-				\node (A') at (0,1.5) {\footnotesize{
-						$(M_1\otimes N_1)\odot ((M_2\otimes N_2) \odot (M_3\otimes N_3)) $}
-				};
-				\node (B') at (7,1.5) {\footnotesize{
-						$((M_1\odot M_2)\odot M_3) \otimes ((N_1\odot N_2)\odot N_3)$}
-				};
-				\node (A'') at (0,0) {\footnotesize{
-						$(M_1\otimes N_1) \odot ((M_2\odot M_3) \otimes (N_2\odot N_3))$}
-				};
-				\node (B'') at (7,0) {\footnotesize{
-						$(M_1\odot (M_2\odot M_3)) \otimes (N_1\odot (N_2\odot N_3))$}
-				};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\alpha$} (A')
-				(A') edge node[left]{$1 \odot \chi$} (A'')
-				(B) edge node[right]{$\chi$} (B')
-				(B') edge node[right]{$\alpha \otimes \alpha$} (B'')
-				(A) edge node[above]{$\chi \odot 1$} (B)
-				(A'') edge node[above]{$\chi$} (B'');
-		\end{tikzpicture}
-		\]
-		\[
-		\begin{tikzpicture}
-			\node (UL) at (0,1.5) {\footnotesize{
-					$(M\otimes N) \odot U_{C\otimes D}$}
-			};
-			\node (LL) at (0,0) {\footnotesize{
-					$M\otimes N$}
-			};
-			\node (UR) at (3.5,1.5) {\footnotesize{
-					$(M\otimes N)\odot (U_C\otimes U_D)$}
-			};
-			\node (LR) at (3.5,0) {\footnotesize{
-					$(M\odot U_C) \otimes (N\odot U_D)$}
-			};
-			%
-			\path[->,font=\scriptsize]
-				(UL) edge node[above]{$1 \odot \mu$} (UR) 
-				(UL) edge node[left]{$\rho$} (LL)
-				(LR) edge node[above]{$\rho \otimes \rho$} (LL)
-				(UR) edge node[right]{$\chi$} (LR);
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (UL) at (0,1.5) {\scriptsize{$U_{A\otimes B}\odot (M\otimes N)$}};
-			\node (LL) at (0,0) {\scriptsize{$M\otimes N$}};
-			\node (UR) at (3.5,1.5) {\scriptsize{$(U_A\otimes U_B)\odot (M\otimes N)$}};
-			\node (LR) at (3.5,0) {\scriptsize{$(U_A \odot M) \otimes (U_B\odot N)$}};
-			%
-			\path[->,font=\scriptsize]
-				(UL) edge node[above]{$\mu \odot 1$} (UR) 
-				(UL) edge node[left]{$\lambda$} (LL)
-				(LR) edge node[above]{$\lambda \otimes \lambda$} (LL)
-				(UR) edge node[right]{$\chi$} (LR);
-		\end{tikzpicture}
-		\]
-		%
-		\item The following diagrams commute expressing 
-		the associativity isomorphism for $\otimes$ is a transformation of double categories.
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,3) {\footnotesize{
-					$((M_1\otimes N_1)\otimes P_1) \odot ((M_2\otimes N_2)\otimes P_2)$}
-			};
-			\node (B) at (7,3) {\footnotesize{
-					$(M_1\otimes (N_1\otimes P_1)) \odot (M_2\otimes (N_2\otimes P_2))$}
-			};
-			\node (A') at (0,1.5) {\footnotesize{
-					$((M_1\otimes N_1) \odot (M_2\otimes N_2)) \otimes (P_1\odot P_2)$}
-			};
-			\node (B') at (7,1.5) {\footnotesize{
-					$(M_1\odot M_2) \otimes ((N_1\otimes P_1)\odot (N_2\otimes P_2))$}
-			};
-			\node (A'') at (0,0) {\footnotesize{
-					$((M_1\odot M_2) \otimes(N_1\odot N_2)) \otimes (P_1\odot P_2)$}
-			};
-			\node (B'') at (7,0) {\footnotesize{
-					$(M_1\odot M_2) \otimes ((N_1\odot N_2)\otimes (P_1\odot P_2))$}
-			};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\chi$} (A')
-				(A') edge node[left]{$\chi \otimes 1$} (A'')
-				(B) edge node[right]{$\chi$} (B')
-				(B') edge node[right]{$1 \otimes \chi$} (B'')
-				(A) edge node[above]{$\alpha \odot \alpha$} (B)
-				(A'') edge node[above]{$\alpha$} (B'');
-		\end{tikzpicture}
-		\]
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,3) {\footnotesize{$U_{(A\otimes B)\otimes C}$}};
-			\node (B) at (4,3) {\footnotesize{$U_{A\otimes (B\otimes C)} $}};
-			\node (A') at (0,1.5) {\footnotesize{$U_{A\otimes B} \otimes U_C $}};
-			\node (B') at (4,1.5) {\footnotesize{$U_A\otimes U_{B\otimes C}$}};
-			\node (A'') at (0,0) {\footnotesize{$(U_A\otimes U_B)\otimes U_C$}};
-			\node (B'') at (4,0) {\footnotesize{$U_A\otimes (U_B\otimes U_C) $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\mu$} (A')
-				(A') edge node[left]{$\mu \otimes 1$} (A'')
-				(B) edge node[right]{$\mu$} (B')
-				(B') edge node[right]{$1 \otimes \mu$} (B'')
-				(A) edge node[above]{$U_{\alpha}$} (B)
-				(A'') edge node[above]{$\alpha$} (B'');
-		\end{tikzpicture}
-		\]
-		\item The following diagrams commute expressing that 
-		the unit isomorphisms for $\otimes$ are transformations of double categories. 
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(M\otimes U_I)\odot (N\otimes U_I)$}};
-			\node (A') at (0,0) {\footnotesize{$M\odot N $}};
-			\node (B) at (4,1.5) {\footnotesize{$(M\odot N)\otimes (U_I \odot U_I) $}};
-			\node (B') at (4,0) {\footnotesize{$(M\odot N)\otimes U_I $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$r \odot r$} (A')
-				(A) edge node[above]{$\chi$} (B)
-				(B) edge node[right]{$1 \otimes \rho$} (B')
-				(B') edge node[above]{$r$} (A');
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (A) at (0,0.75) {\footnotesize{$U_{A\otimes I} $}};
-			\node (B) at (1.5,1.5) {\footnotesize{$U_A\otimes U_I $}};
-			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[above]{$\mu$} (B)
-				(A) edge node[below]{$U_{r}$} (B')
-				(B) edge node[right]{$r$} (B');
-		\end{tikzpicture}
-		\]
-		%
-		%
-		%
-		%
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(U_I\otimes M)\odot (U_I\otimes N)$}};
-			\node (A') at (0,0) {\footnotesize{$M\odot N$}};
-			\node (B) at (4,1.5) {\footnotesize{$(U_I \odot U_I) \otimes (M\odot N)$}};
-			\node (B') at (4,0) {\footnotesize{$U_I\otimes (M\odot N) $}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\ell \odot \ell$} (A')
-				(A) edge node[above]{$\chi$} (B)
-				(B) edge node[right]{$\lambda \otimes 1$} (B')
-				(B') edge node[above]{$\ell$} (A');
-		\end{tikzpicture}
-		%
-		\quad
-		\begin{tikzpicture}
-			\node (A) at (0,0.75) {\footnotesize{$U_{I\otimes A}$}};
-			\node (B) at (1.5,1.5) {\footnotesize{$U_I\otimes U_A$}};
-			\node (B') at (1.5,0) {\footnotesize{$U_A$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[above]{$\mu$} (B)
-				(A) edge node[below]{$U_{\ell}$} (B')
-				(B) edge node[right]{$\ell$} (B');
-		\end{tikzpicture}
-		\]
-		\newcounter{mondbl}
-		\setcounter{mondbl}{\value{enumi}}
-	\end{enumerate}
-	A \textbf{braided monoidal double category} 
-	is a monoidal double category 
-	such that:
-	\begin{enumerate}
-		\setcounter{enumi}{\value{mondbl}}
-		\item $\lD_0$ and $\lD_1$ are braided monoidal categories.
-		\item The functors $S$ and $T$ are strict braided monoidal functors.
-		\item The following diagrams commute expressing that the braiding is a transformation of double categories.
-		\[
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
-			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
-			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
-			\node (B') at (5,0) {\footnotesize{$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\chi$} (A')
-				(A) edge node[above]{$\beta$} (B)
-				(B) edge node[right]{$\chi$} (B')
-				(A') edge node[above]{$\beta \odot \beta$} (B');
-		\end{tikzpicture}
-		%
-		\quad
-		%
-		\begin{tikzpicture}
-			\node (A) at (0,1.5) {\footnotesize{$U_A \otimes U_B$}};
-			\node (A') at (0,0) {\footnotesize{$U_B\otimes U_A$}};
-			\node (B) at (2,1.5) {\footnotesize{$U_{A\otimes B} $}};
-			\node (B') at (2,0) {\footnotesize{$U_{B\otimes A}$}};
-			%
-			\path[->,font=\scriptsize]
-				(A) edge node[left]{$\beta$} (A')
-				(B) edge node[above]{$\mu$} (A)
-				(B) edge node[right]{$U_\beta$} (B')
-				(B') edge node[above]{$\mu$} (A');
-		\end{tikzpicture}
-		\]
-		\setcounter{mondbl}{\value{enumi}}
-	\end{enumerate}
-	Finally, a \textbf{symmetric monoidal double category} 
-	is a braided monoidal double category $\mathbb{D}$ such that:
-	\begin{enumerate}
-		\setcounter{enumi}{\value{mondbl}}
-		\item $\lD_0$ and $\lD_1$ are symmetric monoidal.
-	\end{enumerate}
+\begin{defn}
+\label{defn:symmetric_monoidal_double_category}
+A \define{braided monoidal double category} is a braided pseudomonoid in $\Dbl$.  Explicitly,
+it is a monoidal double category equipped with an invertible transformation
+\[ \beta \maps \otimes \Rightarrow \otimes \circ \tau \]
+called the \define{braiding}, where $\tau \maps \lD \times \lD \to \lD \times \lD$ is the twist double functor sending pairs in the object and arrow categories to the same pairs in the opposite order. The braiding is required to satisfy the usual two hexagon identities.  If the braiding is self-inverse we say that $\lD$ is a \define{symmetric monoidal double category}. 
 \end{defn}
-\end{comment}
+
+\begin{defn}\label{defn:monoidal_double_functor}
+Given symmetric monoidal double categories $\lA$ and $\lX$, a \define{symmetric monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
+\end{defn}
+
+Unpacking these definitions further one obtains a large number of diagrams \cite{HS}.   
+
+WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
+CLAIM: $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
 
 \begin{defn}\label{def:companion}
   Let $\lA$ be a double category and $f\maps A\to B$ a vertical
@@ -4484,94 +4146,8 @@ We say that a double category is \textbf{fibrant} if every vertical
 1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
-\begin{defn}\label{defn:monoidal_double_functor}
-Given (braided, symmetric) monoidal double categories $\lA$ and $\lX$, a \define{(braided, symmetric) monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a (braided, symmetric) monoidal functor with respect to $\otimes$.
-\end{defn}
 
-For more details on the definition of (braided, symmetric) monoidal functor, we refer to Hansen and Shulman \cite{HS}.
 
-\begin{comment}
-
-\begin{defn}
-\label{defn:monoidal_double_functor}
-A \define{(strong) monoidal double functor} $\lF \maps \mathbb{C} \to \mathbb{D}$ between monoidal double categories $\mathbb{C}$ and $\mathbb{D}$ is a double functor $\lF \maps \mathbb{C} \to \mathbb{D}$ such that
-	\begin{itemize}
-		\item $\lF_0$ and $\lF_1$ are monoidal functors, meaning that there exists
-
-\begin{enumerate}
-\item{an isomorphism $\epsilon \maps 1_{\lD} \to \lF(1_{\lC})$}
-\item{a natural isomorphism $\mu_{A,B} \maps \lF(A) \otimes \lF(B) \to \lF(A \otimes B)$ for all objects $A$ and $B$ of $\lC$}
-\item{an isomorphism $\delta \maps U_{1_{\lD}} \to \lF(U_{1_{\lC}})$}
-\item{a natural isomorphism $\nu_{M,N} \maps \lF(M) \otimes \lF(N) \to \lF(M \otimes N)$ for all horizontal 1-cells $N$ and $M$ of $\lC$}
-\end{enumerate}
-such that the following diagrams commute: for objects $A,B$ and $C$ of $\lC$,
- \[\xymatrix{
-    (\lF(A) \otimes \lF(B)) \otimes \lF(C) \ar[r]^{\alpha'}\ar[d]_{\mu_{A,B} \otimes 1}
-    & \lF(A) \otimes (\lF(B) \otimes \lF(C)) \ar[d]^{1 \otimes \mu_{B,C}}\\
-    \lF(A \otimes B) \otimes \lF(C) \ar[d]_{\mu_{A \otimes B,C}} &
-    \lF(A) \otimes \lF(B \otimes C) \ar[d]^{\mu_{A,B \otimes C}}\\
-    \lF((A \otimes B) \otimes C)\ar[r]^{\lF\alpha} &
-    \lF(A \otimes (B \otimes C))}\]
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$\lF(A) \otimes 1_{\lD}$};
-\node (C) at (3,1) {$\lF(A)$};
-\node (A') at (1,-1) {$\lF(A) \otimes \lF(1_{\lC})$};
-\node (C') at (3,-1) {$\lF(A \otimes 1_{\lC})$};
-\node (B) at (5,1) {$1_{\lD} \otimes \lF(A)$};
-\node (B') at (5,-1) {$\lF(1_{\lC}) \otimes \lF(A)$};
-\node (D) at (7,1) {$\lF(A)$};
-\node (D') at (7,-1) {$\lF(1_{\lC} \otimes A)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1 \otimes \epsilon$} (A')
-(C') edge node[right]{$\lF(r_{A})$} (C)
-(A) edge node[above]{$r_{\lF(A)}$} (C)
-(A') edge node[above]{$\mu_{A,1_{\lC}}$} (C')
-(B) edge node[left]{$\epsilon \otimes 1$} (B')
-(B') edge node[above]{$\mu_{1_{\lC},A}$} (D')
-(B) edge node[above]{$\ell_{\lF(A)}$} (D)
-(D') edge node[right]{$\lF(\ell_{A})$} (D);
-\end{tikzpicture}
-\]
-and for horizontal 1-cells $N_1,N_{2}$ and $N_{3}$ of $\lC$,
- \[\xymatrix{
-    (\lF(N_1) \otimes \lF(N_{2})) \otimes \lF(N_{3}) \ar[r]^{\alpha'}\ar[d]_{\nu_{N_1,N_{2}} \otimes 1}
-    & \lF(N_1) \otimes (\lF(N_{2}) \otimes \lF(N_{3})) \ar[d]^{1 \otimes \nu_{N_{2},N_{3}}}\\
-    \lF(N_1 \otimes N_{2}) \otimes \lF(N_{3}) \ar[d]_{\nu_{N_1 \otimes N_{2},N_{3}}} &
-    \lF(N_1) \otimes \lF(N_{2} \otimes N_{3}) \ar[d]^{\nu_{N_1,N_{2} \otimes N_{3}}}\\
-    \lF((N_1 \otimes N_{2}) \otimes N_{3})\ar[r]^{\lF\alpha} &
-    \lF(N_1 \otimes (N_{2} \otimes N_{3}))}\]
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,1) {$\lF(N_1) \otimes U_{1_{\lD}}$};
-\node (C) at (3,1) {$\lF(N_1)$};
-\node (A') at (0,-1) {$\lF(N_1) \otimes \lF(U_{1_{\lC}})$};
-\node (C') at (3,-1) {$\lF(N_1 \otimes U_{1_{\lC}})$};
-\node (B) at (5,1) {$U_{1_{\lD}} \otimes \lF(N_1)$};
-\node (B') at (5,-1) {$\lF(U_{1_{\lC}}) \otimes \lF(N_1)$};
-\node (D) at (8,1) {$\lF(N_1)$};
-\node (D') at (8,-1) {$\lF(U_{1_{\lC}} \otimes N_1)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$1 \otimes \delta$} (A')
-(C') edge node[right]{$\lF(r_{N_1})$} (C)
-(A) edge node[above]{$r_{\lF(N_1)}$} (C)
-(A') edge node[above]{$\nu_{N_1,U_{1_{\lC}}}$} (C')
-(B) edge node[left]{$\delta \otimes 1$} (B')
-(B') edge node[above]{$\nu_{U_{1_{\lC}},N_1}$} (D')
-(B) edge node[above]{$\ell_{\lF(N_1)}$} (D)
-(D') edge node[right]{$\lF(\ell_{N_1})$} (D);
-\end{tikzpicture}
-\]
-
-		\item $S\lF_1= \lF_0S$ and $T\lF_1 = \lF_0T$ are equations between monoidal functors, and
-		\item the composition and unit comparisons $\phi(N_1,N_2) \maps \lF_1(N_1) \odot \lF_1(N_2) \to \lF_1(N_1\odot N_2)$ and $\phi_A \maps U_{\lF_0 (A)} \to \lF_1(U_A)$ are monoidal natural transformations.
-	\end{itemize}
-A monoidal double functor $\lF$ is \define{braided} if $\lF_0$ and $\lF_1$ are braided monoidal functors and \define{symmetric} if they are symmetric monoidal.
-\end{defn}
-
-\end{comment}
-
-DEFINITION OF SYMMETRIC MONOIDAL ISOMORPHISM, BRIEFLY?
 
 
 \begin{thebibliography}{100}
@@ -4663,7 +4239,7 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 %   \bibitem{ML} S.\ Mac Lane, {\sl Categories for the Working Mathematician},
 %     Springer, Berlin, 1998.
 
-\bibitem{McCrudden} P.\ McCrudden, Balanced coalgebroids, \textsl{Theory Appl.\ Categ.\ } \textbf{ 7} (2000), 71--147.
+\bibitem{McCrudden} P.\ McCrudden, Balanced coalgebroids, \textsl{Theory Appl.\ Categ.\ }\textbf{ 7} (2000), 71--147.
 
 \bibitem{MV} J.\ Moeller and C.\ Vasilakopoulou, Monoidal Grothendieck construction, \textsl{Theory Appl.\ Categ.\ }\textbf{35} (2020), 1159--1207. Available as \href{https://arxiv.org/abs/1809.00727}{arXiv:1809.00727}.
 
