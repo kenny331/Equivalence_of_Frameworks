@@ -1181,7 +1181,7 @@ where the decoration morphism $\tau_{\alpha+\beta}$ comes from the pasted diagra
 \end{thm}
 
 \begin{proof}
-The definition of symmetric monoidal double category may be found in Definition \ref{defn:smdc}. We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
+The definition of symmetric monoidal double category may be found in Definition \ref{defn:symmetric_monoidal_double_category}. We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
 
 First we note that the category of objects $F\lCsp_0=\A$ is symmetric monoidal under chosen binary coproducts in $\A$ and the left and right unitors, associators and braidings are given as natural maps. Next we show that $F\lCsp_1$ is symmetric monoidal. The category of arrows $F\lCsp_1$ has:
 \begin{enumerate}
@@ -2648,15 +2648,14 @@ Suppose $\A$ has finite colimits and $F\maps(\A,+) \to (\Cat,\times)$ is a symme
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck construction $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ where $\bicat{MonCat}$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.   Further, all these correspondences lift to 2-equivalences:
-%{\chris There is a commented out passage of your earlier take here. I think I preferred your earlier more discussional version. Now having the two bullets above almost totally coincides with the three lines with arrows between them in the sketch of proof below. Feels like saying the same thing twice, whereas earlier you were really just giving brief definitions before diving in the theorem.}
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$ is monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck construction $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ where $\bicat{MonCat}$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.   Further, all these correspondences lift to 2-equivalences.
 
 \begin{lem}\label{lem:MonGroth}
 There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into monoidal categories. 
 \end{lem}
 
 \begin{proof}
-This was shown by Moeller and the third author \cite[Theorems~3.13\&4.1]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
+This was shown by Moeller and the third author \cite[Theorems~3.13\&4.2]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
 \Updownarrow \notag\\
@@ -3696,8 +3695,7 @@ In this appendix, we gather some well-known concepts required to make the materi
 \label{subsec:bicats}
 
 For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  
-Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence.
-.A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
+Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
 
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
@@ -3747,15 +3745,6 @@ a\ar[r]_-{f=U\beta} \ar[urr]^-{g\circ f=U\gamma}
 \end{displaymath}
 The category $\X$ is called the \textbf{total} category and $\A$ is called the \textbf{base} category of the opfibration. For any $a\in\A$, the \textbf{fibre category} $\X_a$ consists of all objects that map to $a$ and vertical morphisms between them, i.e. mapping to $1_a$.
 Assuming the axiom of choice, we may select a cocartesian arrow over each $f\maps a\to b$ in $\A$ and $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\maps\X _a\to\X _b$ between the fibre categories, which by the liftings universal property adhere to natural isomorphisms $(1_a)_!\cong1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$. If these isomorphisms are equalities, we have the notion of a \textbf{split} opfibration. We chose to primarily present this dual notion to \define{fibration} due to the current work's needs.
-%Christina: decide later if needed
-%Notice that as a result,
-%any arrow in the total category of an opfibration factorizes uniquely into a vertical morphism (above the identity) followed by a (co)cartesian one:
-%\[
-%\xymatrix @C=.4in @R=.2in
-%{x \ar @{.>}[dd]\ar[rr]^\gamma \ar[drr]_-{\mathrm{Cocart}(g,C)} && D &\\
-%&& f_!C \ar @{-->}[u]_-{\delta} \ar @{.>}[d] & \textrm{in }\C  \\
-%X\ar[rr]_-{g} && Y & \textrm{in }\X.}
-%\]
 
 Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings and natural transformations with vertical components. In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'. 
 \begin{defn}\label{def:GrothCat}
@@ -3774,55 +3763,23 @@ This is an opfibred category over $\A$ via the obvious forgetful functor, with f
 The above in fact provides the one direction of the following well-known equivalence.
 
 \begin{thm}\label{thm:Grothendieck}\hfill
-    \begin{enumerate}
-        \item Every opfibration $U \maps \X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
-        \item Every pseudofunctor $F \maps \A \to \Cat$ gives rise to  an opfibration $\maps \inta F\to\A$.
-        \item The above correspondences yield an equivalence of 2-categories 
-        \begin{displaymath}
-            [\A,\Cat]_\pse \simeq \OpFib(\A)
-        \end{displaymath}
+\begin{enumerate}
+\item Every opfibration $U \maps \X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
+\item Every pseudofunctor $F \maps \A \to \Cat$ gives rise to  an opfibration $\maps \inta F\to\A$.
+\item The above correspondences yield an equivalence of 2-categories 
+\begin{displaymath}
+[\A,\Cat]_\pse \simeq \OpFib(\A)
+\end{displaymath}
 where $[\A,\Cat]_\pse$ is the 2-category of pseudofunctors from $\A$ to $\Cat$, pseudonatural transformations, and modifications.
-%        \item The above 2-equivalence extends to one between 2-categories of arbitrary-base fibrations and arbitrary-domain indexed categories
-%        \begin{equation}\label{eq:Gr_equiv}
-%        \ICat\simeq\Fib    
-%        \end{equation}
-    \end{enumerate}
+\end{enumerate}
 \end{thm}
 
-\begin{proof}  CITE A PROOF!!!  \end{proof}
-
-%\begin{defn}
-%Let $P \maps \mathbf{D} \to \mathrm{A}$ be a functor. A morphism $f \maps d_1 \to d_{2}$ in the category $\mathbf{D}$ is \textbf{cartesian (with respect to the functor P)} if for any object $d'$ in $\mathbf{D}$ and morphism $g \maps d' \to d_{2}$ and every $p \maps P(d') \to P(d_1)$ such that $P(g)=P(f)p$, there exists a unique $h \maps d' \to d_1$ such that $g=fh$ and $p=P(h)$.
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$d'$};
-%\node (B) at (0,-1.5) {$d_1$};
-%\node (C) at (1.5,-1.5) {$d_{2}$};
-%\node (H) at (2,-0.5) {$P$};
-%\node (D) at (2,-.75) {$\mapsto$};
-%\node (E) at (3,0) {$P(d')$};
-%\node (F) at (3,-1.5) {$P(d_1)$};
-%\node (G) at (4.5,-1.5) {$P(d_{2})$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge[dashed] node[above,left]{$\exists ! h$} (B)
-%(A) edge node[above]{$g$} (C)
-%(E) edge node[above,left]{$p=P(h)$} (F)
-%(F) edge node[above]{$P(f)$} (G)
-%(E) edge node[above,right]{$P(g)$} (G)
-%(B)edge node[above]{$f$}(C);
-%\end{tikzpicture}
-%\]
-%\end{defn}
-
-
+\begin{proof}  
+This is due to Grothendieck; a proof can be found, for example, in \cite[\S~1.10]{Jacobs}.
+\end{proof}
 
 
 \subsection{Double categories}\label{sec:doublecats}
-
-
-
-%We will denote both kinds of morphisms and horizontal 1-cells as a single arrow, namely `$\to$'???   Or should we put a ``tick'' in here?
-
 For double categories we follow the notation of our paper on structured cospans \cite{BC}, which in turn follows that of Shulman \cite{Shulman2010}.
 
 \begin{defn}\label{defn:double_category}
@@ -3844,19 +3801,12 @@ associator and the triangle identity for the left and right unitor.
 
 Objects of $\lD_0$ are called \define{objects} and morphisms of $\lD_0$ are called \define{vertical 1-morphisms}. Objects of $\lD_1$ are called \define{horizontal 1-cells} and morphisms of $\lD_1$ are called \define{2-morphisms}.   We can draw a 2-morphism $a \maps M \to N$ with $S(a)=f,T(a)=g$ as follows:
 \[
-\begin{tikzpicture}[scale=1]
-\node (D) at (-4,0.5) {$A$};
-\node (E) at (-2,0.5) {$B$};
-\node (F) at (-4,-1) {$C$};
-\node (A) at (-2,-1) {$D$};
-\node (B) at (-3,-0.25) {$\Downarrow a$};
-\path[->,font=\scriptsize,>=angle 90]
-(D) edge node [above]{$M$}(E)
-(E) edge node [right]{$g$}(A)
-(D) edge node [left]{$f$}(F)
-(F) edge node [above]{$N$} (A);
-\end{tikzpicture}
+\begin{tikzcd}
+A\ar[r,"M"]\ar[d,"f"']\ar[dr,phantom,"\scriptstyle\Downarrow\alpha"] & B\ar[d,"g"] \\
+C\ar[r,"N"'] & D
+\end{tikzcd}
 \]
+%Christina: changed the code above to match the squares later better
 We call $M$ and $N$ the \define{horizontal source and target} of $a$ respectively, and call $f$ and $g$ its \define{vertical source and target}.   A 2-morphism where $f$ and $g$ are identities is called \textbf{globular}.   For example, the associator and unitors in a double category are globular 2-morphisms.
 
 %\begin{defn}
@@ -3905,16 +3855,14 @@ is surjective (respectively, injective), where $_f \lA_g(M,N)$ is set of 2-morph
 \begin{defn}\label{def:essentiallysurj}
 A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if we can simultaneously make the following choices:
 \begin{itemize}
-\item{For each object $x \in \lX$, we can find an object $a \in \lA$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and}
-\item{For each horizontal 1-cell $N \maps x_1 \tobar x_2$  of $\lX$, we can find a horizontal 1-cell $M \maps a_1 \tobar a_2$ of $\lA$ and a 2-isomorphism $a_{N} \colon \lF(M) \to N$ in $\lX$ as in the following diagram:
+\item For each object $x \in \lX$, we can find an object $a \in \lA$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and
+\item For each horizontal 1-cell $N \maps x_1 \to x_2$  of $\lX$, we can find a horizontal 1-cell $M \maps a_1 \to a_2$ of $\lA$ and a 2-isomorphism $a_{N} \colon \lF(M) \to N$ in $\lX$ as in the following diagram:
 \[
-  \xymatrix@-.5pc{
-    \lF(a_1) \ar[r]|{|}^{\lF(M)}  \ar[d]_{\alpha_{x_1}} \ar@{}[dr]|{\Downarrow a_N}&
-    \lF(a_1) \ar[d]^{\alpha_{x_2}}\\
-    x_1 \ar[r]|{|}_N & x_2
-  }
+ \begin{tikzcd}
+\lF(a_1) \ar[r,"\lF(M)"]  \ar[d,"\alpha_{x_1}"'] \ar[dr,phantom,"\scriptstyle\Downarrow a_N"] & \lF(a_1) \ar[d,"\alpha_{x_2}"]\\
+ x_1 \ar[r,"N"'] & x_2
+ \end{tikzcd}
 \]
-}
 \end{itemize}
 \end{defn}
 
@@ -4221,6 +4169,17 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 \bibitem{Hermida1999} C. \ Hermida, Some properties of Fib as a fibred 2-category, \textsl{J.\ Pure Appl.\ Alg.\ } \textbf{134}, 83 -- 109, 1999
 
 %\bibitem{Hoff} A.\ Hoffnung, Spans in 2-categories: a monoidal tricategory. Available as \href{http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}.
+
+\bibitem{Jacobs} B. \ Jacobs, Categorical logic and type theory, \textsl{Studies in Logic and the Foundations of Mathematics} \textbf{141}, 1999
+
+%@book {,
+%    AUTHOR = {Jacobs, Bart},
+% PUBLISHER = {North-Holland Publishing Co.},
+%   ADDRESS = {Amsterdam},
+%     PAGES = {xviii+760},
+%      ISBN = {0-444-50170-3},
+%}
+
 
 \bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, \textsl{Lecture Notes in Mathematics} vol. 40, pages 75---103, Springer Berlin/Heidelberg, 1974.
 
