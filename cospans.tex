@@ -307,7 +307,7 @@ The category of objects $F\lCsp_0$ is simply the category $\A$, whereas $F$-deco
 \begin{displaymath}
  \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"h"] & b\ar[l,"o"']\ar[d,"g"]  & x\in F(m) \\
-a'\ar[r,"{i'}"]\ar[d,"{f'}"] & m'\ar[d,"{h'}"] & b'\ar[l,"{o'}"']\ar[d,"{g'}"] & x'\in F(m') \\
+a'\ar[r,"{i'}"]\ar[d,"{f'}"'] & m'\ar[d,"{h'}"] & b'\ar[l,"{o'}"']\ar[d,"{g'}"] & x'\in F(m') \\
 a''\ar[r,"{i''}"] & m'' & b''\ar[l,"{o''}"'] & x''\in F(m'')
  \end{tikzcd}\;=\;
  \begin{tikzcd}[column sep=.4in]
@@ -365,7 +365,7 @@ Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-de
 (C) edge node [above] {$i'$} (D)
 (E) edge node [above] {$o'$} (D)
 (B) edge node [above] {$j_m$} (F)
-(D) edge node [above] {$j_{n}'$} (F)
+(D) edge node [above] {$j_{n}$} (F)
 (F) edge node [left] {$\psi$} (G)
 (A) edge[dashed,bend left] node [left] {} (G)
 (E) edge[dashed,bend right] node [right] {} (G);
@@ -505,10 +505,11 @@ the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the is
 \end{tikzpicture}
 \]
 together with an isomorphism $F(\alpha)((x_1 \odot x_2) \odot x_3) \cong (x_1 \odot (x_2 \odot x_3))$ between the decorations 
-\begin{gather*}
-\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)\to F((m_1+_bm_2)+_cm_3)\cong F(m_1+_b(m_2+_cm_3))$} \\
-\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))\to F(m_1+_b(m_2+_cm_3))$}
-\end{gather*}
+\begin{align*}
+\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)$}&\scalebox{.8}{$\to F((m_1+_bm_2)+_cm_3)$} \\
+&\scalebox{.8}{$\stackrel{F(\alpha)}{\cong} F(m_1+_b(m_2+_cm_3))$} \\
+\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))$}&\scalebox{.8}{$\to F(m_1+_b(m_2+_cm_3))$}
+\end{align*}
 which is constructed by pasting structure isomorphisms like above. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category -- essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \begin{comment}
  The definition of double category may be found in Definition \ref{defn:double_category}. To show that the pseudofunctor $F$ in the theorem statement induces a double category $F\lCsp$, we must first define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$ and the composition functor $\odot$ which says how to compose two composable horizontal 1-cells or two composable 2-morphisms horizontally: $$\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1.$$
