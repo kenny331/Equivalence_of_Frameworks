@@ -3884,14 +3884,20 @@ Let $\Dbl$ denote the 2-category of double categories, double functors and doubl
 
 \begin{defn}
 \label{defn:monoidal_double_category}
-A \define{monoidal double category} is a pseudomonoid in $\Dbl$. Explicitly, it is a double category equipped with double functors $\otimes \maps \lD \times \lD \to \lD$ and $I \maps 1 \to \lD$ where $1$ is the terminal double category, along with invertible transformations called the \define{associator}:
-\[  \alpha \maps \otimes \, \circ \; (1_{\lD} \times \otimes ) \Rightarrow \otimes \; \circ \; (\otimes \times 1_{\lD}) ,\]
-\define{left unitor}:
-\[ \ell \maps \otimes \, \circ \; (1_{\lD} \times I) \Rightarrow 1_{\lD} ,\]
-and \define{right unitor}:
-\[ r \maps \otimes \,\circ\; (I \times 1_{\lD}) \Rightarrow 1_{\lD} \]
-satisfying the pentagon and triangle identities.
+A \define{monoidal double category} is a pseudomonoid in $\Dbl$. 
 \end{defn}
+
+This definition neatly packages a large quantity of information.   When we unpack it, we see a monoidal double category is a double category $\lD$ with:
+\begin{itemize}
+\item monoidal structures on both $\lD_0$
+and $\lD_1$, each with tensor product $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, obeying the pentagon and triangle identities,
+\item the structure of a double functor on $\otimes$:
+that is, invertible globular 2-morphisms
+\[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
+(M_1\odot M_2)\otimes (N_1\odot N_2)\]
+\[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} (U_A \otimes U_B)\]
+\end{itemize}
+These structures must obey a number of equations, which can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
 
 \begin{defn}
 \label{defn:symmetric_monoidal_double_category}
