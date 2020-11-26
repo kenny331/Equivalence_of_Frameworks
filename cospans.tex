@@ -3197,7 +3197,9 @@ CHECK THAT OUR SORT OF EQUIVALENCE OF SYMMETRIC MONOIDAL DOUBLE CATEGORIES IS RE
 
 \section{Applications}\label{Applications}
 
-In this section we present several examples.  The first was mentioned in the Introduction.
+In this section we present several examples, drawing the relation between the formalisms of structured and decorated cospans. Before we exhibit these formalisms in action, let us briefly remark that this work is part of a more general endeavor to apply categorical ideas to the theory and analysis of systems in a broad sense. Various capproaches to different problems have been followed; thinking about systems and processes categorically dates back to early works like \cite{Lawvere,JNW,BF2,KSW} and references therein. As mentioned in the introduction, the current material constitutes part of the line of work initiated by Fong \cite{Fong,FongThesis} and evolved and applied in different settings through a number of publications (here cite papers/theses that surround decorated and structured cospans in a broad sense). A different line of work employs algebras of wiring diagrams and sheaves to capture compositional and time features of dynamical systems, initiated by Spivak and progressed also onto cyber-physical directions \cite{VSL,SSV,BFV}. (Another line of work could be props used for systems? John?) Another approach uses graphical languages and signal flow diagrams \cite{FRS,BPSZ} to understand systems of a more behavioral taste \cite{Willems}.
+
+Having discussed some by no means exhaustive related work in the field, we are ready to set out to the examples of our framework.
 
 \subsection{Graphs}
 \label{subsec:graphs}
@@ -4089,6 +4091,7 @@ We say that a double category is \textbf{fibrant} if every vertical
 1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
+{\chris Shouldn't we give Shulman's result that the horizontal bicategory of a symmetric monoidal double category is symmetric monoidal?}
 
 
 
@@ -4110,6 +4113,11 @@ We say that a double category is \textbf{fibrant} if every vertical
 
 \bibitem{BP} J.\ C.\ Baez and B.\ S.\ Pollard, A compositional framework for chemical reaction networks, \textsl{Rev.\ Math.\ Phys.\ }\textbf{29} (2017), 1750028.  Available as \href{http://arxiv.org/abs/1704.02051}{arXiv:1704.02051}.
 
+\bibitem{BFV} G.\ Bakirtzis, C.\ H.\ Fleming and C.\ Vasilakopoulou, Categorical Semantics of Cyber-Physical Systems Theory. Available as 
+\href{https://arxiv.org/abs/2010.08003}{arXiv:2010.08003}.
+
+\bibitem{BPSZ} F.\ Bonchi, R.\ Piedeleu, P.\ Sobocinski and F.\ Zanasi, Contextual Equivalence for Signal Flow Graphs, \textsl{FoSSaCS} (2020). Available as \href{https://arxiv.org/abs/2002.08874}{arXiv:2002.08874}. 
+
 \bibitem{Borc} F. \ Borceux, \textsl{Handbook of Categorical Algebra}, vol.\ 2, 
 Cambridge University Press, Cambridge, 1994
 
@@ -4125,6 +4133,8 @@ Cambridge University Press, Cambridge, 1994
 %\textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{17} (1976), 343--362.
 
 %\bibitem{Brown2} R.\ Brown, K.\ Hardie, H.\ Kamps and T.\ Porter, The homotopy double groupoid of a Hausdorff space, \textsl{Th.\ Appl.\ Categ.} \textbf{10} (2002), 71--93. 
+
+\bibitem{BF2} M.\ Bunge and M.\ Fiore, Unique factorisation lifting functors and categories of linearly-controlled processes, \textsl{Math.\ Struct.\ Comput.\ Sci.\ } \textbf{10} (2000), 137--163.
 
 %\bibitem{CC} D.\ Cicala and K.\ Courser, Spans of cospans in a topos. Available as \href{https://arxiv.org/abs/1707.02098}{arXiv:1707.02098}.
 
@@ -4148,6 +4158,8 @@ Cambridge University Press, Cambridge, 1994
 Ph.D.\ thesis, Computer Science Department, University of Oxford, 2016.
 Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
+\bibitem{FRS} B.\ Fong, P.\ Rapisarda, P.\ Sobocinski, \textsl{A categorical approach to open and interconnected dynamical systems}, LICS, 2016. Available as \href{http://arxiv.org/abs/510.05076}{arXiv:1510.05076}.
+
 \bibitem{GiraultValk} C.\ Girault and R.\ Valk, \textsl{Petri Nets for Systems Engineering: a Guide to Modeling, Verification, and Applications}, Springer, Berlin, 2013.
 
 \bibitem{GPS} R.\ Gordon, A.\ J.\ Power and R.\ Street, \textsl{Coherence for Tricategories}, \textsl{Mem.\ Amer.\ Math.\ Soc.\ }\textbf{558}, 1995.
@@ -4169,7 +4181,13 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{Jacobs} B. \ Jacobs, Categorical logic and type theory, \textsl{Studies in Logic and the Foundations of Mathematics} \textbf{141}, 1999
 
+\bibitem{JNW} A.\ Joyal, M.\ Nielsen and G.\ Winskel, Bisimulation from Open Maps, \textsl{Information and Computation} \textbf{127} (1996) 164 -- 185.
+
+\bibitem{KSW} P.\ Katis, N.\ Sabadini and R.\ F.\ C.\ Walters, On the algebra of systems with feedback and boundary, \textsl{Rendiconti del Circolo Matematico di Palermo Serie II} \textbf{63} (2000) 123 -- 156.
+
 \bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, \textsl{Lecture Notes in Mathematics} vol. 40, pages 75---103, Springer Berlin/Heidelberg, 1974.
+
+\bibitem{Lawvere} F.\ W.\ Lawvere, State categories and response functors, unpublished manuscript (1986)
 
 \bibitem{LS} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as \href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
 
@@ -4196,11 +4214,17 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 %\bibitem{Reb} F.\ Rebro, Constructing the bicategory Span$_{2}(\mathrm{A})$. Available as \href{https://arxiv.org/abs/1501.00792}{arXiv:1501.00792}.
 
+\bibitem{SSV} P.\ Schultz, D.\ Spivak and C.\ Vasilakopoulou, Dynamical systems and sheaves, \textsl{Appl.\ Cat.\ Struct.\ }\textbf{28} (2020), 1--57. Available as \href{https://arxiv.org/abs/1609.08086}{arXiv:1609.08086}.
+
 \bibitem{Shulman2008} M.\ Shulman, Framed bicategories and monoidal fibrations, \textsl{Theory Appl.\ Categ.\ }\textbf{20} (2008), 650--738. Available as \href{https://arxiv.org/abs/0706.1286}{arXiv:0706.1286}.
 
 \bibitem{Shulman2010} M.\ Shulman, Constructing symmetric monoidal bicategories. Available as \href{http://arxiv.org/abs/1004.0993}{arXiv:1004.0993}.
 
 \bibitem{Stay} M.\ Stay, Compact closed bicategories, \textsl{Theory Appl.\ Categ.\ }\textbf{31} (2016), 755--798.   Available as \href{http://arxiv.org/abs/1301.1053}{arXiv:1301.1053}.
+
+\bibitem{VSL} D.\ Vagner, D.\ Spivak and E.\ Lerman, Algebras of open dynamical systems on the operad of wiring diagrams, \textsl{Theory Appl.\ Categ.\ } \textbf{30} (2015), 1793--1822. Available as \href{https://arxiv.org/abs/1408.1598}{arXiv:1408.1598}.
+
+\bibitem{Willems} J.\ C.\ Willems, The behavioral approach to open and interconnected systems, \textsl{IEEE Control Systems Magazine} (2007)
 
 \end{thebibliography}
 \end{document}
