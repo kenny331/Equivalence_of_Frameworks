@@ -256,7 +256,7 @@ Daniel Cicala, Brendan Fong...
 In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction, and then study the functoriality of this construction. The definition of a lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
 
 \begin{thm}\label{thm:decorated_cospans}
-Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
+Let $\A$ be a category with finite colimits, made monoidal with a choice of initial object and binary coproducts.  Let $F \maps (\A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -301,9 +301,9 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 \end{thm}
 
 \begin{proof}
-According to \cref{defn:double_category}, for a lax monoidal pseudofunctor $(F,\phi,\phi_0)$ we will define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
+Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+,0) \to (\Cat,\times, 1)$ be a lax monoidal pseudofunctor as defined in \cref{defn:double_category}.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
 
-The category of objects $F\lCsp_0$ is simply the category $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospans maps is 
+The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospans maps is 
 \begin{displaymath}
  \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"h"] & b\ar[l,"o"']\ar[d,"g"]  & x\in F(m) \\
@@ -510,7 +510,7 @@ together with an isomorphism $F(\alpha)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 &\scalebox{.8}{$\stackrel{F(\alpha)}{\cong} F(m_1+_b(m_2+_cm_3))$} \\
 \scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))$}&\scalebox{.8}{$\to F(m_1+_b(m_2+_cm_3))$}
 \end{align*}
-which is constructed by pasting structure isomorphisms like above. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category -- essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
+which is constructed by pasting structure isomorphisms like above. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category -- essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see the second author's thesis \cite[Theorem~4.1.1]{CourserThesis}.
 \begin{comment}
  The definition of double category may be found in Definition \ref{defn:double_category}. To show that the pseudofunctor $F$ in the theorem statement induces a double category $F\lCsp$, we must first define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$ and the composition functor $\odot$ which says how to compose two composable horizontal 1-cells or two composable 2-morphisms horizontally: $$\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1.$$
 
@@ -1061,7 +1061,7 @@ Everything about these two composites appears identical except for the two middl
 \end{proof}
 
 \begin{thm}\label{DC}
-Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ of Theorem \ref{thm:decorated_cospans} is symmetric monoidal, where
+Let $\A$ be a category with finite colimits, made symmetric monoidal with a choice of initial object and binary coproducts.   Let $F \maps (\A,+)\to (\Cat,\times)$ be symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ of Theorem \ref{thm:decorated_cospans} is symmetric monoidal, where
 \begin{enumerate}
 \item{the tensor product of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,}
 \item{the tensor product of two vertical 1-morphisms $f \colon a \to b$ and $f' \colon a' \to b'$ is the vertical 1-morphism $f+f' \colon a+a' \to b+b'$,}
@@ -1182,7 +1182,7 @@ where the decoration morphism $\tau_{\alpha+\beta}$ comes from the pasted diagra
 \end{thm}
 
 \begin{proof}
-The definition of symmetric monoidal double category may be found in Definition \ref{defn:symmetric_monoidal_double_category}. We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
+Monoidal and symmetric monoidal double categories are introduced in Definitions \ref{defn:monoidal_double_category} and \ref{defn:symmetric_monoidal_double_category}. To make $F\lCsp$ into a symmetric monoidal double category, we must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
 
 First we note that the category of objects $F\lCsp_0=\A$ is symmetric monoidal under chosen binary coproducts in $\A$ and the left and right unitors, associators and braidings are given as natural maps. Next we show that $F\lCsp_1$ is symmetric monoidal. The category of arrows $F\lCsp_1$ has:
 \begin{enumerate}
@@ -1259,13 +1259,13 @@ where the decoration on the apex is obtained using the natural transformation of
 \node (A) at (0,0) {$0$};
 \node (B) at (1,0) {$0$};
 \node (C) at (2,0) {$0$};
-\node (D) at (3,0) {$\bot_0 = \phi \in F(0)$};
+\node (D) at (3,0) {$\bot_0 \in F(0)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!$} (B)
 (C) edge node[above]{$!$} (B);
 \end{tikzpicture}
 \]
-where $0$ is the monoidal unit of $\A$ and $\phi \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$.  
+where $0$ is the monoidal unit of $\A$ and the element $\bot_0$ is another name for $\phi \maps 1 \to F(0)$, the morphism that arises from the lax monoidal structure of $F \maps (\A,+) \to (\Cat,\times)$. It is also clear that $U(0)=0_{F\lCsp_1}$.  
 
 Next we define the associator and left unitor of $F\lCsp_1$, with the right unitor being similar to the left. Given three objects $M_1, M_2$ and $M_3$ of $F\lCsp_1$:
 \[
@@ -1303,7 +1303,9 @@ tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes
 (C) edge node[above]{$(o_1+o_2)+o_3$} (B);
 \end{tikzpicture}
 \]
-where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is given by: $$1 \xrightarrow{(x_1 \times x_2) \times x_3} (F(m_1) \times F(m_2)) \times F(m_3) \xrightarrow{\phi_{m_1,m_2} \times 1} F(m_1+m_2) \times F(m_3) \xrightarrow{\phi_{m_1+m_2,m_3}} F((m_1+m_2)+m_3).$$ The other parenthesization $M_1 \otimes (M_2 \otimes M_3)$ is given by:
+where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is the composite
+\[ 1 \xrightarrow{(x_1 \times x_2) \times x_3} (F(m_1) \times F(m_2)) \times F(m_3) \xrightarrow{\phi_{m_1,m_2} \times 1} F(m_1+m_2) \times F(m_3) \xrightarrow{\phi_{m_1+m_2,m_3}} F((m_1+m_2)+m_3).\] 
+The other parenthesization $M_1 \otimes (M_2 \otimes M_3)$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a_1+(a_2+a_3)$};
@@ -1315,8 +1317,9 @@ where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is given by: $$1 \xrightarrow
 (C) edge node[above]{$o_1+(o_2+o_3)$} (B);
 \end{tikzpicture}
 \]
-where $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is given by: $$1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).$$
-Denoting the associator of $(\A,+,0)$ by $\alpha$, the associator of $F\lCsp_1$ is then a map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
+where the element $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is the composite
+\[  1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).\]
+Denoting the associator of $(\A,+,0)$ by $\alpha$, the associator of $F\lCsp_1$ is then the map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
@@ -1391,7 +1394,7 @@ where $\bot_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \time
 (B) edge node [left] {$\ell$} (D);
 \end{tikzpicture}
 \]
-together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(\bot_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category. See the second author's thesis \cite{CourserThesis} for more details.
+together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(\bot_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category.  For more details se the second author's thesis \cite[Theorem 4.1.3]{CourserThesis}.
 
 To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
 \[
@@ -1479,10 +1482,11 @@ If we first tensor $M_1$ and $N_1$ as well as $M_2$ and $N_2$ and then compose t
 (C) edge node[above]{$\psi j (o_2 + o_2')$} (B);
 \end{tikzpicture}
 \]
-where the decoration $(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$ is given by:
+where the decoration $(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$ is the composite
 %$$\scriptscriptstyle{1 \xrightarrow{(\lambda^{-1} \times \lambda^{-1})\lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2))$$
-$$\scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2))$$
-where the first arrow is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\lambda^{-1} \times \lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)).$$
+\[ \scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2)) \]
+where the first arrow is given by 
+\[ 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\lambda^{-1} \times \lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)).\]
 %\[
 %\begin{tikzpicture}[scale=1.5]
 %\node (A) at (0,0) {$1$};
@@ -1559,7 +1563,7 @@ The globular 2-morphism $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \
 together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\odot(x_2+y_2)) \to (x_1 \odot x_2)+(y_1 \odot y_2)$
 where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
 
-The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}. The coherence law that we check says that this diagram commutes:
+The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $a,\ell,r$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in \cite[Theorem 4.1.3]{CourserThesis}. The coherence law that we check says that this diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
@@ -1573,7 +1577,7 @@ The remaining properties are coherence laws that make use of these maps $\chi$ a
 (C) edge node[above]{$\beta \odot \beta$} (D);
 \end{tikzpicture}
 \]
-This diagram expresses that the braiding is a transformation of double categories. We will see that this diagram commutes in two stages. First, for the underlying maps of cospans in $\A$. Using the notation previously introduced for the globular 2-morphism $\hat{\chi}$, the above diagram, modulo all of the decorations, is given by the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide.
+This diagram expresses that the braiding is a transformation of double categories. We will see that this diagram commutes in two stages. First we consider the underlying maps of cospans in $\A$. Using the notation previously introduced for the globular 2-morphism $\hat{\chi}$, the above diagram, modulo all of the decorations, is given by the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide.
 \[
 		\begin{tikzpicture}
 			\node (a) at (-4,0) {$a+a'$};
@@ -1698,7 +1702,7 @@ These decoration isomorphisms then form the following commutative diagram in the
 \end{tikzpicture}
 \]
 where in the top left corner, we note that $$F(\hat{\chi} \beta)((x_1 \odot x_2)+(y_1 \odot y_2)) = F((\beta \odot \beta)\hat{\chi})((x_1 \odot x_2)+(y_1 \odot y_2))$$
-as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. The other diagrams in the definition of symmetric monoidal double category can be shown to commute similarly.
+as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. 
 \end{proof}
 
 Our construction gives not only decorated cospan double categories, but maps betwen these.
@@ -3890,7 +3894,7 @@ A \define{monoidal double category} is a pseudomonoid in $\Dbl$.
 This definition neatly packages a large quantity of information.   When we unpack it, we see a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
 \item monoidal structures on both $\lD_0$
-and $\lD_1$, each with tensor product $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, obeying the pentagon and triangle identities,
+and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that the unit object of $\lD_0$ is preserved by the unit functor $U$, and the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict symmetric monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
@@ -3911,7 +3915,7 @@ called the \define{braiding}, where $\tau \maps \lD \times \lD \to \lD \times \l
 Given symmetric monoidal double categories $\lA$ and $\lX$, a \define{symmetric monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
 
-Unpacking these definitions further one obtains a large number of diagrams \cite{HS}.   
+Unpacking this definition one obtains a number of diagrams which can be found after \cite[Definition 2.4]{HS}.
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
