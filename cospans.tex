@@ -3679,6 +3679,49 @@ Thus we have a symmetric monoidal double category $\lOpen(\Petri)$ of open Petri
 \subsection{Reaction networks}
 
 %%% Do reaction networks and dynamical systems (which do NOT come from structured cospans).
+A dynamical system is a vector field from the perspective of a system of first-order ordinary differential equations.
+Chemical reaction networks are a specific kind of dynamical system in which the vector field is algebraic, meaning that its coefficients are polynomials.
+Using Fong's original incarnation of decorated cospans, Pollard and the first author \cite{BP} constructed a symmetric monoidal category $\mathsf{OpenDynam}$ for which the morphisms are open dynamical systems. This category $\mathsf{OpenDynam}$ has:
+\begin{itemize}
+\item{objects as finite sets, and}
+\item{morphisms as equivalence classes of cospans of finite sets whose apices are equipped with an algebraic vector field.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$a$};
+\node (E) at (-2,0) {$s$};
+\node (F) at (-1,0) {$b$};
+\node (A) at (0,0) {$v_s \colon \lR^s \to \lR^s$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}
+\]
+}
+\end{itemize}
+This category is constructed from a symmetric lax monoidal functor $F \colon \Fin\Set \to \Set$ that assigns to a finite set $s$ the set $F(s)$ of algebraic vector fields on $s$ and a to function $f \colon s \to s'$ the function $F(f) \colon F(s) \to F(s')$ defined by $$F(f)(v_s)=f_* v_s f^*$$
+where $f^\ast \colon \mathbb{R}^{s'} \to \mathbb{R}^{s}$ is the \define{pullback} defined by 
+$$f^\ast (c_{s'})(\sigma)=c_{s}(f(\sigma))$$ 
+and $f_{\ast} \colon \mathbb{R}^s \to \mathbb{R}^{s'}$ is the \define{pushforward} defined by 
+$$f_{\ast}(c_{s'})(\sigma^\prime) = \sum_{\{\sigma \in s : \; f(\sigma) = \sigma^\prime\}} c_{s}(\sigma)$$
+for $c_{s} \in \mathbb{R}^{s}$ and $c_{s'} \in \mathbb{R}^{s'}$
+Functoriality of $F$ comes the pushforward being covariant and the pullback being contravariant, and the lax monoidal structure of $F$ stems from the canonical isomorphism $\lR^s \times \lR^{s'} \cong \lR^{s+s'}$ which is used to map a pair of vector fields $v_s \colon \lR^s \to \lR^{s}$ and $v_{s'} \colon \lR^{s'} \to \lR^{s'}$ to the vector field $v_{s+s'} \colon \lR^{s+s'} \to \lR^{s+s'}$. We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
+
+Let $\mathsf{Dynam}$ be the category for which:
+\begin{itemize}
+\item{an object is a pair $(s,v_s)$ where $s$ is a finite set and $v_s$ is an algebraic vector field $v_s \colon \lR^s \to \lR^s$ on the finite set $s$, and}
+\item{a morphism from $(s,v_s)$ to $(s',v_{s'})$ is a function $f \colon s \to s'$ such that $v_{s'} = f_* v_s f^*$.}
+\end{itemize}
+
+A well-known result is the following:
+\begin{lem}
+A functor $U \colon \A \to \X$ admits a left adjoint if and only if for every $x \in \X$, the comma category $x \downarrow U$ has an initial object.
+\end{lem}
+Using this result, one can show that the forgetful functor $U \colon \mathsf{Dynam} \to \Fin\Set$ is not a right adjoint. In particular, by taking $x$ to be the empty set, the comma category $\emptyset \downarrow U$ has:
+\begin{itemize}
+\item{objects given as pairs $((s,v_s),! \colon \emptyset \to s)$, and}
+\item{a morphism from $((s,v_s),! \colon \emptyset \to s)$ to $((s',v_{s'}),! \colon \emptyset \to s')$ is a morphism $f \colon (s,v_s) \to (s',v_{s'})$ in $\mathsf{Dynam}$ such that $U(f) \circ ! = !$ in $\Fin\Set$, a condition which amounts to simply being a morphism in $\mathsf{Dynam}$.}
+\end{itemize}
+In particular, the object $((\emptyset,v_\emptyset),! \colon \emptyset \to \emptyset)$ resides in the comma category $\emptyset \downarrow U$, where $v_\emptyset$ is the only possible vector field on the empty set --- namely, the dengerate vector field. Given any other object $((s,v_s),! \colon \emptyset \to s)$ in $\emptyset \downarrow U$, there exists no morphisms $! \colon \emptyset \to s$ from the first object to the second unless $s$ is also the empty set as the vector field $$!_* v_\emptyset !^*$$will also always be degenerate and not equal to $v_s$. Clearly there are also no morphisms in the other direction for $s \neq \emptyset$ as $f$ must be a function. Thus the forgetful functor $U$ has no left adjoint $L \colon \Fin\Set \to \mathsf{Dynam}$, and hence we cannot construct a structured cospan category ${_L \Csp(\mathsf{Dynam})}$ whose morphisms are equivalence classes of open dynamical systems of this type.
 
 \section{Conclusions}\label{sec:conclusions}
 
