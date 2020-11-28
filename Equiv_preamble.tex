@@ -17,14 +17,22 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \usepackage{framed,color}
 
 \definecolor{shadecolor}{rgb}{1,0.8,0.3}
-\definecolor{myurlcolor}{rgb}{0.6,0,0}
-\definecolor{mycitecolor}{rgb}{0,0,0.8}
-\definecolor{myrefcolor}{rgb}{0,0,0.8}
-\definecolor{hyperrefcolor}{rgb}{0,0,0.7}
+\definecolor{myurlcolor}{rgb}{0.5,0,0}
+\definecolor{mycitecolor}{rgb}{0,0,0.7}
+\definecolor{myrefcolor}{rgb}{0,0,0.7}
+\definecolor{hyperrefcolor}{rgb}{0.5,0,0}
 
 % hyperlinks
+
 \usepackage{hyperref}
-\hypersetup{colorlinks, linkcolor=myrefcolor, citecolor=mycitecolor, urlcolor=myurlcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={hyperrefcolor},
+	citecolor={hyperrefcolor},
+	urlcolor={hyperrefcolor}
+}
+
+\newcommand{\backref}[1]{(Referred to on page #1.)}
 
 \usepackage[draft]{fixme}
 \usepackage[capitalize]{cleveref}
@@ -155,9 +163,6 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \def\purple{\color{purple(x11)}}
 \def\chris{\purple}
 \newcommand{\upback}{\mathbin{\rotatebox[origin=c]{135}{$\ulcorner$}}}
-
-
-\newcommand{\backref}[1]{(Referred to on page #1.)}
 
 % xypic
 \usepackage[all,2cell,cmtip]{xy}
