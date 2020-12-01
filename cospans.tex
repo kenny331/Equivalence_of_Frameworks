@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/11/27
+% 2020/12/1
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -3264,7 +3264,7 @@ equivalent to a structured cospan double category.    Is every structured cospan
 equivalent to a decorated cospan double category?
 \item What are some interesting examples of decorated cospan double categories that are not structured cospan double categories?   A candidate appears in the work of Pollard and the first author \cite{BP}.  They construct a decorated cospan category $\Dynam$ where objects are finite sets and a morphism from $a$ to $b$ is a cospan of finite sets $a \rightarrow m \leftarrow b$ where the apex $m$ is decorated with a vector field on $\R^m$ whose coefficients are polynomial functions of the standard coordinates on this space.
 
-They constructed this decorated cospan category via Fong's original formalism, using a lax symmetric monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$.  However, composing this with the inclusion $(\Set, \times) \to (\Cat, \times)$ mapping sets to discrete categories, we get the data needed to create a decorated cospan double category $\mathbb{D}\mathbf{ynam}$.   We believe that this is not equivalent to a structured cospan double category, but can this be proved?  If so, can this example be generalized?
+They constructed this decorated cospan category via Fong's original formalism, using a lax symmetric monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$.  However, composing this with the inclusion $(\Set, \times) \to (\Cat, \times)$ mapping sets to discrete categories, we get the data needed to create a decorated cospan double category $\lD\mathbf{ynam}$.   We believe that this is not equivalent to a structured cospan double category, but can this be proved?  If so, can this example be generalized?
 \end{itemize}
 
 \appendix
@@ -3462,32 +3462,68 @@ Let $\Dbl$ denote the 2-category of double categories, double functors and doubl
 
 \begin{defn}
 \label{defn:monoidal_double_category}
-A \define{monoidal double category} is a pseudomonoid in $\Dbl$. Explicitly, it is a double category $\lD$ with:
+A \define{monoidal double category} is a pseudomonoid in $\Dbl$. 
+\end{defn} 
+\noindent
+Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, where if $I$ is the unit object of $\lD_0$ then $U_I$ is the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
+\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
 (M_1\odot M_2)\otimes (N_1\odot N_2)\]
-\[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} (U_A \otimes U_B)\]
+\[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} U_A \otimes U_B\]
+obeying a list of equations that can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
 \end{itemize}
-These structures must obey a number of equations, which can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
-\end{defn}
-%This definition neatly packages a large quantity of information.   When we unpack it, we see 
+
 
 \begin{defn}
 \label{defn:symmetric_monoidal_double_category}
-A \define{braided monoidal double category} is a braided pseudomonoid in $\Dbl$.  Explicitly,
-it is a monoidal double category equipped with an invertible transformation
-\[ \beta \maps \otimes \Rightarrow \otimes \circ \tau \]
-called the \define{braiding}, where $\tau \maps \lD \times \lD \to \lD \times \lD$ is the twist double functor sending pairs in the object and arrow categories to the same pairs in the opposite order. The braiding is required to satisfy the usual two hexagon identities.  If the braiding is self-inverse we say that $\lD$ is a \define{symmetric monoidal double category}. 
+A \define{symmetric monoidal double category} is a symmetric pseudomonoid in $\Dbl$. 
 \end{defn}
+\noindent
+Explicitly, a symmetric monoidal double category is a monoidal double category $\lD$ such that:
+\begin{itemize}
+		\item $\lD_0$ and $\lD_1$ are symmetric monoidal categories, with braidings both denoted $\beta$.
+		\item The functors $S$ and $T$ are symmetric strict monoidal functors.
+		\item The following diagrams commute, expressing that the braiding is a transformation of double categories:
+		\[
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
+			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
+			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
+			\node (B') at (5,0) {\footnotesize{$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\chi$} (A')
+				(A) edge node[above]{$\beta$} (B)
+				(B) edge node[right]{$\chi$} (B')
+				(A') edge node[above]{$\beta \odot \beta$} (B');
+		\end{tikzpicture}
+		%
+		\quad
+		%
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$U_A \otimes U_B$}};
+			\node (A') at (0,0) {\footnotesize{$U_B\otimes U_A$}};
+			\node (B) at (2,1.5) {\footnotesize{$U_{A\otimes B} $}};
+			\node (B') at (2,0) {\footnotesize{$U_{B\otimes A}$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\beta$} (A')
+				(B) edge node[above]{$\mu$} (A)
+				(B) edge node[right]{$U_\beta$} (B')
+				(B') edge node[above]{$\mu$} (A');
+		\end{tikzpicture}
+		\]
+\end{itemize}
+
 
 \begin{defn}\label{defn:monoidal_double_functor}
 Given symmetric monoidal double categories $\lA$ and $\lX$, a \define{symmetric monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
-
-Unpacking this definition one obtains a number of diagrams which can be found after \cite[Definition 2.4]{HS}.
+\noindent
+Unpacking this definition one obtains a number of diagrams that can be found after \cite[Definition 2.4]{HS}.
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
