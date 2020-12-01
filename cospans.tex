@@ -253,10 +253,10 @@ Daniel Cicala, Brendan Fong...
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction, and then study the functoriality of this construction. The definition of a lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the basics of double categories are recalled in \cref{sec:doublecats}.
+In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction, and then study the functoriality of this construction. The definition of a lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the definition of a double category is recalled in \cref{defn:double_category}.
 
 \begin{thm}\label{thm:decorated_cospans}
-Let $\A$ be a category with finite colimits and $F \maps \A \to \Cat$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
+Let $\A$ be a category with finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -301,7 +301,7 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 \end{thm}
 
 \begin{proof}
-Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+,0) \to (\Cat,\times, 1)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
+Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
 
 The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospans maps is 
 \begin{displaymath}
@@ -550,129 +550,126 @@ together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 where $a$ is the associator of $\Cat$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \end{proof}
 
+The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the formed double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is. The definitions of (symmetric) monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
+
 \begin{thm}\label{DC}
-Let $\A$ be a category with finite colimits and let $F \maps (\A,+) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ of Theorem \ref{thm:decorated_cospans} is symmetric monoidal, where
-\begin{enumerate}
-\item{the tensor product of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,}
-\item{the tensor product of two vertical 1-morphisms $f \colon a \to b$ and $f' \colon a' \to b'$ is the vertical 1-morphism $f+f' \colon a+a' \to b+b'$,}
-\item{the tensor product of two horizontal 1-cells $M_1$ and $M_2$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$m_1$};
-\node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-\node (E) at (3,0) {$a_2$};
-\node (F) at (4,0) {$m_2$};
-\node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(E) edge node[above]{$i_2$} (F)
-(G) edge node[above]{$o_2$} (F);
-\end{tikzpicture}
-\]
-is the horizontal 1-cell $M_1 \otimes M_2$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1.5,0) {$m_1+m_2$};
-\node (C) at (3,0) {$b_1+b_2$};
-\node (D) at (4.55,0) {$x_1+x_2 \in F(m_1+m_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1+i_2$} (B)
-(C) edge node[above]{$o_1+o_2$} (B);
-\end{tikzpicture}
-\]
+Let $\A$ be a category with finite colimits and let $F \maps (\A,+) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
+\begin{itemize}
+\item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
+\item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
+\item of two horizontal 1-cells $(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$ and $(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ is 
 \begin{equation}\label{eq:tensordecoration}
-x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2)
+\begin{tikzcd}
+& m_1+m_2 & \\
+a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
+\end{tikzcd}\qquad1\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
 \end{equation}
-}
-\item{the tensor product of two 2-morphisms $\alpha$ and $\beta$:
+%$M_1$ and $M_2$:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a_1$};
+%\node (B) at (1,0) {$m_1$};
+%\node (C) at (2,0) {$b_1$};
+%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+%\node (E) at (3,0) {$a_2$};
+%\node (F) at (4,0) {$m_2$};
+%\node (G) at (5,0) {$b_2$};
+%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i_1$} (B)
+%(C) edge node[above]{$o_1$} (B)
+%(E) edge node[above]{$i_2$} (F)
+%(G) edge node[above]{$o_2$} (F);
+%\end{tikzpicture}
+%\]
+%is the horizontal 1-cell $M_1 \otimes M_2$:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a_1+a_2$};
+%\node (B) at (1.5,0) {$m_1+m_2$};
+%\node (C) at (3,0) {$b_1+b_2$};
+%\node (D) at (4.55,0) {$x_1+x_2 \in F(m_1+m_2)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i_1+i_2$} (B)
+%(C) edge node[above]{$o_1+o_2$} (B);
+%\end{tikzpicture}
+%\]
+%\begin{equation}
+%x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2)
+%\end{equation}
+
+\item of two 2-morphisms $\alpha$ and $\beta$ is:
 \[
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.2]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a'$};
 \node (B) at (1,0.5) {$m$};
 \node (C) at (2,0.5) {$b$};
 \node (C') at (2,-0.5) {$b'$};
 \node (D) at (1,-0.5) {$m'$};
-\node (E) at (3,0.5) {$x \in F(m)$};
-\node (F) at (3,-0.5) {$x' \in F(m')$};
-\node (G) at (4,0.5) {$c$};
-\node (H) at (5,0.5) {$n$};
-\node (I) at (6,0.5) {$d$};
-\node (G') at (4,-0.5) {$c'$};
-\node (H') at (5,-0.5) {$n'$};
-\node (I') at (6,-0.5) {$d'$};
-\node (J) at (7,0.5) {$y \in F(n)$};
-\node (K) at (7,-0.5) {$y' \in F(n')$};
-\node (L) at (1,-1) {$\tau_\alpha \maps F(h)(x) \to x'$};
-\node (M) at (5,-1) {$\tau_\beta \maps F(h')(y) \to y'$};
+%\node (E) at (2.7,0.5) {$\scriptstyle x \in F(m)$};
+\node () at (2.7,0) {$\otimes$};
+\node () at (6.2,0) {$=$};
+%\node (F) at (2.7,-0.5) {$\scriptstyle x' \in F(m')$};
+\node (G) at (3.5,0.5) {$c$};
+\node (H) at (4.5,0.5) {$n$};
+\node (I) at (5.5,0.5) {$d$};
+\node (G') at (3.5,-0.5) {$c'$};
+\node (H') at (4.5,-0.5) {$n'$};
+\node (I') at (5.5,-0.5) {$d'$};
+%\node (J) at (6.7,0.5) {$\scriptstyle y \in F(n)$};
+%\node (K) at (6.7,-0.5) {$\scriptstyle y' \in F(n')$};
+\node (L) at (1,-1.2) {$\scriptstyle\tau_\alpha \maps F(h)(x) \to x'\textrm{ in } F(m')$};
+\node (M) at (4.5,-1.2) {$\scriptstyle\tau_\beta \maps F(h')(y) \to y'\textrm{ in } F(n')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1$} (B)
 (C) edge node[above]{$o_1$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(A') edge node[above] {$i_1'$} (D)
-(C') edge node[above] {$o_1'$} (D)
+(A') edge node[below] {$i_1'$} (D)
+(C') edge node[below] {$o_1'$} (D)
 (B) edge node [left] {$h$} (D)
 (G) edge node [above] {$i_2$} (H)
 (G) edge node [left] {$f'$} (G')
 (H) edge node [left] {$h'$} (H')
-(G') edge node [above] {$i_2'$} (H')
+(G') edge node [below] {$i_2'$} (H')
 (I) edge node [above] {$o_2$} (H)
 (I) edge node [right] {$g'$} (I')
-(I') edge node [above] {$o_2'$} (H');
+(I') edge node [below] {$o_2'$} (H');
 \end{tikzpicture}
-\]
-is the 2-morphism $\alpha \otimes \beta$:
-\[
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.1]
 \node (A) at (0,0.5) {$a+c$};
 \node (A') at (0,-0.5) {$a'+c'$};
 \node (B) at (2,0.5) {$m+n$};
 \node (C) at (4,0.5) {$b+d$};
 \node (C') at (4,-0.5) {$b'+d'$};
 \node (D) at (2,-0.5) {$m'+n'$};
-\node (E) at (5.5,0.5) {$x+y \in F(m+n)$};
-\node (F) at (5.5,-0.5) {$x'+y' \in F(m'+n')$};
+%\node (E) at (5.2,0.5) {$\scriptstyle \phi_{m,n}(x,y)$};
+%\node (F) at (5.2,-0.5) {$\scriptstyle \phi_{m',n'}(x',y')$};
+\node () at (2,-1.3) {$\scriptstyle\tau_{\alpha\ot\beta}\maps F(h+h')(\phi_{m',n'}(x',y'))\to \phi_{m,n}(x,y)\textrm{ in }F(m'+n')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i_1+i_2$} (B)
 (C) edge node[above]{$o_1+o_2$} (B)
 (A) edge node[left]{$f+f'$} (A')
-(C) edge node[left]{$g+g'$} (C')
-(A') edge node [above]{$i_1'+i_2'$} (D)
-(C') edge node [above]{$o_1'+o_2'$} (D)
+(C) edge node[right]{$g+g'$} (C')
+(A') edge node [below]{$i_1'+i_2'$} (D)
+(C') edge node [below]{$o_1'+o_2'$} (D)
 (B) edge node [left] {$h+h'$} (D);
 \end{tikzpicture}
 \]
-$$\tau_{\alpha+\beta} \colon F(h+h')(x+y) \to x'+y'$$
-where the decoration morphism $\tau_{\alpha+\beta}$ comes from the pasted diagram:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (4.75,0) {$\tau_\alpha \times \tau_\beta \Swarrow$};
-\node (D) at (3,0) {$1 \xrightarrow{\lambda^{-1}} 1 \times 1$};
-\node (E) at (5.5,0.5) {$F(m) \times F(n)$};
-\node (E') at (5.5,-0.5) {$F(m') \times F(n')$};
-\node (B) at (7.5,0.5) {$F(m+n)$};
-\node (B') at (7.5,-0.5) {$F(m' + n')$};
-\path[->,font=\scriptsize,>=angle 90]
-(E) edge node [above] {$\phi_{m,n}$} (B)
-(E') edge node [above] {$\phi_{m',n'}$} (B')
-(B) edge node [right] {$F(h + h')$} (B')
-(D) edge node [above] {$x \times y$} (E)
-(D) edge node [below] {$x' \times y'$} (E')
-(E) edge node [right] {$F(h) \times F(h')$} (E');
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
+with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diagram:
+\begin{displaymath}
+ \begin{tikzcd}[column sep=.5in, row sep=.1in]
+& F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[dd,"F(h)\times F(h')"description]\ar[ddr,phantom,"\cong"] & F(m+n)\ar[dd,"F(h+h')"] \\
+1\ar[ur,"x\times y"]\ar[dr,"x'\times y'"']\ar[r,phantom,"\scriptstyle\Downarrow\tau_\alpha\times\tau_\beta"] & \phantom{A} && \\
+& F(m')\times F(n')\ar[r,"\phi_{m',n'}"'] & F(m'+n')
+ \end{tikzcd}
+\end{displaymath}
+\end{itemize}
 \end{thm}
 
 \begin{proof}
-The definition of symmetric monoidal double category may be found in Definition \ref{defn:symmetric_monoidal_double_category}. We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
+We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
 
 First we note that the category of objects $F\lCsp_0=\A$ is symmetric monoidal under chosen binary coproducts in $\A$ and the left and right unitors, associators and braidings are given as natural maps. Next we show that $F\lCsp_1$ is symmetric monoidal. The category of arrows $F\lCsp_1$ has:
 \begin{enumerate}
@@ -3425,13 +3422,10 @@ Let $\Dbl$ denote the 2-category of double categories, double functors and doubl
 
 \begin{defn}
 \label{defn:monoidal_double_category}
-A \define{monoidal double category} is a pseudomonoid in $\Dbl$. 
-\end{defn}
-
-This definition neatly packages a large quantity of information.   When we unpack it, we see a monoidal double category is a double category $\lD$ with:
+A \define{monoidal double category} is a pseudomonoid in $\Dbl$. Explicitly, it is a double category $\lD$ with:
 \begin{itemize}
 \item monoidal structures on both $\lD_0$
-and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that the unit object of $\lD_0$ is preserved by the unit functor $U$, and the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict symmetric monoidal, 
+and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that the unit object of $\lD_0$ is preserved by the unit functor $U$, and the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
@@ -3439,6 +3433,8 @@ that is, invertible globular 2-morphisms
 \[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} (U_A \otimes U_B)\]
 \end{itemize}
 These structures must obey a number of equations, which can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
+\end{defn}
+%This definition neatly packages a large quantity of information.   When we unpack it, we see 
 
 \begin{defn}
 \label{defn:symmetric_monoidal_double_category}
