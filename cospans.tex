@@ -459,30 +459,32 @@ together with the decoration morphism $\tau_{\alpha \odot \beta} \colon F(h_1 +_
 \]
 where the middle isomorphism is due to pseudonaturality of $\phi$ and the right-hand side isomorphism is due to pseudofunctoriality of $F$.
 
-The associator $\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$ is formed as follows: for three composable horizontal 1-cells
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$M_1=a$};
-\node (B) at (1,0) {$m_1$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-\node (E) at (3,0) {$M_2=b$};
-\node (F) at (4,0) {$m_2$};
-\node (G) at (5,0) {$c$};
-\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-\node (I) at (6,0) {$M_3=c$};
-\node (J) at (7,0) {$m_3$};
-\node (K) at (8,0) {$d$};
-\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(E) edge node[above]{$i'$} (F)
-(G) edge node[above]{$o'$} (F)
-(I) edge node[above]{$i''$} (J)
-(K) edge node[above]{$o''$} (J);
-\end{tikzpicture}
-\]
+The associator for horizontal composition
+%$\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$ 
+is formed as follows: for three composable horizontal 1-cells $M_1=(a\to m_1\leftarrow b,x_1\in F(m_1))$, $M_2=(b\to m_2\leftarrow c,x_2\in F(m_2)$ and $M_3=(c\to m_3\leftarrow d,x_3\in F(m_3)),$
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$M_1=a$};
+%\node (B) at (1,0) {$m_1$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+%\node (E) at (3,0) {$M_2=b$};
+%\node (F) at (4,0) {$m_2$};
+%\node (G) at (5,0) {$c$};
+%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
+%\node (I) at (6,0) {$M_3=c$};
+%\node (J) at (7,0) {$m_3$};
+%\node (K) at (8,0) {$d$};
+%\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i$} (B)
+%(C) edge node[above]{$o$} (B)
+%(E) edge node[above]{$i'$} (F)
+%(G) edge node[above]{$o'$} (F)
+%(I) edge node[above]{$i''$} (J)
+%(K) edge node[above]{$o''$} (J);
+%\end{tikzpicture}
+%\]
 the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the isomorphism of cospans 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -510,12 +512,13 @@ together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 %&\scalebox{.8}{$\stackrel{F(\alpha)}{\cong} F(m_1+_b(m_2+_cm_3))$} \\
 %\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times %F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))$}&\scalebox{.8}{$\to F(m_1+_b(m_2+_cm_3))$}
 %\end{align*}
-\[
+\begin{equation}\label{eq:decoiso}
 \begin{tikzpicture}[scale=1.7]
 \node (A) at (3.75,0) {$\scriptstyle{\cong}$};
 \node (D) at (3,0) {$\scriptstyle{\one}$};
 \node (E) at (6.25,0.5) {$\scriptstyle{F(m_1 + m_2) \times F(m_3)}$};
-\node () at (7.625,0) {$\scriptstyle\cong$};
+\node () at (6,0) {$\scriptstyle\stackrel{\cref{eq:omega}}{\cong}$};
+\node () at (9.5,0) {$\scriptstyle\cong$};
 %\node () at (8.75,0) {$\cong$};
 \node (E') at (6.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2 + m_3)}$};
 \node (B) at (8,0.5) {$\scriptstyle{F((m_1 + m_2) + m_3)}$};
@@ -529,6 +532,7 @@ together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 \node (M) at (3.25,0.3) {$\scriptstyle{(x_1 \times x_2) \times x_3}$};
 \node (M') at (3.25,-0.3) {$\scriptstyle{x_1 \times (x_2 \times x_3)}$};
 \path[->,font=\scriptsize,>=angle 90]
+(B) edge node [above] {} (B')
 (C) edge node [above] {} (F)
 (C') edge node [above] {} (F')
 (F) edge node [right] {$F(\kappa)$} (F')
@@ -545,7 +549,7 @@ together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 (D) edge node [below] {$$} (G');
 %(E) edge node [fill=white] {$F(h_1) \times F(h_2)$} (E');
 \end{tikzpicture}
-\]
+\end{equation}
 %%% Christina: I erased tau, and also Fpsi because they were not accurate and those arrows are OK to understand - the universal maps from a 'smaller' colimit to a 'bigger' one. If we kept Fpsi's we should write them like F(psi+1) for the first arrow at the top, and that would make the whole thing a bit heavier.
 where $a$ is the associator of $\Cat$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \end{proof}
@@ -553,7 +557,7 @@ where $a$ is the associator of $\Cat$ and $\kappa$ is the canonical isomorphism 
 The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the formed double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is. The definitions of (symmetric) monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
 
 \begin{thm}\label{DC}
-Let $\A$ be a category with finite colimits and let $F \maps (\A,+) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
+Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
 \begin{itemize}
 \item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
 \item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
@@ -562,7 +566,7 @@ Let $\A$ be a category with finite colimits and let $F \maps (\A,+) \to (\Cat,\t
 \begin{tikzcd}
 & m_1+m_2 & \\
 a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
-\end{tikzcd}\qquad1\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
+\end{tikzcd}\qquad x_1\oplus x_2:=1\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
 \end{equation}
 %$M_1$ and $M_2$:
 %\[
@@ -669,9 +673,12 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 \end{thm}
 
 \begin{proof}
-We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
-
-First we note that the category of objects $F\lCsp_0=\A$ is symmetric monoidal under chosen binary coproducts in $\A$ and the left and right unitors, associators and braidings are given as natural maps. Next we show that $F\lCsp_1$ is symmetric monoidal. The category of arrows $F\lCsp_1$ has:
+%We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
+We first show that the categories of objects and arrows are symmetric monoidal, and that the source and target functors are symmetric strict monoidal.
+Indeed, the category of objects $F\lCsp_0=\A$ is symmetric monoidal under (chosen) binary coproducts in $\A$. The category of arrows
+$F\lCsp_1$ is also symmetric monoidal, with tensor product as in \cref{eq:tensordecoration} and monoidal unit
+\begin{comment}
+The category of arrows $F\lCsp_1$ has:
 \begin{enumerate}
 \item{objects as $F$-decorated cospans, which are pairs:
 \[
@@ -740,44 +747,74 @@ their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the 
 (C) edge node[above]{$o_1+o_2$} (B);
 \end{tikzpicture}
 \]
-where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F$: $$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$The monoidal unit $0_{F\lCsp_1}$ is given by:
+where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F$: $$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$
+The monoidal unit $0_{F\lCsp_1}$ is given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$0$};
 \node (B) at (1,0) {$0$};
-\node (C) at (2,0) {$0$};
-\node (D) at (3,0) {$\bot_0 = \phi \in F(0)$};
+\node (C) at (2,0) {$0,$};
+\node (D) at (3,0) {\bot_0 = \phi \in F(0)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$!$} (B)
 (C) edge node[above]{$!$} (B);
 \end{tikzpicture}
 \]
-where $0$ is the monoidal unit of $\A$ and $\phi \maps 1 \to F(0)$ is the morphism which is part of the structure of the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$. It is also clear that $U(0)=0_{F\lCsp_1}$.  
-
-Next we define the associator and left unitor of $F\lCsp_1$, with the right unitor being similar to the left. Given three objects $M_1, M_2$ and $M_3$ of $F\lCsp_1$:
+\end{comment}
+\begin{displaymath}
+0\xrightarrow{!}0\xleftarrow{!}0,\quad 1\xrightarrow{\phi_0}F(0)
+\end{displaymath}
+where $0$ is the initial object in $\A$. Notice that this unit is $U_0$ as required. The associator of $F\lCsp_1$ is formed as follows: for three objects
+$M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a_1$};
+%\node (B) at (1,0) {$m_1$};
+%\node (C) at (2,0) {$b_1$};
+%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
+%\node (E) at (3,0) {$a_2$};
+%\node (F) at (4,0) {$m_2$};
+%\node (G) at (5,0) {$b_2$};
+%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
+%\node (I) at (6,0) {$a_3$};
+%\node (J) at (7,0) {$m_3$};
+%\node (K) at (8,0) {$b_3$};
+%\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i_1$} (B)
+%(C) edge node[above]{$o_1$} (B)
+%(E) edge node[above]{$i_2$} (F)
+%(G) edge node[above]{$o_2$} (F)
+%(I) edge node[above]{$i_3$} (J)
+%(K) edge node[above]{$o_3$} (J);
+%\end{tikzpicture}
+%\]
+the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism of cospans
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$m_1$};
-\node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-\node (E) at (3,0) {$a_2$};
-\node (F) at (4,0) {$m_2$};
-\node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-\node (I) at (6,0) {$a_3$};
-\node (J) at (7,0) {$m_3$};
-\node (K) at (8,0) {$b_3$};
-\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
+\node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
+\node (A') at (0,-0.5) {$a_1+(a_2+a_3)$};
+\node (B) at (2.25,0.5) {$(m_1+m_2)+m_3$};
+\node (C) at (4.5,0.5) {$(b_1+b_2)+b_3$};
+\node (C') at (4.5,-0.5) {$b_1+(b_2+b_3)$};
+\node (D) at (2.25,-0.5) {$m_1+(m_2+m_3)$};
+\node (E) at (7,0.5) {$(x_1\oplus x_2)\oplus x_3 \in F((m_1{+}m_2){+}m_3)$};
+%{$\scriptstyle\phi_{m_1{+}m_2,m_3}(\phi_{m_1,m_2}(x_1,x_2),x_3) \in F((m_1{+}m_2){+}m_3)$};
+\node (F) at (7,-0.5) {$x_1\oplus (x_2\oplus x_3)\in F(m_1{+}(m_2{+}m_3))$};
+%{$\scriptstyle\phi_{m_1,m_2{+}m_3}(x_1,\phi_{m_2,m_3}(x_2,x_3))  \in F(m_1{+}(m_2{+}m_3))$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(E) edge node[above]{$i_2$} (F)
-(G) edge node[above]{$o_2$} (F)
-(I) edge node[above]{$i_3$} (J)
-(K) edge node[above]{$o_3$} (J);
+(A) edge node[above]{$(i_1{+}i_2){+}i_3$} (B)
+(C) edge node[above]{$(o_1{+}o_2){+}o_3$} (B)
+(A) edge node[left]{$\stackrel{\alpha}{\cong}$} (A')
+(C) edge node[right]{$\stackrel{\alpha}{\cong}$} (C')
+(A') edge node [below]{$i_1{+}(i_2{+}i_3)$} (D)
+(C') edge node [below]{$o_1{+}(o_2{+}o_3)$} (D)
+(B) edge node [left] {$\stackrel{\alpha}{\cong}$} (D);
 \end{tikzpicture}
 \]
+%%% Christina: I earlier dropped notation x+y for decorations because + is already overused and I find it potentially misleading for the reader. I hope the new symbol is OK?
+together with the decoration isomorphism $F(\alpha)(\phi_{m_1{+}m_2,m_3}(\phi_{m_1,m_2}(x_1,x_2),x_3))\cong\phi_{m_1,m_2{+}m_3}(x_1,\phi_{m_2,m_3}(x_2,x_3))$ formed in the same way as the left two parts of \cref{eq:decoiso}. 
+\begin{comment}
 tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes M_3$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -828,6 +865,9 @@ Denoting the associator of $(\A,+)$ by $\alpha$, the associator of $F\lCsp_1$ is
 \end{tikzpicture}
 \]
 together with the decoration isomorphism $\tau_\alpha \maps F(\alpha)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$.
+\end{comment}
+
+{\chris In progress}
 
 For the left unitor, we first compute $0_{F\lCsp_1} \otimes M$:
 \[
@@ -3424,8 +3464,7 @@ Let $\Dbl$ denote the 2-category of double categories, double functors and doubl
 \label{defn:monoidal_double_category}
 A \define{monoidal double category} is a pseudomonoid in $\Dbl$. Explicitly, it is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$
-and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that the unit object of $\lD_0$ is preserved by the unit functor $U$, and the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
+\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, where if $I$ is the unit object of $\lD_0$ then $U_I$ is the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
