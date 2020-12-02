@@ -351,7 +351,7 @@ together with the decoration morphism $F(f)F(!_a)\phi_0(*)\cong F(!_{a'})\phi_0(
 %%% Christina: Actually indeed it typechecks, I must have been thinking it does not give me the actual morphism, just one of the two or something. No issue now!
 Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-decorated cospans $\left(a\to m\leftarrow b,x\in F(m)\right)$ and $\left(b\to n\leftarrow c,y\in F(n)\right)$ to their pushout in $\A$ over their shared foot
 \begin{equation}\label{eq:dcospanscomposition}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.2,baseline=(current bounding box.center)]
 \node (A) at (0,0) {$a$};
 \node (B) at (1,1) {$m$};
 \node (C) at (2,0) {$b$};
@@ -364,9 +364,11 @@ Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-de
 (C) edge node[above]{$o$} (B)
 (C) edge node [above] {$i'$} (D)
 (E) edge node [above] {$o'$} (D)
-(B) edge node [above] {$j_m$} (F)
-(D) edge node [above] {$j_{n}$} (F)
-(F) edge node [left] {$\psi$} (G)
+(B) edge node [below] {$j_m$} (F)
+(D) edge node [below] {$j_{n}$} (F)
+(B) edge[bend left=10] node [above] {$u_m\;$} (G)
+(D) edge[bend right=10] node [above] {$\;u_n$} (G)
+(F) edge node [fill=white] {$\psi$} (G)
 (A) edge[dashed,bend left] node [left] {} (G)
 (E) edge[dashed,bend right] node [right] {} (G);
 \end{tikzpicture}
@@ -461,7 +463,7 @@ where the middle isomorphism is due to pseudonaturality of $\phi$ and the right-
 
 The associator for horizontal composition
 %$\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$ 
-is formed as follows: for three composable horizontal 1-cells $M_1=(a\to m_1\leftarrow b,x_1\in F(m_1))$, $M_2=(b\to m_2\leftarrow c,x_2\in F(m_2)$ and $M_3=(c\to m_3\leftarrow d,x_3\in F(m_3)),$
+is formed as follows: for three composable horizontal 1-cells $M_1=(a\to m_1\leftarrow b,x_1\in F(m_1))$, $M_2=(b\to m_2\leftarrow c,x_2\in F(m_2))$ and $M_3=(c\to m_3\leftarrow d,x_3\in F(m_3)),$
 %\[
 %\begin{tikzpicture}[scale=1.5]
 %\node (A) at (0,0) {$M_1=a$};
@@ -963,7 +965,46 @@ together with the decoration isomorphism formed by \cref{eq:braidedpseudofun} of
 %$F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
 All axioms for a symmetric monoidal category can be verified, see \cite[Theorem 4.1.3]{CourserThesis}, and it is easy to see that with these structures, the source and target functors $S,T\colon F\lCsp_1\to F\lCsp_0$ are symmetric strict monoidal.
 
-Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
+Lastly, according to \cref{defn:monoidal_double_category} we construct two globular 2-isomorphisms $(M_2 \otimes N_2)\odot (M_1 \otimes N_1) \simrightarrow(M_2\odot M_1) \otimes (N_2\odot N_1)$ and $U_{a + b} \simrightarrow U_a \otimes U_b$ that express compatibility of the tensor with horizontal composition and units. For any appropriate four decorated cospans
+\begin{gather*}
+M_1=\left(a\xrightarrow{i_1}m_1\xleftarrow{o_1}b,x_1\in F(m_1)\right),\;\; M_2=\left(b\xrightarrow{i_2}m_2\xleftarrow{o_2}c,x_2\in F(m_2)\right) \\
+N_1=\left(a'\xrightarrow{i'_1}n_1\xleftarrow{o'_1}b',y_1\in F(n_1)\right),\;\; N_2=\left(b'\xrightarrow{i'_2}n_2\xleftarrow{o'_2}c',y_2\in F(n_2)\right)
+\end{gather*}
+first tensoring $M_1\ot N_1$, $M_2\ot N_2$ by \cref{eq:tensordecoration} and then horizontally composing them by \cref{eq:dcospanscomposition} gives
+\begin{displaymath}
+\scalebox{.8}{\begin{tikzcd}[column sep={.6in,between origins},ampersand replacement=\&]
+\&\& (m_1+n_1)+_{b{+}b'}(m_2+n_2) \&\& \\
+\& m_1+n_1\ar[ur] \&\& m_2+n_2\ar[ul] \& \\
+a+a'\ar[ur,"{i_1+i'_1}"] \&\& b+b'\ar[ul,"{o_1+o'_1}"']\ar[ur,"{i_2+i'_2}"] \&\& c+c'\ar[ul,"{o_2+o'_2}"']
+\end{tikzcd}}
+\scalebox{.8}{\begin{tikzcd}[ampersand replacement=\&,column sep=.5in]
+1\ar[ddrr,dashed,"{(x_1\oplus y_1)\odot(x_2\oplus y_2)}"']\ar[r,"x_1{\times}y_1{\times}x_2{\times}y_2"] \& F(m_1){\times}F(n_1){\times}F(m_2){\times}F(n_2)\ar[r,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \& F(m_1{+}n_1){\times}F(m_2{+}n_2) \ar[d,"\phi_{m_1+n_1,m_2+n_2}"] \\
+\&\& F(m_1+n_1+m_2+n_2)\ar[d,"F\psi"] \\
+\&\& F((m_1+n_1)+_{b+b'}(m_2+n_2))
+\end{tikzcd}}
+\end{displaymath}
+If we first horizontally compose $M_2\odot M_1$, $N_2\odot N_1$ and then tensor the result, we obtain
+\begin{displaymath}
+  \scalebox{.8}{\begin{tikzcd}[column sep=.3in,ampersand replacement=\&]
+ \& (m_1+_b m_2)+(n_1+_{b'}n_2) \& \\
+ \hole \\
+ a+a'\ar[uur]%,"{u_{m_1}i_1+u_{n_1}i'_1}"] 
+ \&\& c+c'\ar[uul]%,"{u_{m_2}o_2+u_{n_2}o'_2}"']  
+ \end{tikzcd}}
+ \scalebox{.8}{\begin{tikzcd}[ampersand replacement=\&,column sep=.4in]
+1\ar[ddrr,dashed,"{(x_1\odot x_2)\oplus(y_1\odot y_2)}"']\ar[r,"x_1{\times}x_2{\times}y_1{\times}y_2"] \& F(m_1){\times}F(m_2){\times}F(n_1){\times}F(n_2)\ar[r,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"] \& F(m_1{+}m_2){\times}F(n_1{+}n_2) \ar[d, "F\psi\times F\psi"] \\
+\&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[d,"\phi_{m_1+_bm_2,n_1+_{b'}n_2}"] \\
+\&\& F((m_1+_bm_2)+F(n_1+_{b'}n_2))
+\end{tikzcd}}
+\end{displaymath}
+where the legs of the cospan are the sums of the dashed ones of the appropriate diagrams \cref{eq:dcospanscomposition}.
+Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms essentially due to pseudonaturality of $\phi$. {\chris Should we give more details here?}
+Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $\id:a+b\to a+b\leftarrow a+b:\id$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
+
+
+\begin{comment}
+, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
+The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a+b$};
@@ -984,7 +1025,9 @@ Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot
 (B) edge node [left] {$1$} (D);
 \end{tikzpicture}
 \]
-together with the decoration isomorphism $\tau_{a,b} \maps \bot_{a+b} \xrightarrow{\sim} \bot_a + \bot_b$ given by the unique map between the two initial objects $\bot_{a+b}$ and $\bot_a + \bot_b$ in $F(a+b)$. For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
+together with the decoration isomorphism $\tau_{a,b} \maps \bot_{a+b} \xrightarrow{\sim} \bot_a + \bot_b$ given by the unique map between the two initial objects $\bot_{a+b}$ and $\bot_a + \bot_b$ in $F(a+b)$. 
+%%%Christina: we do not have any such information at this point! We have not talked about the categories F(a) being cocomplete, and it's not deduced from the assumptions. We will show this is the case much later!
+For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1106,6 +1149,9 @@ The globular 2-morphism $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \
 \]
 together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\odot(x_2+y_2)) \to (x_1 \odot x_2)+(y_1 \odot y_2)$
 where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
+\end{comment}
+
+{\chris IN progress}
 
 The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}. The coherence law that we check says that this diagram commutes:
 \[
@@ -2258,12 +2304,12 @@ The first part formulates the existence of colimits \emph{locally} in each fibre
 \& (b,y)\ar[ul,"{\begin{cases}f\maps b\to a &\textrm{in }\A \\k\maps F(f)y\to x &\textrm{in }F(a)\end{cases}}"description]\ar[ur,"{\begin{cases}g\maps b\to c &\textrm{in }\A \\\ell\maps F(g)y\to z &\textrm{in }F(c)\end{cases}}"description] \&
  \end{tikzcd}
 \end{equation}
-which is the pushout $\sigma_a\colon a\to a+_bc\leftarrow c:\sigma_c$ in $\A$ on the first variable, and $w$ is the pushout in the fibre $F(a+_bc)$
+which is the pushout $u_a\colon a\to a+_bc\leftarrow c:u_c$ in $\A$ on the first variable, and $w$ is the pushout in the fibre $F(a+_bc)$
 \begin{displaymath}
 \begin{tikzcd}
  & w \ar[dd,phantom, very near start,"\upback"description] & \\
- F(\sigma_a)x\ar[ur] & & F(\sigma_c)z\ar[ul] \\
- & F(\sigma_a)(Ff(y))\cong F(\sigma_c)(Fg(y))\ar[ul,"F(\sigma_a)k"]\ar[ur,"F(\sigma_c)\ell"'] &
+ F(u_a)x\ar[ur] & & F(u_c)z\ar[ul] \\
+ & F(u_a)(Ff(y))\cong F(u_c)(Fg(y))\ar[ul,"F(u_a)k"]\ar[ur,"F(u_c)\ell"'] &
  \end{tikzcd}
 \end{displaymath}
 In similar ways we can construct the initial object and coproducts in a Grothendieck category, namely
@@ -2373,16 +2419,16 @@ for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bo
 whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\inta F$ as in \cref{eq:globalpushout} produces 
 \begin{displaymath}
  \begin{tikzcd}[column sep={.7in,between origins}]
- && (m+_b n,F(\sigma_m)x+_{(\bot_{m+_bn})}F(\sigma_n)y) && \\
+ && (m+_b n,F(u_m)x+_{(\bot_{m+_bn})}F(u_n)y) && \\
  & (m,x) \ar[ur] && (n,y)\ar[ul] \\
  (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
 \end{displaymath}
-where $\sigma$ are the canonical maps into the pushout. %overusing notation, streamline with earlier
-Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(\sigma_m)x+F(\sigma_n)y$, since a pushout over an initial object is really a coproduct. That decoration is isomorphic to that of \cref{eq:1} due to the following diagram 
+where $u$ are the canonical maps into the pushout.
+Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(u_m)x+F(u_n)y$, since a pushout over an initial object is really a coproduct. That decoration is isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}
-F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(\sigma_m)\times F(\sigma_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(\sigma_m+\sigma_n)"description] \\
+F(m)\times F(n)\ar[rr,"\phi"]\ar[d,"F(u_m)\times F(u_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(u_m+u_n)"description] \\
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
 \end{equation}
@@ -3334,7 +3380,7 @@ is a diagram
 in $\Fin\Set$ such that $D(h)(v) = v'$.
 \end{itemize}
 
-{\chris The rest is not done yet...}
+%{\chris The rest is not done yet...} %%%Christina I have no clue where this comment came from!
 
 We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
 
