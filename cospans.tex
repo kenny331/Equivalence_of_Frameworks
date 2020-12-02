@@ -561,7 +561,7 @@ Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+)
 \begin{itemize}
 \item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
 \item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
-\item of two horizontal 1-cells $(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$ and $(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ is 
+\item of two horizontal 1-cells $(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$ and $(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ is:
 \begin{equation}\label{eq:tensordecoration}
 \begin{tikzcd}
 & m_1+m_2 & \\
@@ -664,7 +664,7 @@ a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
 with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diagram:
 \begin{displaymath}
  \begin{tikzcd}[column sep=.5in, row sep=.1in]
-& F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[dd,"F(h)\times F(h')"description]\ar[ddr,phantom,"\cong"] & F(m+n)\ar[dd,"F(h+h')"] \\
+& F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[dd,"F(h)\times F(h')"description]\ar[ddr,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] & F(m+n)\ar[dd,"F(h+h')"] \\
 1\ar[ur,"x\times y"]\ar[dr,"x'\times y'"']\ar[r,phantom,"\scriptstyle\Downarrow\tau_\alpha\times\tau_\beta"] & \phantom{A} && \\
 & F(m')\times F(n')\ar[r,"\phi_{m',n'}"'] & F(m'+n')
  \end{tikzcd}
@@ -762,9 +762,9 @@ The monoidal unit $0_{F\lCsp_1}$ is given by:
 \]
 \end{comment}
 \begin{displaymath}
-0\xrightarrow{!}0\xleftarrow{!}0,\quad 1\xrightarrow{\phi_0}F(0)
+I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, 1\xrightarrow{\phi_0}F(0)\right)
 \end{displaymath}
-where $0$ is the initial object in $\A$. Notice that this unit is $U_0$ as required. The associator of $F\lCsp_1$ is formed as follows: for three objects
+where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 %\[
 %\begin{tikzpicture}[scale=1.5]
@@ -813,7 +813,7 @@ the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism
 \end{tikzpicture}
 \]
 %%% Christina: I earlier dropped notation x+y for decorations because + is already overused and I find it potentially misleading for the reader. I hope the new symbol is OK?
-together with the decoration isomorphism $F(\alpha)(\phi_{m_1{+}m_2,m_3}(\phi_{m_1,m_2}(x_1,x_2),x_3))\cong\phi_{m_1,m_2{+}m_3}(x_1,\phi_{m_2,m_3}(x_2,x_3))$ formed in the same way as the left two parts of \cref{eq:decoiso}. 
+together with the decoration isomorphism between $F(\alpha)((x_1\oplus x_2)\oplus x_3)\stackrel{\cref{eq:tensordecoration}}{=}F(\alpha)(\phi_{m_1{+}m_2,m_3}(\phi_{m_1,m_2}(x_1,x_2),x_3))$ and $x_1\oplus(x_2\oplus x_3)=\phi_{m_1,m_2{+}m_3}(x_1,\phi_{m_2,m_3}(x_2,x_3))$ formed in the same way as the left two-piece part of \cref{eq:decoiso}. 
 \begin{comment}
 tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes M_3$:
 \[
@@ -866,9 +866,17 @@ Denoting the associator of $(\A,+)$ by $\alpha$, the associator of $F\lCsp_1$ is
 \]
 together with the decoration isomorphism $\tau_\alpha \maps F(\alpha)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$.
 \end{comment}
-
-{\chris In progress}
-
+For the left and right unitors $I_1\ot M\cong M\cong M\ot I_1$ for any $M=(a\to m\leftarrow b,x\in F(m)$, we have span isomorphisms
+\begin{displaymath}
+ \begin{tikzcd}[column sep=.3in]
+0+a\ar[rr,"1+i"]\ar[d,"\stackrel{\ell}{\cong}"'] && 0+m\ar[d,"\stackrel{\ell}{\cong}"'] && 0+b\ar[ll,"1+o"']\ar[d,"\stackrel{\ell}{\cong}"] &&1\ar[r,"\phi_0\times x"] & F(0)\times F(m)\ar[r,"\phi_{0,m}"] & F(0+m) \\
+a\ar[rr,"i"] && m && b\ar[ll,"o"'] && 1\ar[r,"x"] & F(m)\\
+a+0\ar[rr,"i+1"']\ar[u,"\stackrel{r}{\cong}"] && m+0\ar[u,"\stackrel{r}{\cong}"] && b+0\ar[ll,"o+1"]\ar[u,"\stackrel{r}{\cong}"']
+&&1\ar[r,"x\times\phi_0"] & F(m)\times F(0)\ar[r,"\phi_{m,0}"] & F(m+0)
+ \end{tikzcd}
+\end{displaymath}
+with isomorphisms between decorations precisely given by \cref{eq:unitality}.
+\begin{comment}
 For the left unitor, we first compute $0_{F\lCsp_1} \otimes M$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -922,29 +930,38 @@ where $\bot_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \time
 \end{tikzpicture}
 \]
 together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(\bot_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category.  See the second author's thesis \cite{CourserThesis} for more details.
-
-To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a_1+a_2$};
-\node (A') at (0,-0.5) {$a_2+a_1$};
-\node (B) at (2,0.5) {$m_1+m_2$};
-\node (C) at (4,0.5) {$b_1+b_2$};
-\node (C') at (4,-0.5) {$b_2+b_1$};
-\node (D) at (2,-0.5) {$m_2+m_1$};
-\node (E) at (5.5,0.5) {$x_1+x_2 \in F(m_1+m_2)$};
-\node (F) at (5.5,-0.5) {$x_2+x_1 \in F(m_2+m_1)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1+i_2$} (B)
-(C) edge node[above]{$o_1+o_2$} (B)
-(A) edge node[left]{$\beta$} (A')
-(C) edge node[left]{$\beta$} (C')
-(A') edge node [above]{$i_2+i_1$} (D)
-(C') edge node [above]{$o_2+o_1$} (D)
-(B) edge node [left] {$\beta$} (D);
-\end{tikzpicture}
-\]
-together with the decoration isomorphism $\tau_\beta \colon F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
+\end{comment}
+Finally, the symmetric monoidal structure of $F\lCsp_1$ is inherited from that in $\A$ and $F$, with braiding the cospan isomorphism
+%To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0.5) {$a_1+a_2$};
+%\node (A') at (0,-0.5) {$a_2+a_1$};
+%\node (B) at (2,0.5) {$m_1+m_2$};
+%\node (C) at (4,0.5) {$b_1+b_2$};
+%\node (C') at (4,-0.5) {$b_2+b_1$};
+%\node (D) at (2,-0.5) {$m_2+m_1$};
+%\node (E) at (6,0.5) {$x_1\oplus x_2 \in F(m_1+m_2)$};
+%\node (F) at (6,-0.5) {$x_2\oplus x_1 \in F(m_2+m_1)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i_1+i_2$} (B)
+%(C) edge node[above]{$o_1+o_2$} (B)
+%(A) edge node[left]{$\stackrel{\beta}{\cong}$} (A')
+%(C) edge node[left]{$\stackrel{\beta}{\cong}$} (C')
+%(A') edge node [above]{$i_2+i_1$} (D)
+%(C') edge node [above]{$o_2+o_1$} (D)
+%(B) edge node [right] {$\stackrel{\beta}{\cong}$} (D);
+%\end{tikzpicture}
+%\]
+\begin{displaymath}
+ \begin{tikzcd}[column sep=.25in]
+a_1+a_2\ar[rr,"i_1+i_2"]\ar[d,"\stackrel{\beta}{\cong}"'] && m_1+m_2\ar[d,"\stackrel{\beta}{\cong}"'] && b_1+b_2\ar[ll,"o_1+o_2"']\ar[d,"\stackrel{\beta}{\cong}"] &&1\ar[r,"x_1\times x_2"] & F(m_1)\times F(m_2)\ar[r,"\phi_{m_1,m_2}"] & F(m_1+m_2) \\
+a_2+a_1\ar[rr,"i_2+i_1"'] && m_2+m_1 && b_2+b_1\ar[ll,"o_2+o_1"] &&1\ar[r,"x_2\times x_1"] & F(m_2)\times F(m_1)\ar[r,"\phi_{m_2,m_1}"] & F(m_2+m_1)
+ \end{tikzcd}
+\end{displaymath}
+together with the decoration isomorphism formed by \cref{eq:braidedpseudofun} of the symmetric monoidal pseudofunctor.
+%$F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
+All axioms for a symmetric monoidal category can be verified, see \cite[Theorem 4.1.3]{CourserThesis}, and it is easy to see that with these structures, the source and target functors $S,T\colon F\lCsp_1\to F\lCsp_0$ are symmetric strict monoidal.
 
 Lastly, we require two globular 2-morphisms $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ and $\mu \colon U_{a \otimes b} \to U_a \otimes U_b$, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
 \[
@@ -3373,26 +3390,33 @@ F a\ot F(b\ot c)\ar[r,"{\phi_{a,b\ot c}}"'] &
 F (a\ot(b\ot c))
 \end{tikzcd}
 \end{equation}
-\begin{displaymath}
+\begin{equation}\label{eq:unitality}
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & F a\otimes I\ar[r,"1\otimes\mu_0"]\ar[dr,phantom,"\cong"] & F 
-a\otimes F I\ar[d,"\mu_{a,I}"] \\
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & F a\otimes I\ar[r,"1\otimes\phi_0"]\ar[dr,phantom,"\cong"] & F 
+a\otimes F I\ar[d,"\phi_{a,I}"] \\
 && F(a\ot I)
 \end{tikzcd}\qquad
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & I\otimes F a \ar[r,"\mu_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
-I\otimes F a\ar[d,"\mu_{I,a}"] \\
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & I\otimes F a \ar[r,"\phi_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
+I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
-\end{displaymath}
+\end{equation}
 subject to coherence conditions. In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms (natural in $f,g$)
-\begin{equation}
+\begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
  Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\cong"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
  F(a\ot b)\ar[r,"F(f\ot g)"'] & F(a'\ot b')
  \end{tikzcd}
 \end{equation}
-A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components $F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$; a \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
+A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components %$F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$. 
+\begin{equation}\label{eq:braidedpseudofun}
+ \begin{tikzcd}
+Fa\otimes Fb\ar[r,"\phi_{a,b}"]\ar[d,"\beta_{Fa,Fb}"']\ar[dr,phantom,"\scriptstyle\cong"] & F(a\ot b)\ar[d,"F(\beta_{a,b})"] \\
+Fb\otimes Fa\ar[r,"\phi_{b,a}"'] & F(b\ot a)
+ \end{tikzcd}
+\end{equation}
+A \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition and a \define{symmetric lax monoidal} pseudofunctor between symmetric monoidal bicategories is just a sylleptic one. 
 
 
 \subsection{Fibrations}\label{sec:fibrations}
@@ -3551,7 +3575,7 @@ A \define{monoidal double category} is a pseudomonoid in $\Dbl$.
 \noindent
 Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
+\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is\footnote{\chris In reality, just isomorphic is OK!} the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
