@@ -3175,7 +3175,9 @@ The machinery of structured cospans has been used to provide a semantics for ope
 
 \subsection{Petri nets with rates}
 
-Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates, and mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems.    Pollard and the first author showed how to construct an `open' dynamical system from an `open' Petri net with rates, meaning one where chemicals can flow in and out at certain places \cite{BP}.  They used the formalism of decorated cospans to do this, and to define a functor from a category with open Petri nets with rates as morphisms to one with `open dynamical systems' as morphisms.  Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show the second, the category with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans---but we can do it using decorated cospans!
+Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates, and mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems.    
+
+Pollard and the first author showed how to construct an `open dynamical system' from an `open' Petri net with rates, meaning one where chemicals can flow in and out at certain places \cite{BP}.  They used the formalism of decorated cospans to do this, and to define a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms.  Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second, the category with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans---but we \emph{can} do it using decorated cospans!
 
 A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
@@ -3257,7 +3259,7 @@ Since every set gives a discrete category with that set of objects, we can reint
 \begin{itemize}
 \item objects are finite sets,
 \item vertical 1-morphisms are functions,
-\item horizontal 1-cells are \define{open dynamical systems}:
+\item a horizontal 1-cell from $X$ to $Y$ is an \define{open dynamical system}, that is, a cospan
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (-3,0) {$X$};
@@ -3266,33 +3268,58 @@ Since every set gives a discrete category with that set of objects, we can reint
 \path[->,font=\scriptsize,>=angle 90]
 (D) edge node [above] {$i$} (E)
 (F) edge node [above] {$o$} (E);
-\end{tikzpicture}, \qquad v \in D(S) 
-\]
-\item 2-morphisms are....
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$L(X_1)$};
-\node (F) at (5,0) {$L(Y_1)$};
-\node (G) at (4,0) {$P_1$};
-\node (E') at (3,-1) {$L(X_2)$};
-\node (F') at (5,-1) {$L(Y_2)$.};
-\node (G') at (4,-1) {$P_2$};
-\path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$O_1$} (G)
-(E) edge node[left]{$L(f)$} (E')
-(F) edge node[right]{$L(g)$} (F')
-(G) edge node[left]{$\alpha$} (G')
-(E) edge node[above]{$I_1$} (G)
-(E') edge node[above]{$I_2$} (G')
-(F') edge node[above]{$O_2$} (G');
 \end{tikzpicture}
 \]
+in $\Fin\Set$ together with an algebraic vector field $v \in D(S)$,
+\item a 2-morphism from
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$X$};
+\node (E) at (-2,0) {$S$};
+\node (F) at (-1,0) {$Y,$};
+\node (G) at (0,0) {$v \in D(S)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}
+\]
+to
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$X'$};
+\node (E) at (-2,0) {$S'$};
+\node (F) at (-1,0) {$Y'$};
+\node (G) at (0,0) {$v' \in D(S')$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i'$} (E)
+(F) edge node [above] {$o'$} (E);
+\end{tikzpicture}
+\]
+is a diagram
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$X$};
+\node (F) at (5,0) {$Y$};
+\node (G) at (4,0) {$S$};
+\node (E') at (3,-1) {$X'$};
+\node (F') at (5,-1) {$Y'$};
+\node (G') at (4,-1) {$S'$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$o$} (G)
+(E) edge node[left]{$f$} (E')
+(F) edge node[right]{$g$} (F')
+(G) edge node[left]{$h$} (G')
+(E) edge node[above]{$i$} (G)
+(E') edge node[above]{$i'$} (G')
+(F') edge node[above]{$o'$} (G');
+\end{tikzpicture}
+\]
+in $\Fin\Set$ such that $D(h)(v) = v'$.
 \end{itemize}
 
+{\chris The rest is not done yet...}
 
 We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
-
-
 
 Let $\mathsf{Dynam}$ be the category for which:
 \begin{itemize}
