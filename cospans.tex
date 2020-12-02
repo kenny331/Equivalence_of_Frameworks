@@ -3089,7 +3089,7 @@ This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:e
 
 Petri nets are widely used as models of systems in computer science, chemistry, population biology and epidemiology \cite{GiraultValk,Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}.  We can also use decorated cospans to construct this double category.  Again this example is very similar to the example of open graphs.
 
- A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$. Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
+A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$.  Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
 \[
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
@@ -3132,7 +3132,7 @@ There is a functor $R \maps \Petri \to \Set$ sending any Petri net to its set of
 \begin{itemize}
 \item objects are finite sets,
 \item vertical 1-morphisms are functions,
-\item horizontal 1-cells as \define{open Petri nets}, which are cospans in $\Petri$ of the form:
+\item horizontal 1-cells are \define{open Petri nets}, which are cospans in $\Petri$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (-3,0) {$L(X)$};
@@ -3143,7 +3143,7 @@ There is a functor $R \maps \Petri \to \Set$ sending any Petri net to its set of
 (F) edge node [above] {$o$} (E);
 \end{tikzpicture}
 \]
-\item 2-morphisms are maps of cospans in $\Petri$ of the form:
+\item 2-morphisms are diagrams in $\Petri$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (3,0) {$L(X_1)$};
@@ -3173,35 +3173,126 @@ This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:e
 
 The machinery of structured cospans has been used to provide a semantics for open Petri nets \cite{BM}: a symmetric monoidal double functor from ${}_L \lCsp(\Petri)$ to  a symmetric monoidal double category of `open commutative monoidal categories'.  Presumably this double functor can equivalently be obtained using the machinery of decorated cospans, with the help of \cref{thm:functoriality}.  However, it should be clear by now that in cases where either structured or decorated cospans can be used, structured cospans are simpler.   We next turn to an example where decorated cospans are necessary.
 
-\subsection{Reaction networks}
+\subsection{Petri nets with rates}
 
-%%% Do reaction networks and dynamical systems (which do NOT come from structured cospans).
-A dynamical system is a vector field from the perspective of a system of first-order ordinary differential equations.
-Chemical reaction networks are a specific kind of dynamical system in which the vector field is algebraic, meaning that its coefficients are polynomials.
-Using Fong's original incarnation of decorated cospans, Pollard and the first author \cite{BP} constructed a symmetric monoidal category $\mathsf{OpenDynam}$ for which the morphisms are open dynamical systems. This category $\mathsf{OpenDynam}$ has:
-\begin{itemize}
-\item{objects as finite sets, and}
-\item{morphisms as equivalence classes of cospans of finite sets whose apices are equipped with an algebraic vector field.
+Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates, and mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems.    Pollard and the first author showed how to construct an `open' dynamical system from an `open' Petri net with rates---meaning one where chemicals can flow in and out at certain places \cite{BP}.  We used the formalism of decorated cospans to do this, and to define a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms.  Later, the first two authors used structured cospans to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show the second, the category with open dynamical systems as morphism, \emph{cannot} be made into a double category using structured cospans---but we can do it using decorated cospans. 
+
+A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
+\[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
+ to 
+ \[   \xymatrix{ (0,\infty) & T' \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S'] }\]
+is a morphism of the underlying Petri nets such that the following diagram also commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (D) at (-3,0) {$a$};
-\node (E) at (-2,0) {$s$};
-\node (F) at (-1,0) {$b$};
-\node (A) at (0,0) {$v_s \colon \lR^s \to \lR^s$};
+\node (E) at (3,-0.5) {$(0,\infty)$};
+\node (G) at (4,0) {$T$};
+\node (G') at (4,-1) {$T'$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node[right]{$f$} (G')
+(G) edge node[above]{$r$} (E)
+(G') edge node[below]{$r'$} (E);
+\end{tikzpicture}
+\]
+There is a functor $R \maps \Petri_r \to \Set$ sending any Petri net with rates to its set of places, and this has a left adjoint $L \maps \Set \to \Petri_r$ sending any set $S$ to the Petri net with $S$ as its set of species and no transitions \cite[Lemma 6.18]{BC}.   Since $\Petri_r$ has finite colimits \cite[Lemma 6.19]{BC}, it follows that there is a symmetric monoidal double category ${}_L \lCsp(\Petri_r)$ where:
+\begin{itemize}
+\item objects are finite sets,
+\item vertical 1-morphisms are functions,
+\item horizontal 1-cells are \define{open Petri nets with rates}:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$L(X)$};
+\node (E) at (-2,0) {$P$};
+\node (F) at (-1,0) {$L(Y)$};
 \path[->,font=\scriptsize,>=angle 90]
 (D) edge node [above] {$i$} (E)
 (F) edge node [above] {$o$} (E);
 \end{tikzpicture}
 \]
-}
+\item 2-morphisms are diagrams in $\Petri_r$ of the form:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$L(X_1)$};
+\node (F) at (5,0) {$L(Y_1)$};
+\node (G) at (4,0) {$P_1$};
+\node (E') at (3,-1) {$L(X_2)$};
+\node (F') at (5,-1) {$L(Y_2)$.};
+\node (G') at (4,-1) {$P_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$O_1$} (G)
+(E) edge node[left]{$L(f)$} (E')
+(F) edge node[right]{$L(g)$} (F')
+(G) edge node[left]{$\alpha$} (G')
+(E) edge node[above]{$I_1$} (G)
+(E') edge node[above]{$I_2$} (G')
+(F') edge node[above]{$O_2$} (G');
+\end{tikzpicture}
+\]
 \end{itemize}
-This category is constructed from a symmetric lax monoidal functor $F \colon \Fin\Set \to \Set$ that assigns to a finite set $s$ the set $F(s)$ of algebraic vector fields on $s$ and a to function $f \colon s \to s'$ the function $F(f) \colon F(s) \to F(s')$ defined by $$F(f)(v_s)=f_* v_s f^*$$
-where $f^\ast \colon \mathbb{R}^{s'} \to \mathbb{R}^{s}$ is the \define{pullback} defined by 
-$$f^\ast (c_{s'})(\sigma)=c_{s}(f(\sigma))$$ 
-and $f_{\ast} \colon \mathbb{R}^s \to \mathbb{R}^{s'}$ is the \define{pushforward} defined by 
-$$f_{\ast}(c_{s'})(\sigma^\prime) = \sum_{\{\sigma \in s : \; f(\sigma) = \sigma^\prime\}} c_{s}(\sigma)$$
-for $c_{s} \in \mathbb{R}^{s}$ and $c_{s'} \in \mathbb{R}^{s'}$
-Functoriality of $F$ comes the pushforward being covariant and the pullback being contravariant, and the lax monoidal structure of $F$ stems from the canonical isomorphism $\lR^s \times \lR^{s'} \cong \lR^{s+s'}$ which is used to map a pair of vector fields $v_s \colon \lR^s \to \lR^{s}$ and $v_{s'} \colon \lR^{s'} \to \lR^{s'}$ to the vector field $v_{s+s'} \colon \lR^{s+s'} \to \lR^{s+s'}$. We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
+
+We can equivalently describe open Petri nets with rates using decorated cospans.  There is a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat, \times)$ such that for any finite set $S$, the category $F(S)$ has:
+\begin{itemize}
+\item objects given by Petri nets with rates whose set of places is $S$,
+\item morphisms given by morphisms of Petri nets with rates that are the identity on the set of places.
+\end{itemize}
+This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:equiv} we can show that this is equivalent, as a symmetric monoidal double category, to ${}_L \lCsp(\Petri_r)$.
+
+All this so far is boringly familiar.  More interesting is the symmetric monoidal double
+category of open dynamical systems.   A dynamical system is a vector field from the perspective of a system of first-order ordinary differential equation.  An Petri net with rates gives a special sort of dynamical system: an \define{algebraic} vector field on $\R^n$, meaning one where the components of the vector field are polynomials in the coordinates. We shall think of such a vector field as a special sort of function $v \maps \R^n \to \R^n$.
+
+Using Fong's original approach to decorated cospans, Pollard and the first author constructed a symmetric monoidal category for which the morphisms are open dynamical systems \cite[Theorem 17]{BP}.  This category is constructed from a symmetric lax monoidal functor 
+$D \maps \Fin\Set \to \Set$ such that:
+\begin{itemize}
+\item $D$ maps any finite set $S$ to 
+\[ D(S) = \{ v \maps \R^S \to \R^S : \; v \textrm{ is algebraic}  \}. \] 
+\item $D$ maps any function $f \maps S \to S'$ between finite sets to the function $D(f) \maps D(S) \to D(S')$ given as follows:
+\[ D(f)(v) = f_* \circ v \circ f^* \]
+where the pullback $ f^* \maps \R^{S'} \to \R^S $ is given by
+\[ f^*(c)(\sigma) = c(f(\sigma)) \] 
+while the pushforward $ f_* \maps \R^{S} \to \R^{S'} $ is given by
+\[ f_*(c)(\sigma') = \sum_{ \{ \sigma \in S : f(\sigma) = \sigma' \} } c(\sigma). \]
+\end{itemize}
+The functorality of $D$ is proved in \cite[Lemma 15]{BP} while the lax symmetric monoidal stucture is given in Lemma 16.
+
+Since every set gives a discrete category with that set of objects, we can reinterpret $D$ as a lax monoidal pseudofunctor $D \maps (\Fin\Set, +) \to (\Cat, \times)$.  Applying \cref{DC} we obtain a symmetric monoidal double category $D \lCsp$ where:
+\begin{itemize}
+\item objects are finite sets,
+\item vertical 1-morphisms are functions,
+\item horizontal 1-cells are \define{open dynamical systems}:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$X$};
+\node (E) at (-2,0) {$S$};
+\node (F) at (-1,0) {$Y$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}, \qquad v \in D(S) 
+\]
+\item 2-morphisms are....
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (E) at (3,0) {$L(X_1)$};
+\node (F) at (5,0) {$L(Y_1)$};
+\node (G) at (4,0) {$P_1$};
+\node (E') at (3,-1) {$L(X_2)$};
+\node (F') at (5,-1) {$L(Y_2)$.};
+\node (G') at (4,-1) {$P_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node[above]{$O_1$} (G)
+(E) edge node[left]{$L(f)$} (E')
+(F) edge node[right]{$L(g)$} (F')
+(G) edge node[left]{$\alpha$} (G')
+(E) edge node[above]{$I_1$} (G)
+(E') edge node[above]{$I_2$} (G')
+(F') edge node[above]{$O_2$} (G');
+\end{tikzpicture}
+\]
+\end{itemize}
+
+
+We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
+
+
 
 Let $\mathsf{Dynam}$ be the category for which:
 \begin{itemize}
