@@ -963,7 +963,8 @@ a_2+a_1\ar[rr,"i_2+i_1"'] && m_2+m_1 && b_2+b_1\ar[ll,"o_2+o_1"] &&1\ar[r,"x_2\t
 \end{displaymath}
 together with the decoration isomorphism formed by \cref{eq:braidedpseudofun} of the symmetric monoidal pseudofunctor.
 %$F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
-All axioms for a symmetric monoidal category can be verified, see \cite[Theorem 4.1.3]{CourserThesis}, and it is easy to see that with these structures, the source and target functors $S,T\colon F\lCsp_1\to F\lCsp_0$ are symmetric strict monoidal.
+All axioms for a symmetric monoidal category can be verified, %see \cite[Theorem 4.1.3]{CourserThesis}, 
+and it is easy to see that with these structures, the source and target functors $S,T\colon F\lCsp_1\to F\lCsp_0$ are symmetric strict monoidal.
 
 Lastly, according to \cref{defn:monoidal_double_category} we construct two globular 2-isomorphisms $(M_2 \otimes N_2)\odot (M_1 \otimes N_1) \simrightarrow(M_2\odot M_1) \otimes (N_2\odot N_1)$ and $U_{a + b} \simrightarrow U_a \otimes U_b$ that express compatibility of the tensor with horizontal composition and units. For any appropriate four decorated cospans
 \begin{gather*}
@@ -1000,8 +1001,6 @@ If we first horizontally compose $M_2\odot M_1$, $N_2\odot N_1$ and then tensor 
 where the legs of the cospan are the sums of the dashed ones of the appropriate diagrams \cref{eq:dcospanscomposition}.
 Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms essentially due to pseudonaturality of $\phi$. {\chris Should we give more details here?}
 Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $\id:a+b\to a+b\leftarrow a+b:\id$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
-
-
 \begin{comment}
 , the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
 The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
@@ -1151,148 +1150,9 @@ together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\
 where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
 \end{comment}
 
-{\chris IN progress}
+It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied. The details can be found in \cite[Theorem 4.1.3]{CourserThesis}, but in order to give the reader a sense of what these checks entail, we provide an explicit proof of the fact that the braiding is a transformation of double categories, i.e. establish the commutativity of the left-hand side diagram \cref{eq:braidingaxiom}, in \cref{eq:proofofaxiom} so as to not interrupt the main narrative.
 
-The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}. The coherence law that we check says that this diagram commutes:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
-\node (B) at (3,0) {$(N_1 \odot N_2) \otimes (M_1 \odot M_2)$};
-\node (C) at (0,-.75) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
-\node (D) at (3,-.75) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\beta$} (B)
-(B) edge node[right]{$\chi$} (D)
-(A) edge node[left]{$\chi$} (C)
-(C) edge node[above]{$\beta \odot \beta$} (D);
-\end{tikzpicture}
-\]
-This diagram expresses that the braiding is a transformation of double categories. We show that this diagram commutes in two stages. First, for the underlying maps of cospans in $\A$. Using the notation previously introduced for the globular 2-morphism $\hat{\chi}$, the above diagram, modulo all of the decorations, is given by the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide.
-\[
-		\begin{tikzpicture}
-			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
-			\node (c) at (6,0) {$c+c'$};
-			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
-			\node (c2) at (6,1) {$c'+c$};
-                                \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c3) at (6,2) {$c'+c$};
-                                \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
-			\node (c5) at (6,-1) {$c+c'$};
-                                \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c6) at (6,-2) {$c'+c$};
-			\path[->,font=\scriptsize,>=angle 90]
-			(a) edge node[above]{$$} (b)
-			(c) edge node[above]{$$} (b)
-                                (a2) edge node[above]{$$} (b2)
-			(c2) edge node[above]{$$} (b2)
-                                (a) edge node[left]{$\beta$} (a2)
-                                (b) edge node[left]{$\beta$} (b2)
-%(b) edge node[right]{$\tau_1$} (b2)
-			(c) edge node[right]{$\beta$} (c2)
-                                (a3) edge node[above]{$$} (b3)
-			(c3) edge node[above]{$$} (b3)
-                                (a2) edge node[above]{$$} (a3)
-                                (b2) edge node[left]{$\hat{\chi}$} (b3)
-%(b2) edge node[right]{$\tau_2$} (b3)
-			(c2) edge node[above]{$$} (c3)
-                                (a5) edge node[above]{$$} (b5)
-			(c5) edge node[above]{$$} (b5)
-                                (a) edge node[above]{$$} (a5)
-                                (b) edge node[left]{$\hat{\chi}$} (b5)
-%(b) edge node[right]{$\tau_4$} (b5)
-			(c) edge node[above]{$$} (c5)
-                                (a6) edge node[above]{$$} (b6)
-			(c6) edge node[above]{$$} (b6)
-                                (a5) edge node[left]{$\beta$} (a6)
-                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
- %(b5) edge node[right]{$\tau_5$} (b6)
-			(c5) edge node[left]{$\beta$} (c6);
-		\end{tikzpicture}
-	\]
-The unlabeled vertical 1-morphisms on the sides are identities, $\beta$ is the braiding of the symmetric monoidal category $\A$, the map $\hat{\chi}$ is the globular 2-morphism interchanging the tensor product and horizontal composition of the symmetric monoidal double category $\lCsp(\A)$, and the inwards pointing morphisms are natural maps from the each cospan's feet to its apex.
-
-For the decorations, each of the four maps of cospans constituting the above diagram has an associated decoration isomorphism with it, which we label with $\tau_i$ for $i=1,2,3,4$.
-\[
-		\begin{tikzpicture}
-%			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
-			\node (c) at (8,0) {$(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
-%			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
-			\node (c2) at (8,1) {$(y_1 \odot y_2) + (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
-%                            \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c3) at (8,2) {$(y_1+x_1) \odot (y_2+x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
-%                                \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
-			\node (c5) at (8,-1) {$(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
-%                                \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c6) at (8,-2) {$(y_1+x_1) \odot (y_2+x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
-			\path[->,font=\scriptsize,>=angle 90]
-%			(a) edge node[above]{$$} (b)
-%			(c) edge node[above]{$$} (b)
-%                                (a2) edge node[above]{$$} (b2)
-%			(c2) edge node[above]{$$} (b2)
-%                                (a) edge node[left]{$\beta$} (a2)
-                                (b) edge node[left]{$\beta$} (b2)
-(b) edge node[right]{$\tau_1$} (b2)
-%			(c) edge node[right]{$\beta$} (c2)
-%                                (a3) edge node[above]{$$} (b3)
-%			(c3) edge node[above]{$$} (b3)
-%                               (a2) edge node[above]{$$} (a3)
-                                (b2) edge node[left]{$\hat{\chi}$} (b3)
-(b2) edge node[right]{$\tau_2$} (b3)
-%			(c2) edge node[above]{$$} (c3)
-%                                (a5) edge node[above]{$$} (b5)
-%			(c5) edge node[above]{$$} (b5)
-%                                (a) edge node[above]{$$} (a5)
-                                (b) edge node[left]{$\hat{\chi}$} (b5)
-(b) edge node[right]{$\tau_3$} (b5)
-%			(c) edge node[above]{$$} (c5)
-%                               (a6) edge node[above]{$$} (b6)
-%			(c6) edge node[above]{$$} (b6)
-%                                (a5) edge node[left]{$\beta$} (a6)
-                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
- (b5) edge node[right]{$\tau_4$} (b6);
-%			(c5) edge node[left]{$\beta$} (c6);
-		\end{tikzpicture}
-	\]
-Explicitly, the four decoration isomorphisms are given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\tau_1 \colon F(\beta)((x_1 \odot x_2)+(y_1 \odot y_2)) \to (y_1 \odot y_2)+(x_1 \odot x_2)$};
-\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \odot y_2)+(x_1 \odot x_2)) \to (y_1+x_1) \odot (y_2+x_2)$};
-\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \odot x_2)+(y_1 \odot y_2)) \to (x_1+y_1) \odot (x_2+y_2)$};
-\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta \odot \beta)((x_1+y_1)\odot(x_2+y_2)) \to (y_1+x_1)\odot(y_2+x_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge[color=white] node[above]{$$} (A);
-%(B) edge node[right]{$\chi$} (D)
-%(A) edge node[left]{$\chi$} (C)
-%(C) edge node[above]{$\beta \odot \beta$} (D);
-\end{tikzpicture}
-\]
-These decoration isomorphisms then form the following commutative diagram in the category $F((n_1+m_1)+_{b'+b}(n_2+m_2))$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F(\hat{\chi} \beta)((x_1 \odot x_2)+(y_1 \odot y_2))$};
-\node (B) at (4,0) {$F(\hat{\chi})((y_1 \odot y_2)+(x_1 \odot x_2))$};
-\node (C) at (0,-1) {$F(\beta \odot \beta)((x_1+y_1) \odot (x_2 + y_2))$};
-\node (D) at (4,-1) {$(y_1+x_1) \odot (y_2+x_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(\hat{\chi})(\tau_1)$} (B)
-(B) edge node[right]{$\tau_2$} (D)
-(A) edge node[left]{$F(\beta \odot \beta)(\tau_3)$} (C)
-(C) edge node[above]{$\tau_4$} (D);
-\end{tikzpicture}
-\]
-where in the top left corner, we note that $$F(\hat{\chi} \beta)((x_1 \odot x_2)+(y_1 \odot y_2)) = F((\beta \odot \beta)\hat{\chi})((x_1 \odot x_2)+(y_1 \odot y_2))$$
-as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. The other diagrams in the definition of symmetric monoidal double category can be shown to commute similarly.
+%The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}.
 \end{proof}
 
 Our construction gives not only decorated cospan double categories, but maps betwen these.
@@ -3641,8 +3501,8 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 		\item $\lD_0$ and $\lD_1$ are symmetric monoidal categories, with braidings both denoted $\beta$.
 		\item The functors $S$ and $T$ are symmetric strict monoidal functors.
 		\item The following diagrams commute, expressing that the braiding is a transformation of double categories:
-		\[
-		\begin{tikzpicture}
+		\begin{equation}
+		\begin{tikzpicture}\label{eq:braidingaxiom}
 			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
 			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
 			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
@@ -3669,7 +3529,7 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 				(B) edge node[right]{$U_\beta$} (B')
 				(B') edge node[above]{$\mu$} (A');
 		\end{tikzpicture}
-		\]
+		\end{equation}
 \end{itemize}
 
 
@@ -3865,8 +3725,150 @@ We say that a double category is \textbf{fibrant} if every vertical
 
 {\chris Shouldn't we give Shulman's result that the horizontal bicategory of a symmetric monoidal double category is symmetric monoidal?}
 
+\subsection{Coherence law for \cref{DC}}\label{eq:proofofaxiom}
 
+All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
+\node (B) at (3,0) {$(N_1 \odot N_2) \otimes (M_1 \odot M_2)$};
+\node (C) at (0,-.75) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
+\node (D) at (3,-.75) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\beta$} (B)
+(B) edge node[right]{$\chi$} (D)
+(A) edge node[left]{$\chi$} (C)
+(C) edge node[above]{$\beta \odot \beta$} (D);
+\end{tikzpicture}
+\]
+First of all, if we only consider the underlying cospans without their decorations, we obtain the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide:
+\[
+		\begin{tikzpicture}
+			\node (a) at (-4,0) {$a+a'$};
+			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c) at (6,0) {$c+c'$};
+			\node (a2) at (-4,1) {$a'+a$};
+			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c2) at (6,1) {$c'+c$};
+            \node (a3) at (-4,2) {$a'+a$};
+			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c3) at (6,2) {$c'+c$};
+            \node (a5) at (-4,-1) {$a+a'$};
+			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c5) at (6,-1) {$c+c'$};
+            \node (a6) at (-4,-2) {$a'+a$};
+			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c6) at (6,-2) {$c'+c$};
+			\path[->,font=\scriptsize,>=angle 90]
+			(a) edge node[above]{$$} (b)
+			(c) edge node[above]{$$} (b)
+            (a2) edge node[above]{$$} (b2)
+			(c2) edge node[above]{$$} (b2)
+            (a) edge node[left]{$\beta$} (a2)
+            (b) edge node[left]{$\beta$} (b2)
+%(b) edge node[right]{$\tau_1$} (b2)
+			(c) edge node[right]{$\beta$} (c2)
+            (a3) edge node[above]{$$} (b3)
+			(c3) edge node[above]{$$} (b3)
+            (a2) edge node[left]{$\id$} (a3)
+            (b2) edge node[left]{$\hat{\chi}$} (b3)
+%(b2) edge node[right]{$\tau_2$} (b3)
+			(c2) edge node[right]{$\id$} (c3)
+            (a5) edge node[above]{$$} (b5)
+			(c5) edge node[above]{$$} (b5)
+            (a) edge node[left]{$\id$} (a5)
+            (b) edge node[left]{$\hat{\chi}$} (b5)
+%(b) edge node[right]{$\tau_4$} (b5)
+			(c) edge node[right]{$\id$} (c5)
+            (a6) edge node[above]{$$} (b6)
+			(c6) edge node[above]{$$} (b6)
+            (a5) edge node[left]{$\beta$} (a6)
+            (b5) edge node[left]{$\beta \odot \beta$} (b6)
+ %(b5) edge node[right]{$\tau_5$} (b6)
+			(c5) edge node[right]{$\beta$} (c6);
+		\end{tikzpicture}
+	\]
+where $\beta$ is the braiding of the symmetric monoidal category $\A$, $\hat{\chi}$ is the globular 2-morphism interchanging the tensor product and horizontal composition of the symmetric monoidal double category $\lCsp(\A)$, and the inwards pointing morphisms are natural maps from the each cospan's feet to its apex.
 
+For the decorations, each of the four maps of cospans constituting the above diagram has an associated decoration isomorphism with it, which we label with $\tau_i$ for $i=1,2,3,4$.
+\[
+		\begin{tikzpicture}
+%			\node (a) at (-4,0) {$a+a'$};
+			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c) at (8,0) {$(x_1 \odot x_2) \oplus (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
+%			\node (a2) at (-4,1) {$a'+a$};
+			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c2) at (8,1) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
+%                            \node (a3) at (-4,2) {$a'+a$};
+			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c3) at (8,2) {$(y_1\oplus x_1) \odot (y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+%                                \node (a5) at (-4,-1) {$a+a'$};
+			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c5) at (8,-1) {$(x_1\oplus y_1) \odot (x_2\oplus y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+%                                \node (a6) at (-4,-2) {$a'+a$};
+			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c6) at (8,-2) {$(y_1\oplus x_1) \odot (y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+			\path[->,font=\scriptsize,>=angle 90]
+%			(a) edge node[above]{$$} (b)
+%			(c) edge node[above]{$$} (b)
+%                                (a2) edge node[above]{$$} (b2)
+%			(c2) edge node[above]{$$} (b2)
+%                                (a) edge node[left]{$\beta$} (a2)
+                                (b) edge node[left]{$\beta$} (b2)
+(b) edge node[right]{$\tau_1$} (b2)
+%			(c) edge node[right]{$\beta$} (c2)
+%                                (a3) edge node[above]{$$} (b3)
+%			(c3) edge node[above]{$$} (b3)
+%                               (a2) edge node[above]{$$} (a3)
+                                (b2) edge node[left]{$\hat{\chi}$} (b3)
+(b2) edge node[right]{$\tau_2$} (b3)
+%			(c2) edge node[above]{$$} (c3)
+%                                (a5) edge node[above]{$$} (b5)
+%			(c5) edge node[above]{$$} (b5)
+%                                (a) edge node[above]{$$} (a5)
+                                (b) edge node[left]{$\hat{\chi}$} (b5)
+(b) edge node[right]{$\tau_3$} (b5)
+%			(c) edge node[above]{$$} (c5)
+%                               (a6) edge node[above]{$$} (b6)
+%			(c6) edge node[above]{$$} (b6)
+%                                (a5) edge node[left]{$\beta$} (a6)
+                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
+ (b5) edge node[right]{$\tau_4$} (b6);
+%			(c5) edge node[left]{$\beta$} (c6);
+		\end{tikzpicture}
+	\]
+Explicitly, the four decoration isomorphisms are given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\tau_1 \colon F(\beta)((x_1 \odot x_2)\oplus(y_1 \odot y_2)) \to (y_1 \odot y_2)\oplus(x_1 \odot x_2)$};
+\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \odot y_2)\oplus(x_1 \odot x_2)) \to (y_1\oplus x_1) \odot (y_2\oplus x_2)$};
+\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \odot x_2)\oplus(y_1 \odot y_2)) \to (x_1\oplus y_1) \odot (x_2\oplus y_2)$};
+\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta \odot \beta)((x_1\oplus y_1)\odot(x_2\oplus y_2)) \to (y_1\oplus x_1)\odot(y_2\oplus x_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge[color=white] node[above]{$$} (A);
+%(B) edge node[right]{$\chi$} (D)
+%(A) edge node[left]{$\chi$} (C)
+%(C) edge node[above]{$\beta \odot \beta$} (D);
+\end{tikzpicture}
+\]
+These decoration isomorphisms then form the following commutative diagram in the category $F((n_1+m_1)+_{b'+b}(n_2+m_2))$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$F(\hat{\chi} \beta)((x_1 \odot x_2)\oplus(y_1 \odot y_2))$};
+\node (B) at (4,0) {$F(\hat{\chi})((y_1 \odot y_2)\oplus(x_1 \odot x_2))$};
+\node (C) at (0,-1) {$F(\beta \odot \beta)((x_1\oplus y_1) \odot (x_2 \oplus  y_2))$};
+\node (D) at (4,-1) {$(y_1\oplus x_1) \odot (y_2\oplus x_2)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$F(\hat{\chi})(\tau_1)$} (B)
+(B) edge node[right]{$\tau_2$} (D)
+(A) edge node[left]{$F(\beta \odot \beta)(\tau_3)$} (C)
+(C) edge node[above]{$\tau_4$} (D);
+\end{tikzpicture}
+\]
+where in the top left corner, we note that $$F(\hat{\chi} \beta)((x_1 \odot x_2)\oplus (y_1 \odot y_2)) = F((\beta \odot \beta)\hat{\chi})((x_1 \odot x_2)\oplus (y_1 \odot y_2))$$
+as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. 
+{\chris Well only up to isomorphism since F is a pseudofunctor. Does this matter?}
+{\chris I would here expect big pasted diagrams of isomorphisms coming from the braided lax monoidal pseudofunctor and using its axioms to actually show that two such isomorphisms are equal...}
 
 \begin{thebibliography}{100}
 
