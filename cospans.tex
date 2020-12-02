@@ -346,9 +346,6 @@ where $\bot_a \in F(a)$ is called the \define{trivial decoration}, and a vertica
 \end{tikzpicture}
 \]
 together with the decoration morphism $F(f)F(!_a)\phi_0(*)\cong F(!_{a'})\phi_0(*)$.
-%%% Christina: the previous formula $\tau_{\bot_f} = F(f) F(!) \phi \maps 1 \to F(a')$ doesn't typecheck to me.
-%%% Kenny: \phi:1-->F(0), F(!):F(0)-->F(a), F(f):F(a)-->F(a')? Or did I make a mistake somewhere?
-%%% Christina: Actually indeed it typechecks, I must have been thinking it does not give me the actual morphism, just one of the two or something. No issue now!
 Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-decorated cospans $\left(a\to m\leftarrow b,x\in F(m)\right)$ and $\left(b\to n\leftarrow c,y\in F(n)\right)$ to their pushout in $\A$ over their shared foot
 \begin{equation}\label{eq:dcospanscomposition}
 \begin{tikzpicture}[scale=1.2,baseline=(current bounding box.center)]
@@ -568,7 +565,7 @@ Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+)
 \begin{tikzcd}
 & m_1+m_2 & \\
 a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
-\end{tikzcd}\qquad x_1\oplus x_2:=1\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
+\end{tikzcd}\qquad x_1\oplus x_2:=\one \xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
 \end{equation}
 %$M_1$ and $M_2$:
 %\[
@@ -667,7 +664,7 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 \begin{displaymath}
  \begin{tikzcd}[column sep=.5in, row sep=.1in]
 & F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[dd,"F(h)\times F(h')"description]\ar[ddr,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] & F(m+n)\ar[dd,"F(h+h')"] \\
-1\ar[ur,"x\times y"]\ar[dr,"x'\times y'"']\ar[r,phantom,"\scriptstyle\Downarrow\tau_\alpha\times\tau_\beta"] & \phantom{A} && \\
+\one \ar[ur,"x\times y"]\ar[dr,"x'\times y'"']\ar[r,phantom,"\scriptstyle\Downarrow\tau_\alpha\times\tau_\beta"] & \phantom{A} && \\
 & F(m')\times F(n')\ar[r,"\phi_{m',n'}"'] & F(m'+n')
  \end{tikzcd}
 \end{displaymath}
@@ -764,7 +761,7 @@ The monoidal unit $0_{F\lCsp_1}$ is given by:
 \]
 \end{comment}
 \begin{displaymath}
-I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, 1\xrightarrow{\phi_0}F(0)\right)
+I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right)
 \end{displaymath}
 where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
@@ -872,9 +869,9 @@ For the left and right unitors $I_1\ot M\cong M\cong M\ot I_1$ for any $M=(a\to 
 \begin{displaymath}
  \begin{tikzcd}[column sep=.3in]
 0+a\ar[rr,"1+i"]\ar[d,"\stackrel{\ell}{\cong}"'] && 0+m\ar[d,"\stackrel{\ell}{\cong}"'] && 0+b\ar[ll,"1+o"']\ar[d,"\stackrel{\ell}{\cong}"] &&1\ar[r,"\phi_0\times x"] & F(0)\times F(m)\ar[r,"\phi_{0,m}"] & F(0+m) \\
-a\ar[rr,"i"] && m && b\ar[ll,"o"'] && 1\ar[r,"x"] & F(m)\\
+a\ar[rr,"i"] && m && b\ar[ll,"o"'] && \one \ar[r,"x"] & F(m)\\
 a+0\ar[rr,"i+1"']\ar[u,"\stackrel{r}{\cong}"] && m+0\ar[u,"\stackrel{r}{\cong}"] && b+0\ar[ll,"o+1"]\ar[u,"\stackrel{r}{\cong}"']
-&&1\ar[r,"x\times\phi_0"] & F(m)\times F(0)\ar[r,"\phi_{m,0}"] & F(m+0)
+&&\one \ar[r,"x\times\phi_0"] & F(m)\times F(0)\ar[r,"\phi_{m,0}"] & F(m+0)
  \end{tikzcd}
 \end{displaymath}
 with isomorphisms between decorations precisely given by \cref{eq:unitality}.
@@ -958,7 +955,7 @@ Finally, the symmetric monoidal structure of $F\lCsp_1$ is inherited from that i
 \begin{displaymath}
  \begin{tikzcd}[column sep=.25in]
 a_1+a_2\ar[rr,"i_1+i_2"]\ar[d,"\stackrel{\beta}{\cong}"'] && m_1+m_2\ar[d,"\stackrel{\beta}{\cong}"'] && b_1+b_2\ar[ll,"o_1+o_2"']\ar[d,"\stackrel{\beta}{\cong}"] &&1\ar[r,"x_1\times x_2"] & F(m_1)\times F(m_2)\ar[r,"\phi_{m_1,m_2}"] & F(m_1+m_2) \\
-a_2+a_1\ar[rr,"i_2+i_1"'] && m_2+m_1 && b_2+b_1\ar[ll,"o_2+o_1"] &&1\ar[r,"x_2\times x_1"] & F(m_2)\times F(m_1)\ar[r,"\phi_{m_2,m_1}"] & F(m_2+m_1)
+a_2+a_1\ar[rr,"i_2+i_1"'] && m_2+m_1 && b_2+b_1\ar[ll,"o_2+o_1"] &&\one \ar[r,"x_2\times x_1"] & F(m_2)\times F(m_1)\ar[r,"\phi_{m_2,m_1}"] & F(m_2+m_1)
  \end{tikzcd}
 \end{displaymath}
 together with the decoration isomorphism formed by \cref{eq:braidedpseudofun} of the symmetric monoidal pseudofunctor.
@@ -979,7 +976,7 @@ first tensoring $M_1\ot N_1$, $M_2\ot N_2$ by \cref{eq:tensordecoration} and the
 a+a'\ar[ur,"{i_1+i'_1}"] \&\& b+b'\ar[ul,"{o_1+o'_1}"']\ar[ur,"{i_2+i'_2}"] \&\& c+c'\ar[ul,"{o_2+o'_2}"']
 \end{tikzcd}}
 \scalebox{.8}{\begin{tikzcd}[ampersand replacement=\&,column sep=.5in]
-1\ar[ddrr,dashed,"{(x_1\oplus y_1)\odot(x_2\oplus y_2)}"']\ar[r,"x_1{\times}y_1{\times}x_2{\times}y_2"] \& F(m_1){\times}F(n_1){\times}F(m_2){\times}F(n_2)\ar[r,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \& F(m_1{+}n_1){\times}F(m_2{+}n_2) \ar[d,"\phi_{m_1+n_1,m_2+n_2}"] \\
+\one \ar[ddrr,dashed,"{(x_1\oplus y_1)\odot(x_2\oplus y_2)}"']\ar[r,"x_1{\times}y_1{\times}x_2{\times}y_2"] \& F(m_1){\times}F(n_1){\times}F(m_2){\times}F(n_2)\ar[r,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \& F(m_1{+}n_1){\times}F(m_2{+}n_2) \ar[d,"\phi_{m_1+n_1,m_2+n_2}"] \\
 \&\& F(m_1+n_1+m_2+n_2)\ar[d,"F\psi"] \\
 \&\& F((m_1+n_1)+_{b+b'}(m_2+n_2))
 \end{tikzcd}}
@@ -993,7 +990,7 @@ If we first horizontally compose $M_2\odot M_1$, $N_2\odot N_1$ and then tensor 
  \&\& c+c'\ar[uul]%,"{u_{m_2}o_2+u_{n_2}o'_2}"']  
  \end{tikzcd}}
  \scalebox{.8}{\begin{tikzcd}[ampersand replacement=\&,column sep=.4in]
-1\ar[ddrr,dashed,"{(x_1\odot x_2)\oplus(y_1\odot y_2)}"']\ar[r,"x_1{\times}x_2{\times}y_1{\times}y_2"] \& F(m_1){\times}F(m_2){\times}F(n_1){\times}F(n_2)\ar[r,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"] \& F(m_1{+}m_2){\times}F(n_1{+}n_2) \ar[d, "F\psi\times F\psi"] \\
+\one \ar[ddrr,dashed,"{(x_1\odot x_2)\oplus(y_1\odot y_2)}"']\ar[r,"x_1{\times}x_2{\times}y_1{\times}y_2"] \& F(m_1){\times}F(m_2){\times}F(n_1){\times}F(n_2)\ar[r,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"] \& F(m_1{+}m_2){\times}F(n_1{+}n_2) \ar[d, "F\psi\times F\psi"] \\
 \&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[d,"\phi_{m_1+_bm_2,n_1+_{b'}n_2}"] \\
 \&\& F((m_1+_bm_2)+F(n_1+_{b'}n_2))
 \end{tikzcd}}
@@ -1155,21 +1152,21 @@ It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal 
 %The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}.
 \end{proof}
 
-Our construction gives not only decorated cospan double categories, but maps betwen these.
+Our construction gives not only decorated cospan double categories, but maps betwen these as in \cref{def:doublefun}.
 Suppose we have two symmetric lax monoidal pseudofunctors, $F \maps \A \to \Cat$ and
 $F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan 
 double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
 \item a finitely cocontinous functor $H \maps \A \to \A'$, 
-\item a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$, 
-\item an isomorphism $\theta \maps EF \Rightarrow F'H$:
+\item a symmetric lax monoidal pseudofunctor $(E,\phi,\phi_0) \maps \Cat \to \Cat$, 
+\item an isomorphism $\theta \maps EF \Rightarrow F'H$: {\chris is this natural or pseudonatural? It should be clarified.}
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$.};
-\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
+\node (E) at (0.5,-0.5) {$\Downarrow\theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -1181,31 +1178,38 @@ double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
 The induced double functor $\lH \colon F\lCsp \to F'\lCsp$ is defined as follows:
 \begin{itemize}
 \item The image of an object $a \in F\lCsp_0=\A$ is the object $H(a) \in F'\lCsp_0=\A'$,
-\item The image of a vertical 1-morphism $f \colon a \to b$ is the vertical 1-morphism $H(f) \colon H(a) \to H(b)$. In other words, the object component $\lH_0$ of the double functor $\lH$ is the functor $H$.
-\item Given a horizontal 1-cell $M$ in $F\lCsp$, which is an $F$-decorated cospan, the image will be the $F'$-decorated cospan $\lH(M)$ in $F'\lCsp$
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$m$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$x \in F(m)$};
-\node (E) at (2.75,0) {$\mapsto$};
-\node (A') at (3.5,0) {$H(a)$};
-\node (B') at (4.5,0) {$H(m)$};
-\node (C') at (5.5,0) {$H(b)$};
-\node (D') at (4.5,-0.5) {$\theta_m E(x) \phi \in F'(H(m))$};
-\node (F) at (1,0.5) {$M$};
-\node (G) at (4.5,0.5) {$\lH(M)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A') edge node[above]{$H(i)$} (B')
-(C') edge node[above]{$H(o)$} (B');
-\end{tikzpicture}
-\]
-where given a decoration $x \colon 1 \to F(m)$ on $m$, we obtain a decoration on $H(m)$ via the composite 
-\[ 1 \xrightarrow{\phi} E(1) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)).\]
-\item Given a 2-morphism $\alpha \colon M \to N$ in $F\lCsp$, which is a map of $F$-decorated cospans, the image will be the map of $F'$-decorated cospans $\lH(\alpha)$ in $F'\lCsp$
+\item The image of a vertical 1-morphism $f \colon a \to b$ is the vertical 1-morphism $H(f) \colon H(a) \to H(b)$. 
+\end{itemize}
+In other words, the object component $\lH_0$ of the double functor $\lH$ is the functor $H$.
+\begin{itemize}
+\item The image of an $F$-decorated cospan $M$ in $F\lCsp$ is the $F'$-decorated cospan $\lH(M)$ in $F'\lCsp$
+\begin{align*}
+ M=\left(a\xrightarrow{i}m\xleftarrow{o}b,x\in F(m)\right)\mapsto \lH(M)=\left(H(a)\xrightarrow{H(i)}H(m)\xleftarrow{H(o)}H(b),\bar{x}\in F'(H(m))\right)& \textrm{ where } \\
+\bar{x}:=\one \xrightarrow{\phi_0} E(\one) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)) &
+\end{align*}
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a$};
+%\node (B) at (1,0) {$m$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (1,-0.5) {$x \in F(m)$};
+%\node (E) at (2.75,0) {$\mapsto$};
+%\node (A') at (3.5,0) {$H(a)$};
+%\node (B') at (4.5,0) {$H(m)$};
+%\node (C') at (5.5,0) {$H(b)$};
+%\node (D') at (4.5,-0.5) {$\theta_m E(x) \phi \in F'(H(m))$};
+%\node (F) at (1,0.5) {$M$};
+%\node (G) at (4.5,0.5) {$\lH(M)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$i$} (B)
+%(C) edge node[above]{$o$} (B)
+%(A') edge node[above]{$H(i)$} (B')
+%(C') edge node[above]{$H(o)$} (B');
+%\end{tikzpicture}
+%\]
+%where given a decoration $x \colon 1 \to F(m)$ on $m$, we obtain a decoration on $H(m)$ via the composite 
+%\[ 1 \xrightarrow{\phi} E(1) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)).\]
+\item The image of a map of decorated cospans $\alpha \colon M \to N$ in $F\lCsp$ is the map of $F'$-decorated cospans $\lH(\alpha)$ in $F'\lCsp$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -1216,16 +1220,16 @@ where given a decoration $x \colon 1 \to F(m)$ on $m$, we obtain a decoration on
 \node (D) at (1,-0.5) {$n$};
 \node (E) at (3,0.5) {$x \in F(m)$};
 \node (F) at (3,-0.5) {$x' \in F(n)$};
-\node (G) at (1,-1) {$\tau \maps F(h)(x) \to x'$};
+%\node (G) at (1,-1) {$\tau \maps F(h)(x) \to x'$};
 \node (A'') at (4.75,0.5) {$H(a)$};
 \node (A''') at (4.75,-0.5) {$H(a')$};
 \node (B'') at (5.75,0.5) {$H(m)$};
 \node (C'') at (6.75,0.5) {$H(b)$};
 \node (C''') at (6.75,-0.5) {$H(b')$};
 \node (D'') at (5.75,-0.5) {$H(n)$};
-\node (E'') at (8.5,0.5) {$\theta_m E(x) \phi \in F'(H(m))$};
-\node (F'') at (8.5,-0.5) {$\theta_n E(x') \phi \in F'(H(n))$};
-\node (G'') at (5.75,-1) {$E(\tau) \maps F'(H(h))(\theta_m E(x)\phi) \to (\theta_n E(x')\phi)$};
+\node (E'') at (8.5,0.5) {$\theta_m E(x) \phi_0 \in F'(H(m))$};
+\node (F'') at (8.5,-0.5) {$\theta_n E(x') \phi_0 \in F'(H(n))$};
+%\node (G'') at (5.75,-1) {$E(\tau) \maps F'(H(h))(\theta_m E(x)\phi) \to (\theta_n E(x')\phi)$}; %%%Christina: E(tau) is a bad name since it already means something!
 \node (H) at (3.75,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
@@ -1244,19 +1248,19 @@ where given a decoration $x \colon 1 \to F(m)$ on $m$, we obtain a decoration on
 (B'') edge node [left] {$H(h)$} (D'');
 \end{tikzpicture}
 \]
-where given a decoration morphism $\tau \colon F(h)(x) \to x'$, the decoration morphism $E(\tau)$ is defined as:
+where given a decoration morphism $\tau \colon F(h)(x) \to x'$, the induced decoration morphism is:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-3.5,-0.5) {$1$};
 \node (H) at (-2,0) {$F(m)$};
 \node (I) at (-2,-1) {$F(n)$};
-\node (J) at (-2.5,-0.5) {$\Swarrow \tau$};
+\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
 \node (K) at (-1,-0.5) {$\mapsto$};
 \node (A) at (-0.25,-0.5) {$1$};
 \node (L) at (0.5,-0.5) {$E(1)$};
 \node (B) at (2,0) {$E(F(m))$};
 \node (D) at (2,-1) {$E(F(n))$};
-\node (C) at (1.5,-0.5) {$\Swarrow E(\tau)$};
+\node (C) at (1.5,-0.5) {$\scriptstyle\Downarrow E(\tau)$};
 \node (E) at (4,0) {$F^\prime(H(m))$};
 \node (F) at (4,-1) {$F^\prime(H(n))$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -1272,6 +1276,7 @@ where given a decoration morphism $\tau \colon F(h)(x) \to x'$, the decoration m
 (B) edge node[right]{$E(F((h))$} (D);
 \end{tikzpicture}
 \]
+{\chris There should be an iso on the right if we go with pseudonatural isomorphism}
 \end{itemize}
 %Regarding maps between symmetric monoidal double categories, consider another symmetric lax monoidal pseudofunctor $F' \maps \mathsf{A'} \to \Cat$%, we can obtain another symmetric monoidal double category $F' \lCsp$.
 %a morphism from $F\lCsp$ to $F' \lCsp$ will then be a double functor $\H \maps F\lCsp \to F' \lCsp$ whose object component is given by a finite colimit preserving functor $\H_0 = H \maps \A \to \mathsf{A'}$ and whose arrow component is given by a functor $\H_1$ defined on horizontal 1-cells by:
@@ -2015,7 +2020,7 @@ Given two finitely cocomplete categories $\A$ and $\A'$, two symmetric lax monoi
 \node (C) at (0,-1) {$\mathsf{A'}$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$};
-\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
+\node (E) at (0.5,-0.5) {$\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
