@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/2
+% 2020/12/3
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -2317,27 +2317,24 @@ familiar---and of course, \emph{categories} are even more so!   Luckily, all our
 phrased in the language of double categories have analogues for bicategories and categories.  
 We explain those here.
 
-As noted for example by Shulman \cite{Shulman2010},
-%%%Christina: this should be a much older, very well-known fact. I suggest for removal of reference completely (given that we describe this thing from scratch) or instead insert a much older reference than that.
-any double category $\lX$ has a 
-{\chris How come we changed from D to X as our basic letter for double cats?}
-\define{horizontal bicategory}, denoted $\bX$, in which:
+As discussed for example by Shulman \cite{Shulman2010}, any double category $\lD$ has a 
+\define{horizontal bicategory}, denoted $\bD$, in which:
 \begin{itemize}
-\item objects are objects of $\lX$,
-\item morphisms are horizontal 1-cells of $\lX$,
-\item 2-morphisms are \define{globular} 2-morphisms of $\lX$, meaning 2-morphisms whose source and target vertical 1-morphisms are identities,
-\item composition of morphisms is given by horizontal composition of horizontal 1-cells in $\lX$,
+\item objects are objects of $\lD$,
+\item morphisms are horizontal 1-cells of $\lD$,
+\item 2-morphisms are \define{globular} 2-morphisms of $\lD$, meaning 2-morphisms whose source and target vertical 1-morphisms are identities,
+\item composition of morphisms is given by horizontal composition of horizontal 1-cells in $\lD$,
 \item vertical and horizontal composition of 2-morphisms are given by vertical and horizontal
-composition of 2-morphisms in $\lX$.
+composition of 2-morphisms in $\lD$.
 \end{itemize}
-The bicategory $\bX$ has a \define{decategorification}, a category $\X$ in which:
+The bicategory $\bD$ has a \define{decategorification}, a category $\D$ in which:
 \begin{itemize}
-\item objects are objects of $\bX$,
-\item morphisms are isomorphism classes of 1-morphisms of $\bX$.   
+\item objects are objects of $\bD$,
+\item morphisms are isomorphism classes of 1-morphisms of $\bD$.   
 \end{itemize}
 Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory $F\bCsp$, and a category $F\Csp$.   In \cref{DC} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
 
-A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}. Shulman (\cref{Shulhorizontalbicat}) proved that when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.    We can apply this to decorated cospans as follows:
+A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}. Shulman (\cref{Shulhorizontalbicat}) proved that when a double category $\lD$ is fibrant, any symmetrical monoidal structure on $\lD$ gives one on $\bD$.    We can apply this to decorated cospans as follows:
 
 \begin{lem}
 The double category $F\lCsp$ is fibrant.
@@ -2612,61 +2609,18 @@ and there exists an isomorphism $\tau \maps F(f)(x) \to x'$ in $F(m')$.
 In \cref{thm:equiv} we gave conditions under which the symmetric monoidal double category of \emph{decorated} cospans $F\lCsp$ is isomorphic to the  symmetric monoidal double category of \emph{structured} cospans ${}_L \lCsp(\int F)$.   We now show that under the same conditions we get an isomorphism of symmetric monoidal bicategories, and of categories.
 
 \begin{thm} \label{thm:bicat_equiv}
-Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.    Define the symmetric monoidal bicategory $_L\bCsp(\inta F)$ as in \cref{thm:equiv}.   Then there is an isomorphism of symmetric monoidal bicategories
+Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.    Define the symmetric monoidal bicategory $_L\bCsp(\inta F)$ as in \cref{thm:equiv}.   Then there is an equivalence of symmetric monoidal bicategories
 \[      F\bCsp \simeq {}_L \bCsp(\inta F)   \]
 and of symmetric monoidal categories
 \[      F\Csp \simeq {}_L \Csp(\inta F)  . \]
 \end{thm}
 
-\begin{proof} Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal double categories to symmetric monoidal bicategories is  functorial in a suitable sense, implying
-that an equivalence of symmetric monoidal double categories $\lX \simeq \lY$ gives an equivalence of symmetric monoidal bicategories $\bX \simeq \bY$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the equivalence of symmetric monoidal bicategories $\bX \simeq \bY$ in turn induces an equivalence of symmetric monoidal categories $\X \simeq \Y$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
-
-CHECK THAT OUR SORT OF EQUIVALENCE OF SYMMETRIC MONOIDAL DOUBLE CATEGORIES IS REALLY THAT USED BY HANSEN AND SHULMAN!!!
-
-%Let $F \maps \A \to \Cat$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \cref{DC} of the previous section, we get a symmetric monoidal double category $F\lCsp$. This symmetric monoidal double category has:
-%\begin{enumerate}
-%\item{objects as those of $\A$,}
-%\item{vertical 1-morphisms as morphisms of $\A$,}
-%\item{horizontal 1-cells as pairs:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a$};
-%\node (B) at (1,0) {$c$};
-%\node (C) at (2,0) {$b$};
-%\node (D) at (4,0) {$d \in F(c)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B);
-%\end{tikzpicture}
-%\]
-%and}
-%\item{2-morphisms as maps of cospans in $\A$
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0.5) {$a$};
-%\node (A') at (0,-0.5) {$a'$};
-%\node (B) at (1,0.5) {$c$};
-%\node (C) at (2,0.5) {$b$};
-%\node (C') at (2,-0.5) {$b'$};
-%\node (D) at (1,-0.5) {$c'$};
-%\node (E) at (3,0.5) {$d \in F(c)$};
-%\node (F) at (3,-0.5) {$d' \in F(c')$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$$} (B)
-%(C) edge node[above]{$$} (B)
-%(A) edge node[left]{$f$} (A')
-%(C) edge node[left]{$g$} (C')
-%(A') edge node {$$} (D)
-%(C') edge node {$$} (D)
-%(B) edge node [left] {$h$} (D);
-%\end{tikzpicture}
-%\]
-%together with a morphism $\tau \maps F(h)(d) \to d'$ in $F(c')$.}
-%\end{enumerate}
+\begin{proof} 
+Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal double categories to symmetric monoidal bicategories is  functorial in a suitable sense, implying that an equivalence of symmetric monoidal double categories $\lD \simeq \lD'$ gives an equivalence of symmetric monoidal bicategories $\bD \simeq \bD'$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the equivalence of symmetric monoidal bicategories $\bD \simeq \bD'$ in turn induces an equivalence of symmetric monoidal categories $\D \simeq \D'$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
 
 \section{Applications}\label{Applications}
 
- Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems, \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
+Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems, \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
  
 Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite[Sec.\ 5]{BC}.  Our new approach to decorated cospans provides another solution to these problems.  Here we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems.   In many cases \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent, but we show that open dynamical systems can only be treated using decorated cospans.
 
@@ -3383,9 +3337,9 @@ where $[\A,\Cat]_\pse$ is the 2-category of pseudofunctors from $\A$ to $\Cat$, 
 The idea goes back to Grothendieck; a proof can be found in, for example, \cite[Section 1.10]{Jacobs}.
 \end{proof}
 
-
 \subsection{Double categories}\label{sec:doublecats}
-For double categories we follow the notation of our paper on structured cospans \cite{BC}, which in turn follows that of Shulman \cite{Shulman2010}.
+
+For double categories we follow the notation of our paper on structured cospans \cite{BC}, which in turn follows that of Hansen and Shulman \cite{HS,Shulman2010}. 
 
 \begin{defn}\label{defn:double_category}
 A \define{double category} $\lD$ consists of a \define{category of objects}
@@ -3414,35 +3368,33 @@ C\ar[r,"N"'] & D
 %Christina: changed the code above to match the squares later better
 We call $M$ and $N$ the \define{horizontal source and target} of $a$ respectively, and call $f$ and $g$ its \define{vertical source and target}.   A 2-morphism where $f$ and $g$ are identities is called \textbf{globular}.   For example, the associator and unitors in a double category are globular 2-morphisms.
 
-%\begin{defn}
-%Let $\lD$ be a pseudo double category. Then the $\textbf{horizontal bicategory}$ of $\lD$, which we denote as $H(\lD)$, is the bicategory consisting of objects of $\lD$, morphisms that are horizontal 1-cells of $\lD$ and 2-morphisms that are globular 2-morphisms of $\lD$.
-%\end{defn}
+
 \begin{defn}\label{def:doublefun}
-Given double categories $\lA$ and $\lX$, a \define{double functor} $\lF \colon\lA \to \lX$ consists of:
+Given double categories $\lD$ and $\lE$, a \define{double functor} $\lF \maps \lD \to \lE$ consists of:
 \begin{itemize}
-\item{functors $\lF_0 \colon \lA_0 \to \lX_0$ and $\lF_1 \colon \lA_1 \to \lX_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
-\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(N) \odot \lF(M) \to \lF(N \odot M)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy coherence axioms analogous to those of a monoidal functor.}
+\item{functors $\lF_0 \maps \lD_0 \to \lE_0$ and $\lF_1 \maps \lD_1 \to \lE_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
+\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lD$, a natural transformation $\phi_{M,N} \maps \lF(N) \odot \lF(M) \to \lF(N \odot M)$ called the \define{composite comparison} and for every object $a$ in $\lD$, a natural transformation $\phi_a \maps U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy coherence axioms analogous to those of a monoidal functor.}
 \end{itemize}
 \end{defn}
 
 \begin{defn}
-Given double functors $(\lF,\phi),(\mathbb{G},\psi) \colon \lA \to \lX$, a \define{double natural transformation} $\alpha \colon \lF \Rightarrow \mathbb{G}$ consists of natural transformations $\alpha_0 \colon \lF_0 \Rightarrow \mathbb{G}_0$ and $\alpha_1 \colon \lF_1 \Rightarrow \mathbb{G}_1$ such that:
+Given double functors $(\lF,\phi),(\mathbb{G},\psi) \maps \lD \to \lE$, a \define{double natural transformation} $\alpha \maps \lF \Rightarrow \mathbb{G}$ consists of natural transformations $\alpha_0 \maps \lF_0 \Rightarrow \mathbb{G}_0$ and $\alpha_1 \maps \lF_1 \Rightarrow \mathbb{G}_1$ such that:
 \begin{itemize}
-\item{$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$ for all horizontal 1-cells $M$ of $\lA$,}
-\item{$\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ for all composable pairs $M$ and $N$ of horizontal 1-cells in $\lA$, and}
-\item{$\alpha \circ \phi_a = \psi_a \circ \alpha$ for all objects $a$ of $\lA$.}
+\item{$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$ for all horizontal 1-cells $M$ of $\lD$,}
+\item{$\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ for all composable pairs $M$ and $N$ of horizontal 1-cells in $\lD$, and}
+\item{$\alpha \circ \phi_a = \psi_a \circ \alpha$ for all objects $a$ of $\lD$.}
 \end{itemize} 
-%$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$, and for two composable horizontal 1-cells $M$ and $N$ of $\lA$, $\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ and $\alpha \circ \phi_a = \psi_a \circ \alpha$. 
+%$S(\alpha_M) = \alpha_{S(M)}$ and $T(\alpha_M) = \alpha_{T(M)}$, and for two composable horizontal 1-cells $M$ and $N$ of $\lD$, $\alpha \circ \phi_{M,N} = \psi \circ (\alpha_M \odot \alpha_N)$ and $\alpha \circ \phi_a = \psi_a \circ \alpha$. 
 The double natural transformation $\alpha$ is a \define{double natural isomorphism} if both $\alpha_0$ and $\alpha_1$ are natural isomorphisms.
 \end{defn}
 
 
 %%% Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
 %\begin{defn}
-%A double functor $\lF \maps \lA \to \lX$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\lF_{M,N} \maps \lF(M) \odot \lF(N) \xrightarrow{\sim} \lF(M \odot N)$$and for each object $a \in \lA$ a natural isomorphism $$\lF_a \maps \hat{U}_{\lF(a)} \xrightarrow{\sim} \lF(U_a).$$
+%A double functor $\lF \maps \lD \to \lE$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\lF_{M,N} \maps \lF(M) \odot \lF(N) \xrightarrow{\sim} \lF(M \odot N)$$ and for each object $a \in \lD$ a natural isomorphism $$\lF_a \maps \hat{U}_{\lF(a)} \xrightarrow{\sim} \lF(U_a).$$
 %\end{defn}
 
-%Following the notation of Shulman \cite{Shulman2010}, given a double category $\lA$, we write $_f \lA_g(M,N)$ for the set of 2-morphisms in $\lA$ of the form:
+%Following the notation of Shulman \cite{Shulman2010}, given a double category $\lD$, we write $_f \lD_g(M,N)$ for the set of 2-morphisms in $\lD$ of the form:
 %\[
 % \xymatrix@-.5pc{
 %   A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
@@ -3452,16 +3404,16 @@ The double natural transformation $\alpha$ is a \define{double natural isomorphi
 %\]
 
 \begin{defn}\label{def:fullfaithful}
-A double functor $\lF \maps \lA \to \lX$ is \define{full} (resp.\ \define{faithful}) if $\lF_0 \maps \lA_0 \to \lX_0$ is full (resp.\ faithful) and each map 
-\[   lF_1 \maps _f \lA_g(M,N) \to {_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))\] 
-is surjective (respectively, injective), where $_f \lA_g(M,N)$ is set of 2-morphisms in $\A$ whose horizontal source is $M$ and whose horizontal target is $N$, and similarly for ${_{\lF(f)} \lX_{\lF(g)}}(\lF(M),\lF(N))$.
+A double functor $\lF \maps \lD \to \lE$ is \define{full} (resp.\ \define{faithful}) if $\lF_0 \maps \lD_0 \to \lE_0$ is full (resp.\ faithful) and each map 
+\[   lF_1 \maps _f \lD_g(M,N) \to {_{\lF(f)} \lE_{\lF(g)}}(\lF(M),\lF(N))\] 
+is surjective (respectively, injective), where $_f \lD_g(M,N)$ is set of 2-morphisms in $\A$ whose horizontal source is $M$ and whose horizontal target is $N$, and similarly for ${_{\lF(f)} \lE_{\lF(g)}}(\lF(M),\lF(N))$.
 \end{defn}
 
 \begin{defn}\label{def:essentiallysurj}
-A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if we can simultaneously make the following choices:
+A double functor $\lF \maps \lD \to \lE$ is \define{essentially surjective} if we can simultaneously make the following choices:
 \begin{itemize}
-\item For each object $x \in \lX$, we can find an object $a \in \lA$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and
-\item For each horizontal 1-cell $N \maps x_1 \to x_2$  of $\lX$, we can find a horizontal 1-cell $M \maps a_1 \to a_2$ of $\lA$ and a 2-isomorphism $a_{N} \colon \lF(M) \to N$ in $\lX$ as in the following diagram:
+\item For each object $x \in \lE$, we can find an object $a \in \lD$ together with a vertical 1-isomorphism $\alpha_x \maps \lF(a) \to x$, and
+\item For each horizontal 1-cell $N \maps x_1 \to x_2$  of $\lE$, we can find a horizontal 1-cell $M \maps a_1 \to a_2$ of $\lD$ and a 2-isomorphism $a_{N} \colon \lF(M) \to N$ in $\lE$ as in the following diagram:
 \[
  \begin{tikzcd}
 \lF(a_1) \ar[r,"\lF(M)"]  \ar[d,"\alpha_{x_1}"'] \ar[dr,phantom,"\scriptstyle\Downarrow a_N"] & \lF(a_1) \ar[d,"\alpha_{x_2}"]\\
@@ -3472,14 +3424,14 @@ A double functor $\lF \maps \lA \to \lX$ is \define{essentially surjective} if w
 \end{defn}
 
 \begin{defn}
-Two double functors $\lF \colon \lA \to \lX$ and $\mathbb{G} \colon \lX \to \lA$ form a \define{double equivalence} if there exist double natural transformations $\mathbb{G} \lF \cong 1_\lA$ and $\lF \mathbb{G} \cong 1_\lX$.
+Two double functors $\lF \colon \lD \to \lE$ and $\lG \colon \lE \to \lD$ form a \define{double equivalence} if there exist double natural transformations $\mathbb{G} \lF \cong 1_\lD$ and $\lF \mathbb{G} \cong 1_\lE$.
 \end{defn}
 
 Like equivalence of categories, equivalence of double categories has an alternative characterization:
 
-\begin{thm}{\cite[Thm.\ 7.8]{Shulman2010}}
+\begin{thm}{\cite[Thm.\ 7.8]{Shulman2008}}
 \label{ShulDubEquiv}
-A pseudo double functor $\lF \maps \lA \to \lX$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
+A pseudo double functor $\lF \maps \lD \to \lE$ is part of a double equivalence if and only if it is full, faithful and essentially surjective.
 \end{thm}
 
 Let $\Dbl$ denote the 2-category of double categories, double functors and double transformations. One can check that $\Dbl$ has finite products, and in any 2-category with finite products we can define a `pseudomonoid', which is a categorified analogue of a monoid \cite{DS}. For example, a pseudomonoid in $\Cat$ is a monoidal category.   We can also define symmetric pseudomonoids, which in $\Cat$ are symmetric monoidal categories.
@@ -3499,7 +3451,6 @@ that is, invertible globular 2-morphisms
 \[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} U_A \otimes U_B\]
 obeying a list of equations that can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
 \end{itemize}
-
 
 \begin{defn}
 \label{defn:symmetric_monoidal_double_category}
@@ -3544,16 +3495,16 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 
 
 \begin{defn}\label{defn:monoidal_double_functor}
-Given symmetric monoidal double categories $\lA$ and $\lX$, a \define{symmetric monoidal double functor} $\lF \colon \lA \to \lX$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lX \to \lF \circ 1_\lA$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
+Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \colon \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lE \to \lF \circ 1_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
 \noindent
 Unpacking this definition one obtains a number of diagrams that can be found after \cite[Definition 2.4]{HS}.
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
-CLAIM: $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \maps \lA \to \lX$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lA$ and $\lX$ are equivalent as symmetric monoidal double categories.
+CLAIM: $\lD$ and $\lE$ be symmetric monoidal double categories and let $\lF \maps \lD \to \lE$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lD$ and $\lE$ are equivalent as symmetric monoidal double categories.
 
 \begin{defn}\label{def:companion}
-  Let $\lA$ be a double category and $f\maps A\to B$ a vertical
+  Let $\lD$ be a double category and $f\maps A\to B$ a vertical
   1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
   $\fhat\maps A\to B$ together with 2-morphisms
 	\[
@@ -3720,26 +3671,22 @@ CLAIM: $\lA$ and $\lX$ be symmetric monoidal double categories and let $\lF \map
 	}
 	\end{equation}
   A \textbf{conjoint} of $f$, denoted $\fchk \maps B\to A$, is a
-  companion of $f$ in the double category $\lA^{h\cdot\mathrm{op}}$
+  companion of $f$ in the double category 
   obtained by reversing the horizontal 1-cells, but not the vertical
-  1-morphisms, of $\lA$.
+  1-morphisms, of $\lD$.
 \end{defn}
 \noindent
-%In a pseudo double category, the second equation above requires an insertion of unit isomorphisms to make sense due to horizontal composition only holding up to isomorphism.
 
 \begin{defn}
 \label{defn:fibrant}
 We say that a double category is \textbf{fibrant} if every vertical
-1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
+1-morphism has both a companion and a conjoint.  
 \end{defn}
 
-
-\begin{thm}{\cite[Theorem 1.2]{Shulman2010}}
+\begin{thm}{\cite[Theorem 1.1]{HS}}
 \label{Shulhorizontalbicat}
 If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $\bD$ is a monoidal bicategory. If $\lD$ is braided or symmetric, then so is $\bD$. 
 \end{thm}
-
-
 
 \section{} \label{eq:proofofaxiom}
 
@@ -3758,7 +3705,7 @@ All relevant structure for decorated cospans is as described in \cref{thm:decora
 (C) edge node[above]{$\beta \odot \beta$} (D);
 \end{tikzpicture}
 \]
-{\chris Chai's in the definition of a monoidal double category have a different direction. Since it is an isomorphism it doesn't really change anything, but consider changing to keep them right}
+{\chris $\chi$'s in the definition of a monoidal double category have a different direction. Since it is an isomorphism it doesn't really change anything, but consider changing to keep them right}
 First of all, if we only consider the underlying cospans without their decorations, we obtain the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide:
 \[
 		\begin{tikzpicture}
