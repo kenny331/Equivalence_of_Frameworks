@@ -296,7 +296,7 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
 
 The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospans maps is 
-\begin{displaymath}
+\begin{equation}\label{eq:verticalcompo}
  \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"h"] & b\ar[l,"o"']\ar[d,"g"]  & x\in F(m) \\
 a'\ar[r,"{i'}"]\ar[d,"{f'}"'] & m'\ar[d,"{h'}"] & b'\ar[l,"{o'}"']\ar[d,"{g'}"] & x'\in F(m') \\
@@ -307,7 +307,7 @@ a\ar[r,"i"]\ar[dd,"{f'f}"'] & m\ar[dd,"{h'h}"] & b\ar[l,"o"']\ar[dd,"{g'g}"]  & 
 \hole \\
 a''\ar[r,"{i''}"] & m'' & b''\ar[l,"{o''}"'] & x''\in F(m'')  
  \end{tikzcd}
-\end{displaymath}
+\end{equation}
 where if $\tau \colon F(h)(x) \to x'$ and $\tau' \colon F(h')(x') \to x''$ are the decoration morphisms, 
 $$F(h'h)(x)\cong F(h')F(h)(x)\xrightarrow{F(h')(\tau)}F(h')(x')\xrightarrow{\tau'}x''$$ is the decoration of the composite.
 The source and target functors map an $F$-decorated cospan to the source and target of the cospan and a map of decorated cospans \cref{eq:mapofdec} to $f$ and $g$ respectively. The unit functor maps an object $a$ to 
@@ -403,7 +403,7 @@ where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to t
 \end{tikzpicture}
 \]
 their composite $\beta\odot \alpha$ is horizontal cospan composition in $\A$
-\[
+\begin{equation}\label{eq:horizontalcompo}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a'$};
@@ -422,7 +422,7 @@ their composite $\beta\odot \alpha$ is horizontal cospan composition in $\A$
 (C') edge node [above]{} (D)
 (B) edge node [left] {$h_1 +_g h_2$} (D);
 \end{tikzpicture}
-\]
+\end{equation}
 together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_g h_2)(y \odot x) \to (y' \odot x')$ given by the diagram:
 \[
 \begin{tikzpicture}[scale=1.7]
@@ -2317,7 +2317,10 @@ familiar---and of course, \emph{categories} are even more so!   Luckily, all our
 phrased in the language of double categories have analogues for bicategories and categories.  
 We explain those here.
 
-As noted for example by Shulman \cite{Shulman2010}, any double category $\lX$ has a 
+As noted for example by Shulman \cite{Shulman2010},
+%%%Christina: this should be a much older, very well-known fact. I suggest for removal of reference completely (given that we describe this thing from scratch) or instead insert a much older reference than that.
+any double category $\lX$ has a 
+{\chris How come we changed from D to X as our basic letter for double cats?}
 \define{horizontal bicategory}, denoted $\bX$, in which:
 \begin{itemize}
 \item objects are objects of $\lX$,
@@ -2334,7 +2337,7 @@ The bicategory $\bX$ has a \define{decategorification}, a category $\X$ in which
 \end{itemize}
 Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory $F\bCsp$, and a category $F\Csp$.   In \cref{DC} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
 
-A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}.   Shulman \cite[Thm.\ 1.2]{Shulman2010} proved that when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.    We can apply this to decorated cospans as follows:
+A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}. Shulman (\cref{Shulhorizontalbicat}) proved that when a double category $\lX$ is fibrant, any symmetrical monoidal structure on $\lX$ gives one on $\bX$.    We can apply this to decorated cospans as follows:
 
 \begin{lem}
 The double category $F\lCsp$ is fibrant.
@@ -2342,18 +2345,21 @@ The double category $F\lCsp$ is fibrant.
 
 \begin{proof}
 We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  This horizontal 1-cell $\hat{f}$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$b$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$\bot_{b} \in F(b)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$f$} (B)
-(C) edge node[above]{$1$} (B);
-\end{tikzpicture}
-\]
-is a companion of $f$ because the following two 2-morphisms, having $\hat{f}$ as
+\begin{displaymath}
+ a\xrightarrow{f}b\xleftarrow{1}b,\quad \bot_{b} \in F(b)
+\end{displaymath}
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$a$};
+%\node (B) at (1,0) {$b$};
+%\node (C) at (2,0) {$b$};
+%\node (D) at (1,-0.5) {$\bot_{b} \in F(b)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$f$} (B)
+%(C) edge node[above]{$1$} (B);
+%\end{tikzpicture}
+%\]
+where $\bot_b$ is the trivial decoration as in \cref{eq:UFCsp}, is a companion of $f$ because the following two 2-morphisms, having $\hat{f}$ as
 source and target:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -2392,7 +2398,8 @@ source and target:
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
-satisfy the equations required of a companion:
+{\chris The decoration morphisms should be both isomorphisms due to pseudofunctoriality of F...}
+satisfy the equations required of a companion \cref{eq:CompanionEq}, using vertical \cref{eq:verticalcompo} and horizontal \cref{eq:horizontalcompo} composition of 2-cells in this double category:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (N) at (0,1.5) {$a$};
@@ -2493,17 +2500,20 @@ satisfy the equations required of a companion:
 \end{tikzpicture}
 \]
 and right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$b$};
-\node (B) at (1,0) {$b$};
-\node (C) at (2,0) {$a$};
-\node (D) at (4,0) {$\bot_{b} \in F(b)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$1$} (B)
-(C) edge node[above]{$f$} (B);
-\end{tikzpicture}
-\]
+\begin{displaymath}
+ b\xrightarrow{1}b\xleftarrow{f}b,\quad \bot_{b} \in F(b)
+\end{displaymath}
+%\[
+%\begin{tikzpicture}[scale=1.5]
+%\node (A) at (0,0) {$b$};
+%\node (B) at (1,0) {$b$};
+%\node (C) at (2,0) {$a$};
+%\node (D) at (4,0) {$\bot_{b} \in F(b)$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(A) edge node[above]{$1$} (B)
+%(C) edge node[above]{$f$} (B);
+%\end{tikzpicture}
+%\]
 Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint.
 \end{proof}
 
@@ -2612,7 +2622,6 @@ and of symmetric monoidal categories
 that an equivalence of symmetric monoidal double categories $\lX \simeq \lY$ gives an equivalence of symmetric monoidal bicategories $\bX \simeq \bY$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the equivalence of symmetric monoidal bicategories $\bX \simeq \bY$ in turn induces an equivalence of symmetric monoidal categories $\X \simeq \Y$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
 
 CHECK THAT OUR SORT OF EQUIVALENCE OF SYMMETRIC MONOIDAL DOUBLE CATEGORIES IS REALLY THAT USED BY HANSEN AND SHULMAN!!!
-{\chris In the proof above, we probably need isomorphism. Does it follow?}
 
 %Let $F \maps \A \to \Cat$ be a symmetric lax monoidal pseudofunctor. Then by Theorem \cref{DC} of the previous section, we get a symmetric monoidal double category $F\lCsp$. This symmetric monoidal double category has:
 %\begin{enumerate}
@@ -3724,7 +3733,12 @@ We say that a double category is \textbf{fibrant} if every vertical
 1-morphism has both a companion and a conjoint.  % and \define{isofibrant} if every vertical 1-isomorphism has both a companion and a conjoint.
 \end{defn}
 
-{\chris Shouldn't we give Shulman's result that the horizontal bicategory of a symmetric monoidal double category is symmetric monoidal?}
+
+\begin{thm}{\cite[Theorem 1.2]{Shulman2010}}
+\label{Shulhorizontalbicat}
+If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $\bD$ is a monoidal bicategory. If $\lD$ is braided or symmetric, then so is $\bD$. 
+\end{thm}
+
 
 
 \section{} \label{eq:proofofaxiom}
