@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/1
+% 2020/12/2
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -17,7 +17,7 @@
 \begin{document}
 
 \begin{abstract}
-One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, reaction networks and dynamical systems.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, chemistry and dynamical systems.
 \end{abstract}
 
 \maketitle
@@ -134,7 +134,7 @@ Unfortunately, many applications of decorated cospans were flawed.  The problem 
 }
 \]
 We might hope to do this using a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$ assigning to each finite set $m$ the set of all graphs with $m$ as their set of nodes. But this hope is doomed, for reasons painstakingly explained in \cite[Sec.\ 5]{BC2}. 
-There is really a \emph{category} of graphs with $m$ as their set of nodes, and trying to treat it as a mere set does not work.
+There is really a \emph{category} of graphs with $m$ as their set of nodes---and surprisingly, trying to treat this category as a mere set does not work, despite all the tricks one might try.
 
 Here we present a solution to this problem.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans,DC}, we use this
 data to construct a symmetric monoidal double category $F\lCsp$ in which:
@@ -224,36 +224,28 @@ This is another way of letting the apex have more structure than the feet.   Whe
 \end{tikzpicture}
 \]
 \end{itemize}
-Many of the flawed applications of decorated cospans have been fixed using structured cospans
-\cite[Sec.\ 6]{BC2}.
+Many of the flawed applications of decorated cospans have been fixed using structured cospans \cite[Sec.\ 6]{BC2}, but not all decorated cospans can handled using structured cospans.
 
-We show that our new solution subsumes the old one: structured cospan double categories are always equivalent to decorated cospan double categories.  (REALLY????)   %%%Christina: Not sure what this refers to. The paragraph below is more to the point. If this is supposed to provide the opposite direction, I would expect that to also hold under certain assumptions, similar to the ones below.
-
-We also give sufficient conditions for a decorated cospan double category to be equivalent to a structured cospan double category. 
-Suppose $\A$ has finite colimits and $F \maps (\A , +) \to (\Cat, \times)$ is a 
-symmetric lax monoidal pseudofunctor.   Any such pseudofunctor gives an opfibration 
-$U \maps \X \to \A$ where $\X = \inta F$ is defined by the Grothendieck construction.
-Let $\Rex$ be the 2-category of finitely cocomplete categories, finite-colimit-preserving
-functors and natural transformations.  We show that if $F$ factors through $\mathbf{Rex}$ as
-a pseudofunctor, the opfibration $U \maps \X \to \A$ is also a right adjoint.  From the accompanying left adjoint $L \maps \A \to \X$, we  construct a symmetric monoidal double category ${}_L \lCsp(\X)$ of structured cospans.  Finally, in \cref{thm:equiv} we prove that this structured cospan double category ${}_L \lCsp(\X)$ is equivalent to the decorated cospan double category $F \lCsp$. 
+Here we give sufficient conditions for a decorated cospan double category to be equivalent to a structured cospan double category.  Suppose $\A$ has finite colimits and $F \maps (\A , +) \to (\Cat, \times)$ is a symmetric lax monoidal pseudofunctor.   Any such pseudofunctor gives an opfibration $U \maps \X \to \A$ where $\X = \inta F$ is defined by the Grothendieck construction.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  We show that if $F$ factors through $\mathbf{Rex}$ as a pseudofunctor, the opfibration $U \maps \X \to \A$ is also a right adjoint.  From the accompanying left adjoint $L \maps \A \to \X$, we  construct a symmetric monoidal double category ${}_L \lCsp(\X)$ of structured cospans.  Finally, in \cref{thm:equiv} we prove that this structured cospan double category ${}_L \lCsp(\X)$ is equivalent to the decorated cospan double category $F \lCsp$. 
 
 \subsection*{Outline}
 
-In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are equivalent under suitable conditions. In \cref{spinoffs}, we establish the equivalence between structured and decorated cospans on the horizontal bicategory and the ordinary category level (via decategorification).
-Finally, in \cref{Applications}, we present a few examples that can be realized with either framework and discuss the realized equivalences.
+In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are equivalent under suitable conditions. In \cref{spinoffs}, we establish the equivalence between structured and decorated cospans at the level of bicategories and categories (via decategorification).
+Finally, in \cref{Applications}, we describe applications to electrical circuits, Petri nets, chemistry and dynamical systems.
 
 \subsection*{Conventions}
 
-In this paper, we use sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in our double categories is strictly associative, while horizontal composition need not be. 
+In this paper, we use a sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in our double categories is strictly associative, while horizontal composition need not be. 
 
 \subsection*{Acknowledgements}
-Daniel Cicala, Brendan Fong...
 
-
+We thank Daniel Cicala, Brendan Fong, and Joe Moeller for helpful conversations.
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build the symmetric monoidal double category $F \lCsp$ mentioned in the introduction, and then study the functoriality of this construction. The definition of a lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the definition of a double category is recalled in \cref{defn:double_category}.
+In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction. The definition of a lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the definition of a double category is recalled in \cref{defn:double_category}.  
+
+In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.
 
 \begin{thm}\label{thm:decorated_cospans}
 Let $\A$ be a category with finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
@@ -553,7 +545,7 @@ together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \o
 where $a$ is the associator of $\Cat$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \end{proof}
 
-The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the formed double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is. The definitions of (symmetric) monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
+The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is.  Monoidal and symmetric monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
 
 \begin{thm}\label{DC}
 Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+) \to (\Cat,\times)$ a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
@@ -1022,7 +1014,7 @@ The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\
 \end{tikzpicture}
 \]
 together with the decoration isomorphism $\tau_{a,b} \maps \bot_{a+b} \xrightarrow{\sim} \bot_a + \bot_b$ given by the unique map between the two initial objects $\bot_{a+b}$ and $\bot_a + \bot_b$ in $F(a+b)$. 
-%%%Christina: we do not have any such information at this point! We have not talked about the categories F(a) being cocomplete, and it's not deduced from the assumptions. We will show this is the case much later!
+%%%Christina: we do not have any such information at this point! We have not talked about the categories F(a) having finite colimits, and it's not deduced from the assumptions. We will show this is the case much later!
 For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -1147,17 +1139,13 @@ together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\
 where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
 \end{comment}
 
-It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied. The details can be found in \cite[Theorem 4.1.3]{CourserThesis}, but in order to give the reader a sense of what these checks entail, we provide an explicit proof of the fact that the braiding is a transformation of double categories, i.e. establish the commutativity of the left-hand side diagram \cref{eq:braidingaxiom}, in \cref{eq:proofofaxiom} so as to not interrupt the main narrative.
+It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied. The details can be found in \cite[Theorem 4.1.3]{CourserThesis}, but in order to give the reader a sense of what these checks entail, we provide an explicit proof of the fact that the braiding is a transformation of double categories in \cref{eq:proofofaxiom}.  \end{proof}
 
 %The remaining properties are coherence laws that make use of these maps $\chi$ and $\mu$, the previously defined symmetric monoidal structure maps $\alpha,\lambda,\rho$ and $\beta$ and the double category structure functors $U$ and $\odot$. We exhibit one of these laws to give the reader a sense of how they are verified, with more details available in the second author's thesis \cite{CourserThesis}.
-\end{proof}
 
-Our construction gives not only decorated cospan double categories, but maps betwen these as in \cref{def:doublefun}.
-Suppose we have two symmetric lax monoidal pseudofunctors, $F \maps \A \to \Cat$ and
-$F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan 
-double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
+Our construction gives not only decorated cospan double categories, but  also maps between these: that is, symmetric monoidal double functors, as in \cref{def:doublefun}. Suppose we have two categories $\A,A'$ with finite colimits and two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
-\item a finitely cocontinous functor $H \maps \A \to \A'$, 
+\item a functor $H \maps \A \to \A'$ that preserves finite limits.
 \item a symmetric lax monoidal pseudofunctor $(E,\phi,\phi_0) \maps \Cat \to \Cat$, 
 \item an isomorphism $\theta \maps EF \Rightarrow F'H$: {\chris is this natural or pseudonatural? It should be clarified.}
 \[
@@ -2012,7 +2000,7 @@ where $$F'(\ell)(d_{!_{1_\A'}} \otimes d_{\lH(M)})=F'(H(\ell')\kappa(\mu \otimes
 
 \begin{thm}
 \label{thm:functoriality}
-Given two finitely cocomplete categories $\A$ and $\A'$, two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a 2-isomorphism $\theta \maps EF \Rightarrow F' H$ as in the following diagram,
+Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a 2-isomorphism $\theta \maps EF \Rightarrow F' H$ as in the following diagram,
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
@@ -2054,8 +2042,7 @@ the triple $(H,E,\theta)$ induces a symmetric monoidal double functor $\lH \maps
 In \cite{BC2}, the first two authors introduce the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double isomorphism between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category of structured cospans.
 
 \begin{thm}\label{thm:SC}
-Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving
-finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
+Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -2107,7 +2094,7 @@ using that $L$ preserves coproducts.
 This was proved in \cite[Theorems~2.3 \& 3.9]{BC2}, where all the structures are specified in detail. In fact the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
 \end{proof}
 
-The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of finitely cocomplete categories, finitely cocontinuous functors and natural transformations.   (In \cite{BC} we took as objects finitely cocomplete categories with chosen finite colimits, just so we could turn these into symmetric monoidal categories without any further choices!!!  Should we do that here???) {\chris Can you tell if we can get away without doing that? Perhaps after you read up to before the proof?}
+The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\A \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\A,+)$.
 
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
@@ -2115,7 +2102,7 @@ Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a sym
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps\A\to\Cat$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps \A \to \Cat$ to its Grothendieck monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ where $\bicat{MonCat}$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations. In fact, all these correspondences lift to 2-equivalences.
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to its Grothendieck monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps\A\to\bicat{MonCat}$ where $\bicat{MonCat}$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations. In fact, all these correspondences lift to 2-equivalences.
 
 \begin{lem}\label{lem:MonGroth}
 There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into monoidal categories. 
@@ -2126,11 +2113,11 @@ This was shown by Moeller and the third author \cite[Theorems~3.13\&4.2]{MV}. In
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
 \Updownarrow \notag\\
-\textrm{monoidal opfibrations }U\maps(\X,\otimes)\to(\A,+) \notag\\
+\textrm{monoidal opfibrations }U\maps(\X,\otimes_\X)\to(\A,+) \notag\\
 \Updownarrow \notag\\
 \textrm{pseudofunctors } \tilde{F} \maps \A\to\bicat{MonCat} \notag
 \end{gather}
-The second equivalence was also earlier observed by Shulman \cite{Shulman2008}.
+The second equivalence was observed earlier by Shulman \cite{Shulman2008}.
 
 In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ (\cref{def:GrothCat}) is given by
 \begin{equation}\label{eq:explicitstructure2}
@@ -2144,7 +2131,7 @@ I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 where $\nabla$ is the fold map. 
 \end{proof}
 
-These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+)\to(\A,+)$ that (strictly) preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
+These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+)\to(\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
 Finally, we can further restrict to the setting of opfibrations that also preserve pushouts, and thus all finite colimits, thanks to the following more general result.
 
@@ -2153,15 +2140,16 @@ Suppose $\J$ is a small category and $U\maps\X\to\A$ is an opfibration. If the b
 the following are equivalent:
 \begin{enumerate}
  \item all fibres have $\J$-colimits, and the reindexing functors preserve them;
- \item the total category $\X$ has $\J$-colimits, and $U$ (strictly) preserves them.
+ \item the total category $\X$ has $\J$-colimits, and $U$ preserves them.
+Moreover in this situation the $\J$-colimits in $\X$ and $\J$ can be chosen so that $U$ strictly preserves them.   %%% CHECK AND MAYBE FIX THIS!!!
 \end{enumerate}
 \end{lem}
 
 \begin{proof}
-See \cite[Corollary~4.9]{Hermida1999} as well as \cite[Remark~4.11]{Hermida1999} for the non-necessary strictness condition.
+See \cite[Corollary~4.9]{Hermida1999}, and for the final statement \cite[Remark~4.11]{Hermida1999}.
 \end{proof}
 
-The first part formulates the existence of colimits \emph{locally} in each fibre, and if we let $\J$ range over all finite categories it says that the corresponding pseudofunctor $F\maps\A\to\Cat$ lands in the sub-2-category $\Rex$. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$, and if we let $\J$ range over all finite categories it says that $\X$ is finitely cocomplete and $U$ preserves all finite colimits. As an example, suppose that $\A$ has pushouts and a Grothendieck opfibration $U\colon\inta F\to\A$ has fibrewise pushouts preserved by its reindexing functors. We can construct pushouts in $\inta F$ as follows: 
+The first part formulates the existence of colimits \emph{locally} in each fibre, and if we let $\J$ range over all finite categories it says that the corresponding pseudofunctor $F\maps\A\to\Cat$ lands in the sub-2-category $\Rex$. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$, and if we let $\J$ range over all finite categories it says that $\X$ has finite colimits and $U$ preserves all finite colimits. As an example, suppose that $\A$ has pushouts and a Grothendieck opfibration $U\colon\inta F\to\A$ has fibrewise pushouts preserved by its reindexing functors. We can construct pushouts in $\inta F$ as follows: 
 \begin{equation}\label{eq:globalpushout}
  \begin{tikzcd}[ampersand replacement=\&,column sep=1in,row sep=.5in]
 \& (a+_bc,w)\ar[dd,phantom, very near start,"\upback"description] \& \\
@@ -2192,7 +2180,7 @@ where $\iota_a:a\to a+b\leftarrow b:\iota_b$ are the sum inclusions in $\A$ and 
 In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. %Christina: I suspect that's why for composition we get isomorphism below - using pushouts in which I cannot use the monoidal structure of the functor - whereas for coproducts and initial object we get equality since they were constructed in a very specific way. Related to the subtlety comment below.
 
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ is a finitely cocomplete category and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them. 
+ Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.   STRICTLY???  %%%!!!
 \end{cor}
 
 Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibres which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibres, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category from the fibrewise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
@@ -2238,13 +2226,13 @@ We now have all the necessary background to formally construct an isomorphism be
 \begin{proof}[Proof of \cref{thm:equiv}]
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
 
-By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a finitely cocomplete $\inta F$ such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits. Moreover, by \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
+By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits. Moreover, by \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
 \begin{displaymath}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{displaymath}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the finitely cocomplete fibre $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %Christina: If each adjoint picks one isomorphic initial object, can we choose the one with that choice? Well they are all isomorphic and that could help with the monoidal structure later...
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fibre $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %Christina: If each adjoint picks one isomorphic initial object, can we choose the one with that choice? Well they are all isomorphic and that could help with the monoidal structure later...
 
-As a left adjoint, this induced $L$ preserves all colimits that exist between the finitely cocomplete categories $\A$ and $\inta F$, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (same as for $F\lCsp$), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
+As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (same as for $F\lCsp$), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{\(\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}\)}}(m,x)\xleftarrow{\scalebox{0.7}{\(\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}\)}}(b,\bot_b)
 \end{equation}
@@ -2262,7 +2250,7 @@ Explicitly, the above square commutativities translate to the conditions $k\circ
  F(k\circ i)(\bot_a)\cong Fk(Fi(\bot_a))\xrightarrow{Fk(!)}Fk(x)\xrightarrow{\tau}x'= \\
  F(i'\circ f)(\bot_a)\cong Fi'(Ff(\bot_a))\xrightarrow{Fi'(\chi_a)}Fi'(\bot_{a'})\xrightarrow{!}x'\nonumber
 \end{gather}
-in the fibre category $F(m')$, by composition in the Grothendieck category \cref{eq:compGrothcat}. Since both morphisms emanate from the mapped initial object in $F(m')$ under the finitely cocontinuous reindexing functors, they are the unique such into $x'$ therefore this gives no extra conditions; similarly for the equality including $o,o'$.
+in the fibre category $F(m')$, by composition in the Grothendieck category \cref{eq:compGrothcat}. Since both morphisms emanate from the mapped initial object in $F(m')$ under the finite-colimit-preserving reindexing functors, they are the unique such into $x'$ therefore this gives no extra conditions; similarly for the equality including $o,o'$.
 
 Building up to an isomorphism of the above described double categories, we now define a double functor
 \begin{displaymath}
@@ -2838,7 +2826,7 @@ In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this exa
 
 We can make $F$ into a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
 \[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps F(\emptyset) \to 1 \in \Cat. \]  
-The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor---for example, composition is strictly preserved---this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, since it obeys the required laws only up to natural isomorphism, as in Equation \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact necessitates a generalization of Fong's original approach to decorated cospans.
+The functor $\phi_0$ is uniquely determined since $1$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor---for example, composition is strictly preserved---this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
 
 It is well known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
 
@@ -3318,7 +3306,9 @@ I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
 \end{equation}
-subject to coherence conditions. In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms (natural in $f,g$)
+subject to coherence conditions. 
+%%% Give reference describing these conditions!!!
+In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms (natural in $f,g$)
 \begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
  Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\cong"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
@@ -3735,8 +3725,10 @@ We say that a double category is \textbf{fibrant} if every vertical
 
 {\chris Shouldn't we give Shulman's result that the horizontal bicategory of a symmetric monoidal double category is symmetric monoidal?}
 
-\subsection{Coherence law for \cref{DC}}\label{eq:proofofaxiom}
 
+\section{} \label{eq:proofofaxiom}
+
+Here we show a sample check of a coherence law for the proof of \cref{DC}.
 All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
