@@ -239,7 +239,7 @@ In this paper, we use a sans-serif font like $\C$ for categories, boldface like 
 
 \subsection*{Acknowledgements}
 
-We thank Daniel Cicala, Brendan Fong, and Joe Moeller for helpful conversations.
+We thank Daniel Cicala, Brendan Fong, and Joe Moeller for helpful conversations. The third author would  like  to  thank  the  General  Secretariat  for  Research  and Technology (GSRT) and the Hellenic Foundation for Research and Innovation (HFRI).
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
@@ -338,7 +338,7 @@ where $\bot_a \in F(a)$ is called the \define{trivial decoration}, and a vertica
 \end{tikzpicture}
 \]
 together with the decoration morphism $F(f)F(!_a)\phi_0(*)\cong F(!_{a'})\phi_0(*)$.
-Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-decorated cospans $\left(a\to m\leftarrow b,x\in F(m)\right)$ and $\left(b\to n\leftarrow c,y\in F(n)\right)$ to their pushout in $\A$ over their shared foot
+Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-decorated cospans $M=\left(a\to m\leftarrow b,x\in F(m)\right),N=\left(b\to n\leftarrow c,y\in F(n)\right)$ to $N\odot M$, which as a cospan is their pushout in $\A$ over their shared foot
 \begin{equation}\label{eq:dcospanscomposition}
 \begin{tikzpicture}[scale=1.2,baseline=(current bounding box.center)]
 \node (A) at (0,0) {$a$};
@@ -362,8 +362,8 @@ Finally, the (horizontal) composition functor $\odot$ maps two composable $F$-de
 (E) edge[dashed,bend right] node [right] {} (G);
 \end{tikzpicture}
 \end{equation}
-with decoration
-$$x\odot y:= \one\cong\one \times \one \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
+equipped with the decoration
+$$y\odot x:= \one\cong\one \times \one \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n)$$
 where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to the pushout and $\phi_{m,n} \maps F(m) \times F(n) \to F(m+n)$ are the lax monoidal structure maps of $F$. Moreover, given two horizontally composable maps of $F$-decorated cospans $\alpha$ and $\beta$ 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -402,7 +402,7 @@ where $\psi \maps m + n \to m+_{b} n$ is the natural map from the coproduct to t
 (I') edge node [above] {$o_2'$} (H');
 \end{tikzpicture}
 \]
-their composite $\alpha \odot \beta$ is horizontal cospan composition in $\A$
+their composite $\beta\odot \alpha$ is horizontal cospan composition in $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -423,7 +423,7 @@ their composite $\alpha \odot \beta$ is horizontal cospan composition in $\A$
 (B) edge node [left] {$h_1 +_g h_2$} (D);
 \end{tikzpicture}
 \]
-together with the decoration morphism $\tau_{\alpha \odot \beta} \colon F(h_1 +_g h_2)(x \odot y) \to (x' \odot y')$ given by the diagram:
+together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_g h_2)(y \odot x) \to (y' \odot x')$ given by the diagram:
 \[
 \begin{tikzpicture}[scale=1.7]
 \node (A) at (4.75,0) {$\scriptstyle\Downarrow \tau_\alpha \times \tau_\beta$};
@@ -476,7 +476,7 @@ is formed as follows: for three composable horizontal 1-cells $M_1=(a\to m_1\lef
 %(K) edge node[above]{$o''$} (J);
 %\end{tikzpicture}
 %\]
-the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the isomorphism of cospans 
+the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the isomorphism of cospans 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -485,8 +485,8 @@ the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the is
 \node (C) at (3,0.5) {$d$};
 \node (C') at (3,-0.5) {$d$};
 \node (D) at (1.5,-0.5) {$m_1+_{b}(m_2 +_{c} m_3)$};
-\node (E) at (5.5,0.5) {$(x_1 \odot x_2) \odot x_3 \in F((m_1+_{b} m_2)+_{c} m_3)$};
-\node (F) at (5.5,-0.5) {$x_1 \odot (x_2 \odot x_3) \in F(m_1+_{b} (m_2 +_{c} m_3))$};
+\node (E) at (5.5,0.5) {$(x_3 \odot x_2) \odot x_1 \in F((m_1+_{b} m_2)+_{c} m_3)$};
+\node (F) at (5.5,-0.5) {$x_3 \odot (x_2 \odot x_1) \in F(m_1+_{b} (m_2 +_{c} m_3))$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
@@ -497,7 +497,7 @@ the isomorphism $(M_1\odot M_2)\odot M_3\cong M_1\odot (M_2\odot M_3)$ is the is
 (B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
 \end{tikzpicture}
 \]
-together with an isomorphism $F(\kappa)((x_1 \odot x_2) \odot x_3) \cong (x_1 \odot (x_2 \odot x_3))$ between the decorations 
+together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \odot (x_2 \odot x_1))$ between the decorations 
 %\begin{align*}
 %\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times %F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)$}&\scalebox{.8}{$\to F((m_1+_bm_2)+_cm_3)$} \\
 %&\scalebox{.8}{$\stackrel{F(\alpha)}{\cong} F(m_1+_b(m_2+_cm_3))$} \\
@@ -2094,11 +2094,12 @@ using that $L$ preserves coproducts.
 This was proved in \cite[Theorems~2.3 \& 3.9]{BC2}, where all the structures are specified in detail. In fact the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
 \end{proof}
 
-The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\A \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\A,+)$.
+The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\A \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\A,+)$. 
 
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
+%%% Christina: note to self, now our functor factors through that specific Rex means that each category F(a) which later becomes the fibre comes with a specific choice of colimits. We do not know what this choice is, but of course such colimits in the fibres will be isomorphic to any other we may stumble upon!
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
@@ -2265,8 +2266,8 @@ a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
 \end{tikzcd}
 \end{displaymath}
 in $\A$ along with the map $\tau\maps Fk(x)\to x'$ in $F(m')$ coming from the middle arrow above, namely an $F$-decorated cospan 2-morphism. 
-With these definitions, $\lE$ is indeed a double functor as in \cref{def:doublefun}: both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets, and there exist globular 2-isomorphisms $\lE(M) \odot \lE(N) \simrightarrow\lE(M \odot N)$, $U_{\lE m} \simrightarrow\lE(U_m)$
-for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $_L\lCsp(\inta F)$. Explicitly, $\mathbb{E}(M)\odot \mathbb{E}(N)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
+With these definitions, $\lE$ is indeed a double functor as in \cref{def:doublefun}: both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets, and there exist globular 2-isomorphisms $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$, $U_{\lE m} \simrightarrow\lE(U_m)$
+for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $_L\lCsp(\inta F)$. Explicitly, $\mathbb{E}(N)\odot \mathbb{E}(M)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
 \begin{equation}\label{eq:1}
  \begin{tikzcd}
   & m+_bn & \\
@@ -3411,7 +3412,7 @@ We call $M$ and $N$ the \define{horizontal source and target} of $a$ respectivel
 Given double categories $\lA$ and $\lX$, a \define{double functor} $\lF \colon\lA \to \lX$ consists of:
 \begin{itemize}
 \item{functors $\lF_0 \colon \lA_0 \to \lX_0$ and $\lF_1 \colon \lA_1 \to \lX_1$ such that $S \lF_1 = \lF_0 S$ and $T \lF_1 = \lF_0 T$, and}
-\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(M) \odot \lF(N) \to \lF(M \odot N)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy coherence axioms analogous to those of a monoidal functor.}
+\item{for every composable pair of horizontal 1-cells $M$ and $N$ in $\lA$, a natural transformation $\phi_{M,N} \colon \lF(N) \odot \lF(M) \to \lF(N \odot M)$ called the \define{composite comparison} and for every object $a$ in $\lA$, a natural transformation $\phi_a \colon U_{\lF_0(a)} \to \lF_1(U_a)$ called the \define{unit comparison}. The components of each of these natural transformations are globular isomorphisms which satisfy coherence axioms analogous to those of a monoidal functor.}
 \end{itemize}
 \end{defn}
 
@@ -3484,8 +3485,8 @@ Explicitly, a monoidal double category is a double category $\lD$ with:
 \item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is\footnote{\chris In reality, just isomorphic is OK!} the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
-\[ \chi \maps (M_1\otimes N_1)\odot (M_2\otimes N_2) \xrightarrow{\sim}
-(M_1\odot M_2)\otimes (N_1\odot N_2)\]
+\[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \xrightarrow{\sim}
+(M_2\odot M_1)\otimes (N_2\odot N_1)\]
 \[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} U_A \otimes U_B\]
 obeying a list of equations that can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
 \end{itemize}
@@ -3503,10 +3504,10 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 		\item The following diagrams commute, expressing that the braiding is a transformation of double categories:
 		\begin{equation}
 		\begin{tikzpicture}\label{eq:braidingaxiom}
-			\node (A) at (0,1.5) {\footnotesize{$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$}};
-			\node (A') at (0,0) {\footnotesize{$(M_1\otimes N_1) \odot (M_2\otimes N_2)$}};
-			\node (B) at (5,1.5) {\footnotesize{$(N_1\odot N_2) \otimes (M_1 \odot M_2)$}};
-			\node (B') at (5,0) {\footnotesize{$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$}};
+			\node (A) at (0,1.5) {\footnotesize{$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$}};
+			\node (A') at (0,0) {\footnotesize{$ (M_2\otimes N_2)\odot (M_1\otimes N_1)$}};
+			\node (B) at (5,1.5) {\footnotesize{$(N_2\odot N_1) \otimes (M_2\odot M_1)$}};
+			\node (B') at (5,0) {\footnotesize{$ (N_2 \otimes M_2)\odot (N_1 \otimes M_1)$}};
 			%
 			\path[->,font=\scriptsize]
 				(A) edge node[left]{$\chi$} (A')
@@ -3732,10 +3733,10 @@ Here we show a sample check of a coherence law for the proof of \cref{DC}.
 All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(M_1 \odot M_2) \otimes (N_1 \odot N_2)$};
-\node (B) at (3,0) {$(N_1 \odot N_2) \otimes (M_1 \odot M_2)$};
-\node (C) at (0,-.75) {$(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$};
-\node (D) at (3,-.75) {$(N_1 \otimes M_1) \odot (N_2 \otimes M_2)$};
+\node (A) at (0,0) {$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$};
+\node (B) at (3,0) {$(N_2 \odot N_1) \otimes (M_2 \odot M_1)$};
+\node (C) at (0,-.75) {$(M_2 \otimes N_2) \odot (M_1 \otimes N_1)$};
+\node (D) at (3,-.75) {$(N_2 \otimes M_2) \odot (N_1 \otimes M_1)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\beta$} (B)
 (B) edge node[right]{$\chi$} (D)
@@ -3743,6 +3744,7 @@ All relevant structure for decorated cospans is as described in \cref{thm:decora
 (C) edge node[above]{$\beta \odot \beta$} (D);
 \end{tikzpicture}
 \]
+{\chris Chai's in the definition of a monoidal double category have a different direction. Since it is an isomorphism it doesn't really change anything, but consider changing to keep them right}
 First of all, if we only consider the underlying cospans without their decorations, we obtain the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide:
 \[
 		\begin{tikzpicture}
