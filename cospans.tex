@@ -3491,16 +3491,16 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 		\item The following diagrams commute, expressing that the braiding is a transformation of double categories:
 		\begin{equation}
 		\begin{tikzpicture}\label{eq:braidingaxiom}
-			\node (A) at (0,1.5) {\footnotesize{$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$}};
-			\node (A') at (0,0) {\footnotesize{$ (M_2\otimes N_2)\odot (M_1\otimes N_1)$}};
-			\node (B) at (5,1.5) {\footnotesize{$(N_2\odot N_1) \otimes (M_2\odot M_1)$}};
-			\node (B') at (5,0) {\footnotesize{$ (N_2 \otimes M_2)\odot (N_1 \otimes M_1)$}};
+			\node (A) at (0,1.5) {\footnotesize{$ (M_2\otimes N_2)\odot (M_1\otimes N_1)$}};
+			\node (A') at (0,0) {\footnotesize{$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$}};
+			\node (B) at (5,1.5) {\footnotesize{$ (N_2 \otimes M_2)\odot (N_1 \otimes M_1)$}};
+			\node (B') at (5,0) {\footnotesize{$(N_2\odot N_1) \otimes (M_2\odot M_1)$}};
 			%
 			\path[->,font=\scriptsize]
 				(A) edge node[left]{$\chi$} (A')
-				(A) edge node[above]{$\beta$} (B)
+				(A) edge node[above]{$\beta \odot \beta$} (B)
 				(B) edge node[right]{$\chi$} (B')
-				(A') edge node[above]{$\beta \odot \beta$} (B');
+				(A') edge node[above]{$\beta$} (B');
 		\end{tikzpicture}
 		%
 		\quad
@@ -3721,15 +3721,15 @@ Here we show a sample check of a coherence law for the proof of \cref{DC}.
 All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$};
-\node (B) at (3,0) {$(N_2 \odot N_1) \otimes (M_2 \odot M_1)$};
-\node (C) at (0,-.75) {$(M_2 \otimes N_2) \odot (M_1 \otimes N_1)$};
-\node (D) at (3,-.75) {$(N_2 \otimes M_2) \odot (N_1 \otimes M_1)$};
+\node (A) at (0,0) {$(M_2 \otimes N_2) \odot (M_1 \otimes N_1)$};
+\node (B) at (3,0) {$(N_2 \otimes M_2) \odot (N_1 \otimes M_1)$};
+\node (C) at (0,-.75) {$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$};
+\node (D) at (3,-.75) {$(N_2 \odot N_1) \otimes (M_2 \odot M_1)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\beta$} (B)
+(A) edge node[above]{$\beta \odot \beta$} (B)
 (B) edge node[right]{$\chi$} (D)
 (A) edge node[left]{$\chi$} (C)
-(C) edge node[above]{$\beta \odot \beta$} (D);
+(C) edge node[above]{$\beta$} (D);
 \end{tikzpicture}
 \]
 {\chris $\chi$'s in the definition of a monoidal double category have a different direction. Since it is an isomorphism it doesn't really change anything, but consider changing to keep them right}
@@ -3737,19 +3737,19 @@ First of all, if we only consider the underlying cospans without their decoratio
 \[
 		\begin{tikzpicture}
 			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
 			\node (c) at (6,0) {$c+c'$};
 			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
 			\node (c2) at (6,1) {$c'+c$};
             \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
 			\node (c3) at (6,2) {$c'+c$};
             \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
 			\node (c5) at (6,-1) {$c+c'$};
             \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
 			\node (c6) at (6,-2) {$c'+c$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
@@ -3757,7 +3757,7 @@ First of all, if we only consider the underlying cospans without their decoratio
             (a2) edge node[above]{$$} (b2)
 			(c2) edge node[above]{$$} (b2)
             (a) edge node[left]{$\beta$} (a2)
-            (b) edge node[left]{$\beta$} (b2)
+            (b) edge node[left]{$\beta \odot \beta$} (b2)
 %(b) edge node[right]{$\tau_1$} (b2)
 			(c) edge node[right]{$\beta$} (c2)
             (a3) edge node[above]{$$} (b3)
@@ -3775,7 +3775,7 @@ First of all, if we only consider the underlying cospans without their decoratio
             (a6) edge node[above]{$$} (b6)
 			(c6) edge node[above]{$$} (b6)
             (a5) edge node[left]{$\beta$} (a6)
-            (b5) edge node[left]{$\beta \odot \beta$} (b6)
+            (b5) edge node[left]{$\beta$} (b6)
  %(b5) edge node[right]{$\tau_5$} (b6)
 			(c5) edge node[right]{$\beta$} (c6);
 		\end{tikzpicture}
@@ -3786,27 +3786,27 @@ For the decorations, each of the four maps of cospans constituting the above dia
 \[
 		\begin{tikzpicture}
 %			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
-			\node (c) at (8,0) {$(x_1 \odot x_2) \oplus (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
+			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c) at (8,0) {$(x_1\oplus y_1) \odot (x_2\oplus y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
 %			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
-			\node (c2) at (8,1) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
+			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c2) at (8,1) {$(y_1\oplus x_1) \odot (y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
 %                            \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c3) at (8,2) {$(y_1\oplus x_1) \odot (y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c3) at (8,2) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
 %                                \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
-			\node (c5) at (8,-1) {$(x_1\oplus y_1) \odot (x_2\oplus y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c5) at (8,-1) {$(x_1 \odot x_2) \oplus (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
 %                                \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c6) at (8,-2) {$(y_1\oplus x_1) \odot (y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c6) at (8,-2) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
 			\path[->,font=\scriptsize,>=angle 90]
 %			(a) edge node[above]{$$} (b)
 %			(c) edge node[above]{$$} (b)
 %                                (a2) edge node[above]{$$} (b2)
 %			(c2) edge node[above]{$$} (b2)
 %                                (a) edge node[left]{$\beta$} (a2)
-                                (b) edge node[left]{$\beta$} (b2)
+                                (b) edge node[left]{$\beta \odot \beta$} (b2)
 (b) edge node[right]{$\tau_1$} (b2)
 %			(c) edge node[right]{$\beta$} (c2)
 %                                (a3) edge node[above]{$$} (b3)
@@ -3824,7 +3824,7 @@ For the decorations, each of the four maps of cospans constituting the above dia
 %                               (a6) edge node[above]{$$} (b6)
 %			(c6) edge node[above]{$$} (b6)
 %                                (a5) edge node[left]{$\beta$} (a6)
-                                (b5) edge node[left]{$\beta \odot \beta$} (b6)
+                                (b5) edge node[left]{$\beta$} (b6)
  (b5) edge node[right]{$\tau_4$} (b6);
 %			(c5) edge node[left]{$\beta$} (c6);
 		\end{tikzpicture}
@@ -3832,10 +3832,10 @@ For the decorations, each of the four maps of cospans constituting the above dia
 Explicitly, the four decoration isomorphisms are given by:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\tau_1 \colon F(\beta)((x_1 \odot x_2)\oplus(y_1 \odot y_2)) \to (y_1 \odot y_2)\oplus(x_1 \odot x_2)$};
-\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \odot y_2)\oplus(x_1 \odot x_2)) \to (y_1\oplus x_1) \odot (y_2\oplus x_2)$};
-\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \odot x_2)\oplus(y_1 \odot y_2)) \to (x_1\oplus y_1) \odot (x_2\oplus y_2)$};
-\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta \odot \beta)((x_1\oplus y_1)\odot(x_2\oplus y_2)) \to (y_1\oplus x_1)\odot(y_2\oplus x_2)$};
+\node (A) at (0,0) {$\tau_1 \colon F(\beta \odot \beta)((x_1\oplus y_1)\odot(x_2\oplus y_2)) \to (y_1\oplus x_1)\odot(y_2\oplus x_2)$};
+\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \oplus x_1)\odot(y_2 \oplus x_2)) \to (y_1\odot y_2) \oplus (x_1\odot x_2)$};
+\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \oplus y_1)\odot(x_2 \oplus y_2)) \to (x_1\odot x_2) \oplus (y_1\odot y_2)$};
+\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta)((x_1\odot x_2)\oplus(y_1\odot y_2)) \to (y_1\odot y_2)\oplus(x_1\odot x_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge[color=white] node[above]{$$} (A);
 %(B) edge node[right]{$\chi$} (D)
@@ -3843,21 +3843,21 @@ Explicitly, the four decoration isomorphisms are given by:
 %(C) edge node[above]{$\beta \odot \beta$} (D);
 \end{tikzpicture}
 \]
-These decoration isomorphisms then form the following commutative diagram in the category $F((n_1+m_1)+_{b'+b}(n_2+m_2))$:
+These decoration isomorphisms then form the following commutative diagram in the category $F({(n_1+_{b'}n_2)}+{(m_1+_b m_2)})$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F(\hat{\chi} \beta)((x_1 \odot x_2)\oplus(y_1 \odot y_2))$};
-\node (B) at (4,0) {$F(\hat{\chi})((y_1 \odot y_2)\oplus(x_1 \odot x_2))$};
-\node (C) at (0,-1) {$F(\beta \odot \beta)((x_1\oplus y_1) \odot (x_2 \oplus  y_2))$};
-\node (D) at (4,-1) {$(y_1\oplus x_1) \odot (y_2\oplus x_2)$};
+\node (A) at (0,0) {$F(\hat{\chi} (\beta \odot \beta))((x_1 \oplus y_1)\odot(x_2 \oplus y_2))$};
+\node (B) at (4,0) {$F(\hat{\chi})((y_1 \oplus x_1)\odot(y_2 \oplus x_2))$};
+\node (C) at (0,-1) {$F(\beta)((x_1\odot x_2) \oplus (y_1 \odot y_2))$};
+\node (D) at (4,-1) {$(y_1\odot y_2) \oplus (x_1\odot x_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F(\hat{\chi})(\tau_1)$} (B)
 (B) edge node[right]{$\tau_2$} (D)
-(A) edge node[left]{$F(\beta \odot \beta)(\tau_3)$} (C)
+(A) edge node[left]{$F(\beta)(\tau_3)$} (C)
 (C) edge node[above]{$\tau_4$} (D);
 \end{tikzpicture}
 \]
-where in the top left corner, we note that $$F(\hat{\chi} \beta)((x_1 \odot x_2)\oplus (y_1 \odot y_2)) = F((\beta \odot \beta)\hat{\chi})((x_1 \odot x_2)\oplus (y_1 \odot y_2))$$
+where in the top left corner, we note that $$F(\hat{\chi} (\beta \odot \beta))((x_1 \oplus y_1)\odot(x_2 \oplus y_2)) = F(\beta\hat{\chi})((x_1 \oplus y_1)\odot (x_2 \oplus y_2))$$
 as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. 
 {\chris Well only up to isomorphism since F is a pseudofunctor. Does this matter?}
 {\chris I would here expect big pasted diagrams of isomorphisms coming from the braided lax monoidal pseudofunctor and using its axioms to actually show that two such isomorphisms are equal...}
