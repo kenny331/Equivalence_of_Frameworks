@@ -490,8 +490,8 @@ the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the is
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$$} (B)
 (C) edge node[above]{$$} (B)
-(A) edge node[left]{$\id_a$} (A')
-(C) edge node[right]{$\id_d$} (C')
+(A) edge node[left]{$1_a$} (A')
+(C) edge node[right]{$1_d$} (C')
 (A') edge node {$$} (D)
 (C') edge node {$$} (D)
 (B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
@@ -989,7 +989,7 @@ If we first horizontally compose $M_2\odot M_1$, $N_2\odot N_1$ and then tensor 
 \end{displaymath}
 where the legs of the cospan are the sums of the dashed ones of the appropriate diagrams \cref{eq:dcospanscomposition}.
 Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms essentially due to pseudonaturality of $\phi$. {\chris Should we give more details here?}
-Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $\id:a+b\to a+b\leftarrow a+b:\id$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
+Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b}:a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
 \begin{comment}
 , the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
 The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
@@ -3259,7 +3259,7 @@ I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
 \end{equation}
-subject to coherence conditions listed in \cite[Definition 2]{DayStreet}.
+subject to coherence conditions listed in \cite[Definition 2]{DS}.
 In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms of this form:
 \begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
@@ -3726,16 +3726,16 @@ First of all, if we only consider the underlying cospans without their decoratio
 			(c) edge node[right]{$\beta$} (c2)
             (a3) edge node[above]{$$} (b3)
 			(c3) edge node[above]{$$} (b3)
-            (a2) edge node[left]{$\id$} (a3)
+            (a2) edge node[left]{$1$} (a3)
             (b2) edge node[left]{$\hat{\chi}$} (b3)
 %(b2) edge node[right]{$\tau_2$} (b3)
-			(c2) edge node[right]{$\id$} (c3)
+			(c2) edge node[right]{$1$} (c3)
             (a5) edge node[above]{$$} (b5)
 			(c5) edge node[above]{$$} (b5)
-            (a) edge node[left]{$\id$} (a5)
+            (a) edge node[left]{$1$} (a5)
             (b) edge node[left]{$\hat{\chi}$} (b5)
 %(b) edge node[right]{$\tau_4$} (b5)
-			(c) edge node[right]{$\id$} (c5)
+			(c) edge node[right]{$1$} (c5)
             (a6) edge node[above]{$$} (b6)
 			(c6) edge node[above]{$$} (b6)
             (a5) edge node[left]{$\beta$} (a6)
