@@ -3123,8 +3123,7 @@ We can equivalently describe open Petri nets with rates using decorated cospans.
 \end{itemize}
 This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:equiv} we can show that this is equivalent, as a symmetric monoidal double category, to ${}_L \lCsp(\Petri_r)$.
 
-All this so far is boringly familiar.  More interesting is the symmetric monoidal double
-category of open dynamical systems.   A dynamical system is a vector field from the perspective of a system of first-order ordinary differential equation.  An Petri net with rates gives a special sort of dynamical system: an \define{algebraic} vector field on $\R^n$, meaning one where the components of the vector field are polynomials in the coordinates. We shall think of such a vector field as a special sort of function $v \maps \R^n \to \R^n$.
+All this so far is very similar to the previous examples.  More interesting is the symmetric monoidal double category of open dynamical systems.   A dynamical system is a vector field from the perspective of a system of first-order ordinary differential equation.  An Petri net with rates gives a special sort of dynamical system: an \define{algebraic} vector field on $\R^n$, meaning one where the components of the vector field are polynomials in the coordinates. We shall think of such a vector field as a special sort of function $v \maps \R^n \to \R^n$.
 
 Using Fong's original approach to decorated cospans, Pollard and the first author constructed a symmetric monoidal category for which the morphisms are open dynamical systems \cite[Theorem 17]{BP}.  This category is constructed from a symmetric lax monoidal functor 
 $D \maps \Fin\Set \to \Set$ such that:
@@ -3202,9 +3201,7 @@ is a diagram
 in $\Fin\Set$ such that $D(h)(v) = v'$.
 \end{itemize}
 
-%{\chris The rest is not done yet...} %%%Christina I have no clue where this comment came from!
-
-We now show that open dynamical systems of this nature are an example of open systems that are able to be characterized by decorated cospans but not structured cospans.
+We now show that while open dynamical systems of this sort are morphisms in a decorated cospan category, they do not arise from a structured cospan category via \cref{thm:equiv}.
 
 Let $\mathsf{Dynam}$ be the category for which:
 \begin{itemize}
@@ -3225,20 +3222,12 @@ In particular, the object $((\emptyset,v_\emptyset),! \colon \emptyset \to \empt
 
 \section{Conclusions}\label{sec:conclusions}
 
-We conclude with some questions:
-
-\begin{itemize}
-\item We have given conditions under which a decorated cospan double category $F \lCsp$ is
-equivalent to a structured cospan double category.    Is every structured cospan double category 
-equivalent to a decorated cospan double category?
-\item What are some interesting examples of decorated cospan double categories that are not structured cospan double categories?   A candidate appears in the work of Pollard and the first author \cite{BP}.  They construct a decorated cospan category $\Dynam$ where objects are finite sets and a morphism from $a$ to $b$ is a cospan of finite sets $a \rightarrow m \leftarrow b$ where the apex $m$ is decorated with a vector field on $\R^m$ whose coefficients are polynomial functions of the standard coordinates on this space.
-
-They constructed this decorated cospan category via Fong's original formalism, using a lax symmetric monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$.  However, composing this with the inclusion $(\Set, \times) \to (\Cat, \times)$ mapping sets to discrete categories, we get the data needed to create a decorated cospan double category $\lD\mathbf{ynam}$.   We believe that this is not equivalent to a structured cospan double category, but can this be proved?  If so, can this example be generalized?
-\end{itemize}
+We have given conditions under which a decorated cospan double category is
+equivalent to a structured cospan double category.    The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category?   SAY STUFF!!!
 
 \appendix
 
-\section{}
+\section{Definitions}
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
 \subsection{Bicategories}
@@ -3270,15 +3259,15 @@ I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
 \end{equation}
-subject to coherence conditions. 
-%%% Give reference describing these conditions!!!
-In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms (natural in $f,g$)
+subject to coherence conditions listed in \cite[Definition 2]{DayStreet}.
+In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms of this form:
 \begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
  Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\cong"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
  F(a\ot b)\ar[r,"F(f\ot g)"'] & F(a'\ot b')
  \end{tikzcd}
 \end{equation}
+ natural in $f$ and $g$.
 A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an appropriate invertible modification with components %$F(\beta_{a,b})\circ \phi_{a,b}\cong\phi_{b,a}\circ \beta_{Fa,Fb}$. 
 \begin{equation}\label{eq:braidedpseudofun}
  \begin{tikzcd}
@@ -3290,7 +3279,8 @@ A \define{sylleptic lax monoidal} pseudofunctor satisfies one extra condition an
 
 
 \subsection{Fibrations}\label{sec:fibrations}
-Basic material regarding the theory of fibrations can be found, for example, in \cite{Borc,Gray}. Recall that a functor $U \maps \X \to \A$ is an \textbf{opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \maps a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $x$ along $f$, namely a morphism $\beta$ in $\X$ with domain $x$ above $f$ with the following universal property: for any $g\maps b\to b'$ in $\A$ and $\gamma\maps x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\maps y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
+
+Basic material regarding the theory of fibrations can be found, for example, in \cite{Borc,Gray}. Recall that a functor $U \maps \X \to \A$ is an \textbf{opfibration} if for every $x\in\X$ with $U(x)=a$ and $f \maps a \to b$ in $\A$, there exists a \textbf{cocartesian lifting} of $f$ to $x$, namely a morphism $\beta$ in $\X$ with domain $x$ with $U(\beta) = f$ and the following universal property: for any $g\maps b\to b'$ in $\A$ and $\gamma\maps x\to y'$ in $\X$ above the composite $g\circ f$, there exists a unique $\delta\maps y\to y'$ such that $U(\delta)=g$ and $\gamma=\delta\circ\beta$ as shown below
 \begin{displaymath}
 \xymatrix @R=.1in @C=.6in
 {&& y'\ar @{.>}@/_/[dd] &&\\
@@ -3299,13 +3289,14 @@ x\ar[r]_-{\beta} \ar @{.>}@/_/[dd]
 y \ar @{.>}@/_/[dd] \ar @{-->}[ur]_-{\exists! \delta}
 && \textrm{in }\X\\
 && b' &&\\
-a\ar[r]_-{f=U\beta} \ar[urr]^-{g\circ f=U\gamma}
+a\ar[r]_-{f=U(\beta)} \ar[urr]^-{g\circ f=U(\gamma)}
  & b \ar[ur]_-g && \textrm{in }\A}
 \end{displaymath}
-The category $\X$ is called the \textbf{total} category and $\A$ is called the \textbf{base} category of the opfibration. For any $a\in\A$, the \textbf{fibre category} $\X_a$ consists of all objects that map to $a$ and vertical morphisms between them, i.e. mapping to $1_a$.
-Assuming the axiom of choice, we may select a cocartesian arrow over each $f\maps a\to b$ in $\A$ and $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\maps\X _a\to\X _b$ between the fibre categories, which by the liftings universal property adhere to natural isomorphisms $(1_a)_!\cong1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$. If these isomorphisms are equalities, we have the notion of a \textbf{split} opfibration. We chose to primarily present this dual notion to \define{fibration} due to the current work's needs.
+The category $\X$ is called the \textbf{total} category and $\A$ is called the \textbf{base} category of the opfibration. For any $a\in\A$, the \textbf{fibre category} $\X_a$ consists of all objects that map to $a$ and \define{vertical} morphisms between them, i.e., morphisms mapping to $1_a$.   
 
-Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings and natural transformations with vertical components. In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'. 
+Assuming the axiom of choice, we may select a cocartesian lifting of each morphism $f\maps a\to b$ in $\A$ to each $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\maps\X _a\to\X _b$ between the fibre categories, which by the lifting's universal property come equipped with natural isomorphisms $(1_a)_!\cong 1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$.   With the help of these, any cloven opfibration $U \maps \X \to \A$ gives a pseudofunctor $F \maps \A \to \Cat$, where $\A$ viewed as a 2-category with trivial 2-cells, $F(a) = \X_a$ for each object $a \in \A$, and $F(f) = f_!$ for each morphism $f$ in $\A$.
+
+In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'.  Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings, and natural transformations with vertical components.  
 \begin{defn}\label{def:GrothCat}
 For any pseudofunctor $F\maps\A\to\Cat$ where $\A$ is a category viewed as a 2-category with trivial 2-cells, the \textbf{Grothendieck category}
 $\inta F$ has
@@ -3319,12 +3310,12 @@ The unit is $(1_a\maps a\to a,F(1_a)(x)\cong x)$ and composition of $(f,k)\maps(
 \end{equation}
 This is an opfibred category over $\A$ via the obvious forgetful functor, with fibre categories $(\inta F)_a=F(a)$ and reindexing functors $f_!=F(f)$.
 \end{defn}
-The above in fact provides the one direction of the following well-known equivalence.
+The constructions sketched so far---the Grothendieck construction and the construction of a pseudofunctor into $\Cat$ from a cloven opfibration---are the two halves of the following equivalence.
 
 \begin{thm}\label{thm:Grothendieck}\hfill
 \begin{enumerate}
-\item Every opfibration $U \maps \X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
-\item Every pseudofunctor $F \maps \A \to \Cat$ gives rise to  an opfibration $\maps \inta F\to\A$.
+\item Every opfibration $\X \to \A$ gives rise to a pseudofunctor $\A \to \Cat$.
+\item Every pseudofunctor $\A \to \Cat$ gives rise to an opfibration $\inta F \to\A$.
 \item The above correspondences yield an equivalence of 2-categories 
 \begin{displaymath}
 [\A,\Cat]_\pse \simeq \OpFib(\A)
@@ -3498,7 +3489,7 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \colon \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lE \to \lF \circ 1_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
 \noindent
-Unpacking this definition one obtains a number of diagrams that can be found after \cite[Definition 2.4]{HS}.
+Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.4]{HS}.
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lD$ and $\lE$ be symmetric monoidal double categories and let $\lF \maps \lD \to \lE$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lD$ and $\lE$ are equivalent as symmetric monoidal double categories.
