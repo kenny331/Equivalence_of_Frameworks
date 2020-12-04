@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/3
+% 2020/12/4
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -3223,13 +3223,11 @@ In particular, the object $((\emptyset,v_\emptyset),! \colon \emptyset \to \empt
 \section{Conclusions}\label{sec:conclusions}
 %%Christina: Or future directions or something? Unless we at some point conclude about something for the two frameworks, i.e they are close enough that we can choose which one to work with according to our application or something? I did something along those lines at the very end....
 
-We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category? The answer is similar to the previous one: affirmative, under certain conditions that allow us to make the passage from an appropriate functor $L\colon \A\to \X$ to an appropriate pseudofunctor $F\colon \A\to\Cat$, namely in the reverse direction of the earlier \cref{eq:FtoL}.
+We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category? The answer is similar to the previous one: yes, under certain conditions that let us pass from an appropriate functor $L \maps \A \to \X$ to an appropriate pseudofunctor $F \maps \A \to \Cat$.
 
-Let us now give a sketch of the relevant story. Suppose $\A$ and $\X$ have finite colimits and $L\maps\A\to\X$ is a finite-colimit preserving functor -- which by \cref{thm:SC} are the required conditions for constructing the symmetric monoidal double category of structured cospans. If $L$ has a right adjoint `left inverse' (meaning the unit is the identity) $U\maps\X\to\A$, which moreover strictly preserves the choice of pushouts in $\A$ and $\X$, it can be shown\footnote{This will appear in the forthcoming paper \cite{CV}.} that $U$ is an opfibration. Consequently, $U$ corresponds to a pseudofunctor $F\colon \A\to\Cat$ by the reverse of the Grothendieck construction, i.e. the second part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}, the corresponding pseudofunctor $F$ has a lax monoidal structure $(\A,+)\to(\Cat,\times)$. As a result, by \cref{DC}, $F$ has now enough structure to induce the symmetric monoidal double category of decorated cospans $F\lCsp$, and further it can then be verified that it is isomorphic to the one of structured cospans.
+Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:SC}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the second part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ has now enough structure to induce a double category of decorated cospans $F\lCsp$  as in \cref{DC}.  Finally, it can be shown that the structured and decorated cospan double categories categories are equivalent as symmetric monoidal double categories: ${}_L \lCsp(\X) \simeq F\Csp$.
 
-{\chris Give some sort of excuse why we don't do the full result here?? Because of missing - for us now - steps? Or other things?} 
-
-To give a better sense of how this lax monoidal pseudofunctor $F\maps\A\to\Cat$ is constructed, $F(a)$ is defined to be the pre-image of $a$ under $U$, namely the category of all objects in $x\in\X$ such that $U(x)=a$ and morphisms $k\maps x\to y\in\X$ such that $U(k)=1_a$. Given a morphism $f\maps a\to b$, there is a functor $F(f)\maps F(a)\to F(b)$ that maps some $x$ to the following pushout
+To give a better sense of how the pseudofunctor $F \maps \A \to\Cat$ is constructed: for each object $a \in A$, $F(a)$ is defined to be the fiber of $U$ over $a$, namely the category of all objects in $x \in \X$ such that $U(x)=a$ and morphisms $k\maps x\to y$ such that $U(k)=1_a$.  Given a morphism $f \maps a \to b$, there is a functor $F(f) \maps F(a)\to F(b)$ that maps $x \in F(a)$ to the following pushout:
 \begin{displaymath}
  \begin{tikzcd}
 La\ar[r,"Lf"]\ar[d,"\varepsilon_x"']\ar[dr,phantom,near end,"\ulcorner"] & Lb\ar[d] & \\
@@ -3237,7 +3235,7 @@ x\ar[d,dotted]\ar[r] & x+_{La}Lb\ar[d,dotted] & \textrm{in }\X \\
 a\ar[r,"f"'] & b & \textrm{in }\A
  \end{tikzcd}
 \end{displaymath}
-where $\varepsilon_x\colon LU(x)=L(a)\to x$ is the counit of $L\dashv U$. The fact that $U$ strictly preserves pushouts is necessary to show that the pushout is mapped, via $U$, directly down to $b$.
+where $\varepsilon_x\colon LU(x)=L(a)\to x$ is the counit of the adjunction $L\dashv U$. The fact that $U$ strictly preserves pushouts is necessary to show that the pushout is mapped, via $U$, directly down to $b$.
 
 {\chris I don't know if the part below should be included or not, perhaps it is too speculative and not dead important. 
 %If we keep, I can add a bit more information about what these special opfibs and special laris are, if we think it helps -- or not if it's OK now. 
