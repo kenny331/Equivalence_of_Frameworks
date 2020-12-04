@@ -2228,9 +2228,9 @@ We now have all the necessary background to formally construct an isomorphism be
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
 
 By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves all finite colimits. Moreover, by \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
-\begin{displaymath}
+\begin{equation}\label{eq:FtoL}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
-\end{displaymath}
+\end{equation}
 describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fibre $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %Christina: If each adjoint picks one isomorphic initial object, can we choose the one with that choice? Well they are all isomorphic and that could help with the monoidal structure later...
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (same as for $F\lCsp$), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
@@ -3221,9 +3221,33 @@ Using this result, one can show that the forgetful functor $U \colon \mathsf{Dyn
 In particular, the object $((\emptyset,v_\emptyset),! \colon \emptyset \to \emptyset)$ resides in the comma category $\emptyset \downarrow U$, where $v_\emptyset$ is the only possible vector field on the empty set --- namely, the dengerate vector field. Given any other object $((s,v_s),! \colon \emptyset \to s)$ in $\emptyset \downarrow U$, there exists no morphisms $! \colon \emptyset \to s$ from the first object to the second unless $s$ is also the empty set as the vector field $$!_* v_\emptyset !^*$$will also always be degenerate and not equal to $v_s$. Clearly there are also no morphisms in the other direction for $s \neq \emptyset$ as $f$ must be a function. Thus the forgetful functor $U$ has no left adjoint $L \colon \Fin\Set \to \mathsf{Dynam}$, and hence we cannot construct a structured cospan category ${_L \Csp(\mathsf{Dynam})}$ whose morphisms are equivalence classes of open dynamical systems of this type.
 
 \section{Conclusions}\label{sec:conclusions}
+%%Christina: Or future directions or something? Unless we at some point conclude about something for the two frameworks, i.e they are close enough that we can choose which one to work with according to our application or something? I did something along those lines at the very end....
 
-We have given conditions under which a decorated cospan double category is
-equivalent to a structured cospan double category.    The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category?   SAY STUFF!!!
+We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category? The answer is similar to the previous one: affirmative, under certain conditions that essentially allow us to make the passage from an appropriate functor $L\colon \A\to \X$ to an appropriate pseudofunctor $F\colon \A\to\Cat$, namely in the reverse direction than the earlier passage \cref{eq:FtoL}.
+
+
+
+....
+
+{\chris I don't know if the part below should be included or not, perhaps it is too speculative and not dead important.}
+
+Even though for both \cref{thm:equiv} and the above described setting, the conditions required are only sufficient, they provide certain indication that under a suitable ``condition intersection'' in a sense, we could establish a functorial picture
+\begin{displaymath}
+\begin{tikzpicture}
+\node (A) { \{Lax monoidal pseudofunctors $(\A,+)\to(\Cat,\times)$\} };
+\node[below right=1.5 and 1.5 of A] (C)  { \{Symmetric monoidal double categories\} };
+\node[below=1  of A] (D)  { \{Special opfibrations\} };
+\node[below=2  of A] (E)  { \{Special laris\} };
+\node[below=3 of A] (B)  { \{ Finitely cocomplete functors $A\to\X$\} };
+\node[below=.05 of D] {$\cong$};
+\path[->,font=\scriptsize]
+(A) edge[bend left] node[above,sloped]{$F\mapsto F\lCsp$}  (C)
+(D) edge (A)
+(E) edge (B)
+(B) edge[bend right] node[below,sloped]{$L\mapsto {}_{L}\lCsp$} (C);
+\end{tikzpicture}
+\end{displaymath}
+with an actual natural isomorphism in the middle. This would imply that starting from an appropriate middle ground, employing the structured or the decorated cospan formalism is actually the same. We leave such considerations for future work.
 
 \appendix
 
