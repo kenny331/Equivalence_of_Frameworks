@@ -2972,7 +2972,7 @@ This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:e
 \subsection{Petri nets}
 \label{subsec:petri}
 
-Petri nets are widely used as models of systems in computer science, chemistry, population biology and epidemiology \cite{GiraultValk,Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}.  We can also use decorated cospans to construct this double category.  Again this example is very similar to the example of open graphs.
+Petri nets are widely used as models of systems in computer science, chemistry, population biology and epidemiology \cite{GiraultValk,Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}, which lets us build large Petri nets out of smaller pieces.  We can also use decorated cospans to create a double category of open Petri nets.  Again this example is very similar to the example of open graphs.
 
 A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$.  Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
 \[
@@ -3060,7 +3060,7 @@ The machinery of structured cospans has been used to provide a semantics for ope
 
 \subsection{Petri nets with rates}
 
-Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates, and mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems.    
+Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
 Pollard and the first author showed how to construct an `open dynamical system' from an `open' Petri net with rates, meaning one where chemicals can flow in and out at certain places \cite{BP}.  They used the formalism of decorated cospans to do this, and to define a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms.  Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second, the category with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans---but we \emph{can} do it using decorated cospans!
 
@@ -3201,7 +3201,8 @@ is a diagram
 in $\Fin\Set$ such that $D(h)(v) = v'$.
 \end{itemize}
 
-We now show that while open dynamical systems of this sort are morphisms in a decorated cospan category, they do not arise from a structured cospan category via \cref{thm:equiv}.
+We now show that while open dynamical systems are morphisms in a decorated cospan category, they do not arise from a structured cospan category via \cref{thm:equiv}.  To do this, recall that in this result we start with the data required for a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show the resulting opfibration $U \maps \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   
+We shall show that in the case at hand, where $F = D$, the opfibration $U \maps \inta F \to \A$ does \emph{not} have a left adjoint.
 
 Let $\mathsf{Dynam}$ be the category for which:
 \begin{itemize}
@@ -3261,7 +3262,7 @@ with an actual natural isomorphism in the middle. This would imply that starting
 
 \appendix
 
-\section{Definitions}
+\section{}
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
 \subsection{Bicategories}
@@ -3730,7 +3731,6 @@ All relevant structure for decorated cospans is as described in \cref{thm:decora
 (C) edge node[above]{$\beta$} (D);
 \end{tikzpicture}
 \]
-{\chris $\chi$'s in the definition of a monoidal double category have a different direction. Since it is an isomorphism it doesn't really change anything, but consider changing to keep them right}
 First of all, if we only consider the underlying cospans without their decorations, we obtain the following `flattened' commutative diagram in the symmetric monoidal double category $\lCsp(\A)$, where the top and the bottom cospans coincide:
 \[
 		\begin{tikzpicture}
@@ -3857,8 +3857,6 @@ These decoration isomorphisms then form the following commutative diagram in the
 \]
 where in the top left corner, we note that $$F(\hat{\chi} (\beta \odot \beta))((x_1 \oplus y_1)\odot(x_2 \oplus y_2)) = F(\beta\hat{\chi})((x_1 \oplus y_1)\odot (x_2 \oplus y_2))$$
 as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. 
-{\chris Well only up to isomorphism since F is a pseudofunctor. Does this matter?}
-{\chris I would here expect big pasted diagrams of isomorphisms coming from the braided lax monoidal pseudofunctor and using its axioms to actually show that two such isomorphisms are equal...}
 
 \begin{thebibliography}{100}
 
@@ -3910,6 +3908,8 @@ Cambridge University Press, Cambridge, 1994
 
 \bibitem{CourserThesis} K.\ Courser, \textsl{Open Systems: a Double Categorical Perspective}, Ph.D.\ thesis, Department of Mathematics, U.\ C.\ Riverside, 2020.  Available as \href{https://arxiv.org/abs/2008.02394}{arXiv:2008.02394}.
 
+\bibitem{CTF} Gheorghe Craciun, Yangzhong Tang and Martin Feinberg, Understanding bistability in complex enzyme-driven reaction networks, \textsl{PNAS} \textbf{103} (2006), 8697--8702.  
+
 \bibitem{DS} B.\ Day and R.\ Street, Monoidal Bicategories and Hopf algebroids, \textsl{Adv.\ Math.} \textbf{129} (1997), 99--157.
 
 %\bibitem{Ehresmann65} C.\ Ehresmann, {\sl Cat\'egories et Structures,} Dunod, Paris, 1965.
@@ -3936,6 +3936,8 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 % \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{45} (2004), 193--240.
 
 \bibitem{Gray} J. \ Gray, Fibred and cofibred categories, in \textsl{Proceedings of the Conference on Categorical Algebra: La Jolla 1965}, eds.\ S.\ Eilenberg \textit{et al}, Springer, Berlin, 1966, pp.\ 21--83.
+
+\bibitem{HP} M.\ Halter and E.\ Patterson, Compositional epidemiological modeling using structured cospans, 2020.  Available at \href{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}.
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
 
