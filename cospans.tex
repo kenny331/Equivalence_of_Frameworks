@@ -3061,7 +3061,7 @@ The machinery of structured cospans has been used to provide a semantics for ope
 
 In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labelled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
-Pollard and the first author have used decorated cospans to construct an `open' dynamical system from any `open' Petri net with rates, thus defining a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}. Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second of these categories, with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans.  However, we \emph{can} do it using decorated cospans.
+Pollard and the first author showed how to construct an `open' dynamical system from any `open' Petri net with rates,  thus defining a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}.  They used Fong's original decorated cospans to do this.   Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second of these categories, with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans.  However, we \emph{can} do it using decorated cospans.
  
 First, to briefly illustrate these ideas, here is an open Petri net with rates:
 \[
@@ -3203,7 +3203,7 @@ while the pushforward $ f_* \maps \R^{S} \to \R^{S'} $ is given by
 \end{itemize}
 The functorality of $D$ is proved in \cite[Lemma 15]{BP} while the lax symmetric monoidal stucture is given in Lemma 16 of that paper.
 
-Since every set gives a discrete category with that set of objects, we can reinterpret $D$ as a lax monoidal pseudofunctor $D \maps (\Fin\Set, +) \to (\Cat, \times)$.  Applying \cref{DC} we obtain a symmetric monoidal double category $D \lCsp$ where:
+Since every set gives a discrete category with that set of objects, we can reinterpret $D$ as a symmetric lax monoidal pseudofunctor $D \maps (\Fin\Set, +) \to (\Cat, \times)$ which happens to actually be a functor.  Applying \cref{DC} we obtain a symmetric monoidal double category $D \lCsp$ where:
 \begin{itemize}
 \item objects are finite sets,
 \item vertical 1-morphisms are functions,
@@ -3267,22 +3267,30 @@ in $\Fin\Set$ such that $D(h)(v) = v'$.
 
 Next, we can define a symmetric monoidal double functor
 \[      \graysquare \maps F \lCsp \to D \lCsp \]
-sending any open Petri net with rates to its corresponding open dynamical system.  This was already defined as a functor between categories by Pollard and the first author \cite[Section 7]{BP}, who called it `gray-boxing'.   To boost this result to the double category level we use \cref{thm:functoriality}, taking the square in that theorem as follows:
+sending any open Petri net with rates to its corresponding open dynamical system.  This was already defined at the level of categories by Pollard and the first author \cite[Section 7]{BP}, who called it `gray-boxing'.   To boost this result to the double category level we use \cref{thm:functoriality}, taking the square in that theorem to be
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\Fin\Set$};
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\Fin\Set$};
-\node (D) at (1,-1) {$\Cat$};
+\node (D) at (1,-1) {$\Cat$.};
 \node (E) at (0.5,-0.5) {$\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$1$} (C)
-(B) edge node[right]{$E$} (D)
+(B) edge node[right]{$1$} (D)
 (C) edge node[above]{$D$} (D);
 \end{tikzpicture}
 \] 
-%%% continue this....
+Here $\theta$ is a monoidal natural isomorphism given as follows.  For any finite set $S$, $\theta_S \maps F(S) \to D(S)$ maps any Petri nets with rates 
+\[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
+to an algebraic vector field on $\R^S$, say $v$.   This vector field is defined using a standard prescription taken from chemistry, called `the law of mass action'.   Namely, for any $c \in \R^s$, we set
+\[  
+v(c) = \sum_{\tau \in T} r(\tau) \, ( t(\tau) - s(\tau) ) c^{s(\tau)} 
+\]
+where 
+\[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
+and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $\Set$ \cite[Theorem 18]{BP}.   As such, it trivially becomes a monoidal natural isomorphism between the functors $F, D \maps \Fin\Set \to \Cat$.
 
 We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not equivalent to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an equivalence between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
 
