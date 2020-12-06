@@ -2005,7 +2005,6 @@ Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax mono
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
 \node (B) at (1,0) {$\Cat$};
-\node (C) at (0,-1) {$\mathsf{A'}$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$};
 \node (E) at (0.5,-0.5) {$\Downarrow \theta$};
@@ -3060,7 +3059,7 @@ The machinery of structured cospans has been used to provide a semantics for ope
 
 \subsection{Petri nets with rates}
 
-In chemistry, population biology, epidemiology and other fields, modelers often use `Petri nets with rates', where the transitions are labelled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
+In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labelled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
 Pollard and the first author have used decorated cospans to construct an `open' dynamical system from any `open' Petri net with rates, thus defining a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}. Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second of these categories, with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans.  However, we \emph{can} do it using decorated cospans.
  
@@ -3129,7 +3128,7 @@ Here is the corresponding open dynamical system:
 If we drop the `inflow' and `outflow' terms $I_i$ and $O_i$ we obtain a system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build complex models from smaller pieces.  
 Recently Halter and Patterson \cite{HP} implemented this idea in software using structured cospans.  They illustrated the use of this tool by rebuilding part of the COVID-19 model that the UK has been using to make policy decisions.
 
-Now let us turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
+Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
  to 
  \[   \xymatrix{ (0,\infty) & T' \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S'] }\]
@@ -3266,7 +3265,26 @@ is a diagram
 in $\Fin\Set$ such that $D(h)(v) = v'$.
 \end{itemize}
 
-We now show that while open dynamical systems are morphisms in a decorated cospan category, this does not arise from a structured cospan category via \cref{thm:equiv}.  To do this, recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an equivalence between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$, $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
+Next, we can define a symmetric monoidal double functor
+\[      \graysquare \maps F \lCsp \to D \lCsp \]
+sending any open Petri net with rates to its corresponding open dynamical system.  This was already defined as a functor between categories by Pollard and the first author \cite[Section 7]{BP}, who called it `gray-boxing'.   To boost this result to the double category level we use \cref{thm:functoriality}, taking the square in that theorem as follows:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\Fin\Set$};
+\node (B) at (1,0) {$\Cat$};
+\node (C) at (0,-1) {$\Fin\Set$};
+\node (D) at (1,-1) {$\Cat$};
+\node (E) at (0.5,-0.5) {$\Downarrow \theta$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$F$} (B)
+(A) edge node[left]{$1$} (C)
+(B) edge node[right]{$E$} (D)
+(C) edge node[above]{$D$} (D);
+\end{tikzpicture}
+\] 
+%%% continue this....
+
+We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not equivalent to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an equivalence between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
 \begin{itemize}
@@ -3306,16 +3324,16 @@ Even though for both \cref{thm:equiv} and the above described setting, the condi
 \begin{displaymath}
 \begin{tikzpicture}
 \node [align=center,draw] (A) { Lax monoidal pseudofunctors \\ $(\A,+)\to(\Cat,\times)$};
-\node[below right=1.5 and 1.5 of A,align=center,draw] (C)  { Symmetric monoidal \\double categories };
-\node[below left=1 and .5  of A,draw] (D)  {Special opfibrations};
+\node[below right=1 and 1.5 of A,align=center,draw] (C)  { Symmetric monoidal \\double categories };
+\node[below left=1.05 and .5  of A,draw] (D)  {Special opfibrations};
 \node[below left=2 and 1 of A,draw] (E)  {Special ralis};
 \node[below=3 of A,align=center,draw] (B)  {Finite colimit preserving \\ functors $A\to\X$};
-\node[below=.01 of D] {\rotatebox{90}{$\simeq$}};
+\node[below=0 of D] {\rotatebox{90}{$\simeq$}};
 \path[->,font=\scriptsize]
 (A) edge node[above,sloped]{$F\mapsto F\lCsp$}  (C)
 (D) edge (A)
 (E) edge (B)
-(B) edge node[below,sloped]{$L\mapsto {}_{L}\lCsp$} (C);
+(B) edge node[below,sloped]{$L\mapsto {}_{L}\lCsp(\X)$} (C);
 \end{tikzpicture}
 \end{displaymath}
 with an actual natural isomorphism in the middle. This would imply that starting from an appropriate middle ground, employing the structured or the decorated cospan formalism is essentially the same. We leave such considerations for future work.
