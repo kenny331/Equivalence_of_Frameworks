@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/4
+% 2020/12/5
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -2972,7 +2972,7 @@ This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:e
 \subsection{Petri nets}
 \label{subsec:petri}
 
-Petri nets are widely used as models of systems in computer science, chemistry, population biology and epidemiology \cite{GiraultValk,Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}, which lets us build large Petri nets out of smaller pieces.  We can also use decorated cospans to create a double category of open Petri nets.  Again this example is very similar to the example of open graphs.
+Petri nets are widely used as models of systems in engineering and computer science \cite{GiraultValk, Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}, which lets us build large Petri nets out of smaller pieces.  We can also use decorated cospans to create a double category of open Petri nets.  Again this example is very similar to the example of open graphs.
 
 A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$.  Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
 \[
@@ -3060,11 +3060,77 @@ The machinery of structured cospans has been used to provide a semantics for ope
 
 \subsection{Petri nets with rates}
 
-Chemists sometimes use Petri nets where the places represent `chemical species'---types of molecules, ions and the like---and the transitions represent chemical reactions.   In these Petri nets, which we shall call `Petri nets with rates', the transitions are labelled with positive real numbers called `rate constants'.  This allows one to systematically construct a dynamical system from any Petri net with rates.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
+In chemistry, population biology, epidemiology and other fields, modelers often use `Petri nets with rates', where the transitions are labelled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
-Pollard and the first author showed how to construct an `open dynamical system' from an `open' Petri net with rates, meaning one where chemicals can flow in and out at certain places \cite{BP}.  They used the formalism of decorated cospans to do this, and to define a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms.  Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second, the category with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans---but we \emph{can} do it using decorated cospans!
+Recently Pollard and the first author showed how to construct an `open' dynamical system from an `open' Petri net with rates, and define a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}.
+ Later, structured cospans were used to promote the first of these categories to a double category \cite[Sec.\ 6.16]{BC}. Here we show that the second of these categories, with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans---but we \emph{can} do it using decorated cospans!
+ 
+First, to briefly illustrate these ideas, here is an open Petri net with rates:
+\[
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+\node [style=inputdot] (1a) at (-5.3, 0.5) {};
+\node [style=inputdot] (1b) at (-5.3, 0) {};
+\node [style=inputdot] (2) at (-5.3, -0.5) {};
+\node [style=inputdot] (3) at (1.3, 0) {};
+\node [style=none] (1'a) at (-4.4, 0.5) {};
+\node [style=none] (1'b) at (-4.4, 0.5) {};
+\node [style=none] (2') at (-4.4, -0.5) {};
+\node [style=none] (3') at (0.4, 0) {};
+\node [style=species] (S) at (-4, 0.5) {$S$};
+\node [style=species] (I) at (-4, -0.5) {$I$};
+\node [style=species] (R) at (0, 0) {$R$};
+		\node [style=transition] (tau1) at (-1.5, 0.7) {$r_1$};
+            \node [style=transition] (tau2) at (-1.5,-1) {$r_2$};
+		\node [style=none] (I1a) at (-5.6, 0.5) {$i_1$};
+		 \node [style=none] (I1b) at (-5.6, 0) {$i_2$};
+           \node [style=none] (I2) at (-5.6, -0.5) {$i_3$};
+		\node [style=none] (O3) at (1.65, 0) {$o_1$};
+		\node [style=none] (ATL) at (-5.8,1.4) {};
+		\node [style=none] (ATR) at (-5,1.4) {};
+		\node [style=none] (ABR) at (-5,-1.4) {};
+		\node [style=none] (ABL) at (-5.8,-1.4) {};
+		\node [style=none] (MTL) at (1,1.4) {};
+		\node [style=none] (MTR) at (1.8,1.4) {};
+		\node [style=none] (MBR) at (1.8,-1.4) {};
+		\node [style=none] (MBL) at (1,-1.4) {};
+		\node [style=none] (X) at (-5.4,1.8) {$X$};		
+		\node [style=none] (Z) at (1.4,1.8) {$Y$};
+	
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=inarrow, bend left =10, looseness=1.00] (S) to (tau1);
+		\draw [style=inarrow, bend left=15, looseness=1.00] (I) to (tau1);
+		\draw [style=inarrow, bend left=25, looseness=1.00] (tau1) to (I);
+		\draw [style=inarrow, bend left=40, looseness=1.00] (tau1) to (I);
+	       \draw [style=inarrow, bend right=25, looseness=1.00] (I) to (tau2);
+             \draw [style=inarrow, bend right=15, looseness=1.00] (tau2) to (R); 
+\path[color=purple, very thick, shorten >=2pt, shorten <=2pt, ->, >=stealth] (1a) edge (1'a);
+\path[color=purple, very thick, shorten >=2pt, shorten <=2pt, ->, >=stealth] (1b) edge (1'b);
+\path[color=purple, very thick, shorten >=2pt, shorten <=2pt, ->, >=stealth] (2) edge (2');	
+\path[color=purple, very thick, shorten >=2pt, shorten <=2pt, ->, >=stealth] (3) edge (3');
+		\draw [style=simple] (ATL.center) to (ATR.center);
+		\draw [style=simple] (ATR.center) to (ABR.center);
+		\draw [style=simple] (ABR.center) to (ABL.center);
+		\draw [style=simple] (ABL.center) to (ATL.center);
+		\draw [style=simple] (MTL.center) to (MTR.center);
+		\draw [style=simple] (MTR.center) to (MBR.center);
+		\draw [style=simple] (MBR.center) to (MBL.center);
+		\draw [style=simple] (MBL.center) to (MTL.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
+\]
+It is an open Petri net where the transitions are labelled with rate constants $r_1, r_2 > 0$.
+Here is the corresponding open dynamical system:
+\[   \begin{array}{ccl} \displaystyle{\frac{dS(t)}{dt}} &=& -r_1 \, S(t)I(t)  + I_1(t) + I_2(t) \\ \\
+\displaystyle{\frac{dI(t)}{dt}}  &=& r_1\, S(t)I(t) - r_2 \, I(t) + I_3(t)  \\  \\
+\displaystyle{\frac{dR(t)}{dt}}  &=&   r_2 \, I(t)  - O_1(t).
+\end{array}
+\]
+If we drop the `inflow' and `outflow' terms $I_i$ and $O_i$ we obtain a system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build complex models from smaller pieces.  
+Recently Halter, and Patterson \cite{HP} implemented this idea in software using structured cospans.  They illustrated the use of this tool by rebuilding part of the model that the UK has been using to make policy decisions about COVID-19.
 
-A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
+Now let us turn to the mathematics.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
  to 
  \[   \xymatrix{ (0,\infty) & T' \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S'] }\]
@@ -3933,6 +3999,9 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{Gray} J. \ Gray, Fibred and cofibred categories, in \textsl{Proceedings of the Conference on Categorical Algebra: La Jolla 1965}, eds.\ S.\ Eilenberg \textit{et al}, Springer, Berlin, 1966, pp.\ 21--83.
 
+\bibitem{Haas} P.\ J.\ Haas, \textsl{Stochastic Petri Nets: Modelling, Stability, Simulation},
+Springer, Berlin, 2002.
+
 \bibitem{HP} M.\ Halter and E.\ Patterson, Compositional epidemiological modeling using structured cospans, 2020.  Available at \href{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}.
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
@@ -3947,6 +4016,9 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, in \textsl{Category Seminar}, Lecture Notes in Mathematics 40, Springer, Berlin, 1974, 
 pp.\ 75--103.
+
+\bibitem{Koch} I.\ Koch, Petri nets---a mathematical formalism to analyze chemical reaction
+networks, \textsl{Mol.\ Inform.\  }\textbf{29} (2010), 838--843.
 
 \bibitem{Lawvere} F.\ W.\ Lawvere, State categories and response functors, unpublished manuscript, 1986.  Available at \href{https://tinyurl.com/state}{https://tinyurl.com/state-}  \href{https://tinyurl.com/state-categories}{categories}.
 
@@ -3984,6 +4056,9 @@ pp.\ 75--103.
 \bibitem{Stay} M.\ Stay, Compact closed bicategories, \textsl{Theory Appl.\ Categ.\ }\textbf{31} (2016), 755--798.   Available as \href{http://arxiv.org/abs/1301.1053}{arXiv:1301.1053}.
 
 \bibitem{VSL} D.\ Vagner, D.\ Spivak and E.\ Lerman, Algebras of open dynamical systems on the operad of wiring diagrams, \textsl{Theory Appl.\ Categ.\ } \textbf{30} (2015), 1793--1822. Available as \href{https://arxiv.org/abs/1408.1598}{arXiv:1408.1598}.
+
+\bibitem{Wilkinson} D.\ J.\ Wilkinson, \textsl{Stochastic Modelling for Systems Biology},
+Taylor and Francis, New York, 2006.
 
 \bibitem{Willems} J.\ C.\ Willems, The behavioral approach to open and interconnected systems, \textsl{IEEE Control Systems Magazine} (2007)
 
