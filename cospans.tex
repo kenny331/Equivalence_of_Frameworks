@@ -1000,7 +1000,7 @@ where the legs of the cospan are the sums of the dashed ones of the appropriate 
 Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $\hat{\chi}\colon(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms as follows: 
 \begin{equation}\label{eq:interchangedeco}
  \scalebox{.75}{\begin{tikzcd}[ampersand replacement=\&,column sep=.3in,row sep=.1in]
-\& F(m_1)\times F(n_2)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"]\ar[ddrr,phantom,"\cong"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1\times\beta\times1)"'] \\
+\& F(m_1)\times F(n_1)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"]\ar[ddrr,phantom,"\cong"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1+\beta+1)"'] \\
 \one \ar[ur,"{x_1\times y_1\times x_2\times y_2}"]\ar[dr,"{x_1\times x_2\times y_1\times y_2}"'] \&\&\&\& \\
 \& F(m_1)\times F(m_2)\times F(n_1)\times F(n_2)\ar[dd,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"']\&\& F(m_1+m_2+n_1+n_2)\ar[ddrr,"F(\psi+\psi)"']\ar[dd,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \ar[rr,phantom,"\cong"]\&\& F((m_1+n_1)+_{b+b'}(m_2+n_2))\ar[dd,"F(\hat{\chi})"] \\
 \hole \\
@@ -3335,7 +3335,7 @@ $\emptyset \downarrow U$ is just $\inta D$.  This contains an object $(\emptyset
 
 We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category equivalent to a decorated cospan double category? The answer is similar to the previous one: yes, under certain conditions that let us pass from an appropriate functor $L \maps \A \to \X$ to an appropriate pseudofunctor $F \maps \A \to \Cat$.
 
-Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:SC}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ has now enough structure to induce a double category of decorated cospans $F\lCsp$  as in \cref{DC}.  Finally, it can be shown that the structured and decorated cospan double categories categories are equivalent as symmetric monoidal double categories: ${}_L \lCsp(\X) \simeq F\Csp$.
+Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:SC}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ has now enough structure to induce a double category of decorated cospans $F\lCsp$  as in \cref{DC}.  Finally, it can be shown that the structured and decorated cospan double categories are equivalent as symmetric monoidal double categories: ${}_L \lCsp(\X) \simeq F\lCsp$.
 
 To give a better sense of how the pseudofunctor $F \maps \A \to\Cat$ is constructed: for each object $a \in A$, $F(a)$ is defined to be the fiber of $U$ over $a$, namely the category of all objects in $x \in \X$ such that $U(x)=a$ and morphisms $k\maps x\to y$ such that $U(k)=1_a$.  Given a morphism $f \maps a \to b$, there is a functor $F(f) \maps F(a)\to F(b)$ that maps $x \in F(a)$ to the following pushout:
 \begin{displaymath}
@@ -3843,19 +3843,19 @@ First of all, if we only consider the underlying cospans without their decoratio
 \[
 		\begin{tikzpicture}
 			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (b) at (1,0) {$(m_2+n_2) +_{(b+b')} (m_1+n_1)$};
 			\node (c) at (6,0) {$c+c'$};
 			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (b2) at (1,1) {$(n_2+m_2) +_{(b'+b)} (n_1+m_1)$};
 			\node (c2) at (6,1) {$c'+c$};
             \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (b3) at (1,2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
 			\node (c3) at (6,2) {$c'+c$};
             \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (b5) at (1,-1) {$(m_2+_b m_1) + (n_2+_{b'} n_1)$};
 			\node (c5) at (6,-1) {$c+c'$};
             \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (b6) at (1,-2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
 			\node (c6) at (6,-2) {$c'+c$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
@@ -3894,20 +3894,20 @@ Regarding decorations, each of the above four maps of cospans has an associated 
 \[
 		\begin{tikzpicture}
 %			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
-			\node (c) at (8,0) {$ (x_2\oplus y_2)\odot (x_1\oplus y_1)  \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
+			\node (b) at (1,0) {$(m_2+n_2) +_{(b+b')} (m_1+n_1)$};
+			\node (c) at (8,0) {$ (x_2\oplus y_2)\odot (x_1\oplus y_1)  \in F((m_2+n_2)+_{b+b'}(m_1+n_1))$};
 %			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
-			\node (c2) at (8,1) {$(y_2\oplus x_2)\odot(y_1\oplus x_1) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
+			\node (b2) at (1,1) {$(n_2+m_2) +_{(b'+b)} (n_1+m_1)$};
+			\node (c2) at (8,1) {$(y_2\oplus x_2)\odot(y_1\oplus x_1) \in F((n_2+m_2)+_{b'+b}(n_1+m_1))$};
 %                            \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
-			\node (c3) at (8,2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
+			\node (b3) at (1,2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
+			\node (c3) at (8,2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_2+_{b'} n_1)+(m_2+_b m_1))$};
 %                                \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
-			\node (c5) at (8,-1) {$(x_2 \odot x_1) \oplus (y_2 \odot y_1) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
+			\node (b5) at (1,-1) {$(m_2+_b m_1) + (n_2+_{b'} n_1)$};
+			\node (c5) at (8,-1) {$(x_2 \odot x_1) \oplus (y_2 \odot y_1) \in F((m_2+_b m_1)+(n_2+_{b'} n_1))$};
 %                                \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
-			\node (c6) at (8,-2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
+			\node (b6) at (1,-2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
+			\node (c6) at (8,-2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_2+_{b'} n_1)+(m_2+_b m_1))$};
 			\path[->,font=\scriptsize,>=angle 90]
 %			(a) edge node[above]{$$} (b)
 %			(c) edge node[above]{$$} (b)
@@ -3962,36 +3962,36 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 %\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
 \node () at (12,-1) {$\scriptstyle\cong$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
+\node (E) at (6.75,0.5) {$\scriptstyle{F(m_2 + n_2) \times F(m_1+n_1)}$};
 \node () at (10.25,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
 \node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
-\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
-\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
-\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_1+_b m_2)+ (n_1+_{b'} n_2))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2) \times F(n_1) \times F(n_2)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
-\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2)+F(m_1+_b m_2)}$};
-\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
-\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
-\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_1 \times x_2 \times y_1 \times y_2}$};
-\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_2+m_1) \times F(n_2+n_1)}$};
+\node (B) at (9,0.5) {$\scriptstyle{F((m_2+n_2)+(m_1+n_1))}$};
+\node (B') at (9,-0.5) {$\scriptstyle{F(m_2+_b m_1)\times F(n_2+_{b'}n_1)}$};
+\node (C) at (11.5,0.5) {$\scriptstyle{F((m_2+n_2)+_{b+b'}(m_1+n_1))}$};
+\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_2+_b m_1)+ (n_2+_{b'} n_1))}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(m_2) \times F(n_2) \times F(m_1) \times F(n_1)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_2) \times F(m_1) \times F(n_2) \times F(n_1)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_2) \times F(n_1) \times F(m_2) \times F(m_1)}$};
+\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_2+n_1) \times F(m_2+m_1)}$};
+\node (B'') at (9,-1.5) {$\scriptstyle{F(n_2+_{b'}n_1) \times F(m_2+_b m_1)}$};
+\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_2+_{b'}n_1)+(m_2+_b m_1))}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_2 \times y_2 \times x_1 \times y_1}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_2 \times x_1 \times y_2 \times y_1}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_2 \times y_1 \times x_2 \times x_1}$};
 \path[->,font=\scriptsize,>=angle 90]
 (B') edge node [fill=white] {$\beta$} (B'')
-(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
+(E) edge node [above] {$\phi_{m_2+n_2,m_1+n_1}$} (B)
 (E'') edge node [below] {$F\psi\times F\psi$} (B'')
 (E') edge node [above] {$F\psi\times F\psi$} (B')
 (B) edge node [above] {$F(\psi)$} (C)
-(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_bm_2}$} (C'')
-(B') edge node [above] {$\phi_{m_1+_bm_2,n_1+_{b'}n_2}$} (C')
+(B'') edge node [below] {$\phi_{n_2+_{b'}n_1,m_2+_b m_1}$} (C'')
+(B') edge node [above] {$\phi_{m_2+_b m_1,n_2+_{b'}n_1}$} (C')
 (C) edge node [fill=white] {$F(\hat{\chi})$} (C')
 (C') edge node [fill=white] {$F(\beta)$} (C'')
-(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
-(G'') edge node [below] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
-(G') edge node [above] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E')
+(G) edge node [above] {$\phi_{m_2,n_2} {\times} \phi_{m_1,n_1}$} (E)
+(G'') edge node [below] {$\phi_{n_2,n_1} {\times} \phi_{m_2,m_1}$} (E'')
+(G') edge node [above] {$\phi_{m_2,m_1} \times \phi_{n_2,n_1}$} (E')
 (G) edge node [fill=white] {$1 \times \beta \times 1$} (G')
 (G') edge node [fill=white] {$\beta$} (G'')
 (D) edge[out=90,in=180] node [left,above] {$$} (G)
@@ -4008,39 +4008,39 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 %\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
 %\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
+\node (E) at (6.75,0.5) {$\scriptstyle{F(m_2 + n_2) \times F(m_1+n_1)}$};
 \node () at (5.5,-1) {$\scriptstyle{\cong}$};
 \node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
 \node () at (10.25,-1) {$\scriptstyle{\cong}$};
 \node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
-\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
-\node (B') at (9,-0.5) {$\scriptstyle{F((m_1+ m_2)+(n_1+n_2))}$};
-\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_1+_b m_2)+ (n_1+_{b'} n_2))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2) \times F(n_1) \times F(n_2)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
-\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-\node (B'') at (9,-1.5) {$\scriptstyle{F((n_1+n_2)+(m_1+ m_2))}$};
-\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
-\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
-\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_1 \times x_2 \times y_1 \times y_2}$};
-\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_2+m_1) \times F(n_2+n_1)}$};
+\node (B) at (9,0.5) {$\scriptstyle{F((m_2+n_2)+(m_1+n_1))}$};
+\node (B') at (9,-0.5) {$\scriptstyle{F((m_2+ m_1)+(n_2+n_1))}$};
+\node (C) at (11.5,0.5) {$\scriptstyle{F((m_2+n_2)+_{b+b'}(m_1+n_1))}$};
+\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_2+_b m_1)+ (n_2+_{b'} n_1))}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(m_2) \times F(n_2) \times F(m_1) \times F(n_1)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_2) \times F(m_1) \times F(n_2) \times F(n_1)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_2) \times F(n_1) \times F(m_2) \times F(m_1)}$};
+\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_2+n_1) \times F(m_2+m_1)}$};
+\node (B'') at (9,-1.5) {$\scriptstyle{F((n_2+n_1)+(m_2+ m_1))}$};
+\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_2+_{b'}n_1)+(m_2+_b m_1))}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_2 \times y_2 \times x_1 \times y_1}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_2 \times x_1 \times y_2 \times y_1}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_2 \times y_1 \times x_2 \times x_1}$};
 \path[->,font=\scriptsize,>=angle 90]
 (B') edge node [fill=white] {$F(\beta)$} (B'')
 (E') edge node [fill=white] {$\beta$} (E'')
-(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
-(E'') edge node [above] {$\phi_{n_1+n_2,m_1+m_2}$} (B'')
-(E') edge node [above] {$\phi_{m_1+m_2,n_1+n_2}$} (B')
+(E) edge node [above] {$\phi_{m_2+n_2,m_1+n_1}$} (B)
+(E'') edge node [above] {$\phi_{n_2+n_1,m_2+m_1}$} (B'')
+(E') edge node [above] {$\phi_{m_2+m_1,n_2+n_1}$} (B')
 (B) edge node [above] {$F(\psi)$} (C)
 (B'') edge node [above] {$F(\psi+\psi)$} (C'')
 (B') edge node [above] {$F(\psi+\psi)$} (C')
 (C) edge node [fill=white] {$F(\hat{\chi})$} (C')
 (C') edge node [fill=white] {$F(\beta)$} (C'')
-(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
-(G'') edge node [above] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
-(G') edge node [above] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E')
+(G) edge node [above] {$\phi_{m_2,n_2} {\times} \phi_{m_1,n_1}$} (E)
+(G'') edge node [above] {$\phi_{n_2,n_1} {\times} \phi_{m_2,m_1}$} (E'')
+(G') edge node [above] {$\phi_{m_2,m_1} \times \phi_{n_2,n_1}$} (E')
 (G) edge node [fill=white] {$1 \times \beta \times 1$} (G')
 (G') edge node [fill=white] {$\beta$} (G'')
 (D) edge[out=90,in=180] node [left,above] {$$} (G)
@@ -4060,40 +4060,40 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 %\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
 %\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
+\node (E) at (6.75,0.5) {$\scriptstyle{F(m_2 + n_2) \times F(m_1+n_1)}$};
 \node () at (5.5,0) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
 \node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}$};
 \node () at (10.25,0) {$\scriptstyle{\cong}$};
 \node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
 \node () at (12,-1) {$\scriptstyle\cong$};
-\node (E') at (6.75,-0.5) {$\scriptstyle{F(n_1+m_1) \times F(n_2+m_2)}$};
-\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
-\node (B') at (9,-0.5) {$\scriptstyle{F((n_1+m_1)+(n_2+m_2))}$};
-\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-\node (C') at (11.5,-0.5) {$\scriptstyle{F((n_1+m_1)+_{b'+b}(n_2+m_2))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(n_1) \times F(m_1) \times F(n_2) \times F(m_2)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
-\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2)+ F(m_1+_b m_2))}$};
-\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
-\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
-\node (X') at (3.4,-0.35) {$\scriptscriptstyle{y_1 \times x_1 \times y_2 \times x_2}$};
-\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+\node (E') at (6.75,-0.5) {$\scriptstyle{F(n_2+m_2) \times F(n_1+m_1)}$};
+\node (B) at (9,0.5) {$\scriptstyle{F((m_2+n_2)+(m_1+n_1))}$};
+\node (B') at (9,-0.5) {$\scriptstyle{F((n_2+m_2)+(n_1+m_1))}$};
+\node (C) at (11.5,0.5) {$\scriptstyle{F((m_2+n_2)+_{b+b'}(m_1+n_1))}$};
+\node (C') at (11.5,-0.5) {$\scriptstyle{F((n_2+m_2)+_{b'+b}(n_1+m_1))}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(m_2) \times F(n_2) \times F(m_1) \times F(n_1)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(n_2) \times F(m_2) \times F(n_1) \times F(m_1)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_2) \times F(n_1) \times F(m_2) \times F(m_1)}$};
+\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_2+n_1) \times F(m_2+m_1)}$};
+\node (B'') at (9,-1.5) {$\scriptstyle{F(n_2+_{b'}n_1)\times F(m_2+_b m_1)}$};
+\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_2+_{b'}n_1)+(m_2+_b m_1))}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_2 \times y_2 \times x_1 \times y_1}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{y_2 \times x_2 \times y_1 \times x_1}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_2 \times y_1 \times x_2 \times x_1}$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node [fill=white] {$F(\beta+\beta)$} (B')
 (E) edge node [fill=white] {$F(\beta) \times F(\beta)$} (E')
-(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
+(E) edge node [above] {$\phi_{m_2+n_2,m_1+n_1}$} (B)
 (E'') edge node [below] {$F\psi\times F\psi)$} (B'')
-(E') edge node [above] {$\phi_{n_1+m_1,n_2+m_2}$} (B')
+(E') edge node [above] {$\phi_{n_2+m_2,n_1+m_1}$} (B')
 (B) edge node [above] {$F(\psi)$} (C)
-(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_{b}m_2}$} (C'')
+(B'') edge node [below] {$\phi_{n_2+_{b'}n_1,m_2+_{b}m_1}$} (C'')
 (B') edge node [above] {$F(\psi)$} (C')
 (C) edge node [fill=white] {$F(\beta +_\beta \beta)$} (C')
 (C') edge node [fill=white] {$F(\hat{\chi})$} (C'')
-(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
-(G'') edge node [below] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
-(G') edge node [above] {$\phi_{n_1,m_1} \times \phi_{n_2,m_2}$} (E')
+(G) edge node [above] {$\phi_{m_2,n_2} {\times} \phi_{m_1,n_1}$} (E)
+(G'') edge node [below] {$\phi_{n_2,n_1} {\times} \phi_{m_2,m_1}$} (E'')
+(G') edge node [above] {$\phi_{n_2,m_2} \times \phi_{n_1,m_1}$} (E')
 (G) edge node [fill=white] {$\beta \times \beta$} (G')
 (G') edge node [fill=white] {$1 \times \beta \times 1$} (G'')
 (D) edge[out=90,in=180] node [left,above] {$$} (G)
