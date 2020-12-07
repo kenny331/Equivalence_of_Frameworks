@@ -2212,11 +2212,11 @@ its fibers with initial objects that are preserved up to isomorphism by the rein
 \end{lem}
 
 \begin{proof}
- This is \cite[Proposition~4.4]{Gray}.    Suppose each fiber $\X_a$ of the opfibration $U$ is equipped with an initial object $\bot_a$, and these objects are preserved by the reindexing functors.   Define $L\maps\A\to\X$ on objects $a \in \A$ by $L(a) = \bot_a$.   Define $L$ on morphisms as follows: given $f\maps a\to a'$, $L(f)$ is the composite
+ This is \cite[Proposition~4.4]{Gray}.    Suppose each fiber $\X_a$ of the opfibration $U$ is equipped with an initial object $\bot_a$, and these objects are preserved up to isomorphism by the reindexing functors.   Define $L\maps\A\to\X$ on objects $a \in \A$ by $L(a) = \bot_a$.   Given a morphism $f\maps a\to a'$ in $\A$, define $L(f)$ to be the composite
  \begin{equation}\label{eq:Lonarrows}
-  \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\stackrel{\chi_a}{\cong}\bot_{a'}
+  \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\xrightarrow{\;\chi_a\;}\bot_{a'}
  \end{equation}
-where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$  and $\chi_a$ is the unique isomorphism between the initial objects in the fiber above $a'$, since $f_!$ preserves them.   One can then make $U$ into a right adjoint of $L$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
+where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$  and $\chi_a$ is the unique isomorphism between these two initial objects in the fiber above $a'$.   One can then make $U$ into a right adjoint of $L$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
 
 %Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$.
