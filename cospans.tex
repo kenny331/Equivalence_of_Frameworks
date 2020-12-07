@@ -1,7 +1,7 @@
 % Structured and decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/5
+% 2020/12/7
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -2150,7 +2150,7 @@ I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 where $\nabla$ is the fold map. 
 \end{proof}
 
-These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+)\to(\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
+These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
 Finally, we can further restrict to the setting of opfibrations that also preserve pushouts, and thus all finite colimits, thanks to the following more general result.
 
@@ -2160,7 +2160,7 @@ the following are equivalent:
 \begin{enumerate}
  \item all fibers have $\J$-colimits, and the reindexing functors preserve them;
  \item the total category $\X$ has $\J$-colimits, and $U$ preserves them.
-Moreover in this situation the $\J$-colimits in $\X$ and $\J$ can be chosen so that $U$ strictly preserves them.   %%% CHECK AND MAYBE FIX THIS!!!
+Moreover in this situation the $\J$-colimits in $\X$ can be chosen so that $U$ strictly preserves them.  
 \end{enumerate}
 \end{lem}
 
@@ -2204,21 +2204,18 @@ In our case of interest, the pseudofunctor $F$ will originally be lax monoidal; 
 
 Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibers which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fibrewise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibers, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category from the fibrewise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
 
-On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration; the following result provides sufficient conditions for that.
+On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, let us define a `right adjoint left inverse' or  \define{rali} to be a right adjoint in an adjunction for which the unit is the identity.  
 
 \begin{lem}[\textbf{Gray}] \label{prop:opfibtolari}
-  Let $U \maps\X \to \A$ be an opfibration. Then
-  $U$ is a right adjoint `left inverse', a.k.a the unit is the identity, if (and only if) its fibers have
-  initial objects which are preserved by the
-  reindexing functors.
+  Let $U \maps\X \to \A$ be an opfibration. Then $U$ is a rali if (and only if) fibers are equipped with initial objects that are preserved up to isomorphism by the reindexing functors.
 \end{lem}
 
 \begin{proof}
- This is \cite[Proposition~4.4]{Gray}. The left adjoint $L\maps\A\to\X$ maps an object $a$ to the initial object in its fiber $\X_a$, denoted by $\bot_a$. By construction, $U(L(a))=U(\bot_a)=a$. On morphisms $f\maps a\to a'$, $L(f)$ is defined by
+ This is \cite[Proposition~4.4]{Gray}; we only need the ``if'' direction here.    Suppose each fiber $\X_a$ of the opfibration $U$ is equipped with an initial object $\bot_a$, and these objects are preserved by the reindexing functors.   Define $L\maps\A\to\X$ on objects $a \in \A$ by $L(a) = \bot_a$.   Define $L$ on morphisms as follows: given $f\maps a\to a'$, $L(f)$ is the composite
  \begin{equation}\label{eq:Lonarrows}
   \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\stackrel{\chi_a}{\cong}\bot_{a'}
  \end{equation}
-where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $\bot_a$ along $f$ and $\chi_a$ is the unique isomorphism between the initial objects in the fiber above $a'$ since $f_!$ preserves them.
+where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$  and $\chi_a$ is the unique isomorphism between the initial objects in the fiber above $a'$, since $f_!$ preserves them.   One can make $U$ into a right adjoint of $L$ with unit $a \mapsto U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
 
 %Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$.
@@ -3309,7 +3306,7 @@ v(c) = \sum_{\tau \in T} r(\tau) \, ( t(\tau) - s(\tau) ) c^{s(\tau)}
 \]
 where 
 \[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
-and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $\Set$ \cite[Theorem 18]{BP}.   As such, it trivially becomes a monoidal natural isomorphism between the functors $F, D \maps \Fin\Set \to \Cat$.
+and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural isomorphism between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.
 
 We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not equivalent to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an equivalence between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
 
@@ -3347,7 +3344,7 @@ a\ar[r,"f"'] & b & \textrm{in }\A
 \end{displaymath}
 where $\varepsilon_x\colon LU(x)=L(a)\to x$ is the counit of the adjunction $L\dashv U$. The fact that $U$ strictly preserves pushouts is necessary to show that the pushout is mapped, via $U$, directly down to $b$.
 
-Even though for both \cref{thm:equiv} and the above described setting, the conditions required are only sufficient, they provide certain indication that under a suitable ``condition intersection'' in a sense, we could establish a functorial picture
+Even though for both \cref{thm:equiv} and the above result the conditions required are only sufficient, they suggest that with work we could establish a functorial picture
 \begin{displaymath}
 \begin{tikzpicture}
 \node [align=center,draw] (A) { Lax monoidal pseudofunctors \\ $(\A,+)\to(\Cat,\times)$};
@@ -3363,7 +3360,8 @@ Even though for both \cref{thm:equiv} and the above described setting, the condi
 (B) edge node[below,sloped]{$L\mapsto {}_{L}\lCsp(\X)$} (C);
 \end{tikzpicture}
 \end{displaymath}
-with an actual natural isomorphism in the middle. This would imply that starting from an appropriate middle ground, employing the structured or the decorated cospan formalism is essentially the same. We leave such considerations for future work.
+with an actual natural isomorphism in the middle.  
+This would imply that starting from an appropriate middle ground, employing the structured or the decorated cospan formalism is essentially the same. We leave such considerations for future work.
 
 \appendix
 
