@@ -1000,14 +1000,14 @@ where the legs of the cospan are the sums of the dashed ones of the appropriate 
 Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $\hat{\chi}\colon(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms as follows: 
 \begin{equation}\label{eq:interchangedeco}
  \scalebox{.75}{\begin{tikzcd}[ampersand replacement=\&,column sep=.3in,row sep=.1in]
-\& F(m_1)\times F(n_1)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"]\ar[ddrr,phantom,"\cong"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1+\beta+1)"'] \\
+\& F(m_1)\times F(n_1)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"']\ar[ddrr,phantom,"\cong"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1+\beta+1)"'] \\
 \one \ar[ur,"{x_1\times y_1\times x_2\times y_2}"]\ar[dr,"{x_1\times x_2\times y_1\times y_2}"'] \&\&\&\& \\
 \& F(m_1)\times F(m_2)\times F(n_1)\times F(n_2)\ar[dd,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"']\&\& F(m_1+m_2+n_1+n_2)\ar[ddrr,"F(\psi+\psi)"']\ar[dd,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \ar[rr,phantom,"\cong"]\&\& F((m_1+n_1)+_{b+b'}(m_2+n_2))\ar[dd,"F(\hat{\chi})"] \\
 \hole \\
 \& F(m_1+m_2)\times F(n_1+n_2)\ar[uurr,"\phi_{m_1+m_2,n_1+n_2}"']\ar[rr,"F\psi\times F\psi"'] \&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[rr,"\phi_{m_1+_b m_2,n_1+_{b'}n_2}"'] \&\& F((m_1+_bm_2)+(n_1+_{b'}n_2))
 \end{tikzcd}}
 \end{equation}
-where the left-hand side isomorphism combines pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$, and the right hand side follows from the universal property of colimits and pseudofunctoriality of $F$.
+where the left-hand side isomorphism combines pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$ (and can be explicitly found in e.g. \cite[Page 125]{DS}), and the right hand side follows from the universal property of colimits and pseudofunctoriality of $F$.
 Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b}:a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
 \begin{comment}
 , the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
