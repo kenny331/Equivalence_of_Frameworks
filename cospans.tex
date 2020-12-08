@@ -3849,19 +3849,19 @@ First of all, if we only consider the underlying cospans without their decoratio
 \[
 		\begin{tikzpicture}
 			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_2+n_2) +_{(b+b')} (m_1+n_1)$};
+			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
 			\node (c) at (6,0) {$c+c'$};
 			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_2+m_2) +_{(b'+b)} (n_1+m_1)$};
+			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
 			\node (c2) at (6,1) {$c'+c$};
             \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
+			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
 			\node (c3) at (6,2) {$c'+c$};
             \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_2+_b m_1) + (n_2+_{b'} n_1)$};
+			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
 			\node (c5) at (6,-1) {$c+c'$};
             \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
+			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
 			\node (c6) at (6,-2) {$c'+c$};
 			\path[->,font=\scriptsize,>=angle 90]
 			(a) edge node[above]{$$} (b)
@@ -3900,20 +3900,20 @@ Regarding decorations, each of the above four maps of cospans has an associated 
 \[
 		\begin{tikzpicture}
 %			\node (a) at (-4,0) {$a+a'$};
-			\node (b) at (1,0) {$(m_2+n_2) +_{(b+b')} (m_1+n_1)$};
-			\node (c) at (8,0) {$ (x_2\oplus y_2)\odot (x_1\oplus y_1)  \in F((m_2+n_2)+_{b+b'}(m_1+n_1))$};
+			\node (b) at (1,0) {$(m_1+n_1) +_{(b+b')} (m_2+n_2)$};
+			\node (c) at (8,0) {$ (x_1\oplus y_1)\odot (x_2\oplus y_2)  \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
 %			\node (a2) at (-4,1) {$a'+a$};
-			\node (b2) at (1,1) {$(n_2+m_2) +_{(b'+b)} (n_1+m_1)$};
-			\node (c2) at (8,1) {$(y_2\oplus x_2)\odot(y_1\oplus x_1) \in F((n_2+m_2)+_{b'+b}(n_1+m_1))$};
+			\node (b2) at (1,1) {$(n_1+m_1) +_{(b'+b)} (n_2+m_2)$};
+			\node (c2) at (8,1) {$(y_1\oplus x_1)\odot(y_2\oplus x_2) \in F((n_1+m_1)+_{b'+b}(n_2+m_2))$};
 %                            \node (a3) at (-4,2) {$a'+a$};
-			\node (b3) at (1,2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
-			\node (c3) at (8,2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_2+_{b'} n_1)+(m_2+_b m_1))$};
+			\node (b3) at (1,2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c3) at (8,2) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
 %                                \node (a5) at (-4,-1) {$a+a'$};
-			\node (b5) at (1,-1) {$(m_2+_b m_1) + (n_2+_{b'} n_1)$};
-			\node (c5) at (8,-1) {$(x_2 \odot x_1) \oplus (y_2 \odot y_1) \in F((m_2+_b m_1)+(n_2+_{b'} n_1))$};
+			\node (b5) at (1,-1) {$(m_1+_b m_2) + (n_1+_{b'} n_2)$};
+			\node (c5) at (8,-1) {$(x_1 \odot x_2) \oplus (y_1 \odot y_2) \in F((m_1+_b m_2)+(n_1+_{b'} n_2))$};
 %                                \node (a6) at (-4,-2) {$a'+a$};
-			\node (b6) at (1,-2) {$(n_2 +_{b'} n_1) + (m_2 +_b m_1)$};
-			\node (c6) at (8,-2) {$(y_2 \odot y_1) \oplus (x_2 \odot x_1) \in F((n_2+_{b'} n_1)+(m_2+_b m_1))$};
+			\node (b6) at (1,-2) {$(n_1 +_{b'} n_2) + (m_1 +_b m_2)$};
+			\node (c6) at (8,-2) {$(y_1 \odot y_2) \oplus (x_1 \odot x_2) \in F((n_1+_{b'} n_2)+(m_1+_b m_2))$};
 			\path[->,font=\scriptsize,>=angle 90]
 %			(a) edge node[above]{$$} (b)
 %			(c) edge node[above]{$$} (b)
@@ -3946,10 +3946,10 @@ Regarding decorations, each of the above four maps of cospans has an associated 
 and are explicitly appropriate isomorphisms of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\tau_1 \colon F(\beta +_\beta \beta)((x_2\oplus y_2)\odot(x_1\oplus y_1)) \to (y_2\oplus x_2)\odot(y_1\oplus x_1)$};
-\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_2 \oplus x_2)\odot(y_1 \oplus x_1)) \to (y_2\odot y_1) \oplus (x_2\odot x_1)$};
-\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_2 \oplus y_2)\odot(x_1 \oplus y_1)) \to (x_2\odot x_1) \oplus (y_2\odot y_1)$};
-\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta)((x_2\odot x_1)\oplus(y_2\odot y_1)) \to (y_2\odot y_1)\oplus(x_2\odot x_1)$};
+\node (A) at (0,0) {$\tau_1 \colon F(\beta +_\beta \beta)((x_1\oplus y_1)\odot(x_2\oplus y_2)) \to (y_1\oplus x_1)\odot(y_2\oplus x_2)$};
+\node (B) at (0,-.5) {$\tau_2 \colon F(\hat{\chi})((y_1 \oplus x_1)\odot(y_2 \oplus x_2)) \to (y_1\odot y_2) \oplus (x_1\odot x_2)$};
+\node (C) at (0,-1) {$\tau_3 \colon F(\hat{\chi})((x_1 \oplus y_1)\odot(x_2 \oplus y_2)) \to (x_1\odot x_2) \oplus (y_1\odot y_2)$};
+\node (D) at (0,-1.5) {$\tau_4 \colon F(\beta)((x_1\odot x_2)\oplus(y_1\odot y_2)) \to (y_1\odot y_2)\oplus(x_1\odot x_2)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge[color=white] node[above]{$$} (A);
 %(B) edge node[right]{$\chi$} (D)
@@ -3959,7 +3959,7 @@ and are explicitly appropriate isomorphisms of the form:
 \]
 Firstly, performing the (vertical) composition of $\chi$ and $\beta$ of $\cref{eq:thisdiagram}$ gives the composite decoration $\tau_4\tau_3$ computed by the formula \cref{eq:tauofverticalcomposite} to be 
 \begin{displaymath}
-\scalebox{.8}{$F(\beta\hat{\chi})((x_2 \oplus y_2)\odot(x_1 \oplus y_1))\cong F(\beta)(F\hat{\chi})((x_2 \oplus y_2)\odot(x_1 \oplus y_1))\xrightarrow{F(\beta)(\tau_3)}F(\beta)((x_2\odot x_1) \oplus (y_2\odot y_1))\xrightarrow{\tau_4}(y_2 \odot y_1) \oplus (x_2 \odot x_1)$}
+\scalebox{.8}{$F(\beta\hat{\chi})((x_1 \oplus y_1)\odot(x_2 \oplus y_2))\cong F(\beta)(F\hat{\chi})((x_1 \oplus y_1)\odot(x_2 \oplus y_2))\xrightarrow{F(\beta)(\tau_3)}F(\beta)((x_1\odot x_2) \oplus (y_1\odot y_2))\xrightarrow{\tau_4}(y_1 \odot y_2) \oplus (x_1 \odot x_2)$}
 \end{displaymath}
 Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as well as the decoration morphisms of $\chi$ \cref{eq:interchangedeco} and $\beta$ \cref{eq:decobraiding}, we form:
 \[
@@ -4057,7 +4057,7 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 }
 For the other (vertical) composition of \cref{eq:thisdiagram}, that of $\beta\odot\beta$ followed by $\chi$, the composite decoration $\tau_2\tau_1$ is
 \begin{displaymath}
-\scalebox{.8}{$F(\hat{\chi}(\beta +_\beta \beta))( (x_2 \oplus y_2)\odot (x_1 \oplus y_1))\cong F(\hat{\chi})F(\beta +_\beta \beta)( (x_2 \oplus y_2)\odot (x_1 \oplus y_1)) \xrightarrow{F(\hat{\chi})(\tau_1)}F(\hat{\chi})(y_2\oplus x_2)\odot(y_1\oplus x_1)\xrightarrow{\tau_2}(y_2 \odot y_1) \oplus (x_2 \odot x_1)$}
+\scalebox{.8}{$F(\hat{\chi}(\beta +_\beta \beta))( (x_1 \oplus y_1)\odot (x_2 \oplus y_2))\cong F(\hat{\chi})F(\beta +_\beta \beta)( (x_1 \oplus y_1)\odot (x_2 \oplus y_2)) \xrightarrow{F(\hat{\chi})(\tau_1)}F(\hat{\chi})(y_1\oplus x_1)\odot(y_2\oplus x_2)\xrightarrow{\tau_2}(y_1 \odot y_2) \oplus (x_1 \odot x_2)$}
 \end{displaymath}
 Once again, using the tensor and composite formulas for decorations, as well the horizontal composite formulas \cref{eq:decohorizontalcompo}
 for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
@@ -4066,40 +4066,40 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 %\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
 %\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-\node (E) at (6.75,0.5) {$\scriptstyle{F(m_2 + n_2) \times F(m_1+n_1)}$};
+\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
 \node () at (5.5,0) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
 \node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}$};
 \node () at (10.25,0) {$\scriptstyle{\cong}$};
 \node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
 \node () at (12,-1) {$\scriptstyle\cong$};
-\node (E') at (6.75,-0.5) {$\scriptstyle{F(n_2+m_2) \times F(n_1+m_1)}$};
-\node (B) at (9,0.5) {$\scriptstyle{F((m_2+n_2)+(m_1+n_1))}$};
-\node (B') at (9,-0.5) {$\scriptstyle{F((n_2+m_2)+(n_1+m_1))}$};
-\node (C) at (11.5,0.5) {$\scriptstyle{F((m_2+n_2)+_{b+b'}(m_1+n_1))}$};
-\node (C') at (11.5,-0.5) {$\scriptstyle{F((n_2+m_2)+_{b'+b}(n_1+m_1))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(m_2) \times F(n_2) \times F(m_1) \times F(n_1)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(n_2) \times F(m_2) \times F(n_1) \times F(m_1)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_2) \times F(n_1) \times F(m_2) \times F(m_1)}$};
-\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_2+n_1) \times F(m_2+m_1)}$};
-\node (B'') at (9,-1.5) {$\scriptstyle{F(n_2+_{b'}n_1)\times F(m_2+_b m_1)}$};
-\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_2+_{b'}n_1)+(m_2+_b m_1))}$};
-\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_2 \times y_2 \times x_1 \times y_1}$};
-\node (X') at (3.4,-0.35) {$\scriptscriptstyle{y_2 \times x_2 \times y_1 \times x_1}$};
-\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_2 \times y_1 \times x_2 \times x_1}$};
+\node (E') at (6.75,-0.5) {$\scriptstyle{F(n_1+m_1) \times F(n_2+m_2)}$};
+\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
+\node (B') at (9,-0.5) {$\scriptstyle{F((n_1+m_1)+(n_2+m_2))}$};
+\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
+\node (C') at (11.5,-0.5) {$\scriptstyle{F((n_1+m_1)+_{b'+b}(n_2+m_2))}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(n_1) \times F(m_1) \times F(n_2) \times F(m_2)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
+\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2)\times F(m_1+_b m_2)}$};
+\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{y_1 \times x_1 \times y_2 \times x_2}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node [fill=white] {$F(\beta+\beta)$} (B')
 (E) edge node [fill=white] {$F(\beta) \times F(\beta)$} (E')
-(E) edge node [above] {$\phi_{m_2+n_2,m_1+n_1}$} (B)
+(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
 (E'') edge node [below] {$F\psi\times F\psi)$} (B'')
-(E') edge node [above] {$\phi_{n_2+m_2,n_1+m_1}$} (B')
+(E') edge node [above] {$\phi_{n_1+m_1,n_2+m_2}$} (B')
 (B) edge node [above] {$F(\psi)$} (C)
-(B'') edge node [below] {$\phi_{n_2+_{b'}n_1,m_2+_{b}m_1}$} (C'')
+(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_{b}m_2}$} (C'')
 (B') edge node [above] {$F(\psi)$} (C')
 (C) edge node [fill=white] {$F(\beta +_\beta \beta)$} (C')
 (C') edge node [fill=white] {$F(\hat{\chi})$} (C'')
-(G) edge node [above] {$\phi_{m_2,n_2} {\times} \phi_{m_1,n_1}$} (E)
-(G'') edge node [below] {$\phi_{n_2,n_1} {\times} \phi_{m_2,m_1}$} (E'')
-(G') edge node [above] {$\phi_{n_2,m_2} \times \phi_{n_1,m_1}$} (E')
+(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
+(G'') edge node [below] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
+(G') edge node [above] {$\phi_{n_1,m_1} \times \phi_{n_2,m_2}$} (E')
 (G) edge node [fill=white] {$\beta \times \beta$} (G')
 (G') edge node [fill=white] {$1 \times \beta \times 1$} (G'')
 (D) edge[out=90,in=180] node [left,above] {$$} (G)
