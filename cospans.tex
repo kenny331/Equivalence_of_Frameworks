@@ -17,7 +17,7 @@
 \begin{document}
 
 \begin{abstract}
-One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, chemistry and dynamical systems.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become equivalent when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, epidemiology and dynamical systems.
 \end{abstract}
 
 \maketitle
@@ -231,7 +231,7 @@ Here we give sufficient conditions for a decorated cospan double category to be 
 \subsection*{Outline}
 
 In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are equivalent under suitable conditions. In \cref{spinoffs}, we establish the equivalence between structured and decorated cospans at the level of bicategories and categories (via decategorification).
-Finally, in \cref{Applications}, we describe applications to electrical circuits, Petri nets, chemistry and dynamical systems.
+Finally, in \cref{Applications}, we describe applications to electrical circuits, Petri nets, epidemiology and dynamical systems.
 
 \subsection*{Conventions}
 
@@ -1506,12 +1506,12 @@ By \cref{cor:fcocMonGroth}, when $F$ as an ordinary pseudofunctor factors throug
 \end{equation}
 describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %Christina: If each adjoint picks one isomorphic initial object, can we choose the one with that choice? Well they are all isomorphic and that could help with the monoidal structure later...
 
-As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (same as for $F\lCsp$), whereas horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (\cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
+As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (just as for $F\lCsp$), whereas its horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (see \cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
 \begin{equation}\label{eq:scsphor1cell}
  (a,\bot_a)\xrightarrow{\scalebox{0.7}{\(\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}\)}}(m,x)\xleftarrow{\scalebox{0.7}{\(\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}\)}}(b,\bot_b)
 \end{equation}
 with $x\in F(m)$; recall that the reindexing functors $F(i),F(o)$ preserve all finite colimits across the fibers.
-Finally, the 2-morphisms of this double category in this context unravel as follows
+Finally, the 2-morphisms of this double category in this context unravel as follows:
 \begin{equation}\label{eq:2morphismLCspintaF}
  \begin{tikzcd}[row sep=1in,column sep=1.7in,ampersand replacement=\&]
  (a,\bot_a)\ar[r,"{\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}}"]\ar[d,"{\begin{cases}f\maps a\to a' &\textrm{in }\A \\\chi_a\maps F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (m,x) \ar[d,"{\begin{cases}k\maps m\to m' &\textrm{in }\A \\ \tau\maps F(k)(x)\to x' &\textrm{in }F(m')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}}"']\ar[d,"{\begin{cases}g\maps b\to b' &\textrm{in }\A \\\chi_b\maps F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
@@ -2399,13 +2399,15 @@ First, to briefly illustrate these ideas, here is an open Petri net with rates:
 \]
 It is an open Petri net where the transitions are labelled with rate constants $r_1, r_2 > 0$.
 Here is the corresponding open dynamical system:
-\[   \begin{array}{ccl} \displaystyle{\frac{dS(t)}{dt}} &=& -r_1 \, S(t)I(t)  + I_1(t) + I_2(t) \\ \\
+\begin{equation}
+\label{eq:openPetrir}
+  \begin{array}{ccl} \displaystyle{\frac{dS(t)}{dt}} &=& -r_1 \, S(t)I(t)  + I_1(t) + I_2(t) \\ \\
 \displaystyle{\frac{dI(t)}{dt}}  &=& r_1\, S(t)I(t) - r_2 \, I(t) + I_3(t)  \\  \\
 \displaystyle{\frac{dR(t)}{dt}}  &=&   r_2 \, I(t)  - O_1(t).
 \end{array}
-\]
-where $I_j(t)$ and $O_j(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_j \in X$ and $o_j \in Y$.
-If we drop the `inflow' and `outflow' terms $I_i$ and $O_i$ we obtain a system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build complex models from smaller pieces.  
+\end{equation}
+Here $I_1(t),I_2(t),I_3(t)$ and $O_1(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_1,i_2,i_3 \in X$ and $o_1 \in Y$.
+If we drop these inflow and outflow terms, we obtain an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build complex models from smaller pieces.  
 Recently Halter and Patterson \cite{HP} implemented this idea in software using structured cospans.  They illustrated the use of this tool by rebuilding part of the COVID-19 model that the UK has been using to make policy decisions.
 
 Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
@@ -2428,18 +2430,18 @@ There is a functor $R \maps \Petri_r \to \Set$ sending any Petri net with rates 
 \begin{itemize}
 \item objects are finite sets,
 \item vertical 1-morphisms are functions,
-\item horizontal 1-cells are \define{open Petri nets with rates}:
+\item horizontal 1-cells are \define{open Petri nets with rates}, namely diagrams in $\Petri_r$ of the form
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (-3,0) {$L(X)$};
 \node (E) at (-2,0) {$P$};
-\node (F) at (-1,0) {$L(Y)$};
+\node (F) at (-1,0) {$L(Y)$,};
 \path[->,font=\scriptsize,>=angle 90]
 (D) edge node [above] {$i$} (E)
 (F) edge node [above] {$o$} (E);
 \end{tikzpicture}
 \]
-\item 2-morphisms are diagrams in $\Petri_r$ of the form:
+\item 2-morphisms are diagrams in $\Petri_r$ of the form
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (E) at (3,0) {$L(X_1)$};
@@ -2474,7 +2476,6 @@ $D \maps \Fin\Set \to \Set$ such that:
 \begin{itemize}
 \item $D$ maps any finite set $S$ to 
 \[ D(S) = \{ v \maps \R^S \to \R^S | \; v \textrm{ is algebraic}  \}. \]
-{\chris Changed : to $|$ in the set, is that OK?}
 \item $D$ maps any function $f \maps S \to S'$ between finite sets to the function $D(f) \maps D(S) \to D(S')$ given as follows:
 \[ D(f)(v) = f_* \circ v \circ f^* \]
 where the pullback $ f^* \maps \R^{S'} \to \R^S $ is given by
@@ -2573,6 +2574,23 @@ where
 \[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
 and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural isomorphism between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.
 
+Given a Petri net with rates $P$ and defining $v$ as above, this system of first-order ordinary differential equations for a function $c \maps \R \to \R^S$:
+\[    \frac{d}{dt} c(t) = v(c(t))   \]
+is called the \define{rate equation}.    When $P$ is part of an open Petri net with rates
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (D) at (-3,0) {$L(X)$};
+\node (E) at (-2,0) {$P$};
+\node (F) at (-1,0) {$L(Y)$,};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$i$} (E)
+(F) edge node [above] {$o$} (E);
+\end{tikzpicture}
+\]
+we get the \define{open rate equation}
+\[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
+where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}.
+
 We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not equivalent to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an equivalence between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
@@ -2630,14 +2648,13 @@ This would imply that starting from an appropriate middle ground, employing the 
 
 \appendix
 
-\section{}
+\section{Definitions}
 In this appendix, we gather some well-known concepts required to make the material self-contained, as well as references to more detailed expositions.
 
 \subsection{Bicategories}
 \label{subsec:bicats}
 
-For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  
-Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
+For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
 
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
@@ -3083,7 +3100,7 @@ We say that a double category is \textbf{fibrant} if every vertical
 If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $\bD$ is a monoidal bicategory. If $\lD$ is braided or symmetric, then so is $\bD$. 
 \end{thm}
 
-\section{} \label{eq:proofofaxiom}
+\section{Checking a coherence law} \label{eq:proofofaxiom}
 
 Here we show a sample check of a coherence law for the proof of \cref{DC}.
 All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
