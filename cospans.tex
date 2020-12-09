@@ -2637,10 +2637,10 @@ Even though for both \cref{thm:equiv} and the above result the conditions stated
 \node[below=3 of A,align=center,draw] (B)  {Finite colimit preserving \\ functors $A\to\X$};
 \node[below=0 of D] {\rotatebox{90}{$\simeq$}};
 \path[->,font=\scriptsize]
-(A) edge node[above,sloped]{$F\mapsto F\lCsp$}  (C)
+(A) edge node[above,sloped, midway]{$\quad F\mapsto F\lCsp$}  (C)
 (D) edge (A)
 (E) edge (B)
-(B) edge node[below,sloped]{$L\mapsto {}_{L}\lCsp(\X)$} (C);
+(B) edge node[below,sloped, midway]{$\quad L\mapsto {}_{L}\lCsp(\X)$} (C);
 \end{tikzpicture}
 \end{displaymath}
 with a natural isomorphism in the middle.  The connection between opfibrations and laris goes back to Gray's \cref{prop:opfibtolari}, but we need to specialize it to a class suitable for both the structured and decorated cospan formalisms.  This would imply that starting from an appropriate middle ground, these two formalisms are essentially the same.   We leave such considerations for future work.
