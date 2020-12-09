@@ -2638,7 +2638,7 @@ Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal dou
 
 Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems, \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
  
-Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite[Section 5]{BC2}. Here we explain how to also fix them using our new decorated cospans, since they provide another another solution to these problems. Below we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent; that is why \cref{subsec:graphs,subsec:circuits,subsec:petri} are on the brief side. However, in \cref{subsec:petrirates} we elaborate and show that open dynamical systems can only be treated using decorated cospans.
+Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC2}. Here we explain how to also fix them using our new decorated cospans, since they provide another another solution to these problems. Below we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} briefly illustrate that. However, in \cref{subsec:petrirates} we show that open dynamical systems can only be treated using decorated cospans.
 
 \subsection{Graphs}
 \label{subsec:graphs}
@@ -2809,7 +2809,7 @@ We can make $F$ into a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, 
 {\chris Shouldn't the laxator for the units go in the other direction??}
 
 The functor $\phi_0$ is uniquely determined since $\one$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor---for example, composition is strictly preserved---
-%%%Christina: we already said that very recently, perhaps there is no need for explaining it again?
+{\chris we already said that very recently, perhaps there is no need for explaining it again?}
 this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC2} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
 
 It is well known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
@@ -3076,7 +3076,7 @@ We can equivalently describe open Petri nets using decorated cospans.  This work
 \end{itemize}
 This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:equiv} we can show that this is equivalent, as a symmetric monoidal double category, to ${}_L \lCsp(\Petri)$.
 
-The machinery of structured cospans has been used to provide a semantics for open Petri nets \cite{BM}: a symmetric monoidal double functor from ${}_L \lCsp(\Petri)$ to  a symmetric monoidal double category of `open commutative monoidal categories'.  Presumably this double functor can equivalently be obtained using the machinery of decorated cospans, with the help of \cref{thm:functoriality}.  However, it should be clear by now that in cases where either structured or decorated cospans can be used, structured cospans are simpler.   We next turn to an example where decorated cospans are necessary.
+The machinery of structured cospans has been used to provide a semantics for open Petri nets \cite{BM}: a symmetric monoidal double functor from ${}_L \lCsp(\Petri)$ to  a symmetric monoidal double category of `open commutative monoidal categories'.  Presumably this double functor can equivalently be obtained using the machinery of decorated cospans, with the help of \cref{thm:functoriality}.  However, it should be clear by now that so far, in cases where either structured or decorated cospans can be used, structured cospans are simpler.   We next turn to an example where decorated cospans are necessary.
 
 \subsection{Petri nets with rates}
 \label{subsec:petrirates}
@@ -3147,8 +3147,7 @@ Here is the corresponding open dynamical system:
 \displaystyle{\frac{dR(t)}{dt}}  &=&   r_2 \, I(t)  - O_1(t).
 \end{array}
 \]
-{\chris Perhaps explain the difference between lower case $i_i$ and $o_i$ and upper case? I don't get it at first sight.}
-
+where $I_j(t)$ and $O_j(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_j \in X$ and $o_j \in Y$.
 If we drop the `inflow' and `outflow' terms $I_i$ and $O_i$ we obtain a system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build complex models from smaller pieces.  
 Recently Halter and Patterson \cite{HP} implemented this idea in software using structured cospans.  They illustrated the use of this tool by rebuilding part of the COVID-19 model that the UK has been using to make policy decisions.
 
@@ -3217,7 +3216,8 @@ Using Fong's original approach to decorated cospans, Pollard and the first autho
 $D \maps \Fin\Set \to \Set$ such that:
 \begin{itemize}
 \item $D$ maps any finite set $S$ to 
-\[ D(S) = \{ v \maps \R^S \to \R^S : \; v \textrm{ is algebraic}  \}. \] 
+\[ D(S) = \{ v \maps \R^S \to \R^S | \; v \textrm{ is algebraic}  \}. \]
+{\chris Changed : to $|$ in the set, is that OK?}
 \item $D$ maps any function $f \maps S \to S'$ between finite sets to the function $D(f) \maps D(S) \to D(S')$ given as follows:
 \[ D(f)(v) = f_* \circ v \circ f^* \]
 where the pullback $ f^* \maps \R^{S'} \to \R^S $ is given by
@@ -4233,7 +4233,7 @@ networks, \textsl{Mol.\ Inform.\  }\textbf{29} (2010), 838--843.
 
 \bibitem{Lawvere} F.\ W.\ Lawvere, State categories and response functors, unpublished manuscript, 1986.  Available at \href{https://tinyurl.com/state}{https://tinyurl.com/state-}  \href{https://tinyurl.com/state-categories}{categories}.
 
-\bibitem{LS} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as \href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
+%\bibitem{LS} E.\ Lerman and D.\ Spivak, An algebra of open continuous time dynamical systems and networks. Available as \href{http://arxiv.org/abs/1602.01017}{arXiv:1602.01017}.
 
 %\bibitem{Lack} S.\ Lack, Limits for lax morphisms, \textsl{Applied Categorical Structures} $\mathbf{30}$ (2005), 189--203. Available %at \href{http://maths.mq.edu.au/~slack/papers/talgl.pdf}{http://maths.mq.edu.au/$\sim$slack/papers/talgl.pdf}.
 
