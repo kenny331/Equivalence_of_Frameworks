@@ -1452,13 +1452,24 @@ In a similar way we can construct the initial object and coproducts in $\int F$ 
 \end{equation}
 where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusions in $\A$ and the sum on the second variable is in the fiber $F(a+b)$.
 
-In the case we are interested in, the pseudofunctor $F$ is lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. %Christina: I suspect that's why for composition we get isomorphism below - using pushouts in which I cannot use the monoidal structure of the functor - whereas for coproducts and initial object we get equality since they were constructed in a very specific way. Related to the subtlety comment below.
-
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.   Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
+ Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If $F\maps\A\to\Cat$ as a pseudofunctor factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.
+ %Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
 \end{cor}
 
-Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibers which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fiberwise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibers, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
+{\chris Decide on the specific assumptions of \cref{cor:fcocMonGroth} and \cref{thm:equiv} after discussing with John and Kenny}
+
+Notice that by \cref{lem:MonGroth}, since $\A$ is cocartesian monoidal, the initial lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)\maps(\A,+)\to(\Cat,\times)$ gives rise to a specific monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. If this fiberwise monoidal structure happens to itself be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$, 
+%e.g. when the induced total category is cocartesian
+those are clearly isomorphic to the arbitrary choice of finite coproducts in $F(a)$ coming from the above assumption that as a pseudofunctor, $F\colon \A\to\Rex$. 
+For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
+
+%In the case we are interested in, the pseudofunctor $F$ is lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. 
+%\begin{cor}\label{cor:fcocMonGroth}
+% Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.   Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
+%\end{cor}
+
+%Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibers which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fiberwise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibers, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, we say a functor has a `left adjoint right inverse' or \define{lari} if it has a left adjoint where the unit of the adjunction is the identity.
 
