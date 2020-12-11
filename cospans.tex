@@ -1316,7 +1316,7 @@ This theorem should generalize to the case when $\theta$ is a pseudonatural equi
 In \cite{BC}, the first two authors introduce the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double isomorphism between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category of structured cospans.
 
 \begin{thm}\label{thm:SC}
-Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
+Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -1341,10 +1341,10 @@ Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a fu
 \node (B') at (1,-1) {$x'$};
 \node (C') at (2,-1) {$L(b')$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A') edge node[above]{$$} (B')
-(C') edge node[above]{$$} (B')
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[above]{$i'$} (B')
+(C') edge node[above]{$o'$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
 (C) edge node [right]{$L(g)$} (C');
@@ -1352,7 +1352,7 @@ Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a fu
 \end{displaymath}
 \end{itemize}
 Composition of horizontal 1-cells and 2-cells is done using pushouts in $\X$, and the
-symmetric monoidal structure is defined using binary coproducts and the initial object in $\A$ and $\X$: 
+symmetric monoidal structure is defined using finite coproducts in $\A$ and $\X$: 
 the tensor of horizontal 1-cells is
 \begin{equation}\label{eq:tensorstuctured}
 \begin{tikzcd}[column sep={.4in,between origins}, row sep=.1in]
@@ -1365,13 +1365,13 @@ using that $L$ preserves coproducts.
 \end{thm}
 
 \begin{proof}
-This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail. In fact the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
+This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail. {\chris grammatical error follows} In fact, the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
 \end{proof}
 
-The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\A \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\A,+)$. 
+The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\C,+)$; this induces a well-defined 2-functor $\Rex\to\SMC$.
 
 \begin{thm} \label{thm:equiv}
-Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor. Then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
+Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If its corresponding ordinary pseudofunctor (via the monoidal Grothendieck construction) {\chris SHOULD THIS PARENTHESIS STAY OR NOT?} $F\colon \A\to\SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 %%% Christina: note to self, now our functor factors through that specific Rex means that each category F(a) which later becomes the fiber comes with a specific choice of colimits. We do not know what this choice is, but of course such colimits in the fibers will be isomorphic to any other we may stumble upon!
 
