@@ -1373,10 +1373,46 @@ The following theorem establishes an isomorphism between structured and decorate
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If its corresponding ordinary pseudofunctor (via the monoidal Grothendieck construction) {\chris SHOULD THIS PARENTHESIS STAY OR NOT?} $F\colon \A\to\SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
-%%% Christina: note to self, now our functor factors through that specific Rex means that each category F(a) which later becomes the fiber comes with a specific choice of colimits. We do not know what this choice is, but of course such colimits in the fibers will be isomorphic to any other we may stumble upon!
 
 The conditions of the above theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch this underlying framework, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict monoidal,
+and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \MonCat$, where $\MonCat$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
+
+In fact, all these correspondences lift to 2-equivalences, and symmetry can also be incorporated.
+
+\begin{lem}\label{lem:MonGroth}
+There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into $\MonCat$. 
+%Moreover, symmetric monoidal opfibrations are equivalent to symmetric monoidal opindexed categories, and when the base is cocartesian monoidal these also correspond to pseudofunctors into $\SMC$.
+\end{lem}
+
+\begin{proof}
+This was shown by Moeller and the third author \cite[Theorems~3.13\&4.2]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
+\begin{gather}
+\textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
+\Updownarrow \notag\\
+\textrm{monoidal opfibrations }U\maps(\X,\otimes_\X)\to(\A,+) \notag\\
+\Updownarrow \notag\\
+\textrm{pseudofunctors } \tilde{F} \maps \A\to \MonCat \notag
+\end{gather}
+The second equivalence was observed earlier by Shulman \cite{Shulman2008}. Moreover, symmetric lax monoidal pseudofunctors correspond to symmetric monoidal opfibrations, and those to pseudofunctors into $\SMC$.
+
+In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ (\cref{def:GrothCat}) is given by
+\begin{equation}\label{eq:explicitstructure2}
+\Big(a,x\in F(a)\Big)\ot_{\X}\Big(b,y\in F(b)\Big)=\Big(a+b,\phi_{a,b}(x,y)\in F(a+b)\Big), \qquad I_{\X}=\Big(0_A,\phi_0\Big)
+\end{equation}
+If $F$ is a symmetric lax monoidal pseudofunctor, the induced monoidal structure in $\inta F$ is symmetric via
+$$\left(\beta_{a,b},(u_{a,b})_{x,y}\right)\colon \left(a+b,\phi_{a,b}(x,y)\right)\simrightarrow\left(b+a,\phi_{b,a}(y,x)\right)$$ where $\beta$ is the canonical symmetry for $\A$ and $u$ is the natural isomorphism of \cref{eq:braidedpseudofun}.
+
+Moreover, each fiber $\X_a=F(a)$ obtains a monoidal structure via 
+\begin{equation}\label{eq:explicitstructure1}
+\otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
+I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
+\end{equation}
+where $\nabla$ is the fold map, which is symmetric when $F$ is again via the components of $u_{a,a}$.
+\end{proof}
+
+\begin{comment} %%%John's version with symmetries
 In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a symmetric monoidal category $\A$ there is a bijection between \define{symmetric monoidal opindexed categories}, which are symmetric lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{symmetric monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict symmetric monoidal, %%% must it preserve the symmetries strictly too? 
 and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a symmetric monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the symmetric monoidal opfibration $U \maps \inta F \to \A$.  If the symmetric monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \SMC$, where $\SMC$ is 2-category of symmetric monoidal categories, strong symmetric monoidal functors and monoidal natural transformations.
 
@@ -1408,17 +1444,17 @@ I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 \end{equation}
 where $\nabla$ is the fold map.   SYMMETRIC MONOIDAL STRUCTURE??? %%%!!!
 \end{proof}
+\end{comment}
 
 These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
 Finally, we can further restrict to the setting of opfibrations that also preserve pushouts, and thus all finite colimits, thanks to the following more general result.
 
-SEE IF THIS IS RIGHT:  %%%!!!
 \begin{lem}[\textbf{Hermida}] \label{lem:fibrewiselimits}
 Suppose $\J$ is a small category and $U \maps \X \to \A$ is an opfibration where the base 
 $\A$ has $\J$-colimits.  Then the following are equivalent:
 \begin{enumerate}
- \item all fibers have $\J$-colimits, and the reindexing functors strictly preserve them;
+ \item all fibers have $\J$-colimits, and the reindexing functors preserve them;
  \item the total category $\X$ has $\J$-colimits and $U$ strictly preserves them.
 \end{enumerate}
 Moreover, if $\X$ has $\J$-colimits and $U$ preserves them, they can be chosen so that $U$ strictly preserves them.   
@@ -1457,17 +1493,14 @@ In a similar way we can construct the initial object and coproducts in $\int F$ 
 where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusions in $\A$ and the sum on the second variable is in the fiber $F(a+b)$.
 
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If $F  \maps \A \to \Cat$ as a pseudofunctor factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps \inta F \to \A$ preserves them.
+ Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps \inta F \to \A$ preserves them.
  %Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
 \end{cor}
 
-{\chris Decide on the specific assumptions of \cref{cor:fcocMonGroth} and \cref{thm:equiv} after discussing with John and Kenny}
+Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the initial lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\colon \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
+%,  those are clearly isomorphic to the arbitrary choice of finite coproducts in $F(a)$ coming from the above assumption that as a pseudofunctor, $F\colon \A\to\Rex$. For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
 
-Notice that by \cref{lem:MonGroth}, since $\A$ is cocartesian monoidal, the initial lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0) \maps (\A,+) \to (\Cat,\times)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. If this fiberwise monoidal structure happens to itself be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$, 
-%e.g. when the induced total category is cocartesian
-those are clearly isomorphic to the arbitrary choice of finite coproducts in $F(a)$ coming from the above assumption that as a pseudofunctor, $F\colon \A\to\Rex$. 
-For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
-
+%%% Initial version
 %In the case we are interested in, the pseudofunctor $F$ is lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. 
 %\begin{cor}\label{cor:fcocMonGroth}
 % Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $\tilde{F} \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.   Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
@@ -2696,7 +2729,7 @@ subject to coherence conditions listed in \cite[Definition 2]{DS}.
 In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms of this form:
 \begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
- Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\cong"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
+ Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\stackrel{\phi_{a,b}}{\cong}"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
  F(a\ot b)\ar[r,"F(f\ot g)"'] & F(a'\ot b')
  \end{tikzcd}
 \end{equation}
@@ -2704,7 +2737,7 @@ In particular, pseudonaturality of the monoidal structure means that it comes wi
 A \define{braided lax monoidal} pseudofunctor between braided monoidal bicategories comes with an invertible modification with components
 \begin{equation}\label{eq:braidedpseudofun}
  \begin{tikzcd}
-Fa\otimes Fb\ar[r,"\phi_{a,b}"]\ar[d,"\beta_{Fa,Fb}"']\ar[dr,phantom,"\scriptstyle\cong"] & F(a\ot b)\ar[d,"F(\beta_{a,b})"] \\
+Fa\otimes Fb\ar[r,"\phi_{a,b}"]\ar[d,"\beta_{Fa,Fb}"']\ar[dr,phantom,"\stackrel{u_{a,b}}{\cong}"] & F(a\ot b)\ar[d,"F(\beta_{a,b})"] \\
 Fb\otimes Fa\ar[r,"\phi_{b,a}"'] & F(b\ot a)
  \end{tikzcd}
 \end{equation}
