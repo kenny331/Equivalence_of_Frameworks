@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/11
+% 2020/12/12
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -2113,7 +2113,7 @@ In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this exa
 We can make $F$ into a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
 \[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps  \one \to F(\emptyset) . \]  
 
-The functor $\phi_0$ is uniquely determined since $\one$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor, this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, but only a symmetric lax monoidal pseudofunctor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
+The functor $\phi_0$ is uniquely determined since $F(\emptyset)$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor, this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, but only a symmetric lax monoidal pseudofunctor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
 
 It is well known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
 
