@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/10
+% 2020/12/11
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -1944,7 +1944,7 @@ Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal dou
 
 Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems, \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
  
-Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC}. Here we explain how to also fix them using our new decorated cospans, since they provide another another solution to these problems. Below we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} briefly illustrate that. However, in \cref{subsec:petrirates} we show that open dynamical systems can only be treated using decorated cospans.
+Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC}. Here we explain how to also fix them using our new decorated cospans, since they provide another another solution to these problems. Below we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} illustrate this. However, in \cref{subsec:petrirates} we show that open dynamical systems can only be treated using decorated cospans.
 
 \subsection{Graphs}
 \label{subsec:graphs}
@@ -2111,12 +2111,9 @@ the identity on $N$: that is, a function $f \maps E \to E'$ such that these diag
 In general, decorated cospans involve a pseudofunctor to $\Cat$, but in this example there is actually an honest functor $F \maps \Set \to \Cat$ that assigns to a set $N$ the above category $F(N)$.   Given a function $f \maps M \to N$, we define $F(f) \maps F(M) \to F(N)$ to any graph structure $s,t \maps E \to M$ to the graph structure $f s, f t \maps E \to N$.   
 
 We can make $F$ into a symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat,\times)$ by equipping it with suitable functors 
-\[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps F(\emptyset) \to \one \in \Cat. \]  
-{\chris Shouldn't the laxator for the units go in the other direction??}
+\[   \phi_{N,N'} \maps F(N) \times F(N') \to F(N+N'), \qquad \phi_0 \maps  \one \to F(\emptyset) . \]  
 
-The functor $\phi_0$ is uniquely determined since $\one$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor---for example, composition is strictly preserved---
-{\chris we already said that very recently, perhaps there is no need for explaining it again?}
-this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
+The functor $\phi_0$ is uniquely determined since $\one$ is the terminal category.   More interesting is $\phi_{N,N'}$.   This functor maps a pair of graph structures $s, t \maps E \to N$ and $s',t' \maps E' \to N'$ to the graph structure $s+s', t+t' \maps E+E' \to N+N'$.  In other words, it sends a pair of graph structures to their `disjoint union'.   Surprisingly, though $F$ is a functor, this choice of $\phi_{N,N'}$ does not make $F$ into a symmetric lax monoidal functor, but only a symmetric lax monoidal pseudofunctor, since it obeys the required laws only up to natural isomorphism, as in \cref{eq:omega}.   See \cite[Section 5]{BC} for a proof that these laws fail to hold on the nose.   This fact is what necessitated a generalization of Fong's original approach to decorated cospans.
 
 It is well known, and easy to check, that the Grothendieck category $\inta F$ is isomorphic to the category $\Graph$.   The other side of this observation is that the opfibration $U \maps \inta F \to \Fin\Set$ is isomorphic to the forgetful functor $R \maps \Graph \to \Fin\Set$.    In fact one can check that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations, where all the categories involved are given cocartesian monoidal structures.
 
