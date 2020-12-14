@@ -1365,30 +1365,27 @@ using that $L$ preserves coproducts.
 \end{thm}
 
 \begin{proof}
-This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail. {\chris grammatical error follows} In fact, the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ has binary coproducts and an initial object (and thus all finite colimits), and that $\A$ has and $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
+This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail.  In fact, the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ and $\A$ have finite colimits and that $L$ preserves finite coproducts \cite[Theorem~3.2.3]{CourserThesis}.
 \end{proof}
 
-The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  We denote by $\Rex$ the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a cocartesian monoidal category $(\C,+)$; this induces a well-defined 2-functor $\Rex\to\SMC$.
+The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  Let $\SMC$ be the 2-category of symmetric monoidal categories, strong symmetric monoidal functors and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a specific cocartesian monoidal category $(\C,+)$, and this induces a 2-functor $\Rex \to \SMC$.
 
 \begin{thm} \label{thm:equiv}
-Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding ordinary pseudofunctor %(via the monoidal Grothendieck construction) {\chris SHOULD THIS PARENTHESIS STAY OR NOT?} 
-$F\colon \A\to\SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
+Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 
 The ``corresponding pseudofunctor'' comes from the so-called monoidal Grothendieck construction, and the conditions of this theorem related to the existence of colimits as well as left adjoints for opfibrations. We first sketch the relevant underlying framework in detail, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict monoidal,
-and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \MonCat$, where $\MonCat$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
+In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a monoidal category $\A$ there is a bijection between \define{monoidal opindexed categories}, which are lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \MonCat$, where $\MonCat$ is 2-category of monoidal categories, strong monoidal functors and monoidal natural transformations.
 
 In fact, all these correspondences lift to 2-equivalences, and symmetry can also be incorporated.
 
 \begin{lem}\label{lem:MonGroth}
-There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between monoidal opfibrations and pseudofunctors into $\MonCat$. 
-%Moreover, symmetric monoidal opfibrations are equivalent to symmetric monoidal opindexed categories, and when the base is cocartesian monoidal these also correspond to pseudofunctors into $\SMC$.
+There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories with a fixed base, and if the base is cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors into $\MonCat$.   Similarly there is a 2-equivalence between symmetric monoidal opfibrations and symmetric monoidal opindexed categories with a fixed base, and if the base is cocartesian monoidal also a 2-equivalence between these and pseudofunctors into $\SMC$.   
 \end{lem}
 
 \begin{proof}
-This was shown by Moeller and the third author \cite[Theorems~3.13\&4.2]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
+This was shown by Moeller and the third author \cite[Theorems~3.13 \& 4.2]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
 \begin{gather}
 \textrm{lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
 \Updownarrow \notag\\
