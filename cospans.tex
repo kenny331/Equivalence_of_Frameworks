@@ -1000,14 +1000,14 @@ where the legs of the cospan are the sums of the dashed ones of the appropriate 
 Thus the (globular) cospan isomorphism is the canonical universal map between the colimit of the same diagram obtained in two different ways $\hat{\chi}\colon(m_1+n_1)+_{b+b'}(m_2+n_2)\cong(m_1+_b m_2)+(n_1+_{b'}n_2)$, and the decoration isomorphism can be built in a similar way using coherent isomorphisms as follows: 
 \begin{equation}\label{eq:interchangedeco}
  \scalebox{.75}{\begin{tikzcd}[ampersand replacement=\&,column sep=.3in,row sep=.1in]
-\& F(m_1)\times F(n_1)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"']\ar[ddrr,phantom,"\cong"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1+\beta+1)"'] \\
+\& F(m_1)\times F(n_1)\times F(m_2)\times F(n_2)\ar[dd,"1\times\beta\times1"']\ar[ddrr,phantom,"\stackrel{\cref{eq:thetaa}}{\cong}"]\ar[rr,"\phi_{m_1,n_1}\times\phi_{m_2,n_2}"] \&\& F(m_1+n_1)\times F(m_2+n_2)\ar[rr,"\phi_{m_1+n_1,m_2+n_2}"] \&\& F(m_1+n_1+m_2+n_2)\ar[dd,"F\psi"]\ar[ddll,"F(1+\beta+1)"'] \\
 \one \ar[ur,"{x_1\times y_1\times x_2\times y_2}"]\ar[dr,"{x_1\times x_2\times y_1\times y_2}"'] \&\&\&\& \\
 \& F(m_1)\times F(m_2)\times F(n_1)\times F(n_2)\ar[dd,"\phi_{m_1,m_2}\times\phi_{n_1,n_2}"']\&\& F(m_1+m_2+n_1+n_2)\ar[ddrr,"F(\psi+\psi)"']\ar[dd,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \ar[rr,phantom,"\cong"]\&\& F((m_1+n_1)+_{b+b'}(m_2+n_2))\ar[dd,"F(\hat{\chi})"] \\
 \hole \\
 \& F(m_1+m_2)\times F(n_1+n_2)\ar[uurr,"\phi_{m_1+m_2,n_1+n_2}"']\ar[rr,"F\psi\times F\psi"'] \&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[rr,"\phi_{m_1+_b m_2,n_1+_{b'}n_2}"'] \&\& F((m_1+_bm_2)+(n_1+_{b'}n_2))
 \end{tikzcd}}
 \end{equation}
-where the left-hand side isomorphism combines pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$ (and can be explicitly found in e.g. \cite[Page 125]{DS}), and the right hand side follows from the universal property of colimits and pseudofunctoriality of $F$.
+where the left-hand side isomorphism combines pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$ as seen in detail in the appendix, and the right hand side follows from the universal property of colimits and pseudofunctoriality of $F$.
 Similarly, for units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b}:a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
 \begin{comment}
 , the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
@@ -2728,7 +2728,7 @@ subject to coherence conditions listed in \cite[Definition 2]{DS}.
 In particular, pseudonaturality of the monoidal structure means that it comes with isomorphisms of this form:
 \begin{equation}\label{eq:pseudonaturality}
 \begin{tikzcd}[column sep=.5in]
- Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\stackrel{\phi_{a,b}}{\cong}"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
+ Fa\ot Fb\ar[r,"Ff\ot Fg"]\ar[d,"\phi_{a,b}"']\ar[dr,phantom,"\stackrel{\phi_{f,g}}{\cong}"] & Fa'\ot Fb'\ar[d,"\phi_{a',b'}"] \\
  F(a\ot b)\ar[r,"F(f\ot g)"'] & F(a'\ot b')
  \end{tikzcd}
 \end{equation}
@@ -3288,8 +3288,8 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 \node () at (12,-1) {$\scriptstyle\cong$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
 \node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
-\node () at (10.25,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
-\node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
+\node () at (10.25,-1) {$\scriptstyle\stackrel[\cref{eq:braidedpseudofun}]{u}{\cong}$};
+\node () at (7.875,0) {$\scriptstyle\stackrel[\cref{eq:interchangedeco}]{}{\cong}$};
 \node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
 \node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
 \node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
@@ -3326,54 +3326,54 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 ;
 \end{tikzpicture}
 \]
-{\chris Kenny please see difference in diagrams (the rightmost part is not important, just to make the two decoration isomorphism have the same border). The blue is the old one. The new diagram \cref{eq:interchangedeco} should be the one we disagreed, namely its codomain. But also on the down part of the diagram, coming from the decoration morphism of the braiding \cref{eq:decobraiding}, mine is much ``easier''.}
-{\color{blue}
-\[
-\begin{tikzpicture}[scale=1.6]
-%\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
-%\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
-\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
-\node () at (5.5,-1) {$\scriptstyle{\cong}$};
-\node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
-\node () at (10.25,-1) {$\scriptstyle{\cong}$};
-\node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
-\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
-\node (B') at (9,-0.5) {$\scriptstyle{F((m_1+ m_2)+(n_1+n_2))}$};
-\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_1+_b m_2)+ (n_1+_{b'} n_2))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2) \times F(n_1) \times F(n_2)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
-\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-\node (B'') at (9,-1.5) {$\scriptstyle{F((n_1+n_2)+(m_1+ m_2))}$};
-\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
-\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
-\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_1 \times x_2 \times y_1 \times y_2}$};
-\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
-\path[->,font=\scriptsize,>=angle 90]
-(B') edge node [fill=white] {$F(\beta)$} (B'')
-(E') edge node [fill=white] {$\beta$} (E'')
-(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
-(E'') edge node [above] {$\phi_{n_1+n_2,m_1+m_2}$} (B'')
-(E') edge node [above] {$\phi_{m_1+m_2,n_1+n_2}$} (B')
-(B) edge node [above] {$F(\psi)$} (C)
-(B'') edge node [above] {$F(\psi+\psi)$} (C'')
-(B') edge node [above] {$F(\psi+\psi)$} (C')
-(C) edge node [fill=white] {$F(\hat{\chi})$} (C')
-(C') edge node [fill=white] {$F(\beta)$} (C'')
-(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
-(G'') edge node [above] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
-(G') edge node [above] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E')
-(G) edge node [fill=white] {$1 \times \beta \times 1$} (G')
-(G') edge node [fill=white] {$\beta$} (G'')
-(D) edge[out=90,in=180] node [left,above] {$$} (G)
-(D) edge[out=270,in=180] node [left,above] {$$} (G'')
-(D) edge node [below] {$$} (G');
-\end{tikzpicture}
-\]
-}
+%{\chris Kenny please see difference in diagrams (the rightmost part is not important, just to make the two decoration isomorphism have the same border). The blue is the old one. The new diagram \cref{eq:interchangedeco} should be the one we disagreed, namely its codomain. But also on the down part of the diagram, coming from the decoration morphism of the braiding \cref{eq:decobraiding}, mine is much ``easier''.}
+%{\color{blue}
+%\[
+%\begin{tikzpicture}[scale=1.6]
+%%\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
+%%\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
+%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+%\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
+%\node () at (5.5,-1) {$\scriptstyle{\cong}$};
+%\node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
+%\node () at (10.25,-1) {$\scriptstyle{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F((m_1+ m_2)+(n_1+n_2))}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
+%\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_1+_b m_2)+ (n_1+_{b'} n_2))}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
+%\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2) \times F(n_1) \times F(n_2)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F((n_1+n_2)+(m_1+ m_2))}$};
+%\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_1 \times x_2 \times y_1 \times y_2}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+%\path[->,font=\scriptsize,>=angle 90]
+%(B') edge node [fill=white] {$F(\beta)$} (B'')
+%(E') edge node [fill=white] {$\beta$} (E'')
+%(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
+%(E'') edge node [above] {$\phi_{n_1+n_2,m_1+m_2}$} (B'')
+%(E') edge node [above] {$\phi_{m_1+m_2,n_1+n_2}$} (B')
+%(B) edge node [above] {$F(\psi)$} (C)
+%(B'') edge node [above] {$F(\psi+\psi)$} (C'')
+%(B') edge node [above] {$F(\psi+\psi)$} (C')
+%(C) edge node [fill=white] {$F(\hat{\chi})$} (C')
+%(C') edge node [fill=white] {$F(\beta)$} (C'')
+%(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
+%(G'') edge node [above] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
+%(G') edge node [above] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E')
+%(G) edge node [fill=white] {$1 \times \beta \times 1$} (G')
+%(G') edge node [fill=white] {$\beta$} (G'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+%(D) edge node [below] {$$} (G');
+%\end{tikzpicture}
+%\]
+%}
 For the other (vertical) composition of \cref{eq:thisdiagram}, that of $\beta\odot\beta$ followed by $\chi$, the composite decoration $\tau_2\tau_1$ is
 \begin{displaymath}
 \scalebox{.8}{$F(\hat{\chi}(\beta +_\beta \beta))( (x_1 \oplus y_1)\odot (x_2 \oplus y_2))\cong F(\hat{\chi})F(\beta +_\beta \beta)( (x_1 \oplus y_1)\odot (x_2 \oplus y_2)) \xrightarrow{F(\hat{\chi})(\tau_1)}F(\hat{\chi})(y_1\oplus x_1)\odot(y_2\oplus x_2)\xrightarrow{\tau_2}(y_1 \odot y_2) \oplus (x_1 \odot x_2)$}
@@ -3386,10 +3386,10 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 %\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
 \node (D) at (3,-0.5) {$\scriptstyle{\one}$};
 \node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
-\node () at (5.5,0) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
-\node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}$};
+\node () at (5.5,0) {$\scriptstyle\stackrel[\cref{eq:braidedpseudofun}]{u\times u}{\cong}$};
+\node () at (7.875,0) {$\scriptstyle\stackrel[\cref{eq:pseudonaturality}]{\phi_{\beta,\beta}}{\cong}$};
 \node () at (10.25,0) {$\scriptstyle{\cong}$};
-\node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
+\node () at (7.875,-1) {$\scriptstyle\stackrel[\cref{eq:interchangedeco}]{}{\cong}$};
 \node () at (12,-1) {$\scriptstyle\cong$};
 \node (E') at (6.75,-0.5) {$\scriptstyle{F(n_1+m_1) \times F(n_2+m_2)}$};
 \node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
@@ -3409,7 +3409,7 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 (B) edge node [fill=white] {$F(\beta+\beta)$} (B')
 (E) edge node [fill=white] {$F(\beta) \times F(\beta)$} (E')
 (E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
-(E'') edge node [below] {$F\psi\times F\psi)$} (B'')
+(E'') edge node [below] {$F\psi\times F\psi$} (B'')
 (E') edge node [above] {$\phi_{n_1+m_1,n_2+m_2}$} (B')
 (B) edge node [above] {$F(\psi)$} (C)
 (B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_{b}m_2}$} (C'')
@@ -3428,9 +3428,18 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 ;
 \end{tikzpicture}
 \]
-{\chris The closing sentence for the proof to be complete should be that these two decoration maps are EQUAL for the diagram \cref{eq:thisdiagram} to commute! Right? Is the sentence below satisfactory Kenny? Do you see the logic?}
-
-The fact that these two pasted isomorphisms are equal follows from the axioms of a braided lax monoidal pseudofunctor and as a result, \cref{eq:thisdiagram} commutes and the axiom holds.
+%{\chris The closing sentence for the proof to be complete should be that these two decoration maps are EQUAL for the diagram \cref{eq:thisdiagram} to commute! Right? Is the sentence below satisfactory Kenny? Do you see the logic?}
+In order to verify that these two pasted isomorphisms are equal, we first of all need to expand the isomorphism \cref{eq:interchangedeco}, whose left half part is explicitly written as follows (also found in \cite[Page 125]{DS}):
+\begin{equation}\label{eq:thetaa}
+\scalebox{.8}{
+\begin{tikzcd}[column sep=.05in,ampersand replacement=\&]
+Fm_1{\times} Fn_1{\times} Fm_2{\times} Fn_2\ar[ddr,phantom,bend right,"{\scriptstyle\stackrel[\cref{eq:braidedpseudofun}]{1\times u\times1}{\cong}}"]\ar[dr,"1\times\phi\times1"]\ar[rr,"\phi\times\phi"]\ar[ddd,"1\times\beta\times1"'] \&\& F(m_1{+}n_1){\times} F(m_2{+}n_2)\ar[d,phantom,"\scriptstyle{\cong}"]\ar[ddd,phantom,"{\scriptstyle\stackrel[\cref{eq:pseudonaturality}]{1\times\phi_{\beta,1}}{\cong}}"]\ar[rr,"\phi"] \&\& F(m_1{+}n_1{+}m_2{+}n_2)\ar[ddd,"F(1+\beta+1)"]\ar[ddl,bend left,phantom,"{\scriptstyle\stackrel[\cref{eq:pseudonaturality}]{\phi_{1,\beta+1}}{\cong}}"] \\
+\& Fm_1{\times} F(n_1 {+} m_2){\times} Fn_2\ar[rr,"{1\times\phi}"]\ar[d,"{1\times F\beta\times1}"'] \&\phantom{A}\& Fm_1{\times} F(n_1 {+} m_2 {+} n_2)\ar[d,"{1\times F(\beta+1)}"]\ar[ur,"\phi"] \& \\
+\& Fm_1{\times} F(m_2{+}n_1){\times} Fn_2\ar[rr,"1\times\phi"'] \&\phantom{A}\ar[d,phantom,"\scriptstyle\cong"]\& Fm_1{\times} F(m_2{+}n_1{+}n_2)\ar[dr,"\phi"'] \& \\
+Fm_1{\times} Fm_2{\times} Fn_1{\times} Fn_2\ar[ur,"1\times\phi\times1"']\ar[rr,"\phi\times\phi"'] \&\& F(m_1{+}m_2){\times} F(n_1{+}n_2)\ar[rr,"\phi"'] \&\& F(m_1{+}m_2{+}n_1{+}n_2)
+\end{tikzcd}}
+\end{equation}
+where the unnammed isomorphisms are appropriate composites of the pseudoassociativity of $F$ \cref{eq:omega}. The result now follows from lengthy pasted diagram calculations using the axioms of a sylleptic lax monoidal pseudofunctor.
 \begin{comment}
 These decoration isomorphisms then form the following commutative diagram in the category $F({(n_1+_{b'}n_2)}+{(m_1+_b m_2)})$:
 \[
