@@ -1667,6 +1667,8 @@ Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrig
 which is an initial object and as such isomorphic to $0_{F(0)}$
 %=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
 again by \cref{eq:explicitstructure2}. It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
+
+\textbf{Kenny: This is what I would say regarding the monoidal units:} Moreover, the monoidal unit $I_{F\lCsp}$ for the category of arrows of $F\lCsp$ is given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit $I_{{_L \lCsp(\int F)}}$ for the category of arrows of ${ _L \lCsp(\int F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$, with $\lE(I_{{ _L \lCsp(\int F)}})$ also being given by the identity cospan on $0_\A$ with the trivial decoration on its apex so that the transformation $\theta_U \colon I_{F\lCsp} \to \lE \circ I_{{_L \lCsp (\int F)}}$ is an identity.
 \end{proof}
 
 \section{Bicategorical and categorical aspects}
@@ -2990,9 +2992,10 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 
 
 \begin{defn}\label{defn:monoidal_double_functor}
-Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \colon \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon 1_\lE \to \lF \circ 1_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
+Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \colon \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
 {\chris Those units in the definition should be monoidal units not unit functors...}
+%%% Kenny: How about I instead of 1?
 \noindent
 Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}.
 
