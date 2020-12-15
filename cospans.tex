@@ -532,7 +532,7 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 {\begin{tikzcd}[ampersand replacement=\&]
 \& F(m_1){\times}(F(m_2){\times}F(m_3))\ar[dddrr,phantom,"\stackrel{\cref{eq:omega}}{\cong}"]\ar[r,"1\times\phi_{m_2,m_3}"]\ar[ddd,"\alpha"description] \& F(m_1){\times}F(m_2{+}m_3)\ar[r,"1\times F(\psi)"]\ar[dr,"\phi_{m_1,m_2+m_3}"'] \& F(m_1){\times}F(m_2{+_c}m_3)\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"]\ar[r,"\phi_{m_1,m_2+_cm_3}"] \& F(m_1{+}(m_2{+_c}m_3))\ar[r,"F(\psi)"]\ar[dddr,phantom,"\cong"] \& F(m_1{+_b}(m_2{+_c}m_3))\ar[ddd,"F(\kappa)"] \\
 \one\ar[ur,"x_1\times(x_2\times x_3)"]\ar[d,equal] \&\&\& F(m_1{+}(m_2{+}m_3))\ar[ur,"F(1+\psi)"']\ar[d,"F\alpha"] \& \\
-\one\ar[dr,"(x_1\times x_2)\times x_3)"']\&\&\& F((m_1{+}m_2){+}m_3)\ar[dr,"F(\psi+1)"]\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \& \\
+\one\ar[dr,"(x_1\times x_2)\times x_3"']\&\&\& F((m_1{+}m_2){+}m_3)\ar[dr,"F(\psi+1)"]\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \& \\
 \& (F(m_1){\times}F(m_2)){\times}F(m_3)\ar[r,"\phi_{m_1,m_2}\times1"'] \& F(m_1{+}m_2){\times}m_3\ar[ur,"\phi_{m_1+m_2,m_3}"]\ar[r,"F(\psi)\times1"'] \& F(m_1{+_b}m_2){\times} F(m_3)\ar[r,"\phi_{m_1{+_b}m_2,m_3}"'] \& F((m_1{+_b}m_2){+}m_3)\ar[r,"F\psi"'] \& F((m_1{+_b}m_2){+_c}m_3)
 \end{tikzcd}}
 \end{equation}
@@ -1633,7 +1633,7 @@ whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\in
  \end{tikzcd}
 \end{displaymath}
 where $v_m,v_n$ are the canonical maps into the pushout.
-Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$, since a pushout over an initial object is really a coproduct. That decoration is isomorphic to that of \cref{eq:1} due to the following diagram 
+Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$, since a pushout over an initial object is really a coproduct. That decoration is isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}
 F(m)\times F(n)\ar[rr,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(v_m+v_n)"description] \\
