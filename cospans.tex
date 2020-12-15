@@ -414,8 +414,8 @@ their composite $\beta\odot \alpha$ is horizontal cospan composition in $\A$
 \node (C) at (3,0.5) {$c$};
 \node (C') at (3,-0.5) {$c'$};
 \node (D) at (1.5,-0.5) {$m'+_{b'}n'$};
-\node (E) at (4.5,0.5) {$x \odot y \in F(m+_b n)$};
-\node (F) at (4.5,-0.5) {$x' \odot y' \in F(m' +_{b'} n')$};
+\node (E) at (4.5,0.5) {$y \odot x \in F(m+_b n)$};
+\node (F) at (4.5,-0.5) {$y' \odot x' \in F(m' +_{b'} n')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{} (B)
 (C) edge node[above]{} (B)
@@ -451,7 +451,7 @@ together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_
 (E) edge node [fill=white] {$F(h_1) \times F(h_2)$} (E');
 \end{tikzpicture}
 \end{equation}
-where the middle isomorphism is due to pseudonaturality of $\phi$ and the right-hand side isomorphism is due to pseudofunctoriality of $F$.
+where the middle isomorphism is \cref{eq:pseudonaturality} from pseudonaturality of $\phi$ and the right-hand side isomorphism is due to pseudofunctoriality of $F$.
 
 The associator for horizontal composition
 %$\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$ 
@@ -484,6 +484,27 @@ the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the is
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a$};
+\node (B) at (1.5,0.5) {$m_1+_{b}(m_2 +_{c} m_3)$};
+\node (C) at (3,0.5) {$d$};
+\node (C') at (3,-0.5) {$d$};
+\node (D) at (1.5,-0.5) {$(m_1+_{b} m_2)+_{c} m_3$};
+\node (E) at (5.5,0.5) {$(x_3 \odot x_2) \odot x_1 \in F(m_1+_{b} (m_2 +_{c} m_3))$};
+\node (F) at (5.5,-0.5) {$x_3 \odot (x_2 \odot x_1) \in F((m_1+_{b} m_2)+_{c} m_3)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$$} (B)
+(C) edge node[above]{$$} (B)
+(A) edge node[left]{$1_a$} (A')
+(C) edge node[right]{$1_d$} (C')
+(A') edge node {$$} (D)
+(C') edge node {$$} (D)
+(B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
+\end{tikzpicture}
+\]
+{\chris Old version
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a$};
 \node (B) at (1.5,0.5) {$(m_1+_{b} m_2)+_{c} m_3$};
 \node (C) at (3,0.5) {$d$};
 \node (C') at (3,-0.5) {$d$};
@@ -499,7 +520,7 @@ the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the is
 (C') edge node {$$} (D)
 (B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
 \end{tikzpicture}
-\]
+\]}
 together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \odot (x_2 \odot x_1))$ between the decorations 
 %\begin{align*}
 %\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times %F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)$}&\scalebox{.8}{$\to F((m_1+_bm_2)+_cm_3)$} \\
@@ -507,6 +528,16 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 %\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times %F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))$}&\scalebox{.8}{$\to F(m_1+_b(m_2+_cm_3))$}
 %\end{align*}
 \begin{equation}\label{eq:decoiso}
+\scalebox{.8}
+{\begin{tikzcd}[ampersand replacement=\&]
+\& F(m_1){\times}(F(m_2){\times}F(m_3))\ar[dddrr,phantom,"\stackrel{\cref{eq:omega}}{\cong}"]\ar[r,"1\times\phi_{m_2,m_3}"]\ar[ddd,"\alpha"description] \& F(m_1){\times}F(m_2{+}m_3)\ar[r,"1\times F(\psi)"]\ar[dr,"\phi_{m_1,m_2+m_3}"'] \& F(m_1){\times}F(m_2{+_c}m_3)\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"]\ar[r,"\phi_{m_1,m_2+_cm_3}"] \& F(m_1{+}(m_2{+_c}m_3))\ar[r,"F(\psi)"]\ar[dddr,phantom,"\cong"] \& F(m_1{+_b}(m_2{+_c}m_3))\ar[ddd,"F(\kappa)"] \\
+\one\ar[ur,"x_1\times(x_2\times x_3)"]\ar[d,equal] \&\&\& F(m_1{+}(m_2{+}m_3))\ar[ur,"F(1+\psi)"']\ar[d,"F\alpha"] \& \\
+\one\ar[dr,"(x_1\times x_2)\times x_3)"']\&\&\& F((m_1{+}m_2){+}m_3)\ar[dr,"F(\psi+1)"]\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] \& \\
+\& (F(m_1){\times}F(m_2)){\times}F(m_3)\ar[r,"\phi_{m_1,m_2}\times1"'] \& F(m_1{+}m_2){\times}m_3\ar[ur,"\phi_{m_1+m_2,m_3}"]\ar[r,"F(\psi)\times1"'] \& F(m_1{+_b}m_2){\times} F(m_3)\ar[r,"\phi_{m_1{+_b}m_2,m_3}"'] \& F((m_1{+_b}m_2){+}m_3)\ar[r,"F\psi"'] \& F((m_1{+_b}m_2){+_c}m_3)
+\end{tikzcd}}
+\end{equation}
+{\chris Old version
+\begin{displaymath}
 \begin{tikzpicture}[scale=1.7,baseline=(current bounding box.center)]
 \node (A) at (3.75,0) {$\scriptstyle{\cong}$};
 \node (D) at (3,0) {$\scriptstyle{\one}$};
@@ -543,9 +574,9 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 (D) edge node [below] {$$} (G');
 %(E) edge node [fill=white] {$F(h_1) \times F(h_2)$} (E');
 \end{tikzpicture}
-\end{equation}
+\end{displaymath}}
 %%% Christina: I erased tau, and also Fpsi because they were not accurate and those arrows are OK to understand - the universal maps from a 'smaller' colimit to a 'bigger' one. If we kept Fpsi's we should write them like F(psi+1) for the first arrow at the top, and that would make the whole thing a bit heavier.
-where $a$ is the associator of $\Cat$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
+where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \end{proof}
 
 The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is.  Monoidal and symmetric monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
