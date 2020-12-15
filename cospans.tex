@@ -1622,14 +1622,14 @@ Since both double categories are symmetric monoidal under the running assumption
 \lE(M\ot M')&\;\stackrel{\cref{eq:tensorstuctured}}{=}\;\lE\Big((a+a',\bot_{a+a'})\to\underbrace{(m+m',F(\iota_m)x+F(\iota_{m'})x')}_{\cref{eq:fibrewisecoprod}}\leftarrow(b+b',\bot_{b+b'})\Big) \\
 &=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }F(\iota_m)x+F(\iota_{m'})x'\in F(m+m')
 \end{align*}
-The cospan part is equal, whereas we have an isomorphism between the decorations $F(\iota_m)x+F(\iota_{m'})\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag} as follows
+The cospan part is equal, whereas we have an isomorphism between the decorations $F(\iota_m)x+F(\iota_{m'})x'\cong \phi_{m,m'}(x,x')$ in an analogous way to \cref{eq:isomorphismdiag} as follows
 \begin{displaymath}
 \begin{tikzcd}
 F(m)\times F(m')\ar[rr,"\phi_{m,m'}"]\ar[d,"F(i_m)\times F(i_{m'})"']\ar[dr,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] && F(m+m')\ar[d,equal]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(i_m+i_{m'})"description] \\
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"']\ar[rr,dashed,bend right=15] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
 \end{displaymath}
-Notice that this isomorphism is in fact unique, since both sides express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2}. {\chris IS THIS CLEAR?}
+Notice that both sides above express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2},  so this isomorphism is in the canonical unique one that commutes with the respective cocones. {\chris IS THIS CLEAR? OR HELPFUL? Could omit.}
 
 {\chris Kenny, I am a bit confused with all the units and monoidal units around. Could you go through in detail, and phrase correctly, the following part? Following the definition of a monoidal double functors and related structures precisely? For example, shouldn't we start from the monoidal unit of structured cospans? How do you write that?}
 Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \one\to F(0_A)\to F(0_A)$,
