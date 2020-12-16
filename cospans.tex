@@ -1570,7 +1570,8 @@ F(m)\times F(m')\ar[rr,"\phi_{m,m'}"]\ar[d,"F(i_m)\times F(i_{m'})"']\ar[dr,phan
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"']\ar[rr,dashed,bend right=15] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
 \end{displaymath}
-Notice that both sides above express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2},  so this isomorphism is in the canonical unique one that commutes with the respective cocones. {\chris IS THIS CLEAR? OR HELPFUL? Could omit.} We thus constructed isomorphism $\lE(M)\otimes\lE(M')\cong\lE(M\otimes M')$ for any $M,M'$.
+We thus constructed isomorphisms $\lE(M)\otimes\lE(M')\cong\lE(M\otimes M')$ for any $M,M'$.
+Notice that both sides in the diagram above, combined with the same object $(m+m')$ in $\A$, express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2}. Therefore the pasted isomorphism is the canonical unique one that commutes with the respective cocones. This is useful when checking associativity for example: there is only one such isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans.
 
 Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$ 
 $I\to\lE(I)$ is the identity.
