@@ -432,7 +432,7 @@ together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_
 \node (A) at (4.75,0) {$\scriptstyle\Downarrow \tau_\alpha \times \tau_\beta$};
 \node (D) at (3,0) {$\one \cong \one \times \one$};
 \node (E) at (5.5,0.5) {$F(m) \times F(n)$};
-\node () at (6.5,0) {$\stackrel{\phi_{h_1,h_2}}{\cong}$};
+\node () at (6.5,0) {$\cong$};%{$\stackrel{\phi_{h_1,h_2}}{\cong}$};
 \node () at (8.5,0) {$\cong$};
 \node (E') at (5.5,-0.5) {$F(m') \times F(n')$};
 \node (B) at (7.5,0.5) {$F(m+n)$};
@@ -696,9 +696,9 @@ The monoidal unit $0_{F\lCsp_1}$ is given by:
 \end{tikzpicture}
 \]
 \end{comment}
-\begin{displaymath}
+\begin{equation}\label{eq:monoidalunitFCsp}
 I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right)
-\end{displaymath}
+\end{equation}
 where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 %\[
@@ -1490,7 +1490,7 @@ By \cref{cor:fcocMonGroth}, when the corresponding pseudofunctor $F\colon\A\to\S
 \begin{equation}\label{eq:FtoL}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{equation}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %There are many laris, one for each choice of initial object. Having fixed our choice of colimits, there is really only one lari, correct? Also, is that ``also...'' part used anywhere?
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber $L(a)=(a,\bot_a)$, which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %There are many laris, one for each choice of initial object. Having fixed our choice of colimits, there is really only one lari, correct?
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (just as for $F\lCsp$), whereas its horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (see \cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
 \begin{equation}\label{eq:scsphor1cell}
@@ -1570,16 +1570,14 @@ F(m)\times F(m')\ar[rr,"\phi_{m,m'}"]\ar[d,"F(i_m)\times F(i_{m'})"']\ar[dr,phan
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"']\ar[rr,dashed,bend right=15] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
 \end{displaymath}
-Notice that both sides above express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2},  so this isomorphism is in the canonical unique one that commutes with the respective cocones. {\chris IS THIS CLEAR? OR HELPFUL? Could omit.}
+Notice that both sides above express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2},  so this isomorphism is in the canonical unique one that commutes with the respective cocones. {\chris IS THIS CLEAR? OR HELPFUL? Could omit.} We thus constructed isomorphism $\lE(M)\otimes\lE(M')\cong\lE(M\otimes M')$ for any $M,M'$.
 
-{\chris Kenny, I am a bit confused with all the units and monoidal units around. Could you go through in detail, and phrase correctly, the following part? Following the definition of a monoidal double functors and related structures precisely? For example, shouldn't we start from the monoidal unit of structured cospans? How do you write that?}
-Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \one\to F(0_A)\to F(0_A)$,
-which is an initial object and as such isomorphic to $0_{F(0)}$
-%=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
-again by \cref{eq:explicitstructure2}. It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
+Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$ 
+$I\to\lE(I)$ is the identity.
 
-\textbf{Kenny: This is what I would say regarding the monoidal units:} Moreover, the monoidal unit $I_{F\lCsp}$ for the category of arrows of $F\lCsp$ is given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit $I_{{_L \lCsp(\int F)}}$ for the category of arrows of ${ _L \lCsp(\int F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$, with $\lE(I_{{ _L \lCsp(\int F)}})$ also being given by the identity cospan on $0_\A$ with the trivial decoration on its apex so that the transformation $\theta_U \colon I_{F\lCsp} \to \lE \circ I_{{_L \lCsp (\int F)}}$ is an identity.
+It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
+
 
 \section{Bicategorical and categorical aspects}
 \label{spinoffs}
@@ -2906,8 +2904,9 @@ Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric 
 \end{defn}
 {\chris Those units in the definition should be monoidal units not unit functors...}
 %%% Kenny: How about I instead of 1?
+%%% Christina: Sure but I was NOT in the definition of symmetric monoidal double category above...could you streamline??
 \noindent
-Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}.
+Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}. {\chris Also, could we expand this definition in terms of the functors $\lF_0$ and $\lF_1$ as we usually do?}
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lD$ and $\lE$ be symmetric monoidal double categories and let $\lF \maps \lD \to \lE$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lD$ and $\lE$ are equivalent as symmetric monoidal double categories.
