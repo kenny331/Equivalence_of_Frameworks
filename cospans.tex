@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/15
+% 2020/12/16
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -432,7 +432,7 @@ together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_
 \node (A) at (4.75,0) {$\scriptstyle\Downarrow \tau_\alpha \times \tau_\beta$};
 \node (D) at (3,0) {$\one \cong \one \times \one$};
 \node (E) at (5.5,0.5) {$F(m) \times F(n)$};
-\node () at (6.5,0) {$\cong$};
+\node () at (6.5,0) {$\cong$};%{$\stackrel{\phi_{h_1,h_2}}{\cong}$};
 \node () at (8.5,0) {$\cong$};
 \node (E') at (5.5,-0.5) {$F(m') \times F(n')$};
 \node (B) at (7.5,0.5) {$F(m+n)$};
@@ -454,31 +454,7 @@ together with the decoration morphism $\tau_{\beta \odot \alpha} \colon F(h_1 +_
 where the middle isomorphism is \cref{eq:pseudonaturality} from pseudonaturality of $\phi$ and the right-hand side isomorphism is due to pseudofunctoriality of $F$.
 
 The associator for horizontal composition
-%$\alpha \colon \odot (\odot \times 1) \Rightarrow \odot (1 \times \odot)$ 
 is formed as follows: for three composable horizontal 1-cells $M_1=(a\to m_1\leftarrow b,x_1\in F(m_1))$, $M_2=(b\to m_2\leftarrow c,x_2\in F(m_2))$ and $M_3=(c\to m_3\leftarrow d,x_3\in F(m_3)),$
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$M_1=a$};
-%\node (B) at (1,0) {$m_1$};
-%\node (C) at (2,0) {$b$};
-%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-%\node (E) at (3,0) {$M_2=b$};
-%\node (F) at (4,0) {$m_2$};
-%\node (G) at (5,0) {$c$};
-%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-%\node (I) at (6,0) {$M_3=c$};
-%\node (J) at (7,0) {$m_3$};
-%\node (K) at (8,0) {$d$};
-%\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B)
-%(E) edge node[above]{$i'$} (F)
-%(G) edge node[above]{$o'$} (F)
-%(I) edge node[above]{$i''$} (J)
-%(K) edge node[above]{$o''$} (J);
-%\end{tikzpicture}
-%\]
 the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the isomorphism of cospans 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -500,35 +476,9 @@ the isomorphism $(M_3\odot M_2)\odot M_1\cong M_3\odot (M_2\odot M_1)$ is the is
 (B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
 \end{tikzpicture}
 \]
-{\chris Old version
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a$};
-\node (B) at (1.5,0.5) {$(m_1+_{b} m_2)+_{c} m_3$};
-\node (C) at (3,0.5) {$d$};
-\node (C') at (3,-0.5) {$d$};
-\node (D) at (1.5,-0.5) {$m_1+_{b}(m_2 +_{c} m_3)$};
-\node (E) at (5.5,0.5) {$(x_3 \odot x_2) \odot x_1 \in F((m_1+_{b} m_2)+_{c} m_3)$};
-\node (F) at (5.5,-0.5) {$x_3 \odot (x_2 \odot x_1) \in F(m_1+_{b} (m_2 +_{c} m_3))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B)
-(A) edge node[left]{$1_a$} (A')
-(C) edge node[right]{$1_d$} (C')
-(A') edge node {$$} (D)
-(C') edge node {$$} (D)
-(B) edge node [left] {$\stackrel{\kappa}{\cong}$} (D);
-\end{tikzpicture}
-\]}
 together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \odot (x_2 \odot x_1))$ between the decorations 
-%\begin{align*}
-%\scalebox{.8}{$\one\xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi}F(m_1+m_2)\to F(m_1+_bm_2)\xrightarrow{1\times x_3}F(m_1+_bm_2)\times %F(m_3)\xrightarrow{\phi}F((m_1+_bm_2)+m_3)$}&\scalebox{.8}{$\to F((m_1+_bm_2)+_cm_3)$} \\
-%&\scalebox{.8}{$\stackrel{F(\alpha)}{\cong} F(m_1+_b(m_2+_cm_3))$} \\
-%\scalebox{.8}{$\one\xrightarrow{x_2\times x_3}F(m_2)\times F(m_3)\xrightarrow{\phi}F(m_2+m_3)\to F(m_2+_cm_3)\xrightarrow{x_1\times1}F(m_1)\times %F(m_2+_cm_3)\xrightarrow{\phi}F(m_1\times(m_2+_cm_3))$}&\scalebox{.8}{$\to F(m_1+_b(m_2+_cm_3))$}
-%\end{align*}
 \begin{equation}\label{eq:decoiso}
-\scalebox{.8}
+\scalebox{.7}
 {\begin{tikzcd}[ampersand replacement=\&]
 \& F(m_1){\times}(F(m_2){\times}F(m_3))\ar[dddrr,phantom,"\stackrel{\cref{eq:omega}}{\cong}"]\ar[r,"1\times\phi_{m_2,m_3}"]\ar[ddd,"\alpha"description] \& F(m_1){\times}F(m_2{+}m_3)\ar[r,"1\times F(\psi)"]\ar[dr,"\phi_{m_1,m_2+m_3}"'] \& F(m_1){\times}F(m_2{+_c}m_3)\ar[d,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"]\ar[r,"\phi_{m_1,m_2+_cm_3}"] \& F(m_1{+}(m_2{+_c}m_3))\ar[r,"F(\psi)"]\ar[dddr,phantom,"\cong"] \& F(m_1{+_b}(m_2{+_c}m_3))\ar[ddd,"F(\kappa)"] \\
 \one\ar[ur,"x_1\times(x_2\times x_3)"]\ar[d,equal] \&\&\& F(m_1{+}(m_2{+}m_3))\ar[ur,"F(1+\psi)"']\ar[d,"F\alpha"] \& \\
@@ -536,46 +486,6 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 \& (F(m_1){\times}F(m_2)){\times}F(m_3)\ar[r,"\phi_{m_1,m_2}\times1"'] \& F(m_1{+}m_2){\times}m_3\ar[ur,"\phi_{m_1+m_2,m_3}"]\ar[r,"F(\psi)\times1"'] \& F(m_1{+_b}m_2){\times} F(m_3)\ar[r,"\phi_{m_1{+_b}m_2,m_3}"'] \& F((m_1{+_b}m_2){+}m_3)\ar[r,"F\psi"'] \& F((m_1{+_b}m_2){+_c}m_3)
 \end{tikzcd}}
 \end{equation}
-{\chris Old version
-\begin{displaymath}
-\begin{tikzpicture}[scale=1.7,baseline=(current bounding box.center)]
-\node (A) at (3.75,0) {$\scriptstyle{\cong}$};
-\node (D) at (3,0) {$\scriptstyle{\one}$};
-\node (E) at (6.25,0.5) {$\scriptstyle{F(m_1 + m_2) \times F(m_3)}$};
-\node () at (6,0) {$\scriptstyle\stackrel{\cref{eq:omega}}{\cong}$};
-\node () at (9.5,0) {$\scriptstyle\cong$};
-%\node () at (8.75,0) {$\cong$};
-\node (E') at (6.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2 + m_3)}$};
-\node (B) at (8,0.5) {$\scriptstyle{F((m_1 + m_2) + m_3)}$};
-\node (B') at (8,-0.5) {$\scriptstyle{F(m_1 + (m_2 + m_3))}$};
-\node (C) at (9.5,0.5) {$\scriptstyle{F((m_1+_b m_2)+m_3)}$};
-\node (C') at (9.5,-0.5) {$\scriptstyle{F(m_1 + (m_2+_c m_3))}$};
-\node (F) at (11,0.5) {$\scriptstyle{F((m_1+_b m_2)+_c m_3)}$};
-\node (F') at (11,-0.5) {$\scriptstyle{F(m_1+_b(m_2+_c m_3))}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{(F(m_1) \times F(m_2)) \times F(m_3)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times (F(m_2) \times F(m_3))}$};
-\node (M) at (3.25,0.3) {$\scriptstyle{(x_1 \times x_2) \times x_3}$};
-\node (M') at (3.25,-0.3) {$\scriptstyle{x_1 \times (x_2 \times x_3)}$};
-\path[->,font=\scriptsize,>=angle 90]
-(B) edge node [above] {} (B')
-(C) edge node [above] {} (F)
-(C') edge node [above] {} (F')
-(F) edge node [right] {$F(\kappa)$} (F')
-(E) edge node [above] {$\phi_{m_1+m_2,m_3}$} (B)
-(E') edge node [above] {$\phi_{m_1,m_2+m_3}$} (B')
-(B) edge node [above] {} (C)
-(B') edge node [above] {} (C')
-%(C) edge node  [fill=white] {$F(h_1 +_g h_2)$} (C')
-%(B) edge node [fill=white] {$F(h_1 + h_2)$} (B')
-(G) edge node [above] {$\phi_{m_1,m_2} {\times} 1$} (E)
-(G') edge node [above] {$1 {\times} \phi_{m_2,m_3}$} (E')
-(G) edge node [fill=white] {$a$} (G')
-(D) edge node [left,above] {$$} (G)
-(D) edge node [below] {$$} (G');
-%(E) edge node [fill=white] {$F(h_1) \times F(h_2)$} (E');
-\end{tikzpicture}
-\end{displaymath}}
-%%% Christina: I erased tau, and also Fpsi because they were not accurate and those arrows are OK to understand - the universal maps from a 'smaller' colimit to a 'bigger' one. If we kept Fpsi's we should write them like F(psi+1) for the first arrow at the top, and that would make the whole thing a bit heavier.
 where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For full details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
 \end{proof}
 
@@ -786,9 +696,9 @@ The monoidal unit $0_{F\lCsp_1}$ is given by:
 \end{tikzpicture}
 \]
 \end{comment}
-\begin{displaymath}
+\begin{equation}\label{eq:monoidalunitFCsp}
 I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right)
-\end{displaymath}
+\end{equation}
 where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 %\[
@@ -1578,7 +1488,7 @@ By \cref{cor:fcocMonGroth}, when the corresponding pseudofunctor $F\colon\A\to\S
 \begin{equation}\label{eq:FtoL}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{equation}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber $L(a)=(a,\bot_a)$, also expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %There are many laris, one for each choice of initial object. Having fixed our choice of colimits, there is really only one lari, correct? Also, is that ``also...'' part used anywhere?
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber $L(a)=(a,\bot_a)$, which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %There are many laris, one for each choice of initial object. Having fixed our choice of colimits, there is really only one lari, correct?
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (just as for $F\lCsp$), whereas its horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (see \cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
 \begin{equation}\label{eq:scsphor1cell}
@@ -1658,16 +1568,15 @@ F(m)\times F(m')\ar[rr,"\phi_{m,m'}"]\ar[d,"F(i_m)\times F(i_{m'})"']\ar[dr,phan
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"']\ar[rr,dashed,bend right=15] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
 \end{displaymath}
-Notice that both sides above express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2},  so this isomorphism is in the canonical unique one that commutes with the respective cocones. {\chris IS THIS CLEAR? OR HELPFUL? Could omit.}
+We thus constructed isomorphisms $\lE(M)\otimes\lE(M')\cong\lE(M\otimes M')$ for any $M,M'$.
+Notice that both sides in the diagram above, combined with the same object $(m+m')$ in $\A$, express a coproduct in the Grothendieck category $\inta F$ by formulas \cref{eq:fibrewisecoprod,eq:explicitstructure2}. Therefore the pasted isomorphism is the canonical unique one that commutes with the respective cocones. This is useful when checking associativity for example: there is only one such isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans.
 
-{\chris Kenny, I am a bit confused with all the units and monoidal units around. Could you go through in detail, and phrase correctly, the following part? Following the definition of a monoidal double functors and related structures precisely? For example, shouldn't we start from the monoidal unit of structured cospans? How do you write that?}
-Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is $0_\A\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}0_\A$ with the trivial decoration $\phi_0\maps \one\to F(0_A)\to F(0_A)$,
-which is an initial object and as such isomorphic to $0_{F(0)}$
-%=\lE((0_A,)\xrightarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0)\xleftarrow{\raisebox{-3pt}[0pt][0pt]{$=$}}(0_A,\phi_0))$
-again by \cref{eq:explicitstructure2}. It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
+Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$ 
+$I\to\lE(I)$ is the identity.
 
-\textbf{Kenny: This is what I would say regarding the monoidal units:} Moreover, the monoidal unit $I_{F\lCsp}$ for the category of arrows of $F\lCsp$ is given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit $I_{{_L \lCsp(\int F)}}$ for the category of arrows of ${ _L \lCsp(\int F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$, with $\lE(I_{{ _L \lCsp(\int F)}})$ also being given by the identity cospan on $0_\A$ with the trivial decoration on its apex so that the transformation $\theta_U \colon I_{F\lCsp} \to \lE \circ I_{{_L \lCsp (\int F)}}$ is an identity.
+It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
+
 
 \section{Bicategorical and categorical aspects}
 \label{spinoffs}
@@ -2994,8 +2903,9 @@ Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric 
 \end{defn}
 {\chris Those units in the definition should be monoidal units not unit functors...}
 %%% Kenny: How about I instead of 1?
+%%% Christina: Sure but I was NOT in the definition of symmetric monoidal double category above...could you streamline??
 \noindent
-Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}.
+Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}. {\chris Also, could we expand this definition in terms of the functors $\lF_0$ and $\lF_1$ as we usually do?}
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lD$ and $\lE$ be symmetric monoidal double categories and let $\lF \maps \lD \to \lE$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lD$ and $\lE$ are equivalent as symmetric monoidal double categories.
