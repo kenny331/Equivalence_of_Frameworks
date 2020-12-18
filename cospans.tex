@@ -253,7 +253,7 @@ Let $\A$ be a category with finite colimits and $F \maps (\A,+) \to (\Cat,\times
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
 \item a horizontal 1-cell is an $F$\define{-decorated cospan}, that is, 
-a cospan in $\A$:
+a diagram in $\A$ of the form
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -267,7 +267,7 @@ a cospan in $\A$:
 \]
 together with a \define{decoration} $x \in F(m)$,
 \item a 2-morphism is a \define{map of} $F$\define{-decorated cospans}, that is, 
-a map of cospans in $\A$:
+a commutative diagram in $\A$ of the form
 \begin{equation}\label{eq:mapofdec}
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0.5) {$a$};
@@ -498,13 +498,22 @@ Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+)
 \begin{itemize}
 \item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
 \item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
-\item of two horizontal 1-cells $(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$ and $(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ is:
+\item of two horizontal 1-cells $(a \to m \leftarrow b ,x \in F(m))$ and $(c \to n \leftarrow d, y\in F(n))$ is
+\begin{equation}\label{eq:tensordecoration}
+\begin{tikzcd}
+& m+n & \\
+a+c\ar[ur,"i_1+i_2"] && b+d,\ar[ul,"o_1+o_2"']
+\end{tikzcd}\qquad x \otimes y:=  \phi_{m,n}(x,y) \in F(m + n) 
+\end{equation}
+
+\begin{comment}
 \begin{equation}\label{eq:tensordecoration}
 \begin{tikzcd}
 & m_1+m_2 & \\
 a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
 \end{tikzcd}\qquad x_1\otimes x_2:=\one \xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
 \end{equation}
+\end{comment}
 
 \item of two 2-morphisms $\alpha$ and $\beta$ is:
 \[
@@ -842,18 +851,19 @@ Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a fu
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
-\item a horizontal 1-cell from $a$ to $b$ is a cospan in $\X$ of the form
+\item a horizontal 1-cell from $a$ to $b$ is a \define{$L$-structured cospan}, that is,
+a diagram in $\X$ of the form
 \begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
 \node (B) at (1,0) {$x$};
-\node (C) at (2,0) {$L(b)$};
+\node (C) at (2,0) {$L(b)$,};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
 \end{tikzpicture}
 \end{displaymath}
-\item a 2-morphism is a map of cospans in $\X$ of the form
+\item a 2-morphism is a \define{map of $L$-structured cospans}, that is, a commutative diagram in $\X$ of the form
 \begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
@@ -861,7 +871,7 @@ Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a fu
 \node (C) at (2,0) {$L(b)$};
 \node (A') at (0,-1) {$L(a')$};
 \node (B') at (1,-1) {$x'$};
-\node (C') at (2,-1) {$L(b')$};
+\node (C') at (2,-1) {$L(b')$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -1095,27 +1105,29 @@ in the fiber $F(m')$, by composition in the Grothendieck category \cref{eq:compG
 
 Building towards an isomorphism of the above described double categories, we now define a double functor
 \begin{displaymath}
-\lE=(\lE_0,\lE_1)\maps _L\lCsp(\inta F) \longrightarrow F\lCsp
+\lE=(\lE_0,\lE_1)\maps _L\lCsp(\inta F) \longrightarrow F\lCsp.
 \end{displaymath}
-which on vertical categories acts as the identity $\lE_0 = \id_{\A}$. Given a horizontal 1-cell in $_L\lCsp(\inta F)$ as in \cref{eq:scsphor1cell}, $\lE_1$ maps it to the decorated cospan $i\maps a\to m\leftarrow b:o$ with decoration $x\in F(m)$,
-whereas a 2-morphism of $L$-structured cospans as in \cref{eq:2morphismLCspintaF} is mapped to the underlying map of cospans in $\A$
-\begin{displaymath}
+We set $\lE_0$ to be the identity on $\A$, and decree that $\lE_1$ sends any
+$L$-structured cospan as in \cref{eq:scsphor1cell} to the decorated cospan
+$a \xrightarrow{i} m \xleftarrow{o} b$ with decoration $x\in F(m)$, whereas $\lE_1$ sends 
+any map of $L$-structured cospans as in \cref{eq:2morphismLCspintaF} to the
+map of $F$-decorated cospans given by
+\[
 \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
 a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
 \end{tikzcd}
-\end{displaymath}
-in $\A$ along with the map $\tau\maps Fk(x)\to x'$ in $F(m')$ coming from the middle arrow above, namely an $F$-decorated cospan 2-morphism. 
-With these mappings, $\lE$ is indeed a double functor as in \cref{def:doublefun}. First of all, both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets. Moreover, there exist globular 2-isomorphisms $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$, $U_{\lE m} \simrightarrow\lE(U_m)$
+\]
+along with the morphism of decorations $\tau\maps F(k)(x) \to x'$ in $F(m')$ coming from the middle arrow above. We then make $\lE$ into double functor as in \cref{def:doublefun}. First, both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets.  Second, we equip $\lE$ with globular 2-isomorphisms $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$, $U_{\lE m} \simrightarrow\lE(U_m)$
 for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $_L\lCsp(\inta F)$. Explicitly, $\mathbb{E}(N)\odot \mathbb{E}(M)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
 \begin{equation}\label{eq:1}
  \begin{tikzcd}
   & m+_bn & \\
   a\ar[ur] && b,\ar[ul]
  \end{tikzcd}\qquad
-  \one\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn)
+  \one\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn).
 \end{equation}
-whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\inta F$ as in \cref{eq:globalpushout} produces 
+On the other hand, $N \odot M$ computed as in \cref{eq:globalpushout} is 
 \begin{displaymath}
  \begin{tikzcd}[column sep={.7in,between origins}]
  && (m+_b n,F(v_m)x+_{(\bot_{m+_bn})}F(v_n)y) && \\
@@ -1123,15 +1135,15 @@ whereas first composing $M$ and $N$ in $_L\lCsp(\inta F)$ using pushouts in $\in
  (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
 \end{displaymath}
-where $v_m,v_n$ are the canonical maps into the pushout.
-Under $\lE$ this is mapped to the underlying $\A$-cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$, since a pushout over an initial object is really a coproduct.  This decoration has a canonical isomorphism to that of \cref{eq:1} due to the following diagram 
+where $v_m,v_n$ are the canonical maps into the pushout.  Under $\lE$ this is mapped to the cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$.  This decoration is canonically isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}
 F(m)\times F(n)\ar[rr,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(v_m+v_n)"description] \\
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
 \end{equation}
-where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism arises from the pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and the pseudofunctoriality of $F$.  Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
+where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism arises from the pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and the pseudofunctoriality of $F$.  Thus, we have a canonical globular 2-isomorphism  $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$.
+Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
 
 In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism $$_L\lCsp(\inta F) \cong F\lCsp.$$
 
