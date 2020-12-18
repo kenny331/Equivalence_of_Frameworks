@@ -503,39 +503,6 @@ Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+)
 a_1+a_2\ar[ur,"i_1+i_2"] && b_1+b_2,\ar[ul,"o_1+o_2"']
 \end{tikzcd}\qquad x_1\otimes x_2:=\one \xrightarrow{x_1\times x_2}F(m_1)\times F(m_2)\xrightarrow{\phi_{m_1,m_2}}F(m_1+m_2)
 \end{equation}
-%$M_1$ and $M_2$:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a_1$};
-%\node (B) at (1,0) {$m_1$};
-%\node (C) at (2,0) {$b_1$};
-%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-%\node (E) at (3,0) {$a_2$};
-%\node (F) at (4,0) {$m_2$};
-%\node (G) at (5,0) {$b_2$};
-%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i_1$} (B)
-%(C) edge node[above]{$o_1$} (B)
-%(E) edge node[above]{$i_2$} (F)
-%(G) edge node[above]{$o_2$} (F);
-%\end{tikzpicture}
-%\]
-%is the horizontal 1-cell $M_1 \otimes M_2$:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a_1+a_2$};
-%\node (B) at (1.5,0) {$m_1+m_2$};
-%\node (C) at (3,0) {$b_1+b_2$};
-%\node (D) at (4.55,0) {$x_1+x_2 \in F(m_1+m_2)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i_1+i_2$} (B)
-%(C) edge node[above]{$o_1+o_2$} (B);
-%\end{tikzpicture}
-%\]
-%\begin{equation}
-%x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2)
-%\end{equation}
 
 \item of two 2-morphisms $\alpha$ and $\beta$ is:
 \[
@@ -608,122 +575,14 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 \end{thm}
 
 \begin{proof}
-%We must show that both the category of objects $F\lCsp_0$ and the category of arrows $F\lCsp_1$ are symmetric monoidal categories, show that the monoidal unit of $F\lCsp_0$ is preserved by the unit functor $U$, show that the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$ are strict symmetric monoidal functors which preserve the associativity and unit constraints, define the globular isomorphisms $\chi$ and $\mu$ that relate how composition and units interact with the tensor product, and check that the required axioms are satisfied.
 We first show that the categories of objects and arrows are symmetric monoidal, and that the source and target functors are symmetric strict monoidal.
 Indeed, the category of objects $F\lCsp_0=\A$ is symmetric monoidal under (chosen) binary coproducts in $\A$. The category of arrows
 $F\lCsp_1$ is also symmetric monoidal, with tensor product as in \cref{eq:tensordecoration} and monoidal unit
-\begin{comment}
-The category of arrows $F\lCsp_1$ has:
-\begin{enumerate}
-\item{objects as $F$-decorated cospans, which are pairs:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(a$};
-\node (B) at (1,0) {$m$};
-\node (C) at (2,0) {$b,$};
-\node (D) at (2.6,0) {$x \in F(m))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
-\end{tikzpicture}
-\]
-and}
-\item{morphisms as maps of $F$-decorated cospans, which are cospans in $\A$
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$a'$};
-\node (B) at (1,0.5) {$m$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b'$};
-\node (D) at (1,-0.5) {$m'$};
-\node (E) at (3,0.5) {$x \in F(m)$};
-\node (F) at (3,-0.5) {$x' \in F(m')$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[right]{$g$} (C')
-(A') edge node [above]{$i'$} (D)
-(C') edge node [above]{$o'$} (D)
-(B) edge node [left] {$h$} (D);
-\end{tikzpicture}
-\]
-together with a decoration morphism $\tau \maps F(h)(x) \to x'$.
-}
-\end{enumerate}
-First we define the tensor product and monoidal unit of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1$};
-\node (B) at (1,0) {$m_1$};
-\node (C) at (2,0) {$b_1$};
-\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-\node (E) at (3,0) {$a_2$};
-\node (F) at (4,0) {$m_2$};
-\node (G) at (5,0) {$b_2$};
-\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(E) edge node[above]{$i_2$} (F)
-(G) edge node[above]{$o_2$} (F);
-\end{tikzpicture}
-\]
-their tensor product $M_1 \otimes M_2$ is given by taking the coproducts of the cospans in $\A$
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1+a_2$};
-\node (B) at (1.5,0) {$m_1+m_2$};
-\node (C) at (3,0) {$b_1+b_2$};
-\node (D) at (4.55,0) {$x_1+x_2 \in F(m_1+m_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1+i_2$} (B)
-(C) edge node[above]{$o_1+o_2$} (B);
-\end{tikzpicture}
-\]
-where the decoration on the apex is obtained using the natural transformation of the symmetric lax monoidal pseudofunctor $F$: $$x_1+x_2 \mapseqq 1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{x_1 \times x_2} F(m_1) \times F(m_2) \xrightarrow{\phi_{m_1,m_2}} F(m_1+m_2).$$
-The monoidal unit $0_{F\lCsp_1}$ is given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$0$};
-\node (B) at (1,0) {$0$};
-\node (C) at (2,0) {$0,$};
-\node (D) at (3,0) {\bot_0 = \phi \in F(0)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$!$} (B)
-(C) edge node[above]{$!$} (B);
-\end{tikzpicture}
-\]
-\end{comment}
 \begin{equation}\label{eq:monoidalunitFCsp}
 I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right)
 \end{equation}
 where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a_1$};
-%\node (B) at (1,0) {$m_1$};
-%\node (C) at (2,0) {$b_1$};
-%\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-%\node (E) at (3,0) {$a_2$};
-%\node (F) at (4,0) {$m_2$};
-%\node (G) at (5,0) {$b_2$};
-%\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-%\node (I) at (6,0) {$a_3$};
-%\node (J) at (7,0) {$m_3$};
-%\node (K) at (8,0) {$b_3$};
-%\node (L) at (7,-0.5) {$x_3 \in F(m_3)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i_1$} (B)
-%(C) edge node[above]{$o_1$} (B)
-%(E) edge node[above]{$i_2$} (F)
-%(G) edge node[above]{$o_2$} (F)
-%(I) edge node[above]{$i_3$} (J)
-%(K) edge node[above]{$o_3$} (J);
-%\end{tikzpicture}
-%\]
 the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism of cospans
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -746,58 +605,6 @@ the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism
 \end{tikzpicture}
 \]
 together with the decoration isomorphism between $F(\alpha)((x_1 \otimes x_2) \otimes x_3)\stackrel{\cref{eq:tensordecoration}}{=}F(\alpha)(\phi_{m_1{+}m_2,m_3}(\phi_{m_1,m_2}(x_1,x_2),x_3))$ and $x_1 \otimes (x_2 \otimes x_3)=\phi_{m_1,m_2{+}m_3}(x_1,\phi_{m_2,m_3}(x_2,x_3))$ formed in the same way as the left two-piece part of \cref{eq:decoiso}. 
-\begin{comment}
-tensoring the first two and then the third results in $(M_1 \otimes M_2) \otimes M_3$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(a_1+a_2)+a_3$};
-\node (B) at (2.5,0){$(m_1+m_2)+m_3$};
-\node (C) at (5,0) {$(b_1+b_2)+b_3$};
-\node (D) at (2.5,-0.5) {$(x_1+x_2)+x_3 \in F((m_1+m_2)+m_3)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$(i_1+i_2)+i_3$} (B)
-(C) edge node[above]{$(o_1+o_2)+o_3$} (B);
-\end{tikzpicture}
-\]
-where $(x_1+x_2)+x_3 \maps 1 \to F((m_1+m_2)+m_3)$ is the composite
-\[  1 \xrightarrow{(x_1 \times x_2) \times x_3} (F(m_1) \times F(m_2)) \times F(m_3) \xrightarrow{\phi_{m_1,m_2} \times 1} F(m_1+m_2) \times F(m_3) \xrightarrow{\phi_{m_1+m_2,m_3}} F((m_1+m_2)+m_3).\]
-The other parenthesization $M_1 \otimes (M_2 \otimes M_3)$ is given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a_1+(a_2+a_3)$};
-\node (B) at (2.5,0) {$m_1+(m_2+m_3)$};
-\node (C) at (5,0) {$b_1+(b_2+b_3)$};
-\node (D) at (2.5,-0.5) {$x_1+(x_2+x_3) \in F(m_1+(m_2+m_3))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1+(i_2+i_3)$} (B)
-(C) edge node[above]{$o_1+(o_2+o_3)$} (B);
-\end{tikzpicture}
-\]
-where $x_1+(x_2+x_3) \maps 1 \to F(m_1+(m_2+m_3))$ is the composite
-\[  1 \xrightarrow{x_1 \times (x_2 \times x_3)} F(m_1) \times (F(m_2) \times F(m_3)) \xrightarrow{1 \times \phi_{m_2,m_3}} F(m_1) \times F(m_2+m_3) \xrightarrow{\phi_{m_1,m_2+m_3}} F(m_1+(m_2+m_3)).\]
-Denoting the associator of $(\A,+)$ by $\alpha$, the associator of $F\lCsp_1$ is then a map of cospans in $\A$ from $(M_1 \otimes M_2) \otimes M_3$ to $M_1 \otimes (M_2 \otimes M_3)$ given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$(a_1+a_2)+a_3$};
-\node (A') at (0,-0.5) {$a_1+(a_2+a_3)$};
-\node (B) at (2.25,0.5) {$(m_1+m_2)+m_3$};
-\node (C) at (4.5,0.5) {$(b_1+b_2)+b_3$};
-\node (C') at (4.5,-0.5) {$b_1+(b_2+b_3)$};
-\node (D) at (2.25,-0.5) {$m_1+(m_2+m_3)$};
-\node (E) at (7,0.5) {$(x_1+x_2)+x_3 \in F((m_1+m_2)+m_3)$};
-\node (F) at (7,-0.5) {$x_1+(x_2+x_3) \in F(m_1+(m_2+m_3))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$(i_1+i_2)+i_3$} (B)
-(C) edge node[above]{$(o_1+o_2)+o_3$} (B)
-(A) edge node[left]{$\alpha$} (A')
-(C) edge node[right]{$\alpha$} (C')
-(A') edge node [above]{$i_1+(i_2+i_3)$} (D)
-(C') edge node [above]{$o_1+(o_2+o_3)$} (D)
-(B) edge node [left] {$\alpha$} (D);
-\end{tikzpicture}
-\]
-together with the decoration isomorphism $\tau_\alpha \maps F(\alpha)((x_1+x_2)+x_3) \to x_1+(x_2+x_3)$.
-\end{comment}
 For the left and right unitors $I_1\ot M\cong M\cong M\ot I_1$ for any $M=(a\to m\leftarrow b,x\in F(m)$, we have span isomorphisms
 \begin{displaymath}
  \begin{tikzcd}[column sep=.3in]
@@ -808,83 +615,7 @@ a+0\ar[rr,"i+1"']\ar[u,"\stackrel{r}{\cong}"] && m+0\ar[u,"\stackrel{r}{\cong}"]
  \end{tikzcd}
 \end{displaymath}
 with isomorphisms between decorations precisely given by \cref{eq:unitality}.
-\begin{comment}
-For the left unitor, we first compute $0_{F\lCsp_1} \otimes M$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$0$};
-\node (B) at (1,0) {$0$};
-\node (C) at (2,0) {$0$};
-\node (D) at (1,-0.5) {$\bot_0 \in F(0)$};
-\node (E) at (3,0) {$a$};
-\node (F) at (4,0) {$m$};
-\node (G) at (5,0) {$b$};
-\node (H) at (4,-0.5) {$x \in F(m)$};
-\node (I) at (2.5,0) {$\otimes$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$!$} (B)
-(C) edge node[above]{$!$} (B)
-(E) edge node[above]{$i$} (F)
-(G) edge node[above]{$o$} (F);
-\end{tikzpicture}
-\]
-which results in:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$0+a$};
-\node (B) at (1,0) {$0+m$};
-\node (C) at (2,0) {$0+b$};
-\node (D) at (3.5,0) {$\bot_0 + x \in F(0+m)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$!+i$} (B)
-(C) edge node[above]{$!+o$} (B);
-\end{tikzpicture}
-\]
-where $\bot_0 + x \in F(0+m)$ is given by $$1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\bot_0 \times x} F(0) \times F(m) \xrightarrow{\phi_{0,m}} F(0+m).$$Denoting the left unitor of $(\A,+,0)$ by $\ell$, the left unitor of $F\lCsp_1$ is then an isomorphism in $F\lCsp_1$ given by the following map of cospans in $\A$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$0+a$};
-\node (A') at (0,-0.5) {$a$};
-\node (B) at (1,0.5) {$0+m$};
-\node (C) at (2,0.5) {$0+b$};
-\node (C') at (2,-0.5) {$b$};
-\node (D) at (1,-0.5) {$m$};
-\node (E) at (3.5,0.5) {$\bot_0 + x \in F(0+m)$};
-\node (F) at (3.5,-0.5) {$x \in F(m)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$!+i$} (B)
-(C) edge node[above]{$!+o$} (B)
-(A) edge node[left]{$\ell$} (A')
-(C) edge node[right]{$\ell$} (C')
-(A') edge node [above]{$i$} (D)
-(C') edge node [above]{$o$} (D)
-(B) edge node [left] {$\ell$} (D);
-\end{tikzpicture}
-\]
-together with the decoration isomorphism $\tau_{\ell} \maps F(\ell)(\bot_0 + x) \to x$. The right unitor is similar, and one can check that the associator and left and right unitors together satisfy the pentagon and triangle identities of a monoidal category.  See the second author's thesis \cite{CourserThesis} for more details.
-\end{comment}
 Finally, the symmetric monoidal structure of $F\lCsp_1$ is inherited from that in $\A$ and $F$, with braiding $\beta\maps M_1\ot M_2\to M_2\ot M_1$ the cospan isomorphism
-%To finish showing that $F\lCsp_1$ is symmetric monoidal, we next define the braiding of $F\lCsp_1$. Given two objects $M_1$ and $M_2$ of $F\lCsp_1$ and denoting the braiding of $(\A,+,0)$ by $\beta$, the braiding $\beta_{M_1,M_2}$ of $F\lCsp_1$ is then a map of cospans in $\A$ from $M_1 \otimes M_2$ to $M_2 \otimes M_1$:
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0.5) {$a_1+a_2$};
-%\node (A') at (0,-0.5) {$a_2+a_1$};
-%\node (B) at (2,0.5) {$m_1+m_2$};
-%\node (C) at (4,0.5) {$b_1+b_2$};
-%\node (C') at (4,-0.5) {$b_2+b_1$};
-%\node (D) at (2,-0.5) {$m_2+m_1$};
-%\node (E) at (6,0.5) {$x_1 \otimes x_2 \in F(m_1+m_2)$};
-%\node (F) at (6,-0.5) {$x_2 \otimes x_1 \in F(m_2+m_1)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i_1+i_2$} (B)
-%(C) edge node[above]{$o_1+o_2$} (B)
-%(A) edge node[left]{$\stackrel{\beta}{\cong}$} (A')
-%(C) edge node[left]{$\stackrel{\beta}{\cong}$} (C')
-%(A') edge node [above]{$i_2+i_1$} (D)
-%(C') edge node [above]{$o_2+o_1$} (D)
-%(B) edge node [right] {$\stackrel{\beta}{\cong}$} (D);
-%\end{tikzpicture}
-%\]
 \begin{equation}\label{eq:braidingFCsp1}
  \begin{tikzcd}[column sep=.25in]
 a_1+a_2\ar[rr,"i_1+i_2"]\ar[d,"\stackrel{\beta}{\cong}"'] && m_1+m_2\ar[d,"\stackrel{\beta}{\cong}"'] && b_1+b_2\ar[ll,"o_1+o_2"']\ar[d,"\stackrel{\beta}{\cong}"] &\one\ar[r,"x_1\times x_2"] & F(m_1)\times F(m_2)\ar[r,"\phi_{m_1,m_2}"] & F(m_1+m_2) \\
@@ -898,7 +629,6 @@ together with the decoration isomorphism
   & F(m_2)\times F(m_1)\ar[r,"\phi_{m_2,m_1}"'] & F(m_2+m_1)
  \end{tikzcd}
 \end{equation}
-%$F(\beta)(x_1+x_2) \to x_2+x_1$. Note that obtaining the decoration isomorphism $\tau_\beta$ makes use of $F$ being symmetric. One can check that the braiding together with the associator satisfy the hexagon equations, and it is clear that $\beta_{M_1,M_2}=\beta_{M_2,M_1}^{-1}$. This completes the description of $F\lCsp_1$ as a symmetric monoidal category.
 All axioms for a symmetric monoidal category can be verified, %see \cite[Theorem 4.1.3]{CourserThesis}, 
 and it is easy to see that with these structures, the source and target functors $S,T\colon F\lCsp_1\to F\lCsp_0$ are symmetric strict monoidal.
 
@@ -945,155 +675,7 @@ Thus the (globular) cospan isomorphism is the canonical universal map between th
 \& F(m_1+m_2)\times F(n_1+n_2)\ar[uurr,"\phi_{m_1+m_2,n_1+n_2}"']\ar[rr,"F\psi\times F\psi"'] \&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[rr,"\phi_{m_1+_b m_2,n_1+_{b'}n_2}"'] \&\& F((m_1+_bm_2)+(n_1+_{b'}n_2))
 \end{tikzcd}}
 \end{equation}
-where the left-hand side isomorphism combines the pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$ as seen in detail in the appendix, and the right hand side follows from the universal property of colimits and pseudofunctoriality of $F$.  Similarly, for the units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b} \maps a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
-\begin{comment}
-, the first of which relates the double functor $\otimes$ with the functor $\odot$ and the second of which relates the double functor $\otimes$ with the functor $U$. 
-The latter of these is easy to see: given two objects $a$ and $b$ in $F\lCsp_0=\A$, $\mu$ is given by the identity map of cospans in $\A$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a+b$};
-\node (A') at (0,-0.5) {$a+b$};
-\node (B) at (2,0.5) {$a+b$};
-\node (C) at (4,0.5) {$a+b$};
-\node (C') at (4,-0.5) {$a+b$};
-\node (D) at (2,-0.5) {$a+b$};
-\node (E) at (5.5,0.5) {$\bot_{a+b} \in F(a+b)$};
-\node (F) at (5.5,-0.5) {$\bot_a + \bot_b \in F(a+b)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$1_{a+b}$} (B)
-(C) edge node[above]{$1_{a+b}$} (B)
-(A) edge node[left]{$1$} (A')
-(C) edge node[right]{$1$} (C')
-(A') edge node [above]{$1_a + 1_b$} (D)
-(C') edge node [above]{$1_a + 1_b$} (D)
-(B) edge node [left] {$1$} (D);
-\end{tikzpicture}
-\]
-together with the decoration isomorphism $\tau_{a,b} \maps \bot_{a+b} \xrightarrow{\sim} \bot_a + \bot_b$ given by the unique map between the two initial objects $\bot_{a+b}$ and $\bot_a + \bot_b$ in $F(a+b)$. 
-%%%Christina: we do not have any such information at this point! We have not talked about the categories F(a) having finite colimits, and it's not deduced from the assumptions. We will show this is the case much later!
-For the former globular 2-morphism $\chi$, we first introduce some notation for objects $M_1,M_2,N_1$ and $N_2$ of $F\lCsp_1$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$m_1$};
-\node (C) at (2,0) {$b$};
-\node (D) at (1,-0.5) {$x_1 \in F(m_1)$};
-\node (E) at (3,0) {$b$};
-\node (F) at (4,0) {$m_2$};
-\node (G) at (5,0) {$c$};
-\node (H) at (4,-0.5) {$x_2 \in F(m_2)$};
-\node (I) at (0,-1.5) {$a'$};
-\node (J) at (1,-1.5) {$n_1$};
-\node (K) at (2,-1.5) {$b'$};
-\node (L) at (1,-2) {$y_1 \in F(n_1)$};
-\node (M) at (3,-1.5) {$b'$};
-\node (N) at (4,-1.5) {$n_2$};
-\node (O) at (5,-1.5) {$c'$};
-\node (P) at (4,-2) {$y_2 \in F(n_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i_1$} (B)
-(C) edge node[above]{$o_1$} (B)
-(E) edge node[above]{$i_2$} (F)
-(G) edge node[above]{$o_2$} (F)
-(I) edge node[above]{$i_1'$} (J)
-(K) edge node[above]{$o_1'$} (J)
-(M) edge node[above]{$i_2'$} (N)
-(O) edge node[above]{$o_2'$} (N);
-\end{tikzpicture}
-\]
-If we first tensor $M_1$ and $N_1$ as well as $M_2$ and $N_2$ and then compose these two, we obtain $(M_1 \otimes N_1) \odot (M_2 \otimes N_2)$, which is given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a+a'$};
-\node (B) at (2.5,0) {$(m_1+n_1)+_{b+b'}(m_2+n_2)$};
-\node (C) at (5,0) {$c+c'$};
-\node (D) at (2.5,-0.5) {$(x_1+y_1)\odot(x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\psi j (i_1+i_1')$} (B)
-(C) edge node[above]{$\psi j (o_2 + o_2')$} (B);
-\end{tikzpicture}
-\]
-where the decoration $(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))$ is given by
-%$$\scriptscriptstyle{1 \xrightarrow{(\lambda^{-1} \times \lambda^{-1})\lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2))$$
-\[ \scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2)} \xrightarrow{\phi_{m_1+n_1,m_2+n_2}} F((m_1+n_1)+(m_2+n_2)) \xrightarrow{F(\psi)} F((m_1+n_1)+_{b+b'}(m_2+n_2)) \]
-where the first arrow is the composite
-\[1 \xrightarrow{\lambda^{-1}} 1 \times 1 \xrightarrow{\lambda^{-1} \times \lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)). \]
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$1$};
-%\node (B) at (0,-1) {$1 \times 1$};
-%\node (C) at (0,-2) {$(1 \times 1) \times (1 \times 1)$};
-%\node (D) at (0,-3) {$(F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2))$};
-%\node (E) at (0,-4) {$F(m_1+n_1) \times F(m_2+n_2)$};
-%\node (F) at (0,-5) {$F((m_1+n_1)+(m_2+n_2))$};
-%\node (G) at (0,-6) {$F((m_1+n_1)+_{b+b'}(m_2+n_2))$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[left]{$\lambda^{-1}$} (B)
-%(B) edge node[left]{$\lambda^{-1} \times \lambda^{-1}$} (C)
-%(C) edge node[left]{$(x_1 \times y_1) \times (x_2 \times y_2)$} (D)
-%(D) edge node[left]{$\phi_{m_1,n_1} \times \phi_{m_2,n_2}$} (E)
-%(E) edge node[left]{$\phi_{m_1+n_1,m_2+n_2}$} (F)
-%(F) edge node[left]{$F(j_{m_1+n_1,m_2+n_2})$} (G);
-%\end{tikzpicture}
-%\]
-Interchanging the order in which we tensor and compose, we obtain $(M_1 \odot M_2) \otimes (N_1 \odot N_2)$, which is given by:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a+a'$};
-\node (B) at (2.5,0) {$(m_1+_{b} m_2) + (n_1 +_{b'} n_2)$};
-\node (C) at (5,0) {$c+c'$};
-\node (D) at (2.5,-0.5) {$(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$(\psi j i_1)+(\psi j i_1')$} (B)
-(C) edge node[above]{$(\psi j o_2)+(\psi j o_2')$} (B);
-\end{tikzpicture}
-\]
-where the decoration $(x_1 \odot x_2) + (y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$ is given by:
-%$$\scriptscriptstyle{1 \xrightarrow{(\lambda^{-1} \times \lambda^{-1})\lambda^{-1}} (1 \times 1) \times (1 \times 1) \xrightarrow{(x_1 \times y_1) \times (x_2 \times y_2)} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2) \xrightarrow{F(\psi) \times F(\psi)} F(m_1 +_b m_2) \times F(n_1+_{b'}n_2) \xrightarrow{\phi_{m_1+_b m_2,n_1+_{b'}n_2}} F((m_1+_b m_2)+(n_1+_{b'}n_2))}$$
-$$\scriptstyle{1 \xrightarrow{} (F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2)) \xrightarrow{\phi_{m_1,n_1} \times \phi_{m_2,n_2}} F(m_1+n_1) \times F(m_2+n_2) \xrightarrow{F(\psi) \times F(\psi)} F(m_1 +_b m_2) \times F(n_1+_{b'}n_2) \xrightarrow{\phi_{m_1+_b m_2,n_1+_{b'}n_2}} F((m_1+_b m_2)+(n_1+_{b'}n_2))}$$
-with the first arrow being the same as the first arrow in the previous composite.
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$1$};
-%\node (B) at (0,-1) {$1 \times 1$};
-%\node (C) at (0,-2) {$(1 \times 1) \times (1 \times 1)$};
-%\node (D) at (0,-3) {$(F(m_1) \times F(m_2)) \times (F(n_1) \times F(n_2))$};
-%\node (E) at (0,-4) {$F(m_1+m_2) \times F(n_1+n_2)$};
-%\node (F) at (0,-5) {$F(m_1+_{b}m_2) \times F(n_1+_{b'}n_2)$};
-%\node (G) at (0,-6) {$F((m_1+_{b}m_2)+(n_1+_{b'}n_2))$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[left]{$\lambda^{-1}$} (B)
-%(B) edge node[left]{$\lambda^{-1} \times \lambda^{-1}$} (C)
-%(C) edge node[left]{$(x_1 \times x_2) \times (y_1 \times y_2)$} (D)
-%(D) edge node[left]{$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E)
-%(E) edge node[left]{$F(j_{m_1,m_2}) \times F(j_{n_1,n_2})$} (F)
-%(F) edge node[left]{$\phi_{m_1+_{b}m_2,n_1+_{b'}n_2}$} (G);
-%\end{tikzpicture}
-%\]
-The globular 2-morphism $\chi \colon (M_1 \otimes N_1) \odot (M_2 \otimes N_2) \to (M_1 \odot M_2) \otimes (N_1 \odot N_2)$ is then given by the map of cospans in $\A$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0.5) {$a+a'$};
-\node (A') at (0,-0.5) {$a+a'$};
-\node (B) at (2.5,0.5) {$(m_1+n_1)+_{b+b'}(m_2+n_2)$};
-\node (C) at (5,0.5) {$c+c'$};
-\node (C') at (5,-0.5) {$c+c'$};
-\node (D) at (2.5,-0.5) {$(m_1+_{b}m_2)+(n_1+_{b'}n_2)$};
-\node (E) at (7.5,0.5) {$\scriptstyle{(x_1+y_1) \odot (x_2+y_2) \in F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-\node (F) at (7.5,-0.5) {$\scriptstyle{(x_1 \odot x_2)+(y_1 \odot y_2) \in F((m_1+_{b}m_2)+(n_1+_{b'}n_2))}$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\psi j(i_1+i_1')$} (B)
-(C) edge node[above]{$\psi j(o_2 + o_2')$} (B)
-(A) edge node[left]{$1$} (A')
-(C) edge node[right]{$1$} (C')
-(A') edge node [above]{$(\psi j i_1')+(\psi j i_1)$} (D)
-(C') edge node [above]{$(\psi j o_2)+(\psi j o_2')$} (D)
-(B) edge node [left] {$\hat{\chi}$} (D);
-\end{tikzpicture}
-\]
-together with decoration isomorphism $\tau_{\chi} \maps F(\hat{\chi})((x_1+y_1)\odot(x_2+y_2)) \to (x_1 \odot x_2)+(y_1 \odot y_2)$
-where $\hat{\chi}$ is the same interchange map $\chi$ for the symmetric double category $\lCsp(\A)$ given by the universal map between the colimit of the same diagram obtained in two different ways. This completes the description of the globular 2-morphisms $\chi$ and $\mu$, and the description of all of the structure of the symmetric monoidal double category $F\lCsp$.
-\end{comment}
+where the left-hand side isomorphism \cref{eq:thetaa} is spelled out in detail in \cref{eq:proofofaxiom} and combines the pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$, and the right hand side isomorphism follows from the universal property of colimits and pseudofunctoriality of $F$.  Similarly, for the units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b} \maps a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
 
 It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied.  In order to give the reader a sense of what these checks entail, we provide a proof of the fact that the braiding is a transformation of double categories in \cref{eq:proofofaxiom}.     
 \end{proof}
