@@ -507,6 +507,7 @@ a+c\ar[ur,"i_1+i_2"] && b+d,\ar[ul,"o_1+o_2"']
 \end{equation}
 
 \begin{comment}
+%old version:
 \begin{equation}\label{eq:tensordecoration}
 \begin{tikzcd}
 & m_1+m_2 & \\
@@ -691,7 +692,7 @@ where the left-hand side isomorphism \cref{eq:thetaa} is spelled out in detail i
 It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied.  In order to give the reader a sense of what these checks entail, we provide a proof of the fact that the braiding is a transformation of double categories in \cref{eq:proofofaxiom}.     
 \end{proof}
 
-There is a much simpler proof of the above theorem when the hypothesis of \cref{thm:equiv} hold.  In this case we show, in the proof of that theorem, that the decorated cospan double category $F \lCsp$ is isomorphic to a certain double category ${}_L \lCsp(\inta  F)$ constructed using \emph{structured} cospans.   We also show that under this isomorphism, all the symmetric monoidal structure of $F \lCsp$---the tensor product, associator, etc.---matches that for  ${}_L \lCsp(\inta  F)$, which we have shown independently obeys the axioms of symmetric monoidal double category (see \cref{thm:SC}).  It follows that $F \lCsp$ is a symmetric monoidal double category.
+There is a much simpler proof of the above theorem when the hypothesis of \cref{thm:equiv} hold.  In this case we show, in the proof of that theorem, that the decorated cospan double category $F \lCsp$ is isomorphic to a certain double category ${}_L \lCsp(\inta  F)$ constructed using \emph{structured} cospans.   We also show that under this isomorphism, all the symmetric monoidal structure of $F \lCsp$---the tensor product, associator, etc.---matches that for  ${}_L \lCsp(\inta  F)$, which we have proved to obey the axioms of a symmetric monoidal double category (see \cref{thm:SC}).  It follows that $F \lCsp$ is a symmetric monoidal double category.
 
 Our construction gives not only decorated cospan double categories, but  also maps between these: that is, symmetric monoidal double functors, as in \cref{def:doublefun}. Suppose we have two categories $\A,A'$ with finite colimits and two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
@@ -851,7 +852,7 @@ Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a fu
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
-\item a horizontal 1-cell from $a$ to $b$ is a \define{$L$-structured cospan}, that is,
+\item a horizontal 1-cell from $a$ to $b$ is an \define{$L$-structured cospan}, that is,
 a diagram in $\X$ of the form
 \begin{displaymath}
 \begin{tikzpicture}[scale=1.5]
@@ -1107,7 +1108,7 @@ Building towards an isomorphism of the above described double categories, we now
 \begin{displaymath}
 \lE=(\lE_0,\lE_1)\maps _L\lCsp(\inta F) \longrightarrow F\lCsp.
 \end{displaymath}
-We set $\lE_0$ to be the identity on $\A$, and decree that $\lE_1$ sends any
+We set $\lE_0 \maps \A \to \A$ to be the identity, and decree that $\lE_1$ sends any
 $L$-structured cospan as in \cref{eq:scsphor1cell} to the decorated cospan
 $a \xrightarrow{i} m \xleftarrow{o} b$ with decoration $x\in F(m)$, whereas $\lE_1$ sends 
 any map of $L$-structured cospans as in \cref{eq:2morphismLCspintaF} to the
