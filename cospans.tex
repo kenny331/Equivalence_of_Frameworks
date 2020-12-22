@@ -39,11 +39,7 @@ An `open system' is any sort of system that can interact with the outside world.
 \end{tikzpicture}
 \]
 We call $m$ the \define{apex}, $a$ and $b$ the \define{feet}, and $i$ and $o$ the \define{legs} of the cospan.   The apex describes the system itself.  The feet describe `interfaces'  through which the system can interact with the outside world.  The legs describe how the interfaces are included in the system.   If the category $\A$ has finite colimits, we can compose cospans using pushouts: this describes the operation of attaching two open systems together in series by identifying one interface of the first with one of the second.  We can also `tensor' cospans using coproducts: this describes setting open systems side by side, in parallel.  Via these operations we obtain a symmetric monoidal double category
-%%%Christina: add the notation bb{C}sp(A) since it will be central to what follows?
 with cospans in $\A$ as its horizontal 1-cells \cite{Niefield}.
-%%% Christina: I would be inclined to first cite Niefield and then Courser due to the chronological order.
-%%% Kenny: I think when we \cite{...}, we list the references alphabetically, but let's just cite Niefield here and achieve both.
-%%% Christina: Sounds good!
 
 However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+) \to (\textsf{Set},\times)$ can be used to equip the apex $m$ of a cospan in $\A$ with some extra data: an element $x \in F(m)$, which we call a \textbf{decoration}.  Thus a \define{decorated cospan} is a pair:
 \[
@@ -726,28 +722,6 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
  M=\left(a\xrightarrow{i}m\xleftarrow{o}b,x\in F(m)\right)\mapsto \lH(M)=\left(H(a)\xrightarrow{H(i)}H(m)\xleftarrow{H(o)}H(b),\bar{x}\in F'(H(m))\right)& \textrm{ where } \\
 \bar{x}:=\one \xrightarrow{\phi_0} E(\one) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)) &
 \end{align*}
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a$};
-%\node (B) at (1,0) {$m$};
-%\node (C) at (2,0) {$b$};
-%\node (D) at (1,-0.5) {$x \in F(m)$};
-%\node (E) at (2.75,0) {$\mapsto$};
-%\node (A') at (3.5,0) {$H(a)$};
-%\node (B') at (4.5,0) {$H(m)$};
-%\node (C') at (5.5,0) {$H(b)$};
-%\node (D') at (4.5,-0.5) {$\theta_m E(x) \phi \in F'(H(m))$};
-%\node (F) at (1,0.5) {$M$};
-%\node (G) at (4.5,0.5) {$\lH(M)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$i$} (B)
-%(C) edge node[above]{$o$} (B)
-%(A') edge node[above]{$H(i)$} (B')
-%(C') edge node[above]{$H(o)$} (B');
-%\end{tikzpicture}
-%\]
-%where given a decoration $x \colon 1 \to F(m)$ on $m$, we obtain a decoration on $H(m)$ via the composite 
-%\[ 1 \xrightarrow{\phi} E(1) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)).\]
 \item The image of a map of decorated cospans $\alpha \colon M \to N$ in $F\lCsp$ is the map of $F'$-decorated cospans $\lH(\alpha)$ in $F'\lCsp$
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -768,7 +742,6 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
 \node (D'') at (5.75,-0.5) {$H(n)$};
 \node (E'') at (8.5,0.5) {$\theta_m E(x) \phi_0 \in F'(H(m))$};
 \node (F'') at (8.5,-0.5) {$\theta_n E(x') \phi_0 \in F'(H(n))$};
-%\node (G'') at (5.75,-1) {$E(\tau) \maps F'(H(h))(\theta_m E(x)\phi) \to (\theta_n E(x')\phi)$}; %%%Christina: E(tau) is a bad name since it already means something!
 \node (H) at (3.75,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
@@ -943,40 +916,6 @@ I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 where $\nabla$ is the fold map, which is symmetric when $F$ is again via the components of $u_{a,a}$.
 \end{proof}
 
-\begin{comment} %%%John's version with symmetries
-In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a symmetric monoidal category $\A$ there is a bijection between \define{symmetric monoidal opindexed categories}, which are symmetric lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{symmetric monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are monoidal, $U$ is strict symmetric monoidal, %%% must it preserve the symmetries strictly too? 
-and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a symmetric monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the symmetric monoidal opfibration $U \maps \inta F \to \A$.  If the symmetric monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \SMC$, where $\SMC$ is 2-category of symmetric monoidal categories, strong symmetric monoidal functors and monoidal natural transformations.
-
- In fact, all these correspondences lift to 2-equivalences.
-
-\begin{lem}\label{lem:MonGroth}
-There is a 2-equivalence between the 2-categories of symmetric monoidal opfibrations and symmetric monoidal opindexed categories. If the base is cocartesian monoidal, there is a 2-equivalence between symmetric monoidal opfibrations and pseudofunctors into $\SMC$.
-\end{lem}
-
-\begin{proof}
-This was shown by Moeller and the third author \cite[Theorems~3.13\&4.2]{MV}. In summary, for a cocartesian base $\A$ we have correspondences
-\begin{gather}
-\textrm{symmetric lax monoidal pseudofunctors }F\maps(\A,+)\to(\Cat,\times) \notag\\
-\Updownarrow \notag\\
-\textrm{symmetric monoidal opfibrations }U\maps(\X,\otimes_\X)\to(\A,+) \notag\\
-\Updownarrow \notag\\
-\textrm{pseudofunctors } F \maps \A\to \SMC \notag
-\end{gather}
-The second equivalence was observed earlier by Shulman \cite{Shulman2008}.
-
-In more detail, if $(\phi,\phi_0)$ is the lax monoidal structure of the pseudofunctor $F$ as recalled in \cref{subsec:bicats}, the induced monoidal structure on the total Grothendieck category $\X=\inta F$ (\cref{def:GrothCat}) is given by
-\begin{equation}\label{eq:explicitstructure2}
-\Big(a,x\in F(a)\Big)\ot_{\X}\Big(b,y\in F(b)\Big)=\Big(a+b,\phi_{a,b}(x,y)\in F(a+b)\Big), \qquad I_{\X}=\Big(0_A,\phi_0\Big)
-\end{equation}
-Moreover, each fiber $\X_a=F(a)$ obtains a monoidal structure via 
-\begin{equation}\label{eq:explicitstructure1}
-\otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
-I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
-\end{equation}
-where $\nabla$ is the fold map.   SYMMETRIC MONOIDAL STRUCTURE??? %%%!!!
-\end{proof}
-\end{comment}
-
 These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 
 Finally, we can further restrict to the setting of opfibrations that also preserve pushouts, and thus all finite colimits, thanks to the following more general result.
@@ -1024,19 +963,9 @@ where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusi
 
 \begin{cor}\label{cor:fcocMonGroth}
  Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps \inta F \to \A$ preserves them.
- %Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
 \end{cor}
 
 Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the initial lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\colon \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
-%,  those are clearly isomorphic to the arbitrary choice of finite coproducts in $F(a)$ coming from the above assumption that as a pseudofunctor, $F\colon \A\to\Rex$. For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
-
-%%% Initial version
-%In the case we are interested in, the pseudofunctor $F$ is lax monoidal; combining \cref{lem:MonGroth,lem:fibrewiselimits}, we deduce the following. 
-%\begin{cor}\label{cor:fcocMonGroth}
-% Suppose $\A$ has finite colimits and $F\maps(\A,+)\to(\Cat,\times)$ is a lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A\to\bicat{MonCat}$ given in \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps\inta F\to\A$ preserves them.   Moreover, for any choice of finite colimits in $\A$, finite colimits in $\inta F$ can be chosen so that that $U$ strictly preserves them.
-%\end{cor}
-
-%Notice a subtlety in the above formulation. \cref{lem:MonGroth} provides a specific monoidal structure on the fibers which becomes \cref{eq:explicitstructure1} when the base $\A$ is cocartesian monoidal.   If this fiberwise monoidal structure happens to itself be cocartesian, then it is necessarily isomorphic to any other cocartesian monoidal structure on the fibers, by the universal property of colimits. Therefore, we can simplify the above assumption to that in \cref{thm:equiv} without having to specify that the structures came from monoidality of the pseudofunctor, although we \emph{will} use the formulation of coproducts and initial object in terms of the monoidal structure of $F$. For example, in that case, the coproducts induced in the Grothendieck category from the fiberwise ones as in \cref{eq:fibrewisecoprod} are equivalently given by \cref{eq:explicitstructure2}.
 
 On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, we say a functor has a `left adjoint right inverse' or \define{lari} if it has a left adjoint where the unit of the adjunction is the identity.
 
@@ -1052,25 +981,6 @@ that are preserved by the reindexing functors.
  \end{equation}
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ and $\chi_a$ is the unique isomorphism between two initial objects in the fiber above $a'$.    The functor $L$ then becomes left adjoint to $R$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
-
-%Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$.
-
-%Work in progress \cite{CV} includes a related discussion as well as a result in the opposite direction.
-
-%Christina: I don't think the following is needed.
-%Notice that under \cref{lem:fibrewiselimits}, if the base category $\A$ has an initial object denoted $0_\A$, the above lemma is equivalent to $\X$ having an initial object $0_\X$ above $0_\A$. The way in which these two conditions give one another in this case is as follows. 
-%The fibrewise initial object $\bot_a$ is precisely the cocartesian lifting of $0_\X$ along the unique map $u_a\maps0_\A\to a$ in the base category
-%\begin{displaymath}
-%\xymatrix @C=.4in @R=.2in
-%{0_\X \ar @{.>}[d]\ar[rr]^-{\mathrm{Cocart}(0_\X,u_a)} && (u_a)_!(0_X)=:\bot_a\ar @{.>}[d] & \textrm{in }\X  \\
-%0_\A\ar[rr]^-{\exists!u_a} && a & \textrm{in }\A}
-%\end{displaymath}
-%Moreover, if the opfibration $U$ comes from the Grothendieck construction on a pseudofunctor $F\maps\A\to\Cat$, the reindexing functors $(u_a)_!$ of the %opfibration are precisely $F(u_a)$ therefore $\bot_a=(a,F(u_a)(0_\X))$ in the Grothendieck category notation (\cref{def:GrothCat}).
-
-%Finally, if we start with a lax monoidal pseudofunctor $(F,\phi,\phi_0)$, the monoidal Grothendieck construction of \cref{lem:MonGroth} in the cocartesian case expresses $\bot_a$ as follows by \cref{eq:explicitstructure1}:
-%\begin{equation}\label{eq:initialinfibre}
-%\mathbf{1}\xrightarrow{\phi_0}F(0_\A)\xrightarrow{F(u_a)}F(a) 
-%\end{equation}
 
 We now have all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ whose corresponding pseudofunctor $F\colon \A\to\SMC$ factors through $\Rex$.
 
@@ -1137,12 +1047,13 @@ On the other hand, $N \odot M$ computed as in \cref{eq:globalpushout} is
 \end{displaymath}
 where $v_m,v_n$ are the canonical maps into the pushout.  Under $\lE$ this is mapped to the cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$.  This decoration is canonically isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
- \begin{tikzcd}
-F(m)\times F(n)\ar[rr,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\cong"] && F(m+n)\ar[d,"F(\psi)"]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(v_m+v_n)"description] \\
+ \begin{tikzcd}[sep=.4in]
+F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\stackrel{\phi_{v_m,v_n}}{\cong}"] & F(m+n)\ar[r,"F(\psi)"]\ar[dr,phantom,"\cong"']\ar[d,"F(v_m+v_n)"] & F(m+_bn)\ar[d,"F(1)"]\\
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
 \end{equation}
-where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism arises from the pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and the pseudofunctoriality of $F$.  Thus, we have a canonical globular 2-isomorphism  $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$.
+where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism comes from pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and pseudofunctoriality of $F$.  Thus, we have a globular 2-isomorphism  $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$. Notice that since the target decoration is part of the above pushout in the Grothendieck category $\inta F$, this isomorphism we construced is the canonical such that it commutes with the respective cocones. This is useful when checking associativity for example: there is only one such canonical isomorphism $\lE(P)\odot\lE(N)\odot\lE(M)\to\lE(P\odot N\odot M)$ for any three composable structured cospans. 
+
 Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
 
 In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism $$_L\lCsp(\inta F) \cong F\lCsp.$$
@@ -1157,18 +1068,18 @@ Since both double categories are symmetric monoidal under the running assumption
 \end{align*}
 The cospan part is equal, whereas we have an isomorphism between the decorations, $F(\iota_m)x+F(\iota_{m'})x'\cong \phi_{m,m'}(x,x')$, given in an analogous way to \cref{eq:isomorphismdiag} as follows:
 \begin{displaymath}
-\begin{tikzcd}
-F(m)\times F(m')\ar[rr,"\phi_{m,m'}"]\ar[d,"F(i_m)\times F(i_{m'})"']\ar[dr,phantom,"\stackrel{\cref{eq:pseudonaturality}}{\cong}"] && F(m+m')\ar[d,equal]\ar[d,bend right=50, phantom,"\cong"']\ar[dl,"F(i_m+i_{m'})"description] \\
+\begin{tikzcd}[sep=.4in]
+F(m)\times F(m')\ar[r,"\phi_{m,m'}"]\ar[d,"F(\iota_m)\times F(\iota_{m'})"']
+\ar[dr,phantom,"{\stackrel[\cref{eq:pseudonaturality}]{\phi_{\iota_m,\iota_n}}{\cong}}"] & F(m+m')\ar[dr,"F(1)"]\ar[d,bend left=60, phantom,"\cong"']\ar[d,"F(\iota_m+\iota_{m'})"']  & \\
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"'] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
 \end{displaymath}
 where the composite of the bottom two arrows is the coproduct operation in $F(m+m')$.
 We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
-Notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the inclusions into the sum.
-This is useful when checking associativity for example: there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans\footnote{A similar argument establishes that there is only one canonical isomorphism $\lE(M)\odot\lE(M')\odot\lE(M'')\to\lE(M\odot M'\odot M'')$ for any three composable structured cospans earlier, since the target decoration of \cref{eq:isomorphismdiag} forms a pushout in the Grothendieck category.}.
+Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
 
 Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$ 
-$I\to\lE(I)$ is the identity.
+$I\to\lE(I)$ is the identity. {\chris It is not the identity! Fix after we decide: keep \cref{eq:monoidalunitFCsp} as is and make this into an isomorphism using $F(1)\cong 1_F$ or change \cref{eq:monoidalunitFCsp} to the actual $U_0$ in the notation therein, and have equality of structures here.}
 
 It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
@@ -1210,17 +1121,6 @@ We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a compan
 \begin{displaymath}
  a\xrightarrow{f}b\xleftarrow{1}b,\quad \bot_{b} \in F(b)
 \end{displaymath}
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$a$};
-%\node (B) at (1,0) {$b$};
-%\node (C) at (2,0) {$b$};
-%\node (D) at (1,-0.5) {$\bot_{b} \in F(b)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$f$} (B)
-%(C) edge node[above]{$1$} (B);
-%\end{tikzpicture}
-%\]
 where $\bot_b$ is the trivial decoration as in \cref{eq:UFCsp}, is a companion of $f$ because the following two 2-morphisms, having $\hat{f}$ as
 source and target:
 \[
@@ -1365,17 +1265,6 @@ and right hand sides of the above two equations are given respectively by the 2-
 \begin{displaymath}
  b\xrightarrow{1}b\xleftarrow{f}b,\quad \bot_{b} \in F(b)
 \end{displaymath}
-%\[
-%\begin{tikzpicture}[scale=1.5]
-%\node (A) at (0,0) {$b$};
-%\node (B) at (1,0) {$b$};
-%\node (C) at (2,0) {$a$};
-%\node (D) at (4,0) {$\bot_{b} \in F(b)$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(A) edge node[above]{$1$} (B)
-%(C) edge node[above]{$f$} (B);
-%\end{tikzpicture}
-%\]
 Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint.
 \end{proof}
 
@@ -2388,21 +2277,6 @@ Given double functors $(\lF,\phi),(\mathbb{G},\psi) \maps \lD \to \lE$, a \defin
 The double natural transformation $\alpha$ is a \define{double natural isomorphism} if both $\alpha_0$ and $\alpha_1$ are natural isomorphisms.
 \end{defn}
 
-
-%%% Christina: Pretty sure the def below can be incorporated above, however got a bit lost in different notation. Kenny Fix?
-%\begin{defn}
-%A double functor $\lF \maps \lD \to \lE$ is \define{strong} if the comparison and unit constraints are globular isomorphisms, meaning that for each composable pair of horizontal 1-cells $M$ and $N$ we have a natural isomorphism $$\lF_{M,N} \maps \lF(M) \odot \lF(N) \xrightarrow{\sim} \lF(M \odot N)$$ and for each object $a \in \lD$ a natural isomorphism $$\lF_a \maps \hat{U}_{\lF(a)} \xrightarrow{\sim} \lF(U_a).$$
-%\end{defn}
-
-%Following the notation of Shulman \cite{Shulman2010}, given a double category $\lD$, we write $_f \lD_g(M,N)$ for the set of 2-morphisms in $\lD$ of the form:
-%\[
-% \xymatrix@-.5pc{
-%   A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow a}&
-%    B\ar[d]^g\\
-%    C \ar[r]|{|}_N & D
-%  }
-%\]
-
 \begin{defn}\label{def:fullfaithful}
 A double functor $\lF \maps \lD \to \lE$ is \define{full} (resp.\ \define{faithful}) if $\lF_0 \maps \lD_0 \to \lE_0$ is full (resp.\ faithful) and each map 
 \[   lF_1 \maps _f \lD_g(M,N) \to {_{\lF(f)} \lE_{\lF(g)}}(\lF(M),\lF(N))\] 
@@ -2499,7 +2373,7 @@ Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric 
 \end{defn}
 {\chris Those units in the definition should be monoidal units not unit functors...}
 %%% Kenny: How about I instead of 1?
-%%% Christina: Sure but I was NOT in the definition of symmetric monoidal double category above...could you streamline??
+%%% Christina: Sure but that was NOT in the definition of symmetric monoidal double category above...could you streamline??
 \noindent
 Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}. {\chris Also, could we expand this definition in terms of the functors $\lF_0$ and $\lF_1$ as we usually do?}
 
@@ -2710,7 +2584,6 @@ All relevant structure for decorated cospans is as described in \cref{thm:decora
 \end{equation}
 where $M_1,M_2,N_1,N_2$ are as in \cref{eq:4deccospans}, $\chi$ is as described right below therein and $\beta$ is the braiding defined as in \cref{eq:braidingFCsp1} -- although the letter $\beta$ is also used for the braiding in $\A$.
 First of all, if we only consider the underlying cospans without their decorations, we obtain the following `flattened' commutative diagram in $\A$ -- which verifies the corresponding axiom for the symmetric monoidal double category $\lCsp(\A)$:
-%%% Kenny any good reference for that? Not just cospans, which I can find in Niefield, but the interchange law as well for cospans only. Is it in your thesis? Somewhere in Shulman? Had a look but couldn't dig up anything...I know it is easy but would look nicer if we had some reference here
 \[
 		\begin{tikzpicture}
 			\node (a) at (-4,0) {$a+a'$};
@@ -2872,54 +2745,6 @@ Using the formulas for the involved decorations \cref{eq:bigeq1,eq:bigeq2}, as w
 ;
 \end{tikzpicture}
 \]
-%{\chris Kenny please see difference in diagrams (the rightmost part is not important, just to make the two decoration isomorphism have the same border). The blue is the old one. The new diagram \cref{eq:interchangedeco} should be the one we disagreed, namely its codomain. But also on the down part of the diagram, coming from the decoration morphism of the braiding \cref{eq:decobraiding}, mine is much ``easier''.}
-%{\color{blue}
-%\[
-%\begin{tikzpicture}[scale=1.6]
-%%\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
-%%\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
-%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-%\node (E) at (6.75,0.5) {$\scriptstyle{F(m_1 + n_1) \times F(m_2+n_2)}$};
-%\node () at (5.5,-1) {$\scriptstyle{\cong}$};
-%\node () at (7.875,-1) {$\scriptstyle\stackrel{\cref{eq:braidedpseudofun}}{\cong}$};
-%\node () at (10.25,-1) {$\scriptstyle{\cong}$};
-%\node () at (7.875,0) {$\scriptstyle\stackrel{\cref{eq:interchangedeco}}{\cong}$};
-%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-%\node (B) at (9,0.5) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
-%\node (B') at (9,-0.5) {$\scriptstyle{F((m_1+ m_2)+(n_1+n_2))}$};
-%\node (C) at (11.5,0.5) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
-%\node (C') at (11.5,-0.5) {$\scriptstyle{F((m_1+_b m_2)+ (n_1+_{b'} n_2))}$};
-%\node (G) at (4.25,0.5) {$\scriptstyle{F(m_1) \times F(n_1) \times F(m_2) \times F(n_2)}$};
-%\node (G') at (4.25,-0.5) {$\scriptstyle{F(m_1) \times F(m_2) \times F(n_1) \times F(n_2)}$};
-%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
-%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-%\node (B'') at (9,-1.5) {$\scriptstyle{F((n_1+n_2)+(m_1+ m_2))}$};
-%\node (C'') at (11.5,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
-%\node (X) at (3.4,0.2) {$\scriptscriptstyle{x_1 \times y_1 \times x_2 \times y_2}$};
-%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{x_1 \times x_2 \times y_1 \times y_2}$};
-%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
-%\path[->,font=\scriptsize,>=angle 90]
-%(B') edge node [fill=white] {$F(\beta)$} (B'')
-%(E') edge node [fill=white] {$\beta$} (E'')
-%(E) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (B)
-%(E'') edge node [above] {$\phi_{n_1+n_2,m_1+m_2}$} (B'')
-%(E') edge node [above] {$\phi_{m_1+m_2,n_1+n_2}$} (B')
-%(B) edge node [above] {$F(\psi)$} (C)
-%(B'') edge node [above] {$F(\psi+\psi)$} (C'')
-%(B') edge node [above] {$F(\psi+\psi)$} (C')
-%(C) edge node [fill=white] {$F(\hat{\chi})$} (C')
-%(C') edge node [fill=white] {$F(\beta)$} (C'')
-%(G) edge node [above] {$\phi_{m_1,n_1} {\times} \phi_{m_2,n_2}$} (E)
-%(G'') edge node [above] {$\phi_{n_1,n_2} {\times} \phi_{m_1,m_2}$} (E'')
-%(G') edge node [above] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E')
-%(G) edge node [fill=white] {$1 \times \beta \times 1$} (G')
-%(G') edge node [fill=white] {$\beta$} (G'')
-%(D) edge[out=90,in=180] node [left,above] {$$} (G)
-%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
-%(D) edge node [below] {$$} (G');
-%\end{tikzpicture}
-%\]
-%}
 For the other (vertical) composition of \cref{eq:thisdiagram}, that of $\beta\odot\beta$ followed by $\chi$, the composite decoration $\tau_2\tau_1$ is
 \begin{displaymath}
 \scalebox{.8}{$F(\hat{\chi}(\beta +_\beta \beta))( (x_1 \otimes y_1)\odot (x_2 \otimes y_2))\cong F(\hat{\chi})F(\beta +_\beta \beta)( (x_1 \otimes y_1)\odot (x_2 \otimes y_2)) \xrightarrow{F(\hat{\chi})(\tau_1)}F(\hat{\chi})(y_1\otimes x_1)\odot(y_2\otimes x_2)\xrightarrow{\tau_2}(y_1 \odot y_2) \otimes (x_1 \odot x_2)$}
@@ -2974,7 +2799,6 @@ for $\beta\odot\beta$, the above is explicitly given by the pasted isomorphism:
 ;
 \end{tikzpicture}
 \]
-%{\chris The closing sentence for the proof to be complete should be that these two decoration maps are EQUAL for the diagram \cref{eq:thisdiagram} to commute! Right? Is the sentence below satisfactory Kenny? Do you see the logic?}
 In order to verify that these two pasted isomorphisms are equal, we first of all need to expand the isomorphism \cref{eq:interchangedeco}, whose left half part is explicitly written as follows (also found in \cite[Page 125]{DS}):
 \begin{equation}\label{eq:thetaa}
 \scalebox{.8}{
@@ -2986,24 +2810,6 @@ Fm_1{\times} Fm_2{\times} Fn_1{\times} Fn_2\ar[ur,"1\times\phi\times1"']\ar[rr,"
 \end{tikzcd}}
 \end{equation}
 where the unnamed isomorphisms are appropriate composites of the pseudoassociativity of $F$ \cref{eq:omega}. The result now follows from lengthy pasted diagram calculations using the axioms of a sylleptic lax monoidal pseudofunctor.
-\begin{comment}
-These decoration isomorphisms then form the following commutative diagram in the category $F({(n_1+_{b'}n_2)}+{(m_1+_b m_2)})$:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$F(\hat{\chi} (\beta \odot \beta))((x_1 \otimes y_1)\odot(x_2 \otimes y_2))$};
-\node (B) at (4,0) {$F(\hat{\chi})((y_1 \otimes x_1)\odot(y_2 \otimes x_2))$};
-\node (C) at (0,-1) {$F(\beta)((x_1\odot x_2) \otimes (y_1 \odot y_2))$};
-\node (D) at (4,-1) {$(y_1\odot y_2) \otimes (x_1\odot x_2)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$F(\hat{\chi})(\tau_1)$} (B)
-(B) edge node[right]{$\tau_2$} (D)
-(A) edge node[left]{$F(\beta)(\tau_3)$} (C)
-(C) edge node[above]{$\tau_4$} (D);
-\end{tikzpicture}
-\]
-where in the top left corner, we note that $$F(\hat{\chi} (\beta \odot \beta))((x_1 \otimes y_1)\odot(x_2 \otimes y_2)) = F(\beta\hat{\chi})((x_1 \otimes y_1)\odot (x_2 \otimes y_2))$$
-as the above diagram of maps of cospans commutes in $\A$ and then applying the pseudofunctor $F$ to this diagram yields a commutative diagram in $\Cat$. 
-\end{comment}
 
 \begin{thebibliography}{100}
 
