@@ -593,8 +593,8 @@ where $0$ is the initial object in $\A$.  By \cref{eq:UFCsp}, this unit $I_1$ is
 \begin{equation}\label{eq:monoidalunitFCsp}
 I_1=\left(0\xrightarrow{!}0 \xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right).
 \end{equation}
-This can always be achieved by replacing $F$ by an equivalent pseudofunctor that strictly preserves identity morphisms, but we do this merely to reduce the size of diagrams to come; the reader can reinsert the morphism $F(!_0)$ where needed. %%% see if you like this!  I'd like to add a ref that says any 2-functors is equivalent to a normalized one. - jb
-The associator is formed as follows: for three objects
+This can always be achieved by replacing $F$ by an equivalent pseudofunctor that strictly preserves identity morphisms \cite[Proposition 5.2]{LP}.  We do this merely to reduce the size of  our diagrams; the reader can reinsert the morphism $F(!_0)$ where needed. %%% see if you like this!  - jb 
+The associator in is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism of cospans
 \[
@@ -628,7 +628,7 @@ a+0\ar[rr,"i+1"']\ar[u,"\stackrel{r}{\cong}"] && m+0\ar[u,"\stackrel{r}{\cong}"]
  \end{tikzcd}
 \end{displaymath}
 with isomorphisms between decorations precisely given by \cref{eq:unitality}.
-Finally, the symmetric monoidal structure of $F\lCsp_1$ is inherited from that in $\A$ and $F$, with braiding $\beta\maps M_1\ot M_2\to M_2\ot M_1$ the cospan isomorphism
+Finally, the braiding in $F\lCsp_1$ is inherited from that in $\A$ and $F$, with braiding $\beta\maps M_1\ot M_2\to M_2\ot M_1$ the cospan isomorphism
 \begin{equation}\label{eq:braidingFCsp1}
  \begin{tikzcd}[column sep=.25in]
 a_1+a_2\ar[rr,"i_1+i_2"]\ar[d,"\stackrel{\beta}{\cong}"'] && m_1+m_2\ar[d,"\stackrel{\beta}{\cong}"'] && b_1+b_2\ar[ll,"o_1+o_2"']\ar[d,"\stackrel{\beta}{\cong}"] &\one\ar[r,"x_1\times x_2"] & F(m_1)\times F(m_2)\ar[r,"\phi_{m_1,m_2}"] & F(m_1+m_2) \\
@@ -2905,6 +2905,8 @@ pp.\ 75--103.
 
 \bibitem{Koch} I.\ Koch, Petri nets---a mathematical formalism to analyze chemical reaction
 networks, \textsl{Mol.\ Inform.\  }\textbf{29} (2010), 838--843.
+
+\bibitem{LP} S.\ Lack and S.\ Paoli, 2-nerves for bicategories, \textsl{$K$-Theory} \textbf{38} (2008), 153--175.
 
 \bibitem{Lawvere} F.\ W.\ Lawvere, State categories and response functors, unpublished manuscript, 1986.  Available at \href{https://tinyurl.com/state}{https://tinyurl.com/state-}  \href{https://tinyurl.com/state-categories}{categories}.
 
