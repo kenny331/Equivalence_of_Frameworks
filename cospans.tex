@@ -585,12 +585,16 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 
 \begin{proof}
 We first show that the categories of objects and arrows are symmetric monoidal, and that the source and target functors are symmetric strict monoidal.
-Indeed, the category of objects $F\lCsp_0=\A$ is symmetric monoidal under (chosen) binary coproducts in $\A$. The category of arrows
-$F\lCsp_1$ is also symmetric monoidal, with tensor product as in \cref{eq:tensordecoration} and monoidal unit
+Indeed, the category of objects $F\lCsp_0=\A$ is symmetric monoidal under the chosen binary coproducts in $\A$. The category of arrows $F\lCsp_1$ is also symmetric monoidal, with tensor product as in \cref{eq:tensordecoration} and monoidal unit
+\[
+I_1=\left(0\xrightarrow{!}0 \xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0) \xrightarrow{F(!_0)} F(0) \right) 
+\]
+where $0$ is the initial object in $\A$.  By \cref{eq:UFCsp}, this unit $I_1$ is equal to $U_{0}$ as required.   In all that follows, we shall assume that $F(!_0)$ is the identity, so that
 \begin{equation}\label{eq:monoidalunitFCsp}
-I_1=\left(0\xrightarrow{!}0\xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right)
+I_1=\left(0\xrightarrow{!}0 \xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right).
 \end{equation}
-where $0$ is the initial object in $\A$. Notice that this unit $I_1$ is (isomorphic to) $U_0$ as required. The associator is formed as follows: for three objects
+This can always be achieved by replacing $F$ by an equivalent pseudofunctor that strictly preserves identity morphisms, but we do this merely to reduce the size of diagrams to come; the reader can reinsert the morphism $F(!_0)$ where needed. %%% see if you like this!  I'd like to add a ref that says any 2-functors is equivalent to a normalized one. - jb
+The associator is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism of cospans
 \[
@@ -1079,12 +1083,10 @@ where the composite of the bottom two arrows is the coproduct operation in $F(m+
 We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
 Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
 
-Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$  
-$I\to\lE(I)$ is the identity. {\chris It is not the identity! Fix after we decide: keep \cref{eq:monoidalunitFCsp} as is and make this into an isomorphism using $F(1)\cong 1_F$ or change \cref{eq:monoidalunitFCsp} to the actual $U_0$ in the notation therein, and have equality of structures here.}
+Moreover, the monoidal unit $I_1$ for $F\lCsp_1$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so $\lE_1$ strictly preserves the monoidal unit.   %%% Now it's really the identity!  Can we shorten this calculation, now that it actually works?   It's not so interesting now that it works.  - jb
 
 It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
 \end{proof}
-
 
 \section{Bicategorical and categorical aspects}
 \label{spinoffs}
@@ -2234,12 +2236,13 @@ For double categories we follow the notation of our paper on structured cospans 
 \begin{defn}\label{defn:double_category}
 A \define{double category} $\lD$ consists of a \define{category of objects}
 $\lD_0$, a \define{category of arrows} $\lD_1$, functors 
-\[    U\maps \lD_0 \to \lD_1, \; S,T \maps \lD_1 \to \lD_0 , \textrm{ and }
+\[   S,T \maps \lD_1 \to \lD_0, \;  U\maps \lD_0 \to \lD_1, \; \textrm{ and }
    \odot \maps \lD_1 \times_{\lD_0} \lD_1 \to \lD_1\]
-such that 
+called the \define{source} and \define{target}, \define{unit} and \define{composition}
+functors, respectively, such that 
 \[  S(U_{A})=A=T(U_{A}),  \quad S(M \odot N)=S(N), \quad T(M \odot N)=T(M), \]
 and natural isomorphisms called the \define{associator}
-\[ \alpha_{L,M,N} \maps (L \odot M) \odot N \to L \odot (M \odot N) , \]
+\[ \alpha_{L,M,N} \maps (L \odot M) \odot N \to L \odot (M \odot N)  \]
 and \define{left and right unitors}
 \[		\lambda_N \maps U_{T(N)} \odot N \to N, \qquad
      \rho_N \maps N \odot U_{S(N)} \to N \]
@@ -2318,7 +2321,7 @@ A \define{monoidal double category} is a pseudomonoid in $\Dbl$.
 \noindent
 Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is\footnote{\chris In reality, just isomorphic is OK!} the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
+\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit object and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    %%% got rid of footnote saying that "isomorphic is okay" - jb
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \simrightarrow
