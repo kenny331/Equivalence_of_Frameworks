@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/19
+% 2020/12/22
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -39,7 +39,7 @@ An `open system' is any sort of system that can interact with the outside world.
 \end{tikzpicture}
 \]
 We call $m$ the \define{apex}, $a$ and $b$ the \define{feet}, and $i$ and $o$ the \define{legs} of the cospan.   The apex describes the system itself.  The feet describe `interfaces'  through which the system can interact with the outside world.  The legs describe how the interfaces are included in the system.   If the category $\A$ has finite colimits, we can compose cospans using pushouts: this describes the operation of attaching two open systems together in series by identifying one interface of the first with one of the second.  We can also `tensor' cospans using coproducts: this describes setting open systems side by side, in parallel.  Via these operations we obtain a symmetric monoidal double category
-with cospans in $\A$ as its horizontal 1-cells \cite{Niefield}.
+with cospans in $\A$ as its horizontal 1-cells \cite{Courser,Niefield}.
 
 However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+) \to (\textsf{Set},\times)$ can be used to equip the apex $m$ of a cospan in $\A$ with some extra data: an element $x \in F(m)$, which we call a \textbf{decoration}.  Thus a \define{decorated cospan} is a pair:
 \[
@@ -289,9 +289,9 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 \end{thm}
 
 \begin{proof}
-Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$ and the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$.
+Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \colon F\lCsp_1 \to F\lCsp_0$, the unit functor $U \colon F\lCsp_0 \to F\lCsp_1$, and the composition functor $\odot \colon F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$.
 
-The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospans maps is 
+The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two $F$-decorated cospan maps is 
 \begin{equation}\label{eq:verticalcompo}
  \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"h"] & b\ar[l,"o"']\ar[d,"g"]  & x\in F(m) \\
@@ -306,10 +306,11 @@ a''\ar[r,"{i''}"] & m'' & b''\ar[l,"{o''}"'] & x''\in F(m'')
 \end{equation}
 where if $\tau \colon F(h)(x) \to x'$ and $\tau' \colon F(h')(x') \to x''$ are the decoration morphisms, 
 \begin{equation}\label{eq:tauofverticalcomposite}
-F(h'h)(x)\cong F(h')F(h)(x)\xrightarrow{F(h')(\tau)}F(h')(x')\xrightarrow{\tau'}x''
+F(h'h)(x) \simrightarrow F(h')F(h)(x)\xrightarrow{F(h')(\tau)}F(h')(x')\xrightarrow{\tau'}x''
 \end{equation}
 is the decoration of the composite.
-The source and target functors map an $F$-decorated cospan to the source and target of the cospan and a map of decorated cospans \cref{eq:mapofdec} to $f$ and $g$ respectively. The unit functor maps an object $a$ to 
+
+The source and target functors $S$ and $T$ map an $F$-decorated cospan to the source and target of the cospan and a map of decorated cospans \cref{eq:mapofdec} to $f$ and $g$ respectively. The unit functor $U$ maps an object $a$ to 
 \begin{equation}\label{eq:UFCsp}
 \begin{tikzcd}
 a\ar[r,"1_a"] & a & a,\ar[l,"1_a"'] & \bot_a:=\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a)
@@ -1078,7 +1079,7 @@ where the composite of the bottom two arrows is the coproduct operation in $F(m+
 We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
 Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
 
-Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$ 
+Moreover, the monoidal unit for the category of arrows of $F\lCsp$ is \cref{eq:monoidalunitFCsp}, given by the identity cospan $0_\A \rightarrow 0_\A \leftarrow 0_\A$ on the monoidal unit of $\A$ together with the trivial decoration $\bot_{0_\A} = \phi_0 \colon 1 \to F(0_\A)$ on $0_\A$, and the monoidal unit for the category of arrows of ${ _L \lCsp(\inta F)}$ is given by $(0_\A,\bot_{0_\A}) \rightarrow (0_\A,\bot_{0_\A}) \leftarrow (0_\A,\bot_{0_\A})$. This is mapped under $\lE$ again to the identity cospan on $0_\A$ with the trivial decoration on its apex, so that the structure map %$I_{F\lCsp_1}\to\lE(I_{{_L \lCsp (\int F)}_1})$  
 $I\to\lE(I)$ is the identity. {\chris It is not the identity! Fix after we decide: keep \cref{eq:monoidalunitFCsp} as is and make this into an isomorphism using $F(1)\cong 1_F$ or change \cref{eq:monoidalunitFCsp} to the actual $U_0$ in the notation therein, and have equality of structures here.}
 
 It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
@@ -2320,9 +2321,9 @@ Explicitly, a monoidal double category is a double category $\lD$ with:
 \item monoidal structures on both $\lD_0$ and $\lD_1$, each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$, such that if $I$ is the unit object of $\lD_0$ then $U_I$ is\footnote{\chris In reality, just isomorphic is OK!} the unit of $\lD_1$, and such that the source and target functors $S,T \maps \lD_1 \to \lD_0$ are strict monoidal, 
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
-\[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \xrightarrow{\sim}
+\[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \simrightarrow
 (M_2\odot M_1)\otimes (N_2\odot N_1)\]
-\[ \mu \maps U_{A\otimes B} \xrightarrow{\sim} U_A \otimes U_B\]
+\[ \mu \maps U_{A\otimes B} \simrightarrow U_A \otimes U_B\]
 obeying a list of equations that can be found after \cite[Definition 2.10]{HS} and also \cite[Definition A.5]{BC}.
 \end{itemize}
 
