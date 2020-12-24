@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/23
+% 2020/12/24
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -594,7 +594,9 @@ where $0$ is the initial object in $\A$.  By \cref{eq:UFCsp}, this unit $I_1$ is
 I_1=\left(0\xrightarrow{!}0 \xleftarrow{!}0, \one \xrightarrow{\phi_0}F(0)\right).
 \end{equation}
 This can always be achieved by replacing $F$ by an equivalent pseudofunctor that strictly preserves identity morphisms \cite[Proposition 5.2]{LP}.  We do this merely to reduce the size of  our diagrams; the reader can reinsert the morphism $F(!_0)$ where needed. %%% see if you like this!  - jb 
-The associator in is formed as follows: for three objects
+%%% Christina: looks nice!
+
+The associator for the monoidal structure in $F\lCsp$ is formed as follows: for three objects
 $M_1=(a_1\to m_1\leftarrow b_1,x_1\in F(m_1))$, $M_2=(a_2\to m_2\leftarrow b_2,x_2\in F(m_2))$ and $M_3=(a_3\to m_3\leftarrow b_3,x_3\in F(m_3),$
 the isomorphism $(M_1\ot M_2)\ot M_3\cong M_1\ot(M_2\ot M_3)$ is the isomorphism of cospans
 \[
@@ -688,7 +690,17 @@ Thus the (globular) cospan isomorphism is the canonical universal map between th
 \& F(m_1+m_2)\times F(n_1+n_2)\ar[uurr,"\phi_{m_1+m_2,n_1+n_2}"']\ar[rr,"F\psi\times F\psi"'] \&\& F(m_1+_bm_2)\times F(n_1+_{b'}n_2)\ar[rr,"\phi_{m_1+_b m_2,n_1+_{b'}n_2}"'] \&\& F((m_1+_bm_2)+(n_1+_{b'}n_2))
 \end{tikzcd}}
 \end{equation}
-where the left-hand side isomorphism \cref{eq:thetaa} is spelled out in detail in \cref{eq:proofofaxiom} and combines the pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$, and the right hand side isomorphism follows from the universal property of colimits and pseudofunctoriality of $F$.  Similarly, for the units $U_{a+b}$ and $U_a\ot U_b$ it is easy to see that as cospans they are both the identity $1_{a+b} \maps a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their trivial decorations \cref{eq:UFCsp}, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
+where the left-hand side isomorphism \cref{eq:thetaa} is spelled out in detail in \cref{eq:proofofaxiom} and combines the pseudoassociativity \cref{eq:omega} and braided monoidal structure \cref{eq:braidedpseudofun} of the pseudofunctor $F$, and the right hand side isomorphism follows from the universal property of colimits and pseudofunctoriality of $F$.  
+
+Similarly, for the comparison isomorphism between the units $U_{a+b}$ and $U_a\ot U_b$, it is easy to see that as cospans they are both the identity $1_{a+b} \maps a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their decorations 
+\begin{displaymath}
+\begin{tikzcd}[column sep=.55in]
+\one\ar[r,"\phi_0"]\ar[dr,phantom,near start,"{\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[d,"\phi_0\times\phi_0"'] & F(0)\ar[dr,phantom,"{\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"F(!_{a+b})"] & F(a+b)\ar[d,"F(1)"] \\
+F(0)\times F(0)\ar[r,"F(!_a)\times F(!_n)"']\ar[ur,"\phi_{0,0}"description] & F(a)\times F(b)\ar[r,"\phi_{a,b}"'] & F(a+b)
+\end{tikzcd}
+\end{displaymath}
+where the top composite is $\bot_{a+b}$ by \cref{eq:UFCsp} and the bottom composite is $\phi_{a,b}(\bot_a,\bot_b)$ from \cref{eq:tensordecoration}.
+%, namely $F(!_{a+b})\phi_0\cong\phi_{a,b}(F(!_a)\times F(!_b))(\phi_0\times\phi_0)$ via the structure isomorphisms for $(\phi,\phi_0)$.
 
 It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied.  In order to give the reader a sense of what these checks entail, we provide a proof of the fact that the braiding is a transformation of double categories in \cref{eq:proofofaxiom}.     
 \end{proof}
@@ -1061,7 +1073,10 @@ where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) 
 
 Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
 
-In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism $$_L\lCsp(\inta F) \cong F\lCsp.$$
+In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism 
+\begin{equation}\label{eq:doubleiso}
+_L\lCsp(\inta F) \cong F\lCsp.
+\end{equation}
 
 Since both double categories are symmetric monoidal under the running assumptions (\cref{DC,thm:SC}), we now show that this double isomorphism is a symmetric monoidal one, namely that $\lE=(\lE_0,\lE_1)$ is a symmetric strong monoidal double functor as per \cref{defn:monoidal_double_functor}. Indeed, $\lE_0= \id_\A$ is a symmetric monoidal functor trivially. For $\lE_1$, given two structured cospans $M=(a,\bot_a)\to(m,x)\leftarrow(b,\bot_b)$ and $M'=(a',\bot_{a'})\to(m',x')\leftarrow(b',\bot_{b'})$ in $_L\lCsp(\inta F)$, we compute the appropriate decorated cospans
 \begin{align*}
@@ -1084,8 +1099,10 @@ We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE
 Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
 
 Moreover, the monoidal unit $I_1$ for $F\lCsp_1$, given by \cref{eq:monoidalunitFCsp}, is mapped under $\lE_1$ to the identity cospan on $0_\A$ with the trivial decoration on its apex, so $\lE_1$ strictly preserves the monoidal unit.   %%% Under our new assumptions it's really true! - jb
+%%% Christina: sorry I think E_1 goes in the opposite direction!
+It can be verified that with this structure, $\lE_1$ is also a symmetric monoidal functor. 
 
-It can be verified that with the above structure, $\lE_1$ is also a symmetric monoidal functor, and the rest of the axioms of \cref{defn:monoidal_double_functor} hold.
+Finally, the rest of the axioms of \cref{defn:monoidal_double_functor} hold and thus the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
 \end{proof}
 
 \section{Bicategorical and categorical aspects}
@@ -2321,7 +2338,7 @@ A \define{monoidal double category} is a pseudomonoid in $\Dbl$.
 \noindent
 Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit object and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    %%% got rid of footnote saying that "isomorphic is okay" - jb
+\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit object and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    %%% got rid of footnote saying that "isomorphic is okay" - jb %%% Great.
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \simrightarrow
