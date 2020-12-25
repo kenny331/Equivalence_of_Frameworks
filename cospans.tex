@@ -2392,11 +2392,56 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 \begin{defn}\label{defn:monoidal_double_functor}
 Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \colon \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \colon {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \colon I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
-{\chris Those units in the definition should be monoidal units not unit functors...}
+%{\chris Those units in the definition should be monoidal units not unit functors...}
 %%% Kenny: How about I instead of 1?
 %%% Christina: Sure but that was NOT in the definition of symmetric monoidal double category above...could you streamline??
 \noindent
-Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}. {\chris Also, could we expand this definition in terms of the functors $\lF_0$ and $\lF_1$ as we usually do?}
+Explicitly, a symmetric monoidal double functor is a double functor $\lF \colon \lD \to \lE$ such that:
+\begin{itemize}
+\item{$\lF_0$ and $\lF_1$ are symmetric monoidal functors,}
+\item{we have equalities $\lF_0 S_{\lD} = S_{\lE} \lF_1$ and $\lF_0 T_{\lD} = T_{\lE} \lF_1$ of monoidal functors, and}
+\item{the following diagrams commute, expressing that $\phi$ is a transformation of double categories:
+		\begin{equation}
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$ (\lF(M_2)\otimes \lF(N_2))\odot (\lF(M_1)\otimes \lF(N_1))$}};
+			\node (A') at (0,0) {\footnotesize{$(\lF(M_2) \odot \lF(M_1)) \otimes (\lF(N_2) \odot \lF(N_1))$}};
+			\node (B) at (5,1.5) {\footnotesize{$\lF(M_2 \otimes N_2)\odot \lF(M_1 \otimes N_1)$}};
+			\node (B') at (5,0) {\footnotesize{$\lF((M_2 \otimes N_2)\odot(M_1 \otimes N_1))$}};
+			\node (A'') at (0,-1.5) {\footnotesize{$\lF(M_2 \odot M_1) \otimes \lF(N_2 \odot N_1)$}};
+			\node (B'') at (5,-1.5) {\footnotesize{$\lF((M_2 \odot M_1)\otimes(N_2 \odot N_1))$}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\chi$} (A')
+				(A) edge node[above]{$\phi \odot \phi$} (B)
+				(B) edge node[right]{$\lF_\odot$} (B')
+				(A') edge node [left] {$\lF_\odot \otimes \lF_\odot$} (A'')
+				(B') edge node [right] {$\lF(\chi)$} (B'')
+				(A'') edge node[above]{$\phi$} (B'');
+		\end{tikzpicture}
+		%
+		\quad
+		%
+		\begin{tikzpicture}
+			\node (A) at (0,1.5) {\footnotesize{$U_{\lF(a)} \otimes U_{\lF(b)}$}};
+			\node (A') at (0,0) {\footnotesize{$U_{\lF(a)} \otimes U_{\lF(b)}$}};
+			\node (B) at (2,1.5) {\footnotesize{$U_{\lF(a \otimes b)} $}};
+			\node (B') at (2,0) {\footnotesize{$\lF(U_{a \otimes b})$}};
+			\node (A'') at (0,-1.5) {\footnotesize{$\lF(U_a) \otimes \lF(U_b)$}};
+			\node (B'') at (2,-1.5) {\footnotesize{$\lF(U_a \otimes U_b) $}};
+			%
+			\path[->,font=\scriptsize]
+				(A) edge node[left]{$\mu$} (A')
+				(A') edge node [left] {$\lF_\mu \otimes \lF_\mu$} (A'')
+				(B') edge node [right] {$\lF \circ \mu$} (B'')
+				(A) edge node[above]{$U_\phi$} (B)
+				(B) edge node[right]{$\lF_U$} (B')
+				(A'') edge node[above]{$\phi$} (B'');
+		\end{tikzpicture}
+		\end{equation}
+}
+\end{itemize}
+%\noindent
+%Unpacking this definition, one obtains a number of diagrams which can be found after \cite[Definition 2.14]{HS}. {\chris Also, could we expand this definition in terms of the functors $\lF_0$ and $\lF_1$ as we usually do?}
 
 WE NEED TO SAY BRIEFLY WHAT A SYMMETRIC MONOIDAL DOUBLE ISOMORPHISM, IF WE USE THIS CONCEPT IN OUR BIG RESULT, \cref{thm:equiv}.
 CLAIM: $\lD$ and $\lE$ be symmetric monoidal double categories and let $\lF \maps \lD \to \lE$ be a symmetric monoidal double functor. If $\lF$ is part of a double equivalence, then $\lF$ is in fact part of a symmetric monoidal double equivalence, and $\lD$ and $\lE$ are equivalent as symmetric monoidal double categories.
