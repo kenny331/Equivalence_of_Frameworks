@@ -897,7 +897,7 @@ The following theorem establishes an isomorphism between structured and decorate
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and $_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 
-The ``corresponding pseudofunctor'' comes from the so-called monoidal Grothendieck construction, and the conditions of this theorem related to the existence of colimits as well as left adjoints for opfibrations. We first sketch the relevant underlying framework in detail, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
+The ``corresponding pseudofunctor'' comes from the so-called monoidal Grothendieck construction, and the conditions of this theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch the relevant underlying framework in detail, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{sec:fibrations}. 
 
 In \cite{MV}, the classical Grothendieck construction is generalized to the monoidal setting: given a (symmetric) monoidal category $\A$, there is a bijection between \define{(symmetric) monoidal opindexed categories}, which are (symmetric) lax monoidal pseudofunctors $F\maps (\A, \otimes_A) \to (\Cat, \times)$, and \define{(symmetric) monoidal opfibrations}, which are opfibrations $U \maps \X \to \A$ where $\X$, $\A$ are (symmetric) monoidal, $U$ is (symmetric) strict monoidal, and $\otimes_\X$ preserves cocartesian liftings.   This bijection sends a monoidal opindexed category $F \maps (\A,\otimes_A) \to (\Cat, \times)$ to the monoidal opfibration $U \maps \inta F \to \A$.  If the monoidal structure on $\A$ is in fact cocartesian, there is a further correspondence between these structures and ordinary pseudofunctors $F\maps \A \to \MonCat$ (or to $\SMC$ in the symmetric case). 
 
@@ -1102,7 +1102,7 @@ Moreover, the monoidal unit $I_1$ for $F\lCsp_1$, given by \cref{eq:monoidalunit
 %%% Christina: sorry I think E_1 goes in the opposite direction!
 It can be verified that with this structure, $\lE_1$ is also a symmetric monoidal functor. 
 
-Finally, the rest of the axioms of \cref{defn:monoidal_double_functor} hold and thus the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
+Finally, the rest of the axioms of \cref{defn:monoidal_double_functor} hold: on the cospan level they are easy to verify, whereas on the decoration level they entail non-trivial calculations involving universal property arguments. In conclusion, the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
 \end{proof}
 
 \section{Bicategorical and categorical aspects}
