@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/29
+% 2020/12/30
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -704,7 +704,7 @@ where the top composite is $\bot_{a+b}$ by \cref{eq:UFCsp} and the bottom compos
 It can be verified with this structure, $F\lCsp$ is indeed a symmetric monoidal double category, namely all coherence laws are satisfied.  In order to give the reader a sense of what these checks entail, we provide a proof of the fact that the braiding is a transformation of double categories in \cref{eq:proofofaxiom}.     
 \end{proof}
 
-There is a much simpler proof of the above theorem when the hypothesis of \cref{thm:equiv} hold.  In this case we show, in the proof of\cref{thm:equiv}, that the decorated cospan double category $F \lCsp$ is isomorphic to a certain double category ${}_L \lCsp(\inta  F)$ constructed using \emph{structured} cospans.   We also show that under this isomorphism, all the symmetric monoidal structure of $F \lCsp$---the tensor product, associator, etc.---matches that for  ${}_L \lCsp(\inta  F)$, which we have proved to obey the axioms of a symmetric monoidal double category (see \cref{thm:SC}).  It follows that $F \lCsp$ is a symmetric monoidal double category.
+There is a much simpler proof of the above theorem when the hypothesis of \cref{thm:equiv} hold.  In this case we show, in the proof of \cref{thm:equiv}, that the decorated cospan double category $F \lCsp$ is isomorphic to a certain double category ${}_L \lCsp(\inta  F)$ constructed using \emph{structured} cospans.   We also show that under this isomorphism, all the symmetric monoidal structure of $F \lCsp$---the tensor product, associator, etc.---matches that for  ${}_L \lCsp(\inta  F)$, which we have proved to obey the axioms of a symmetric monoidal double category (see \cref{thm:SC}).  It follows that $F \lCsp$ is a symmetric monoidal double category.
 
 Our construction gives not only decorated cospan double categories, but  also maps between these: that is, symmetric monoidal double functors, as in \cref{def:doublefun}. Suppose we have two categories $\A,A'$ with finite colimits and two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
@@ -977,8 +977,12 @@ In a similar way we can construct the initial object and coproducts in $\int F$ 
 \end{equation}
 where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusions in $\A$ and the sum on the second variable is in the fiber $F(a+b)$.
 
+%%% Combining \cref{lem:MonGroth,lem:fibrewiselimits}, we obtain the following corollary that sets up the statement of \cref{thm:equiv}.
+
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits and the induced opfibration $U\maps \inta F \to \A$ preserves them.
+ Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits 
+ %%% which can be chosen in a way that the induced opfibration strictly preserves them.
+ and the induced opfibration $U\maps \inta F \to \A$ preserves them.
 \end{cor}
 
 Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\maps \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
@@ -1004,7 +1008,10 @@ We now have all the necessary background to formally construct an isomorphism be
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
 
 By \cref{cor:fcocMonGroth}, since the corresponding pseudofunctor $F\maps\A\to\SMC$ factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves them.  Using \cref{lem:fibrewiselimits} we choose finite colimits in $\inta{F}$ such that
-$U$ strictly preserves these chosen colimits (which were already chosen in $A$).  By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
+$U$ strictly preserves these chosen colimits (which were already chosen in $A$).  
+%%% By \cref{cor:fcocMonGroth}, since the corresponding pseudofunctor $F\maps\A\to\SMC$ factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ where we can choose finite colimits in a way that the corresponding opfibration $U\maps\inta{F}\to\A$ strictly preserves them.
+
+By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
 \begin{equation}\label{eq:FtoL}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{equation}
@@ -1098,7 +1105,7 @@ where the composite of the bottom two arrows is the coproduct operation in $F(m+
 We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
 Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
 
-Moreover, the monoidal unit $I_1$ for ${}_L \int \lCsp(\int F)$ is mapped under $\lE_1$ to the decorated cospan given in \cref{eq:monoidalunitFCsp}, so $\lE_1$ strictly preserves the monoidal unit.   %%% I think I have it right now. - jb 
+Moreover, the monoidal unit $I_1$ for ${}_L \lCsp(\inta F)$ is mapped under $\lE_1$ to the decorated cospan given in \cref{eq:monoidalunitFCsp}, so $\lE_1$ strictly preserves the monoidal unit.
 It can be verified that with this structure, $\lE_1$ is also a symmetric monoidal functor. 
 
 Finally, the rest of the axioms of \cref{defn:monoidal_double_functor} hold: on the cospan level they are easy to verify, whereas on the decoration level they entail nontrivial calculations involving universal property arguments. In conclusion, the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
@@ -1136,7 +1143,7 @@ The double category $F\lCsp$ is fibrant.
 \end{lem}
 
 \begin{proof}
-We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  First, we can make ths horizontal 1-cell $\hat{f}$:
+We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  First, we can make this horizontal 1-cell $\hat{f}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1193,7 +1200,7 @@ where the decoration morphism $\tau_f$ is the isomorphism given by the pseudofun
 \node (B) at (1,0) {$F(0)$};
 \node (C) at (2.2,0.5) {$F(a)$};
 \node (C') at (2.2,-0.5) {$F(b)$};
-\node (D) at (1.8,0) {{\rotatebox{90}{$\cong$}}$\Downarrow$};
+\node (D) at (1.8,0) {$\cong$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$\phi_0$} (B)
 (B) edge node[above]{$F(!_a)\;$} (C)
@@ -1313,7 +1320,7 @@ since the right hand sides of the above two equations are given respectively by 
 (C) edge node[above]{$f$} (B);
 \end{tikzpicture}
 \]
-Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint.
+Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint with similar structure 2-morphisms to those of a companion above.
 \end{proof}
 
 
