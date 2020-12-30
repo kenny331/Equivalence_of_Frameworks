@@ -1136,12 +1136,11 @@ The double category $F\lCsp$ is fibrant.
 \end{lem}
 
 \begin{proof}
-We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  This horizontal 1-cell $\hat{f}$:
+We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  First, we can make ths horizontal 1-cell $\hat{f}$:
 \begin{displaymath}
- a\xrightarrow{f}b\xleftarrow{1}b,\quad \bot_{b} \in F(b)
+ a\xrightarrow{\;f\;}b\xleftarrow{\;1\;}b,\quad \bot_{b} \in F(b)
 \end{displaymath}
-where $\bot_b$ is the trivial decoration as in \cref{eq:UFCsp}, is a companion of $f$ because the following two 2-morphisms, having $\hat{f}$ as
-source and target:
+where $\bot_b$ is the trivial decoration as in \cref{eq:UFCsp}, into a companion of $f$ using the following 2-morphisms:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -1179,8 +1178,22 @@ source and target:
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
-{\chris The decoration morphisms should be both isomorphisms due to pseudofunctoriality of F...}
-satisfy the equations required of a companion \cref{eq:CompanionEq}, using vertical \cref{eq:verticalcompo} and horizontal \cref{eq:horizontalcompo} composition of 2-cells in this double category:
+where the decoration morphism $\tau_f$ is the isomorphism given by the pseudofunctoriality of $F$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\one$};
+\node (B) at (1,0) {$F(0)$};
+\node (C) at (2.2,0.5) {$F(a)$};
+\node (C') at (2.2,-0.5) {$F(b)$};
+\node (D) at (1.8,0) {{\rotatebox{90}{$\cong$}}$\Downarrow$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\phi_0$} (B)
+(B) edge node[above]{$F(!_a)\;$} (C)
+(B) edge node[below]{$F(!_b)\;\;$} (C')
+(C) edge node[right]{$F(f)$} (C');
+\end{tikzpicture}
+\]
+These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq}, using vertical \cref{eq:verticalcompo} and horizontal \cref{eq:horizontalcompo} composition of 2-cells in this double category:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (N) at (0,1.5) {$a$};
@@ -1280,7 +1293,7 @@ satisfy the equations required of a companion \cref{eq:CompanionEq}, using verti
 (I) edge node [above] {$1$} (G);
 \end{tikzpicture}
 \]
-and right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
+since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
 \begin{displaymath}
  b\xrightarrow{1}b\xleftarrow{f}b,\quad \bot_{b} \in F(b)
 \end{displaymath}
