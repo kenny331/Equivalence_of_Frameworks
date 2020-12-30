@@ -977,12 +977,8 @@ In a similar way we can construct the initial object and coproducts in $\int F$ 
 \end{equation}
 where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusions in $\A$ and the sum on the second variable is in the fiber $F(a+b)$.
 
-%%% Combining \cref{lem:MonGroth,lem:fibrewiselimits}, we obtain the following corollary that sets up the statement of \cref{thm:equiv}.
-
 \begin{cor}\label{cor:fcocMonGroth}
- Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$, then $\inta F$ has all finite colimits 
- %%% which can be chosen in a way that the induced opfibration strictly preserves them.
- and the induced opfibration $U\maps \inta F \to \A$ preserves them.
+ Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$.  Then $\inta F$ has all finite colimits and  the induced opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
 \end{cor}
 
 Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\maps \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
@@ -1007,9 +1003,9 @@ We now have all the necessary background to formally construct an isomorphism be
 \begin{proof}[Proof of \cref{thm:equiv}]
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
 
-By \cref{cor:fcocMonGroth}, since the corresponding pseudofunctor $F\maps\A\to\SMC$ factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits such that the corresponding opfibration $U\maps\inta{F}\to\A$ preserves them.  Using \cref{lem:fibrewiselimits} we choose finite colimits in $\inta{F}$ such that
-$U$ strictly preserves these chosen colimits (which were already chosen in $A$).  
-%%% By \cref{cor:fcocMonGroth}, since the corresponding pseudofunctor $F\maps\A\to\SMC$ factors through $\Rex$, the Gro\-the\-ndieck construction gives rise to a category $\inta F$ where we can choose finite colimits in a way that the corresponding opfibration $U\maps\inta{F}\to\A$ strictly preserves them.
+Since the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, 
+the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits, and 
+we can choose these in such a way that the corresponding opfibration $U \maps \inta F \to \A$ strictly preserves them.  We do this in what follows.
 
 By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
 \begin{equation}\label{eq:FtoL}
@@ -2374,7 +2370,7 @@ A \define{monoidal double category} is a pseudomonoid in $\Dbl$.
 \noindent
 Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit object and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    %%% got rid of footnote saying that "isomorphic is okay" - jb %%% Great.
+\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit object and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \simrightarrow
