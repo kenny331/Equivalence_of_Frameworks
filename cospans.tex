@@ -17,7 +17,7 @@
 \begin{document}
 
 \begin{abstract}
-One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become isomorphic when we take $\X = \int F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, dynamical systems and epidemiological modeling.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\A$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans.   Second, if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor , a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$.   Generalizing the work of Fong, we show that in this situation there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.   We prove that under certain conditions these two constructions become isomorphic when we take $\X = \inta F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, dynamical systems and epidemiological modeling.
 \end{abstract}
 
 \maketitle
@@ -222,12 +222,12 @@ This is another way of letting the apex have more structure than the feet.   Whe
 \end{itemize}
 Many of the flawed applications of decorated cospans have been fixed using structured cospans \cite[Section 6]{BC}, but not all decorated cospans can handled using structured cospans.
 
-Here we give sufficient conditions for a decorated cospan double category to be equivalent---and in fact, isomorphic---to a structured cospan double category.  Suppose $\A$ has finite colimits and $F \maps (\A , +) \to (\Cat, \times)$ is a symmetric lax monoidal pseudofunctor.   Any such pseudofunctor gives an opfibration $U \maps \X \to \A$ where $\X = \inta F$ is defined by the Grothendieck construction.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  We show that if $F$ factors through $\mathbf{Rex}$ as a pseudofunctor, the opfibration $U \maps \X \to \A$ is also a right adjoint.  From the accompanying left adjoint $L \maps \A \to \X$, we  construct a symmetric monoidal double category ${}_L \lCsp(\X)$ of structured cospans.  Finally, in \cref{thm:equiv} we prove that this structured cospan double category ${}_L \lCsp(\X)$ is isomorphic to the decorated cospan double category $F \lCsp$. 
+Here we give sufficient conditions for a decorated cospan double category to be equivalent---and in fact, isomorphic---to a structured cospan double category.  Suppose $\A$ has finite colimits and $F \maps (\A , +) \to (\Cat, \times)$ is a symmetric lax monoidal pseudofunctor.   Any such pseudofunctor gives an opfibration $U \maps \X \to \A$ where $\X = \inta F$ is defined by the Grothendieck construction.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  We show that if $F$ factors through $\Rex$ as a pseudofunctor, the opfibration $U \maps \X \to \A$ is also a right adjoint.  From the accompanying left adjoint $L \maps \A \to \X$, we  construct a symmetric monoidal double category ${}_L \lCsp(\X)$ of structured cospans.  Finally, in \cref{thm:equiv} we prove that this structured cospan double category ${}_L \lCsp(\X)$ is isomorphic to the decorated cospan double category $F \lCsp$.   In fact, they are isomorphic as symmetric monoidal double categories.
 
 \subsection*{Outline}
 
 In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are isomorphic under suitable conditions. In \cref{spinoffs}, we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).
-Finally, in \cref{Applications}, we describe applications to electrical circuits, Petri nets, epidemiology and dynamical systems.
+Finally, in \cref{Applications}, we describe applications to electrical circuits, Petri nets, dynamical systems and epidemiological modeling.
 
 \subsection*{Conventions}
 
@@ -970,7 +970,7 @@ a\ar[ur,"v_a"] && c\ar[ul,"v_c"'] \\
  & F(v_a)(F(f)(y))\cong F(v_c)(F(g)(y))\ar[ul,"F(v_a)k"]\ar[ur,"F(v_c)\ell"'] &
  \end{tikzcd}
 \end{displaymath}
-In a similar way we can construct the initial object and coproducts in $\int F$ from those in the fibers, namely
+In a similar way we can construct the initial object and coproducts in $\inta F$ from those in the fibers, namely
 \begin{equation}\label{eq:fibrewisecoprod}
 (a,x)+(b,y)=\left(a+ b,F(\iota_a)x+F(\iota_b)y\right), \qquad 
  0_{\inta F}=\left(0_A,0_{F(0_A)}\right)
@@ -1411,7 +1411,7 @@ and there exists an isomorphism $\tau \maps F(f)(x) \to x'$ in $F(m')$.
 \end{enumerate}
 \end{cor}
 
-In \cref{thm:equiv} we gave conditions under which the symmetric monoidal double category of \emph{decorated} cospans $F\lCsp$ is isomorphic to the  symmetric monoidal double category of \emph{structured} cospans ${}_L \lCsp(\int F)$.   We now show that under the same conditions we get an isomorphism of symmetric monoidal bicategories, and of categories.
+In \cref{thm:equiv} we gave conditions under which the symmetric monoidal double category of \emph{decorated} cospans $F\lCsp$ is isomorphic to the  symmetric monoidal double category of \emph{structured} cospans ${}_L \lCsp(\inta F)$.   We now show that under the same conditions we get an isomorphism of symmetric monoidal bicategories, and of categories.
 
 \begin{thm} \label{thm:bicat_equiv}
 Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.    Define the symmetric monoidal bicategory $_L\bCsp(\inta F)$ as in \cref{thm:equiv}.   Then there is an isomorphism of symmetric monoidal bicategories
