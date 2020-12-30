@@ -1137,9 +1137,17 @@ The double category $F\lCsp$ is fibrant.
 
 \begin{proof}
 We show that any vertical 1-morphism $f \maps a \to b'$ in $F\lCsp$ has a companion and a conjoint.  First, we can make ths horizontal 1-cell $\hat{f}$:
-\begin{displaymath}
- a\xrightarrow{\;f\;}b\xleftarrow{\;1\;}b,\quad \bot_{b} \in F(b)
-\end{displaymath}
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$b$};
+\node (D) at (4,0) {$\bot_b \in F(b)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(C) edge node[above]{$1$} (B);
+\end{tikzpicture}
+\]
 where $\bot_b$ is the trivial decoration as in \cref{eq:UFCsp}, into a companion of $f$ using the following 2-morphisms:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -1294,9 +1302,17 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 \end{tikzpicture}
 \]
 since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
-\begin{displaymath}
- b\xrightarrow{1}b\xleftarrow{f}b,\quad \bot_{b} \in F(b)
-\end{displaymath}
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$b$};
+\node (B) at (1,0) {$b$};
+\node (C) at (2,0) {$a$};
+\node (D) at (4,0) {$\bot_b \in F(b)$.};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$1$} (B)
+(C) edge node[above]{$f$} (B);
+\end{tikzpicture}
+\]
 Just as $\hat{f}$ obeys the equations required of a companion, $\check{f}$ obeys the equations required of a conjoint.
 \end{proof}
 
