@@ -988,7 +988,7 @@ In a similar way we can construct the initial object and coproducts in $\inta F$
 \end{equation}
 where $\iota_a \maps a\to a+b$ and $\iota_b \maps a \to a+b$ are the sum inclusions in $\A$ and the sum on the second variable is in the fiber $F(a+b)$.
 
-\begin{cor}\label{cor:fcocMonGroth}
+\begin{cor} \label{cor:fcocMonGroth}
  Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$.  Then $\inta F$ has all finite colimits and  the induced opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
 \end{cor}
 
@@ -1015,8 +1015,7 @@ We now have all the necessary background to formally construct an isomorphism be
 Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
 
 Since the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, 
-the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits, and 
-we can choose these in such a way that the corresponding opfibration $U \maps \inta F \to \A$ strictly preserves them.  We do this in what follows.
+\cref{cor:fcocMonGroth} implies that the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits, and we can choose these in such a way that the corresponding opfibration $U \maps \inta F \to \A$ strictly preserves them.  We do this in what follows.
 
 By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
 \begin{equation}\label{eq:FtoL}
