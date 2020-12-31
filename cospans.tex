@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/30
+% 2020/12/31
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -485,7 +485,18 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 \& (F(m_1){\times}F(m_2)){\times}F(m_3)\ar[r,"\phi_{m_1,m_2}\times1"'] \& F(m_1{+}m_2){\times}m_3\ar[ur,"\phi_{m_1+m_2,m_3}"]\ar[r,"F(\psi)\times1"'] \& F(m_1{+_b}m_2){\times} F(m_3)\ar[r,"\phi_{m_1{+_b}m_2,m_3}"'] \& F((m_1{+_b}m_2){+}m_3)\ar[r,"F\psi"'] \& F((m_1{+_b}m_2){+_c}m_3)
 \end{tikzcd}}
 \end{equation}
-where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. Similarly the right and left unitors can be constructed, and all data satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$. For details of these arguments, see \cite[Theorem~4.1.1]{CourserThesis}.
+where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. 
+
+Similarly the right and left unitors can be constructed: for example, for a horizontal 1-cell $M=(a\to m \leftarrow b,x\in F(m))$, the isomorphism $M\odot U_a\cong M$ is given by the canonical map of cospans $\kappa\colon a+_am\cong m$ along with the isomorphism between decorations
+\begin{displaymath}
+ \scalebox{.9}
+{\begin{tikzcd}[row sep=.15in,ampersand replacement=\&]
+1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{m,a}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
+\&\& F(0+m)\ar[drr]\ar[ur,"F(!_a\times1)"'] \&\&  \\
+1\ar[rrrr,"x"] \&\phantom{A}\&\&\& F(m)
+ \end{tikzcd}}
+\end{displaymath}
+All data can be verified to satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$.
 \end{proof}
 
 The following result establishes that under the same assumptions as \cref{thm:decorated_cospans}, the double category of decorated cospans is monoidal; it becomes symmetric when the lax monoidal pseudofunctor is.  Monoidal and symmetric monoidal double categories are recalled in \cref{defn:monoidal_double_category,defn:symmetric_monoidal_double_category}.
