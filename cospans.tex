@@ -1263,6 +1263,8 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
+%%% Kenny: Commenting out previous equation.
+\begin{comment}
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-1,0.5) {$a$};
@@ -1314,7 +1316,76 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 (I) edge node [above] {$1$} (G);
 \end{tikzpicture}
 \]
-since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
+\end{comment}
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (G) at (-0.75,0.5) {$a$};
+\node (H) at (-0.75,-0.5)  {$b$};
+\node (I) at (-1.5,0.5) {$a$};
+\node (J) at (-1.5,-0.5) {$a$};
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$b$};
+\node (B) at (0.75,0.5) {$b$};
+\node (C) at (1.5,0.5) {$b$};
+\node (C') at (1.5,-0.5) {$b$};
+\node (D) at (0.75,-0.5) {$b$};
+\node (E) at (0.75,1) {$\scriptstyle{\bot_{b} \in F(b)}$};
+\node (F) at (2,-0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
+\node (L) at (2,0) {$\scriptstyle{\tau_{b} = 1_{\bot_{b}}}$};
+\node (E') at (-0.75,1) {$\scriptstyle{\bot_{a} \in F(a)}$};
+\node (F') at (-2.25,-0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
+\node (L') at (-2.5,0) {$\scriptstyle{\tau_{f} \maps F(f)(\bot_a) \to \bot_{b}}$};
+\node (M) at (2.5,-0.5) {$\scriptstyle{=}$};
+\node (N) at (4.5,0) {$a$};
+\node (O) at (4.5,-1) {$b$};
+\node (P) at (5.25,0) {$b$};
+\node (R) at (6,0) {$b$};
+\node (S) at (6,-1) {$b$};
+\node (T) at (5.25,0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
+\node (T') at (3.75,0.5) {$\scriptstyle{\bot_a \in F(a)}$};
+\node (U) at (4.5,-1.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
+\node (V) at (4.5,-1.75) {$\scriptstyle{\tau_{\rho_{\hat{f}}} \colon (\bot_b \odot \bot_a) \to \bot_b}$};
+\node (K) at (-1.5,-1.5) {$a$};
+\node (L') at (0,-1.5) {$b$};
+\node (M') at (1.5,-1.5) {$b$};
+\node (N') at (0,-2) {$\scriptstyle{\bot_b \in F(b)}$};
+\node (O') at (0,-2.25) {$\scriptstyle{\tau_{\lambda_{\hat{f}}} \colon (\bot_b \odot \bot_b) \to \bot_b}$};
+\node (W) at (3.75,0) {$a$};
+\node (Y) at (3,0) {$a$};
+\node (Z) at (3,-1) {$a$};
+\path[->,font=\scriptsize,>=angle 90]
+(Y) edge node [left] {$1$} (Z)
+(Y) edge node [above] {$1$} (W)
+(Z) edge node [above] {$f$} (O)
+(N) edge node [above] {$1$} (W)
+(J) edge node [left] {$1$} (K)
+(A') edge node [left] {$1$} (L')
+(C') edge node [left] {$1$} (M')
+(K) edge node[above] {$f$} (L')
+(M') edge node [above] {$1$} (L')
+(N) edge node[left]{$f$} (O)
+(R) edge node[left]{$1$} (S)
+(N) edge node[above]{$f$} (P)
+(R) edge node[above]{$1$} (P)
+(S) edge node[above]{$1$} (O)
+(A) edge node[above]{$f$} (B)
+(C) edge node[above]{$1$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[left]{$1$} (C')
+(A') edge node[above] {$1$} (D)
+(C') edge node[above] {$1$} (D)
+(B) edge node [left] {$1$} (D)
+(A) edge node[above]{$1$} (G)
+(G) edge node[left]{$f$} (H)
+(A') edge node[above]{$1$} (H)
+(J) edge node[above] {$f$} (H)
+(I) edge node[left] {$1$} (J)
+(I) edge node [above] {$1$} (G);
+\end{tikzpicture}
+\]
+%since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. 
+since the right hand side of the first equation is given by $U_f$ and the right hand side of the second equation is given as in Definition \ref{def:companion}.
+The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$b$};
