@@ -492,8 +492,8 @@ Similarly the right and left unitors can be constructed: for example, for a hori
  \scalebox{.9}
 {\begin{tikzcd}[row sep=.15in,ampersand replacement=\&]
 1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{m,a}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
-\&\& F(0+m)\ar[drr]\ar[ur,"F(!_a\times1)"'] \&\&  \\
-1\ar[rrrr,"x"] \&\phantom{A}\&\&\& F(m)
+\&\& F(0+m)\ar[drr,sloped,"\sim"]\ar[ur,"F(!_a\times1)"'] \&\&  \\
+1\ar[rrrr,"x"'] \&\phantom{A}\&\&\& F(m)
  \end{tikzcd}}
 \end{displaymath}
 All data can be verified to satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$.
@@ -1021,7 +1021,7 @@ By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL
 \begin{equation}\label{eq:FtoL}
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \end{equation}
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber of $a$, namely $L(a)=(a,\bot_a)$ which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$. %%% There are many laris, one for each choice of initial object. Having fixed our choice of colimits, there is really only one lari, correct?
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber of $a$, namely $L(a)=(a,\bot_a)$ which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$.
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}. Its objects and vertical morphisms are those of the category $\A$ (just as for $F\lCsp$), whereas its horizontal 1-cells are now cospans of the form $\cspn{L(a)}{(m,x)}{L(b)}{}{}$ in the Grothendieck category $\inta F$ (see \cref{def:GrothCat}). Explicitly, they consist of two pairs of morphisms
 \begin{equation}\label{eq:scsphor1cell}
@@ -1510,7 +1510,7 @@ Thinking about systems and processes categorically dates back to early works by 
  
 Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC}. Here we explain how to also fix them using our new decorated cospans, since they provide another another solution to these problems. Below we compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. 
 
-In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} illustrate this.   However, in\cref{subsec:petrirates} we describe a map from `open Petri nets with rates' to open dynamical systems.  The former are conveniently described using structured cospans, while the latter can only be treated using decorated cospans.   Here \cref{thm:equiv} serves as a bridge that lets us connect the two formalisms.
+In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} illustrate this.   However, in \cref{subsec:petrirates} we describe a map from `open Petri nets with rates' to open dynamical systems.  The former are conveniently described using structured cospans, while the latter can only be treated using decorated cospans.   Here \cref{thm:equiv} serves as a bridge that lets us connect the two formalisms.
 
 \subsection{Graphs}
 \label{subsec:graphs}
