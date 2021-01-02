@@ -488,14 +488,14 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. 
 
 Similarly the right and left unitors can be constructed: for example, for a horizontal 1-cell $M=(a\to m \leftarrow b,x\in F(m))$, the isomorphism $M\odot U_a\cong M$ is given by the canonical map of cospans $\kappa\colon a+_am\cong m$ along with the isomorphism between decorations
-\begin{displaymath}
+\begin{equation}\label{eq:decunitor}
  \scalebox{.9}
 {\begin{tikzcd}[row sep=.15in,ampersand replacement=\&]
-1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{m,a}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
-\&\& F(0+m)\ar[drr,sloped,"\sim"]\ar[ur,"F(!_a\times1)"'] \&\&  \\
+1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{a,m}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
+\&\& F(0+m)\ar[drr,sloped,"\sim"]\ar[ur,"F(!_a+1)"'] \&\&  \\
 1\ar[rrrr,"x"'] \&\phantom{A}\&\&\& F(m)
  \end{tikzcd}}
-\end{displaymath}
+\end{equation}
 All data can be verified to satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$.
 \end{proof}
 
@@ -1384,7 +1384,7 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 \end{tikzpicture}
 \]
 %since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. 
-since the right hand side of the first equation is given by $U_f$ and the right hand side of the second equation is given as in Definition \ref{def:companion}.
+since the right hand side of the first equation is given by $U_f$ and the second equation utilizing the left and right unitors of $\odot$, which may be found in (\ref{eq:decunitor}), is given as in Definition \ref{def:companion}.
 The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
 \[
 \begin{tikzpicture}[scale=1.5]
