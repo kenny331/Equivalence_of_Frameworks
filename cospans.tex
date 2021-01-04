@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2020/12/31
+% 2021/1/2
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -487,13 +487,13 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 \end{equation}
 where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. 
 
-Similarly the right and left unitors can be constructed: for example, for a horizontal 1-cell $M=(a\to m \leftarrow b,x\in F(m))$, the isomorphism $M\odot U_a\cong M$ is given by the canonical map of cospans $\kappa\colon a+_am\cong m$ along with the isomorphism between decorations
+The right and left unitors are defined similarly: for example, for a horizontal 1-cell $M=(a\to m \leftarrow b,x\in F(m))$, the isomorphism $M\odot U_a\cong M$ is given by the canonical map of cospans $\kappa\colon a+_am\cong m$ along with this isomorphism between decorations:
 \begin{displaymath}
  \scalebox{.9}
 {\begin{tikzcd}[row sep=.15in,ampersand replacement=\&]
 1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{m,a}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
 \&\& F(0+m)\ar[drr,sloped,"\sim"]\ar[ur,"F(!_a\times1)"'] \&\&  \\
-1\ar[rrrr,"x"'] \&\phantom{A}\&\&\& F(m)
+1\ar[rrrr,"x"'] \&\phantom{A}\&\&\& F(m).
  \end{tikzcd}}
 \end{displaymath}
 All data can be verified to satisfy the axioms of a double category---essentially breaking down to those of the cospan double category of $\A$ and axioms of the lax monoidal pseudofunctor $F$.
