@@ -488,7 +488,7 @@ together with an isomorphism $F(\kappa)((x_3 \odot x_2) \odot x_1) \cong (x_3 \o
 where $a$ are the associators of $\Cat$ and $\A$ and $\kappa$ is the canonical isomorphism between two colimits of the same diagram in $\A$. 
 
 The right and left unitors are defined similarly: for example, for a horizontal 1-cell $M=(a\to m \leftarrow b,x\in F(m))$, the isomorphism $M\odot U_a\cong M$ is given by the canonical map of cospans $\kappa\colon a+_am\cong m$ along with this isomorphism between decorations:
-\begin{equation}
+\begin{equation}\label{eq:decunitor}
  \scalebox{.9}
 {\begin{tikzcd}[row sep=.15in,ampersand replacement=\&]
 1\ar[r,"\phi_0\times x"]\ar[dd,equal] \& F(0)\times F(m)\ar[dd,phantom,"{\stackrel{\cref{eq:unitality}}{\cong}}"] \ar[dr,"\phi_{0,m}"']\ar[r,"F(!_a)\times 1"] \& F(a)\times F(m)\ar[d,phantom,"{\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"\phi_{m,a}"] \& F(a+m)\ar[ddr,phantom,"{\cong}"]\ar[r,"F\psi"] \& F(a+_am)\ar[dd,"F(\kappa)"]\\
@@ -705,7 +705,7 @@ where the left-hand side isomorphism \cref{eq:thetaa} is spelled out in detail i
 Similarly, for the comparison isomorphism between the units $U_{a+b}$ and $U_a\ot U_b$, it is easy to see that as cospans they are both the identity $1_{a+b} \maps a+b\to a+b\leftarrow a+b:1_{a+b}$, and there is a canonical isomorphism between their decorations 
 \begin{displaymath}
 \begin{tikzcd}[column sep=.55in]
-\one\ar[r,"\phi_0"]\ar[dr,phantom,near start,"{\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[d,"\phi_0\times\phi_0"'] & F(0)\ar[dr,phantom,"{\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"F(!_{a+b})"] & F(a+b)\ar[d,"F(1)"] \\
+\one\ar[r,"\phi_0"]\ar[dr,phantom,near start,"{\scriptstyle\stackrel{\cref{eq:unitality}}{\cong}}"]\ar[d,"\phi_0\times\phi_0"'] & F(0)\ar[dr,phantom,"{\scriptstyle\stackrel{\cref{eq:pseudonaturality}}{\cong}}"]\ar[r,"F(!_{a+b})"] & F(a+b)\ar[d,"F(1)"] \\
 F(0)\times F(0)\ar[r,"F(!_a)\times F(!_n)"']\ar[ur,"\phi_{0,0}"description] & F(a)\times F(b)\ar[r,"\phi_{a,b}"'] & F(a+b)
 \end{tikzcd}
 \end{displaymath}
