@@ -1032,10 +1032,11 @@ As a left adjoint, this induced $L$ preserves all colimits that exist between th
 with $x\in F(m)$; recall that the reindexing functors $F(i),F(o)$ preserve all finite colimits across the fibers.
 Finally, the 2-morphisms of this double category in this context unravel as follows:
 \begin{equation}\label{eq:2morphismLCspintaF}
- \begin{tikzcd}[row sep=1in,column sep=1.7in,ampersand replacement=\&]
+\scalebox{.9}
+ {\begin{tikzcd}[row sep=1in,column sep=1.7in,ampersand replacement=\&]
  (a,\bot_a)\ar[r,"{\begin{cases}i\maps a\to m &\textrm{in }\A \\!\maps F(i)(\bot_a)\to x &\textrm{in }F(m)\end{cases}}"]\ar[d,"{\begin{cases}f\maps a\to a' &\textrm{in }\A \\\chi_a\maps F(f)(\bot_a)\cong \bot_{a'} &\textrm{in }F(a')\end{cases}}"description] \& (m,x) \ar[d,"{\begin{cases}k\maps m\to m' &\textrm{in }\A \\ \tau\maps F(k)(x)\to x' &\textrm{in }F(m')\end{cases}}"description] \& (b,\bot_b)\ar[l,"{\begin{cases}o\maps b\to m &\textrm{in }\A \\!\maps F(o)(\bot_b)\to x &\textrm{in }F(m)\end{cases}}"']\ar[d,"{\begin{cases}g\maps b\to b' &\textrm{in }\A \\\chi_b\maps F(g)(\bot_b)\cong \bot_{b'} &\textrm{in }F(b')\end{cases}}"description] \\
  (a',\bot_{a'})\ar[r,"{\begin{cases}i'\maps a'\to m' &\textrm{in }\A \\!\maps F(i')(\bot_{a'})\to x' &\textrm{in }F(m')\end{cases}}"'] \& (m',x') \& (b',\bot_{b'})\ar[l,"{\begin{cases}o'\maps b'\to m' &\textrm{in }\A \\!\maps F(o')(\bot_{b'})\to x' &\textrm{in }F(m')\end{cases}}"]
- \end{tikzcd}
+ \end{tikzcd}}
 \end{equation}
 where the outside vertical legs come from the definition of $L$ on arrows \cref{eq:Lonarrows}. 
 Explicitly, the commutativity of the above squares translates to the conditions $k\circ i=i'\circ f$ and $k\circ o=o'\circ g$ in $\A$, and also to
@@ -1060,7 +1061,7 @@ a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"k"] & b\ar[l,"o"']\ar[d,"g"] \\
 a'\ar[r,"i'"']& m' & b'\ar[l,"o'"]
 \end{tikzcd}
 \]
-along with the morphism of decorations $\tau\maps F(k)(x) \to x'$ in $F(m')$ coming from the middle arrow above. We then make $\lE$ into double functor as in \cref{def:doublefun}. First, both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets.  Second, we equip $\lE$ with globular 2-isomorphisms $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$, $U_{\lE m} \simrightarrow\lE(U_m)$
+along with the morphism of decorations $\tau\maps F(k)(x) \to x'$ in $F(m')$ coming from the middle arrow of \cref{eq:2morphismLCspintaF}. We then make $\lE$ into double functor as in \cref{def:doublefun}. First, both $\lE_0$ and $\lE_1$ are functors that appropriately commute with sources and targets.  Second, we equip $\lE$ with globular 2-isomorphisms $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$
 for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bot_b)}{}{}$ and $N=\cspn{(b,\bot_b)}{(n,y)}{(c,\bot_c)}{}{}$ and any object $m$ of $_L\lCsp(\inta F)$. Explicitly, $\mathbb{E}(N)\odot \mathbb{E}(M)$ is given as in \cref{eq:dcospanscomposition} via the pushout cospan and decoration
 \begin{equation}\label{eq:1}
  \begin{tikzcd}
@@ -1077,7 +1078,7 @@ On the other hand, $N \odot M$ computed as in \cref{eq:globalpushout} is
  (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
 \end{displaymath}
-where $v_m,v_n$ are the canonical maps into the pushout.  Under $\lE$ this is mapped to the cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$.  This decoration is canonically isomorphic to that of \cref{eq:1} due to the following diagram 
+where $v_m,v_n$ are the canonical maps into the pushout.  Under $\lE$ this is mapped to the cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$ -- since a pushout over an initial object is just a sum.  This decoration is canonically isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}[sep=.4in]
 F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\stackrel{\phi_{v_m,v_n}}{\cong}"] & F(m+n)\ar[r,"F(\psi)"]\ar[dr,phantom,"\cong"']\ar[d,"F(v_m+v_n)"] & F(m+_bn)\ar[d,"F(1)"]\\
@@ -1086,14 +1087,14 @@ F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F\left((m+_bn)+(m+_bn)\rig
 \end{equation}
 where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism comes from pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and pseudofunctoriality of $F$.  Thus, we have a globular 2-isomorphism  $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$. Notice that since the target decoration is part of the above pushout in the Grothendieck category $\inta F$, this isomorphism we construced is the canonical such that it commutes with the respective cocones. This is useful when checking associativity for example: there is only one such canonical isomorphism $\lE(P)\odot\lE(N)\odot\lE(M)\to\lE(P\odot N\odot M)$ for any three composable structured cospans. 
 
-Regarding identities, the identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
+Finally, we construct a globular 2-isomorphism $U_{\lE (m)} \simrightarrow\lE(U_m)$. The identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
 
 In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism 
 \begin{equation}\label{eq:doubleiso}
 _L\lCsp(\inta F) \cong F\lCsp.
 \end{equation}
 
-Since both double categories are symmetric monoidal under the running assumptions (\cref{DC,thm:SC}), we now show that this double isomorphism is a symmetric monoidal one, namely that $\lE=(\lE_0,\lE_1)$ is a symmetric strong monoidal double functor as per \cref{defn:monoidal_double_functor}. Indeed, $\lE_0= \id_\A$ is a symmetric monoidal functor trivially. For $\lE_1$, given two structured cospans $M=(a,\bot_a)\to(m,x)\leftarrow(b,\bot_b)$ and $M'=(a',\bot_{a'})\to(m',x')\leftarrow(b',\bot_{b'})$ in $_L\lCsp(\inta F)$, we compute the appropriate decorated cospans
+Since both double categories are symmetric monoidal under the running assumptions (\cref{DC,thm:SC}), we now show that this double isomorphism is a symmetric monoidal one, namely that $\lE=(\lE_0,\lE_1)$ is a symmetric monoidal double functor as per \cref{defn:monoidal_double_functor}. Indeed, $\lE_0= \id_\A$ is a symmetric monoidal functor trivially. For $\lE_1$, given two structured cospans $M=(a,\bot_a)\to(m,x)\leftarrow(b,\bot_b)$ and $M'=(a',\bot_{a'})\to(m',x')\leftarrow(b',\bot_{b'})$ in $_L\lCsp(\inta F)$, we compute the appropriate decorated cospans
 \begin{align*}
 \lE(M)\ot\lE(M')&\;\stackrel{\cref{eq:tensordecoration}}{=}\;a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }\phi_{m,m'}(x,x')\in F(m+m')
 %\one\xrightarrow{x\times x'}F(m)\times F(m')\xrightarrow{\phi_{m,m'}}F(m+m')
@@ -1442,7 +1443,7 @@ together with a morphism $\tau \maps F(h)(x) \to x'$ in $F(m')$.
 \end{thm}
 
 \begin{proof}
-This follows by applying Shulman's result \cite[Theorem 1.2]{Shulman2010} to the fibrant symmetric monoidal double category $F\lCsp$.
+This follows by applying Shulman's result (\cref{Shulhorizontalbicat}) to the fibrant symmetric monoidal double category $F\lCsp$.
 \end{proof}
 
 This symmetric monoidal bicategory $F\bCsp$ generalizes the one constructed by the second author \cite{Courser}.    We can decategorify $F\bCsp$ to obtain a symmetric monoidal category generalizing the kind considered by Fong \cite{Fong}:
@@ -1498,13 +1499,13 @@ In \cref{thm:equiv} we gave conditions under which the symmetric monoidal double
 
 \begin{thm} \label{thm:bicat_equiv}
 Suppose $\A$ has finite colimits and $F \maps(\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor that factors through $\Rex$ as an ordinary pseudofunctor.    Define the symmetric monoidal bicategory $_L\bCsp(\inta F)$ as in \cref{thm:equiv}.   Then there is an isomorphism of symmetric monoidal bicategories
-\[      F\bCsp \simeq {}_L \bCsp(\inta F)   \]
+\[      F\bCsp \cong {}_L \bCsp(\inta F)   \]
 and of symmetric monoidal categories
-\[      F\Csp \simeq {}_L \Csp(\inta F)  . \]
+\[      F\Csp \cong {}_L \Csp(\inta F)  . \]
 \end{thm}
 
 \begin{proof} 
-Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal double categories to symmetric monoidal bicategories is functorial in a suitable sense.  This implies that an isomorphism of symmetric monoidal double categories $\lD \simeq \lD'$ gives an isomorphism of symmetric monoidal bicategories $\bD \simeq \bD'$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the isomorphism of symmetric monoidal bicategories $\bD \simeq \bD'$ in turn induces an isomorphism of symmetric monoidal categories $\D \simeq \D'$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
+Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal double categories to symmetric monoidal bicategories is functorial in a suitable sense.  This implies that an isomorphism of symmetric monoidal double categories $\lD \cong \lD'$ gives an isomorphism of symmetric monoidal bicategories $\bD \cong \bD'$.    Since the process of decategorifying a bicategory merely discards 2-morphisms and takes isomorphism classes of 1-morphisms, the isomorphism of symmetric monoidal bicategories $\bD \cong \bD'$ in turn induces an isomorphism of symmetric monoidal categories $\D \cong \D'$.   Thus, the theorem follows from \cref{thm:equiv}. \end{proof}
 
 \section{Applications}\label{Applications}
 
@@ -1726,7 +1727,7 @@ which can also be thought of as an open graph from $X$ to $Y$,
 is a commuting diagram in $\Fin\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Fin\Set$ as its category of objects, open graphs as horizontal 1-cells, and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories---and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Fin\Set$ as its category of objects, open graphs as horizontal 1-cells, and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories---and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  %%% Christina: I don't understand why the last part of this sentence is needed. The isomorphism should be obtained straight away from our theorem no? I *kinda* see the point but it looks like a technicality that it could be more obscuring than clarifying...
 
 \subsection{Circuits}
 \label{subsec:circuits}
@@ -2204,9 +2205,9 @@ is called the \define{rate equation}.    When $P$ is part of an open Petri net w
 \]
 we get an open dynamical system called the \define{open rate equation}:
 \[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
-where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}.
+where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. %%% Christina: is this where the description of the black box double functor ends? Should we add a finishing line to that end?
 
-We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \simeq {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
+We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
 \begin{itemize}
@@ -2225,12 +2226,13 @@ A functor $U \maps \A \to \X$ admits a left adjoint if and only if for every $x 
 \end{lem}
 Because the empty set is initial in $\Fin\Set$, the comma category 
 $\emptyset \downarrow U$ is just $\inta D$.  This contains an object $(\emptyset, v_\emptyset)$, where $v_\emptyset$ is the only possible vector field on $\R^\emptyset$, namely, the zero vector field.   The only object in $\inta D$ with any morphisms to $(\emptyset, v_\emptyset)$ is $(\emptyset, v_\emptyset)$ itself, so no other object can be initial.  However $(\emptyset, v_\emptyset)$ is not initial either, because it has no morphisms to an object $(S,v)$ unless $v$ is the zero vector field on $\R^S$.  Thus by \cref{lem:initial}, $U$ does not have a left adjoint.
+%%% Christina: that's nice and clear, but could we also pinpoint which assumption from the Theorem fails exactly? Because having an adjoint is a RESULT of the initial conditions. We don't need to elaborate, just point it out - it is presumably that F does not factor through Rex?
 
 \section{Conclusions}\label{sec:conclusions}
 
 We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category isomorphic to a decorated cospan double category? The answer is similar to the previous one: yes, under certain conditions that let us pass from an appropriate functor $L \maps \A \to \X$ to an appropriate pseudofunctor $F \maps \A \to \Cat$.
 
-Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:SC}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ has now enough structure to induce a double category of decorated cospans $F\lCsp$  as in \cref{DC}.  Finally, it can be shown that the structured and decorated cospan double categories are isomorphic as symmetric monoidal double categories: ${}_L \lCsp(\X) \simeq F\lCsp$.
+Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:SC}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ has now enough structure to induce a double category of decorated cospans $F\lCsp$  as in \cref{DC}.  Finally, it can be shown that the structured and decorated cospan double categories are isomorphic as symmetric monoidal double categories: ${}_L \lCsp(\X) \cong F\lCsp$.
 
 To give a better sense of how the pseudofunctor $F \maps \A \to\Cat$ is constructed: for each object $a \in A$, $F(a)$ is defined to be the fiber of $U$ over $a$, namely the category of all objects in $x \in \X$ such that $U(x)=a$ and morphisms $k\maps x\to y$ such that $U(k)=1_a$.  Given a morphism $f \maps a \to b$, there is a functor $F(f) \maps F(a)\to F(b)$ that maps $x \in F(a)$ to the following pushout:
 \begin{displaymath}
@@ -2268,7 +2270,8 @@ In this appendix, we gather some well-known concepts required to make the materi
 \subsection{Bicategories}
 \label{subsec:bicats}
 
-For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, \define{symmetric} if one further axiom holds. 
+For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, %%%Christina: something is missing in that sentence syntactically?
+\define{symmetric} if one further axiom holds. 
 
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
@@ -2508,7 +2511,7 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 
 
 \begin{defn}\label{defn:monoidal_double_functor}
-Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \maps \lD \to \lE$ is a double functor $\lF$ together with transformations $\theta \maps {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \maps I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
+Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \maps \lD \to \lE$ is a double functor $\lF$ together with invertible transformations $\theta \maps {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \maps I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
 \end{defn}
 %{\chris Those units in the definition should be monoidal units not unit functors...}
 %%% Kenny: How about I instead of 1?
@@ -2732,7 +2735,7 @@ it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morph
 	%	\draw (0.5,.925) -- (0.5,1.075);
 	%	\draw (0.5,-.075) -- (0.5,.075);
 	%	\node () at (1,0.5) {\scriptsize{$\Downarrow 1$}};
-		\node () at (1,1.4) {\scriptsize{$\Downarrow \rho_f$}};
+		\node () at (1,1.4) {\scriptsize{$\Downarrow \rho_{\hat{f}}$}};
 	\end{tikzpicture}
 	}
 	\end{equation}
@@ -2759,7 +2762,7 @@ If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $
 Here we show a sample check of a coherence law for the proof of \cref{DC}.
 All relevant structure for decorated cospans is as described in \cref{thm:decorated_cospans,DC}. The coherence law that we check says that this diagram commutes:
 \begin{equation}\label{eq:thisdiagram}
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0) {$(M_2 \otimes N_2) \odot (M_1 \otimes N_1)$};
 \node (B) at (3,0) {$(N_2 \otimes M_2) \odot (N_1 \otimes M_1)$};
 \node (C) at (0,-.75) {$(M_2 \odot M_1) \otimes (N_2 \odot N_1)$};
@@ -2998,7 +3001,7 @@ Fm_1{\times} Fn_1{\times} Fm_2{\times} Fn_2\ar[ddr,phantom,bend right,"{\scripts
 Fm_1{\times} Fm_2{\times} Fn_1{\times} Fn_2\ar[ur,"1\times\phi\times1"']\ar[rr,"\phi\times\phi"'] \&\& F(m_1{+}m_2){\times} F(n_1{+}n_2)\ar[rr,"\phi"'] \&\& F(m_1{+}m_2{+}n_1{+}n_2)
 \end{tikzcd}}
 \end{equation}
-where the unnamed isomorphisms are appropriate composites of the pseudoassociativity of $F$ \cref{eq:omega}. The result now follows from lengthy pasted diagram calculations using the axioms of a sylleptic lax monoidal pseudofunctor.
+where the unnamed isomorphisms are appropriate composites of the pseudoassociativity of $F$ \cref{eq:omega}. The fact that the two pasted 2-isomorphisms are equal now follows from lengthy pasted diagram calculations using the axioms of a sylleptic lax monoidal pseudofunctor \cite[Definition 16]{DS}.
 
 \begin{thebibliography}{100}
 
