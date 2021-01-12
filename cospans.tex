@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/1/8
+% 2021/1/12
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -1071,25 +1071,25 @@ for any pair of composable horizontal 1-cells $M=\cspn{(a,\bot_a)}{(m,x)}{(b,\bo
   \one\xrightarrow{x\times y}F(m)\times F(n)\xrightarrow{\phi_{m,n}}F(m+n)\xrightarrow{F(\psi)}F(m+_bn).
 \end{equation}
 On the other hand, $N \odot M$ computed as in \cref{eq:globalpushout} is 
-\begin{displaymath}
+\begin{equation}\label{eq:pushoutissum}
  \begin{tikzcd}[column sep={.7in,between origins}]
  && (m+_b n,F(v_m)x+_{(\bot_{m+_bn})}F(v_n)y) && \\
  & (m,x) \ar[ur] && (n,y)\ar[ul] \\
  (a,\bot_a)\ar[ur] && (b,\bot_b)\ar[ur]\ar[ul] && (c,\bot_c)\ar[ul]
  \end{tikzcd}
-\end{displaymath}
+\end{equation}
 where $v_m,v_n$ are the canonical maps into the pushout.  Under $\lE$ this is mapped to the cospan $\cspn{a}{m+_bn}{b}{}{}$ with decoration $F(v_m)x+F(v_n)y$ in the fiber $F(m+_bn)$ -- since a pushout over an initial object is just a sum.  This decoration is canonically isomorphic to that of \cref{eq:1} due to the following diagram 
 \begin{equation}\label{eq:isomorphismdiag}
  \begin{tikzcd}[sep=.4in]
-F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\stackrel{\phi_{v_m,v_n}}{\cong}"] & F(m+n)\ar[r,"F(\psi)"]\ar[dr,phantom,"\cong"']\ar[d,"F(v_m+v_n)"] & F(m+_bn)\ar[d,"F(1)"]\\
+F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[d,"F(v_m)\times F(v_n)"']\ar[dr,phantom,"\stackrel{\phi_{v_m,v_n}}{\cong}"] & F(m+n)\ar[r,"F(\psi)"]\ar[dr,phantom,"\cong"']\ar[d,"F(v_m+v_n)"] & F(m+_bn)\ar[d]\\
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F\left((m+_bn)+(m+_bn)\right)\ar[r,"F(\nabla)"'] & F(m+_bn)
  \end{tikzcd}
 \end{equation}
-where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism comes from pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and pseudofunctoriality of $F$.  Thus, we have a globular 2-isomorphism  $\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$. Notice that since the target decoration is part of the above pushout in the Grothendieck category $\inta F$, this isomorphism we construced is the canonical such that it commutes with the respective cocones. This is useful when checking associativity for example: there is only one such canonical isomorphism $\lE(P)\odot\lE(N)\odot\lE(M)\to\lE(P\odot N\odot M)$ for any three composable structured cospans. 
+where the composite of the bottom two arrows is the coproduct $+ \maps F(m+_bn) \times F(m+_bn) \to F(m+_bn)$ as in \cref{eq:explicitstructure1}. The left-hand isomorphism comes from pseudonaturality of $\phi$ as in \cref{eq:pseudonaturality}, whereas the right-hand isomorphism follows from universal properties and pseudofunctoriality of $F$.  Thus, we have a globular 2-isomorphism  $\lE_\odot\colon\lE(N) \odot \lE(M) \simrightarrow\lE(N \odot M)$. 
 
-Finally, we construct a globular 2-isomorphism $U_{\lE (m)} \simrightarrow\lE(U_m)$. The identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}.
+Finally, we construct a globular 2-isomorphism $U_{\lE (m)} \simrightarrow\lE(U_m)$. The identity horizontal 1-cell $U_m$ in $_L\lCsp(\inta F)$ is $\cspn{(m,\bot_m)}{(m,\bot_m)}{(m,\bot_m)}{}{}$ with $1_m$ as the $A$-component and isomorphisms between initial objects in the fibers. Thus $\lE(U_m)$ is the identity cospan in $A$ together with the `initial decoration' $\bot_m\in F(m)$, and so is $U_{\mathbb{E}(m)}$ as in \cref{eq:UFCsp}. It can be verified that with this structure, $\lE$ satisfies the axioms of a double functor.
 
-In fact, the double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ as defined above is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism 
+In fact, this double functor $\lE\maps _L\lCsp(\inta F)\to F\lCsp$ is bijective on objects and vertical 1-cells (trivially as an identity functor), and is also bijective on horizontal 1-cells and on 2-morphisms. Indeed, for \cref{eq:scsphor1cell}, the unique maps from the initial objects in the fibers provide no actual extra information, and similarly for 2-cells all extra data in \cref{eq:2morphismLCspintaF} is uniquely determined and \cref{eq:Grothcommutativity} holds automatically as discussed above. As a result, we have a double isomorphism 
 \begin{equation}\label{eq:doubleiso}
 _L\lCsp(\inta F) \cong F\lCsp.
 \end{equation}
@@ -1103,22 +1103,33 @@ Since both double categories are symmetric monoidal under the running assumption
 &=a+a'\xrightarrow{i+i'}m+m'\xleftarrow{o+o'}b+b' \textrm{ with }F(\iota_m)x+F(\iota_{m'})x'\in F(m+m')
 \end{align*}
 The cospan part is equal, whereas we have an isomorphism between the decorations, $F(\iota_m)x+F(\iota_{m'})x'\cong \phi_{m,m'}(x,x')$, given in an analogous way to \cref{eq:isomorphismdiag} as follows:
-\begin{displaymath}
+\begin{equation}\label{eq:Elaxator}
 \begin{tikzcd}[sep=.4in]
 F(m)\times F(m')\ar[r,"\phi_{m,m'}"]\ar[d,"F(\iota_m)\times F(\iota_{m'})"']
-\ar[dr,phantom,"{\stackrel[\cref{eq:pseudonaturality}]{\phi_{\iota_m,\iota_n}}{\cong}}"] & F(m+m')\ar[dr,"F(1)"]\ar[d,bend left=60, phantom,"\cong"']\ar[d,"F(\iota_m+\iota_{m'})"']  & \\
+\ar[dr,phantom,"{\stackrel[\cref{eq:pseudonaturality}]{\phi_{\iota_m,\iota_{m'}}}{\cong}}"] & F(m+m')\ar[dr]\ar[d,bend left=60, phantom,"\cong"']\ar[d,"F(\iota_m+\iota_{m'})"']  & \\
 F(m+m')\times F(m+m')\ar[r,"\phi_{m+m',m+m'}"'] & F\left((m+m')+(m+m')\right)\ar[r,"F(\nabla)"'] & F(m+m')
  \end{tikzcd}
-\end{displaymath}
+\end{equation}
 where the composite of the bottom two arrows is the coproduct operation in $F(m+m')$.
-We thus have constructed an isomorphism $\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
-Again, notice that since the target decoration is part of the sum $\left(m+m',F(\iota_m)x+F(\iota_{m'})x'\right)$ in the Grothendieck category $\inta F$ by \cref{eq:fibrewisecoprod}, this isomorphism we constructured is the canonical such that it commutes with the respective inclusions into the sum, and there is only one such canonical isomorphism $\lE(M)\otimes\lE(M')\otimes\lE(M'')\simrightarrow\lE(M\ot M'\ot M'')$ for any three structured cospans, proving associativity.
+We thus have constructed an isomorphism $\lE_\otimes\colon\lE(M)\otimes\lE(M') \simrightarrow \lE(M\otimes M')$ for each $M,M'$. 
 
 Moreover, the monoidal unit $I_1$ for ${}_L \lCsp(\inta F)$ is mapped under $\lE_1$ to the decorated cospan given in \cref{eq:monoidalunitFCsp}, so $\lE_1$ strictly preserves the monoidal unit.
-It can be verified that with this structure, $\lE_1$ is also a symmetric monoidal functor. 
+It can be verified that with this structure, $\lE_1$ is also a symmetric monoidal functor. For example, the associativity axiom ensuring that the two ways to go from $\lE (M)\ot\lE(M')\ot\lE(M'')$ to $\lE(M\ot M'\ot M'')$ using the above structure isomorphisms are equal, can in fact be deduced from the more general 2-equivalence between monoidal opfibrations and pseudofunctors into $\MonCat$ already discussed in \cite[Theorem 2.7]{Shulman2008}, for the induced global monoidal structure given by $(\phi,\phi_0)$ as discussed in \cref{lem:MonGroth}. Moreover, the earlier associativity axiom for the double functor structure isomorphism $\lE_\odot$ can be deduced using the one for $\lE_\otimes$, by observing that \cref{eq:isomorphismdiag} factors through \cref{eq:Elaxator} as follows
+\begin{displaymath}
+\begin{tikzcd}[column sep=.4in]
+F(m)\times F(n)\ar[r,"\phi_{m,n}"]\ar[d,"F(\iota_m)\times F(\iota_{n})"']\ar[dd,bend right=80,out=-90,in=-90,"F(v_m)\times F(v_n)"',"\textstyle\cong"]
+\ar[dr,phantom,"{\stackrel{\phi_{\iota_m,\iota_n}}{\cong}}"] & F(m+n)\ar[dr]\ar[d,bend left=60, phantom,"\cong"']\ar[d,"F(\iota_m+\iota_{n})"']  & \\
+F(m+n)\times F(m+n)\ar[d,"F(\psi)\times F(\psi)"']\ar[dr,phantom,"\stackrel{\phi_{\psi,\psi}}{\cong}"]\ar[r,"\phi_{m+n,m+n}"'] & F\left((m+n)+(m+n)\right)\ar[r,"F(\nabla)"']\ar[d,"F(\psi+\psi)"']\ar[dr,phantom,"\cong"] & F(m+n)\ar[d,"F(\psi)"] \\
+F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F((m+_bn)+(m+_bn))\ar[r,"F(\nabla)"'] & F(m+_bn)
+\end{tikzcd}
+\end{displaymath}
+due $\phi$ being a pseudonatural transformation, where $v=\psi\circ\iota$ as in \cref{eq:dcospanscomposition} and the bottom right isomorphism comes from naturality of $\nabla$.
 
-Finally, the rest of the axioms of \cref{defn:monoidal_double_functor} hold: on the cospan level they are easy to verify, whereas on the decoration level they entail nontrivial calculations involving universal property arguments. In conclusion, the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
+In a similar way, the rest of the axioms of \cref{defn:monoidal_double_functor} hold: on the cospan level they are easy to verify, whereas on the decoration level they entail nontrivial calculations based on the involved structures. In conclusion, the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
 \end{proof}
+
+Notice that in the above proof, when we compose two structured cospans namely horizontal 1-cells in the double category ${}_L\lCsp(\inta F)$ as in \cref{eq:pushoutissum}, the resulting composite cospan apex ends up being a sum on the second variable due to the definition of the left adjoint functor $L$ which forces the feet of all cospans to involve a fiberwise initial object. Consequently, one could remark that in fact, the assumptions of \cref{thm:equiv} should only state that the corresponding pseudofunctor $F\colon \A\to\SMC$ factors through categories with finite coproducts rather than $\Rex$. We leave the statement as is in order to match the general assumptions of \cref{thm:SC} for the definition of the structured cospan symmetric monoidal double category.
+
 
 \section{Bicategorical and categorical aspects}
 \label{spinoffs}
@@ -2562,6 +2573,7 @@ Explicitly, a symmetric monoidal double functor is a double functor $\lF \maps \
 }
 \end{itemize}
 \noindent
+%%% Christina: the notation is not streamlined. We occasionally use $F_\otimes$ and $F_\odot$ (which I prefer) and in the definitions above we use various greek letters like $\phi$ (which is definitely overused in our paper). Could this be fixed throughout the document? Similarly for the unit comparison maps.
 
 \begin{defn}\label{def:isomorphism}
 An \define{isomorphism} of symmetric monoidal categories is a symmetric monoidal 
