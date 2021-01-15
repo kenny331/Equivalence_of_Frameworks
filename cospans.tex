@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/1/14
+% 2021/1/15
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -1276,60 +1276,7 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
-%%% Kenny: Commenting out previous equation.
-\begin{comment}
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (G) at (-1,0.5) {$a$};
-\node (H) at (-1,-0.5)  {$b$};
-\node (I) at (-2,0.5) {$a$};
-\node (J) at (-2,-0.5) {$a$};
-\node (A) at (0,0.5) {$a$};
-\node (A') at (0,-0.5) {$b$};
-\node (B) at (1,0.5) {$b$};
-\node (C) at (2,0.5) {$b$};
-\node (C') at (2,-0.5) {$b$};
-\node (D) at (1,-0.5) {$b$};
-\node (E) at (1,1) {$\bot_{b} \in F(b)$};
-\node (F) at (1,-1) {$\bot_{b} \in F(b)$};
-\node (L) at (1,-1.5) {$\tau_{b} = 1_{\bot_{b}}$};
-\node (E') at (-1,1) {$\bot_{a} \in F(a)$};
-\node (F') at (-1,-1) {$\bot_{b} \in F(b)$};
-\node (L') at (-1,-1.5) {$\tau_{f} \maps F(f)(\bot_a) \to \bot_{b}$};
-\node (M) at (2.5,0) {$=$};
-\node (N) at (3,0.5) {$a$};
-\node (O) at (3,-0.5) {$a$};
-\node (P) at (4,0.5) {$b$};
-\node (Q) at (4,-0.5) {$b$};
-\node (R) at (5,0.5) {$b$};
-\node (S) at (5,-0.5) {$b$};
-\node (T) at (4,1) {$\bot_{b} \in F(b)$};
-\node (U) at (4,-1) {$\bot_{b} \in F(b)$};
-\node (V) at (4,-1.5) {$\tau_{b} = 1_{\bot_{b}}$};
-\path[->,font=\scriptsize,>=angle 90]
-(N) edge node[left]{$1$} (O)
-(P) edge node[left]{$1$} (Q)
-(R) edge node[left]{$1$} (S)
-(N) edge node[above]{$f$} (P)
-(O) edge node[above]{$f$} (Q)
-(R) edge node[above]{$1$} (P)
-(S) edge node[above]{$1$} (Q)
-(A) edge node[above]{$f$} (B)
-(C) edge node[above]{$1$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[left]{$1$} (C')
-(A') edge node[above] {$1$} (D)
-(C') edge node[above] {$1$} (D)
-(B) edge node [left] {$1$} (D)
-(A) edge node[above]{$1$} (G)
-(G) edge node[left]{$f$} (H)
-(A') edge node[above]{$1$} (H)
-(J) edge node[above] {$f$} (H)
-(I) edge node[left] {$1$} (J)
-(I) edge node [above] {$1$} (G);
-\end{tikzpicture}
-\]
-\end{comment}
+%%%Christina: if I am not mistaken, John had some comments on how these cospans are written and whether our convention is clear.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-0.75,0.5) {$a$};
