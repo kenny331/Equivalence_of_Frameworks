@@ -941,7 +941,14 @@ Moreover, each fiber $\X_a=F(a)$ obtains a monoidal structure via
 \otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
 I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!)}F(a)
 \end{equation}
-where $\nabla$ is the fold map, which is symmetric when $F$ is again via the components of $u_{a,a}$.
+where $\nabla$ is the fold map, which is symmetric when $F$ is again via the components of $u_{a,a}$. Also each reindexing functor $f_!=F(f)$ obtains a strong monoidal structure with
+\begin{equation}\label{eq:strongreindexing}
+\begin{tikzcd}[row sep=.35in]
+ F(a)\times F(a)\ar[r,"\phi_{a,a}"]\ar[d,"F(f)\times F(f)"']\ar[dr,phantom,"{\stackrel[\cref{eq:pseudonaturality}]{\phi_{f,f}}{\cong}}"] & 
+ F(a+a)\ar[r,"F(\nabla)"]\ar[d,"F(f+f)"description]\ar[dr,phantom,"\cong"] & F(a)\ar[d,"Ff"] \\
+ F(b)\times F(b)\ar[r,"\phi_{a,b}"'] & F(b+b)\ar[r,"F(\nabla)"'] & F(b)
+\end{tikzcd}
+\end{equation}
 \end{proof}
 
 These 2-equivalences further restrict to the case when the Grothendieck category $(X,\otimes_\X)$ is specifically cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}. In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
@@ -1122,7 +1129,7 @@ F(m+n)\times F(m+n)\ar[d,"F(\psi)\times F(\psi)"']\ar[dr,phantom,"\stackrel{\phi
 F(m+_bn)\times F(m+_bn)\ar[r,"\phi_{m+_bn,m+_bn}"'] & F((m+_bn)+(m+_bn))\ar[r,"F(\nabla)"'] & F(m+_bn)
 \end{tikzcd}
 \end{displaymath}
-due $\phi$ being a pseudonatural transformation, where $v=\psi\circ\iota$ as in \cref{eq:dcospanscomposition} and the bottom right isomorphism comes from naturality of $\nabla$.
+due $\phi$ being a pseudonatural transformation, where $v=\psi\circ\iota$ as in \cref{eq:dcospanscomposition} and the bottom right isomorphism comes from naturality of $\nabla$. Notice that the bottom two-part composite isomorphism is the induced strong monoidal structure on the reindexing functor $F(\psi)$ as in \cref{eq:strongreindexing}.
 
 In a similar way, the rest of the axioms of \cref{defn:monoidal_double_functor} hold: on the cospan level they are easy to verify, whereas on the decoration level they entail nontrivial calculations based on the involved structures. In conclusion, the double isomorphism \cref{eq:doubleiso} is an isomorphism of symmetric monoidal double categories. 
 \end{proof}
