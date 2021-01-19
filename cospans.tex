@@ -2189,7 +2189,6 @@ A functor $U \maps \A \to \X$ admits a left adjoint if and only if for every $x 
 \end{lem}
 Because the empty set is initial in $\Fin\Set$, the comma category 
 $\emptyset \downarrow U$ is just $\inta D$.  This contains an object $(\emptyset, v_\emptyset)$, where $v_\emptyset$ is the only possible vector field on $\R^\emptyset$, namely, the zero vector field.   The only object in $\inta D$ with any morphisms to $(\emptyset, v_\emptyset)$ is $(\emptyset, v_\emptyset)$ itself, so no other object can be initial.  However $(\emptyset, v_\emptyset)$ is not initial either, because it has no morphisms to an object $(S,v)$ unless $v$ is the zero vector field on $\R^S$.  Thus by \cref{lem:initial}, $U$ does not have a left adjoint.
-%%% Christina: that's nice and clear, but could we also pinpoint which assumption from the Theorem fails exactly? Because having an adjoint is a RESULT of the initial conditions. We don't need to elaborate, just point it out - it is presumably that F does not factor through Rex?
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -2233,8 +2232,7 @@ In this appendix, we gather some well-known concepts required to make the materi
 \subsection{Bicategories}
 \label{subsec:bicats}
 
-For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ its own equation, %%%Christina: something is missing in that sentence syntactically?
-\define{symmetric} if one further axiom holds. 
+For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ obeying its own equation, and \define{symmetric} if one further axiom holds. 
 
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
