@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/1/15
+% 2021/1/18
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -1234,7 +1234,7 @@ where the decoration morphism $\tau_f$ is the isomorphism given by the pseudofun
 (C) edge node[right]{$F(f)$} (C');
 \end{tikzpicture}
 \]
-These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq}, using vertical \cref{eq:verticalcompo} and horizontal \cref{eq:horizontalcompo} composition of 2-cells in this double category:
+These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a companion, involving vertical \cref{eq:verticalcompo} and horizontal \cref{eq:horizontalcompo} composition of 2-cells in this double category:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (N) at (0,1.5) {$a$};
@@ -1283,7 +1283,6 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 (I') edge node [above] {$1$} (H');
 \end{tikzpicture}
 \]
-%%%Christina: if I am not mistaken, John had some comments on how these cospans are written and whether our convention is clear.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-0.75,0.5) {$a$};
@@ -1350,9 +1349,7 @@ These 2-morphisms satisfy equations required of a companion \cref{eq:CompanionEq
 (I) edge node [above] {$1$} (G);
 \end{tikzpicture}
 \]
-%since the right hand sides of the above two equations are given respectively by the 2-morphisms $U_f$ and $1_{\hat{f}}$. 
-since the right hand side of the first equation is given by $U_f$ and the second equation utilizing the left and right unitors of $\odot$, which may be found in (\ref{eq:decunitor}), is given as in Definition \ref{def:companion}.
-The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
+Note that the right hand side of the first equation is $U_f$, while the second equation involves the left and right unitors for $\odot$, which may be found in (\ref{eq:decunitor}): these are maps from a horizontal composite of two decorated cospans to a single decorated cospan.  The conjoint of $f$ is given by this horizontal 1-cell $\check{f}$, which is just the opposite of the companion above:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$b$};
@@ -1691,7 +1688,7 @@ which can also be thought of as an open graph from $X$ to $Y$,
 is a commuting diagram in $\Fin\Set$ together with a morphism $\tau \maps F(h)(G) \to G'$ in $F(N')$.
 \end{itemize}
 
-We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Fin\Set$ as its category of objects, open graphs as horizontal 1-cells, and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories---and indeed this is true.   This follows from \cref{thm:equiv} together with the fact that $U \maps \inta F \to \Fin\Set$ and $R \maps \Graph \to \Fin\Set$ are isomorphic as symmetric monoidal opfibrations.  %%% Christina: I don't understand why the last part of this sentence is needed. The isomorphism should be obtained straight away from our theorem no? I *kinda* see the point but it looks like a technicality that it could be more obscuring than clarifying...
+We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obtained from structured cospans and $F\lCsp$ obtained from decorated cospans. Each of these double categories has $\Fin\Set$ as its category of objects, open graphs as horizontal 1-cells, and maps of open graphs as 2-morphisms.   This suggests that ${}_L \lCsp(\Graph)$  and $F\lCsp$ are isomorphic as symmetric monoidal double categories---and indeed this follows from \cref{thm:equiv}.
 
 \subsection{Circuits}
 \label{subsec:circuits}
@@ -2152,11 +2149,13 @@ v(c) = \sum_{\tau \in T} r(\tau) \, ( t(\tau) - s(\tau) ) c^{s(\tau)}
 \]
 where 
 \[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
-and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural isomorphism between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.
+and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural isomorphism between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.  Thus, it defines a symmetric monoidal double functor $\graysquare \maps F \lCsp \to D \lCsp$.
 
-Given a Petri net with rates $P$ and defining $v$ as above, this system of first-order ordinary differential equations for a function $c \maps \R \to \R^S$:
-\[    \frac{d}{dt} c(t) = v(c(t))   \]
-is called the \define{rate equation}.    When $P$ is part of an open Petri net with rates
+In applications, this double functor lets us turn an open Petri net with rates into an open dynamical system as follows.  Given a Petri net with rates $P$ and defining $v$ as above, we
+obtain a system first-order ordinary differential equations for a function $c \maps \R \to \R^S$ 
+called the \define{rate equation}:
+\[    \frac{d}{dt} c(t) = v(c(t)) .  \]
+More generally, when $P$ is part of an open Petri net with rates
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (D) at (-3,0) {$L(X)$};
@@ -2169,9 +2168,9 @@ is called the \define{rate equation}.    When $P$ is part of an open Petri net w
 \]
 we get an open dynamical system called the \define{open rate equation}:
 \[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
-where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. %%% Christina: is this where the description of the black box double functor ends? Should we add a finishing line to that end?
+where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
 
-We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}.  Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that under certain conditions the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$.   We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \Csp(\X)$.   We now show that in the case at hand, where $F = D$,  the opfibration $U$ does \emph{not} have a left adjoint.  Thus, the conditions of \cref{thm:equiv} do not hold in this case.
+We now show that decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}. Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that if $F$ factors through $\Rex$ the resulting opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$. We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \Csp(\X)$. We now show that in the case at hand, where $F = D$, the opfibration $U$ does \emph{not} have a left adjoint. Thus, the conditions of \cref{thm:equiv} do not hold in this case: $F$ does not factor through $\Rex$.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
 \begin{itemize}
