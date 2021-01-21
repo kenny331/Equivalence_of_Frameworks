@@ -17,7 +17,7 @@
 \begin{document}
 
 \begin{abstract}
-One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\X$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans. Second, given a pseudofunctor $F \maps \A \to \Cat$, a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow s \leftarrow b$ together with an object of $F(s)$. Generalizing the work of Fong, we show that if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is symmetric lax monoidal, there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.  We prove that under certain conditions, these two constructions become isomorphic when we take $\X = \inta F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, dynamical systems and epidemiological modeling.
+One goal of applied category theory is to understand open systems.  We compare two ways of describing open systems as cospans equipped with extra data.    First, given a functor $L \maps \A \to \X$, a `structured cospan' is a diagram in $\X$ of the form $L(a) \rightarrow x \leftarrow L(b)$.  If $\A$ and $\X$ have finite colimits and $L$ preserves them, it is known that there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are structured cospans. Second, given a pseudofunctor $F \maps \A \to \Cat$, a `decorated cospan' is a diagram in $\A$ of the form $a \rightarrow m \leftarrow b$ together with an object of $F(m)$. Generalizing the work of Fong, we show that if $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is symmetric lax monoidal, there is a symmetric monoidal double category whose objects are those of $\A$ and whose horizontal 1-cells are decorated cospans.  We prove that under certain conditions, these two constructions become isomorphic when we take $\X = \inta F$ to be the Grothendieck category of $F$.  We illustrate these ideas with applications to electrical circuits, Petri nets, dynamical systems and epidemiological modeling.
 \end{abstract}
 
 \maketitle
@@ -846,7 +846,7 @@ This theorem should generalize to the case when $\theta$ is a pseudonatural equi
 
 \section{Structured versus decorated cospans} \label{EquivDoubleCats}
 
-In \cite{BC}, the first two authors introduce the symmetric monoidal double category of \emph{structured cospans} as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double isomorphism between this double category and that of \emph{decorated cospans}, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category of structured cospans.
+In \cite{BC}, the first two authors introduce the symmetric monoidal double category of structured cospans as a formalism to capture open networks. One of the main goals of this paper is to provide a monoidal double isomorphism between this double category and that of decorated cospans, described in detail in \cref{DecCospansDoubleCat}. We first recall the double category of structured cospans.
 
 \begin{thm}\label{thm:SC}
 Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
@@ -1615,9 +1615,8 @@ Here is an example of an open graph:
 
 We can also build a double category with open graphs as horizontal 1-cells using decorated cospans.    For any finite set $N$, there is a category $F(N)$ where:
 \begin{itemize}
-\item An object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$.
-\item A morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is
-the identity on $N$: that is, a function $g \maps E \to E'$ such that these diagrams commute:
+\item an object is a \define{graph structure} on $N$: that is, a graph $s,t \maps E \to N$,
+\item a morphism from $s,t \maps E \to N$ to $s',t' \maps E' \to N$ is a morphism of graphs that is the identity on $N$: that is, a function $g \maps E \to E'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -1914,7 +1913,7 @@ The machinery of structured cospans has been used to provide a semantics for ope
 \subsection{Petri nets with rates}
 \label{subsec:petrirates}
 
-In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labelled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
+In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labeled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
 Pollard and the first author showed how to construct an open dynamical system from any open Petri net with rates,  thus defining a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}.  They used Fong's original decorated cospans to do this.   Later, structured cospans were used to promote the first of these categories to a double category \cite[Section 6.16]{BC}. Here we show that the second of these categories, with open dynamical systems as morphisms, \emph{cannot} be made into a double category using structured cospans.  However, we \emph{can} do it using decorated cospans.
  
@@ -1973,7 +1972,7 @@ First, to briefly illustrate these ideas, here is an open Petri net with rates:
 	\end{pgfonlayer}
 \end{tikzpicture}
 \]
-It is an open Petri net where the transitions are labelled with rate constants $r_1, r_2 > 0$.
+It is an open Petri net where the transitions are labeled with rate constants $r_1, r_2 > 0$.
 Here is the corresponding open dynamical system:
 \begin{equation}
 \label{eq:openPetrir}
@@ -2234,25 +2233,25 @@ In this appendix, we gather some well-known concepts required to make the materi
 
 For standard 2-categorical material, we refer the reader to \cite{KS}.  For monoidal 2-categories see \cite{DS}, and for detailed definitions concerning monoidal bicategories see \cite{GPS,McCrudden,Stay}.  Briefly, a \define{monoidal} bicategory $\bA$ comes with a pseudofunctor $\otimes\maps\bA\times\bA\to\bA$ and a unit object $I$ that are associative and unital up to coherent equivalence. A \define{braided} monoidal bicategory also comes with a pseudonatural equivalence $\beta_{a,b}\maps a\ot b\to b\ot a$ and appropriate invertible modifications obeying certain equations; it is \define{sylleptic} if there is an invertible modification $1_{a\ot b}\Rrightarrow\beta_{b,a}\circ\beta_{a,b}$ obeying its own equation, and \define{symmetric} if one further axiom holds. 
 
-A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
+A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in some earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
 \begin{tikzcd}[column sep=.8in, row sep=.3in]
-(F a\ot F b)\ot F c\ar[ddr,phantom,"{\cong}"]\ar[r,"{\phi_{a,b}\ot1}"]\ar[d,sloped,"\sim"'] & F (a\ot b)\ot F 
+(F a\ot F b)\ot F c\ar[ddr,phantom,"{\cong}"]\ar[r,"{\phi_{a,b}\ot1}"]\ar[d,anchor=center,swap,"\sim"] & F (a\ot b)\ot F 
 c\ar[d,"{\phi_{a\ot b,c}}"] \\
 F a\ot( F b\ot F c)\ar[d,"{1\ot\phi_{b,c}}"'] & 
-F ((a\ot b)\ot c)\ar[d,sloped,"\sim"] \\
+F ((a\ot b)\ot c)\ar[d,anchor=center,"\sim"] \\
 F a\ot F(b\ot c)\ar[r,"{\phi_{a,b\ot c}}"'] &
 F (a\ot(b\ot c))
 \end{tikzcd}
 \end{equation}
 \begin{equation}\label{eq:unitality}
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & F a\otimes I\ar[r,"1\otimes\phi_0"]\ar[dr,phantom,"\cong"] & F 
+F a\ar[r,"\sim"]\ar[drr,"\sim"'] & F a\otimes I\ar[r,"1\otimes\phi_0"]\ar[dr,phantom,"\cong"] & F 
 a\otimes F I\ar[d,"\phi_{a,I}"] \\
 && F(a\ot I)
 \end{tikzcd}\qquad
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & I\otimes F a \ar[r,"\phi_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
+F a\ar[r,"\sim"]\ar[drr,"\sim"'] & I\otimes F a \ar[r,"\phi_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
 I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
@@ -2985,7 +2984,7 @@ where the unnamed isomorphisms are appropriate composites of the pseudoassociati
 \bibitem{BFV} G.\ Bakirtzis, C.\ H.\ Fleming and C.\ Vasilakopoulou, Categorical semantics of cyber-physical systems theory. Available as 
 \href{https://arxiv.org/abs/2010.08003}{arXiv:2010.08003}.
 
-\bibitem{BSZ} Filippo Bonchi, Pawe\l~Soboci\'nski and Fabio Zanasi, A categorical semantics of signal flow graphs, in \textsl{CONCUR 2014--Concurrency Theory}, eds.\ P.\ Baldan and D.\ Gorla, \textsl{Lecture Notes in Computer Science} vol.\ 8704, Springer, Berlin, 2014, pp.\ 435--450.  Also available at \href{http://users.ecs.soton.ac.uk/ps/papers/sfg.pdf}{http://users.ecs.soton.ac.uk/ps/papers/sfg.pdf}.
+\bibitem{BSZ} Filippo Bonchi, Pawe\l~Soboci\'nski and Fabio Zanasi, A categorical semantics of signal flow graphs, in \textsl{CONCUR 2014--Concurrency Theory}, eds.\ P.\ Baldan and D.\ Gorla, Lecture Notes in Computer Science \textbf{8704}, Springer, Berlin, 2014, pp.\ 435--450.  Also available at \href{http://users.ecs.soton.ac.uk/ps/papers/sfg.pdf}{http://users.ecs.soton.ac.uk/ps/papers/sfg.pdf}.
 
 \bibitem{Borc} F. \ Borceux, \textsl{Handbook of Categorical Algebra}, vol.\ 2, 
 Cambridge University Press, Cambridge, 1994.
@@ -2996,7 +2995,7 @@ Cambridge University Press, Cambridge, 1994.
 %\bibitem{Brown2} R.\ Brown, K.\ Hardie, H.\ Kamps and T.\ Porter, The homotopy double groupoid of a Hausdorff space, \textsl{Theory Appl.\ Categ.} \textbf{10} (2002), 71--93.
 
 %\bibitem{Be} J.\ B\'enabou, Introduction to bicategories, in {\sl Reports
-%of the Midwest Category Seminar}, Lecture Notes in Mathematics, vol.\ \textbf{47}, Springer, Berlin, 1967, pp.\ 1--77.
+%of the Midwest Category Seminar}, Lecture Notes in Mathematics \textbf{47}, Springer, Berlin, 1967, pp.\ 1--77.
 
 \bibitem{BungeFiore} M.\ Bunge and M.\ Fiore, Unique factorisation lifting functors and categories of linearly-controlled processes, \textsl{Math.\ Struct.\ Comput.\ Sci.\ } \textbf{10} (2000), 137--163.
 
@@ -3010,7 +3009,7 @@ Cambridge University Press, Cambridge, 1994.
 
 \bibitem{CTF} Gheorghe Craciun, Yangzhong Tang and Martin Feinberg, Understanding bistability in complex enzyme-driven reaction networks, \textsl{PNAS} \textbf{103} (2006), 8697--8702.  
 
-\bibitem{DS} B.\ Day and R.\ Street, Monoidal Bicategories and Hopf algebroids, \textsl{Adv.\ Math.} \textbf{129} (1997), 99--157.
+\bibitem{DS} B.\ Day and R.\ Street, Monoidal bicategories and Hopf algebroids, \textsl{Adv.\ Math.} \textbf{129} (1997), 99--157.
 
 %\bibitem{Ehresmann63} C.\ Ehresmann, Cat\'egories structur\'ees III: Quintettes et applications covariantes,  \textsl{Cah.\ Top.\ G\'eom.\ Diff.} \textbf{5} (1963), 1--22.
 
@@ -3050,8 +3049,7 @@ Springer, Berlin, 2002.
 
 \bibitem{KSW} P.\ Katis, N.\ Sabadini and R.\ F.\ C.\ Walters, On the algebra of systems with feedback and boundary, \textsl{Rendiconti del Circolo Matematico di Palermo Serie II} \textbf{63} (2000), 123--156.
 
-\bibitem{KS} G.\ Kelly and R.\ Street, Review of the elements of 2-categories, in \textsl{Category Seminar}, Lecture Notes in Mathematics 40, Springer, Berlin, 1974, 
-pp.\ 75--103.
+\bibitem{KS} G.\ M.\ Kelly and R.\ Street, Review of the elements of 2-categories, in \textsl{Category Seminar}, ed.\ G.\ M.\ Kelly, Lecture Notes in Mathematics \textbf{40}, Springer, Berlin, 1974, pp.\ 75--103.
 
 \bibitem{Koch} I.\ Koch, Petri nets---a mathematical formalism to analyze chemical reaction
 networks, \textsl{Mol.\ Inform.\  }\textbf{29} (2010), 838--843.
