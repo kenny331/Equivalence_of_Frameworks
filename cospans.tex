@@ -2237,22 +2237,22 @@ For standard 2-categorical material, we refer the reader to \cite{KS}.  For mono
 A \define{lax monoidal} pseudofunctor (called \emph{weak monoidal} homomorphism in some earlier references) between monoidal bicategories $F\maps\bA\to\bB$ is a pseudofunctor equipped with pseudonatural transformations with components $\phi_{a,b}\maps Fa\otimes Fb\to F(a\otimes b)$ and $\phi_0\maps I\to FI$ along with invertible modifications for associativity and unitality with components 
 \begin{equation}\label{eq:omega}
 \begin{tikzcd}[column sep=.8in, row sep=.3in]
-(F a\ot F b)\ot F c\ar[ddr,phantom,"{\cong}"]\ar[r,"{\phi_{a,b}\ot1}"]\ar[d,anchor=center,swap,"\sim"] & F (a\ot b)\ot F 
+(F a\ot F b)\ot F c\ar[ddr,phantom,"{\cong}"]\ar[r,"{\phi_{a,b}\ot1}"]\ar[d,anchor=center,sloped,swap,"\sim"] & F (a\ot b)\ot F 
 c\ar[d,"{\phi_{a\ot b,c}}"] \\
 F a\ot( F b\ot F c)\ar[d,"{1\ot\phi_{b,c}}"'] & 
-F ((a\ot b)\ot c)\ar[d,anchor=center,"\sim"] \\
+F ((a\ot b)\ot c)\ar[d,anchor=center,sloped,"\sim"] \\
 F a\ot F(b\ot c)\ar[r,"{\phi_{a,b\ot c}}"'] &
 F (a\ot(b\ot c))
 \end{tikzcd}
 \end{equation}
 \begin{equation}\label{eq:unitality}
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,"\sim"'] & F a\otimes I\ar[r,"1\otimes\phi_0"]\ar[dr,phantom,"\cong"] & F 
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & F a\otimes I\ar[r,"1\otimes\phi_0"]\ar[dr,phantom,"\cong"] & F 
 a\otimes F I\ar[d,"\phi_{a,I}"] \\
 && F(a\ot I)
 \end{tikzcd}\qquad
 \begin{tikzcd}[column sep=.3in,row sep=.3in]
-F a\ar[r,"\sim"]\ar[drr,"\sim"'] & I\otimes F a \ar[r,"\phi_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
+F a\ar[r,"\sim"]\ar[drr,sloped,"\sim"'] & I\otimes F a \ar[r,"\phi_0\otimes1"]\ar[dr,phantom,"\cong"] & F 
 I\otimes F a\ar[d,"\phi_{I,a}"] \\
 && F(I\ot a)
 \end{tikzcd}
@@ -2415,12 +2415,12 @@ Let $\Dbl$ denote the 2-category of double categories, double functors and doubl
 
 \begin{defn}
 \label{defn:monoidal_double_category}
-A \define{monoidal double category} is a pseudomonoid in $\Dbl$. 
+A \define{monoidal double category} is a pseudomonoid in $\Dbl$, namely it is equipped with double functors $\otimes\colon\lD\times\lD\to\lD$, $I\colon\one\to\lD$ and invertible double transformations $\otimes\circ(1\times\otimes)\cong\otimes\circ(\otimes\times1)$, $\otimes\circ(1\times I)\cong1\cong\otimes\circ(I\times1)$ satisfying standard axioms.
 \end{defn} 
 \noindent
 Explicitly, a monoidal double category is a double category $\lD$ with:
 \begin{itemize}
-\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$ and unit object $I_\lD$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit objects and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    
+\item monoidal structures on both $\lD_0$ and $\lD_1$ (each with tensor product denoted $\otimes$, associator $a$, left unitor $\ell$ and right unitor $r$ and unit object $I$), such that $U \maps \lD_0 \to \lD_1$ strictly preserves the unit objects and $S,T \maps \lD_1 \to \lD_0$ are strict monoidal,    
 \item the structure of a double functor on $\otimes$:
 that is, invertible globular 2-morphisms
 \[ \chi \maps (M_2\otimes N_2)\odot(M_1\otimes N_1)  \simrightarrow
@@ -2472,11 +2472,8 @@ Explicitly, a symmetric monoidal double category is a monoidal double category $
 
 
 \begin{defn}\label{defn:monoidal_double_functor}
-Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \maps \lD \to \lE$ is a double functor $\lF$ together with invertible transformations $\theta \maps {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $\theta_U \maps I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor with respect to $\otimes$.
+Given symmetric monoidal double categories $\lD$ and $\lE$, a \define{symmetric monoidal double functor} $\lF \maps \lD \to \lE$ is a double functor $\lF$ together with invertible transformations $\lF_\otimes\maps {\otimes \circ (\lF,\lF)} \to \lF \circ \otimes$ and $I_\lE \to \lF \circ I_\lD$ that satisfy the usual coherence axioms for a symmetric monoidal functor.
 \end{defn}
-%{\chris Those units in the definition should be monoidal units not unit functors...}
-%%% Kenny: How about I instead of 1?
-%%% Christina: Sure but that was NOT in the definition of symmetric monoidal double category above...could you streamline??
 \noindent
 Explicitly, a symmetric monoidal double functor is a double functor $\lF \maps \lD \to \lE$ such that:
 \begin{itemize}
