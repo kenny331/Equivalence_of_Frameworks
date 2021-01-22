@@ -4,7 +4,268 @@
 % 2021/1/22 - first arXiv version
 
 \documentclass[reqno]{amsart}
-\input{Equiv_preamble.tex}
+
+\usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}
+\usepackage{comment}
+\usepackage[neveradjust]{paralist}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage[outline]{contour}
+\contourlength{1.2pt}
+\usepackage{tikz}
+\usetikzlibrary{intersections,arrows.meta,calc,quotes,math,decorations.pathreplacing,decorations.markings,cd,arrows,positioning,fit,matrix,
+shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits.ee.IEC,shapes}
+\usepackage[a4paper,top=3cm,bottom=3cm,inner=3cm,outer=3cm]{geometry}
+\usepackage[foot]{amsaddr}
+\usepackage{graphicx}
+\usepackage{stackrel}
+
+% colors
+\usepackage{xcolor}
+\usepackage{framed,color}
+
+\definecolor{shadecolor}{rgb}{1,0.8,0.3}
+\definecolor{myurlcolor}{rgb}{0.5,0,0}
+\definecolor{mycitecolor}{rgb}{0,0,0.7}
+\definecolor{myrefcolor}{rgb}{0,0,0.7}
+\definecolor{hyperrefcolor}{rgb}{0.5,0,0}
+
+% hyperlinks
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor={hyperrefcolor},
+	citecolor={hyperrefcolor},
+	urlcolor={hyperrefcolor}
+}
+
+\newcommand{\backref}[1]{(Referred to on page #1.)}
+
+\usepackage[draft]{fixme}
+\usepackage[capitalize]{cleveref}
+\crefname{equation}{}{}
+\crefname{defn}{Definition}{Definitions}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{lem}{Lemma}{Lemmas}
+
+\definecolor{rewritecolor}{rgb}{0,.9,1}
+\tikzset{rewritenode/.style={shape=circle,fill=rewritecolor,scale=0.25,font=\Huge}}
+\tikzset{RWopen/.style={shape=circle,draw=black,fill=white,scale=0.5,font=\Huge}}
+\tikzset{RWclosed/.style={shape=circle,fill=black,scale=0.5,font=\Huge}}
+\tikzset{CDnode/.style={shape=circle,fill=white,scale=.5}}
+\makeatletter
+\let\ea\expandafter
+
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
+
+% Petri nets
+\definecolor{lblue}{rgb}{0,250,255}
+\tikzstyle{species}=[circle,fill=yellow,draw=black,scale=1.15]
+\tikzstyle{transition}=[rectangle,fill=lblue,draw=black,scale=1.15]
+\tikzstyle{inarrow}=[->, >=stealth, shorten >=.03cm,line width=1.5]
+\tikzstyle{empty}=[circle,fill=none, draw=none]
+\tikzstyle{inputdot}=[circle,fill=purple,draw=purple, scale=.25]
+\tikzstyle{inputarrow}=[->,draw=purple, shorten >=.05cm]
+\tikzstyle{simple}=[-,draw=purple,line width=1.000]
+\tikzstyle{none}=[inner sep=0pt]
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+
+%% Defining commands that are always in math mode.
+\def\mdef#1#2{\ea\ea\ea\gdef\ea\ea\noexpand#1\ea{\ea\ensuremath\ea{#2}}}
+\def\alwaysmath#1{\ea\ea\ea\global\ea\ea\ea\let\ea\ea\csname your@#1\endcsname\csname #1\endcsname
+  \ea\def\csname #1\endcsname{\ensuremath{\csname your@#1\endcsname}}}
+
+\mdef\fahat{\hat{\fa}}
+
+% MISCELLANEOUS SYMBOLS
+\newcommand{\inv}{^{-1}}
+\newcommand{\op}{^{\mathit{op}}}
+\newcommand{\co}{^{\mathit{co}}}
+\newcommand{\coop}{^{\mathit{coop}}}
+\newcommand{\id}{\mathrm{id}}
+\let\adj\dashv
+\newcommand{\pullbackcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\let\iso\cong
+\let\eqv\simeq
+\let\cng\equiv
+\alwaysmath{ell}
+\alwaysmath{infty}
+\alwaysmath{odot}
+\def\frc#1/#2.{\frac{#1}{#2}}   % \frc x^2+1 / x^2-1 .
+\mdef\ten{\mathrel{\otimes}}
+\newcommand{\simrightarrow}{\xrightarrow{\raisebox{-3pt}[0pt][0pt]{\ensuremath{\sim}}}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Mor}{\mathrm{Mor}}
+
+\newcommand*{\graysquare}{\textcolor{lightgray}{\blacksquare}}
+
+
+%% OPERATORS
+\DeclareMathOperator\colim{colim}
+\DeclareMathOperator\eq{eq}
+\DeclareMathOperator\Aut{Aut}
+\DeclareMathOperator\End{End}
+\DeclareMathOperator\Hom{Hom}
+\DeclareMathOperator\Map{Map}
+
+%% ARROWS
+% \to already exists
+\newcommand{\too}[1][]{\ensuremath{\overset{#1}{\longrightarrow}}}
+\newcommand{\oot}[1][]{\ensuremath{\overset{#1}{\longleftarrow}}}
+\let\toot\rightleftarrows
+\let\otto\leftrightarrows
+\let\maps\colon
+
+%% EXTENSIBLE ARROWS
+\let\xto\xrightarrow
+\let\xot\xleftarrow
+
+% THEOREM-TYPE ENVIRONMENTS, hacked to
+%% (a) number all with the same numbers, and
+%% (b) have the right names for autoref
+\def\defthm#1#2{%
+  \newtheorem{#1}{#2}[section]%
+  \expandafter\def\csname #1autorefname\endcsname{#2}%
+  \expandafter\let\csname c@#1\endcsname\c@thm}
+\newtheorem{thm}{Theorem}[section]
+\newcommand{\thmautorefname}{Theorem}
+\defthm{cor}{Corollary}
+\defthm{prop}{Proposition}
+\defthm{lem}{Lemma}
+\defthm{conj}{Conjecture}
+\defthm{hyp}{Hypothesis}
+\defthm{fact}{Fact}
+\theoremstyle{definition}
+\defthm{defn}{Definition}
+\defthm{notn}{Notation}
+\theoremstyle{remark}
+\defthm{rmk}{Remark}
+\defthm{eg}{Example}
+
+\newcommand{\fhat}{\ensuremath{\hat{f}}}
+
+% Also number formulas with the theorem counter
+%\let\c@equation\c@thm
+%\numberwithin{equation}{section}
+
+% Only show numbers for equations that are actually referenced (or
+% whose tags are specified manually) - uses mathtools. %Christina: for some reason, the command below made it impossible to label any equation!
+%\mathtoolsset{showonlyrefs,showmanualtags}
+
+\def\tobar{\mathrel{\mkern3mu  \vcenter{\hbox{$\scriptscriptstyle+$}}%
+                    \mkern-12mu{\to}}}
+
+%\input{decls}
+%\UseAllTwocells
+
+\mdef\fchk{\check{f}}
+
+\definecolor{purple(x11)}{rgb}{0.5, 0.0, 0.5}
+\def\purple{\color{purple(x11)}}
+\def\chris{\purple}
+\newcommand{\upback}{\mathbin{\rotatebox[origin=c]{135}{$\ulcorner$}}}
+
+% xypic
+\usepackage[all,2cell,cmtip]{xy}
+%\input{decls}
+\UseAllTwocells
+
+% sets
+
+\newcommand{\La}{\mathcal{L}}
+
+% categories
+
+\newcommand{\ca}{\mathsf}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Graph}{\mathsf{Graph}}
+\newcommand{\Dynam}{\mathsf{Dynam}}
+\newcommand{\Mark}{\mathsf{Mark}}
+\newcommand{\Petri}{\mathsf{Petri}}
+\newcommand{\B}{\mathsf{B}}
+\newcommand{\A}{\mathsf{A}}
+\newcommand{\C}{\mathsf{C}}
+\newcommand{\J}{\mathsf{J}}
+\newcommand{\T}{\mathsf{T}}
+\newcommand{\D}{\mathsf{D}}
+\newcommand{\X}{\mathsf{X}}
+\newcommand{\Y}{\mathsf{Y}}
+\newcommand{\Z}{\mathsf{Z}}
+\newcommand{\Lag}{\mathsf{Lag}}
+\newcommand{\SemiAlg}{\mathsf{SemiAlg}}
+\newcommand{\Fin}{\mathsf{Fin}}
+\newcommand{\Rel}{\mathsf{Rel}}
+\newcommand{\Cospan}{\mathsf{Cospan}}
+\newcommand{\Csp}{\mathsf{Csp}}
+\newcommand{\Circ}{\mathsf{Circ}}
+\newcommand{\CMC}{\mathsf{CMC}}
+\newcommand{\RxNet}{\mathsf{RxNet}}
+\newcommand{\one}{\mathsf{1}}
+
+% bicategories
+
+\newcommand{\bicat}{\mathbf}
+\newcommand{\Dbl}{\bicat{Dbl}}
+\newcommand{\bCsp}{\bicat{Csp}}
+\newcommand{\bA}{\bicat{A}}
+\newcommand{\bB}{\bicat{B}}
+\newcommand{\bX}{\bicat{X}}
+\newcommand{\bY}{\bicat{Y}}
+\newcommand{\bD}{\bicat{D}}
+\newcommand{\Cat}{\bicat{Cat}}
+\newcommand{\MonCat}{\bicat{MonCat}}
+\newcommand{\Rex}{\bicat{Rex}}
+\newcommand{\SMC}{\bicat{SymMonCat}}
+\newcommand{\OpICat}{\bicat{OpICat}}%probably too much to use?
+\newcommand{\OpFib}{\bicat{OpFib}}
+
+
+% double categories
+
+\newcommand{\double}[1]{\mathbf{\mathbb #1}}
+\newcommand{\lCsp}{\double{Csp}}
+\newcommand{\lCospan}{\double{Cospan}}
+\newcommand{\lOpen}{\double{Open}}
+\newcommand{\lA}{\double{A}}
+\newcommand{\lB}{\double{B}}
+\newcommand{\lC}{\double{C}}
+\newcommand{\lD}{\double{D}}
+\newcommand{\lE}{\double{E}}
+\newcommand{\lF}{\double{F}}
+\newcommand{\lG}{\double{G}}
+\newcommand{\lH}{\double{H}}
+\newcommand{\lR}{\double{R}}
+\newcommand{\lX}{\double{X}}
+\newcommand{\lY}{\double{Y}}
+
+% this puts definitions in boldface
+
+\newcommand{\define}[1]{{\bf \boldmath{#1}}}
+
+% other gunk
+
+\newcommand{\dcsp}[1]{{#1}\mathbb{C}\textnormal{sp}}
+\newcommand{\scsp}[2]{_{#1}\mathbb{C}\textnormal{sp}\left(#2\right)}
+\tikzset{tick/.style={postaction={decorate,decoration={markings,
+mark=at position 0.4 with {\draw[-] (0,.4ex) -- (0,-.4ex);}}}}}
+\newcommand{\tickar}{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand replacement=\&]{}\ar[r,tick]\&{}\end{tikzcd}}
+\newcommand{\cspn}[5]{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand replacement=\&]{#1}\ar[r,"#4"] \& {#2} \& {#3}\ar[l,"#5"']\end{tikzcd}}
+
+\newcommand{\inta}{\raisebox{.3\depth}{$\smallint\hspace{-.01in}$}}
+\newcommand{\pse}{\mathrm{ps}}
+\newcommand{\mapseqq}{:=}
+\newcommand{\ot}{\otimes}
+\newcommand{\To}{\Rightarrow}
+
 
 \title{Structured Versus Decorated Cospans}
 
