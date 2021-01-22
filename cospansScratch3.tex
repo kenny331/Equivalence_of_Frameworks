@@ -1,0 +1,2943 @@
+% Structured and decorated cospans
+% John Baez, Kenny Courser and Christina Vasilakopoulou
+% in LaTeX
+% 2020/11/27
+
+\documentclass[reqno]{amsart}
+\input{Equiv_preamble.tex}
+
+\title{Structured Versus Decorated Cospans}
+
+\author{John\ C.\ Baez$^{1,2}$, Kenny Courser$^1$, and Christina Vasilakopoulou$^3$}
+\address{$^1$Department of Mathematics, University of California, Riverside CA, USA 92521}
+\address{$^2$Centre for Quantum Technologies, National University of Singapore, Singapore 117543}
+\address{$^3$Department of Mathematics, University of Patras, Greece 265 04}
+\email{baez@math.ucr.edu, kcour001@ucr.edu, cvasilak@math.upatras.gr}
+
+\begin{document}
+
+\newpage
+\textbf{Diagram 1 of 11. Not set up and not solved.}
+
+\newpage
+\noindent
+\textbf{Diagrams 2 and 3 of 11. Set up but not solved.}
+\newline
+\noindent
+$M \in F\lCsp$ is given by $a \xrightarrow{i} m \xleftarrow{o} a'$ with $x \in F(m)$.
+\newline
+$N \in F\lCsp$ is given by $b \xrightarrow{i'} n \xleftarrow{o'} b'$ with $y \in F(n)$.
+\newline
+$U_a \in F\lCsp$ is given by $a \xrightarrow{\id} a \xleftarrow{\id} a$ with $\bot_a \in F(a)$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\scriptstyle{(M \otimes N) \odot (U_{a+b})}$};
+\node (C) at (3,1) {$\scriptstyle{(M \otimes N) \odot (U_a \otimes U_b)}$};
+\node (A') at (1,0) {$\scriptstyle{M \otimes N}$};
+\node (C') at (3,0) {$\scriptstyle{(M \odot U_a) \otimes (N \odot U_b)}$};
+\node (B) at (-2,1) {$\scriptstyle{a+b \rightarrow (a+b)+_{a+b} (m+n) \leftarrow a'+b'}$};
+\node (B') at (-2,0.75) {$\scriptstyle{F(\psi)\phi_{a+b,m+n}(\phi_{m,n}(x,y),\bot_{a+b}) \in F((a+b)+_{a+b} (m+n))}$};
+\node (D) at (-2,0) {$\scriptstyle{a+b \rightarrow m+n \leftarrow a'+b'}$};
+\node (D') at (-2,-.25) {$\scriptstyle{\phi_{m,n}(x,y) \in F(m+n)}$};
+\node (E) at (6,1) {$\scriptstyle{a+b \rightarrow (a+b)+_{a+b} (m+n) \leftarrow a'+b'}$};
+\node (E') at (6,0.75) {$\scriptstyle{F(\psi)\phi_{a+b,m+n}(\phi_{m,n}(x,y),\phi_{a,b}(\bot_a,\bot_b)) \in F((a+b)+_{a+b} (m+n))}$};
+\node (F) at (6,0) {$\scriptstyle{a+b \rightarrow (a+_a m)+(b+_b n) \leftarrow a'+b'}$};
+\node (F') at (6,-.25) {$\scriptstyle{\phi_{a+_a m,b+_b n}(F(\psi)\phi_{a,m}(\bot_a,x),F(\psi)\phi_{b,n}(\bot_b,y)) \in F((a+_a m)+(b+_b n))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$r$} (A')
+(C) edge node[right]{$\chi$} (C')
+(A) edge node[above]{$\id \odot \mu$} (C)
+(C') edge node[above]{$r \otimes r$} (A');
+\end{tikzpicture}
+\]
+Down:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+%\node () at (9.5,-0.5) {$\scriptstyle{\stackrel{\phi_{\ell,\ell}}\cong}$};
+\node () at (10.75,-0.5) {$\scriptstyle{\cong}$};
+\node () at (5,-0.5) {$\scriptstyle{\stackrel{\lambda_{M \otimes N}}\cong}$};
+\node () at (8.25,0) {$\scriptstyle{\stackrel{\phi_{!_{a+b},1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(a+b) \times F(m+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{F(0) \times (F(m) \times F(n))}$};
+\node (A) at (8.25,-0.5) {$\scriptstyle{F(0+(m+n))}$};
+\node (H) at (6,0.5) {$\scriptstyle{F(0) \times (F(m+n)}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (11.5,-1.5) {$\scriptstyle{F(m+n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{\phi_0 \times (x \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((a+b)+(m+n))}$};
+%\node (C) at (11.5,-1.5) {$\scriptstyle{F(m+_b n)}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((a+b)+_{a+b}(m+n))}$};
+%\node (I) at (11.5,-1.5) {$\scriptstyle{F(m+_b n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(B'') edge node [above] {$F(\psi)$} (C)
+%(C) edge node [above] {$F(\psi)$} (I)
+(F) edge node [right] {$F(\kappa)$} (B'')
+(E) edge node [above] {$\phi_{a+b,m+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+%(B) edge node [right] {$F(\ell+\ell)$} (C)
+(H) edge node [below]{$\phi_{0,m+n}$} (A)
+(A) edge node [fill=white]{$F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_{a+b}+1)$} (B)
+(G) edge node [above] {$1 \times \phi_{m,n}$} (H)
+(H) edge node [above] {$F(!_{a+b}) \times 1$} (E)
+%(E) edge node [right] {$F(\ell) \times F(\ell)$} (B'')
+(G'') edge node [above] {$\phi_{m,n}$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+Right, down and then left:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3,-2.75) {$\scriptstyle{\stackrel{\lambda_M \times \lambda_N}\cong}$};
+\node () at (6,-2.375) {$\scriptstyle{\stackrel{\phi_{!_a,1} \times \phi_{!_b,1}}\cong}$};
+\node () at (10,-2.75) {$\scriptstyle{\cong}$};
+\node () at (9.125,0) {$\scriptstyle{\cong}$};
+\node () at (5,-0.85) {$\scriptstyle{\stackrel{1 \times \mu \times 1}\cong}$};
+\node () at (6.75,-0.75) {$\scriptstyle{\cong}$};
+\node () at (6.125,-1.15) {$\scriptstyle{\stackrel{\phi_{\beta,1}}\cong}$};
+\node () at (6.75,-1.75) {$\scriptstyle{\cong}$};
+\node () at (7.75,-1) {$\scriptstyle{\stackrel{\phi_{1,\beta+1}}\cong}$};
+\node () at (10,-1.5) {$\scriptstyle{\stackrel{\phi_{\psi,\psi}}\cong}$};
+\node () at (11,-1) {$\scriptstyle{\cong}$};
+\node () at (2.25,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (4.375,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+\node (D) at (1.5,-1.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(a+b) \times F(m+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{F(0) \times (F(m) \times F(n))}$};
+\node (G') at (2.75,-0.5) {$\scriptstyle{(F(0) \times F(0)) \times (F(m) \times F(n))}$};
+\node (A) at (2.75,-2) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A') at (6,-2) {$\scriptstyle{(F(a) \times F(m)) \times (F(b) \times F(n))}$};
+\node (L) at (6,-2.75) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (L') at (8.25,-2.75) {$\scriptstyle{F(m) \times (n)}$};
+\node (A'') at (8.25,-2) {$\scriptstyle{F(a+m) \times F(b+n)}$};
+\node (A''') at (10,-2) {$\scriptstyle{F(a+_a m) \times F(b+_b n)}$};
+\node  (A'''') at (11.5,-2) {$\scriptstyle{F((a+_a m)+(b+_b n))}$};
+\node (H') at (6,-0.5) {$\scriptstyle{(F(a) \times F(b)) \times (F(m) \times F(n))}$};
+\node (E') at (8.25,-0.5) {$\scriptstyle{F(a+b) \times F(m+n)}$};
+\node (F') at (10,-0.5) {$\scriptstyle{F((a+b)+(m+n))}$};
+\node (I') at (11.5,-0.5) {$\scriptstyle{F((a+b)+_{a+b}(m+n))}$};
+\node (H) at (6,0.5) {$\scriptstyle{F(0) \times F(m+n)}$};
+\node (G'') at (2.75,-3.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (11.5,-3.5) {$\scriptstyle{F(m+n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{\phi_0 \times (x \times y)}$};
+\node (X') at (2,-0.7) {$\scriptscriptstyle{(\phi_0 \times \phi_0) \times (x \times y)}$};
+\node (X'') at (2.3,-1.6) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X'') at (2,-3.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((a+b)+(m+n))}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((a+b)+_{a+b}(m+n))}$};
+\node (C) at (5.5,-1) {$\scriptscriptstyle{F(a) \times F(b+m) \times F(n)}$};
+\node (C') at (6.75,-1) {$\scriptscriptstyle{F(a) \times F((b+m)+n)}$};
+\node (C'') at (5.5,-1.5) {$\scriptscriptstyle{F(a) \times F(m+b) \times F(n)}$};
+\node (C''') at (6.75,-1.5) {$\scriptscriptstyle{F(a) \times F((m+b)+n)}$};
+\node (J) at (8.25,-1.25) {$\scriptscriptstyle{F((a+m)+(b+n))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(L) edge node [fill=white] {$F(!_a+1) \times F(!_b+1)$} (A'')
+(A) edge node [fill=white] {$\phi_{0,m} \times \phi_{0,n}$} (L)
+(L) edge node [below] {$F(\ell) \times F(\ell)$} (L')
+(L') edge node [fill=white] {$\phi_{m,n}$} (B'')
+(C''') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (J)
+(A'') edge node [fill=white] {$\scriptscriptstyle{\phi \times \phi}$} (J)
+(H') edge [out=185,in=175] node [left] {$1 \times \beta \times 1$} (A')
+(C') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (F')
+(F') edge node [fill=white] {$\scriptscriptstyle{F(1+\beta+1)}$} (J)
+(J) edge [out=0,in=120] node [fill=white] {$\scriptscriptstyle{F(\psi+\psi)}$} (A'''')
+(H') edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (C)
+(A') edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (C'')
+(C) edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (C')
+(C) edge node [left] {$\scriptscriptstyle{1 \times F(\beta) \times 1}$} (C'')
+(C'') edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (C''')
+(C') edge node [right] {$\scriptscriptstyle{1 \times F(\beta+1)}$} (C''')
+(I') edge node [right] {$\scriptscriptstyle{F(\kappa')}$} (A'''')
+(A'''') edge node [right] {$F(\kappa'')$} (B'')
+(D) edge node {$$} (A)
+(A) edge node [above] {$\scriptscriptstyle{(F(!_a) \times 1) \times (F(!_b) \times 1)}$} (A')
+(A') edge node [above] {$\phi_{a,m} \times \phi_{b,n}$} (A'')
+(A'') edge node [above] {$F(\psi) \times F(\psi)$} (A''')
+(A''') edge node [above] {$\phi_{a+_a m,b+_b n}$}(A'''')
+(G') edge node [right] {$\phi_{0,0} \times 1$} (G)
+(D) edge node {$$} (G')
+(G') edge node [above] {$\scriptscriptstyle{(F(!_a)\times F(!_b)) \times 1}$} (H')
+(H') edge node [above] {$\scriptscriptstyle{\phi_{a,b} \times \phi_{m,n}}$} (E')
+(E') edge node [above] {$\phi_{a+b,m+n}$} (F')
+(F') edge node [above] {$F(\psi)$} (I')
+(F) edge node [right] {$F(\id)$} (I')
+(H') edge node [fill=white] {$\phi_{a,b} \times \phi_{m,n}$} (E)
+(E) edge node [above] {$\phi_{a+b,m+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+(G) edge node [above] {$1 \times \phi_{m,n}$} (H)
+(H) edge node [above] {$F(!_{a+b}) \times 1$} (E)
+(G'') edge node [above] {$\phi_{m,n}$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\textbf{Diagram 4 of 11. Not set up and not solved.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Diagram 5 of 11. Set up but not solved.}
+\newline
+$$a,b,c \in (\A,+,0)$$
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$U_{(a+b)+c}$};
+\node (C) at (4,1) {$U_{a+(b+c)}$};
+\node (A') at (1,0) {$U_{a+b} \otimes U_c$};
+\node (C') at (4,0) {$U_a \otimes U_{b+c}$};
+\node (B) at (1,-1) {$(U_a \otimes U_b) \otimes U_c$};
+\node (B') at (4,-1) {$U_a \otimes (U_b \otimes U_c)$};
+%\node (B) at (-2,1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
+\node (U) at (-1,1) {$\scriptstyle{\bot_{(a+b)+c} \in F((a+b)+c)}$};
+\node (V) at (6,1) {$\scriptstyle{\bot_{a+(b+c)} \in F(a+(b+c))}$};
+\node (W) at (-1,0) {$\scriptstyle{\phi_{a+b,c}(\bot_{a+b},\bot_c) \in F((a+b)+c)}$};
+%\node (D) at (-2,-1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
+\node (X) at (6,0) {$\scriptstyle{\phi_{a,b+c}(\bot_a,\bot_{b+c}) \in F(a+(b+c))}$};
+%\node (E) at (6,1) {$a'+a \rightarrow n+m \leftarrow b'+b$};
+\node (Y) at (-1,-1) {$\scriptstyle{\phi_{a+b,c}(\phi_{a,b}(\bot_a,\bot_b),\bot_c) \in F((a+b)+c)}$};
+%\node (F) at (6,-1) {$a'+a \rightarrow n+m \leftarrow b'+b$};
+\node (Z) at (6,-1) {$\scriptstyle{\phi_{a,b+c}(\bot_a,\phi_{b,c}(\bot_b,\bot_c)) \in F(a+(b+c))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A') edge node [left] {$\mu$} (B)
+(C') edge node [right] {$\mu$} (B')
+(B) edge node [above] {$\beta'$} (B')
+(A) edge node[left]{$\mu$} (A')
+(C) edge node[right]{$\mu$} (C')
+(A) edge node[above]{$\mu_{\beta}$} (C);
+\end{tikzpicture}
+\]
+All the left cospans are $(a+b)+c \xrightarrow{} (a+b)+c \xleftarrow{} (a+b)+c$ and all the right cospans are $a+(b+c) \xrightarrow{} a+(b+c) \xleftarrow{} a+(b+c)$.
+
+\noindent
+Right and then down:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,-2) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\phi_{!_a,!_{b+c}}}\cong}$};
+\node () at (5.5,-2) {$\scriptstyle{\stackrel{\phi_{!_b!_c}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (7.625,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+\node (E) at (11,0.5) {$\scriptstyle{F((a+b)+c)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(a) \times F(b+c)}$};
+\node (F) at (11,-0.5) {$\scriptstyle{F(a+(b+c))}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (A) at (4.25,-2.5) {$\scriptstyle{F(0) \times (F(0) \times F(0))}$};
+\node (A') at (7.5,-2.5) {$\scriptstyle{F(a) \times (F(b) \times F(c))}$};
+\node (A'') at (9.5,-2.5) {$\scriptstyle{F(a) \times F(b+c)}$};
+\node (A''') at (11,-2.5) {$\scriptstyle{F(a+(b+c))}$};
+\node (C'') at (11,-1.5) {$\scriptstyle{F(a+(b+c))}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (2.7,-2.2) {$\scriptscriptstyle{\phi_0 \times (\phi_0 \times \phi_0)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A') edge node [right] {$1 \times \phi_{b+c}$} (H)
+(A) edge node [right] {$1 \times \phi_{0,0}$} (G'')
+(A) edge node [above] {$F(!_a) \times (F(!_b) \times F(!_c))$} (A')
+(A') edge node [above] {$1 \times \phi_{b+c}$} (A'')
+(A'') edge node [above] {$\phi_{a,b+c}$} (A''')
+(C'') edge node [right] {$F(\id)$} (A''')
+(G'') edge node [above] {$F(!_a) \times F(!_{b+c})$} (H)
+%(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{(a+b)+c})$} (E)
+(H) edge node [above] {$\phi_{a,b+c}$} (C'')
+(G') edge node [above] {$F(!_{a+(b+c)})$} (F)
+(E) edge node [right] {$F(\alpha)$}  (F)
+(F) edge node [right] {$F(\id)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$\phi_0$} (G)
+(D) edge[out=270,in=180] node [left,below] {$$} (A)
+(D) edge node [below]{$\phi_0 \times \phi_0$} (G'')
+(D) edge node [above] {$\phi_0$} (G');
+\end{tikzpicture}
+\]
+Down and then right:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+\node () at (9.5,-2) {$\scriptstyle{\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (7.625,0) {$\scriptstyle{\stackrel{\phi_{!_{a+b},!_c}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+\node (E) at (11,0.5) {$\scriptstyle{F((a+b)+c)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a+b) \times F(c)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{(F(a) \times F(b)) \times F(c)}$};
+\node (H') at (9.5,-1.5) {$\scriptstyle{F(a+b) \times F(c)}$};
+\node (F) at (11,-0.5) {$\scriptstyle{F((a+b)+c)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{(F(0) \times F(0)) \times F(0)}$};
+\node (A) at (4.25,-2.5) {$\scriptstyle{F(0) \times (F(0) \times F(0))}$};
+\node (A') at (7.5,-2.5) {$\scriptstyle{F(a) \times (F(b) \times F(c))}$};
+\node (A'') at (9.5,-2.5) {$\scriptstyle{F(a) \times F(b+c)}$};
+\node (A''') at (11,-2.5) {$\scriptstyle{F(a+(b+c))}$};
+\node (C'') at (11,-1.5) {$\scriptstyle{F(a+(b+c))}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (2.7,-2.2) {$\scriptscriptstyle{\phi_0 \times (\phi_0 \times \phi_0)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [right] {$\alpha'$} (A')
+(G'') edge node [right] {$\alpha'$} (A)
+(A) edge node [above] {$F(!_a) \times (F(!_b) \times F(!_c))$} (A')
+(A') edge node [above] {$1 \times \phi_{b+c}$} (A'')
+(A'') edge node [above] {$\phi_{a,b+c}$} (A''')
+(C'') edge node [right] {$F(\alpha)$} (A''')
+(G'') edge node [above] {$(F(!_a) \times F(!_b)) \times F(!_c)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{a+b,c}$} (F)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+(H) edge node [right] {$\phi_{a,b} \times 1$} (C')
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{(a+b)+c})$} (E)
+(H') edge node [above] {$\phi_{a+b,c}$} (C'')
+(H) edge node [above] {$\phi_{a,b} \times 1$} (H')
+(G') edge node [above] {$F(!_{a+b}) \times F(!_c)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\id)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$\phi_0$} (G)
+(D) edge[out=270,in=180] node [left,below] {$$} (A)
+(D) edge node [below]{$\phi_0^2 \times \phi_0$} (G'')
+(D) edge node [above] {$\phi_0$} (G');
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Diagrams 6 and 8 of 11. Set up but not solved.}
+\newline
+\noindent
+$M \in F\lCsp$ is given by $a \xrightarrow{i} m \xleftarrow{o} b$ with $x \in F(m)$.
+\newline
+$N \in F\lCsp$ is given by $b \xrightarrow{i'} n \xleftarrow{o'} c$ with $y \in F(n)$.
+\newline
+$U_0 \in F\lCsp$ is given by $0 \xrightarrow{!} 0 \xleftarrow{!} 0$ with $\bot_0 \in F(0)$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\scriptstyle{(U_0 \otimes N) \odot (U_0 \otimes M)}$};
+\node (C) at (3,1) {$\scriptstyle{(U_0 \odot U_0) \otimes (N \odot M)}$};
+\node (A') at (1,0) {$\scriptstyle{N \odot M}$};
+\node (C') at (3,0) {$\scriptstyle{U_0 \otimes (N \odot M)}$};
+\node (B) at (-2,1) {$\scriptstyle{0+a \rightarrow (0+m)+_{0+b} (0+n) \leftarrow 0+c}$};
+\node (B') at (-2,0.75) {$\scriptstyle{(\bot_0 \oplus y) \odot (\bot_0 \oplus x) \in F((0+m)+_{0+b} (0+n))}$};
+\node (D) at (-2,0) {$\scriptstyle{a \rightarrow m+_b n \leftarrow c}$};
+\node (D') at (-2,-.25) {$\scriptstyle{y \odot x \in F(m+_b n)}$};
+\node (E) at (6,1) {$\scriptstyle{0+a \rightarrow (0+_0 0)+(m+_b n) \leftarrow 0+c}$};
+\node (E') at (6,0.75) {$\scriptstyle{(\bot_0 \odot \bot_0) \oplus (y \odot x) \in F((0+_0 0) + (m+_b n))}$};
+\node (F) at (6,0) {$\scriptstyle0+{a \rightarrow 0+(m+_b n) \leftarrow 0+c}$};
+\node (F') at (6,-.25) {$\scriptstyle{\bot_0 \oplus (y \odot x) \in F(0+(m+_b n))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$\lambda_N \odot \lambda_M$} (A')
+(C) edge node[right]{$\lambda_{U_0} \otimes \id_{N \odot M}$} (C')
+(A) edge node[above]{$\chi$} (C)
+(C') edge node[above]{$\lambda_{N \odot M}$} (A');
+\end{tikzpicture}
+\]
+Down:
+\begin{comment}
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (10.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,-0.75) {$\scriptstyle{\stackrel{\phi_{\ell,\ell}}\cong}$};
+\node () at (5,0.25) {$\scriptstyle{\stackrel{\phi_{!_0,1} \times \phi_{!_0,1}}\cong}$};
+\node () at (8,0.25) {$\scriptstyle{\stackrel{\phi_{!_0+1,!_0+1}}\cong}$};
+%\node () at (5.5,0) {$\scriptstyle{=}$};
+%\node () at (8.5,-.75) {$\scriptstyle{\cong}$};
+%\node () at (12,-1) {$\scriptstyle\cong$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+%\node () at (7.875,-1) {$\scriptstyle\stackrel{(33)}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+\node (C) at (11.75,0.5) {$\scriptstyle{F((0+m)+_{0+b}(0+n))}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0_\A) \times F(a)}$};
+%\node (F) at (9.25,-0.5) {$\scriptstyle{F(0_\A +a)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A) at (5,-0.25) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (A') at (7,-0.25) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (H) at (6,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+%\node (G') at (4.25,-0.5) {$\scriptstyle{F(0_\A) \times F(0_\A)}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+\node (B'') at (11.75,-1.5) {$\scriptstyle{F(m+_b n)}$};
+\node (C'') at (8.25,-1.5) {$\scriptstyle{F(m+n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [below]{$\phi_{0,m} \times \phi_{0,n}$} (A)
+(A) edge node[fill=white] {$F(!_0 +1) \times F(!_0 +1)$} (E)
+(A') edge node [right]{$F(\ell + \ell)$} (C'')
+(A) edge node [fill=white]{$F(\ell)\times F(\ell)$} (G'')
+(A) edge node [below] {$\phi_{0+m,0+n}$} (A')
+(A') edge[out=0,in=240] node [fill=white] {$F((!_0+1)+(!_0+1))$} (B)
+%(G) edge node [right] {$F(\id)$} (G'')
+%(G'') edge node [above] {$F(!_{0+a})$} (E)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [above] {$\phi_{0_\A,a}$} (F)
+(G) edge node [above] {$(F(!_0) \times 1) \times (F(!_0) \times 1)$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (C)
+(G'') edge node [above] {$\phi_{m,n}$} (C'')
+(C'') edge node [above] {$F(\psi)$} (B'')
+(C) edge node [right] {$F(\ell+_\ell \ell)$} (B'')
+%(G') edge node [above] {$F(1_0) \times F(!_a)$} (C')
+%(E) edge node [right] {$F(\lambda)$}  (C'')
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+%(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+\end{comment}
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (9.5,-0.5) {$\scriptstyle{\stackrel{\phi_{\ell,\ell}}\cong}$};
+\node () at (10.75,-0.5) {$\scriptstyle{\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\stackrel{\lambda_M \times \lambda_N}\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1} \times \phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (H) at (6,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (C) at (10,-1.5) {$\scriptstyle{F(m+n)}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((0+m)+_{0+b}(0+n))}$};
+\node (I) at (11.5,-1.5) {$\scriptstyle{F(m+_b n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(B'') edge node [above] {$\phi_{m,n}$} (C)
+(C) edge node [above] {$F(\psi)$} (I)
+(F) edge node [right] {$F(\ell+_\ell \ell)$} (I)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+(B) edge node [right] {$F(\ell+\ell)$} (C)
+(G) edge node [below]{$\phi_{0,m} \times \phi_{0,n}$} (A)
+(A) edge node [fill=white]{$F(\ell) \times F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1) \times F(!_0+1)$} (E)
+(G) edge node [above] {$(F(!_0) \times 1) \times (F(!_0) \times 1)$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(E) edge node [right] {$F(\ell) \times F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+Right, down and then left:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3,-2.5) {$\scriptstyle{\stackrel{\lambda_{U_0}}\cong}$};
+\node () at (8,-2.5) {$\scriptstyle{\cong}$};
+\node () at (5,-1.75) {$\scriptstyle{\stackrel{\phi_{!_0,!_0}}\cong}$};
+\node () at (10.75,-2.5) {$\scriptstyle{\stackrel{\phi_{\kappa,1}}\cong}$};
+\node () at (4.8,0) {$\scriptstyle{\stackrel{1 \times \mu \times 1}\cong}$};
+\node () at (6.5,0.3) {$\scriptstyle{\cong}$};
+\node () at (6,-0.25) {$\scriptstyle{\stackrel{\phi_{\beta,1}}\cong}$};
+\node () at (8.25,0) {$\scriptstyle{\stackrel{\phi_{1,\beta+1}}\cong}$};
+\node () at (6.75,-.65) {$\scriptstyle{\cong}$};
+\node () at (9,-0.5) {$\scriptstyle{\stackrel{\phi_{\psi,\psi}}\cong}$};
+\node () at (10.75,0.125) {$\scriptstyle{\cong}$};
+\node (A) at (2.75,-1) {$\scriptstyle{(F(0) \times F(0)) \times (F(m) \times F(n))}$};
+\node (A') at (5,-1) {$\scriptstyle{(F(0) \times F(0)) \times (F(m) \times F(n))}$};
+\node (A'') at (8.25,-1) {$\scriptstyle{F(0+0) \times F(m+n)}$};
+\node (A''') at (10,-1) {$\scriptstyle{F(0+_0 0) \times F(m+_b n)}$};
+\node (A'''') at (11.5,-1) {$\scriptstyle{F((0+_0 0)+(m+_b n))}$};
+\node (J) at (5,-2.5) {$\scriptstyle{F(0+0) \times (F(m) \times F(n))}$};
+\node (J') at (6,-4.75) {$\scriptstyle{\stackrel{\lambda_{N \odot M}}\cong}$};
+%\node (J'') at (8.25,-2.5) {$\scriptstyle{J''}$};
+\node (J''') at (10,-4.375) {$\scriptstyle{\stackrel{\phi_{!_0,1}} \cong}$};
+\node (J'''') at (11,-4.75) {$\scriptstyle{\cong}$};
+\node (K) at (2.75,-4) {$\scriptstyle{F(0) \times (F(m) \times F(n))}$};
+\node (K') at (5,-4) {$\scriptstyle{F(0) \times (F(m+n)}$};
+\node (Y) at (10,-4.75) {$\scriptstyle{F(0+(m+_b n))}$};
+\node (K'') at (8.25,-4) {$\scriptstyle{F(0) \times F(m+_b n)}$};
+\node (K''') at (10,-4) {$\scriptstyle{F(0) \times F(m+_b n)}$};
+\node (K'''') at (11.5,-4) {$\scriptstyle{F(0+(m+_b n))}$};
+\node (D) at (1.5,-2.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (E') at (8.25,-0.25) {$\scriptstyle{F((0+0)+(m+n))}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (H) at (5,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-5.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-5.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (1.75,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X') at (2,-1.3) {$\scriptscriptstyle{(\phi_0 \times \phi_0) \times (x \times y)}$};
+\node (X') at (2,-3.8) {$\scriptscriptstyle{\phi_0 \times (x \times y)}$};
+\node (X'') at (2,-5.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (C) at (10,-5.5) {$\scriptstyle{F(m+n)}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((0+m)+_{0+b}(0+n))}$};
+\node (I) at (11.5,-5.5) {$\scriptstyle{F(m+_b n)}$};
+\node (L) at (5.5,0) {$\scriptscriptstyle{F(0) \times F(m+0) \times F(n)}$};
+\node (L') at (6.75,0) {$\scriptscriptstyle{F(0) \times F((m+0)+n)}$};
+\node (L'') at (5,-0.5) {$\scriptscriptstyle{F(0) \times F(0+m) \times F(n)}$};
+\node (L''') at (6.25,-0.5) {$\scriptscriptstyle{F(0) \times F((0+m)+n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(J) edge node [fill=white] {$F(\ell) \times (F(\psi)\phi_{m,n})$} (K''')
+(A) edge node [fill=white] {$\phi_{0,0} \times 1$} (J)
+(J) edge node [fill=white] {$F(!_0+!_0) \times \phi_{m,n}$} (A'')
+(A''') edge node [left] {$F(\kappa) \times 1$} (K''')
+(A'''') edge node [right] {$F(\kappa+1)$} (K'''')
+(K'') edge node [fill=white] {$\phi_{0,m+_b n}$} (Y)
+(Y) edge node [fill=white] {$F(!_0+1)$} (K'''')
+(K'''') edge node [right] {$F(\ell)$} (I)
+(Y) edge node [fill=white] {$F(\ell)$} (I)
+(D) edge node [below] {} (K)
+(K) edge node [above] {$\scriptscriptstyle{1 \times \phi_{m,n}}$} (K')
+(K') edge node [above] {$\scriptscriptstyle{1 \times F(\psi)}$} (K'')
+(K'') edge node [above] {$\scriptscriptstyle{F(!_0) \times 1}$} (K''')
+(K''') edge node [above] {$\scriptscriptstyle{\phi_{0,m+_b n}}$} (K'''')
+(H) edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (L)
+(A') edge node [right] {$\scriptscriptstyle{1 \times \phi \times 1}$} (L'')
+(L') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (B)
+(L''') edge node [above] {$\scriptscriptstyle{\phi}$} (E')
+(L) edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (L')
+(L) edge node [left] {$\scriptscriptstyle{1 \times F(\beta) \times 1}$} (L'')
+(L'') edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (L''')
+(L') edge node [right] {$\scriptscriptstyle{1 \times F(\beta+1)}$} (L''')
+(E') edge[out=0,in=120] node [fill=white] {$F(\psi+\psi)$} (A'''')
+(A'') edge node [left] {$\phi$} (E')
+(B) edge node [fill=white] {$F(1+\beta+1)$} (E')
+(H) edge[out=210,in=150] node [left] {$\scriptscriptstyle{1 \times \beta \times 1}$} (A')
+(F) edge node [right] {$F(\chi)$} (A'''')
+(A) edge node [below] {$\scriptscriptstyle{(F(!_0) \times F(!_0)) \times (1 \times 1)}$} (A')
+(A') edge node [above] {$\phi_{0,0} \times \phi_{m,n}$} (A'')
+(A'') edge node [above] {$F(\psi) \times F(\psi)$} (A''')
+(A''') edge node [above] {$\phi_{0+_0 0,m+_b n}$} (A'''')
+(D) edge node [above] {$$} (A)
+(B'') edge node [above] {$\phi_{m,n}$} (C)
+(C) edge node [above] {$F(\psi)$} (I)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+(G) edge node [above] {$\scriptscriptstyle{(F(!_0) \times 1) \times (F(!_0) \times 1)}$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=210] node [left,above] {$$} (G)
+(D) edge[out=270,in=150] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+\textbf{(Scratch work)} As a check, let us compute the decoration maps $\lambda_N \colon U_0 \otimes N \to N$ and $\lambda_M \colon U_0 \otimes M \to M$ and compose them via $\odot$. The maps $\lambda_N$ and $\lambda_M$ are given explicitly in the paper.
+\newline
+\noindent
+$\lambda_M \colon U_0 \otimes M \to M$
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{F(0) \times F(m)}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+m)}$};
+\node (H) at (6,0.5) {$\scriptstyle{F(0) \times F(m)}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(m)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [below]{$\phi_{0,m}$} (A)
+(A) edge node [below]{$F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1)$} (E)
+(G) edge node [above] {$F(!_0) \times 1$} (H)
+(H) edge node [above] {$\phi_{0,m}$} (E)
+(E) edge node [right] {$F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+\noindent
+$\lambda_N \colon U_0 \otimes N \to N$
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{F(0) \times F(n)}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+n)}$};
+\node (H) at (6,0.5) {$\scriptstyle{F(0) \times F(n)}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(n)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{y}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [below]{$\phi_{0,n}$} (A)
+(A) edge node [below]{$F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1)$} (E)
+(G) edge node [above] {$F(!_0) \times 1$} (H)
+(H) edge node [above] {$\phi_{0,n}$} (E)
+(E) edge node [right] {$F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+\noindent
+To construct $\lambda_{N} \odot \lambda_M \colon (U_0 \otimes N) \odot (U_0 \otimes M) \to N \odot M$, we first tensor the above two diagrams:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1} \times \phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (H) at (6,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [below]{$\phi_{0,m} \times \phi_{0,n}$} (A)
+(A) edge node [below]{$F(\ell) \times F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1) \times F(!_0+1)$} (E)
+(G) edge node [above] {$(F(!_0) \times 1) \times (F(!_0) \times 1)$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(E) edge node [right] {$F(\ell) \times F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+Next, we paste with a square due to pseudonaturality of $\phi$:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (9.5,-0.5) {$\scriptstyle{\stackrel{\phi_{\ell,\ell}}\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1} \times \phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (H) at (6,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (C) at (10,-1.5) {$\scriptstyle{F(m+n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(B'') edge node [above] {$\phi_{m,n}$} (C)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [right] {$F(\ell+\ell)$} (C)
+(G) edge node [below]{$\phi_{0,m} \times \phi_{0,n}$} (A)
+(A) edge node [fill=white]{$F(\ell) \times F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1) \times F(!_0+1)$} (E)
+(G) edge node [above] {$(F(!_0) \times 1) \times (F(!_0) \times 1)$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(E) edge node [right] {$F(\ell) \times F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+Finally, we paste with a square due to pseudonaturality of $F$ to obtain the map $\lambda_N \odot \lambda_M \colon (U_0 \otimes N) \odot (U_0 \otimes M) \to N \odot M$:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (7.125,-0.5) {$\scriptstyle{\cong}$};
+\node () at (9.5,-0.5) {$\scriptstyle{\stackrel{\phi_{\ell,\ell}}\cong}$};
+\node () at (10.75,-0.5) {$\scriptstyle{\cong}$};
+\node () at (3.5,-0.5) {$\scriptstyle{\cong}$};
+\node () at (6,0) {$\scriptstyle{\stackrel{\phi_{!_0,1} \times \phi_{!_0,1}}\cong}$};
+\node (D) at (1.5,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (A) at (6,-0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (H) at (6,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-1.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (2,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X'') at (2,-1.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (C) at (10,-1.5) {$\scriptstyle{F(m+n)}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((0+m)+_{0+b}(0+n))}$};
+\node (I) at (11.5,-1.5) {$\scriptstyle{F(m+_b n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(B'') edge node [above] {$\phi_{m,n}$} (C)
+(C) edge node [above] {$F(\psi)$} (I)
+(F) edge node [right] {$F(\ell+_\ell \ell)$} (I)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+(B) edge node [right] {$F(\ell+\ell)$} (C)
+(G) edge node [below]{$\phi_{0,m} \times \phi_{0,n}$} (A)
+(A) edge node [fill=white]{$F(\ell) \times F(\ell)$} (B'')
+(A) edge node [fill=white] {$F(!_0+1) \times F(!_0+1)$} (E)
+(G) edge node [above] {$(F(!_0) \times 1) \times (F(!_0) \times 1)$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(E) edge node [right] {$F(\ell) \times F(\ell)$} (B'')
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+Next, we compute the right, down and then left route:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3,-2.5) {$\scriptstyle{\stackrel{\lambda_{M \odot N}}\cong}$};
+\node () at (8,-2.5) {$\scriptstyle{\cong}$};
+\node () at (5,-1.75) {$\scriptstyle{\stackrel{\phi_{!_0,!_0}}\cong}$};
+\node () at (10.75,-2.5) {$\scriptstyle{\stackrel{\phi_{\kappa,1}}\cong}$};
+\node () at (4.8,0) {$\scriptstyle{\stackrel{1 \mu \times 1}\cong}$};
+\node () at (6.5,0.3) {$\scriptstyle{\cong}$};
+\node () at (6,-0.25) {$\scriptstyle{\stackrel{\phi_{\beta,1}}\cong}$};
+\node () at (8.25,0) {$\scriptstyle{\stackrel{\phi_{1,\beta+1}}\cong}$};
+\node () at (6.75,-.65) {$\scriptstyle{\cong}$};
+\node () at (9,-0.5) {$\scriptstyle{\stackrel{\phi_{\psi,\psi}}\cong}$};
+\node () at (10.75,0.125) {$\scriptstyle{\cong}$};
+\node (A) at (2.75,-1) {$\scriptstyle{(F(0) \times F(0)) \times (F(m) \times F(n))}$};
+\node (A') at (5,-1) {$\scriptstyle{(F(0) \times F(0)) \times (F(m) \times F(n))}$};
+\node (A'') at (8.25,-1) {$\scriptstyle{F(0+0) \times F(m+n)}$};
+\node (A''') at (10,-1) {$\scriptstyle{F(0+_0 0) \times F(m+_b n)}$};
+\node (A'''') at (11.5,-1) {$\scriptstyle{F((0+_0 0)+(m+_b n))}$};
+\node (J) at (5,-2.5) {$\scriptstyle{F(0+0) \times (F(m) \times F(n))}$};
+\node (J') at (6,-4.75) {$\scriptstyle{\stackrel{\lambda_{N \odot M}}\cong}$};
+%\node (J'') at (8.25,-2.5) {$\scriptstyle{J''}$};
+\node (J''') at (10,-4.375) {$\scriptstyle{\stackrel{\phi_{!_0,1}} \cong}$};
+\node (J'''') at (11,-4.75) {$\scriptstyle{\cong}$};
+\node (K) at (2.75,-4) {$\scriptstyle{F(0) \times (F(m) \times F(n))}$};
+\node (K') at (5,-4) {$\scriptstyle{F(0) \times (F(m+n)}$};
+\node (Y) at (10,-4.75) {$\scriptstyle{F(0+(m+_b n))}$};
+\node (K'') at (8.25,-4) {$\scriptstyle{F(0) \times F(m+_b n)}$};
+\node (K''') at (10,-4) {$\scriptstyle{F(0) \times F(m+_b n)}$};
+\node (K'''') at (11.5,-4) {$\scriptstyle{F(0+(m+_b n))}$};
+\node (D) at (1.5,-2.5) {$\scriptstyle{\one}$};
+\node (E) at (8.25,0.5) {$\scriptstyle{F(0+m) \times F(0+n)}$};
+\node (E') at (8.25,-0.25) {$\scriptstyle{F((0+0)+(m+n))}$};
+\node (G) at (2.75,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (H) at (5,0.5) {$\scriptstyle{(F(0) \times F(m)) \times (F(0) \times F(n))}$};
+\node (G'') at (2.75,-5.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (B'') at (8.25,-5.5) {$\scriptstyle{F(m) \times F(n)}$};
+\node (X) at (1.75,0.2) {$\scriptscriptstyle{(\phi_0 \times x) \times (\phi_0 \times y)}$};
+\node (X') at (2,-1.3) {$\scriptscriptstyle{(\phi_0 \times \phi_0) \times (x \times y)}$};
+\node (X') at (2,-3.8) {$\scriptscriptstyle{\phi_0 \times (x \times y)}$};
+\node (X'') at (2,-5.2) {$\scriptscriptstyle{x \times y}$};
+\node (B) at (10,0.5) {$\scriptstyle{F((0+m)+(0+n))}$};
+\node (C) at (10,-5.5) {$\scriptstyle{F(m+n)}$};
+\node (F) at (11.5,0.5) {$\scriptstyle{F((0+m)+_{0+b}(0+n))}$};
+\node (I) at (11.5,-5.5) {$\scriptstyle{F(m+_b n)}$};
+\node (L) at (5.5,0) {$\scriptscriptstyle{F(0) \times F(m+0) \times F(n)}$};
+\node (L') at (6.75,0) {$\scriptscriptstyle{F(0) \times F((m+0)+n)}$};
+\node (L'') at (5,-0.5) {$\scriptscriptstyle{F(0) \times F(0+m) \times F(n)}$};
+\node (L''') at (6.25,-0.5) {$\scriptscriptstyle{F(0) \times F((0+m)+n)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(J) edge node [fill=white] {$F(\lambda_0) \times (F(\psi)\phi_{m,n})$} (K''')
+(A) edge node [fill=white] {$\phi_{0,0} \times 1$} (J)
+(J) edge node [fill=white] {$F(!_0+!_0) \times \phi_{m,n}$} (A'')
+(A''') edge node [left] {$F(\kappa) \times 1$} (K''')
+(A'''') edge node [right] {$F(\kappa+1)$} (K'''')
+(K'') edge node [fill=white] {$\phi_{0,m+_b n}$} (Y)
+(Y) edge node [fill=white] {$F(!_0+1)$} (K'''')
+(K'''') edge node [right] {$F(\ell)$} (I)
+(Y) edge node [fill=white] {$F(\ell)$} (I)
+(D) edge node [below] {} (K)
+(K) edge node [above] {$\scriptscriptstyle{1 \times \phi_{m,n}}$} (K')
+(K') edge node [above] {$\scriptscriptstyle{1 \times F(\psi)}$} (K'')
+(K'') edge node [above] {$\scriptscriptstyle{F(!_0) \times 1}$} (K''')
+(K''') edge node [above] {$\scriptscriptstyle{\phi_{0,m+_b n}}$} (K'''')
+(H) edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (L)
+(A') edge node [right] {$\scriptscriptstyle{1 \times \phi \times 1}$} (L'')
+(L') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (B)
+(L''') edge node [above] {$\scriptscriptstyle{\phi}$} (E')
+(L) edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (L')
+(L) edge node [left] {$\scriptscriptstyle{1 \times F(\beta) \times 1}$} (L'')
+(L'') edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (L''')
+(L') edge node [right] {$\scriptscriptstyle{1 \times F(\beta+1)}$} (L''')
+(E') edge[out=0,in=120] node [fill=white] {$F(\psi+\psi)$} (A'''')
+(A'') edge node [left] {$\phi$} (E')
+(B) edge node [fill=white] {$F(1+\beta+1)$} (E')
+(H) edge[out=210,in=150] node [left] {$\scriptscriptstyle{1 \times \beta \times 1}$} (A')
+(F) edge node [right] {$F(\chi)$} (A'''')
+(A) edge node [below] {$\scriptscriptstyle{(F(!_0) \times F(!_0)) \times (1 \times 1)}$} (A')
+(A') edge node [above] {$\phi_{0,0} \times \phi_{m,n}$} (A'')
+(A'') edge node [above] {$F(\psi) \times F(\psi)$} (A''')
+(A''') edge node [above] {$\phi_{0+_0 0,m+_b n}$} (A'''')
+(D) edge node [above] {$$} (A)
+(B'') edge node [above] {$\phi_{m,n}$} (C)
+(C) edge node [above] {$F(\psi)$} (I)
+(E) edge node [above] {$\phi_{0+m,0+n}$} (B)
+(B) edge node [above] {$F(\psi)$} (F)
+(G) edge node [above] {$\scriptscriptstyle{(F(!_0) \times 1) \times (F(!_0) \times 1)}$} (H)
+(H) edge node [above] {$\phi_{0,m} \times \phi_{0,n}$} (E)
+(G'') edge node [above] {$1$} (B'')
+(D) edge[out=90,in=210] node [left,above] {$$} (G)
+(D) edge[out=270,in=150] node [left,above] {$$} (G'');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (4.75,-1) {$\scriptstyle{\stackrel{\lambda_M}\cong}$};
+\node () at (10,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,-.75) {$\scriptstyle{\stackrel{\phi_{!_0,!_0}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (E) at (6.75,-1) {$\scriptstyle{F(0+0)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0+0)}$};
+\node (G) at (11,-0.5) {$\scriptstyle{F(0+_0 0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+\node (C'') at (11,-1.5) {$\scriptstyle{F(0)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node [above] {$F(\psi)$} (G)
+(E) edge node [fill=white] {$F(\lambda_0)$} (C'')
+(G') edge node [fill=white] {$\phi_{0,0}$} (E)
+(E) edge node [fill=white] {$F(!_0+!_0)$} (F)
+(C') edge node [above] {$\phi_{0,0}$} (F)
+(G'') edge node [above] {$\id$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_0)$} (C')
+(G) edge node [right] {$F(\kappa)$} (C'')
+(D) edge[out=270,in=180] node [below] {$\phi_0$} (G'')
+(D) edge[out=90,in=180] node [above] {$\phi_0 \times \phi_0$} (G');
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Diagrams 7 and 9 of 11. Set up and solved.}
+\newline
+$$F \colon (\A,+,0) \to (\Cat,\times,1)$$
+$$a \in (\A,+,0)$$
+%$M$ is given by $(a, \bot_a) \rightarrow (m,x) \leftarrow (b,\bot_b)$ and $N$ is given by $(a',\bot_{a'}) \rightarrow (n,y) \leftarrow (b',\bot_{b'})$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$U_{0 + a}$};
+\node (C) at (3,1) {$U_{0} \otimes U_a$};
+%\node (A') at (1,-1) {$\lE_1(M \otimes N)$};
+\node (C') at (3,0) {$U_a$};
+\node (B) at (-2,1) {$0 +a \rightarrow 0 +a \leftarrow 0 +a$};
+\node (B') at (-2,0.5) {$\bot_{0 +a \in F(0 +a)}$};
+%\node (D) at (-2,-1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
+%\node (D') at (-2,-1.5) {$F(\iota_m)(x)+F(\iota_n)(y) \in F(m+n)$};
+\node (E) at (6,1) {$0 +a \rightarrow 0 +a \leftarrow 0 +a$};
+\node (E') at (6,0.5) {$\phi_{0,a}(\bot_{0},\bot_a) \in F(0 +a)$};
+\node (F) at (6,0) {$a \rightarrow a \leftarrow a$};
+\node (F') at (6,-0.5) {$\bot_a \in F(a)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$U_{\lambda_a}$} (C')
+(C) edge node[right]{$\lambda_{U_a}$} (C')
+(A) edge node[above]{$\mu$} (C);
+%(A') edge node[above]{$\lE_1(\beta)$} (C');
+\end{tikzpicture}
+\]
+Right and then down:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8.75,0) {$\scriptstyle{=}$};
+\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+Diagonally:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.85,-0.5) {$\scriptstyle{=}$};
+\node () at (5.5,0) {$\scriptstyle{=}$};
+\node () at (8.5,-.75) {$\scriptstyle{\cong}$};
+%\node () at (12,-1) {$\scriptstyle\cong$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,-1) {$\scriptstyle\stackrel{(33)}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0_\A) \times F(a)}$};
+%\node (F) at (9.25,-0.5) {$\scriptstyle{F(0_\A +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+%\node (G') at (4.25,-0.5) {$\scriptstyle{F(0_\A) \times F(0_\A)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [right] {$F(\id)$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (E)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [above] {$\phi_{0_\A,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+(G'') edge node [above] {$F(!_a)$} (C'')
+%(G') edge node [above] {$F(1_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\lambda)$}  (C'')
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+%(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+Removing the lower right $\cong$ which is the same in each diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8.75,0) {$\scriptstyle{=}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+%(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.85,-0.5) {$\scriptstyle{=}$};
+\node () at (5.5,0) {$\scriptstyle{=}$};
+%\node () at (8.5,-.75) {$\scriptstyle{\cong}$};
+%\node () at (12,-1) {$\scriptstyle\cong$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,-1) {$\scriptstyle\stackrel{(33)}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0_\A) \times F(a)}$};
+%\node (F) at (9.25,-0.5) {$\scriptstyle{F(0_\A +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+%\node (G') at (4.25,-0.5) {$\scriptstyle{F(0_\A) \times F(0_\A)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [right] {$F(\id)$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (E)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [above] {$\phi_{0_\A,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+%(G'') edge node [above] {$F(!_a)$} (C'')
+%(G') edge node [above] {$F(1_0) \times F(!_a)$} (C')
+%(E) edge node [right] {$F(\lambda)$}  (C'')
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'');
+%(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+The second diagram is then an identity, so our problem reduces to showing that the following diagram is also an identity:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8.75,0) {$\scriptstyle{=}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+%(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+Removing the diagonal $\phi_{0,a}$:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8.75,0) {$\scriptstyle{=}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+%(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+This diagram is clearly the same as:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8.75,0) {$\scriptstyle{=}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (5.5,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+%\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [below] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (F)
+%(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+%(E) edge node [right] {$F(\id)$}  (F)
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+The top half of the diagram and the bottom half of the diagram are the same but in reverse order. \textbf{I believe these cancel and yield an identity.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Diagram 10 of 11. Set up and solved (Christina).}
+\newline
+\noindent
+$M_1 \in F\lCsp$ is given by $a \xrightarrow{i_1} m_1 \xleftarrow{o_1} b$ with $x_1 \in F(m_1)$.
+\newline
+$M_2 \in F\lCsp$ is given by $b \xrightarrow{i_2} m_2 \xleftarrow{o_2} c$ with $x_2 \in F(m_2)$.
+\newline
+$N_1 \in F\lCsp$ is given by $a' \xrightarrow{i_1'} n_1 \xleftarrow{o_1'} b'$ with $y_1 \in F(n_1)$.
+\newline
+$N_2 \in F\lCsp$ is given by $b' \xrightarrow{i_2'} n_2 \xleftarrow{o_2'} c'$ with $x_2 \in F(n_2)$.
+\newline
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$\scriptstyle{(M_2 \otimes N_2) \odot (M_1 \otimes N_1)}$};
+\node (C) at (3,1) {$\scriptstyle{(N_2 \otimes M_2) \odot (N_1 \otimes M_1)}$};
+\node (A') at (1,0) {$\scriptstyle{(M_2 \odot M_1) \otimes (N_2 \odot N_1) }$};
+\node (C') at (3,0) {$\scriptstyle{(N_2 \odot N_1) \otimes (M_2 \odot M_1)}$};
+\node (B) at (-2,1) {$\scriptstyle{a+a' \rightarrow (m_1+n_1)+_{b+b'} (m_2+n_2) \leftarrow c+c'}$};
+\node (B') at (-2,0.75) {$\scriptscriptstyle{F(\psi)\phi_{m_1+n_1,m_2+n_2}(\phi_{m_1,n_1}(x_1,y_1),\phi_{m_2,n_2}(x_2,y_2)) \in F((m_1+n_1)+_{b+b'} (n_1+n_2))}$};
+\node (D) at (-2,0) {$\scriptstyle{a+a' \rightarrow (m_1+_b m_2)+(n_1+_{b'}n_2) \leftarrow c+c'}$};
+\node (D') at (-2,-.25) {$\scriptscriptstyle{\phi_{m_1+_b m_2,n_1+_{b'}m_2}(F(\psi)\phi_{m_1,m_2}(x_1,x_2),F(\psi)\phi_{n_1,n_2}(y_1,y_2)) \in F((m_1+_b m_2)+(n_1+_{b'}n_2))}$};
+\node (E) at (6,1) {$\scriptstyle{a'+a \rightarrow (n_1+m_1)+_{b'+b}(n_2+m_2) \leftarrow c'+c}$};
+\node (E') at (5.5,0.75) {$\scriptscriptstyle{F(\psi)\phi_{n_1+m_1,n_2+m_2}(\phi_{n_1,m_1}(y_1,x_1),\phi_{n_2,m_2}(y_2,x_2)) \in F((n_1+m_1) +_{b'+b} (n_1+m_2))}$};
+\node (F) at (6,0) {$\scriptstyle{a'+a \rightarrow (n_1+_{b'}n_2)+(m_1+_b m_2) \leftarrow c'+c}$};
+\node (F') at (5.5,-.25) {$\scriptscriptstyle{\phi_{n_1+_{b'}n_2}(F(\psi)\phi_{n_1,n_2}(y_1,y_2),F(\psi)\phi_{m_1,m_2}(x_1,x_2)) \in F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$\chi$} (A')
+(C) edge node[right]{$\chi$} (C')
+(A) edge node[above]{$\beta \odot \beta$} (C)
+(A') edge node[above]{$\beta$} (C');
+\end{tikzpicture}
+\]
+Down and then right:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node (A) at (3.85,0) {$\scriptstyle{\cong}$};
+%\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
+\node () at (4.8,0.75) {$\scriptstyle\stackrel{1 \times \mu \times 1}{\cong}$};
+\node () at (7,1.4) {$\scriptstyle{\cong}$};
+\node () at (7,0.8) {$\scriptstyle\stackrel{\phi_{\beta,1}}{\cong}$};
+\node () at (7,0) {$\scriptstyle{\cong}$};
+\node () at (9.5,0) {$\scriptstyle\stackrel{\phi_{\psi,\psi}}{\cong}$};
+\node () at (9.25,1) {$\scriptstyle\stackrel{\phi_{1,\beta}}{\cong}$};
+\node () at (11,1) {$\scriptstyle{\cong}$};
+\node () at (10.75,-1) {$\scriptstyle\stackrel{\mu_{m_1+_b m_2,n_1+_{b'}n_2}}\cong$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (7,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+\node (E') at (9.5,-0.5) {$\scriptstyle{F(m_1+_b m_2) \times F(n_1+_{b'}n_2)}$};
+\node (E'') at (12,-0.5) {$\scriptstyle{F((m_1+_b m_2)+(n_1+_{b'}n_2))}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{\phi_{\iota_m,\iota_n}}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,-0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+\node (C) at (7,1.75) {$\scriptstyle{F(m_1+n_1) \times F(m_2+n_2)}$};
+\node (A) at (9.5,1.75) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
+\node (A') at (12,1.75) {$\scriptstyle{F((m_1+n_1)+_{b+b'} (m_2+n_2))}$};
+%\node (C') at (11.5,-0.5) {$\scriptstyle{F(m+n)}$};
+\node (G) at (4.5,1.75) {$\scriptstyle{(F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2))}$};
+\node (G') at (4.5,-0.5) {$\scriptstyle{(F(m_1) \times F(m_2)) \times (F(n_1) \times F(n_2))}$};
+\node (G'') at (4.5,-1.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
+\node (F) at (7,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+\node (F') at (9.5,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (B) at (5.75,1) {$\scriptscriptstyle{F(m_1) \times F(n_1+m_2) \times F(n_2)}$};
+\node (B') at (8.25,1) {$\scriptscriptstyle{F(m_1) \times F((n_1+m_2)+n_2)}$};
+\node (B'') at (5.75,0.5) {$\scriptscriptstyle{F(m_1) \times F(m_2+n_1) \times F(n_2)}$};
+\node (B''') at (8.25,0.5) {$\scriptscriptstyle{F(m_1) \times F((m_2+n_1)+n_2)}$};
+\node (H) at (10,0.5) {$\scriptscriptstyle{F(m_1+((m_2+n_1)+n_2)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (12,-1.5) {$\scriptstyle{F((n_1+_{b'}n_2)+(m_1+_b m_2))}$};
+\node (X) at (3.6,1.3) {$\scriptscriptstyle{(x_1 \times y_1) \times (x_2 \times y_2)}$};
+\node (X') at (3.6,-0.35) {$\scriptscriptstyle{(x_1 \times x_2) \times (y_1 \times y_2)}$};
+\node (X'') at (3.6,-1.2) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+%\node () at (10.9,0) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G') edge node [fill=white] {$\beta$} (G'')
+(E') edge node [fill=white] {$\beta$} (F')
+(E'') edge node [fill=white] {$F(\beta)$} (C'')
+(A) edge node [fill=white] {$\scriptscriptstyle{F(1+\beta+1)}$} (H)
+(B') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (A)
+(B''') edge node [above] {$\scriptscriptstyle{\phi}$} (H)
+(H) edge node [fill=white] {$F(\psi+\psi)$} (E'')
+(G') edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (B'')
+(E) edge node [fill=white] {$\scriptscriptstyle{\phi_{m_1+m_2,n_1+n_2}}$} (H)
+(G) edge node [fill=white] {$\scriptscriptstyle{1 \times \phi \times 1}$} (B)
+(B) edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (B')
+(B) edge node [left] {$\scriptscriptstyle{1 \times F(\beta) \times 1}$} (B'')
+(B'') edge node [below] {$\scriptscriptstyle{1 \times \phi}$} (B''')
+(B') edge node [right] {$\scriptscriptstyle{1 \times F(\beta+1)}$} (B''')
+(G) edge node [left] {$\scriptscriptstyle{1 \times \beta \times 1}$} (G')
+(A') edge node [right] {$F(\chi)$} (E'')
+%(B') edge node [fill=white] {$\beta$} (B'')
+(E) edge node [above] {$F(\psi) \times F(\psi)$} (E')
+(E') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (E'')
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E) edge node [fill=white] {$F(\beta) \times F(\beta)$} (F)
+%(B) edge node [above] {$F(\nabla)$} (C')
+(C) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (A)
+(A) edge node [above] {$F(\psi)$} (A')
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B) edge node [fill=white] {$F(\beta+\beta)$} (F')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [fill=white] {$F(\beta)$} (C'')
+(G) edge node [above] {$\phi_{m_1,n_1} \times \phi_{m_2,n_2}$} (C)
+(G'') edge node [below] {$\phi_{n_1,n_2} \times \phi_{m_1,m_2}$} (F)
+(F) edge node [below] {$F(\psi) \times F(\psi)$} (F')
+(F') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+(G') edge node [below] {$\phi_{m_1,m_2} \times \phi_{n_1,n_2}$} (E)
+%(G) edge node [fill=white] {$1$} (G')
+%(G') edge node [fill=white] {$\beta$} (G'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+Right and then down:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (5.75,2.25) {$\scriptstyle\stackrel{\mu_{m_1,n_1} \times \mu_{m_2,n_2}}{\cong}$};
+\node () at (8.25,2.25) {$\scriptstyle\stackrel{\phi_{\beta,\beta}}{\cong}$};
+\node () at (10.75,2.25) {$\scriptstyle{\cong}$};
+%\node (A') at (3.85,-1) {$\scriptstyle{\cong}$};
+\node () at (4.8,0.75) {$\scriptstyle\stackrel{1 \times \mu \times 1}{\cong}$};
+\node () at (7,1.4) {$\scriptstyle{\cong}$};
+\node () at (7,0.8) {$\scriptstyle\stackrel{\phi_{\beta,1}}{\cong}$};
+\node () at (7,0) {$\scriptstyle{\cong}$};
+\node () at (9.5,0) {$\scriptstyle\stackrel{\phi_{\psi,\psi}}{\cong}$};
+\node () at (9.25,1) {$\scriptstyle\stackrel{\phi_{1,\beta}}{\cong}$};
+\node () at (11,1) {$\scriptstyle{\cong}$};
+%\node () at (10.75,-1) {$\scriptstyle\stackrel{\mu_{m_1+_b m_2,n_1+_{b'}n_2}}\cong$};
+\node (D) at (3,1.75) {$\scriptstyle{\one}$};
+\node (E) at (7,-0.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+\node (E') at (9.5,-0.5) {$\scriptstyle{F(n_1+_{b'} n_2) \times F(m_1+_{b}m_2)}$};
+\node (E'') at (12,-0.5) {$\scriptstyle{F((n_1+_{b'} n_2)+(m_1+_{b}m_2))}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{\phi_{\iota_m,\iota_n}}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,-0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+\node (C) at (7,1.75) {$\scriptstyle{F(n_1+m_1) \times F(n_2+m_2)}$};
+\node (A) at (9.5,1.75) {$\scriptstyle{F((n_1+m_1)+(n_2+m_2))}$};
+\node (A') at (12,1.75) {$\scriptstyle{F((n_1+m_1)+_{b'+b} (n_2+m_2))}$};
+%\node (C') at (11.5,-0.5) {$\scriptstyle{F(m+n)}$};
+\node (G) at (4.5,1.75) {$\scriptstyle{(F(n_1) \times F(m_1)) \times (F(n_2) \times F(m_2))}$};
+\node (G') at (4.5,-0.5) {$\scriptstyle{F(n_1) \times F(n_2) \times F(m_1) \times F(m_2)}$};
+\node (G'') at (4.5,2.75) {$\scriptstyle{(F(m_1) \times F(n_1)) \times (F(m_2) \times F(n_2))}$};
+\node (F) at (7,2.75) {$\scriptstyle{F(m_1+n_1) \times F(m_2+n_2)}$};
+\node (F') at (9.5,2.75) {$\scriptstyle{F((m_1+n_1)+(m_2+n_2))}$};
+\node (B) at (5.75,1) {$\scriptscriptstyle{F(n_1) \times F(m_1+n_2) \times F(m_2)}$};
+\node (B') at (8.25,1) {$\scriptscriptstyle{F(n_1) \times F((m_1+n_2)+m_2)}$};
+\node (B'') at (5.75,0.5) {$\scriptscriptstyle{F(n_1) \times F(n_2+m_1) \times F(m_2)}$};
+\node (B''') at (8.25,0.5) {$\scriptscriptstyle{F(n_1) \times F((n_2+m_1)+m_2)}$};
+\node (H) at (10,0.5) {$\scriptscriptstyle{F(n_1+((n_2+m_1)+m_2)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (12,2.75) {$\scriptstyle{F((m_1+n_1)+_{b+b'}(m_2+n_2))}$};
+\node (X) at (3.6,1.95) {$\scriptscriptstyle{(y_1 \times x_1) \times (y_2 \times x_2)}$};
+\node (X') at (3.6,-0.35) {$\scriptscriptstyle{y_1 \times y_2 \times x_1 \times x_2}$};
+\node (X'') at (3.6,2.55) {$\scriptscriptstyle{(x_1 \times y_1) \times (x_2 \times y_2)}$};
+%\node () at (10.9,0) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G'') edge node [fill=white] {$\beta \times \beta$} (G)
+(F) edge node [fill=white] {$F(\beta) \times F(\beta)$} (C)
+(F') edge node [fill=white] {$F(\beta+\beta)$} (A)
+(C'') edge node [right] {$F(\beta+_\beta \beta)$} (A')
+%(E') edge node [fill=white] {$\beta$} (F')
+%(E'') edge node [fill=white] {$F(\beta)$} (C'')
+(A) edge node [fill=white] {$\scriptscriptstyle{F(1+\beta+1)}$} (H)
+(B') edge node [fill=white] {$\scriptscriptstyle{\phi}$} (A)
+(B''') edge node [above] {$\scriptscriptstyle{\phi}$} (H)
+(H) edge node [fill=white] {$F(\psi+\psi)$} (E'')
+(G') edge node [left] {$\scriptscriptstyle{1 \times \phi \times 1}$} (B'')
+(E) edge node [fill=white] {$\scriptscriptstyle{\phi_{n_1+n_2,m_1+m_2}}$} (H)
+(G) edge node [fill=white] {$\scriptscriptstyle{1 \times \phi \times 1}$} (B)
+(B) edge node [above] {$\scriptscriptstyle{1 \times \phi}$} (B')
+(B) edge node [left] {$\scriptscriptstyle{1 \times F(\beta) \times 1}$} (B'')
+(B'') edge node [below] {$\scriptscriptstyle{1 \times \phi}$} (B''')
+(B') edge node [right] {$\scriptscriptstyle{1 \times F(\beta+1)}$} (B''')
+(G) edge node [left] {$\scriptscriptstyle{1 \times \beta \times 1}$} (G')
+(A') edge node [right] {$F(\chi)$} (E'')
+%(B') edge node [fill=white] {$\beta$} (B'')
+(E) edge node [below] {$F(\psi) \times F(\psi)$} (E')
+(E') edge node [below] {$\phi_{n_1+_{b'} n_2,m_1+_{b}m_2}$} (E'')
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E) edge node [fill=white] {$F(\beta) \times F(\beta)$} (F)
+%(B) edge node [above] {$F(\nabla)$} (C')
+(C) edge node [above] {$\phi_{n_1+m_1,n_2+m_2}$} (A)
+(A) edge node [above] {$F(\psi)$} (A')
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B) edge node [fill=white] {$F(\beta+\beta)$} (F')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [fill=white] {$F(\beta)$} (C'')
+(G) edge node [above] {$\phi_{n_1,m_1} \times \phi_{n_2,m_2}$} (C)
+(G'') edge node [above] {$\phi_{m_1,n_1} \times \phi_{m_2,n_2}$} (F)
+(F) edge node [above] {$\phi_{m_1+n_1,m_2+n_2}$} (F')
+(F') edge node [above] {$F(\psi)$} (C'')
+(G') edge node [below] {$\phi_{n_1,n_2} \times \phi_{m_1,m_2}$} (E)
+%(G) edge node [fill=white] {$1$} (G')
+%(G') edge node [fill=white] {$\beta$} (G'')
+(D) edge[out=270,in=180] node [left,above] {$$} (G')
+(D) edge[out=90,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G);
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Diagram 11 of 11. Set up but not solved.}
+\newline
+$$a,b \in (\A,+,0)$$
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,1) {$U_{a+b}$};
+\node (C) at (2,1) {$U_a \otimes U_b$};
+\node (A') at (1,0) {$U_{b+a}$};
+\node (C') at (2,0) {$U_b \otimes U_a$};
+%\node (B) at (-2,1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
+%\node (B') at (-2,0.5) {$\phi_{m,n}(x,y) \in F(m+n)$};
+%\node (D) at (-2,-1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
+%\node (D') at (-2,-1.5) {$F(\iota_m)(x)+F(\iota_n)(y) \in F(m+n)$};
+%\node (E) at (6,1) {$a'+a \rightarrow n+m \leftarrow b'+b$};
+%\node (E') at (6,0.5) {$\phi_{n,m}(y,x) \in F(n+m)$};
+%\node (F) at (6,-1) {$a'+a \rightarrow n+m \leftarrow b'+b$};
+%\node (F') at (6,-1.5) {$F(\iota_n)(y)+F(\iota_m)(x) \in F(n+m)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$U_\beta$} (A')
+(C) edge node[right]{$\beta'$} (C')
+(A) edge node[above]{$\mu_{a,b}$} (C)
+(A') edge node[above]{$\mu_{b,a}$} (C');
+\end{tikzpicture}
+\]
+The top two underlying cospans are $$a+b \xrightarrow{} a+b \xleftarrow{} a+b$$ and the bottom two underyling cospans are $$b+a \xrightarrow{} b+a \xleftarrow{} b+a$$
+\noindent
+Right and then down:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{a,b}$} (E)
+(G') edge node [right] {$\beta$} (G'')
+(C') edge node [left] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\beta)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Down and then right:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F)
+(F) edge node [right] {$F(\id)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+First we remove the lower left commuting quarter circle in the `right and then down' diagram as well as the upper left commuting quarter circle in the `down and then right' diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{a,b}$} (E)
+(G') edge node [right] {$\beta$} (G'')
+(C') edge node [left] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\beta)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F)
+(F) edge node [right] {$F(\id)$} (C'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Next we remove the lower left commuting square with sides $\beta$ in the first diagram and remove the $\id \colon F(0) \to F(0)$ morphism in the second diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+(C') edge node [above] {$\phi_{a,b}$} (E)
+%(G') edge node [right] {$\beta$} (G'')
+(C') edge node [left] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\beta)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (8.5,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+%(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G') edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F)
+(F) edge node [right] {$F(\id)$} (C'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Next we assume that our pseudofunctor $F$ is normalized, meaning that $F(\id)$ is an identitiy, and remove the commuting triangle with sides $\phi_{a,b}$ in the first diagram and the commuting triangle with sides $\phi_{b,a}$ in the second diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+%(G') edge node [right] {$\beta$} (G'')
+(C') edge node [left] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\beta)$} (C'')
+(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (8.5,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+%(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G') edge node [above] {$F(!_{a+b})$} (E)
+%(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F)
+%(F) edge node [right] {$F(\id)$} (C'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Next we remove the left quarter circle containing $\stackrel{\phi}\cong$ from each diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+%(G') edge node [right] {$\beta$} (G'')
+(C') edge node [left] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (F)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\beta)$} (C'');
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+%(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (8.5,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-1) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-1.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+%(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G') edge node [above] {$F(!_{a+b})$} (E)
+%(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F);
+%(F) edge node [right] {$F(\id)$} (C'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+%(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Making each diagram into a rectangle and removing the $F(\id)$ from the first diagram:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (8.75,0) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_a,!_b}}\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (8,-0.5) {$\scriptstyle{F(b) \times F(a)}$};
+%\node (F) at (9.25,-0.5) {$\scriptstyle{F(a+b)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (C'') at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+%(G') edge node [right] {$\beta$} (G'')
+(C') edge node [above] {$\beta$} (H)
+(C') edge node [above] {$\phi_{a,b}$} (E)
+(G) edge node [above] {$F(!_{a+b})$} (E)
+(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_a) \times F(!_b)$} (C')
+%(E) edge node [right] {$F(\id)$}  (F)
+(E) edge node [right] {$F(\beta)$} (C'');
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+%(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8,-1) {$\scriptstyle{\stackrel{\mu_{a,b}}\cong}$};
+%\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+\node () at (8.5,0) {$\scriptstyle{\cong}$};
+%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,0) {$\scriptstyle{\stackrel{\phi_{!_b,!_a}}\cong}$};
+%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(a+b)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(a) \times F(b)}$};
+\node (H) at (6.75,-0.5) {$\scriptstyle{F(b) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(b+a)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G'') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(b+a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi \times \phi}$};
+\path[->,font=\scriptsize,>=angle 90]
+(H) edge node [above] {$\phi_{b,a}$} (F)
+(G'') edge node [above] {$F(!_b) \times F(!_a)$} (H)
+%(G) edge node [right] {$\id$} (G')
+%(C') edge node [above] {$\phi_{a,b}$} (E)
+(G'') edge node [right] {$\phi_{0,0}$} (G')
+%(C') edge node [left] {$\beta$} (H)
+%(C') edge node [above] {$\phi_{a,b}$} (F)
+(G') edge node [above] {$F(!_{a+b})$} (E)
+%(H) edge node [above] {$\phi_{b,a}$} (C'')
+(G') edge node [above] {$F(!_{b+a})$} (F)
+(E) edge node [right] {$F(\beta)$}  (F);
+%(F) edge node [right] {$F(\id)$} (C'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+%(D) edge[out=270,in=180] node [left,above] {$$} (G'')
+%(D) edge node [below] {$$} (G');
+\end{tikzpicture}
+\]
+Are these two diagrams the same?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\noindent
+\textbf{Some useful maps}
+\newline
+Given $a \in (\A,+,0)$, the map $U_{\lambda_a} \colon U_{0+a} \to U_{a}$ is given by:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.85,-0.25) {$\scriptstyle{=}$};
+%\node () at (5.5,0) {$\scriptstyle{=}$};
+\node () at (8.75,0) {$\scriptstyle{\cong}$};
+%\node () at (12,-1) {$\scriptstyle\cong$};
+\node (D) at (3,0) {$\scriptstyle{\one}$};
+\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,-1) {$\scriptstyle\stackrel{(33)}{\cong}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0_\A) \times F(a)}$};
+%\node (F) at (9.25,-0.5) {$\scriptstyle{F(0_\A +a)}$};
+\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+%\node (G') at (4.25,-0.5) {$\scriptstyle{F(0_\A) \times F(0_\A)}$};
+\node (G'') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (9.25,-0.5) {$\scriptstyle{F(a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [right] {$F(\id)$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (E)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+%(C') edge node [above] {$\phi_{0_\A,a}$} (F)
+(G) edge node [above] {$F(!_{0 +a})$} (E)
+(G'') edge node [above] {$F(!_a)$} (C'')
+%(G') edge node [above] {$F(1_0) \times F(!_a)$} (C')
+(E) edge node [right] {$F(\lambda_a)$}  (C'')
+%(F) edge node [right] {$F(\lambda)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+(D) edge[out=90,in=180] node [above] {$\phi$} (G)
+(D) edge[out=270,in=180] node [below] {$\phi$} (G'');
+%(D) edge node [below] {$$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+where the $\cong$ is given by pseudonaturality of $F$: we have a unique map in $!_a \colon 0 \to a$ in $\A$ but also a map $\lambda_a \circ !_{0+a} \colon 0 \to a$ where $\lambda_a$ is the left unitor of $(\A,+,0)$, and so $F(!_a)=F( \lambda_a \circ !_{0+a}) \cong F(\lambda_a)F(!_{0+a})$.
+
+The left unitor $\lambda_{U_a}' \colon U_0 \otimes U_a \to U_a$ is given by:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (3.75,-1) {$\scriptstyle{\stackrel{\phi}\cong}$};
+%\node () at (8.75,0) {$\scriptstyle{=}$};
+\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+%\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+%\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+%(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{0,a}$} (E)
+(G') edge node [right] {$\phi_{0,0}$} (G'')
+(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,a}$} (F)
+%(G) edge node [above] {$F(!_{0 +a})$} (E)
+(G'') edge node [above] {$F(!_a)$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_a)$} (C')
+%(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\lambda_a)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [below] {$\phi$} (G'')
+(D) edge[out=90,in=180] node [above] {$\phi \times \phi$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+where the $\cong$ in the lower right is the same as the one in the first diagram.
+
+For an arbitrary $M$, the left unitor $\lambda_M' \colon U_0 \otimes M \to M$ is given by:
+\[
+\begin{tikzpicture}[scale=1.6]
+%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
+\node () at (4.75,-1) {$\scriptstyle{\stackrel{\lambda_M}\cong}$};
+%\node () at (8.75,0) {$\scriptstyle{=}$};
+\node () at (8.75,-1) {$\scriptstyle{\cong}$};
+%\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
+\node () at (6.75,-.75) {$\scriptstyle{\stackrel{\phi_{!_0,1}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+%\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
+%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
+%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
+%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
+%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(m)}$};
+\node (E) at (6.75,-1) {$\scriptstyle{F(0+m)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0+m)}$};
+%\node (G) at (4.25,0.5) {$\scriptstyle{F(0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(m)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(m)}$};
+%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
+%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
+\node (C'') at (9.25,-1.5) {$\scriptstyle{F(m)}$};
+%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
+%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
+%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
+%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [fill=white] {$F(\lambda_m)$} (C'')
+(G') edge node [fill=white] {$\phi_{0,m}$} (E)
+(E) edge node [fill=white] {$F(!_0+1)$} (F)
+%(G') edge node [right] {$\phi_{0,0}$} (G)
+%(C') edge node [above] {$\phi_{0,a}$} (E)
+%(G') edge node [right] {$\phi_{0,0}$} (G'')
+%(G'') edge node [above] {$F(\lambda_m)$} (F)
+%(E) edge node [above] {$\phi_{m+n,m+n}$} (B)
+%(E'') edge node [below] {$F\psi\times F\psi$} (B'')
+%(E') edge node [above] {$F\psi\times F\psi$} (B')
+%(B) edge node [above] {$F(\nabla)$} (C)
+%(C') edge node [below] {$F(\iota_m + \iota_n)$} (B)
+%(B'') edge node [below] {$\phi_{n_1+_{b'}n_2,m_1+_b m_2}$} (C'')
+%(B') edge node [above] {$\phi_{m_1+_b m_2,n_1+_{b'}n_2}$} (C')
+%(C) edge node [fill=white] {$1$} (C')
+(C') edge node [above] {$\phi_{0,m}$} (F)
+%(G) edge node [above] {$F(!_{0 +a})$} (E)
+(G'') edge node [above] {$\id$} (C'')
+(G') edge node [above] {$F(!_0) \times 1$} (C')
+%(E) edge node [right] {$F(\id)$}  (F)
+(F) edge node [right] {$F(\lambda_m)$} (C'')
+%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
+%(G') edge node [fill=white] {$$} (G'')
+%(D) edge[out=90,in=180] node [left,above] {$$} (G)
+(D) edge[out=270,in=180] node [below] {$x$} (G'')
+(D) edge[out=90,in=180] node [above] {$\phi_0 \times x$} (G');
+%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
+\end{tikzpicture}
+\]
+For an arbitrary $M$ given by $a \xrightarrow{} (m,x) \xleftarrow{} b$, the map $\lambda_M \colon U_b \odot M \to M$ is given by:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (4.75,-1) {$\scriptstyle{\stackrel{\lambda_M}\cong}$};
+\node () at (10,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,-.75) {$\scriptstyle{\stackrel{\phi_{1,!_b}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(m) \times F(b)}$};
+\node (E) at (6.75,-1) {$\scriptstyle{F(m+0)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(m+ b)}$};
+\node (G) at (11,-0.5) {$\scriptstyle{F(m+_b b)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(m) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(m)}$};
+\node (C'') at (11,-1.5) {$\scriptstyle{F(m)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node [above] {$F(\psi)$} (G)
+(E) edge node [fill=white] {$F(\lambda_m)$} (C'')
+(G') edge node [fill=white] {$\phi_{m,0}$} (E)
+(E) edge node [fill=white] {$F(1+!_b)$} (F)
+(C') edge node [above] {$\phi_{m,b}$} (F)
+(G'') edge node [above] {$\id$} (C'')
+(G') edge node [above] {$1 \times F(!_b)$} (C')
+(G) edge node [right] {$F(\kappa)$} (C'')
+(D) edge[out=270,in=180] node [below] {$x$} (G'')
+(D) edge[out=90,in=180] node [above] {$x \times \phi_0$} (G');
+\end{tikzpicture}
+\]
+In particular, if $M=U_0$ above, then the map $\lambda_{U_0} \colon U_0 \odot U_0 \to U_0$ is given by:
+\[
+\begin{tikzpicture}[scale=1.6]
+\node () at (4.75,-1) {$\scriptstyle{\stackrel{\lambda_M}\cong}$};
+\node () at (10,-1) {$\scriptstyle{\cong}$};
+\node () at (6.75,-.75) {$\scriptstyle{\stackrel{\phi_{!_0,!_0}}\cong}$};
+\node (D) at (3,-1) {$\scriptstyle{\one}$};
+\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (E) at (6.75,-1) {$\scriptstyle{F(0+0)}$};
+\node (F) at (9.25,-0.5) {$\scriptstyle{F(0+0)}$};
+\node (G) at (11,-0.5) {$\scriptstyle{F(0+_0 0)}$};
+\node (G') at (4.25,-0.5) {$\scriptstyle{F(0) \times F(0)}$};
+\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+\node (C'') at (11,-1.5) {$\scriptstyle{F(0)}$};
+\path[->,font=\scriptsize,>=angle 90]
+(F) edge node [above] {$F(\psi)$} (G)
+(E) edge node [fill=white] {$F(\lambda_0)$} (C'')
+(G') edge node [fill=white] {$\phi_{0,0}$} (E)
+(E) edge node [fill=white] {$F(!_0+!_0)$} (F)
+(C') edge node [above] {$\phi_{0,0}$} (F)
+(G'') edge node [above] {$\id$} (C'')
+(G') edge node [above] {$F(!_0) \times F(!_0)$} (C')
+(G) edge node [right] {$F(\kappa)$} (C'')
+(D) edge[out=270,in=180] node [below] {$\phi_0$} (G'')
+(D) edge[out=90,in=180] node [above] {$\phi_0 \times \phi_0$} (G');
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
