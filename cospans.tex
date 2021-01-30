@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/1/22 - first arXiv version
+% 2021/1/29 - changes after first arXiv version
 
 \documentclass[reqno]{amsart}
 \input{Equiv_preamble.tex}
@@ -293,7 +293,7 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 \begin{proof}
 Take $\A$ to have finite colimits and let $(F,\phi,\phi_0) \maps (A,+) \to (\Cat,\times)$ be a lax monoidal pseudofunctor.  We shall define the category of objects $F\lCsp_0$, the category of arrows $F\lCsp_1$, as well as the four structure functors which tie them together: the source and target functors $S,T \maps F\lCsp_1 \to F\lCsp_0$, the unit functor $U \maps F\lCsp_0 \to F\lCsp_1$, and the composition functor $\odot \maps F\lCsp_1 \times_{F\lCsp_0} F\lCsp_1 \to F\lCsp_1$.
 
-The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composition of two maps of $F$-decorated cospan is 
+The category of objects $F\lCsp_0$ is simply $\A$, whereas $F$-decorated cospans and maps between them form the category of arrows $F\lCsp_1$. The (vertical) composite of two maps of $F$-decorated cospan is 
 \begin{equation}\label{eq:verticalcompo}
  \begin{tikzcd}
 a\ar[r,"i"]\ar[d,"f"'] & m\ar[d,"h"] & b\ar[l,"o"']\ar[d,"g"]  & x\in F(m) \\
