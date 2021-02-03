@@ -1780,29 +1780,29 @@ Next, we compute the right, down and then left route:
 
 \newpage
 \noindent
-\textbf{Diagrams 7 and 9 of 11. Set up and solved.}
+\textbf{Diagrams 7 and 9 of 11.  Should improve this, but seems okay.}
 \newline
 $$F \colon (\A,+,0) \to (\Cat,\times,1)$$
 $$a \in (\A,+,0)$$
 %$M$ is given by $(a, \bot_a) \rightarrow (m,x) \leftarrow (b,\bot_b)$ and $N$ is given by $(a',\bot_{a'}) \rightarrow (n,y) \leftarrow (b',\bot_{b'})$.
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (1,1) {$U_{0 + a}$};
-\node (C) at (3,1) {$U_{0} \otimes U_a$};
+\node (A) at (1,1) {$U_{0} \otimes U_a$};
+\node (C) at (3,1) {$U_{0 + a}$};
 %\node (A') at (1,-1) {$\lE_1(M \otimes N)$};
 \node (C') at (3,0) {$U_a$};
 \node (B) at (-2,1) {$0 +a \rightarrow 0 +a \leftarrow 0 +a$};
-\node (B') at (-2,0.5) {$\bot_{0 +a \in F(0 +a)}$};
+\node (B') at (-2,0.5) {$\phi_{0,a}(\bot_{0},\bot_a) \in F(0 +a)$};
 %\node (D) at (-2,-1) {$a+a' \rightarrow m+n \leftarrow b+b'$};
 %\node (D') at (-2,-1.5) {$F(\iota_m)(x)+F(\iota_n)(y) \in F(m+n)$};
 \node (E) at (6,1) {$0 +a \rightarrow 0 +a \leftarrow 0 +a$};
-\node (E') at (6,0.5) {$\phi_{0,a}(\bot_{0},\bot_a) \in F(0 +a)$};
+\node (E') at (6,0.5) {$\bot_{0 +a} \in F(0 +a)$};
 \node (F) at (6,0) {$a \rightarrow a \leftarrow a$};
 \node (F') at (6,-0.5) {$\bot_a \in F(a)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[left]{$U_{\lambda_a}$} (C')
-(C) edge node[right]{$\lambda_{U_a}$} (C')
-(A) edge node[above]{$\mu^{-1}$} (C);
+(A) edge node[left]{$\lambda_{U_a}$} (C')
+(C) edge node[right]{$ U_{\lambda_a}$} (C')
+(A) edge node[above]{$\mu$} (C);
 %(A') edge node[above]{$\lE_1(\beta)$} (C');
 \end{tikzpicture}
 \]
