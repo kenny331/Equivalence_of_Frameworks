@@ -2243,7 +2243,7 @@ The two 2-isomorphisms in the top half of the diagram are the inverses of those 
 
 \newpage
 \noindent
-\textbf{Diagrams 7 and 9 of 11. Set up and solved. (Second attempt - Dr Baez's scratch work in TeX form)}
+\textbf{Diagrams 7 and 9 of 11. Set up and solved. }
 \newline
 $$F \colon (\A,+,0) \to (\Cat,\times,1)$$
 $$a \in (\A,+,0)$$
@@ -2385,8 +2385,9 @@ Diagonally:
 %(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
 \end{tikzpicture}
 \]
-First we remove the regions common to each diagram. This consists of the laxator triangles $(\stackrel{F} \cong)$ in the lower right of each diagram as well as the two squares on the left in the "right and then down" diagram together with the single square on the left in the "diagonally" diagram.
-\newline
+If we remove the regions common to each diagram, and regions that strictly commute,
+these are clearly equal.
+\vskip 1em
 \noindent
 Right and then down:
 \[
@@ -2403,7 +2404,7 @@ Right and then down:
 %\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
 %\node (D') at (3,0.5) {$\scriptstyle{\one \times \one}$};
 %\node (D'') at (3,-1.5) {$\scriptstyle{\one}$};
-\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
+%\node (E) at (9.25,0.5) {$\scriptstyle{F(110 +a)}$};
 %\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
 %\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
 %\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
@@ -2414,7 +2415,7 @@ Right and then down:
 \node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
 \node (G) at (4.25,0.5) {$\scriptstyle{F(0) \times F(0)}$};
 \node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
-\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
+%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
 %\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
 %\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
 %\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
@@ -2427,16 +2428,16 @@ Right and then down:
 %(X') edge node [right] {$U_{\lambda_a}$} (X'')
 (G) edge node [right] {$\phi_{0,0}$} (G')
 (C) edge node [above] {$\phi_{0,a}$} (F)
-(G') edge node [right] {$1$} (G'')
-(G'') edge node [above] {$F(!_{0+a})$} (F)
+%(G') edge node [right] {$1$} (G'')
+%(G'') edge node [above] {$F(!_{0+a})$} (F)
 %(D') edge node [left] {$\lambda^{-1}$} (D)
 %(D) edge node [left] {$1$} (D'')
-(C) edge node [above] {$\phi_{0,a}$} (E)
+%(C) edge node [above] {$\phi_{0,a}$} (E)
 %(C') edge node [above] {$\phi_{0,a}$} (F)
 (G) edge node [above] {$F(!_0) \times F(!_a)$} (C)
 %(G'') edge node [above] {$F(!_a)$} (C'')
-(G') edge node [above] {$F(!_{0+a})$} (F)
-(E) edge node [right] {$1$}  (F);
+(G') edge node [above] {$F(!_{0+a})$} (F);
+%(E) edge node [right] {$1$}  (F);
 %(F) edge node [right] {$F(\lambda_a)$} (C'')
 %(G) edge node [fill=white] {$\lambda^{-1}$} (G')
 %(G') edge node [fill=white] {$$} (G'')
@@ -2504,193 +2505,6 @@ Diagonally:
 %(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
 \end{tikzpicture}
 \]
-Then we remove the bottom commuting triangle of the first diagram and add in a commuting triangle to the second diagram, resulting in the following two rectangles which represent equal 2-morphisms:
-\newline
-\noindent
-Right and then down:
-\[
-\begin{tikzpicture}[scale=1.6]
-%\node (X) at (10.5,0.5) {$\scriptstyle{U_0 \times U_a}$};
-%\node (X') at (10.5,-0.5) {$\scriptstyle{U_{0+a}}$};
-%\node (X'') at (10.5,-1.5) {$\scriptstyle{U_a}$};
-%\node () at (3.75,0) {$\scriptstyle{\stackrel{\phi}\cong}$};
-%\node () at (3.625,0) {$\scriptstyle{\cong}$};
-%\node () at (8.75,0) {$\scriptstyle{=}$};
-%\node () at (8.75,-1) {$\scriptstyle{\stackrel{F}\cong}$};
-\node () at (6.75,0) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
-%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
-%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-%\node (D') at (3,0.5) {$\scriptstyle{\one \times \one}$};
-%\node (D'') at (3,-1.5) {$\scriptstyle{\one}$};
-\node (E) at (9.25,0.5) {$\scriptstyle{F(0 +a)}$};
-%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
-%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
-%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
-%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
-\node (C) at (6.75,0.5) {$\scriptstyle{F(0) \times F(a)}$};
-%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
-\node (F) at (9.25,-0.5) {$\scriptstyle{F(0 +a)}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(0) \times F(0)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
-%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
-%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
-%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
-%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
-%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
-%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
-%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
-\path[->,font=\scriptsize,>=angle 90]
-%(X) edge node [right] {$\mu$} (X')
-%(X') edge node [right] {$U_{\lambda_a}$} (X'')
-(G) edge node [right] {$\phi_{0,0}$} (G')
-(C) edge node [above] {$\phi_{0,a}$} (F)
-%(G') edge node [right] {$1$} (G'')
-%(G'') edge node [above] {$F(!_{0+a})$} (F)
-%(D') edge node [left] {$\lambda^{-1}$} (D)
-%(D) edge node [left] {$1$} (D'')
-(C) edge node [above] {$\phi_{0,a}$} (E)
-%(C') edge node [above] {$\phi_{0,a}$} (F)
-(G) edge node [above] {$F(!_0) \times F(!_a)$} (C)
-%(G'') edge node [above] {$F(!_a)$} (C'')
-(G') edge node [above] {$F(!_{0+a})$} (F)
-(E) edge node [right] {$1$}  (F);
-%(F) edge node [right] {$F(\lambda_a)$} (C'')
-%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
-%(G') edge node [fill=white] {$$} (G'')
-%(D') edge node [above] {$\phi \times \phi$} (G)
-%(D'') edge node [above] {$\phi$} (G'')
-%(D) edge node [above] {$\phi$} (G');
-%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
-\end{tikzpicture}
-\]
-Diagonally:
-\[
-\begin{tikzpicture}[scale=1.6]
-%\node (X) at (10.5,0.5) {$\scriptstyle{U_0 \times U_a}$};
-%\node (X') at (10.5,-0.5) {$\scriptstyle{U_{a}}$};
-%\node (X'') at (10.5,-1.5) {$\scriptstyle{U_a}$};
-%\node () at (8.5,0) {$\scriptstyle{\stackrel{F}\cong}$};
-%\node () at (3.625,0) {$\scriptstyle{\cong}$};
-%\node () at (8.75,0) {$\scriptstyle{=}$};
-%\node () at (8.75,-1) {$\scriptstyle{\stackrel{F}\cong}$};
-\node () at (5.25,0.1) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
-%\node () at (5.5,-.85) {$\scriptstyle{\stackrel{\phi_{!_0,!_a}}\cong}$};
-%\node (D) at (3,-0.5) {$\scriptstyle{\one}$};
-%\node (D') at (3,0.5) {$\scriptstyle{\one \times \one}$};
-%\node (D'') at (3,-1.5) {$\scriptstyle{\one}$};
-\node (E) at (9.25,0.5) {$\scriptstyle{F(0+a)}$};
-\node (E') at (9.25,-0.5) {$\scriptstyle{F(0+a)}$};
-%\node () at (7.875,0) {$\scriptstyle\stackrel{(32)}{\cong}$};
-%\node (E') at (6.75,-0.5) {$\scriptstyle{F(m_1+m_2) \times F(n_1+n_2)}$};
-%\node (B) at (9,0.5) {$\scriptstyle{F((m+n)+(m+n))}$};
-%\node (B') at (9,-0.5) {$\scriptstyle{F(m_1+_b m_2)\times F(n_1+_{b'}n_2)}$};
-%\node (C) at (11.5,0.5) {$\scriptstyle{F(m+n)}$};
-\node (C) at (6.75,0.5) {$\scriptstyle{F(0) \times F(a)}$};
-%\node (C') at (6.75,-0.5) {$\scriptstyle{F(0) \times F(a)}$};
-%\node (F) at (9.25,-0.5) {$\scriptstyle{F(a)}$};
-\node (G) at (4.25,0.5) {$\scriptstyle{F(0) \times F(0)}$};
-\node (G') at (4.25,-0.5) {$\scriptstyle{F(0)}$};
-%\node (G'') at (4.25,-1.5) {$\scriptstyle{F(0)}$};
-%\node (E'') at (6.75,-1.5) {$\scriptstyle{F(n_1+n_2) \times F(m_1+m_2)}$};
-%\node (B'') at (9,-1.5) {$\scriptstyle{F(n_1+_{b'}n_2) \times F(m_1+_b m_2)}$};
-%\node (C'') at (9.25,-1.5) {$\scriptstyle{F(a)}$};
-%\node (X) at (3.4,0.2) {$\scriptscriptstyle{\phi}$};
-%\node (X') at (3.4,-0.35) {$\scriptscriptstyle{\phi \times \phi}$};
-%\node (X'') at (3.4,-1.2) {$\scriptscriptstyle{\phi}$};
-%\node () at (10.9,0.15) {$\scriptstyle{\cong}$};
-\path[->,font=\scriptsize,>=angle 90]
-%(X) edge node [right] {$\lambda_{U_a}$} (X')
-%(X') edge node [right] {$U_{\lambda_a}$} (X'')
-(G) edge node [right] {$\phi_{0,0}$} (G')
-(G') edge node [above] {$F(!_{0+a})$} (E)
-%(G') edge node [right] {$1$} (G'')
-%(G'') edge node [above] {$F(!_{0+a})$} (F)
-%(D') edge node [left] {$\lambda^{-1}$} (D)
-%(D) edge node [left] {$1$} (D'')
-(C) edge node [above] {$\phi_{0,a}$} (E)
-(E) edge node [right] {$1$} (E')
-(G') edge node [above] {$F(!_{0+a})$} (E')
-%(C') edge node [above] {$\phi_{0,a}$} (F)
-(G) edge node [above] {$F(!_0) \times F(!_a)$} (C);
-%(G'') edge node [above] {$F(!_a)$} (C'')
-%(G') edge node [above] {$F(!_{0+a})$} (F)
-%(E) edge node [right] {$F(\lambda_a)$}  (F)
-%(F) edge node [right] {$F(\lambda_a)$} (C'')
-%(G) edge node [fill=white] {$\lambda^{-1}$} (G')
-%(G') edge node [fill=white] {$$} (G'')
-%(D') edge node [above] {$\phi \times \phi$} (G);
-%(D'') edge node [above] {$\phi$} (G'')
-%(D) edge node [above] {$\phi$} (G');
-%(C) edge[bend left=80] node [fill=white] {$F(\beta\hat{\chi})$} (C'');
-\end{tikzpicture}
-\]
-We also could have achieved two equal 2-morphisms given by $\stackrel{\phi_{!_0,!_a}} \cong$ by removing the two commuting regions of the first diagram after the first step.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \newpage
 \noindent
