@@ -900,7 +900,7 @@ using that $L$ preserves finite coproducts.
 \begin{proof}
 This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail.  In fact, the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ and $\A$ have finite coproducts and that $L$ preserve these \cite[Theorem~3.2.3]{CourserThesis}.   
 
-{\bf NEW PROOF.}
+{\bf NEW PROOF HERE.}  We apply \cref{lem:shulman} to ....
 \end{proof}
 
 The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  Let $\SMC$ be the 2-category of symmetric monoidal categories, strong symmetric monoidal functors and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a specific cocartesian monoidal category $(\C,+)$, and this induces a 2-functor $\Rex \to \SMC$.
@@ -1021,9 +1021,7 @@ where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ 
 We now have all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ whose corresponding pseudofunctor $ F\maps \A \to \SMC$ factors through $\Rex$.
 
 \begin{proof}[Proof of \cref{thm:equiv}]
-Recall from \cref{thm:decorated_cospans} that the double category of decorated cospans $F\lCsp$ has objects and vertical 1-morphisms as in $\A$, while horizontal 1-cells are cospans $\cspn{a}{m}{b}{}{}$ in $\A$ decorated by an $x\in F(m)$ and 2-morphisms are maps of cospans $k\maps m\to m'$ together with $\tau\maps(Fk)(x)\to x'$ in $F(m')$.
-
-Since the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, 
+Since we are assuming the pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, 
 \cref{cor:fcocMonGroth} implies that the Gro\-the\-ndieck construction gives rise to a category $\inta F$ with finite colimits, and we can choose these in such a way that the corresponding opfibration $U \maps \inta F \to \A$ strictly preserves them.  We do this in what follows.
 
 By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL=1_\A$. Diagrammatically,
@@ -1033,6 +1031,8 @@ By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL
 describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint picks the initial object in the fiber of $a$, namely $L(a)=(a,\bot_a)$ which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1} for $(\phi,\phi_0)$ the monoidal structure of $F$.
 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}.
+
+{\textbf NEW PROOF HERE.}
 \end{proof}
 
 In fact, a careful examination of the proof reveals that the assumptions of \cref{thm:equiv} could be weakened to state that the pseudofunctor $F \maps \A \to \SMC$ factors through the 2-category $\mathbf{Cocart}$ of cocartesian monoidal categories.   The reason is that when we compose two structured cospans as in \cref{eq:pushoutissum}, the apex of the composite cospan ends up being a sum in the second variable due to the definition of the left adjoint functor $L$ which forces the feet of all cospans to involve a fiberwise initial object.  However, in the most interesting examples seen so far, when $F$ factors through $\mathbf{Cocart}$ it also factors through $\Rex$.   
