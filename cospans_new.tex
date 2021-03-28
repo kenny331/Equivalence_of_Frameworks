@@ -693,7 +693,182 @@ monoidal double category.
 \begin{proof} This is \cite[Theorem 14.9]{Shulman2008}; Shulman proves the dual version in more detail in his Theorem 14.4.  
 \end{proof}
 
-\begin{proof}[Proof of \cref{thm:decorated_cospans_1}] We apply \cref{lem:shulman} to $A/U \to A$: why is this a fibration, a cofibration, and Beck--Chevalley?
+\begin{proof}[Proof of \cref{thm:decorated_cospans_1}] We apply \cref{lem:shulman} to the Beck-Chevalley monoidal bifibration $U_1 \colon (\A/U) \to \A$ which we now define. Let $(\A/U)$ be the comma category in which:
+\begin{enumerate}
+\item{an object is a triple $(a,x,a \xrightarrow{i} U(x))$, and}
+\item{a morphism from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair of morphisms $f \colon a \to a'$ and $\alpha \colon x \to x'$ such that the following square commutes:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$a'$};
+\node (C) at (0,-1) {$U(x)$};
+\node (D) at (1,-1) {$U(x')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(A) edge node[left]{$i$} (C)
+(B) edge node[right]{$i'$} (D)
+(C) edge node[above]{$U(\alpha)$} (D);
+\end{tikzpicture}
+\]}
+\end{enumerate}
+The functor $U_1$ is defined on objects by $U_1(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $U_1(f,\alpha)=f$. We have a monoidal structure on the comma category $(\A/U)$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by $$(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1+x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1+x_2))$$making use of the natural isomorphism $U(x_1)+U(x_2) \cong U(x_1+x_2)$ which we omit in the above definition. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $U_1$ can be made into a strict monoidal functor using this tensor product.
+
+The functor $U_1$ is a fibration where given a morphism $f \colon a \to b$ in $\A$ with $(b,y,b \xrightarrow{i} U(y))$ over $b$ in $\int F$, the cartesian lifting of $f$ is given by $$(f,\id) \colon (a,y,a \xrightarrow{i \circ f} U(y)) \to (b,y,b \xrightarrow{i} U(y)).$$Denoting the cartesian lifting of a morphism $f$ by $\textnormal{cart}(f)$, the tensor product of $(\A/U)$ strictly preserves cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
+
+The functor $U_1$ is also an opfibration where given a morphism $f \colon a \to b$ with $(a,x,a \xrightarrow{i} U(x))$ over $a$, the cocartesian lifting of $f$ is given by $$(f,\theta) \colon (a,x,a \to U(x)) \to (b,z,b \xrightarrow{\phi} U(z))$$where $\theta$ and $\phi$ arise from the following pushout square in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1.5,0) {$b$};
+\node (C) at (0,-1) {$U(x)$};
+\node (D) at (1.5,-1) {$U(x)+_a b$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(A) edge node[left]{$i$} (C)
+(B) edge [dashed] node[right]{$\phi$} (D)
+(C) edge [dashed] node[above]{$\theta$} (D);
+\end{tikzpicture}
+\]
+and the object $z$ arises from the cocartesian lifting of $\theta$ through $U$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (2.5,0) {$c$};
+\node (C) at (1.5,1) {$b$};
+\node (D) at (0,-2) {$U(x)$};
+\node (E) at (2.5,-2) {$U(y)$};
+\node (F) at (1.5,-1) {$U(z) = U(x)+_a b$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge node [above] {$\theta$} (F)
+(F) edge [dashed] node [left] {$\exists ! \psi$} (E)
+(D) edge node [above] {$U(g')$} (E)
+(A) edge node [left] {$i$} (D)
+(C) edge [dashed] node [right,near end] {$\phi$} (F)
+(B) edge node {$$} (E)
+(A) edge node[above]{$f'$} (B)
+(C) edge node [right] {$p$} (B)
+(A) edge node[left]{$f$} (C);
+%(B) edge [dashed] node[right]{$$} (D)
+%(C) edge [dashed] node[above]{$$} (D);
+\end{tikzpicture}
+\]
+Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram: $$(U(x_1)+_{a_1}b_1)+(U(x_2)+_{a_2}b_2) \cong U(x_1+x_2)+_{a_1+a_2}(b_1+b_2).$$
+
+Lastly, the monoidal bifibration $U_1$ satisfies the Beck-Chevalley condition. Given a pushout square in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$b$};
+\node (C) at (0,-1) {$c$};
+\node (D) at (1,-1) {$d$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$h$} (B)
+(A) edge node[left]{$k$} (C)
+(B) edge node[right]{$g$} (D)
+(C) edge node[above]{$f$} (D);
+\end{tikzpicture}
+\]
+one can show that the following square commutes up to a natural isomorphism:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(\A/U)_a$};
+\node (B) at (2,0) {$(\A/U)_b$};
+\node (C) at (0,-1) {$(\A/U)_c$};
+\node (D) at (2,-1) {$(\A/U)_d$};
+\node (E) at (1,-0.5) {$\Searrow$};
+\path[->,font=\scriptsize,>=angle 90]
+(B) edge node[above]{$h^*$} (A)
+(A) edge node[left]{$k_!$} (C)
+(B) edge node[right]{$g_!$} (D)
+(D) edge node[above]{$f^*$} (C);
+\end{tikzpicture}
+\]
+Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going right, we precompose with $h \colon a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ in $(\A/U)_a$. Then, going down, we pushforward along $k \colon a \to c$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (2,0) {$U(x)$};
+\node (C) at (0,-1) {$c$};
+\node (D) at (2,-1) {$c+_{a}U(x)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i \circ h$} (B)
+(A) edge node[left]{$k$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\psi$} (D);
+\end{tikzpicture}
+\]
+to obtain the object $(c,z,c \to U(z))$ of $(\A/U)_c$ where $z \in \int F$ such that $U(z)=c+_a U(x)$. In particular, $z=L(c)+_{L(a)}x$ and as $U$ preserves finite colimits and $UL=1_\A$, we have that $$U(z)=U(L(c)+_{L(a)}x)=U(L(c))+_{U(L(a))}U(x)=c+_a U(x).$$ For the other route, first going down, we pushforward the object $(b,x,b \xrightarrow{i} U(x))$ along $g \colon b \to d$ by taking the following pushout:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$b$};
+\node (B) at (2,0) {$U(x)$};
+\node (C) at (0,-1) {$d$};
+\node (D) at (2,-1) {$d+_{b}U(x)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(A) edge node[left]{$g$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\theta$} (D);
+\end{tikzpicture}
+\]
+which yields the object $(d,z',d \to U(z'))$ of $(\A/U)_d$ where $z' \in \int F$ such that $U(z')=d+_b U(x)$. In particular, $z'$ is given by $z'=L(d)+_{L(b)}x$. We then precompose with $f \colon c \to d$ to obtain the object $(c,z',c \to U(z'))$ of $(\A/U)_c$.
+
+Now we seek a natural isomorphism between the two objects $(c,z,c \to c+_a U(x))$ and $(c,z',c \to d+_b U(x))$ in $(\A/U)_c$. It suffices to obtain a natural isomorphism between the two objects $z=L(c)+_{L(a)} x$ and $z'=L(d)+_{L(b)} x$ in $\X$. The following two squares are pushouts:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (2,0) {$x$};
+\node (C) at (0,-1) {$L(c)$};
+\node (D) at (2,-1) {$L(c)+_{L(a)}x$};
+\node (A') at (3,0) {$L(b)$};
+\node (B') at (5,0) {$x$};
+\node (C') at (3,-1) {$L(d)$};
+\node (D') at (5,-1) {$L(d)+_{L(b)}x$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$I \circ L(h)$} (B)
+(A) edge node[left]{$L(k)$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\psi$} (D)
+(A') edge node[above]{$I$} (B')
+(A') edge node[left]{$L(g)$} (C')
+(B') edge node[right]{$$} (D')
+(C') edge node[above]{$\theta$} (D');
+\end{tikzpicture}
+\]
+the left of which exhibits $L(c)+_{L(a)}x$ as a colimit of the span $$L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x$$in $\X$. As $L$ preserves pushouts, the following square is also a pushout:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (1,0) {$L(b)$};
+\node (C) at (0,-1) {$L(c)$};
+\node (D) at (1,-1) {$L(d)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$L(h)$} (B)
+(A) edge node[left]{$L(k)$} (C)
+(B) edge node[right]{$L(g)$} (D)
+(C) edge node[above]{$L(f)$} (D);
+\end{tikzpicture}
+\]
+which we may then paste to the left of the above pushout square on the right to obtain another pushout square:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(b)$};
+\node (B) at (2,0) {$x$};
+\node (C) at (0,-1) {$L(d)$};
+\node (D) at (2,-1) {$L(d)+_{L(b)}x$};
+\node (E) at (-1,0) {$L(a)$};
+\node (F) at (-1,-1) {$L(c)$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [left] {$L(k)$} (F)
+(E) edge node [above] {$L(h)$} (A)
+(F) edge node [above] {$L(f)$} (C)
+(A) edge node[above]{$I$} (B)
+(A) edge node[left]{$L(g)$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\theta$} (D);
+\end{tikzpicture}
+\]
+which exhibits $L(d)+_{L(b)} x$ also as a colimit of the same span in $\X$, and hence the desired natural isomorphism between our two objects of $(\A/U)_c$ showing that $U_1$ satisfies the Beck-Chevalley condition.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] We apply \cref{lem:shulman} to $A/U \to A$: why is this a symmetric monoidal bifibration?
