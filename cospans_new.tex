@@ -172,6 +172,7 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \definecolor{purple(x11)}{rgb}{0.5, 0.0, 0.5}
 \def\purple{\color{purple(x11)}}
 \def\chris{\purple}
+\def\john{\color{red}}
 \newcommand{\upback}{\mathbin{\rotatebox[origin=c]{135}{$\ulcorner$}}}
 
 % xypic
@@ -504,12 +505,15 @@ We thank Daniel Cicala, Brendan Fong, Joe Moeller and especially Michael Shulman
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$  whenever $A$ has finite colimits ({\bf or is just cocartesian?}).  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   The definition of lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the definition of symmetric monoidal double category is recalled in \cref{defn:double_category}.  
+In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$  whenever $A$ is a cocartesian.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   The definition of lax monoidal pseudofunctor is recalled in \cref{subsec:bicats}, and the definition of symmetric monoidal double category is recalled in \cref{defn:double_category}.  
 
-In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.
+In what follows, we define a \define{cocartesian monoidal category} $(\A,+)$ to be a symmetric
+monoidal category where the monoidal structure is given by chosen binary coproducts, with a chosen initial object serving as the unit for the monoidal structure.  Any category with finite coproducts can be made into a cocartesian monoidal category by arbitrarily choosing finite coproduct and a unit object.
+
+%In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has coproducts it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.   MAY NEED THIS LATER, BUT NOT HERE!!!
 
 \begin{thm}\label{thm:decorated_cospans_1}
-Let $\A$ be a category with finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
+Let $(\A,+)$ be cocartesian monoidal and $F \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -544,8 +548,8 @@ a commutative diagram in $\A$ of the form
 (C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(A') edge node[above] {$i'$} (D)
-(C') edge node[above] {$o'$} (D)
+(A') edge node[below] {$i'$} (D)
+(C') edge node[below] {$o'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \end{equation}
@@ -554,7 +558,7 @@ together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m
 \end{thm}
 
 \begin{thm}\label{thm:decorated_cospans_2}
-Let $\A$ be a category with finite colimits and let $(F,\phi,\phi_0)\maps (\A,+) \to (\Cat,\times)$ be a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
+Let $(\A,+)$ be a cocartesian monoidal category and let $(F,\phi,\phi_0)\maps (\A,+) \to (\Cat,\times)$ be a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
 \begin{itemize}
 \item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
 \item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
@@ -637,18 +641,20 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 
 We prove both these theorems using the work of Shulman \cite{Shulman2008}, which we recall here.   First we need a few concepts.   Opfibrations are recalled in \cref{subsec:fibrations}, 
 and fibrations are defined dually, with a functor $\Phi \maps \C \to \A$ being a fibration if and only
-if $\Phi\op \maps \C\op \to \A\op$ is an opfibration.   A functor $\Phi \maps \C \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.  If $\Phi \maps \C \to \A$ an opfibration we have for any morphism $f \maps a \to b$ in $\A$ a covariant reindexing functor
+if $\Phi\op \maps \C\op \to \A\op$ is an opfibration.   A functor $\Phi \maps \C \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.      If $\C$ and $\A$ are monoidal categories, a \define{monoidal} bifibration $\Phi \colon \C \to \A$ is a bifibration that is also a strict monoidal functor.   Similarly, if $\C$ and $\A$ are symmetric monoidal, a \define{symmetric monoidal} bifibration is a bifibration $\Phi \colon \C \to \A$ that is a symmetric strict monoidal functor.
+
+If $\Phi \maps \C \to \A$ an opfibration, for any morphism $f \maps a \to b$ in $\A$ there is a covariant reindexing functor
 \[    f_! \maps \C_a \to \C_b \]
-between the fibers of $\Phi$, as recalled in \cref{subsec:fibrations}.  Similarly, if $\Phi$ is a fibration we have a contravariant reindexing functor
+between the fibers of $\Phi$, as recalled in \cref{subsec:fibrations}.  Similarly, if $\Phi$ is a fibration there is a contravariant reindexing functor
 \[    f^\ast \maps \C_b \to \C_a .\]
 Thus, in a bifibration we have both covariant and contravariant reindexing functors, and in 
 fact $f^\ast$ is left adjoint to $f_\ast$ \cite[Proposition 3.9]{Shulman2008}.   Using this one can easily show that for any commutative square in $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$b$};
+\node (B) at (1.5,0) {$b$};
 \node (C) at (0,-1) {$c$};
-\node (D) at (1,-1) {$d$};
+\node (D) at (1.5,-1) {$d$};
 %\node (E) at (0.5,-0.5) {$\Downarrow\theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$h$} (B)
@@ -657,14 +663,14 @@ fact $f^\ast$ is left adjoint to $f_\ast$ \cite[Proposition 3.9]{Shulman2008}.  
 (C) edge node[below]{$f$} (D);
 \end{tikzpicture}
 \]
-the following square commutes up to a natural transformation:
+the following square commutes up to a specified natural transformation, built
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\C_a$};
-\node (B) at (1,0) {$\C_b$};
+\node (B) at (1.5,0) {$\C_b$};
 \node (C) at (0,-1) {$\C_c$};
-\node (D) at (1,-1) {$\C_d$};
-\node (E) at (0.5,-0.5) {$\Searrow \theta$};
+\node (D) at (1.5,-1) {$\C_d$};
+\node (E) at (0.75,-0.5) {$\Searrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^\ast$} (A)
 (A) edge node[left]{$k_!$} (C)
@@ -672,11 +678,12 @@ the following square commutes up to a natural transformation:
 (D) edge node[below]{$f^\ast$} (C);
 \end{tikzpicture}
 \]
-If $\theta$ is a natural isomorphism whenever the original square in $\A$ was
+If $\theta$ is a natural isomorphism whenever the original square in $\A$ is
 a pushout, we say $\Phi$ is \define{Beck--Chevalley}.  (Shulman says `strongly co-Beck--Chevalley'.)
 
+
 \begin{lem}[\textbf{Shulman}] \label{lem:shulman}
-Suppose $\A$ has finite colimits and $\Phi \maps \C \to \A$ is a Beck--Chevalley bifibration.  Then there is a double category $\Fr(\Phi)$ in which
+Suppose $(\A,+)$ is cocartesian monoidal and $\Phi \maps (\C,\otimes) \to (\A,+)$ is a Beck--Chevalley monoidal bifibration.  Then there is a double category $\Fr(\Phi)$ in which
 
 \begin{itemize}
 \item an object is an object of $\A$,
@@ -693,29 +700,41 @@ monoidal double category.
 \begin{proof} This is \cite[Theorem 14.9]{Shulman2008}; Shulman proves the dual version in more detail in his Theorem 14.4.  
 \end{proof}
 
-\begin{proof}[Proof of \cref{thm:decorated_cospans_1}] We apply \cref{lem:shulman} to the Beck-Chevalley monoidal bifibration $U_1 \colon (\A/U) \to \A$ which we now define. Let $(\A/U)$ be the comma category in which:
+\begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
+We apply \cref{lem:shulman} to a bifibration $\Phi \maps (\A/U) \to \A$ which we now define. Let $(\A/U)$ be the comma category in which:
 \begin{enumerate}
 \item{an object is a triple $(a,x,a \xrightarrow{i} U(x))$, and}
 \item{a morphism from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair of morphisms $f \colon a \to a'$ and $\alpha \colon x \to x'$ such that the following square commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$a'$};
+\node (B) at (1.5,0) {$a'$};
 \node (C) at (0,-1) {$U(x)$};
-\node (D) at (1,-1) {$U(x')$};
+\node (D) at (1.5,-1) {$U(x')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
 (B) edge node[right]{$i'$} (D)
-(C) edge node[above]{$U(\alpha)$} (D);
+(C) edge node[below]{$U(\alpha)$} (D);
 \end{tikzpicture}
 \]}
 \end{enumerate}
+<<<<<<< Updated upstream
 The functor $U_1$ is defined on objects by $U_1(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $U_1(f,\alpha)=f$. We have a monoidal structure on the comma category $(\A/U)$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by $$(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1+x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1+x_2))$$ where the natural  isomorphism $U(x_1)+U(x_2) \cong U(x_1+x_2)$ is implicit in the above composite, for reasons of space. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $U_1$ can be made into a strict monoidal functor using this tensor product.
+=======
+The functor $\Phi$ is defined on objects by $U_1(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $U_1(f,\alpha)=f$. We have a monoidal structure on the comma category $(\A/U)$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
+\[  (a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1+x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1+x_2)) \]
+where we have left the natural isomorphism $U(x_1)+U(x_2) \cong U(x_1+x_2)$  implicit
+ in the above composite, for reasons of space. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $U_1$ can be made into a strict monoidal functor using this tensor product.
+>>>>>>> Stashed changes
 
-The functor $U_1$ is a fibration where given a morphism $f \colon a \to b$ in $\A$ with $(b,y,b \xrightarrow{i} U(y))$ over $b$ in $\int F$, the cartesian lifting of $f$ is given by $$(f,\id) \colon (a,y,a \xrightarrow{i \circ f} U(y)) \to (b,y,b \xrightarrow{i} U(y)).$$Denoting the cartesian lifting of a morphism $f$ by $\textnormal{cart}(f)$, the tensor product of $(\A/U)$ strictly preserves cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
+The functor $\Phi$ is a fibration where given a morphism $f \maps a \to b$ in $\A$ with $(b,y,b \xrightarrow{i} U(y))$ over $b$ in $\int F$, the cartesian lifting of $f$ is given by 
+\[ (f,\id) \maps (a,y,a \xrightarrow{i \circ f} U(y)) \to (b,y,b \xrightarrow{i} U(y)). \]
+Denoting the cartesian lifting of a morphism $f$ by $\textnormal{cart}(f)$, the tensor product of $(\A/U)$ strictly preserves cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
-The functor $U_1$ is also an opfibration where given a morphism $f \colon a \to b$ with $(a,x,a \xrightarrow{i} U(x))$ over $a$, the cocartesian lifting of $f$ is given by $$(f,\theta) \colon (a,x,a \to U(x)) \to (b,z,b \xrightarrow{\phi} U(z))$$where $\theta$ and $\phi$ arise from the following pushout square in $\A$:
+The functor $\Phi$ is also an opfibration where given a morphism $f \maps a \to b$ with $(a,x,a \xrightarrow{i} U(x))$ over $a$, the cocartesian lifting of $f$ is given by 
+\[ (f,\theta) \maps (a,x,a \to U(x)) \to (b,z,b \xrightarrow{\phi} U(z)) \]
+where $\theta$ and $\phi$ arise from the following pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -752,123 +771,119 @@ and the object $z$ arises from the cocartesian lifting of $\theta$ through $U$:
 %(C) edge [dashed] node[above]{$$} (D);
 \end{tikzpicture}
 \]
-Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram: $$(U(x_1)+_{a_1}b_1)+(U(x_2)+_{a_2}b_2) \cong U(x_1+x_2)+_{a_1+a_2}(b_1+b_2).$$
+Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram: 
+\[  (U(x_1)+_{a_1}b_1)+(U(x_2)+_{a_2}b_2) \cong U(x_1+x_2)+_{a_1+a_2}(b_1+b_2). \]
 
-Lastly, the monoidal bifibration $U_1$ satisfies the Beck-Chevalley condition. Given a pushout square in $\A$:
+Lastly, the monoidal bifibration $U_1$ satisfies the Beck--Chevalley condition. Given a pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$b$};
+\node (B) at (1.5,0) {$b$};
 \node (C) at (0,-1) {$c$};
-\node (D) at (1,-1) {$d$};
+\node (D) at (1.5,-1) {$d$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$h$} (B)
 (A) edge node[left]{$k$} (C)
 (B) edge node[right]{$g$} (D)
-(C) edge node[above]{$f$} (D);
+(C) edge node[below]{$f$} (D);
 \end{tikzpicture}
 \]
-one can show that the following square commutes up to a natural isomorphism:
+we need to show that the following square commutes up to a natural isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\A/U)_a$};
-\node (B) at (2,0) {$(\A/U)_b$};
+\node (B) at (1.5,0) {$(\A/U)_b$};
 \node (C) at (0,-1) {$(\A/U)_c$};
-\node (D) at (2,-1) {$(\A/U)_d$};
-\node (E) at (1,-0.5) {$\Searrow$};
+\node (D) at (1.5,-1) {$(\A/U)_d$};
+\node (E) at (0.75,-0.5) {$\Searrow$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^*$} (A)
 (A) edge node[left]{$k_!$} (C)
 (B) edge node[right]{$g_!$} (D)
-(D) edge node[above]{$f^*$} (C);
+(D) edge node[below]{$f^*$} (C);
 \end{tikzpicture}
 \]
-Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going right, we precompose with $h \colon a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ in $(\A/U)_a$. Then, going down, we pushforward along $k \colon a \to c$:
+Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going right, we precompose with $h \colon a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ in $(\A/U)_a$. Then going down, we push forward along $k$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (2,0) {$U(x)$};
+\node (B) at (1.5,0) {$U(x)$};
 \node (C) at (0,-1) {$c$};
-\node (D) at (2,-1) {$c+_{a}U(x)$};
+\node (D) at (1.5,-1) {$c+_{a}U(x)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i \circ h$} (B)
 (A) edge node[left]{$k$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\psi$} (D);
+(C) edge node[below]{$\psi$} (D);
 \end{tikzpicture}
 \]
-to obtain the object $(c,z,c \to U(z))$ of $(\A/U)_c$ where $z \in \int F$ such that $U(z)=c+_a U(x)$. In particular, $z=L(c)+_{L(a)}x$ and as $U$ preserves finite colimits and $UL=1_\A$, we have that $$U(z)=U(L(c)+_{L(a)}x)=U(L(c))+_{U(L(a))}U(x)=c+_a U(x).$$ For the other route, first going down, we pushforward the object $(b,x,b \xrightarrow{i} U(x))$ along $g \colon b \to d$ by taking the following pushout:
+to obtain the object $(c,z,c \to U(z))$ of $(\A/U)_c$, where $z \in \int F$ has $U(z)=c+_a U(x)$. In particular, $z=L(c)+_{L(a)}x$ and as $U$ preserves finite colimits and $UL=1_\A$, we have that 
+\[  U(z)=U(L(c)+_{L(a)}x)=U(L(c))+_{U(L(a))}U(x)=c+_a U(x).\]
+{\john Need to refer to a proposition where we show $U$ preserves pushouts strictly.}
+ For the other route, first going down, we push the object $(b,x,b \xrightarrow{i} U(x))$ forward along $g \colon b \to d$ by taking the following pushout:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$b$};
-\node (B) at (2,0) {$U(x)$};
+\node (B) at (1.5,0) {$U(x)$};
 \node (C) at (0,-1) {$d$};
-\node (D) at (2,-1) {$d+_{b}U(x)$};
+\node (D) at (1.5,-1) {$d+_{b}U(x)$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (A) edge node[left]{$g$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\theta$} (D);
+(C) edge node[below]{$\theta$} (D);
 \end{tikzpicture}
 \]
 which yields the object $(d,z',d \to U(z'))$ of $(\A/U)_d$ where $z' \in \int F$ such that $U(z')=d+_b U(x)$. In particular, $z'$ is given by $z'=L(d)+_{L(b)}x$. We then precompose with $f \colon c \to d$ to obtain the object $(c,z',c \to U(z'))$ of $(\A/U)_c$.
 
-Now we seek a natural isomorphism between the two objects $(c,z,c \to c+_a U(x))$ and $(c,z',c \to d+_b U(x))$ in $(\A/U)_c$. It suffices to obtain a natural isomorphism between the two objects $z=L(c)+_{L(a)} x$ and $z'=L(d)+_{L(b)} x$ in $\X$. The following two squares are pushouts:
+Now we seek a natural isomorphism between the two objects $(c,z,c \to c+_a U(x))$ and $(c,z',c \to d+_b U(x))$ in $(\A/U)_c$. It suffices to obtain a natural isomorphism between the two objects $z=L(c)+_{L(a)} x$ and $z'=L(d)+_{L(b)} x$ in $\X$. This pushout square:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
-\node (B) at (2,0) {$x$};
+\node (B) at (1.5,0) {$x$};
 \node (C) at (0,-1) {$L(c)$};
-\node (D) at (2,-1) {$L(c)+_{L(a)}x$};
-\node (A') at (3,0) {$L(b)$};
-\node (B') at (5,0) {$x$};
-\node (C') at (3,-1) {$L(d)$};
-\node (D') at (5,-1) {$L(d)+_{L(b)}x$};
+\node (D) at (1.5,-1) {$L(c)+_{L(a)}x$};
+%\node (A') at (4,0) {$L(b)$};
+%\node (B') at (6,0) {$x$};
+%\node (C') at (4,-1) {$L(d)$};
+%\node (D') at (6,-1) {$L(d)+_{L(b)}x$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$I \circ L(h)$} (B)
 (A) edge node[left]{$L(k)$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\psi$} (D)
-(A') edge node[above]{$I$} (B')
-(A') edge node[left]{$L(g)$} (C')
-(B') edge node[right]{$$} (D')
-(C') edge node[above]{$\theta$} (D');
+(C) edge node[below]{$\psi$} (D);
+%(A') edge node[above]{$I$} (B')
+%(A') edge node[left]{$L(g)$} (C')
+%(B') edge node[right]{$$} (D')
+%(C') edge node[below]{$\theta$} (D');
 \end{tikzpicture}
 \]
-the left of which exhibits $L(c)+_{L(a)}x$ as a colimit of the span $$L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x$$in $\X$. As $L$ preserves pushouts, the following square is also a pushout:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(a)$};
-\node (B) at (1,0) {$L(b)$};
-\node (C) at (0,-1) {$L(c)$};
-\node (D) at (1,-1) {$L(d)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$L(h)$} (B)
-(A) edge node[left]{$L(k)$} (C)
-(B) edge node[right]{$L(g)$} (D)
-(C) edge node[above]{$L(f)$} (D);
-\end{tikzpicture}
+exhibits $z$ as a pushout of the span 
+\[  L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x 
 \]
-which we may then paste to the left of the above pushout square on the right to obtain another pushout square:
+in $\X$. As $L$ preserves pushouts, we may apply it to the original pushout square in $\A$
+and paste on another pushout square:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(b)$};
-\node (B) at (2,0) {$x$};
+\node (B) at (1.5,0) {$x$};
 \node (C) at (0,-1) {$L(d)$};
-\node (D) at (2,-1) {$L(d)+_{L(b)}x$};
-\node (E) at (-1,0) {$L(a)$};
-\node (F) at (-1,-1) {$L(c)$};
+\node (D) at (1.5,-1) {$L(d)+_{L(b)}x$};
+\node (E) at (-1.5,0) {$L(a)$};
+\node (F) at (-1.5,-1) {$L(c)$};
 \path[->,font=\scriptsize,>=angle 90]
 (E) edge node [left] {$L(k)$} (F)
 (E) edge node [above] {$L(h)$} (A)
-(F) edge node [above] {$L(f)$} (C)
+(F) edge node [below] {$L(f)$} (C)
 (A) edge node[above]{$I$} (B)
 (A) edge node[left]{$L(g)$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\theta$} (D);
+(C) edge node[below]{$\theta$} (D);
 \end{tikzpicture}
 \]
-which exhibits $L(d)+_{L(b)} x$ also as a colimit of the same span in $\X$, and hence the desired natural isomorphism between our two objects of $(\A/U)_c$ showing that $U_1$ satisfies the Beck-Chevalley condition.
+obtaining a pushout square 
+which exhibits $z'$ as a pushout of the same span in $\X$.  The resulting natural isomorphism
+between $z$ and $z'$ gives the desired natural isomorphism between our two objects of $(\A/U)_c$, showing that $U_1$ satisfies the Beck--Chevalley condition.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] We apply \cref{lem:shulman} to $A/U \to A$: why is this a symmetric monoidal bifibration?
@@ -903,12 +918,12 @@ Our construction gives not only decorated cospan double categories, but  also ma
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$.};
-\node (E) at (0.5,-0.5) {$\Downarrow\theta$};
+\node (E) at (0.5,-0.5) {$\Swarrow\theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
 (B) edge node[right]{$E$} (D)
-(C) edge node[above]{$F'$} (D);
+(C) edge node[below]{$F'$} (D);
 \end{tikzpicture}
 \]
 \end{itemize}
@@ -950,15 +965,15 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
 (C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(A') edge node[above] {$i'$} (D)
-(C') edge node[above] {$o'$} (D)
+(A') edge node[below] {$i'$} (D)
+(C') edge node[below] {$o'$} (D)
 (B) edge node [left] {$h$} (D)
 (A'') edge node[above]{$H(i)$} (B'')
 (C'') edge node[above]{$H(o)$} (B'')
 (A'') edge node[left]{$H(f)$} (A''')
 (C'') edge node[right]{$H(g)$} (C''')
-(A''') edge node[above] {$H(i')$} (D'')
-(C''') edge node[above] {$H(o')$} (D'')
+(A''') edge node[below] {$H(i')$} (D'')
+(C''') edge node[below] {$H(o')$} (D'')
 (B'') edge node [left] {$H(h)$} (D'');
 \end{tikzpicture}
 \]
@@ -984,7 +999,7 @@ decoration morphism as follows:
 (G) edge node [below] {$x'$} (I)
 (H) edge node [right] {$F(h)$} (I)
 (B) edge node [above] {$\theta_m$} (E)
-(D) edge node [above] {$\theta_n$} (F)
+(D) edge node [below] {$\theta_n$} (F)
 (E) edge node [right] {$F'(H(h))$} (F)
 (L) edge node[above]{$E(x)$} (B)
 (L) edge node[below]{$E(x')$} (D)
@@ -1003,7 +1018,7 @@ Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax mono
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$};
-\node (E) at (0.5,-0.5) {$\Downarrow \theta$};
+\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -1051,8 +1066,8 @@ a diagram in $\X$ of the form
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
-(A') edge node[above]{$i'$} (B')
-(C') edge node[above]{$o'$} (B')
+(A') edge node[below]{$i'$} (B')
+(C') edge node[below]{$o'$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
 (C) edge node [right]{$L(g)$} (C');
@@ -1061,12 +1076,12 @@ a diagram in $\X$ of the form
 \end{itemize}
 Composition of horizontal 1-cells and 2-cells is done using pushouts in $\X$, and the
 symmetric monoidal structure is defined using finite coproducts in $\A$ and $\X$: 
-the tensor of two horizontal 1-cells is
+the tensor product of two horizontal 1-cells is
 \begin{equation}\label{eq:tensorstuctured}
-\begin{tikzcd}[column sep={.4in,between origins}, row sep=.1in]
+\begin{tikzcd}[column sep={.4in,between origins}, row sep=.08in]
 & x &&&& x' &&&& x+x' & \\
 &&&\ot&&&& = &&&& \\
-L(a)\ar[uur,"i"]&& L(b)\ar[uul,"o"'] && L(a')\ar[uur,"i'"] && L(b')\ar[uul,"o'"'] && L(a+a')\ar[uur,"i+i'"] && L(b+b')\ar[uul,"o+o'"'] 
+L(a)\ar[uur,"i" pos=0.3]&& L(b)\ar[uul,"o"' pos=0.3] && L(a')\ar[uur,"i'" pos=0.3] && L(b')\ar[uul,"o'"' pos=0.3] && L(a+a')\ar[uur,"i+i'" pos=0.3] && L(b+b')\ar[uul,"o+o'"' pos=0.3] 
 \end{tikzcd}
 \end{equation}
 using that $L$ preserves finite coproducts.
