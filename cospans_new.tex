@@ -1076,6 +1076,149 @@ using that $L$ preserves finite coproducts.
 This was proved in \cite[Theorems~2.3 \& 3.9]{BC}, where all the structures are specified in detail.  In fact, the double category structure only requires that $\X$ have pushouts, whereas the symmetric monoidal structure also requires that $\X$ and $\A$ have finite coproducts and that $L$ preserve these \cite[Theorem~3.2.3]{CourserThesis}.   
 
 {\bf NEW PROOF HERE.}  We apply \cref{lem:shulman} to $L/X \to A$.   Why is this a fibration, cofibration, Beck--Chevalley and symmetric monoidal?
+
+The proof is analogous to the proof of \cref{thm:decorated_cospans_1} in that we apply \cref{lem:shulman} to the Beck-Chevalley monoidal bifibration $U_2 \colon (L/\X) \to \A$ which we now define. Let $(L/\X)$ be the comma category in which:
+\begin{enumerate}
+\item{an object is a triple $(a,x,L(a) \xrightarrow{I} x)$, and}
+\item{a morphism from $(a,x,L(a) \xrightarrow{I} x)$ to $(a',x',L(a') \xrightarrow{I'} x')$ is a pair of morphisms $f \colon a \to a'$ and $\alpha \colon x \to x'$ such that the following square commutes:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (1,0) {$L(a')$};
+\node (C) at (0,-1) {$x$};
+\node (D) at (1,-1) {$x'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$L(f)$} (B)
+(A) edge node[left]{$I$} (C)
+(B) edge node[right]{$I'$} (D)
+(C) edge node[above]{$\alpha$} (D);
+\end{tikzpicture}
+\]}
+\end{enumerate}
+The functor $U_2$ is defined on objects by $U_2(a,x,L(a) \xrightarrow{I} x)=a$ and on morphisms by $U_2(f,\alpha)=f$. The monoidal structure of $(L/\X)$ is similar to the monoidal structure of $(\A/U)$ of \cref{thm:decorated_cospans_1} in that the tensor product of two objects $(a_1,x_1,L(a_1) \xrightarrow{I_1} x_1)$ and $(a_2,x_2,L(a_2) \xrightarrow{I_2} x_2)$ is given by 
+$$(a_1,x_1,L(a_1) \xrightarrow{I_1} x_1) \otimes (a_2,x_2,L(a_2) \xrightarrow{I_1} x_2)=(a_1+a_2,x_1+x_2,L(a_1+a_2) \xrightarrow{I_1+I_2} x_1+x_2)$$
+where again the natural isomorphism $L(a_1)+L(a_2) \cong L(a_1+a_2)$ is implicit. The monoidal unit is ${(0_\A,0_\X,{L(0_\A) \to 0_\X})}$, and it is clear that $U_2$ is a strict monoidal functor using this tensor product.
+
+The functor $U_2$ is both a fibration and an opfibration. Given a morphism $f \colon a \to b$ in $\A$ with ${(b,x,L(b) \xrightarrow{I} x)}$ over $b$ in $\X$, the cartesian lifting of $f$ is given by
+$$(f,\id_x) \colon (a,x,L(a) \xrightarrow{I \circ L(f)} x) \to (b,x,L(b) \xrightarrow{I} x).$$
+With $(a,x,L(a) \xrightarrow{I} x)$ over $a$ in $\X$, the cocartesian lifting of $f$ is given by
+$$(f,\kappa) \colon (a,x,L(a) \xrightarrow{I} x) \to (b,x+_{L(a)} L(b),L(b) \xrightarrow{\theta} x+_{L(a)} L(b))$$
+where $\kappa$ and $\theta$ are as in the following diagram:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (2.25,0) {$L(c)$};
+\node (C) at (1.5,1) {$L(b)$};
+\node (D) at (0,-2) {$x$};
+\node (E) at (2.25,-2) {$y$};
+\node (F) at (1.5,-1) {$x+_{L(a)} L(b)$};
+\path[->,font=\scriptsize,>=angle 90]
+(D) edge [dashed] node [above] {$\kappa$} (F)
+(F) edge [dashed] node [left] {$\exists ! \psi$} (E)
+(D) edge node [above] {$g'$} (E)
+(A) edge node [left] {$I$} (D)
+(C) edge [dashed] node [left,near end] {$\theta$} (F)
+(B) edge node {$$} (E)
+(A) edge node[above]{$L(f')$} (B)
+(C) edge node [right] {$L(p)$} (B)
+(A) edge node[left]{$L(f)$} (C);
+\end{tikzpicture}
+\]
+Both cartesian and cocartesian liftings are preserved by the tensor product of $(L/\X)$.
+
+Lastly, we show that $U_2 \colon (L/ \X) \to \A$ satisfies the Beck-Chevalley condition. Given a pushout square in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$b$};
+\node (C) at (0,-1) {$c$};
+\node (D) at (1,-1) {$d$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$h$} (B)
+(A) edge node[left]{$k$} (C)
+(B) edge node[right]{$g$} (D)
+(C) edge node[above]{$f$} (D);
+\end{tikzpicture}
+\]
+we show that the following square commutes up to a natural isomorphism:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(L/\X)_a$};
+\node (B) at (2,0) {$(L/\X)_b$};
+\node (C) at (0,-1) {$(L/\X)_c$};
+\node (D) at (2,-1) {$(L/\X)_d$};
+\node (E) at (1,-0.5) {$\cong$};
+\path[->,font=\scriptsize,>=angle 90]
+(B) edge node[above]{$h^*$} (A)
+(A) edge node[left]{$k_!$} (C)
+(B) edge node[right]{$g_!$} (D)
+(D) edge node[above]{$f^*$} (C);
+\end{tikzpicture}
+\]
+Let $(b,x,L(b) \xrightarrow{I} x)$ be an object of $(L/\X)_b$. Going right, we precompose with $L(h) \colon L(a) \to L(b)$ to obtain the object $(a,x,L(a) \xrightarrow{I \circ L(h)} x)$ in $(L/\X)_a$. Then, going down, we pushforward along $L(k) \colon L(a) \to L(c)$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (2,0) {$x$};
+\node (C) at (0,-1) {$L(c)$};
+\node (D) at (2,-1) {$L(c)+_{L(a)}x$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$I \circ L(h)$} (B)
+(A) edge node[left]{$L(k)$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\psi$} (D);
+\end{tikzpicture}
+\]
+to obtain the object $(c,L(c)+_{L(a)} x,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x)$ in $(L/ \X)_c$. For the other route, first going down, we pushforward the object $(b,x,L(b) \xrightarrow{I} x)$ along $L(g) \colon L(b) \to L(d)$ by taking the following pushout:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(b)$};
+\node (B) at (2,0) {$x$};
+\node (C) at (0,-1) {$L(d)$};
+\node (D) at (2,-1) {$L(d)+_{L(b)}x$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$I$} (B)
+(A) edge node[left]{$L(g)$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\theta$} (D);
+\end{tikzpicture}
+\]
+which yields the object $(d,L(d)+_{L(b)}x,L(d) \xrightarrow{\theta} L(d)+_{L(b)} x)$ of $(L/\X)_d$. We then precompose with $L(f) \colon L(c) \to L(d)$ to obtain the object $(c,L(d)+_{L(b)} x,L(c) \xrightarrow{\theta \circ L(f)} L(d)+_{L(b)} x)$ of $(L/\X)_c$.
+
+To establish a natural isomorphism between the two objects $(c,L(c)+_{L(a)} x,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x)$ and $(c,L(d)+_{L(b)} x,L(c) \xrightarrow{\theta \circ L(f)} L(d)+_{L(b)} x)$ in $(L/\X)_c$, it suffices to establish a natural isomorphism between the objects $L(c)+_{L(a)} x$ and $L(d)+_{L(b)} x$ in $\X$. The first pushout square above exhibits $L(c)+_{L(a)}x$ as a colimit of the span $$L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x$$in $\X$. On the other hand, as $L$ is a left adjoint, $L$ preserves pushout squares, and so the following square is also a pushout:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(a)$};
+\node (B) at (1,0) {$L(b)$};
+\node (C) at (0,-1) {$L(c)$};
+\node (D) at (1,-1) {$L(d)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$L(h)$} (B)
+(A) edge node[left]{$L(k)$} (C)
+(B) edge node[right]{$L(g)$} (D)
+(C) edge node[above]{$L(f)$} (D);
+\end{tikzpicture}
+\]
+which we may then paste to the left of the second above pushout square to obtain another pushout square:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$L(b)$};
+\node (B) at (2,0) {$x$};
+\node (C) at (0,-1) {$L(d)$};
+\node (D) at (2,-1) {$L(d)+_{L(b)}x$};
+\node (E) at (-1,0) {$L(a)$};
+\node (F) at (-1,-1) {$L(c)$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [left] {$L(k)$} (F)
+(E) edge node [above] {$L(h)$} (A)
+(F) edge node [above] {$L(f)$} (C)
+(A) edge node[above]{$I$} (B)
+(A) edge node[left]{$L(g)$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$\theta$} (D);
+\end{tikzpicture}
+\]
+which exhibits $L(d)+_{L(b)} x$ also as a colimit of the same span in $\X$, and hence the desired natural isomorphism between our two objects of $(L /\X)_c$. Thus $U_2$ satisfies the Beck-Chevalley condition.
 \end{proof}
 
 The following theorem establishes an isomorphism between structured and decorated cospan double categories under certain conditions.  Let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  Let $\SMC$ be the 2-category of symmetric monoidal categories, strong symmetric monoidal functors and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a specific cocartesian monoidal category $(\C,+)$, and this induces a 2-functor $\Rex \to \SMC$.
@@ -1208,6 +1351,47 @@ describes the construction of the adjunction from the original $F$. Explicitly, 
 As a left adjoint, this induced $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:SC}.
 
 {\textbf NEW PROOF HERE.}
+To show that the symmetric monoidal double categories $F\lCsp$ and $_L \lCsp(\inta F)$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:SC} are isomorphic, we make use of a result of Shulman \cite[Theorem~14.11]{Shulman2010} which states that there exists a 2-functor $\mathbf{Fr} \colon \mathbf{FMF} \to \mathbf{FDbl}$. Here, $\mathbf{FMF}$ is the 2-category consisting of
+\begin{enumerate}
+\item{monoidal bifibrations satisfying the Beck-Chevalley condition,}
+\item{strong monoidal morphisms of bifibrations, and}
+\item{monoidal transformations of bifibrations.}
+\end{enumerate}
+and $\mathbf{FDbl}$ is the 2-category of fibrant double categories, double functors and double transformations. Given two monoidal bifibrations $\Phi \colon \A \to \mathsf{B}$ and $\Phi' \colon \A' \to \mathsf{B}'$, a \define{strong monoidal morphism of bifibrations} from $\Phi$ to $\Phi'$ consists of a pair of strong monoidal functors $F_1$ and $F_2$ making the following square commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\A$};
+\node (B) at (1,0) {$\A'$};
+\node (C) at (0,-1) {$\mathsf{B}$};
+\node (D) at (1,-1) {$\mathsf{B}'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$F_1$} (B)
+(A) edge node[left]{$\Phi$} (C)
+(B) edge node[right]{$\Phi$} (D)
+(C) edge node[above]{$F_2$} (D);
+\end{tikzpicture}
+\]
+and such that the identity $\Phi' F_1 = F_2 \Phi$ is a monoidal transformation. The two monoidal fibrations in question are the functors $U_1$ and $U_2$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:SC}, respectively, which share $\A$ as a common base, and thus we only need a single strong monoidal functor $F \colon (\A/U) \to (L/\X)$ making the following diagram commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(\A/U)$};
+\node (B) at (2,0) {$(L/ \inta F)$};
+\node (C) at (1,-1.5) {$\A$};
+%\node (D) at (2,-1) {$\A$};
+%\node (E) at (1,0) {$\Downarrow \alpha_1$};
+%\node (F) at (1,-1) {$\Downarrow \alpha_2$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\stackrel{F}\cong$} (B)
+%(B) edge [bend left] node[above]{$$} (A)
+(A) edge node[left]{$U_1$} (C)
+(B) edge node[right]{$U_2$} (C);
+%(C) edge [bend left] node[above]{$G_1$} (C)
+%(C) edge [bend right] node[above]{$G_2$} (C);
+\end{tikzpicture}
+\]
+with $U_2 F=U_1$ a monoidal transformation. The functor $F \colon (\A/U) \to (L/\inta F)$ is expressed by the natural isomorphism of an adjunction, namely:
+$$F(a,x,a \to U(x))=(a,x,L(a) \to x)$$
+and is the identity on pairs of morphisms making the required squares commute. It is clear that $F$ is strong monoidal via component-wise binary coproducts which are preserved by both $L$ and $U$, and that the identity $U_2 F=U_1$ is a monoidal transformation. As $F$ is an isomorphism, we obtain an isomorphism $$\mathbf{Fr}(F) \colon \mathbf{Fr}(U_1) \to \mathbf{Fr}(U_2)$$ between the two symmetric monoidal double categories $\mathbb{F}\mathbf{r}(U_1)=F\lCsp$ and $\mathbf{F}\mathbf{r}(U_2)= _L \lCsp(\inta F)$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:SC}, respectively.
 \end{proof}
 
 In fact, a careful examination of the proof reveals that the assumptions of \cref{thm:equiv} could be weakened to state that the pseudofunctor $F \maps \A \to \SMC$ factors through the 2-category $\mathbf{Cocart}$ of cocartesian monoidal categories.   The reason is that when we compose two structured cospans as in \cref{eq:pushoutissum}, the apex of the composite cospan ends up being a sum in the second variable due to the definition of the left adjoint functor $L$ which forces the feet of all cospans to involve a fiberwise initial object.  However, in the most interesting examples seen so far, when $F$ factors through $\mathbf{Cocart}$ it also factors through $\Rex$.   
