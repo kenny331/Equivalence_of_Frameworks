@@ -799,7 +799,7 @@ we need to show that the following square commutes up to a natural isomorphism:
 (D) edge node[below]{$f^*$} (C);
 \end{tikzpicture}
 \]
-Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going right, we precompose with $h \colon a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ in $(\A/U)_a$. Then going down, we push forward along $k$:
+Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going left, we precompose with $h \colon a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ of $(\A/U)_a$. Then going down, we push forward along $k$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -813,8 +813,10 @@ Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$. Going right, we p
 (C) edge node[below]{$\psi$} (D);
 \end{tikzpicture}
 \]
-to obtain the object $(c,z,c \to U(z))$ of $(\A/U)_c$, where $z \in \int F$ has $U(z)=c+_a U(x)$. In particular, $z=L(c)+_{L(a)}x$ and as $U$ preserves finite colimits and $UL=1_\A$, we have that 
-\[  U(z)=U(L(c)+_{L(a)}x)=U(L(c))+_{U(L(a))}U(x)=c+_a U(x).\]
+to obtain the object $(c,z,c \xrightarrow{\psi} U(z))$ of $(\A/U)_c$, where $z \in \int F$ is given by $z=\bot_c+_{\bot_a}x$. Explicitly, $z$ is given by
+\[ 1 \xrightarrow{x} F(U(x)) \xrightarrow{F(\zeta)} F(0+_0 U(x)) \xrightarrow{F(!_c +_{!_a} 1)} F(c+_a U(x)) \]
+and so by construction, we have that 
+\[  U(z)=U(\bot_c+_{\bot_a}x)=c+_a U(x).\]
 {\john Need to refer to a proposition where we show $U$ preserves pushouts strictly.}
  For the other route, first going down, we push the object $(b,x,b \xrightarrow{i} U(x))$ forward along $g \colon b \to d$ by taking the following pushout:
 \[
@@ -830,22 +832,22 @@ to obtain the object $(c,z,c \to U(z))$ of $(\A/U)_c$, where $z \in \int F$ has 
 (C) edge node[below]{$\theta$} (D);
 \end{tikzpicture}
 \]
-which yields the object $(d,z',d \to U(z'))$ of $(\A/U)_d$ where $z' \in \int F$ such that $U(z')=d+_b U(x)$. In particular, $z'$ is given by $z'=L(d)+_{L(b)}x$. We then precompose with $f \colon c \to d$ to obtain the object $(c,z',c \to U(z'))$ of $(\A/U)_c$.
+which yields the object $(d,z',d \xrightarrow{\theta} U(z'))$ of $(\A/U)_d$ where $z' \in \int F$ is given by $z'=\bot_d+_{\bot_b}x$. We then precompose with $f \colon c \to d$ to obtain the object $(c,z',c \xrightarrow{\theta \circ f} U(z'))$ of $(\A/U)_c$.
 
-Now we seek a natural isomorphism between the two objects $(c,z,c \to c+_a U(x))$ and $(c,z',c \to d+_b U(x))$ in $(\A/U)_c$. It suffices to obtain a natural isomorphism between the two objects $z=L(c)+_{L(a)} x$ and $z'=L(d)+_{L(b)} x$ in $\X$. This pushout square:
+Now we seek a natural isomorphism between the two objects $(c,z,c \xrightarrow{\psi} c+_a U(x))$ and $(c,z',c \xrightarrow{\theta \circ f} d+_b U(x))$ in $(\A/U)_c$. It suffices to obtain a natural isomorphism between the two objects $z=\bot_c+_{\bot_a} x$ and $z'=\bot_d+_{\bot_b} x$ in $\X$. This pushout square:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(a)$};
-\node (B) at (1.5,0) {$x$};
-\node (C) at (0,-1) {$L(c)$};
-\node (D) at (1.5,-1) {$L(c)+_{L(a)}x$};
+\node (A) at (0,0) {$a$};
+\node (B) at (1.5,0) {$U(x)$};
+\node (C) at (0,-1) {$c$};
+\node (D) at (1.5,-1) {$c+_{a}U(x)$};
 %\node (A') at (4,0) {$L(b)$};
 %\node (B') at (6,0) {$x$};
 %\node (C') at (4,-1) {$L(d)$};
 %\node (D') at (6,-1) {$L(d)+_{L(b)}x$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$I \circ L(h)$} (B)
-(A) edge node[left]{$L(k)$} (C)
+(A) edge node[above]{$i \circ h$} (B)
+(A) edge node[left]{$k$} (C)
 (B) edge node[right]{$$} (D)
 (C) edge node[below]{$\psi$} (D);
 %(A') edge node[above]{$I$} (B')
@@ -854,32 +856,60 @@ Now we seek a natural isomorphism between the two objects $(c,z,c \to c+_a U(x))
 %(C') edge node[below]{$\theta$} (D');
 \end{tikzpicture}
 \]
-exhibits $z$ as a pushout of the span 
-\[  L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x 
+exhibits $c+_a U(x)$ as a pushout of the span 
+\[  c \xleftarrow{k} a \xrightarrow{i \circ h} U(x) 
 \]
-in $\X$. As $L$ preserves pushouts, we may apply it to the original pushout square in $\A$
-and paste on another pushout square:
+in $\A$. We may also take the first pushout square above and paste it with the original pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(b)$};
-\node (B) at (1.5,0) {$x$};
-\node (C) at (0,-1) {$L(d)$};
-\node (D) at (1.5,-1) {$L(d)+_{L(b)}x$};
-\node (E) at (-1.5,0) {$L(a)$};
-\node (F) at (-1.5,-1) {$L(c)$};
+\node (A) at (0,0) {$b$};
+\node (B) at (1.5,0) {$U(x)$};
+\node (C) at (0,-1) {$d$};
+\node (D) at (1.5,-1) {$d+_{b}U(x)$};
+\node (E) at (-1.5,0) {$a$};
+\node (F) at (-1.5,-1) {$c$};
 \path[->,font=\scriptsize,>=angle 90]
-(E) edge node [left] {$L(k)$} (F)
-(E) edge node [above] {$L(h)$} (A)
-(F) edge node [below] {$L(f)$} (C)
-(A) edge node[above]{$I$} (B)
-(A) edge node[left]{$L(g)$} (C)
+(E) edge node [left] {$k$} (F)
+(E) edge node [above] {$h$} (A)
+(F) edge node [below] {$f$} (C)
+(A) edge node[above]{$i$} (B)
+(A) edge node[left]{$g$} (C)
 (B) edge node[right]{$$} (D)
 (C) edge node[below]{$\theta$} (D);
 \end{tikzpicture}
 \]
 obtaining a pushout square 
-which exhibits $z'$ as a pushout of the same span in $\X$.  The resulting natural isomorphism
-between $z$ and $z'$ gives the desired natural isomorphism between our two objects of $(\A/U)_c$, showing that $U_1$ satisfies the Beck--Chevalley condition.
+which exhibits $d+_b U(x)$ as a pushout of the same span in $\A$.  The resulting natural isomorphism $\kappa$ between $c+_a U(x)$ and $d+_b U(x)$ then extends to a natural isomorphism between $z=\bot_c +_{\bot_a} x$ and $z'=\bot_d +_{\bot_b} x$ in $\X$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node () at (5,0) {$\cong$};
+\node (A) at (0,0) {$1$};
+
+\node (A1) at (2,0.5) {$F(U(x))$};
+\node (A2) at (4,0.5) {$F(0+_0 U(x))$};
+\node (A3) at (6,0.5) {$F(c+_a U(x))$};
+
+\node (B1) at (2,-0.5) {$F(U(x))$};
+\node (B2) at (4,-0.5) {$F(0+_0 U(x))$};
+\node (B3) at (6,-0.5) {$F(d+_b U(x))$};
+
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[fill=white]{$x$} (A1)
+(A) edge node[fill=white]{$x$} (B1)
+
+(A1) edge node [above] {$F(\zeta)$} (A2)
+(A2) edge node [above] {$F(!_c +_{!_a} 1)$} (A3)
+
+(A1) edge node [fill=white] {$1$} (B1)
+(A2) edge node [fill=white] {$1$} (B2)
+(A3) edge node [fill=white] {$F(\kappa)$} (B3)
+
+(B1) edge node [above] {$F(\zeta)$} (B2)
+(B2) edge node [above] {$F(!_d +_{!_b} 1)$} (B3);
+
+\end{tikzpicture}
+\]
+and consequently a natural isomorphism between our two objects of $(\A/U)_c$, showing that $U_1$ satisfies the Beck--Chevalley condition.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] We apply \cref{lem:shulman} to $A/U \to A$: why is this a symmetric monoidal bifibration?
