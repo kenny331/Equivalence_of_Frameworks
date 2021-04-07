@@ -1055,7 +1055,109 @@ Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax mono
 the triple $(H,E,\theta)$ induces a symmetric monoidal double functor $\lH \maps F\lCsp \to F'\lCsp$ as defined above.
 \end{thm}
 
-\begin{proof}  See \cite[Theorem 4.2.1]{CourserThesis}. \end{proof}
+\begin{proof}  See \cite[Theorem 4.2.1]{CourserThesis}. 
+
+From the symmetric lax monoidal pseudofunctor $F \colon \A \to \Cat$, we can obtain a Beck-Chevalley symmetric monoidal opfibration $\Phi \colon (\A/U) \to \A$ as in \cref{thm:decorated_cospans_1}, where $U \colon \int F \to \A$ is the associated monoidal opfibration of the pseudofunctor $F$. We can do the same for the other symmetric lax monoidal pseudofunctor $F' \colon \A' \to \Cat$ to obtain another Beck-Chevalley symmetric monoidal opfibration $\Phi' \colon (\A'/U') \to \A'$.
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$(\A/U)$};
+\node (B) at (2,0) {$(\A'/U')$};
+\node (C) at (0,-1.5) {$\A$};
+\node (D) at (2,-1.5) {$\A'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[left]{$\Phi$} (C)
+(B) edge node[right]{$\Phi'$} (D)
+(C) edge node[above]{$H$} (D);
+\end{tikzpicture}
+\]
+We construct a strong monoidal functor $F \colon (\A/U) \to (\A'/U')$ between the monoidal comma categories $(\A/U)$ and $(\A'/U')$ that will make the induced square commute. Such a commutative square is a morphism in the 2-category $\mathbf{FMF}$ of monoidal bifibrations satisfying the Beck-Chevalley condition which then by a 2-functor $\mathbf{Fr} \colon \mathbf{FMF} \to \mathbf{FDbl}$ due to Shulman \cite[Theorem 14.11]{Shulman2008} will yield a map $$\mathbf{Fr}(F,H) \colon \mathbf{Fr}(\Phi) \to \mathbf{Fr}(\Phi')$$between the fibrant symmetric monoidal double categories $\mathbf{Fr}(\Phi)=F\lCsp$ and $\mathbf{Fr}(\Phi')= F'\lCsp$.
+
+The monoidal comma category $(\A/U)$ has:
+\begin{enumerate}
+\item{objects as triples $(a,x,a \to U(x))$, and}
+\item{a morphism from $(a,x,a \to U(x))$ to $(b,y,b \to U(y))$ is a pair of morphisms $f \colon a \to b$ and $\tau \colon x \to y$ that make the following square commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$b$};
+\node (C) at (0,-1) {$U(x)$};
+\node (D) at (1,-1) {$U(y)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(A) edge node[left]{$$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$U(\tau)$} (D);
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+The tensor product of two objects $(a_1,x_1,a_1 \to U(x_1))$ and $(a_2,x_2,a_2 \to U(x_2))$ is given by $$(a_1,x_1,a_1 \to U(x_1)) \otimes (a_2,x_2,a_2 \to U(x_2)) = (a_1+a_2,x_1+x_2,a_1+a_2 \to U(x_1+x_2)).$$The monoidal unit of $(\A/U)$ is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. Those of $(\A'/U')$ are analogous.
+
+On objects, the strong monoidal functor $F \colon (\A/U) \to (\A'/U')$ is defined as follows:
+\begin{enumerate}
+\item{given $(a,x,a \to U(x))$ in $(\A/U)$, $$F(a,x,a \to U(x)) = (H(a),\theta_m E(x) \phi,H(a) \to U'(\theta_m E(x) \phi))$$where if $1 \xrightarrow{x} F(m)$, then $U(x)=m$ and $\theta_m E(x) \phi$ is given by 
+$$1 \xrightarrow{\phi} E(1) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m))$$
+so that $U'(\theta_m E(x) \phi)=H(m)$, }
+\item{given a pair of morphisms $(f,\tau)$ that make the following square commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1,0) {$b$};
+\node (C) at (0,-1) {$U(x)$};
+\node (D) at (1,-1) {$U(y)$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(A) edge node[left]{$$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$U(\tau)$} (D);
+\end{tikzpicture}
+\]
+we define $$F(f,\tau)=(H(f),\theta_h E(\tau) \phi).$$
+which make the following square in $(\A'/U')$ commute:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$H(a)$};
+\node (B) at (3,0) {$H(b)$};
+\node (C) at (0,-1) {$U'(\theta_m E(x) \phi)$};
+\node (D) at (3,-1) {$U'(\theta_n E(y) \phi))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$H(f)$} (B)
+(A) edge node[left]{$$} (C)
+(B) edge node[right]{$$} (D)
+(C) edge node[above]{$U'(\theta_h E(\tau) \phi)$} (D);
+\end{tikzpicture}
+\]
+where $\tau$ and $\theta_h E(\tau) \phi$ are given respectively by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (G) at (-3.5,-0.5) {$1$};
+\node (H) at (-2,0) {$F(m)$};
+\node (I) at (-2,-1) {$F(n)$};
+\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
+\node (A) at (-0.25,-0.5) {$1$};
+\node (L) at (0.5,-0.5) {$E(1)$};
+\node (B) at (2,0) {$E(F(m))$};
+\node (D) at (2,-1) {$E(F(n))$};
+\node (C) at (1.5,-0.5) {$\scriptstyle\Downarrow E(\tau)$};
+\node (E) at (4,0) {$F^\prime(H(m))$};
+\node (F) at (4,-1) {$F^\prime(H(n))$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node [above] {$\phi$} (L)
+(G) edge node [above] {$x$} (H)
+(G) edge node [below] {$y$} (I)
+(H) edge node [right] {$F(h)$} (I)
+(B) edge node [above] {$\theta_m$} (E)
+(D) edge node [above] {$\theta_n$} (F)
+(E) edge node [right] {$F'(H(h))$} (F)
+(L) edge node[above]{$E(x)$} (B)
+(L) edge node[below]{$E(y)$} (D)
+(B) edge node[right]{$E(F(h))$} (D);
+\end{tikzpicture}
+\]
+}
+\end{enumerate}
+One can show that the induced laxator and unit morphism given by these prescribed tensor products satisfy the four required coherence laws of a symmetric strong monoidal functor.
+\end{proof}
 
 This theorem should generalize to the case when $\theta$ is a pseudonatural equivalence, but the weaker version suffices for our application in \cref{subsec:petrirates}.
 
