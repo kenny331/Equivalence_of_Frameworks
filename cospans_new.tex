@@ -1070,7 +1070,7 @@ From the symmetric lax monoidal pseudofunctor $F \colon \A \to \Cat$, we can obt
 (C) edge node[above]{$H$} (D);
 \end{tikzpicture}
 \]
-We construct a strong monoidal functor $F \colon (\A/U) \to (\A'/U')$ between the monoidal comma categories $(\A/U)$ and $(\A'/U')$ that will make the induced square commute. Such a commutative square is a morphism in the 2-category $\mathbf{FMF}$ of monoidal bifibrations satisfying the Beck-Chevalley condition which then by a 2-functor $\mathbf{Fr} \colon \mathbf{FMF} \to \mathbf{FDbl}$ due to Shulman \cite[Theorem 14.11]{Shulman2008} will yield a map $$\mathbf{Fr}(F,H) \colon \mathbf{Fr}(\Phi) \to \mathbf{Fr}(\Phi')$$between the fibrant symmetric monoidal double categories $\mathbf{Fr}(\Phi)=F\lCsp$ and $\mathbf{Fr}(\Phi')= F'\lCsp$.
+We construct a strong monoidal functor $G \colon (\A/U) \to (\A'/U')$ between the monoidal comma categories $(\A/U)$ and $(\A'/U')$ that will make the induced square commute. Such a commutative square is a morphism in the 2-category $\mathbf{FMF}$ of monoidal bifibrations satisfying the Beck-Chevalley condition which then by a 2-functor $\mathbf{Fr} \colon \mathbf{FMF} \to \mathbf{FDbl}$ due to Shulman \cite[Theorem 14.11]{Shulman2008} will yield a map $$\mathbf{Fr}(G,H) \colon \mathbf{Fr}(\Phi) \to \mathbf{Fr}(\Phi')$$between the fibrant symmetric monoidal double categories $\mathbf{Fr}(\Phi)=F\lCsp$ and $\mathbf{Fr}(\Phi')= F'\lCsp$.
 
 The monoidal comma category $(\A/U)$ has:
 \begin{enumerate}
@@ -1095,7 +1095,7 @@ The tensor product of two objects $(a_1,x_1,a_1 \to U(x_1))$ and $(a_2,x_2,a_2 \
 
 On objects, the strong monoidal functor $F \colon (\A/U) \to (\A'/U')$ is defined as follows:
 \begin{enumerate}
-\item{given $(a,x,a \to U(x))$ in $(\A/U)$, $$F(a,x,a \to U(x)) = (H(a),\theta_m E(x) \phi,H(a) \to U'(\theta_m E(x) \phi))$$where if $1 \xrightarrow{x} F(m)$, then $U(x)=m$ and $\theta_m E(x) \phi$ is given by 
+\item{given $(a,x,a \to U(x))$ in $(\A/U)$, $$G(a,x,a \to U(x)) = (H(a),\theta_m E(x) \phi,H(a) \to U'(\theta_m E(x) \phi))$$where if $1 \xrightarrow{x} F(m)$, then $U(x)=m$ and $\theta_m E(x) \phi$ is given by 
 $$1 \xrightarrow{\phi} E(1) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m))$$
 so that $U'(\theta_m E(x) \phi)=H(m)$, }
 \item{given a pair of morphisms $(f,\tau)$ that make the following square commute:
@@ -1112,7 +1112,7 @@ so that $U'(\theta_m E(x) \phi)=H(m)$, }
 (C) edge node[above]{$U(\tau)$} (D);
 \end{tikzpicture}
 \]
-we define $$F(f,\tau)=(H(f),\theta_h E(\tau) \phi).$$
+we define $$G(f,\tau)=(H(f),\theta_h E(\tau) \phi).$$
 which make the following square in $(\A'/U')$ commute:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -1156,7 +1156,68 @@ where $\tau$ and $\theta_h E(\tau) \phi$ are given respectively by:
 \]
 }
 \end{enumerate}
-One can show that the induced laxator and unit morphism given by these prescribed tensor products satisfy the four required coherence laws of a symmetric strong monoidal functor.
+The laxator is given by the following natural isomorphism between $\theta_m E(x) \phi + \theta_n E(y) \phi$ and $\theta_{m+n} E(x+y) \phi$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\hspace{-.6in}
+\node () at (3,-0.5) {$\scriptscriptstyle{\stackrel{E_{x_1,x_2}} \cong}$};
+\node () at (1.25,-0.5) {$\scriptscriptstyle{\stackrel{\lambda} \cong}$};
+\node (L1) at (0.5,0) {$\scriptscriptstyle{1 \times E(1)}$};
+\node (L2) at (0.5,-1) {$\scriptscriptstyle{E(1)}$};
+\node (K) at (-1,0) {$\scriptscriptstyle{1 \times 1}$};
+\node (K2) at (-1,-1) {$\scriptscriptstyle{1}$};
+\node (B) at (2,0) {$\scriptscriptstyle{E(1) \times E(1)}$};
+\node (D) at (2,-1) {$\scriptscriptstyle{E(1 \times 1)}$};
+\node (E) at (4,0) {$\scriptscriptstyle{E(F(m)) \times E(F(n))}$};
+\node (F) at (4,-1) {$\scriptscriptstyle{E(F(m) \times F(n))}$};
+\node (G) at (7,0) {$\scriptscriptstyle{F'(H(m)) \times F'(H(n))}$};
+\node (H) at (10,0) {$\scriptscriptstyle{F'(H(m)+H(n))}$};
+\node (I) at (7,-1) {$\scriptscriptstyle{E(F(m+n))}$};
+\node (J) at (10,-1) {$\scriptscriptstyle{F'(H(m+n))}$};
+\path[->,font=\scriptsize,>=angle 90]
+(K) edge node [left] {$\lambda$} (K2)
+(K) edge node [above] {$1 \times E_0$} (L1)
+(K2) edge node [above] {$E_0$} (L2)
+(H) edge node [right] {$F'(H_{m,n})$} (J)
+(E) edge node [above] {$\theta_m \times \theta_n$} (G)
+(G) edge node [above] {$\phi'_{H(m),H(n)}$} (H) 
+(F) edge node [above] {$E(\phi_{m,n})$} (I)
+(I) edge node [above] {$\theta_{m+n}$} (J)
+(B) edge node [above] {$E(x) \times E(y)$} (E)
+(D) edge node [above] {$E(x \times y)$} (F)
+(E) edge node [right] {$E_{F(m),F(n)}$} (F)
+(L1) edge node[above]{$E_0 \times 1$} (B)
+(L1) edge node [left] {$\lambda$} (L2)
+(L2) edge node[above]{$E(\lambda^{-1})$} (D)
+(B) edge node[right]{$E_{1,1}$} (D);
+\end{tikzpicture}
+\]
+and we also have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given by:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (-1,0.5) {$\scriptscriptstyle{1}$};
+\node () at (4,0.66) {$\scriptscriptstyle{\cong}$};
+\node (A1) at (0,0) {$\scriptscriptstyle{E(1)}$};
+\node (A2) at (2,0) {$\scriptscriptstyle{E(F(0_\A))}$};
+\node (A3) at (4,0) {$\scriptscriptstyle{E(F(0_\A))}$};
+\node (A4) at (6,0) {$\scriptscriptstyle{F'(H(0_\A))}$};
+\node (A') at (2,0.5) {$\scriptscriptstyle{F'(H(0_\A))}$};
+\node (B1) at (0,1) {$\scriptscriptstyle{F'(0_{\A'})}$};
+\node (B2) at (6,1) {$\scriptscriptstyle{F'(0_{\A'})}$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node [below] {$\scriptscriptstyle{E_0}$} (A1)
+(A) edge node [above] {$\scriptscriptstyle{\phi_0'}$} (B1)
+(A1) edge node [above] {$\scriptscriptstyle{E(\phi_0)}$} (A2)
+(A2) edge node [above] {$\scriptscriptstyle{E(F(!_{0_\A}))}$} (A3)
+(A3) edge node [below] {$\scriptscriptstyle{\theta_{0_\A}}$} (A4)
+(A2) edge node [left] {$\scriptscriptstyle{\theta_{0_\A}}$} (A')
+(B1) edge node [fill=white] {$\scriptscriptstyle{F'(H_0)}$} (A')
+(A') edge node [fill=white] {$\scriptscriptstyle{F'(H(!_{0_\A}))}$} (A4)
+(B2) edge node [right] {$\scriptscriptstyle{F'(H_0)}$} (A4)
+(B1) edge node [above] {$\scriptscriptstyle{F'(!_{0_{\A'}})}$} (B2);
+\end{tikzpicture}
+\]
+One can show that this laxator and unit morphism satisfy the four required coherence laws of a symmetric strong monoidal functor.
 \end{proof}
 
 This theorem should generalize to the case when $\theta$ is a pseudonatural equivalence, but the weaker version suffices for our application in \cref{subsec:petrirates}.
