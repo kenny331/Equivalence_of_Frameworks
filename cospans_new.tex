@@ -776,7 +776,7 @@ The functor $U$ maps objects and morphisms to their first component.   We thus o
 \end{tikzpicture}
 \]
 \end{itemize}
-The functor $\Phi \maps \A/U \to \A$ is defined on objects by $\Phi(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $\Phi(f,\alpha)=f$. We have a monoidal structure on $\A/U$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
+The functor $\Phi \maps \A/U \to \A$ is defined on objects by $\Phi(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $\Phi(f,\theta)=f$. We have a monoidal structure on $\A/U$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
 \[  (a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1 \otimes x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1 \otimes x_2)) \]
 where we have left the equality $U(x_1)+U(x_2) = U(x_1 \otimes x_2)$ implicit in the above composite, for reasons of space. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $\Phi$ is a strict monoidal using this tensor product.
 
@@ -784,7 +784,7 @@ One can easily check that $\Phi$ is a fibration.  Given a morphism $f \maps a \t
 \[ (f,\id) \maps (a,y,a \xrightarrow{i \circ f} U(y)) \, \to \, (b,y,b \xrightarrow{i} U(y)). \]
 Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
-One can also check that the functor $\Phi$ is also opfibration, but this takes a bit more work.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
+One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
 \[ (f,\theta) \maps (a,x,a \xrightarrow{i} U(x)) \, \to \, (a',x', a' \xrightarrow{i'} U(x')). \]
 Here $i'$ arises from the following pushout square in $\A$:
 \[
