@@ -636,6 +636,12 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 \end{itemize}
 \end{thm}
 
+{\chris I suggest to move the sentence about fibrations and bifibrations to the appendix.
+
+A monoidal bifibration moreover has a global tensor product that preserves cartesian and cocartesian liftings.
+
+I also suggest that the whole text introducing the Beck Chevalley condition for a bifibration is also moved to the appndix.}
+
 We prove both these theorems using the work of Shulman \cite{Shulman2008}, which we recall here.   First we need a few concepts.   Opfibrations are recalled in \cref{subsec:fibrations}, and fibrations are defined dually, with a functor $\Phi \maps \C \to \A$ being a fibration if and only if $\Phi\op \maps \C\op \to \A\op$ is an opfibration.   A functor $\Phi \maps \C \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.      If $\C$ and $\A$ are monoidal categories, a \define{monoidal} bifibration $\Phi \maps \C \to \A$ is a bifibration that is also a strict monoidal functor.   Similarly, if $\C$ and $\A$ are symmetric monoidal, a \define{symmetric monoidal} bifibration is a bifibration $\Phi \maps \C \to \A$ that is a symmetric strict monoidal functor.
 
 If $\Phi \maps \C \to \A$ an opfibration, for any morphism $f \maps a \to b$ in $\A$ there is a covariant reindexing functor
@@ -699,7 +705,11 @@ monoidal double category.
 
 We  prove Theorems \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying this lemma to a particular monoidal bifibration.  To get our hands on this starting from our lax monoidal pseudofunctor $F \maps (A,+) \to (\Cat,\times)$, we need a monoidal version of the Grothendieck construction \cite{MV}.   We recall the Grothendieck construction in \ref{subsec:fibrations}; briefly,
 this gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations
-$U \maps \inta F \to \A$.   Moeller and the third author \cite{MV} showed that
+$U \maps \inta F \to \A$.   
+
+{\chris It feels like there is some repetition in the material below and the sketch of the proof of 2.4. I believe the previous version of the paper had a briefer text here. No problem if you want to keep as is.}
+
+Moeller and the third author \cite{MV} showed that
 similarly, given a (symmetric) monoidal category $\A$, there is a bijection between 
 \begin{itemize}
 \item \define{(symmetric) monoidal opindexed categories}: (symmetric) lax monoidal pseudofunctors \hfill \break $F\maps (\A, \otimes_A) \to (\Cat, \times)$
@@ -750,15 +760,17 @@ where $\nabla$ is the fold map, which is symmetric when $F$ is again via the com
 \end{equation}
 \end{proof}
 
+{\chris Some text saying that we have now set up the necessary framework to use Mike's result and obtain our double categories would be nice here}
+
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
-To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps \A \to \Cat$.   Thus:
+To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps \A \to \Cat$. {\chris Couldn't we just recall the appendix here?}  Thus:
 \begin{itemize}
 \item an object of $\inta F$ is a pair $(b,p)$ where $b \in \A$ and $p \in F(A)$;
 \item a morphism in $\inta F$ from $(b,p)$ to $(b',p')$ is a pair $(g,\zeta)$
 where $g \maps b \to b'$ is a morphism in $\A$ and $\zeta \maps F(f)(p) \to p'$ is
 a morphism in $F(b')$.
 \end{itemize}
-The functor $U$ maps objects and morphisms to their first component.   We thus obtain an explicit description of the comma category $\A/U$:
+The functor $U$ maps objects and morphisms to their first component.   We thus obtain an explicit description of the comma category $\A/U$ {\chris well the arrows are described like that in any slice category, there is nothing special for the Grothendieck category? Perhaps the slice description could be omitted or more brief?}:
 \begin{itemize}
 \item an object of $\A/U$ is a triple $(a,x,a \xrightarrow{i} U(x))$ with $a \in \A$ and $x=(b,p) \in \inta F$;
 \item a morphism in $\A/U$ from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair $(f,\theta)$ where $f \maps a \to a'$ is a morphism in $\A$ and $\theta \maps x \to x'$ is a morphism in $\inta F$ such that the following square commutes:
@@ -784,7 +796,7 @@ One can easily check that $\Phi$ is a fibration.  Given a morphism $f \maps a \t
 \[ (f,\id) \maps (a,y,a \xrightarrow{i \circ f} U(y)) \, \to \, (b,y,b \xrightarrow{i} U(y)). \]
 Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
-One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
+One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work. {\chris ...or ``is less straightforward'' to express more formally perhaps?} Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
 \[ (f,\theta) \maps (a,x,a \xrightarrow{i} U(x)) \, \to \, (a',x', a' \xrightarrow{i'} U(x')). \]
 Here $i'$ arises from the following pushout square in $\A$:
 \[
