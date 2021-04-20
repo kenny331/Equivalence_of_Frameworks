@@ -765,11 +765,12 @@ where $\nabla$ is the fold map, which is symmetric when $F$ is again via the com
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
 To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps \A \to \Cat$. {\chris Couldn't we just recall the appendix here?}  Thus:
 \begin{itemize}
-\item an object of $\inta F$ is a pair $(b,p)$ where $b \in \A$ and $p \in F(A)$;
+\item an object of $\inta F$ is a pair $(b,p)$ where $b \in \A$ and $p \in F(b)$;
 \item a morphism in $\inta F$ from $(b,p)$ to $(b',p')$ is a pair $(g,\zeta)$
 where $g \maps b \to b'$ is a morphism in $\A$ and $\zeta \maps F(f)(p) \to p'$ is
 a morphism in $F(b')$.
 \end{itemize}
+%%% Kenny: The f and g in the second item above need to be the same
 The functor $U$ maps objects and morphisms to their first component.   We thus obtain an explicit description of the comma category $\A/U$ {\chris well the arrows are described like that in any slice category, there is nothing special for the Grothendieck category? Perhaps the slice description could be omitted or more brief?}:
 \begin{itemize}
 \item an object of $\A/U$ is a triple $(a,x,a \xrightarrow{i} U(x))$ with $a \in \A$ and $x=(b,p) \in \inta F$;
@@ -798,6 +799,7 @@ Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of
 
 One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work. {\chris ...or ``is less straightforward'' to express more formally perhaps?} Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
 \[ (f,\theta) \maps (a,x,a \xrightarrow{i} U(x)) \, \to \, (a',x', a' \xrightarrow{i'} U(x')). \]
+%%% Kenny: Just an observation: we're using a morphism f:a-->b for the fibration part and a morphism f:a-->a' for the opfibration part.
 Here $i'$ arises from the following pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -818,7 +820,7 @@ $x'$ to be the pair $(b',p')$ where $b' = U(x)+_a a'$ is the pushout in the abov
 diagram and $p' = F(g)(p)$.  Then $U(x') = b'$ so we have 
 $i' \maps a' \to U(x')$ as desired.  Finally, we define $\theta \maps x \to x'$ to be 
 the morphism in $\inta F$ given by the pair $(g,\id)$ where $g \maps b \to b'$ is
-given in the above diagram and $\id \maps F(f)(p) \to p'$ is the identity.
+given in the above diagram and $\id \maps F(g)(p) \to p'$ is the identity.
 
 {\john To show that $(f,\theta)$ is a cocartesian lifting of $f$, suppose...
 Then use this picture somehow:}
