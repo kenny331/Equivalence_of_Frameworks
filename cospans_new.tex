@@ -396,7 +396,7 @@ Unfortunately, many applications of decorated cospans were flawed.  The problem 
 We might hope to do this using a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$ assigning to each finite set $m$ the set of all graphs with $m$ as their set of nodes. But this hope is doomed, for reasons painstakingly explained in \cite[Section 5]{BC}. 
 There is really a \emph{category} of graphs with $m$ as their set of nodes---and surprisingly, trying to treat this category as a mere set does not work, despite all the tricks one might try.
 
-Here we present a solution to this problem.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans,thm:decorated_cospans_2}, we use this
+Here we present a solution to this problem.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans_1,thm:decorated_cospans_2}, we use this
 data to construct a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
 \item an object is an object of $\A$,
@@ -636,54 +636,7 @@ with decoration morphism $\tau_{\alpha\otimes\beta}$ given by the following diag
 \end{itemize}
 \end{thm}
 
-{\chris I suggest to move the sentence about fibrations and bifibrations to the appendix.
-
-A monoidal bifibration moreover has a global tensor product that preserves cartesian and cocartesian liftings.
-
-I also suggest that the whole text introducing the Beck Chevalley condition for a bifibration is also moved to the appndix.}
-
-We prove both these theorems using the work of Shulman \cite{Shulman2008}, which we recall here.   First we need a few concepts.   Opfibrations are recalled in \cref{subsec:fibrations}, and fibrations are defined dually, with a functor $\Phi \maps \C \to \A$ being a fibration if and only if $\Phi\op \maps \C\op \to \A\op$ is an opfibration.   A functor $\Phi \maps \C \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.      If $\C$ and $\A$ are monoidal categories, a \define{monoidal} bifibration $\Phi \maps \C \to \A$ is a bifibration that is also a strict monoidal functor.   Similarly, if $\C$ and $\A$ are symmetric monoidal, a \define{symmetric monoidal} bifibration is a bifibration $\Phi \maps \C \to \A$ that is a symmetric strict monoidal functor.
-
-If $\Phi \maps \C \to \A$ an opfibration, for any morphism $f \maps a \to b$ in $\A$ there is a covariant reindexing functor
-\[    f_! \maps \C_a \to \C_b \]
-between the fibers of $\Phi$, as recalled in \cref{subsec:fibrations}.  Similarly, if $\Phi$ is a fibration there is a contravariant reindexing functor
-\[    f^\ast \maps \C_b \to \C_a .\]
-Thus, in a bifibration we have both covariant and contravariant reindexing functors, and in 
-fact $f^\ast$ is left adjoint to $f_\ast$ \cite[Proposition 3.9]{Shulman2008}.   Using this one can easily show that for any commutative square in $\A$
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1.5,0) {$b$};
-\node (C) at (0,-1) {$c$};
-\node (D) at (1.5,-1) {$d$};
-%\node (E) at (0.5,-0.5) {$\Downarrow\theta$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$h$} (B)
-(A) edge node[left]{$k$} (C)
-(B) edge node[right]{$g$} (D)
-(C) edge node[below]{$f$} (D);
-\end{tikzpicture}
-\]
-the following square commutes up to a specified natural transformation:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\C_a$};
-\node (B) at (1.5,0) {$\C_b$};
-\node (C) at (0,-1) {$\C_c$};
-\node (D) at (1.5,-1) {$\C_d$};
-\node (E) at (0.75,-0.5) {$\Searrow \theta$};
-\path[->,font=\scriptsize,>=angle 90]
-(B) edge node[above]{$h^\ast$} (A)
-(A) edge node[left]{$k_!$} (C)
-(B) edge node[right]{$g_!$} (D)
-(D) edge node[below]{$f^\ast$} (C);
-\end{tikzpicture}
-\]
-where $\theta$ is built as a composite involving the unit of the adjunction between
-$g_!$ and $g^\ast$ and the counit of the adjunction between $k_!$ and $k^\ast$:
-\[    k_! h^\ast \To k_! h^\ast g^\ast g_! = k_! k^\ast f^\ast g^! \To f^\ast g_! .\] 
-If $\theta$ is a natural isomorphism whenever the original square in $\A$ is
-a pushout, we shall say $\Phi$ is \define{Beck--Chevalley}.  (Shulman says `strongly co-Beck--Chevalley'.)
+We prove both these theorems using the work of Shulman \cite{Shulman2008}, which we recall here.   The concept of `Beck--Chevalley monoidal bifibration' is explained in \cref{subsec:fibrations}.   
 
 \begin{lem}[\textbf{Shulman}] \label{lem:shulman}
 Suppose $(\A,+)$ is cocartesian monoidal and $\Phi \maps (\C,\otimes) \to (\A,+)$ is a Beck--Chevalley monoidal bifibration.  Then there is a double category $\Fr(\Phi)$ in which
@@ -2831,6 +2784,49 @@ where $[\A,\Cat]_\pse$ is the 2-category of pseudofunctors from $\A$ to $\Cat$, 
 \begin{proof}  
 The idea goes back to Grothendieck; a proof can be found in, for example, \cite[Section 1.10]{Jacobs}.
 \end{proof}
+
+All the above concepts and results have analogues for fibrations.   A functor $\Phi \maps \X \to \A$ a \define{fibration} if and only if $\Phi\op \maps \X\op \to \A\op$ is an opfibration.  Equivalently, $\Phi$ is a fibration if and only if for every $y \in \X$ with $U(y) = a$ and $f \maps a \to b$ in $\A$ there exists a cartesian lifting of $f$ to $x$, where this concept is defined dually to cocartesian lifting.     Furthermore, if $\Phi$ is a fibration there is a contravariant reindexing functor
+\[    f^\ast \maps \X_b \to \X_a \]
+for each morphism $f \maps a \to b$.  
+
+A functor $\Phi \maps \X \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.      If $\X$ and $\A$ are monoidal categories, a \define{monoidal} bifibration $\Phi \maps \X \to \A$ is a bifibration that is also a strict monoidal functor, such that the tensor product of $\A$ preserves cartesian and cocartesian liftings.   Similarly, if $\C$ and $\A$ are symmetric monoidal, a \define{symmetric monoidal} bifibration is a bifibration $\Phi \maps \C \to \A$ that is a symmetric strict monoidal functor.
+
+In a bifibration we have both covariant and contravariant reindexing functors, and in 
+fact $f_!$ is left adjoint to $f^*$ \cite[Proposition 3.9]{Shulman2008}.   Using this one can easily show that for any commutative square in $\A$
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1.5,0) {$b$};
+\node (C) at (0,-1) {$c$};
+\node (D) at (1.5,-1) {$d$};
+%\node (E) at (0.5,-0.5) {$\Downarrow\theta$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$h$} (B)
+(A) edge node[left]{$k$} (C)
+(B) edge node[right]{$g$} (D)
+(C) edge node[below]{$f$} (D);
+\end{tikzpicture}
+\]
+the following square commutes up to a specified natural transformation:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\C_a$};
+\node (B) at (1.5,0) {$\C_b$};
+\node (C) at (0,-1) {$\C_c$};
+\node (D) at (1.5,-1) {$\C_d$};
+\node (E) at (0.75,-0.5) {$\Searrow \theta$};
+\path[->,font=\scriptsize,>=angle 90]
+(B) edge node[above]{$h^\ast$} (A)
+(A) edge node[left]{$k_!$} (C)
+(B) edge node[right]{$g_!$} (D)
+(D) edge node[below]{$f^\ast$} (C);
+\end{tikzpicture}
+\]
+where $\theta$ is built as a composite involving the unit of the adjunction between
+$g_!$ and $g^\ast$ and the counit of the adjunction between $k_!$ and $k^\ast$:
+\[    k_! h^\ast \To k_! h^\ast g^\ast g_! = k_! k^\ast f^\ast g^! \To f^\ast g_! .\] 
+If $\theta$ is a natural isomorphism whenever the original square in $\A$ is
+a pushout, we shall say $\Phi$ is \define{Beck--Chevalley}.  (Shulman  uses the term `strongly co-BC' \cite[Definition 13.21] {Shulman2008}.)
 
 \subsection{Double categories}\label{sec:doublecats}
 
