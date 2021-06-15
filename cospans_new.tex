@@ -660,7 +660,7 @@ Note that when $\C$ is the arrow category of $\A$ and $\Phi$ maps any arrow in $
 domain, an object of $\Fr(\Phi)$ simply amounts to a cospan in $\C$.  Thus, in this case $\Fr(\Phi)$ is the double category of cospans in $\C$.    We shall use variations on this idea to define double categories of decorated and structured cospans, and also prove that under certain conditions these double categories are equivalent.    
 
 We start with decorated cospans, proving Theorems \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built
-from a lax monoidal pseudofunctor $F \maps (A,+) \to (\Cat,\times)$.    The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal obfibrations, and one that gives symmetric monoidal opfibrations.  We explain the Grothendieck construction and all these related concepts in \cref{subsec:fibrations}; here we simply recall the result we need.
+from a lax monoidal pseudofunctor $F \maps (A,+) \to (\Cat,\times)$.    The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal ofibrations, and one that gives symmetric monoidal opfibrations.  We explain the Grothendieck construction and all these related concepts in \cref{subsec:fibrations}; here we simply recall the result we need.
 
 \begin{lem}
 \label{lem:MonGroth}
@@ -703,7 +703,7 @@ where $\nabla$ is the fold map, which is symmetric when $F$ is again via the com
 Now we are ready to use Shulman's result to prove  \cref{thm:decorated_cospans_1} and  \cref{thm:decorated_cospans_2}.
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
-To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$.  As in \cref{subsec:fibrations},
+To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$.  As in \cref{def:GrothCat},
 \begin{itemize}
 \item an object of $\inta F$ is a pair $(b,p)$ where $b \in \A$ and $p \in F(b)$;
 \item a morphism in $\inta F$ from $(b,p)$ to $(b',p')$ is a pair $(f,\zeta)$
@@ -714,7 +714,7 @@ The functor $U$ maps objects and morphisms to their first component, so in the c
 category $\A/U$, 
 \begin{itemize}
 \item an object is a triple $(a,x,a \xrightarrow{i} U(x))$ with $a \in \A$ and $x=(b,p) \in \inta F$;
-\item a morphism from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair $(f,\theta)$ where $f \maps a \to a'$ is a morphism in $\A$ and $\theta \maps x \to x'$ is a morphism in $\inta F$ such that the following square commutes:
+\item a morphism from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair $(f,\theta)$ where $f \maps a \to a'$ is a morphism in $\A$ and $\theta \maps x \to x'$ is a morphism in $\inta F$ such that this square commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -729,18 +729,19 @@ category $\A/U$,
 \end{tikzpicture}
 \]
 \end{itemize}
-The functor $\Phi \maps \A/U \to \A$ is defined on objects by $\Phi(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $\Phi(f,\theta)=f$. We have a monoidal structure on $\A/U$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
+We define the functor $\Phi \maps \A/U \to \A$ on objects by $\Phi(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $\Phi(f,\theta)=f$. 
+
+There is a monoidal structure on $\A/U$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
 \[  (a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1 \otimes x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1 \otimes x_2)) \]
 where we have left the equality $U(x_1)+U(x_2) = U(x_1 \otimes x_2)$ implicit in the above composite, for reasons of space. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $\Phi$ is a strict monoidal using this tensor product.
 
-One can easily check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to b$ in $\A$ and an object $(b,y,b \xrightarrow{i} U(y)) \in \A/U$ over $b$, a cartesian lifting of $f$ is given by 
-\[ (f,\id) \maps (a,y,a \xrightarrow{i \circ f} U(y)) \, \to \, (b,y,b \xrightarrow{i} U(y)). \]
+One can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a',x',a' \xrightarrow{i'} U(x')) \in \A/U$ over $a'$, a cartesian lifting of $f$ is given by 
+\[ (f,\id) \maps (a,x',a \xrightarrow{i' \circ f} U(x')) \, \to \, (a',x',a' \xrightarrow{i'} U(x')). \]
 Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
 One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
 \[ (f,\theta) \maps (a,x,a \xrightarrow{i} U(x)) \, \to \, (a',x', a' \xrightarrow{i'} U(x')). \]
-%%% Kenny: Just an observation: we're using a morphism f:a-->b for the fibration part and a morphism f:a-->a' for the opfibration part.
-Here $i'$ arises from the following pushout square in $\A$:
+where $i'$ arises from the following pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -758,12 +759,14 @@ The object $x' \in \inta F$ is defined as follows.  Recall that $x \in \inta F$ 
 pair $(b,p)$ with $b\in \A$ and $p \in F(b)$, and note that $U(x) = b$.   Define 
 $x'$ to be the pair $(b',p')$ where $b' = U(x)+_a a'$ is the pushout in the above
 diagram and $p' = F(g)(p)$.  Then $U(x') = b'$ so we have 
-$i' \maps a' \to U(x')$ as desired.  Finally, we define $\theta \maps x \to x'$ to be 
+$i' \maps a' \to U(x')$ as desired.  Finally, define $\theta \maps x \to x'$ to be 
 the morphism in $\inta F$ given by the pair $(g,\id)$ where $g \maps b \to b'$ is
-given in the above diagram and $\id \maps F(g)(p) \to p'$ is the identity.
+given as above and $\id \maps F(g)(p) \to p'$ is the identity.
 
-{\john To show that $(f,\theta)$ is a cocartesian lifting of $f$, suppose...
-Then use this picture somehow:}
+To show that $(f,\theta)$ is an cocartesian lifting of $f$, suppose 
+
+
+Then use this picture somehow:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -931,13 +934,12 @@ which exhibits $d+_b U(x)$ as a pushout of the same span in $\A$.  The resulting
 
 \end{tikzpicture}
 \]
-and consequently a natural isomorphism between our two objects of $(\A/U)_c$, showing that $\Phi$ satisfies the Beck--Chevalley condition.
+and consequently a natural isomorphism between our two objects of $(\A/U)_c$, showing that $\Phi$ satisfies the Beck--Chevalley condition.   We then define $F\lCsp$ to be $\Fr(\Phi)$.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] 
 When the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ of \cref{thm:decorated_cospans_1} is symmetric, the monoidal bifibration $\Phi \maps \A/U \to A$
-is symmetric, so \cref{lem:shulman} implies that the double category $F\Csp$ becomes symmetric
-monoidal as described.
+is symmetric, so \cref{lem:shulman} implies that the double category $F\lCsp = \Fr(\Phi)$ is symmetric monoidal as described.
 \end{proof}
 
 \begin{comment}
