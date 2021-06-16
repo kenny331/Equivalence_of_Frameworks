@@ -705,49 +705,54 @@ Now we are ready to use Shulman's result to prove  \cref{thm:decorated_cospans_1
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
 To obtain the desired double category we apply \cref{lem:shulman} to a bifibration $\Phi \maps \A/U \to \A$ which we now define.   Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$.  As in \cref{def:GrothCat},
 \begin{itemize}
-\item an object of $\inta F$ is a pair $(b,p)$ where $b \in \A$ and $p \in F(b)$;
-\item a morphism in $\inta F$ from $(b,p)$ to $(b',p')$ is a pair $(f,\zeta)$
-where $g \maps b \to b'$ is a morphism in $\A$ and $\zeta \maps F(g)(p) \to p'$ is
+\item an object of $\inta F$ is a pair $(b,x)$ where $b \in \A$ and $x \in F(b)$;
+\item a morphism in $\inta F$ from $(b,x)$ to $(b',x')$ is a pair $(g,h)$
+where $g \maps b \to b'$ is a morphism in $\A$ and $h \maps F(g)(x) \to x'$ is
 a morphism in $F(b')$.
 \end{itemize}
-The functor $U$ maps objects and morphisms to their first component, so in the comma
-category $\A/U$, 
+The functor $U$ maps objects and morphisms to their first component, so one can describe
+the comma category $\A/U$ as follows:
 \begin{itemize}
-\item an object is a triple $(a,x,a \xrightarrow{i} U(x))$ with $a \in \A$ and $x=(b,p) \in \inta F$;
-\item a morphism from $(a,x,a \xrightarrow{i} U(x))$ to $(a',x',a' \xrightarrow{i'} U(x'))$ is a pair $(f,\theta)$ where $f \maps a \to a'$ is a morphism in $\A$ and $\theta \maps x \to x'$ is a morphism in $\inta F$ such that this square commutes:
+\item an object is a pair $(a \xrightarrow{i} b, x)$ consisting of a morphism in $\A$ and an
+object $x \in F(b)$;
+\item a morphism from $(a \xrightarrow{i} b, x)$ to $(a' \xrightarrow{i'} b', x')$ is a triple $(f,g,h)$ where $f \maps a \to a'$ and $g \maps b \to b'$ are morphisms in $\A$ such that this square commutes:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (1.5,0) {$a'$};
-\node (C) at (0,-1) {$U(x)$};
-\node (D) at (1.5,-1) {$U(x')$.};
+\node (C) at (0,-1) {$b$};
+\node (D) at (1.5,-1) {$b'$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
 (B) edge node[right]{$i'$} (D)
-(C) edge node[below]{$U(\theta)$} (D);
+(C) edge node[below]{$g$} (D);
 \end{tikzpicture}
 \]
+and $h \maps F(g)(x) \to x'$ is a morphism in $F(b')$.
 \end{itemize}
-We define the functor $\Phi \maps \A/U \to \A$ on objects by $\Phi(a,x,a \xrightarrow{i} U(x))=a$ and on morphisms by $\Phi(f,\theta)=f$. 
+As in any comma category we have a functor $\Phi \maps \A/U \to \A$; this is given on objects by $\Phi(a \xrightarrow{i} b, x)=a$ and on morphisms by $\Phi(f,g,h)=f$. 
 
-There is a monoidal structure on $\A/U$ where the tensor product of two objects $(a_1,x_1,a_1 \xrightarrow{i_1} U(x_1))$ and $(a_2,x_2,a_2 \xrightarrow{i_2} U(x_2))$ is given by
-\[  (a_1,x_1,a_1 \xrightarrow{i_1} U(x_1)) \otimes (a_2,x_2,a_2 \xrightarrow{i_2} U(x_2)) = (a_1+a_2,x_1 \otimes x_2,a_1+a_2 \xrightarrow{i_1+i_2} U(x_1 \otimes x_2)) \]
-where we have left the equality $U(x_1)+U(x_2) = U(x_1 \otimes x_2)$ implicit in the above composite, for reasons of space. The monoidal unit is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. It is easy to see that the functor $\Phi$ is a strict monoidal using this tensor product.
+There is a monoidal structure on $\A/U$ coming from the monoidality of $U$.  On objects
+this is given by
+\[  (a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x') = (a+a' \xrightarrow{i+i'} b+b', 
+\phi_{a,b}(d,d') )\]
+where $\phi$ is the laxator for $F$.  The monoidal unit is given by $(0_\A \xrightarrow{!} 0_\A, x)$
+where $x \in F(0_\A)$ is the element given by $\phi_0 \maps \one \to F(0_\A)$.   With this monoidal structure it is easy to check that the functor $\Phi$ is strict monoidal.
 
-One can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a',x',a' \xrightarrow{i'} U(x')) \in \A/U$ over $a'$, a cartesian lifting of $f$ is given by 
-\[ (f,\id) \maps (a,x',a \xrightarrow{i' \circ f} U(x')) \, \to \, (a',x',a' \xrightarrow{i'} U(x')). \]
+One can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a' \xrightarrow{i'} b', x') \in \A/U$ over $a'$, a cartesian lifting of $f$ is given by 
+\[ (f,1,1) \maps (a \xrightarrow{i' f} b' , x')\; \to \; (a' \xrightarrow{i'} b', x'). \]
 Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
-One can also check that the functor $\Phi$ is an opfibration, but this takes a bit more work. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a,x,a \xrightarrow{i} U(x)) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
-\[ (f,\theta) \maps (a,x,a \xrightarrow{i} U(x)) \, \to \, (a',x', a' \xrightarrow{i'} U(x')). \]
-where $i'$ arises from the following pushout square in $\A$:
+One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, x) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
+\[ (f,g,1) \maps (a \xrightarrow{i} b, x) \, \to \, (a' \xrightarrow{i'} b+_a a', F(g)(x)). \]
+where $b +_a a'$, $i'$ and $g$ arise from the following pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (1.5,0) {$a'$};
-\node (C) at (0,-1) {$U(x)$};
-\node (D) at (1.5,-1) {$U(x)+_a a'$};
+\node (C) at (0,-1) {$b$};
+\node (D) at (1.5,-1) {$b+_a a'$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
@@ -755,18 +760,36 @@ where $i'$ arises from the following pushout square in $\A$:
 (C) edge [dashed] node[below]{$g$} (D);
 \end{tikzpicture}
 \]
-The object $x' \in \inta F$ is defined as follows.  Recall that $x \in \inta F$ is a
-pair $(b,p)$ with $b\in \A$ and $p \in F(b)$, and note that $U(x) = b$.   Define 
-$x'$ to be the pair $(b',p')$ where $b' = U(x)+_a a'$ is the pushout in the above
-diagram and $p' = F(g)(p)$.  Then $U(x') = b'$ so we have 
-$i' \maps a' \to U(x')$ as desired.  Finally, define $\theta \maps x \to x'$ to be 
-the morphism in $\inta F$ given by the pair $(g,\id)$ where $g \maps b \to b'$ is
-given as above and $\id \maps F(g)(p) \to p'$ is the identity.
+To show that $(f,g,1)$ is an cocartesian lifting of $f$, suppose we are given a morphism 
+\[    (f'',g'',h'') \maps (a \xrightarrow{i} b, x) \; \to \; (a'' \xrightarrow{i''} b'', x'')   \]
+in $\A/U$ and a morphism $k \maps a \to a''$ in $\A$ such that $\Phi(f'',g'',h'') = k \circ f$.   To
+show $\Phi$ is an opfibration, we need to show there exists a unique morphism
+\[     (\tilde{f}, \tilde{g}, \tilde{h}) \maps (a' \xrightarrow{i'} b +_a a', F(g)(x)) \; \to \; (a'' \xrightarrow{i''} b'', x'') \]
+such that $\Phi(\tilde{f}, \tilde{g}, \tilde{h}) = k$ and 
+\[       (\tilde{f}, \tilde{g}, \tilde{h}) \circ (f,g,1) = (f'',g'',h'') .\]
+To achieve this set $\tilde{f} = k$, $\tilde{h} = h''$, and define $\tilde{g}$ using
+the universal property of the pushout:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$a$};
+\node (B) at (1.5,0) {$a'$};
+\node (C) at (0,-1) {$b$};
+\node (D) at (1.5,-1) {$b+_a a'$};
+\node (E) at (2.5,-1.5) {$b''$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$f$} (B)
+(A) edge node[left]{$i$} (C)
+(B) edge node[left]{$i'$} (D)
+(C) edge node[above]{$g$} (D)
+(C) edge [bend right] node[below]{$g''$} (E)
+(B) edge [bend left] node[right]{$i'' k$} (E)
+(D) edge [dashed] node[left]{$\exists! \, \tilde{g} \phantom{a}$} (E);
+\end{tikzpicture}
+\]
+after noting that $g'' i = i' f'' = i'' k f $ by the commuting square condition for the morphisms
+in $\A/U$.   One can check that with these choices, $(\tilde{f},\tilde{g}, \tilde{h})$ obeys the desired conditions and is the unique morphism to do so.
 
-To show that $(f,\theta)$ is an cocartesian lifting of $f$, suppose 
-
-
-Then use this picture somehow:
+\iffalse
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -789,6 +812,7 @@ Then use this picture somehow:
 %(C) edge [dashed] node[above]{$$} (D);
 \end{tikzpicture}
 \]
+\fi
 
 Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram: 
 \[  (U(x_1)+_{a_1}b_1)+(U(x_2)+_{a_2}b_2) \cong U(x_1 \otimes x_2)+_{a_1+a_2}(b_1+b_2). \]
