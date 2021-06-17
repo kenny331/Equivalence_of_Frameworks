@@ -7,6 +7,7 @@
 
 \usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}
 \usepackage{comment}
+\usepackage[mathscr]{euscript}
 \usepackage[neveradjust]{paralist}
 \usepackage{mathtools}
 \usepackage{multirow}
@@ -659,8 +660,8 @@ monoidal double category.
 Note that when $\C$ is the arrow category of $\A$ and $\Phi$ maps any arrow in $\A$ to its
 domain, an object of $\Fr(\Phi)$ simply amounts to a cospan in $\C$.  Thus, in this case $\Fr(\Phi)$ is the double category of cospans in $\C$.    We shall use variations on this idea to define double categories of decorated and structured cospans, and also prove that under certain conditions these double categories are equivalent.    
 
-We start with decorated cospans, proving Theorems \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built
-from a lax monoidal pseudofunctor $F \maps (A,+) \to (\Cat,\times)$.    The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal ofibrations, and one that gives symmetric monoidal opfibrations.  We explain the Grothendieck construction and these related concepts in \cref{subsec:fibrations}; here we simply recall the result we need.
+We start with decorated cospans, proving Theorem \ref{thm:decorated_cospans_1} and 
+\ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built from a lax monoidal pseudofunctor $F \maps (A,+) \to (\Cat,\times)$.    The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal opfibrations, and one that gives symmetric monoidal opfibrations.  We recall the Grothendieck construction and these related concepts in \cref{subsec:fibrations}; here we simply state the result we need.
 
 \begin{lem}
 \label{lem:MonGroth}
@@ -914,10 +915,10 @@ We can draw the 2-morphism as follows, {\bf but with ticks on the horizontal arr
 \]
 \end{comment}
 
-Our construction gives not only decorated cospan double categories, but  also maps between these: that is, symmetric monoidal double functors, as in \cref{def:doublefun}. Suppose we have two categories $\A,\A'$ with finite colimits and two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.    Then we can obtain a map between their decorated cospan double categories, $\lH \maps F\lCsp \to F' \lCsp$, from:
+Our construction gives not only decorated cospan double categories, but  also maps between these.   For simplicity we only consider the monoidal case.  Suppose we have two categories $\A,\A'$ with finite colimits and two lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.   Then we can obtain a map between their decorated cospan double categories, namely a double functor $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
 \item a functor $H \maps \A \to \A'$ that preserves finite limits,
-\item a symmetric lax monoidal pseudofunctor $(E,\phi,\phi_0) \maps \Cat \to \Cat$, 
+\item a lax monoidal pseudofunctor $(E,\phi,\phi_0) \maps \Cat \to \Cat$, 
 \item a natural isomorphism $\theta \maps EF \Rightarrow F'H$: 
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -934,19 +935,21 @@ Our construction gives not only decorated cospan double categories, but  also ma
 \end{tikzpicture}
 \]
 \end{itemize}
-The induced double functor $\lH \maps F\lCsp \to F'\lCsp$ is defined as follows:
+The double functor $\lH \maps F\lCsp \to F'\lCsp$ is defined as follows:
 \begin{itemize}
 \item The image of an object $a \in F\lCsp_0=\A$ is the object $H(a) \in F'\lCsp_0=\A'$.
 \item The image of a vertical 1-morphism $f \maps a \to b$ is the vertical 1-morphism $H(f) \maps H(a) \to H(b)$. 
 \end{itemize}
 In other words, the object component $\lH_0$ of the double functor $\lH$ is the functor $H$.
 \begin{itemize}
-\item The image of an $F$-decorated cospan $M$ in $F\lCsp$ is the $F'$-decorated cospan $\lH(M)$ in $F'\lCsp$
-\begin{align*}
- M=\left(a\xrightarrow{i}m\xleftarrow{o}b,x\in F(m)\right)\mapsto \lH(M)=\left(H(a)\xrightarrow{H(i)}H(m)\xleftarrow{H(o)}H(b),\bar{x}\in F'(H(m))\right)& \textrm{ where } \\
-\bar{x}:=\one \xrightarrow{\phi_0} E(\one) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)) &
-\end{align*}
-\item The image of a map of decorated cospans $\alpha \maps M \to N$ in $F\lCsp$ is the map of $F'$-decorated cospans $\lH(\alpha)$ in $F'\lCsp$
+\item The image of an $F$-decorated cospan
+\[ M= (a\xrightarrow{i}m\xleftarrow{o}b, \; x\in F(m)) \]
+is the following $F'$-decorated cospan:
+\[ \lH(M)= (H(a)\xrightarrow{H(i)}H(m)\xleftarrow{H(o)}H(b), \;\bar{x}\in F'(H(m))) \]
+ where
+\[
+\bar{x}:=\one \xrightarrow{\phi_0} E(\one) \xrightarrow{E(x)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)).\]
+\item The image of a map of decorated cospans in $F\lCsp$ 
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0.5) {$a$};
@@ -957,7 +960,20 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
 \node (D) at (1,-0.5) {$n$};
 \node (E) at (3,0.5) {$x \in F(m)$};
 \node (F) at (3,-0.5) {$x' \in F(n)$};
-%\node (G) at (1,-1) {$\tau \maps F(h)(x) \to x'$};
+\node (G) at (5,0) {$\tau \maps F(h)(x) \to x'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$g$} (C')
+(A') edge node[below] {$i'$} (D)
+(C') edge node[below] {$o'$} (D)
+(B) edge node [left] {$h$} (D);
+\end{tikzpicture}
+\]
+is the following map of $F'$-decorated cospans $\lH(\alpha)$ in $F'\lCsp$:
+\[
+\begin{tikzpicture}[scale=1.5]
 \node (A'') at (4.75,0.5) {$H(a)$};
 \node (A''') at (4.75,-0.5) {$H(a')$};
 \node (B'') at (5.75,0.5) {$H(m)$};
@@ -966,15 +982,7 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
 \node (D'') at (5.75,-0.5) {$H(n)$};
 \node (E'') at (8.5,0.5) {$\theta_m E(x) \phi_0 \in F'(H(m))$};
 \node (F'') at (8.5,-0.5) {$\theta_n E(x') \phi_0 \in F'(H(n))$};
-\node (H) at (3.75,0) {$\mapsto$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B)
-(A) edge node[left]{$f$} (A')
-(C) edge node[right]{$g$} (C')
-(A') edge node[below] {$i'$} (D)
-(C') edge node[below] {$o'$} (D)
-(B) edge node [left] {$h$} (D)
 (A'') edge node[above]{$H(i)$} (B'')
 (C'') edge node[above]{$H(o)$} (B'')
 (A'') edge node[left]{$H(f)$} (A''')
@@ -984,8 +992,7 @@ In other words, the object component $\lH_0$ of the double functor $\lH$ is the 
 (B'') edge node [left] {$H(h)$} (D'');
 \end{tikzpicture}
 \]
-where a decoration morphism $\tau \maps F(h)(x) \to x'$ is mapped to a 
-decoration morphism as follows:
+where the decoration morphism $\tau$ is mapped to a decoration morphism as follows:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-3.5,-0.5) {$1$};
@@ -1015,10 +1022,9 @@ decoration morphism as follows:
 \]
 \end{itemize}
 
-
 \begin{thm}
 \label{thm:functoriality}
-Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a symmetric lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a natural isomorphism $\theta \maps EF \Rightarrow F' H$ as in the following diagram:
+Given two categories $\A$ and $\A'$ with finite colimits, two lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a natural isomorphism $\theta \maps EF \Rightarrow F' H$ as in the following diagram:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
@@ -1033,12 +1039,10 @@ Given two categories $\A$ and $\A'$ with finite colimits, two symmetric lax mono
 (C) edge node[below]{$F'$} (D);
 \end{tikzpicture}
 \] 
-the triple $(H,E,\theta)$ induces a symmetric monoidal double functor $\lH \maps F\lCsp \to F'\lCsp$ as defined above.
+the triple $(H,E,\theta)$ induces a double functor $\lH \maps F\lCsp \to F'\lCsp$ as defined above.
 \end{thm}
 
-\begin{proof}  See \cite[Theorem 4.2.1]{CourserThesis}. 
-
-From the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$, we can obtain a Beck-Chevalley symmetric monoidal opfibration $\Phi \maps (\A/U) \to \A$ as in \cref{thm:decorated_cospans_1}, where $U \maps \int F \to \A$ is the associated monoidal opfibration of the pseudofunctor $F$. We can do the same for the other symmetric lax monoidal pseudofunctor $F' \maps \A' \to \Cat$ to obtain another Beck-Chevalley symmetric monoidal opfibration $\Phi' \maps (\A'/U') \to \A'$.
+\begin{proof}   From the lax monoidal pseudofunctor $F \maps \A \to \Cat$, we obtain a Beck--Chevalley monoidal bifibration $\Phi \maps (\A/U) \to \A$ as in \cref{thm:decorated_cospans_1}.  We do the same for the lax monoidal pseudofunctor $F' \maps \A' \to \Cat$ to obtain a Beck--Chevalley monoidal bifibration $\Phi' \maps (\A'/U') \to \A'$.
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\A/U)$};
@@ -1051,35 +1055,16 @@ From the symmetric lax monoidal pseudofunctor $F \maps \A \to \Cat$, we can obta
 (C) edge node[above]{$H$} (D);
 \end{tikzpicture}
 \]
-We construct a strong monoidal functor $G \maps (\A/U) \to (\A'/U')$ between the monoidal comma categories $(\A/U)$ and $(\A'/U')$ that will make the induced square commute. Such a commutative square is a morphism in the 2-category $\mathbf{FMF}$ of monoidal bifibrations satisfying the Beck-Chevalley condition which then, by a 2-functor $\mathbb{F}\mathbf{r} \maps \mathbf{FMF} \to \mathbf{FDbl}$ due to Shulman \cite[Theorem 14.11]{Shulman2008}, will yield a map $$\mathbb{F}\mathbf{r}(G,H) \maps \mathbb{F}\mathbf{r}(\Phi) \to \mathbb{F}\mathbf{r}(\Phi')$$between the fibrant symmetric monoidal double categories $\mathbb{F}\mathbf{r}(\Phi)=F\lCsp$ and $\mathbb{F}\mathbf{r}(\Phi')= F'\lCsp$.
+Next we construct a strong monoidal functor $G \maps \A/U \to \A'/U'$  that makes the resulting square commute.  Such a commutating square is a morphism in Shulman's 2-category $\mathscr{MF}^{\textrm{fr}}$ of Beck--Chevalley monoidal bifibrations.  Appying Shulman's 2-functor $\mathbb{F}\mathbf{r} \maps \mathscr{MF}^{\textrm{fr}} \to \mathscr{F}r\mathscr{B}i$ to this morphism, \cite[Theorem 14.11]{Shulman2008}, we obtain the desired double functor
+\[ \mathbb{H} \maps  F\lCsp \to F'\lCsp .\]  
 
-The monoidal comma category $(\A/U)$ has:
-\begin{enumerate}
-\item{objects as triples $(a,x,a \to U(x))$, and}
-\item{a morphism from $(a,x,a \to U(x))$ to $(b,y,b \to U(y))$ is a pair of morphisms $f \maps a \to b$ and $\tau \maps x \to y$ that make the following square commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$b$};
-\node (C) at (0,-1) {$U(x)$};
-\node (D) at (1,-1) {$U(y)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$f$} (B)
-(A) edge node[left]{$$} (C)
-(B) edge node[right]{$$} (D)
-(C) edge node[above]{$U(\tau)$} (D);
-\end{tikzpicture}
-\]
-}
-\end{enumerate}
-The tensor product of two objects $(a_1,x_1,a_1 \to U(x_1))$ and $(a_2,x_2,a_2 \to U(x_2))$ is given by $$(a_1,x_1,a_1 \to U(x_1)) \otimes (a_2,x_2,a_2 \to U(x_2)) = (a_1+a_2,x_1+x_2,a_1+a_2 \to U(x_1 \otimes x_2)).$$The monoidal unit of $(\A/U)$ is given by $(0_\A,0_\X,0_\A \to U(0_\X))$. Those of $(\A'/U')$ are analogous.
-
-On objects, the strong monoidal functor $F \maps (\A/U) \to (\A'/U')$ is defined as follows:
-\begin{enumerate}
-\item{given $(a,x,a \to U(x))$ in $(\A/U)$ where $x=(m,p) \in \A \times F(m)$, $$G(a,x,a \to U(x)) = (H(a),\theta_m E(p) \phi,H(a) \to U'(\theta_m E(p) \phi))$$ where $\theta_m E(p) \phi$ is given by 
-$$1 \xrightarrow{\phi} E(1) \xrightarrow{E(p)} E(F(m)) \xrightarrow{\theta_m} F'(H(m))$$
-so that $U'(\theta_m E(p) \phi)=H(m)$, }
-\item{given a pair of morphisms $(f,\tau)$ that make the following square commute:
+We described $\A/U$ and its monoidal structure in the proof of \cref{thm:decorated_cospans_1}, 
+and of course the case of $\A'/U'$ is analogous.   We define a strong monoidal functor $G \maps \A/U \to \A'/U'$ as follows.  First suppose we are given a object $(a \xrightarrow{i} b, x)$ in $(\A/U)$, where recall $x \in F(x)$.    Then we define
+\[  G(a \xrightarrow{i} b, x) = (H(a) \xrightarrow{H(i)} H(b), x') \]
+where the object $x' \in F'(H(b))$ is picked out by the composite
+\[  1 \xrightarrow{\phi} E(1) \xrightarrow{E(p)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)) \]
+so that $U'(\theta_m E(p) \phi)=H(m)$, 
+Given a pair of morphisms $(f,\tau)$ that make the following square commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1135,8 +1120,7 @@ where $\tau$ and $\theta_h E(\tau) \phi$ are given respectively by:
 (B) edge node[right]{$E(F(h))$} (D);
 \end{tikzpicture}
 \]
-}
-\end{enumerate}
+
 The laxator is given by the following natural isomorphism between $\theta_m E(p) \phi \times \theta_n E(q) \phi$ and $\theta_{m+n} E(p \times q) \phi$:
 \[
 \begin{tikzpicture}[scale=1.5]
