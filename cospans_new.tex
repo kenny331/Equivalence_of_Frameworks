@@ -744,15 +744,15 @@ One can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ i
 \[ (f,1,1) \maps (a \xrightarrow{i' f} b' , x')\; \to \; (a' \xrightarrow{i'} b', x'). \]
 Denoting this cartesian lifting by $\textnormal{cart}(f)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\textnormal{cart}(f_1) \otimes \textnormal{cart}(f_2)=\textnormal{cart}(f_1+f_2)$.
 
-One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, x) \in \A/U$ over $a$, we shall show that a cocartesian lifting of $f$ is given by 
+One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, x) \in \A/U$ over $a$, we claim that a cocartesian lifting of $f$ is given by 
 \[ (f,g,1) \maps (a \xrightarrow{i} b, x) \, \to \, (a' \xrightarrow{i'} b+_a a', F(g)(x)). \]
-where $b +_a a'$, $i'$ and $g$ arise from the following pushout square in $\A$:
+where $g, i'$ and $b +_a a'$ arise from this pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (1.5,0) {$a'$};
 \node (C) at (0,-1) {$b$};
-\node (D) at (1.5,-1) {$b+_a a'$};
+\node (D) at (1.5,-1) {$b+_a a'$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
@@ -760,14 +760,13 @@ where $b +_a a'$, $i'$ and $g$ arise from the following pushout square in $\A$:
 (C) edge [dashed] node[below]{$g$} (D);
 \end{tikzpicture}
 \]
-To show that $(f,g,1)$ is an cocartesian lifting of $f$, suppose we are given a morphism 
+Suppose we are given a morphism 
 \[    (f'',g'',h'') \maps (a \xrightarrow{i} b, x) \; \to \; (a'' \xrightarrow{i''} b'', x'')   \]
-in $\A/U$ and a morphism $k \maps a \to a''$ in $\A$ such that $\Phi(f'',g'',h'') = k \circ f$.   To
-show $\Phi$ is an opfibration, we need to show there exists a unique morphism
+in $\A/U$ and a morphism $k \maps a \to a''$ in $\A$ such that $\Phi(f'',g'',h'') = k \circ f$.   To show that $(f,g,1)$ is a cocartesian lifting of $f$, we need to show there exists a unique morphism
 \[     (\tilde{f}, \tilde{g}, \tilde{h}) \maps (a' \xrightarrow{i'} b +_a a', F(g)(x)) \; \to \; (a'' \xrightarrow{i''} b'', x'') \]
 such that $\Phi(\tilde{f}, \tilde{g}, \tilde{h}) = k$ and 
 \[       (\tilde{f}, \tilde{g}, \tilde{h}) \circ (f,g,1) = (f'',g'',h'') .\]
-To achieve this set $\tilde{f} = k$, $\tilde{h} = h''$, and define $\tilde{g}$ using
+To achieve this we choose $\tilde{f} = k$, $\tilde{h} = h''$, and define $\tilde{g}$ using
 the universal property of the pushout:
 \[
 \begin{tikzpicture}[scale=1.5]
@@ -783,11 +782,13 @@ the universal property of the pushout:
 (C) edge node[above]{$g$} (D)
 (C) edge [bend right] node[below]{$g''$} (E)
 (B) edge [bend left] node[right]{$i'' k$} (E)
-(D) edge [dashed] node[left]{$\exists! \, \tilde{g} \phantom{a}$} (E);
+(D) edge [dashed] node[below left]{$\exists! \, \tilde{g} \phantom{a}$} (E);
 \end{tikzpicture}
 \]
 after noting that $g'' i = i' f'' = i'' k f $ by the commuting square condition for the morphisms
-in $\A/U$.   One can check that with these choices, $(\tilde{f},\tilde{g}, \tilde{h})$ obeys the desired conditions and is the unique morphism to do so.
+in $\A/U$.   One can check that with these choices, $(\tilde{f},\tilde{g}, \tilde{h})$ obeys the desired conditions and is the unique morphism to do so.   
+
+It follows that $\Phi$ is a bifibration.  Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram.  Thus, $\Phi$ is a monoidal bifibration.
 
 \iffalse
 \[
@@ -814,10 +815,8 @@ in $\A/U$.   One can check that with these choices, $(\tilde{f},\tilde{g}, \tild
 \]
 \fi
 
-Denoting the cocartesian lifting of a morphism $f$ by $\textnormal{cocart}(f)$, we have that $\textnormal{cocart}(f_1) \otimes \textnormal{cocart}(f_2) \cong \textnormal{cocart}(f_1+f_2)$ by the universal map between two colimits of the same diagram: 
-\[  (U(x_1)+_{a_1}b_1)+(U(x_2)+_{a_2}b_2) \cong U(x_1 \otimes x_2)+_{a_1+a_2}(b_1+b_2). \]
 
-Lastly, the monoidal bifibration $\Phi$ satisfies the Beck--Chevalley condition. Given a pushout square in $\A$:
+Lastly, we need to check that $\Phi$ satisfies the Beck--Chevalley condition. Given a pushout square in $\A$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -831,13 +830,13 @@ Lastly, the monoidal bifibration $\Phi$ satisfies the Beck--Chevalley condition.
 (C) edge node[below]{$f$} (D);
 \end{tikzpicture}
 \]
-we need to show that the following square commutes up to a natural isomorphism:
+we need to show that the natural transformation $\theta$, defined as in \cref{subsec:fibrations}, is an isomorphism:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$(\A/U)_a$};
 \node (B) at (1.5,0) {$(\A/U)_b$};
 \node (C) at (0,-1) {$(\A/U)_c$};
-\node (D) at (1.5,-1) {$(\A/U)_d$};
+\node (D) at (1.5,-1) {$(\A/U)_d$.};
 \node (E) at (0.75,-0.5) {$\Searrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^*$} (A)
@@ -846,13 +845,13 @@ we need to show that the following square commutes up to a natural isomorphism:
 (D) edge node[below]{$f^*$} (C);
 \end{tikzpicture}
 \]
-Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$ where $x=(b',p) \in \A \times F(b')$ so that $U(x)=b'$. Going left, we precompose with $h \maps a \to b$ to obtain the object $(a,x,a \xrightarrow{i \circ h} U(x))$ of $(\A/U)_a$. Then going down, we push forward along $k$:
+Let $(b \xrightarrow{i} e, x)$ be an object of $(\A/U)_b$. Going left, we precompose with $h \maps a \to b$ to obtain the object $(a \xrightarrow{i \circ h} e, z)$ of $(\A/U)_a$. Then going down, we push forward along $k$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
-\node (B) at (1.5,0) {$U(x)$};
+\node (B) at (1.5,0) {$e$};
 \node (C) at (0,-1) {$c$};
-\node (D) at (1.5,-1) {$c+_{a}U(x)$};
+\node (D) at (1.5,-1) {$c+_{a}e$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i \circ h$} (B)
 (A) edge node[left]{$k$} (C)
@@ -860,8 +859,7 @@ Let $(b,x,b \xrightarrow{i} U(x))$ be an object of $(\A/U)_b$ where $x=(b',p) \i
 (C) edge node[below]{$\psi$} (D);
 \end{tikzpicture}
 \]
-to obtain the object $(c,z,c \xrightarrow{\psi} U(z))$ of $(\A/U)_c$, where $z \in \A \times F(c+_a U(x))$ is given by $z=(c+_a U(x),q)$ where $q$ is given by
-\[ 1 \xrightarrow{p} F(U(x)) \xrightarrow{F(\zeta)} F(0+_0 U(x)) \xrightarrow{F(!_c +_{!_a} 1)} F(c+_a U(x)). \]
+to obtain the object $(c \xrightarrow{\psi} c+_a e, F(\psi)(x))$ of $(\A/U)_c$.
 %and so by construction, we have that 
 %\[  U(z)=U(\bot_c+_{\bot_a}x)=c+_a U(x).\]
 %{\john Need to refer to a proposition where we show $U$ preserves pushouts strictly.}
@@ -958,7 +956,9 @@ which exhibits $d+_b U(x)$ as a pushout of the same span in $\A$.  The resulting
 
 \end{tikzpicture}
 \]
-and consequently a natural isomorphism between our two objects of $(\A/U)_c$, showing that $\Phi$ satisfies the Beck--Chevalley condition.   We then define $F\lCsp$ to be $\Fr(\Phi)$.
+and consequently a natural isomorphism between our two objects of $(\A/U)_c$, showing that $\Phi$ satisfies the Beck--Chevalley condition.   
+
+Having checked the hypotheses of \cref{lem:shulman}, we then define $F\lCsp$ to be $\Fr(\Phi)$.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] 
