@@ -758,11 +758,12 @@ where $g, i'$ and $b +_a a'$ arise from this pushout square in $\A$:
 \node (B) at (1.5,0) {$a'$};
 \node (C) at (0,-1) {$b$};
 \node (D) at (1.5,-1) {$b+_a a'$.};
+\node at (1.2,-0.8) {\Large{$\ulcorner$}};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
-(B) edge [dashed] node[right]{$i'$} (D)
-(C) edge [dashed] node[below]{$g$} (D);
+(B) edge node[right]{$i'$} (D)
+(C) edge node[below]{$g$} (D);
 \end{tikzpicture}
 \]
 Suppose we are given a morphism 
@@ -780,11 +781,12 @@ the universal property of the pushout:
 \node (C) at (0,-1) {$b$};
 \node (D) at (1.5,-1) {$b+_a a'$};
 \node (E) at (2.5,-1.5) {$b''$};
+\node at (1.2,-0.8) {\Large{$\ulcorner$}};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (A) edge node[left]{$i$} (C)
-(B) edge node[left]{$i'$} (D)
-(C) edge node[above]{$g$} (D)
+(B) edge node[right]{$i'$} (D)
+(C) edge node[below]{$g$} (D)
 (C) edge [bend right] node[below]{$g''$} (E)
 (B) edge [bend left] node[right]{$i'' k$} (E)
 (D) edge [dashed] node[below left]{$\exists! \, \tilde{g} \phantom{a}$} (E);
@@ -1024,7 +1026,7 @@ where the decoration morphism $\tau$ is mapped to a decoration morphism as follo
 
 \begin{thm}
 \label{thm:functoriality}
-Given two categories $\A$ and $\A'$ with finite colimits, two lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$, a finite colimit preserving functor $H \maps \A \to \A'$, a lax monoidal pseudofunctor $E \maps \Cat \to \Cat$ and a natural isomorphism $\theta \maps EF \Rightarrow F' H$ as in the following diagram:
+Given two categories $\A$ and $\A'$ with finite colimits, two lax monoidal pseudofunctors $F, F' \maps (\A',+) \to (\Cat,\times)$, a finite colimit preserving functor $H \maps \A \to \A'$, a lax monoidal pseudofunctor $E \maps (\Cat,\times) \to (\Cat,\times)$ and a {\john monoidal???} natural isomorphism $\theta$ as in the following diagram:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
@@ -1042,57 +1044,36 @@ Given two categories $\A$ and $\A'$ with finite colimits, two lax monoidal pseud
 the triple $(H,E,\theta)$ induces a double functor $\lH \maps F\lCsp \to F'\lCsp$ as defined above.
 \end{thm}
 
-\begin{proof}   From the lax monoidal pseudofunctor $F \maps \A \to \Cat$, we obtain a Beck--Chevalley monoidal bifibration $\Phi \maps (\A/U) \to \A$ as in \cref{thm:decorated_cospans_1}.  We do the same for the lax monoidal pseudofunctor $F' \maps \A' \to \Cat$ to obtain a Beck--Chevalley monoidal bifibration $\Phi' \maps (\A'/U') \to \A'$.
+\begin{proof}   
+From the lax monoidal pseudofunctor $F$ we obtain a Beck--Chevalley monoidal bifibration $\Phi \maps \A/U \to \A$ as in \cref{thm:decorated_cospans_1}.  Similarly the lax monoidal pseudofunctor $F'$ gives a Beck--Chevalley monoidal bifibration $\Phi' \maps \A'/U' \to \A'$.  Next we construct a strong monoidal functor $G \maps \A/U \to \A'/U'$  that makes this square commute:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$(\A/U)$};
-\node (B) at (2,0) {$(\A'/U')$};
-\node (C) at (0,-1.5) {$\A$};
-\node (D) at (2,-1.5) {$\A'$};
+\node (A) at (0,0) {$\A/U$};
+\node (B) at (1,0) {$\A'/U'$};
+\node (C) at (0,-1) {$\A$};
+\node (D) at (1,-1) {$\A'$};
 \path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$G$} (B)
 (A) edge node[left]{$\Phi$} (C)
 (B) edge node[right]{$\Phi'$} (D)
-(C) edge node[above]{$H$} (D);
+(C) edge node[below]{$H$} (D);
 \end{tikzpicture}
 \]
-Next we construct a strong monoidal functor $G \maps \A/U \to \A'/U'$  that makes the resulting square commute.  Such a commutating square is a morphism in Shulman's 2-category $\mathscr{MF}^{\textrm{fr}}$ of Beck--Chevalley monoidal bifibrations.  Appying Shulman's 2-functor $\mathbb{F}\mathbf{r} \maps \mathscr{MF}^{\textrm{fr}} \to \mathscr{F}r\mathscr{B}i$ to this morphism, \cite[Theorem 14.11]{Shulman2008}, we obtain the desired double functor
+Such a commuting square is a morphism in Shulman's 2-category of Beck--Chevalley monoidal bifibrations.  Appying Shulman's 2-functor $\mathbb{F}\mathbf{r}$ to this morphism \cite[Theorem 14.11]{Shulman2008}, we obtain the desired double functor
 \[ \mathbb{H} \maps  F\lCsp \to F'\lCsp .\]  
 
 We described $\A/U$ and its monoidal structure in the proof of \cref{thm:decorated_cospans_1}, 
-and of course the case of $\A'/U'$ is analogous.   We define a strong monoidal functor $G \maps \A/U \to \A'/U'$ as follows.  First suppose we are given a object $(a \xrightarrow{i} b, x)$ in $(\A/U)$, where recall $x \in F(x)$.    Then we define
-\[  G(a \xrightarrow{i} b, x) = (H(a) \xrightarrow{H(i)} H(b), x') \]
+and of course the case of $\A'/U'$ is analogous.   We define the strong monoidal functor $G \maps \A/U \to \A'/U'$ as follows.  First we define $G$ on an object $(a \xrightarrow{i} b, x)$ of $\A/U$.
+We can treat $x \in F(b)$ as a morphism $x \maps 1 \to F(b)$.    Then we define
+\[  G(a \xrightarrow{i} b, x) := (H(a) \xrightarrow{H(i)} H(b), x') \]
 where the object $x' \in F'(H(b))$ is picked out by the composite
-\[  1 \xrightarrow{\phi} E(1) \xrightarrow{E(p)} E(F(m)) \xrightarrow{\theta_m} F'(H(m)) \]
-so that $U'(\theta_m E(p) \phi)=H(m)$, 
-Given a pair of morphisms $(f,\tau)$ that make the following square commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$b$};
-\node (C) at (0,-1) {$U(x)$};
-\node (D) at (1,-1) {$U(y)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$f$} (B)
-(A) edge node[left]{$$} (C)
-(B) edge node[right]{$$} (D)
-(C) edge node[above]{$U(\tau)$} (D);
-\end{tikzpicture}
-\]
-we define $$G(f,\tau)=(H(f),\theta_h E(\tau) \phi).$$
-which make the following square in $(\A'/U')$ commute:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$H(a)$};
-\node (B) at (3,0) {$H(b)$};
-\node (C) at (0,-1) {$U'(\theta_m E(p) \phi)$};
-\node (D) at (3,-1) {$U'(\theta_n E(q) \phi))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$H(f)$} (B)
-(A) edge node[left]{$$} (C)
-(B) edge node[right]{$$} (D)
-(C) edge node[above]{$U'(\theta_h E(\tau) \phi)$} (D);
-\end{tikzpicture}
-\]
+\[  1 \xrightarrow{\phi_0} E(1) \xrightarrow{E(x)} E(F(b)) \xrightarrow{\;\theta_b\;} F'(H(b)) .\]
+Then we define $G$ on a morphism
+\[   (f,g,h) \maps (a \xrightarrow{i} b, x) \; \to \; (a' \xrightarrow{i'} b', x') \]
+in $\A/U$.   For this we set
+\[   G(f,g,h) = (H(f),H(g),???) \]
+
+
 where $\tau$ and $\theta_h E(\tau) \phi$ are given respectively by:
 \[
 \begin{tikzpicture}[scale=1.5]
