@@ -741,7 +741,7 @@ As in any comma category we have a functor $\Phi \maps \A/U \to \A$; this is giv
 
 To apply \cref{lem:shulman} it suffices to prove that $\Phi$ is a Beck--Chevalley monoidal opfibration.   First, there is a monoidal structure on $\A/U$ coming from the monoidality of $U$.  On objects this is given by
 \[  (a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x') = (a+a' \xrightarrow{i+i'} b+b', 
-\phi_{a,b}(x,x') )\]
+\phi_{b,b'}(x,x') )\]
 where $\phi$ is the laxator for $F$.  The monoidal unit is $(0_\A \xrightarrow{!} 0_\A, 0)$
 where $0 \in F(0_\A)$ is the object given by $\phi_0 \maps \one \to F(0_\A)$.   With this monoidal structure it is easy to see that $\Phi$ is strict monoidal.
 
@@ -1048,11 +1048,11 @@ Given categories $\A$ and $\A'$ with finite colimits, lax monoidal pseudofunctor
 (C) edge node[below]{$F'$} (D);
 \end{tikzpicture}
 \] 
-the triple $(H,E,\theta)$ induces a double functor $\lH \maps F\lCsp \to F'\lCsp$ defined as above.
+we obtain a double functor $\lH \maps F\lCsp \to F'\lCsp$ defined as above.
 \end{thm}
 
 \begin{proof}   
-From the lax monoidal pseudofunctor $F$ we obtain a Beck--Chevalley monoidal bifibration $\Phi \maps \A/U \to \A$ as in \cref{thm:decorated_cospans_1}.  Similarly the lax monoidal pseudofunctor $F'$ gives a Beck--Chevalley monoidal bifibration $\Phi' \maps \A'/U' \to \A'$.  Next we construct a strong monoidal functor $G \maps \A/U \to \A'/U'$  that makes this square commute:
+From the lax monoidal pseudofunctors $F$ and $F'$ we obtain Beck--Chevalley monoidal bifibrations $\Phi \maps \A/U \to \A$ and $\Phi' \maps \A'/U' \to \A'$ as in \cref{thm:decorated_cospans_1}.  In what follows we construct a strong monoidal functor $G \maps \A/U \to \A'/U'$ that makes this square commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A/U$};
@@ -1116,6 +1116,8 @@ natural transformation:
 One can check that with these definitions $G$ is a functor. 
 
 To make $G$ into a strong monoidal functor, we need to equip it with a natural isomorphism
+\[  \gamma \maps G(a \xrightarrow{i} b, x) \otimes G(a' \xrightarrow{i'} b', x') \; 
+\xrightarrow{\sim} \; G((a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x')).\]
 
 The laxator is given by the following natural isomorphism between $\theta_m E(p) \phi \times \theta_n E(q) \phi$ and $\theta_{m+n} E(p \times q) \phi$:
 \[
