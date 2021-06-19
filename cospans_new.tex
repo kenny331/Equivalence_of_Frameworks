@@ -506,7 +506,7 @@ We thank Daniel Cicala, Brendan Fong, Joe Moeller and especially Michael Shulman
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$  whenever $A$ is a cocartesian.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the key ideas \cite{FongThesis}.
+In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$  whenever $A$ is a cocartesian.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas \cite{FongThesis}.
 
 In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.  
 
@@ -531,7 +531,7 @@ a diagram in $\A$ of the form
 together with a \define{decoration} $x \in F(m)$,
 \item a 2-morphism is a \define{map of} $F$\define{-decorated cospans}, that is, 
 a commutative diagram in $\A$ of the form
-\begin{equation}\label{eq:mapofdec}
+\[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$a'$};
@@ -550,14 +550,14 @@ a commutative diagram in $\A$ of the form
 (C') edge node[below] {$o'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
-\end{equation}
+\]
 together with a \define{decoration morphism} $\tau \maps F(h)(x) \to x'$ in $F(m')$.
 \end{itemize}
 \end{thm}
 
 Vertical composition in $F\lCsp$ is done using composition in $\A$.  The horizontal composite of $F$-decorated cospans
 \[ \left(a\to m\leftarrow b,x\in F(m)\right), \qquad \left(b\to n\leftarrow c,y\in F(n)\right)\] 
-is the composite of their underlying cospans, shown in dashed arrows here:
+is the usual composite via pushout of their underlying cospans, shown in dashed arrows here:
 \[
 \begin{tikzpicture}[scale=1.2,baseline=(current bounding box.center)]
 \node (A) at (0,0) {$a$};
@@ -581,8 +581,93 @@ is the composite of their underlying cospans, shown in dashed arrows here:
 (E) edge[dashed,bend right] node [right] {} (G);
 \end{tikzpicture}
 \]
-together with the decoration in $F(m +_b n)$ specified by this functor:
-\[  \one\cong\one \times \one \xrightarrow{x \times y} F(m) \times F(n) \xrightarrow{\phi_{m,n}} F(m+n) \xrightarrow{F(\psi)} F(m+_{b}n). \]
+together with the decoration in $y \odot x \in F(m +_b n)$ specified by this functor:
+\[  \one\cong\one \times \one \xrightarrow{x \times y} F(n) \times F(m) \xrightarrow{\phi_{n,m}} F(m+n) \xrightarrow{F(\psi)} F(m +_{b}n). \]
+Given two horizontally composable maps of $F$-decorated cospans $\alpha$ and $\beta$:
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a'$};
+\node (B) at (1,0.5) {$m$};
+\node (C) at (2,0.5) {$b$};
+\node (C') at (2,-0.5) {$b'$};
+\node (D) at (1,-0.5) {$m'$};
+\node (E) at (3,0.5) {$x \in F(m)$};
+\node (F) at (3,-0.5) {$x' \in F(m')$};
+\node (G) at (4,0.5) {$b$};
+\node (H) at (5,0.5) {$n$};
+\node (I) at (6,0.5) {$c$};
+\node (G') at (4,-0.5) {$b'$};
+\node (H') at (5,-0.5) {$n'$};
+\node (I') at (6,-0.5) {$c'$};
+\node (J) at (7,0.5) {$y \in F(n)$};
+\node (K) at (7,-0.5) {$y' \in F(n')$};
+\node (L) at (1,-1) {$\tau_\alpha \maps F(h_1)(x) \to x'$};
+\node (M) at (5,-1) {$\tau_\beta \maps F(h_2)(y) \to y'$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$i_1$} (B)
+(C) edge node[above]{$o_1$} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$g$} (C')
+(A') edge node[above] {$i_1'$} (D)
+(C') edge node[above] {$o_1'$} (D)
+(B) edge node [left] {$h_1$} (D)
+(G) edge node [above] {$i_2$} (H)
+(G) edge node [left] {$g$} (G')
+(H) edge node [left] {$h_2$} (H')
+(G') edge node [above] {$i_2'$} (H')
+(I) edge node [above] {$o_2$} (H)
+(I) edge node [right] {$k$} (I')
+(I') edge node [above] {$o_2'$} (H');
+\end{tikzpicture}
+\]
+their composite $\beta\odot \alpha$ is the horizontal composite of the two maps of cospans in $\A$:
+\[
+\begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
+\node (A) at (0,0.5) {$a$};
+\node (A') at (0,-0.5) {$a'$};
+\node (B) at (1.5,0.5) {$m+_{b} n$};
+\node (C) at (3,0.5) {$c$};
+\node (C') at (3,-0.5) {$c'$};
+\node (D) at (1.5,-0.5) {$m'+_{b'}n'$};
+\node (E) at (4.5,0.5) {$y \odot x \in F(m+_b n)$};
+\node (F) at (4.5,-0.5) {$y' \odot x' \in F(m' +_{b'} n')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{} (B)
+(C) edge node[above]{} (B)
+(A) edge node[left]{$f$} (A')
+(C) edge node[right]{$k$} (C')
+(A') edge node [above]{} (D)
+(C') edge node [above]{} (D)
+(B) edge node [left] {$h_1 +_g h_2$} (D);
+\end{tikzpicture}
+\]
+together with the decoration morphism $\tau_{\beta \odot \alpha} \maps F(h_1 +_g h_2)(y \odot x) \to (y' \odot x')$ specified by this natural transformation:
+\[
+\begin{tikzpicture}[scale=1.7,baseline=(current bounding box.center)]
+\node (A) at (4.75,0) {$\scriptstyle\Downarrow \tau_\alpha \times \tau_\beta$};
+\node (D) at (3,0) {$\one \cong \one \times \one$};
+\node (E) at (5.5,0.5) {$F(m) \times F(n)$};
+\node () at (6.5,0) {$\stackrel{\phi_{h_1,h_2}}{\cong}$};
+\node () at (8.5,0) {$\cong$};
+\node (E') at (5.5,-0.5) {$F(m') \times F(n')$};
+\node (B) at (7.5,0.5) {$F(m+n)$};
+\node (B') at (7.5,-0.5) {$F(m' + n')$};
+\node (C) at (9.5,0.5) {$F(m+_{b} n)$};
+\node (C') at (9.5,-0.5) {$F(m' +_{b'} n')$};
+\path[->,font=\scriptsize,>=angle 90]
+(E) edge node [above] {$\phi_{m,n}$} (B)
+(E') edge node [above] {$\phi_{m',n'}$} (B')
+(B) edge node [above] {$F(\psi)$} (C)
+(B') edge node [above] {$F(\psi)$} (C')
+(C) edge node  [fill=white] {$F(h_1 +_g h_2)$} (C')
+(B) edge node [fill=white] {$F(h_1 + h_2)$} (B')
+(D) edge node [above] {$x \times y$} (E)
+(D) edge node [below] {$x' \times y'$} (E')
+(E) edge node [fill=white] {$F(h_1) \times F(h_2)$} (E');
+\end{tikzpicture}
+\]
+where the middle isomorphism is \cref{eq:pseudonaturality} from pseudonaturality of $\phi$ and the right-hand isomorphism comes from the pseudofunctoriality of $F$.
 
 \begin{thm}\label{thm:decorated_cospans_2}
 Let $(\A,+)$ be a cocartesian monoidal category and let $(F,\phi,\phi_0)\maps (\A,+) \to (\Cat,\times)$ be a symmetric lax monoidal pseudofunctor. Then the double category $F\lCsp$ is symmetric monoidal, where the tensor product
@@ -590,12 +675,12 @@ Let $(\A,+)$ be a cocartesian monoidal category and let $(F,\phi,\phi_0)\maps (\
 \item of two objects $a$ and $b$ is their coproduct $a+b$ in $\A$,
 \item of two vertical 1-morphisms $f \maps a \to b$ and $f' \maps a' \to b'$ is $f+f' \maps a+a' \to b+b'$ in $\A$,
 \item of two horizontal 1-cells $(a \to m \leftarrow b ,x \in F(m))$ and $(c \to n \leftarrow d, y\in F(n))$ is
-\begin{equation}\label{eq:tensordecoration}
+\[
 \begin{tikzcd}
 & m+n & \\
 a+c\ar[ur,"i_1+i_2"] && b+d,\ar[ul,"o_1+o_2"']
 \end{tikzcd}\qquad x \otimes y:=  \phi_{m,n}(x,y) \in F(m + n) 
-\end{equation}
+\]
 \item of two 2-morphisms $\alpha$ and $\beta$ is:
 \[
 \begin{tikzpicture}[scale=1.2]
@@ -730,19 +815,7 @@ where $\nabla$ is the fold map, which is symmetric when $F$ is again via the com
 \end{proof}
 
 Now we are ready to use Shulman's result to prove Theorems \ref{thm:decorated_cospans_1} and  \ref{thm:decorated_cospans_2}.  An $F$-decorated cospan from $a$ to $b$ 
-is a cospan 
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$a$};
-\node (B) at (1,0) {$m$};
-\node (C) at (2,0) {$b$};
-%\node (D) at (2.6,0) {$x \in F(m))$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$$} (B)
-(C) edge node[above]{$$} (B);
-\end{tikzpicture}
-\]
-in $\A$ together with an object $x \in F(m)$.   This can be seen as a pair $(e \to m, x \in F(m))$ such that $e$ equals $a + b$.   But $(m,x \in F(m))$ is precisely an object of the Grothendieck category $\inta F$, and the opfibration $U \maps \inta F \to \A$ sends this object to $m$.  Thus, $(e \to m, x \in F(m))$ can be seen as an object of the comma category $\A/U$.   Let $\Phi \maps \A/U \to \A$ be the functor sending any object $(e \to m,x \in F(m)) \in \A/U$ to $e$.  Then an $F$-decorated cospan from $a$ to $b$ amounts to an object $c \in \A/U$ such that $\Phi(c) = a + b$.    With this choice of $\Phi$, Shulman's result gives the double category of $F$-decorated cospans.
+is a cospan $a \to m \leftarrow b$ in $\A$ together with an object $x \in F(m)$.   This can be seen as a pair $(e \to m, x \in F(m))$ such that $e$ equals $a + b$.   But $(m,x \in F(m))$ is precisely an object of the Grothendieck category $\inta F$, and the opfibration $U \maps \inta F \to \A$ sends this object to $m$.  Thus, $(e \to m, x \in F(m))$ can be seen as an object of the comma category $\A/U$.   Let $\Phi \maps \A/U \to \A$ be the functor sending any object $(e \to m,x \in F(m)) \in \A/U$ to $e$.  Then an $F$-decorated cospan from $a$ to $b$ amounts to an object $c \in \A/U$ such that $\Phi(c) = a + b$.    With this choice of $\Phi$, Shulman's result gives the double category of $F$-decorated cospans.
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
 Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$.  To obtain the desired double category we apply Shulman's \cref{lem:shulman} to the functor $\Phi \maps \A/U \to \A$, which we now describe in more detail.  In the comma category $\A/U$:
