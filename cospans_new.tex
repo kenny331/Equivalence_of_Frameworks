@@ -1149,7 +1149,7 @@ Given categories $\A$ and $\A'$ with finite colimits, lax monoidal pseudofunctor
 (C) edge node[below]{$F'$} (D);
 \end{tikzpicture}
 \] 
-we obtain a double functor $\lH \maps F\lCsp \to F'\lCsp$ defined as above.
+we obtain a double functor $\lH \maps F\lCsp \to F'\lCsp$ defined as above.  If $F, F'$ and $E$ are symmetric, then $\|H \maps F\lCsp \to F'\lCsp$ is a symmetric monoidal double functor. 
 \end{thm}
 
 \begin{proof}   
@@ -1215,9 +1215,9 @@ natural transformation:
 \]
 One can check that with these definitions $G$ is a functor. 
 
-To make $G$ into a strong monoidal functor, we need to equip it with a natural isomorphism
+To make $G$ into a monoidal functor, we need to equip it with a laxator
 \[  \gamma \maps G(a \xrightarrow{i} b, x) \otimes G(a' \xrightarrow{i'} b', x') \; 
-\xrightarrow{\sim} \; G((a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x')).\]
+\to \; G((a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x')).\]
 Note that
 \[   G(a \xrightarrow{i} b, x) \otimes G(a' \xrightarrow{i'} b', x') = 
 \left(H(a) + H(a') \xrightarrow{H(i) + H(i')} H(b) + H(b') , \; \phi'_{H(b), H(b')}(\underline{x},
@@ -1226,46 +1226,50 @@ where $\phi'$ is the laxator for $F'$, while
 \[    G((a \xrightarrow{i} b, x) \otimes (a' \xrightarrow{i'} b', x')) =
 \left(H(a+a') \xrightarrow{H(i+i')} H(b+b'), \; \underline{\phi_{b,b'}(x,x')} \right)
 \]
-where $\phi$ is the laxator for $F$.  Since $H$ preserves finite colimits, the isomorphism
-$\gamma$ is obvious except 
-
-The laxator is given by the following natural isomorphism between $\theta_m E(p) \phi \times \theta_n E(q) \phi$ and $\theta_{m+n} E(p \times q) \phi$:
+where $\phi$ is the laxator for $F$.  Since $H$ preserves finite colimits, the laxator
+$\gamma$ is obvious except for the morphism from $\phi'_{H(b), H(b')}(\underline{x},
+\underline{x}')$ to $\underline{\phi_{b,b'}(x,x')}$.   This is given by the following natural
+transformation:
 \[
 \begin{tikzpicture}[scale=1.5]
-\hspace{-.6in}
-\node () at (3,-0.5) {$\scriptscriptstyle{\stackrel{E_{p,q}} \cong}$};
-\node () at (1.25,-0.5) {$\scriptscriptstyle{\stackrel{\lambda} \cong}$};
-\node (L1) at (0.5,0) {$\scriptscriptstyle{1 \times E(1)}$};
-\node (L2) at (0.5,-1) {$\scriptscriptstyle{E(1)}$};
-\node (K) at (-1,0) {$\scriptscriptstyle{1 \times 1}$};
-\node (K2) at (-1,-1) {$\scriptscriptstyle{1}$};
+\node () at (3,-0.5) {$\scriptscriptstyle{\stackrel{E_{x,x'}} \cong}$};
+\node () at (1.5,-0.5) {$\scriptscriptstyle{\stackrel{\lambda} \cong}$};
+\node (L1) at (1,0) {$\scriptscriptstyle{1 \times E(1)}$};
+\node (L2) at (1,-1) {$\scriptscriptstyle{E(1)}$};
+\node (K) at (0,0) {$\scriptscriptstyle{1 \times 1}$};
+\node (K2) at (0,-1) {$\scriptscriptstyle{1}$};
 \node (B) at (2,0) {$\scriptscriptstyle{E(1) \times E(1)}$};
 \node (D) at (2,-1) {$\scriptscriptstyle{E(1 \times 1)}$};
-\node (E) at (4,0) {$\scriptscriptstyle{E(F(m)) \times E(F(n))}$};
-\node (F) at (4,-1) {$\scriptscriptstyle{E(F(m) \times F(n))}$};
-\node (G) at (7,0) {$\scriptscriptstyle{F'(H(m)) \times F'(H(n))}$};
-\node (H) at (10,0) {$\scriptscriptstyle{F'(H(m)+H(n))}$};
-\node (I) at (7,-1) {$\scriptscriptstyle{E(F(m+n))}$};
-\node (J) at (10,-1) {$\scriptscriptstyle{F'(H(m+n))}$};
+\node (E) at (4,0) {$\scriptscriptstyle{E(F(b)) \times E(F(b'))}$};
+\node (F) at (4,-1) {$\scriptscriptstyle{E(F(b) \times F(b'))}$};
+\node (G) at (6,0) {$\scriptscriptstyle{F'(H(b)) \times F'(H(b'))}$};
+\node (H) at (8,0) {$\scriptscriptstyle{F'(H(b)+H(b'))}$};
+\node (I) at (6,-1) {$\scriptscriptstyle{E(F(b+b'))}$};
+\node (J) at (8,-1) {$\scriptscriptstyle{F'(H(b+b'))}$};
 \path[->,font=\scriptsize,>=angle 90]
 (K) edge node [left] {$\lambda$} (K2)
 (K) edge node [above] {$1 \times E_0$} (L1)
-(K2) edge node [above] {$E_0$} (L2)
-(H) edge node [right] {$F'(H_{m,n})$} (J)
-(E) edge node [above] {$\theta_m \times \theta_n$} (G)
-(G) edge node [above] {$\phi'_{H(m),H(n)}$} (H) 
-(F) edge node [above] {$E(\phi_{m,n})$} (I)
-(I) edge node [above] {$\theta_{m+n}$} (J)
-(B) edge node [above] {$E(p) \times E(q)$} (E)
-(D) edge node [above] {$E(p \times q)$} (F)
-(E) edge node [right] {$E_{F(m),F(n)}$} (F)
+(K2) edge node [below] {$E_0$} (L2)
+(H) edge node [right] {$F'(H_{b,b'})$.} (J)
+(E) edge node [above] {$\theta_b \times \theta_{b'}$} (G)
+(G) edge node [above] {$\phi'_{H(b),H(b')}$} (H) 
+(F) edge node [below] {$E(\phi_{b,b'})$} (I)
+(I) edge node [below] {$\theta_{b+b'}$} (J)
+(B) edge node [above] {$E(x) \times E(x')$} (E)
+(D) edge node [below] {$E(x \times x')$} (F)
+(E) edge node [right] {$E_{F(b),F(b')}$} (F)
 (L1) edge node[above]{$E_0 \times 1$} (B)
 (L1) edge node [left] {$\lambda$} (L2)
-(L2) edge node[above]{$E(\lambda^{-1})$} (D)
+(L2) edge node[below]{$E(\lambda^{-1})$} (D)
 (B) edge node[right]{$E_{1,1}$} (D);
 \end{tikzpicture}
 \]
-and we also have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given by:
+We also need a natural transformation expressing lax preservation of the unit object by $G$, which
+is defined similarly.   One can show that this laxator and unit morphism satisfy the coherence laws of a lax monoidal functor, and they are invertible, so $G$ is strong monoidal functor.   \john{If furthermore $F, F'$ and $E$ are symmetric, one can check that $G$ is symmetric monoidal, and that $\lH$ is a symmetric monoidal double functor.}
+\end{proof}
+
+\iffalse
+we have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given by:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (-1,0.5) {$\scriptscriptstyle{1}$};
@@ -1290,8 +1294,8 @@ and we also have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F}
 (B1) edge node [above] {$\scriptscriptstyle{F'(!_{0_{\A'}})}$} (B2);
 \end{tikzpicture}
 \]
-One can show that this laxator and unit morphism satisfy the four required coherence laws of a symmetric strong monoidal functor.
-\end{proof}
+\fi
+
 
 \section{Structured cospans} \label{Structured}
 
