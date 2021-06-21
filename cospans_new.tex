@@ -1466,7 +1466,7 @@ For this, given a pushout square in $\A$:
 (A) edge node[above]{$h$} (B)
 (A) edge node[left]{$k$} (C)
 (B) edge node[right]{$g$} (D)
-(C) edge node[above]{$f$} (D);
+(C) edge node[below]{$f$} (D);
 \end{tikzpicture}
 \]
 we need to show that the natural transformation 
@@ -1496,7 +1496,7 @@ defined in Equation \eqref{theta} is an isomorphism.  Let $(b,L(b) \xrightarrow{
 (A) edge node[above]{$I \circ L(h)$} (B)
 (A) edge node[left]{$L(k)$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\psi$} (D);
+(C) edge node[below]{$\psi$} (D);
 \end{tikzpicture}
 \]
 to obtain the object $(c,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x)$ of $(L/ \X)_c$. For the other route, first going down, we push the object $(b,x,L(b) \xrightarrow{I} x)$ forward along $L(g) \maps L(b) \to L(d)$ by taking the following pushout:
@@ -1511,45 +1511,40 @@ to obtain the object $(c,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x)$ of $(L/ \X)_c$
 (A) edge node[above]{$I$} (B)
 (A) edge node[left]{$L(g)$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\phi$} (D);
+(C) edge node[below]{$\phi$} (D);
 \end{tikzpicture}
 \]
 which yields the object $(d,L(d) \xrightarrow{\theta} L(d)+_{L(b)} x)$ of $(L/\X)_d$.  Then going left, we precompose with $L(f) \maps L(c) \to L(d)$ to obtain the object $(c,L(c) \xrightarrow{\phi L(f)} L(d)+_{L(b)} x)$ of $(L/\X)_c$.
 
-To establish a natural isomorphism between the two objects $(c,L(c)+_{L(a)} x,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x)$ and $(c,L(d)+_{L(b)} x,L(c) \xrightarrow{\theta \circ L(f)} L(d)+_{L(b)} x)$ in $(L/\X)_c$, it suffices to establish a natural isomorphism between the objects $L(c)+_{L(a)} x$ and $L(d)+_{L(b)} x$ in $\X$. The first pushout square above exhibits $L(c)+_{L(a)}x$ as a colimit of the span $$L(c) \xleftarrow{L(k)} L(a) \xrightarrow{I \circ L(h)} x$$in $\X$. On the other hand, as $L$ preserves finite colimits, $L$ preserves pushout squares, and so the following square is also a pushout:
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(a)$};
-\node (B) at (1,0) {$L(b)$};
-\node (C) at (0,-1) {$L(c)$};
-\node (D) at (1,-1) {$L(d)$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$L(h)$} (B)
-(A) edge node[left]{$L(k)$} (C)
-(B) edge node[right]{$L(g)$} (D)
-(C) edge node[above]{$L(f)$} (D);
-\end{tikzpicture}
-\]
-which we may then paste to the left of the second above pushout square to obtain another pushout square:
+The natural transformation $\theta$ gives a morphism
+\[   \theta \maps (c,L(c) \xrightarrow{\psi} L(c)+_{L(a)} x) \; \to \; (c,L(c) \xrightarrow{\phi  L(f)} L(d)+_{L(b)} x) \]
+in $(L/\X)_c$.   As in the proof of \cref{thm:decorated_cospans_1}, this arises from the universal property of the pushout:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(b)$};
-\node (B) at (2,0) {$x$};
+\node (B) at (1.5,0) {$x$};
 \node (C) at (0,-1) {$L(d)$};
-\node (D) at (2,-1) {$L(d)+_{L(b)}x$};
-\node (E) at (-1,0) {$L(a)$};
-\node (F) at (-1,-1) {$L(c)$};
+\node (D) at (1.5,-1) {$L(d)+_{L(b)}x$};
+\node (E) at (-1.5,0) {$L(a)$};
+\node (F) at (-1.5,-1) {$L(c)$};
+\node (G) at (2.5,-2) {$L(c)+_{L(a)}x$};
+\node at (1.1,-0.7) {\Large{$\ulcorner$}};
 \path[->,font=\scriptsize,>=angle 90]
 (E) edge node [left] {$L(k)$} (F)
 (E) edge node [above] {$L(h)$} (A)
-(F) edge node [above] {$L(f)$} (C)
-(A) edge node[above]{$I$} (B)
+(F) edge node [below] {$L(f)$} (C)
+(A) edge node[above]{$i$} (B)
 (A) edge node[left]{$L(g)$} (C)
 (B) edge node[right]{$$} (D)
-(C) edge node[above]{$\theta$} (D);
+(C) edge node[below]{$\phi$} (D)
+(F) edge [bend right] node[below]{$\psi$} (G)
+(G) edge [dashed] node[below left]{$\exists ! \;\zeta $} (D)
+(B) edge [bend left] (G);
 \end{tikzpicture}
 \]
-which exhibits $L(d)+_{L(b)} x$ also as a colimit of the same span in $\X$, and hence the desired natural isomorphism between our two objects of $(L /\X)_c$. Thus $\Psi$ satisfies the Beck--Chevalley condition.
+Namely, we have $\theta = (1,\zeta)$.   But when the original square in $A$ is a pushout,
+the square at left above is also a pushout, since $L$ preserves finite colimits.  Since the pasting
+of pushout squares is a pushout, $\zeta$ and hence $\theta$ is an isomorphism, so $\Psi$ satisfies the Beck--Chevalley condition.
 \end{proof}
 
 \section{Structured versus decorated cospans} \label{EquivDoubleCats}
