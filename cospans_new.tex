@@ -120,6 +120,7 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 
 %% ARROWS
 % \to already exists
+\newcommand{\To}{\Rightarrow}
 \newcommand{\too}[1][]{\ensuremath{\overset{#1}{\longrightarrow}}}
 \newcommand{\oot}[1][]{\ensuremath{\overset{#1}{\longleftarrow}}}
 \let\toot\rightleftarrows
@@ -267,7 +268,6 @@ mark=at position 0.4 with {\draw[-] (0,.4ex) -- (0,-.4ex);}}}}}
 \newcommand{\pse}{\mathrm{ps}}
 \newcommand{\mapseqq}{:=}
 \newcommand{\ot}{\otimes}
-\newcommand{\To}{\Rightarrow}
 
 
 
@@ -502,7 +502,7 @@ In this paper, we use a sans-serif font like $\C$ for categories, boldface like 
 
 \subsection*{Acknowledgements}
 
-We thank Daniel Cicala, Brendan Fong, Joe Moeller and especially Michael Shulman for helpful conversations. The third author would like to thank the General Secretariat for Research  and Technology (GSRT) and the Hellenic Foundation for Research and Innovation (HFRI).
+We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations.  We especially thank Michael Shulman for suggesting a better proof strategy.  The third author would like to thank the General Secretariat for Research  and Technology (GSRT) and the Hellenic Foundation for Research and Innovation (HFRI).
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
@@ -1421,9 +1421,10 @@ and define ${}_L \lCsp(\X)$ to be $\Fr(\Psi)$.    First, note that in the comma 
 \end{itemize}
 Next, we define the functor $\Psi \maps L/\X \to \A$ on objects by $\Psi(a,L(a) \xrightarrow{i} x)=a$ and on morphisms by $\Psi(f,g)=f$. 
 
-The monoidal structure of $L/\X$ is similar to the monoidal structure of $\A/U$ of \cref{thm:decorated_cospans_1} in that the tensor product of two objects $(a,L(a) \xrightarrow{i} x)$ and $(a,L(a) \xrightarrow{i'} x')$ is given by 
-\[  (a,L(a) \xrightarrow{i} x) \otimes (a',L(a') \xrightarrow{i'} x')=(a+a',x+x',L(a+a') \xrightarrow{i+i'} x+x') \]
-where again the natural isomorphism $L(a)+L(a') \cong L(a+a')$ is implicit. The monoidal unit is ${(0_\A,0_\X,{L(0_\A) \to 0_\X})}$.  It is clear that $\Psi \maps (L/\X, \otimes) \maps (\A,+)$ is a strict monoidal functor.   {\john Is the tensor product on $L/\X$ also just $+$?  If so, let's say that and call it $+$.}
+The comma category $L/\X$ has finite colimits because $A$ and $X$ have finite colimits and $L$ 
+preserves them.   It thus becomes symmetric monoidal with the chosen finite coproducts providing the monoidal structure.   The tensor product of two objects $(a,L(a) \xrightarrow{i} x)$ and $(a,L(a) \xrightarrow{i'} x')$ is given by 
+\[  (a,L(a) \xrightarrow{i} x) + (a',L(a') \xrightarrow{i'} x')=(a+a',x+x',L(a+a')  \xrightarrow{\sim} L(a)+L(a') \xrightarrow{i+i'} x+x'). \]
+The monoidal unit is ${(0_\A,0_\X,{L(0_\A) \to 0_\X})}$.  It is clear that $\Psi \maps (L/\X, +) \to (\A,+)$ is a strict monoidal functor.  
 
 The functor $\Psi$ is both a fibration and an opfibration. Suppose we are given a morphism $f \maps a \to b$ in $\A$.  For any object $(b,L(b) \xrightarrow{i} x) \in L/\X$ over $b$, a cartesian lifting of $f$ is given by
 \[ (f,1_x) \maps (a,L(a) \xrightarrow{i L(f)} x) \; \to \; (b,L(b) \xrightarrow{i} x) . \]
@@ -1555,14 +1556,13 @@ We now show that structured and decorated cospan double categories are isomorphi
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and ${}_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U\maps \inta F \to \A$.
 \end{thm}
 
-The `corresponding pseudofunctor' comes from the so-called monoidal Grothendieck construction, and the conditions of this theorem relate to the existence of colimits as well as left adjoints for opfibrations. We first sketch the relevant underlying framework in detail, and then we proceed to the proof of the theorem. The basics of fibration theory needed for our purposes are recalled in \cref{subsec:fibrations}. 
+The `corresponding pseudofunctor'   $F \maps \A \to \SMC$  comes from \cref{lem:MonGroth}.
 
-FIX ABOVE PARAGRAPH.
-
-
+\iffalse
 The 2-equivalence of \cref{lem:MonGroth} has an important special case where the Grothendieck category $(X,\otimes_\X)$ is cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}.  In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
+\fi
 
-We can further restrict to the case of opfibrations that also preserve pushouts, and thus all finite colimits, thanks to the following more general result.
+It will be important to know that under the hypotheses of \cref{thm:equiv} the opfibration $U$ preserves all finite colimits.   For this we need the following lemma.
 
 \begin{lem}[\textbf{Hermida}] \label{lem:fibrewiselimits}
 Suppose $\J$ is a small category and $U \maps \X \to \A$ is an opfibration where the base $\A$ has $\J$-colimits.  Then the following are equivalent:
@@ -1611,7 +1611,7 @@ where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the sum inclusi
 
 Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\maps \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
 
-On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to an induced monoidal opfibration.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, we say a functor has a `left adjoint right inverse' or \define{lari} if it has a left adjoint where the unit of the adjunction is the identity.
+On a highly related note, in what follows we are also interested in the existence of a left adjoint $L$ to the opfibration $U$.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, we say a functor has a `left adjoint right inverse' or \define{lari} if it has a left adjoint where the unit of the adjunction is the identity.
 
 \begin{lem}[\textbf{Gray}] \label{prop:opfibtolari}
 Let $U \maps\X \to \A$ be an opfibration.   Then $U$ has a lari if its fibers have initial objects
@@ -1626,7 +1626,7 @@ that are preserved by the reindexing functors.
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ and $\chi_a$ is the unique isomorphism between two initial objects in the fiber above $a'$.    The functor $L$ then becomes left adjoint to $R$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
 
-We now have all the necessary background to formally construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ whose corresponding pseudofunctor $ F\maps \A \to \SMC$ factors through $\Rex$.
+We now have all the necessary background to construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ whose corresponding pseudofunctor $ F\maps \A \to \SMC$ factors through $\Rex$.
 
 \begin{proof}[Proof of \cref{thm:equiv}]
 Since we are assuming the pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, 
@@ -1709,7 +1709,7 @@ The bicategory $\bD$ has a \define{decategorification}, a category $\D$ in which
 \item objects are objects of $\bD$,
 \item morphisms are isomorphism classes of morphisms of $\bD$.   
 \end{itemize}
-Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans} automatically gives rise to a bicategory $F\bCsp$, and a category $F\Csp$.   In \cref{thm:decorated_cospans_2} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
+Thus, the double category $F\lCsp$ of structured cospans constructed in \cref{thm:decorated_cospans_1} automatically gives rise to a bicategory $F\bCsp$, and a category $F\Csp$.   In \cref{thm:decorated_cospans_2} we gave conditions under which the double category $F\lCsp$ becomes symmetric monoidal.   We would like the bicategory $F\bCsp$ and the category $F\Csp$ to become symmetric monoidal under the same conditions, and indeed this is true.   
 
 A double category is `fibrant' if every vertical 1-morphism has a `companion' and a `conjoint'---concepts explained in \cref{def:companion}. Shulman (\cref{Shulhorizontalbicat}) proved that when a double category $\lD$ is fibrant, any symmetrical monoidal structure on $\lD$ gives one on $\bD$.    We can apply this to decorated cospans as follows:
 
