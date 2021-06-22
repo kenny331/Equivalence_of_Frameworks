@@ -991,7 +991,7 @@ in $(\A/U)_c$.   Concretely, this arises from the universal property of the push
 (B) edge [bend left] (G);
 \end{tikzpicture}
 \]
-Namely, we have $\theta = (1, \zeta, 1)$.   But when the original square in $\A$ (at upper left 
+Namely, we have $\theta = (1, \zeta, 1)$. {\chris Should this really be a triple?}   But when the original square in $\A$ (at upper left 
 above) is a pushout, its pasting with the other pushout gives a pushout, so $\zeta$ and hence $\theta$ is isomorphism.
 
 This shows that $\Phi$ obeys the Beck--Chevalley condition.  Having checked all the hypotheses of \cref{lem:shulman}, we can define $F\lCsp$ to be $\Fr(\Phi)$ and conclude the proof of \cref{thm:decorated_cospans_1}.
@@ -1302,7 +1302,7 @@ we have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given 
 \section{Structured cospans} \label{Structured}
 
 Structured cospans are an alternative approach to equipping the apex of a cospan with 
-extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their relation to decorated cospans.  This new construction again uses Shulman's \cref{lem:shulman}.  
+extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their relation to decorated cospans.  {\chris Do we want to briefly mention that in the abstact?} This new construction again uses Shulman's \cref{lem:shulman}.  
 
 \begin{thm}\label{thm:structured_cospans}
 Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
@@ -1479,7 +1479,7 @@ we need to show that the natural transformation
 \node (B) at (1.5,0) {$(L/\X)_b$};
 \node (C) at (0,-1) {$(L/\X)_c$};
 \node (D) at (1.5,-1) {$(L/\X)_d$};
-\node (E) at (0.75,-0.5) {$\Searrow \theta$};
+\node (E) at (0.75,-0.5) {$\scriptstyle\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^*$} (A)
 (A) edge node[left]{$k_!$} (C)
