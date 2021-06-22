@@ -173,7 +173,7 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 
 \definecolor{purple(x11)}{rgb}{0.5, 0.0, 0.5}
 \def\purple{\color{purple(x11)}}
-\def\chris{\purple}
+\def\chris{\purple Christina: }
 \def\john{\color{red}}
 \newcommand{\upback}{\mathbin{\rotatebox[origin=c]{135}{$\ulcorner$}}}
 
@@ -494,7 +494,7 @@ This result shows that under certain conditions, structured and decorated cospan
 
 \subsection*{Outline}
 
-In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are isomorphic under suitable conditions. In \cref{spinoffs}, we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  Finally, in \cref{Applications}, we describe applications, and show that open dynamical system can be described using decorated cospans but not structured cospans.
+In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are isomorphic under suitable conditions. {\chris Section 3 is missing!} In \cref{spinoffs}, we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  Finally, in \cref{Applications}, we describe applications, and show that open dynamical system can be described using decorated cospans but not structured cospans.
 
 \subsection*{Conventions}
 
@@ -508,7 +508,7 @@ We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations. 
 
 In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ whenever $A$ has finite colimits.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas \cite{FongThesis}.
 
-In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.  
+In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.  {\chris Shouldn't we say that the definition of a lax monoidal pseudofunctor is recalled there in the appendix?}
 
 \begin{thm}\label{thm:decorated_cospans_1}
 Let $\A$ be a category with finite colimits and $(F,\phi,\phi_0) \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
@@ -772,9 +772,9 @@ monoidal double category.
 \end{proof}
 
 Note that when $\C$ is the arrow category of $\A$ and $\Phi$ maps any arrow in $\C$ to its
-domain, a horizontal 1-cell $\Fr(\Phi)$ simply amounts to a cospan in $\A$.  In this case $\Fr(\Phi)$ is the double category of cospans in $\A$.    We shall use variations on this idea to construct double categories of decorated and structured cospans, and to prove that under certain conditions these double categories are equivalent.    We begin with decorated cospans, proving Theorem \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$.   
+domain, a horizontal 1-cell $\Fr(\Phi)$ simply amounts to a cospan in $\A$. {\chris Perhaps a bit more spelling out here --using specific names of objects and arrows--could help the reader go through that important statement more easily. Optional. } In this case $\Fr(\Phi)$ is the double category of cospans in $\A$.    We shall use variations on this idea to construct double categories of decorated and structured cospans, and to prove that under certain conditions these double categories are equivalent.    We begin with decorated cospans, proving Theorem \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$.   
 
- The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal opfibrations, and one that gives symmetric monoidal opfibrations.  We recall these ideas in \cref{subsec:fibrations}; here we simply state the result we need.
+ The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal opfibrations, and one that gives symmetric monoidal opfibrations.  We recall these ideas in \cref{subsec:fibrations}; here we simply state the result we need. {\chris Well we don't recall the monoidal Grothendieck construction in the appendix, just the ordinary one, and the definition of a monoidal fibration. Slightly rephrase? And also add the definition of a monoidal indexed category in the appendix?}
 
 \begin{lem}
 \label{lem:MonGroth}
@@ -820,7 +820,7 @@ is a cospan $a \to m \leftarrow b$ in $\A$ together with an object $s \in F(m)$.
 Then an $F$-decorated cospan from $a$ to $b$ amounts to an object $c \in \A/U$ such that $\Phi(c) = a + b$.    With this choice of $\Phi$, Shulman's result gives the double category of $F$-decorated cospans.
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_1}] 
-Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$.  To obtain the desired double category we apply Shulman's \cref{lem:shulman} to the functor $\Phi \maps \A/U \to \A$, which we now describe in more detail.  In the comma category $\A/U$:
+Let $U \maps \inta F \to \A$ be the monoidal opfibration associated to the lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ {\chris via \cref{lem:MonGroth}}.  To obtain the desired double category we apply Shulman's {\chris it's OK to skip ``Shulman's'' here?} \cref{lem:shulman} to the functor $\Phi \maps \A/U \to \A$, which we now describe in more detail.  In the comma category $\A/U$:
 \begin{itemize}
 \item an object is a pair $(a \xrightarrow{i} b, s)$ consisting of a morphism in $\A$ and an
 object $s \in F(b)$;
@@ -840,17 +840,17 @@ object $s \in F(b)$;
 \]
 and $h \maps F(g)(s) \to s'$ is a morphism in $F(b')$.
 \end{itemize}
-As in any comma category we have a functor $\Phi \maps \A/U \to \A$; this is given on objects by $\Phi(a \xrightarrow{i} b, x)=a$ and on morphisms by $\Phi(f,g,h)=f$. 
+As in any comma category we have a functor $\Phi \maps \A/U \to \A$ given on objects by $\Phi(a \xrightarrow{i} b, x)=a$ and on morphisms by $\Phi(f,g,h)=f$. 
 
 To apply \cref{lem:shulman} it suffices to prove that $\Phi$ is a Beck--Chevalley monoidal opfibration.   First, there is a monoidal structure on $\A/U$ coming from the monoidality of $U$.  On objects this is given by
 \[  (a \xrightarrow{i} b, s) \otimes (a' \xrightarrow{i'} b', s') = (a+a' \xrightarrow{i+i'} b+b', 
 \phi_{b,b'}(s,s') )\]
 where $\phi$ is the laxator for $F$.  The monoidal unit is $(0_\A \xrightarrow{!} 0_\A, 0)$
-where $0 \in F(0_\A)$ is the object given by $\phi_0 \maps \one \to F(0_\A)$.   With this monoidal structure it is easy to see that $\Phi$ is strict monoidal.
+where $0 \in F(0_\A)$ is the object given by $\phi_0 \maps \one \to F(0_\A)$.   With this monoidal structure on $\A/U$, it is easy to see that $\Phi$ is a strict monoidal functor.
 
 Next, one can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a' \xrightarrow{i'} b', s') \in \A/U$ over $a'$, a cartesian lifting of $f$ to this object is given by 
 \[ (f,1,1) \maps (a \xrightarrow{i' f} b' , s')\; \to \; (a' \xrightarrow{i'} b', s'). \]
-Denoting the cartesian lifting of $f$ to an object $z \in \A/U$ by $\mathrm{Cart}(f,z)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\mathrm{Cart}(f_1,z_1) \otimes \mathrm{Cart}(f_2,z_2)=\mathrm{Cart}(f_1 + f_2, z_1 \otimes z_2)$.  
+Denoting the cartesian lifting of $f$ to an object $z \in \A/U$ by $\mathrm{Cart}(f,z)$, the tensor product of $\A/U$ strictly preserves such cartesian liftings in the sense that $\mathrm{Cart}(f_1,z_1) \otimes \mathrm{Cart}(f_2,z_2)=\mathrm{Cart}(f_1 + f_2, z_1 \otimes z_2)$.  {\chris We could put ``strictly'' in a parenthesis since even if it is true, it is not required for the definition of a monoidal fibration. In fact it is for the definition of monoidal split fibration but this is not relevant here.}
 
 One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, s) \in \A/U$ over $a$, we claim that a cocartesian lifting of $f$ is given by 
 \[ (f,g,1) \maps (a \xrightarrow{i} b, s) \, \to \, (a' \xrightarrow{i'} b+_a a', F(g)(s)). \]
@@ -922,7 +922,7 @@ there is a natural transformation
 \node (B) at (1.5,0) {$(\A/U)_b$};
 \node (C) at (0,-1) {$(\A/U)_c$};
 \node (D) at (1.5,-1) {$(\A/U)_d$};
-\node (E) at (0.75,-0.5) {$\Searrow \theta$};
+\node (E) at (0.75,-0.5) {$\scriptstyle\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^*$} (A)
 (A) edge node[left]{$k_!$} (C)
@@ -930,7 +930,7 @@ there is a natural transformation
 (D) edge node[below]{$f^*$} (C);
 \end{tikzpicture}
 \]
-defined in \eqref{theta}.   We need to prove that when the square in $\A$ is 
+defined in \eqref{theta}. {\chris I changed the two cell inside the square to match others in the paper.}  We need to prove that when the square in $\A$ is 
 a pushout, $\theta$ is a natural isomorphism.   
 
 We start by describing $\theta$ more concretely.  Let $(b \xrightarrow{i} e, s)$ be an object of $(\A/U)_b$. Going left, we precompose with $h \maps a \to b$ to obtain the object $(a \xrightarrow{i h} e, s)$ of $(\A/U)_a$. Then going down, we push forward along $k$:
@@ -991,10 +991,10 @@ in $(\A/U)_c$.   Concretely, this arises from the universal property of the push
 (B) edge [bend left] (G);
 \end{tikzpicture}
 \]
-Namely, we have $\theta = (1, \zeta, 1)$.   But when the original square in $\A$ (at upper left 
+Namely, we have $\theta = (1, \zeta, 1)$. {\chris Should this really be a triple?}   But when the original square in $\A$ (at upper left 
 above) is a pushout, its pasting with the other pushout gives a pushout, so $\zeta$ and hence $\theta$ is isomorphism.
 
-This shows that $\Phi$ obeys the Beck--Chevalley condition.  Having checked all the hypotheses of \cref{lem:shulman}, we can define $F\lCsp$ to be $\Fr(\Phi)$.
+This shows that $\Phi$ obeys the Beck--Chevalley condition.  Having checked all the hypotheses of \cref{lem:shulman}, we can define $F\lCsp$ to be $\Fr(\Phi)$ and conclude the proof of \cref{thm:decorated_cospans_1}.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:decorated_cospans_2}] 
@@ -1020,7 +1020,7 @@ We can draw the 2-morphism as follows, {\bf but with ticks on the horizontal arr
 \]
 \end{comment}
 
-Our construction gives not only decorated cospan double categories, but  also maps between these.   For simplicity we only consider the monoidal case.  Suppose we have two categories $\A,\A'$ with finite colimits and two lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.   Then we can obtain a map between their decorated cospan double categories, namely a double functor $\lH \maps F\lCsp \to F' \lCsp$, from:
+Our construction {\chris it might not be a completely clear what we mean by ``our construction'' here.} gives not only decorated cospan double categories, but  also maps between these.   For simplicity we only consider the monoidal case. {\chris we mean ``non-symmetric''? Although it seems we also talk about the symmetric case below!} Suppose we have two categories $\A,\A'$ with finite colimits and two lax monoidal pseudofunctors $F \maps \A \to \Cat$ and $F' \maps \A' \to \Cat$.   Then we can obtain a map between their decorated cospan double categories, namely a double functor $\lH \maps F\lCsp \to F' \lCsp$, from:
 \begin{itemize}
 \item a functor $H \maps \A \to \A'$ that preserves finite colimits,
 \item a lax monoidal pseudofunctor $(E,\phi,\phi_0) \maps \Cat \to \Cat$, 
@@ -1031,7 +1031,7 @@ Our construction gives not only decorated cospan double categories, but  also ma
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$.};
-\node (E) at (0.5,-0.5) {$\Swarrow\theta$};
+\node (E) at (0.5,-0.5) {$\scriptstyle\Downarrow\theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -1143,7 +1143,7 @@ Given categories $\A$ and $\A'$ with finite colimits, lax monoidal pseudofunctor
 \node (B) at (1,0) {$\Cat$};
 \node (C) at (0,-1) {$\A'$};
 \node (D) at (1,-1) {$\Cat$};
-\node (E) at (0.5,-0.5) {$\Swarrow \theta$};
+\node (E) at (0.5,-0.5) {$\scriptstyle\Downarrow\theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$H$} (C)
@@ -1302,7 +1302,7 @@ we have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given 
 \section{Structured cospans} \label{Structured}
 
 Structured cospans are an alternative approach to equipping the apex of a cospan with 
-extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their relation to decorated cospans.  This new construction again uses Shulman's \cref{lem:shulman}.  
+extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their relation to decorated cospans.  {\chris Do we want to briefly mention that in the abstact?} This new construction again uses Shulman's \cref{lem:shulman}.  
 
 \begin{thm}\label{thm:structured_cospans}
 Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
@@ -1479,7 +1479,7 @@ we need to show that the natural transformation
 \node (B) at (1.5,0) {$(L/\X)_b$};
 \node (C) at (0,-1) {$(L/\X)_c$};
 \node (D) at (1.5,-1) {$(L/\X)_d$};
-\node (E) at (0.75,-0.5) {$\Searrow \theta$};
+\node (E) at (0.75,-0.5) {$\scriptstyle\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^*$} (A)
 (A) edge node[left]{$k_!$} (C)
@@ -1552,9 +1552,9 @@ of pushout squares is a pushout, $\zeta$ and hence $\theta$ is an isomorphism, s
 
 \section{Structured versus decorated cospans} \label{EquivDoubleCats}
 
-We now compare structured and decorated cospans.   In \cref{thm:decorated_cospans_1} we built a double category of decorated cospans from a bifibration $\Phi \maps \A/U \to \A$.    In \cref{thm:structured_cospans}, we built a double category of structured cospans from a bifibration $\Psi \maps L/\X \to \A$ in a very similar way.   We now show that under certain conditions $L$ is left adjoint to $U$.   Whenever this happens, $\A/U$ is isomorphic to $L/\X$, by a simple and general fact about arrow categories.    The bifibrations $\Phi$ and $\Psi$ are also isomorphic.   By the functoriality of Shulman's construction in \cref{lem:shulman}, it follows that the double category of decorated cospans is isomorphic to the double category of structured cospans.
+We now compare structured and decorated cospans.   In \cref{thm:decorated_cospans_1} we built a double category of decorated cospans from a bifibration $\Phi \maps \A/U \to \A$.    In \cref{thm:structured_cospans}, we built a double category of structured cospans from a bifibration $\Psi \maps L/\X \to \A$ in a very similar way.   We now show that under certain conditions $L$ is left adjoint to $U$.   Whenever this happens, $\A/U$ is isomorphic to $L/\X$, by a simple and general fact about arrow categories.    The bifibrations $\Phi$ and $\Psi$ are also isomorphic.   By the functoriality of Shulman's construction in \cref{lem:shulman}, {\chris but this functoriality is not spelled out there at the moment! We should probably add it, see next next comment.} it follows that the double category of decorated cospans is isomorphic to the double category of structured cospans.
 
-The key issue is thus to determine when $L$ is left adjoint to $U$.  For this, let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  Also let $\SMC$ be the 2-category of symmetric monoidal categories, strong symmetric monoidal functors and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a specific cocartesian monoidal category $(\C,+)$, and this induces a 2-functor $\Rex \to \SMC$.
+The key issue is thus to determine when $L$ is left adjoint to $U$.  For this, let $\Rex$ be the 2-category of categories with finite colimits, functors preserving finite colimits, and natural transformations.  Also let $\SMC$ be the 2-category of symmetric monoidal categories, strong symmetric monoidal functors {\chris symmetric strong mon funs?} and natural transformations.   Recall that for us a category $\C \in \Rex$ comes with a choice of finite colimits, so it gives a specific cocartesian monoidal category $(\C,+)$, and this induces a 2-functor $\Rex \to \SMC$.
 
 Our main resut is this:
 
@@ -1645,7 +1645,7 @@ describes the construction of the adjunction from the original $F$. Explicitly, 
 
 As a left adjoint, $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits, so we can construct the double category of structured cospans $_L\lCsp(\inta F)$ of \cref{thm:structured_cospans}.
 
-To show that the symmetric monoidal double categories $F\lCsp$ and $_L \lCsp(\inta F)$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:structured_cospans} are isomorphic, we make use of a result of Shulman \cite[Theorem~14.11]{Shulman2010}.   Namely, he showed that the $\mathbb{F}\mathbf{r}$ construction of \cref{lem:shulman} extends to a 2-functor 
+To show that the symmetric monoidal double categories $F\lCsp$ and $_L \lCsp(\inta F)$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:structured_cospans} are isomorphic, we make use of a result of Shulman \cite[Theorem~14.11]{Shulman2010}.   {\chris Shouldn't this material be moved outside the proof environment, probably earlier?} Namely, he showed that the $\mathbb{F}\mathbf{r}$ construction of \cref{lem:shulman} extends to a 2-functor 
 \[ \mathbb{F}\mathbf{r} \maps \mathbf{FMF} \to \mathbf{FDbl} \]
 where $\mathbf{FMF}$ is the 2-category consisting of
 \begin{itemize}
@@ -1694,6 +1694,7 @@ and such that the identity $\Phi' F_1 = F_2 \Phi$ is a monoidal transformation. 
 {\john with $\Psi F=\Phi$ a monoidal transformation.}  There is an isomorphism $F \maps \A/U \to L/\X$ arising from the fact that $U$ is right adjoint to $L$.   It is clear that $F$ is strong monoidal via componentwise binary coproducts which are preserved by both $L$ and $U$, {\john and that the identity $\Psi F=\Phi$ is a monoidal transformation.} As $F$ is an isomorphism, we obtain an isomorphism 
 \[  \mathbb{F}\mathbf{r}(F) \maps \mathbb{F}\mathbf{r}(\Phi) \to \mathbb{F}\mathbf{r}(\Psi)\] between the two monoidal double categories $\mathbb{F}\mathbf{r}(\Phi)=F\lCsp$ and $\mathbb{F}\mathbf{r}(\Psi)= {}_L \lCsp(\inta F)$ of Theorems \ref{thm:decorated_cospans_2} and \ref{thm:structured_cospans}, respectively.  {\john One can check by hand that this isomorphism 
 is symmetric monoidal.}
+{\chris Even so, shouldn't we also add some of the explicit isomorphism mapping to make the isomorphism between those two double categories more concrete?}
 \end{proof}
 
 \iffalse
@@ -2899,12 +2900,19 @@ for each morphism $f \maps a \to b$.
 A functor $\Phi \maps \X \to \A$ is a \define{bifibration} if it is both a fibration and an opfibration.     
 \end{defn}
 
+{\chris Since a fibration and an opfibration were not in a definition environment, I think bifibration does not need to be in one as well.}
+
 \begin{defn}
  If $\X$ and $\A$ are monoidal categories, a \define{monoidal} bifibration $\Phi \maps \X \to \A$ is a bifibration that is also a strict monoidal functor, such that the tensor product preserves cartesian and cocartesian liftings.   Similarly, if $\C$ and $\A$ are symmetric monoidal, a \define{symmetric monoidal} bifibration is a bifibration $\Phi \maps \C \to \A$ that is a symmetric strict monoidal functor.
 \end{defn}
 
+{\chris Since we still use monoidal opfibrations in the main text, it could be better to say what a monoidal opfibration and fibration is first, and then the monoidal bifibration. Suggestion:
+
+If $\X$ and $\A$ are (symmetric) monoidal categories, a \define{(symmetric) monoidal fibration} $\Phi \maps \X \to \A$ is a fibration that is also a (symmetric) strict monoidal functor, such that the tensor product of $\X$ preserves cartesian liftings. Similarly, a \define{(symmetric) monoidal opfibration} is an opfibration that is also a (symmetric) strict monoidal functor, such that the tensor product of the total category preserves cocartesian liftings, whereas for a \define{(symmetric) monoidal bifibration} the tensor product preserves both cartesian and cocartesian liftings.
+}
+
 In a bifibration we have both covariant and contravariant reindexing functors, and in 
-fact $f_!$ is left adjoint to $f^*$ \cite[Proposition 3.9]{Shulman2008}.   Using this one can easily show that for any commutative square in $\A$
+fact $f_!$ is left adjoint to $f^*$ \cite[Proposition 3.9]{Shulman2008}.   Using this, one can easily show that for any commutative square in $\A$
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -2926,7 +2934,7 @@ the following square commutes up to a specified natural transformation:
 \node (B) at (1.5,0) {$\C_b$};
 \node (C) at (0,-1) {$\C_c$};
 \node (D) at (1.5,-1) {$\C_d$};
-\node (E) at (0.75,-0.5) {$\Searrow \theta$};
+\node (E) at (0.75,-0.5) {$\scriptstyle\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^\ast$} (A)
 (A) edge node[left]{$k_!$} (C)
@@ -2938,10 +2946,11 @@ where $\theta$ is built as a composite involving the unit of the adjunction betw
 $g_!$ and $g^\ast$ and the counit of the adjunction between $k_!$ and $k^\ast$:
 \begin{equation}
 \label{theta}
-   k_! h^\ast \To k_! h^\ast g^\ast g_! = k_! k^\ast f^\ast g^! \To f^\ast g_! . 
+   k_! h^\ast \To k_! h^\ast g^\ast g_! = k_! k^\ast f^\ast g_! \To f^\ast g_! . 
 \end{equation}
+{\chris Shouldn't the middle equality be an isomorphism?}
 If $\theta$ is a natural isomorphism whenever the original square in $\A$ is
-a pushout, we say $\Phi$ is \define{Beck--Chevalley}.  (Shulman  uses the term `strongly co-BC' \cite[Definition 13.21] {Shulman2008}.)
+a pushout, we say that the bifibration $\Phi$ is \define{Beck--Chevalley}.  (Shulman  uses the term `strongly co-BC' \cite[Definition 13.21] {Shulman2008}.)
 
 \subsection{Double categories}\label{sec:doublecats}
 
