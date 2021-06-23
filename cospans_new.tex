@@ -774,11 +774,11 @@ monoidal double category.
 Note that when $\C$ is the arrow category of $\A$ and $\Phi$ maps any arrow in $\C$ to its
 domain, a horizontal 1-cell in $\Fr(\Phi)$ simply amounts to a cospan in $\A$. In this case $\Fr(\Phi)$ is the double category of cospans in $\A$.    We shall use variations on this idea to construct double categories of decorated and structured cospans, and to prove that under certain conditions these double categories are equivalent.    We begin with decorated cospans, proving Theorem \ref{thm:decorated_cospans_1} and \ref{thm:decorated_cospans_2} by applying Shulman's result to a particular monoidal bifibration built from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$.   
 
-The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal opfibrations, and one that gives symmetric monoidal opfibrations.  We recall pseudofunctors in \cref{subsec:bicats}, and opfibrations in \cref{subsec:fibrations}; here we simply state the result we need. {\chris Should we add the definition of a monoidal opindexed category in the appendix?}
+The Grothendieck construction gives a bijection between pseudofunctors $F \maps \A \to \Cat$ and opfibrations $U \maps \inta F \to \A$.  We need two refinements of this construction: one that gives monoidal opfibrations, and one that gives symmetric monoidal opfibrations.  We recall pseudofunctors in \cref{subsec:bicats}, and opfibrations in \cref{subsec:fibrations}; here we simply state the result we need.
 
 \begin{lem}
 \label{lem:MonGroth}
-There is a 2-equivalence between the 2-categories of monoidal opfibrations and monoidal opindexed categories with a given base, and if the base is cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors into $\MonCat$.   Similarly there is a 2-equivalence between symmetric monoidal opfibrations and symmetric monoidal opindexed categories, and if the base is cocartesian monoidal, also a 2-equivalence between these and pseudofunctors into $\SMC$.   
+There is a 2-equivalence between the 2-categories of monoidal opfibrations $U: (\mathsf{X}, \otimes) \to (\mathsf{A}, \otimes)$ and monoidal pseudofunctors $F: (\mathsf{A},\otimes) \to (\mathsf{Cat}, \times)$ , and if $\mathsf{A}$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\MonCat$. Similarly there is a 2-equivalence between the 2-categories of symmetric monoidal opfibrations $U: (\mathsf{X}, \otimes) \to (\mathsf{A}, \otimes)$ and symmetric monoidal pseudofunctors $F: (\mathsf{A},\otimes) \to (\mathsf{Cat}, \times)$ , and if $\mathsf{A}$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\SMC$.
 \end{lem}
 
 \begin{proof}
@@ -1608,7 +1608,7 @@ In a similar way we can construct the initial object and coproducts in $\inta F$
 (a,x)+(b,y)=\left(a+ b,F(\iota_a)x+F(\iota_b)y\right), \qquad 
  0_{\inta F}=\left(0_A,0_{F(0_A)}\right)
 \end{equation}
-where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the coproduct inclusions in $\A$ and the coproduct in the second component is in the fiber $F(a+b)$.
+where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the coproduct inclusions in $\A$ and the coproduct in the second component is in the fiber $F(a+b)$. {\chris Which parts of this section are actually used in the current proof of 4.1? Keep only those!}
 
 \begin{cor} \label{cor:fcocMonGroth}
  Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$.  Then $\inta F$ has all finite colimits and  the induced opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
@@ -1721,6 +1721,7 @@ to the structured cospan
 Here $L(a)$ is the initial object in the fiber of $\X = \inta F$ over $a \in A$, namely $(a,t_a)$ 
 where $t_a \in F(a)$ is the trivial decoration
 \[    \one \xrightarrow{\phi_0} F(0_\A) \xrightarrow{F(!_a)} F(a). \]
+{\chris Right, but $i$ and $o$ are also specific pairs of maps in the Grothendieck category, see equation 26 in earlier version.}
 Finally, this isomorphism maps the map of decorated cospans
 \[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
@@ -1743,7 +1744,7 @@ Finally, this isomorphism maps the map of decorated cospans
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-
+{\chris ... to that and that map of structured cospans!}
 
 
 \iffalse
