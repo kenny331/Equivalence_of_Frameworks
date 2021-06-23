@@ -800,7 +800,7 @@ If $F$ is a symmetric lax monoidal pseudofunctor, the induced monoidal structure
 $$\left(\beta_{a,b},(u_{a,b})_{s,t}\right)\maps \left(a+b,\phi_{a,b}(s,t)\right)\simrightarrow\left(b+a,\phi_{b,a}(t,s)\right)$$ where $\beta$ is the canonical symmetry for $\A$ and $u$ is the natural isomorphism of \cref{eq:braidedpseudofun}.
 
 Moreover, each fiber $\X_a=F(a)$ obtains a monoidal structure via 
-\begin{equation}\label{eq:explicitstructure1}
+\begin{equation} \label{eq:explicitstructure1}
 \otimes_a\maps F(a)\times F(a)\xrightarrow{\phi_{a,a}}F(a+a)\xrightarrow{F(\nabla)}F(a),\quad
 I_a\maps\one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a)
 \end{equation}
@@ -1713,33 +1713,19 @@ which are just objects and morphisms of $\A$.   It maps the decorated cospan
 to the structured cospan
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(a)$};
+\node (A) at (0,0) {$(a,I_a)$};
 \node (B) at (1.5,0) {$(m,s)$};
-\node (C) at (3,0) {$L(a)$};
+\node (C) at (3,0) {$(b,I_b)$.};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\utilde{i}$} (B)
-(C) edge node[above]{$\utilde{o}$} (B);
+(A) edge node[above]{$(i,!)$} (B)
+(C) edge node[above]{$(o,!)$} (B);
 \end{tikzpicture}
 \]
-where $L(a)$ is the initial object in the fiber of $\X = \inta F$ over $a \in A$, namely $(a,I_a)$ 
-where $I_a \in F(a)$ is the \define{trivial decoration} given in \cref{eq:explicitstructure1}, and
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\one$};
-\node (B) at (1,0) {$F(0)$};
-\node (C) at (2.2,0.5) {$F(a)$};
-\node (C') at (2.2,-0.5) {$F(b)$};
-\node (D) at (1.8,0) {$\cong$};
-\path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\phi_0$} (B)
-(B) edge node[above]{$F(!_a)\;$} (C)
-(B) edge node[below]{$F(!_b)\;\;$} (C')
-(C) edge node[right]{$F(f)$} (C');
-\end{tikzpicture}
-\]
-{\john NOT DONE!!!}
-
-   Finally, this isomorphism maps the map of decorated cospans
+Here $I_a \in F(a)$ is the \define{trivial decoration} given by the composite
+\[  \one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a), \]
+while $! \maps F(i)(I_a) \to s$ is the unique morphism with this domain and
+codomain (recall that $F(i)$ preserves initial objects), and similarly for
+$! \maps F(o)(I_b) \to s$.   Finally, this isomorphism sends the map of decorated cospans
 \[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0.5) {$a$};
@@ -1764,25 +1750,22 @@ where $I_a \in F(a)$ is the \define{trivial decoration} given in \cref{eq:explic
 to this map of structured cospans:
 \[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
-\node (A) at (0,0.5) {$L(a)$};
-\node (A') at (0,-0.5) {$L(a')$};
-\node (B) at (1,0.5) {$(m,s)$};
-\node (C) at (2,0.5) {$L(b)$};
-\node (C') at (2,-0.5) {$b'$.};
-\node (D) at (1,-0.5) {$(m',s')$};
+\node (A) at (0,0.5) {$(a,I_a)$};
+\node (A') at (0,-0.5) {$(a',I_{a'}$};
+\node (B) at (1.5,0.5) {$(m,s)$};
+\node (C) at (3,0.5) {$(b,I_b)$};
+\node (C') at (3,-0.5) {$(b',I_{b'}$.};
+\node (D) at (1.5,-0.5) {$(m',s')$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$\utilde{i}$} (B)
-(C) edge node[above]{$\utilde{o}$} (B)
+(A) edge node[above]{$(i,!)$} (B)
+(C) edge node[above]{$(o,!)$} (B)
 (A) edge node[left]{$L(f)$} (A')
 (C) edge node[right]{$L(g)$} (C')
-(A') edge node[below] {$\utilde{i}'$} (D)
-(C') edge node[below] {$\utilde{o}'$} (D)
+(A') edge node[below] {$(i',!)$} (D)
+(C') edge node[below] {$(o',!)$} (D)
 (B) edge node [left] {$(h,\tau)$} (D);
 \end{tikzpicture}
 \]
-
-
-
 
 \iffalse
 In fact, a careful examination of the proof reveals that the assumptions of \cref{thm:equiv} could be weakened to state that the pseudofunctor $F \maps \A \to \SMC$ factors through the 2-category $\mathbf{Cocart}$ of cocartesian monoidal categories.   The reason is that when we compose two structured cospans as in \cref{eq:pushoutissum}, the apex of the composite cospan ends up being a sum in the second variable due to the definition of the left adjoint functor $L$ which forces the feet of all cospans to involve a fiberwise initial object.  However, in the most interesting examples seen so far, when $F$ factors through $\mathbf{Cocart}$ it also factors through $\Rex$.   
@@ -1911,7 +1894,7 @@ These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a comp
 \node (J) at (7,1) {$I_a \in F(a)$};
 \node (K) at (7,0) {$I_b \in F(b)$};
 \node (Q) at (1,-1) {$\tau_f \maps F(f)(I_a) \to I_b$};
-\node (L) at (1,-1.5) {$\tau_{b} = 1_{I_b}$};
+\node (L) at (1,-1.5) {$\tau_{1_b} = 1_{I_b}$};
 \node (M) at (5,-0.5) {$\tau_f \maps F(f)(I_a) \to I_b$};
 \node (R) at (3,0.5) {$=$};
 \path[->,font=\scriptsize,>=angle 90]
