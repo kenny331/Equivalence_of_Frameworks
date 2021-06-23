@@ -1,11 +1,11 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/6/22 - Finishing up
+% 2021/6/23 - Finishing up
 
 \documentclass[reqno]{amsart}
 
-\usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}
+\usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm,undertilde}
 \usepackage{comment}
 \usepackage[mathscr]{euscript}
 \usepackage[neveradjust]{paralist}
@@ -778,7 +778,7 @@ The Grothendieck construction gives a bijection between pseudofunctors $F \maps 
 
 \begin{lem}
 \label{lem:MonGroth}
-There is a 2-equivalence between the 2-categories of monoidal opfibrations $U: (\mathsf{X}, \otimes) \to (\mathsf{A}, \otimes)$ and monoidal pseudofunctors $F: (\mathsf{A},\otimes) \to (\mathsf{Cat}, \times)$ , and if $\mathsf{A}$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\MonCat$. Similarly there is a 2-equivalence between the 2-categories of symmetric monoidal opfibrations $U: (\mathsf{X}, \otimes) \to (\mathsf{A}, \otimes)$ and symmetric monoidal pseudofunctors $F: (\mathsf{A},\otimes) \to (\mathsf{Cat}, \times)$ , and if $\mathsf{A}$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\SMC$.
+For any monoidal category $(\A,\otimes)$, there is a 2-equivalence between the 2-categories of monoidal opfibrations $U\maps (\X, \otimes) \to (\A, \otimes)$ and monoidal pseudofunctors $F \maps (\A,\otimes) \to (\mathsf{Cat}, \times)$, and if $\A$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\MonCat$.  If $\A$ is symmetric monoidal, there is also a 2-equivalence between the 2-categories of symmetric monoidal opfibrations $U \maps (\X, \otimes) \to (\A, \otimes)$ and symmetric monoidal pseudofunctors $F \maps  (\A,\otimes) \to (\mathsf{Cat}, \times)$ , and if $\A$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\SMC$.
 \end{lem}
 
 \begin{proof}
@@ -1169,7 +1169,7 @@ From the lax monoidal pseudofunctors $F$ and $F'$ we obtain Beck--Chevalley mono
 (C) edge node[below]{$H$} (D);
 \end{tikzpicture}
 \]
-Such a commuting square is a morphism in Shulman's 2-category of Beck--Chevalley monoidal bifibrations.  Appying Shulman's 2-functor $\mathbb{F}\mathbf{r}$ to this morphism \cite[Theorem 14.11]{Shulman2008}, we obtain the desired double functor
+Such a commuting square is a morphism in Shulman's 2-category of Beck--Chevalley monoidal bifibrations.  Applying Shulman's 2-functor $\mathbb{F}\mathbf{r}$ to this morphism \cite[Theorem 14.11]{Shulman2008}, we obtain the desired double functor
 \[ \mathbb{H} \maps  F\lCsp \to F'\lCsp .\]  
 
 We described $\A/U$ and its monoidal structure in the proof of \cref{thm:decorated_cospans_1}, 
@@ -1582,7 +1582,9 @@ Moreover, if $\X$ has $\J$-colimits and $U$ preserves them, for any choice of $\
 See \cite[Corollary~4.9]{Hermida1999}, and for the final statement \cite[Remark~4.11]{Hermida1999}.
 \end{proof}
 
-The first part of this lemma asserts the existence of colimits \emph{locally} in each fiber, and if we let $\J$ range over all finite categories it says that the corresponding pseudofunctor $F \maps \A \to \Cat$ lands in the sub-2-category $\Rex$. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$, and if we let $\J$ range over all finite categories it says that $\X$ has finite colimits and $U$ preserves all finite colimits. As an example, suppose that $\A$ has pushouts and a Grothendieck opfibration $U \maps \inta F \to\A$ has fiberwise pushouts preserved by its reindexing functors. We can construct pushouts in $\inta F$ as follows: 
+The first part of this lemma asserts the existence of colimits \emph{locally} in each fiber, and if we let $\J$ range over all finite categories it says that the corresponding pseudofunctor $F \maps \A \to \Cat$ lands in the sub-2-category $\Rex$. The second part formulates the existence of colimits \emph{globally} in the total category $\inta F$, and if we let $\J$ range over all finite categories it says that $\X$ has finite colimits and $U$ preserves all finite colimits. 
+
+\iffalse As an example, suppose that $\A$ has pushouts and a Grothendieck opfibration $U \maps \inta F \to\A$ has fiberwise pushouts preserved by its reindexing functors. We can construct pushouts in $\inta F$ as follows: 
 \begin{equation}\label{eq:globalpushout}
  \begin{tikzcd}[ampersand replacement=\&,column sep=1in,row sep=.5in]
 \& (a+_bc,w)\ar[dd,phantom, very near start,"\upback"description] \& \\
@@ -1608,7 +1610,8 @@ In a similar way we can construct the initial object and coproducts in $\inta F$
 (a,x)+(b,y)=\left(a+ b,F(\iota_a)x+F(\iota_b)y\right), \qquad 
  0_{\inta F}=\left(0_A,0_{F(0_A)}\right)
 \end{equation}
-where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the coproduct inclusions in $\A$ and the coproduct in the second component is in the fiber $F(a+b)$. {\chris Which parts of this section are actually used in the current proof of 4.1? Keep only those!}
+where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the coproduct inclusions in $\A$ and the coproduct in the second component is in the fiber $F(a+b)$. 
+\fi
 
 \begin{cor} \label{cor:fcocMonGroth}
  Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$.  Then $\inta F$ has all finite colimits and  the induced opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
@@ -1711,18 +1714,32 @@ to the structured cospan
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$L(a)$};
-\node (B) at (1,0) {$(m,s)$};
-\node (C) at (2,0) {$L(a).$};
+\node (B) at (1.5,0) {$(m,s)$};
+\node (C) at (3,0) {$L(a)$};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$i$} (B)
-(C) edge node[above]{$o$} (B);
+(A) edge node[above]{$\utilde{i}$} (B)
+(C) edge node[above]{$\utilde{o}$} (B);
 \end{tikzpicture}
 \]
-Here $L(a)$ is the initial object in the fiber of $\X = \inta F$ over $a \in A$, namely $(a,t_a)$ 
-where $t_a \in F(a)$ is the trivial decoration
-\[    \one \xrightarrow{\phi_0} F(0_\A) \xrightarrow{F(!_a)} F(a). \]
-{\chris Right, but $i$ and $o$ are also specific pairs of maps in the Grothendieck category, see equation 26 in earlier version.}
-Finally, this isomorphism maps the map of decorated cospans
+where $L(a)$ is the initial object in the fiber of $\X = \inta F$ over $a \in A$, namely $(a,I_a)$ 
+where $I_a \in F(a)$ is the \define{trivial decoration} given in \cref{eq:explicitstructure1}, and
+\[
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,0) {$\one$};
+\node (B) at (1,0) {$F(0)$};
+\node (C) at (2.2,0.5) {$F(a)$};
+\node (C') at (2.2,-0.5) {$F(b)$};
+\node (D) at (1.8,0) {$\cong$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\phi_0$} (B)
+(B) edge node[above]{$F(!_a)\;$} (C)
+(B) edge node[below]{$F(!_b)\;\;$} (C')
+(C) edge node[right]{$F(f)$} (C');
+\end{tikzpicture}
+\]
+{\john NOT DONE!!!}
+
+   Finally, this isomorphism maps the map of decorated cospans
 \[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0.5) {$a$};
@@ -1744,7 +1761,27 @@ Finally, this isomorphism maps the map of decorated cospans
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-{\chris ... to that and that map of structured cospans!}
+to this map of structured cospans:
+\[
+\begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
+\node (A) at (0,0.5) {$L(a)$};
+\node (A') at (0,-0.5) {$L(a')$};
+\node (B) at (1,0.5) {$(m,s)$};
+\node (C) at (2,0.5) {$L(b)$};
+\node (C') at (2,-0.5) {$b'$.};
+\node (D) at (1,-0.5) {$(m',s')$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\utilde{i}$} (B)
+(C) edge node[above]{$\utilde{o}$} (B)
+(A) edge node[left]{$L(f)$} (A')
+(C) edge node[right]{$L(g)$} (C')
+(A') edge node[below] {$\utilde{i}'$} (D)
+(C') edge node[below] {$\utilde{o}'$} (D)
+(B) edge node [left] {$(h,\tau)$} (D);
+\end{tikzpicture}
+\]
+
+
 
 
 \iffalse
@@ -1783,22 +1820,19 @@ The double category $F\lCsp$ is fibrant.
 \end{lem}
 
 \begin{proof}
-{\john Here we are using $\bot_b$ to mean trivial decoration.  Sometimes we do this, and
-sometimes we use it to mean initial object in the fiber of $b$.  This leads to the strange
-result $\bot_b = (b,\bot_b)$.}  
 We show that any vertical 1-morphism $f \maps a \to b$ in $F\lCsp$ has a companion and a conjoint.  First, we can make this horizontal 1-cell $\hat{f}$:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (1,0) {$b$};
 \node (C) at (2,0) {$b$};
-\node (D) at (4,0) {$\bot_b \in F(b),$};
+\node (D) at (4,0) {$I_b \in F(b),$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B);
 \end{tikzpicture}
 \]
-where $\bot_b$ is the trivial decoration given by
+where $I_b$ is the trivial decoration given by
 \[    \one \xrightarrow{\phi_0} F(0_\A) \xrightarrow{F(!_b)} F(b), \]
 into a companion of $f$ using the following 2-morphisms:
 \[
@@ -1809,18 +1843,18 @@ into a companion of $f$ using the following 2-morphisms:
 \node (C) at (2,0.5) {$b$};
 \node (C') at (2,-0.5) {$b$};
 \node (D) at (1,-0.5) {$b$};
-\node (E) at (3,0.5) {$\bot_{b} \in F(b)$};
-\node (F) at (3,-0.5) {$\bot_{b} \in F(b)$};
+\node (E) at (3,0.5) {$I_b \in F(b)$};
+\node (F) at (3,-0.5) {$I_b \in F(b)$};
 \node (G) at (5,0.5) {$a$};
 \node (H) at (6,0.5) {$a$};
 \node (I) at (7,0.5) {$a$};
 \node (G') at (5,-0.5) {$a$};
 \node (H') at (6,-0.5) {$b$};
 \node (I') at (7,-0.5) {$b$};
-\node (J) at (8,0.5) {$\bot_{a} \in F(a)$};
-\node (K) at (8,-0.5) {$\bot_{b} \in F(b)$};
-\node (L) at (1,-1) {$\tau_{1_{b}} = 1_{\bot_{b}}$};
-\node (M) at (6,-1) {$\tau_f \maps F(f)(\bot_a) \to \bot_{b}$};
+\node (J) at (8,0.5) {$I_a \in F(a)$};
+\node (K) at (8,-0.5) {$I_a \in F(b)$};
+\node (L) at (1,-1) {$\tau_{1_b} = 1_{I_b}$};
+\node (M) at (6,-1) {$\tau_f \maps F(f)(I_a) \to I_b$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B)
@@ -1859,26 +1893,26 @@ These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a comp
 \node (N) at (0,1.5) {$a$};
 \node (O) at (1,1.5) {$a$};
 \node (P) at (2,1.5) {$a$};
-\node (Q) at (-1,1.5) {$\bot_a \in F(a)$};
+\node (Q) at (-1,1.5) {$I_a \in F(a)$};
 \node (A) at (0,0.5) {$a$};
 \node (A') at (0,-0.5) {$b$};
 \node (B) at (1,0.5) {$b$};
 \node (C) at (2,0.5) {$b$};
 \node (C') at (2,-0.5) {$b$};
 \node (D) at (1,-0.5) {$b$};
-\node (E) at (-1,0.5) {$\bot_{b} \in F(b)$};
-\node (F) at (-1,-0.5) {$\bot_{b} \in F(b)$};
+\node (E) at (-1,0.5) {$I_b \in F(b)$};
+\node (F) at (-1,-0.5) {$I_b \in F(b)$};
 \node (G) at (4,1) {$a$};
 \node (H) at (5,1) {$a$};
 \node (I) at (6,1) {$a$};
 \node (G') at (4,0) {$b$};
 \node (H') at (5,0) {$b$};
 \node (I') at (6,0) {$b$};
-\node (J) at (7,1) {$\bot_{a} \in F(a)$};
-\node (K) at (7,0) {$\bot_{b} \in F(b)$};
-\node (Q) at (1,-1) {$\tau_f \maps F(f)(\bot_a) \to \bot_{b}$};
-\node (L) at (1,-1.5) {$\tau_{b} = 1_{\bot_{b}}$};
-\node (M) at (5,-0.5) {$\tau_f \maps F(f)(\bot_a) \to \bot_{b}$};
+\node (J) at (7,1) {$I_a \in F(a)$};
+\node (K) at (7,0) {$I_b \in F(b)$};
+\node (Q) at (1,-1) {$\tau_f \maps F(f)(I_a) \to I_b$};
+\node (L) at (1,-1.5) {$\tau_{b} = 1_{I_b}$};
+\node (M) at (5,-0.5) {$\tau_f \maps F(f)(I_a) \to I_b$};
 \node (R) at (3,0.5) {$=$};
 \path[->,font=\scriptsize,>=angle 90]
 (N) edge node[above]{$1$} (O)
@@ -1914,27 +1948,27 @@ These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a comp
 \node (C) at (1.5,0.5) {$b$};
 \node (C') at (1.5,-0.5) {$b$};
 \node (D) at (0.75,-0.5) {$b$};
-\node (E) at (0.75,1) {$\scriptstyle{\bot_{b} \in F(b)}$};
-\node (F) at (2,-0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
-\node (L) at (2,0) {$\scriptstyle{\tau_{b} = 1_{\bot_{b}}}$};
-\node (E') at (-0.75,1) {$\scriptstyle{\bot_{a} \in F(a)}$};
-\node (F') at (-2.25,-0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
-\node (L') at (-2.5,0) {$\scriptstyle{\tau_{f} \maps F(f)(\bot_a) \to \bot_{b}}$};
+\node (E) at (0.75,1) {$\scriptstyle{I_b \in F(b)}$};
+\node (F) at (2,-0.5) {$\scriptstyle{I_b \in F(b)}$};
+\node (L) at (2,0) {$\scriptstyle{\tau_{b} = 1_{I_b}}$};
+\node (E') at (-0.75,1) {$\scriptstyle{I_a \in F(a)}$};
+\node (F') at (-2.25,-0.5) {$\scriptstyle{I_b \in F(b)}$};
+\node (L') at (-2.5,0) {$\scriptstyle{\tau_{f} \maps F(f)(I_a) \to I_b}$};
 \node (M) at (2.5,-0.5) {$\scriptstyle{=}$};
 \node (N) at (4.5,0) {$a$};
 \node (O) at (4.5,-1) {$b$};
 \node (P) at (5.25,0) {$b$};
 \node (R) at (6,0) {$b$};
 \node (S) at (6,-1) {$b$};
-\node (T) at (5.25,0.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
-\node (T') at (3.75,0.5) {$\scriptstyle{\bot_a \in F(a)}$};
-\node (U) at (4.5,-1.5) {$\scriptstyle{\bot_{b} \in F(b)}$};
-\node (V) at (4.5,-1.75) {$\scriptstyle{\tau_{\rho_{\hat{f}}} \maps (\bot_b \odot \bot_a) \to \bot_b}$};
+\node (T) at (5.25,0.5) {$\scriptstyle{I_b \in F(b)}$};
+\node (T') at (3.75,0.5) {$\scriptstyle{I_a \in F(a)}$};
+\node (U) at (4.5,-1.5) {$\scriptstyle{I_b \in F(b)}$};
+\node (V) at (4.5,-1.75) {$\scriptstyle{\tau_{\rho_{\hat{f}}} \maps (I_b \odot I_a) \to I_b}$};
 \node (K) at (-1.5,-1.5) {$a$};
 \node (L') at (0,-1.5) {$b$};
 \node (M') at (1.5,-1.5) {$b$};
-\node (N') at (0,-2) {$\scriptstyle{\bot_b \in F(b)}$};
-\node (O') at (0,-2.25) {$\scriptstyle{\tau_{\lambda_{\hat{f}}} \maps (\bot_b \odot \bot_b) \to \bot_b}$};
+\node (N') at (0,-2) {$\scriptstyle{I_b \in F(b)}$};
+\node (O') at (0,-2.25) {$\scriptstyle{\tau_{\lambda_{\hat{f}}} \maps (I_b \odot I_b) \to I_b}$};
 \node (W) at (3.75,0) {$a$};
 \node (Y) at (3,0) {$a$};
 \node (Z) at (3,-1) {$a$};
@@ -1974,7 +2008,7 @@ Note that the right hand side of the first equation is $U_f$, while the second e
 \node (A) at (0,0) {$b$};
 \node (B) at (1,0) {$b$};
 \node (C) at (2,0) {$a$};
-\node (D) at (4,0) {$\bot_b \in F(b)$.};
+\node (D) at (4,0) {$I_b \in F(b)$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$1$} (B)
 (C) edge node[above]{$f$} (B);
@@ -2986,9 +3020,8 @@ where $\theta$ is built as a composite involving the unit of the adjunction betw
 $g_!$ and $g^\ast$ and the counit of the adjunction between $k_!$ and $k^\ast$:
 \begin{equation}
 \label{theta}
-   k_! h^\ast \To k_! h^\ast g^\ast g_! = k_! k^\ast f^\ast g_! \To f^\ast g_! . 
+   k_! h^\ast \To k_! h^\ast g^\ast g_! \cong k_! k^\ast f^\ast g_! \To f^\ast g_! . 
 \end{equation}
-{\chris Shouldn't the middle equality be an isomorphism?}
 If $\theta$ is a natural isomorphism whenever the original square in $\A$ is
 a pushout, we say that the bifibration $\Phi$ is \define{Beck--Chevalley}.  (Shulman  uses the term `strongly co-BC' \cite[Definition 13.21] {Shulman2008}.)
 
@@ -3361,7 +3394,7 @@ it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morph
 	\end{tikzpicture}
 	}
 	\end{equation}
-  A \textbf{conjoint} of $f$, denoted $\fchk \maps B\to A$, is a
+  A \textbf{conjoint} of $f$, denoted $\fchk \maps B \to A$, is a
   companion of $f$ in the double category 
   obtained by reversing the horizontal 1-cells, but not the vertical
   1-morphisms, of $\lD$.
