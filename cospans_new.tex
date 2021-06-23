@@ -494,7 +494,7 @@ This result shows that under certain conditions, structured and decorated cospan
 
 \subsection*{Outline}
 
-In \cref{DecCospansDoubleCat}, we construct the symmetric monoidal double category $F\lCsp$ and we define maps between decorated cospan double categories. In \cref{EquivDoubleCats}, we briefly review the structured cospans framework and prove that the double categorical versions of decorated cospans and structured cospans are isomorphic under suitable conditions. {\chris Section 3 is missing!} In \cref{spinoffs}, we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  Finally, in \cref{Applications}, we describe applications, and show that open dynamical system can be described using decorated cospans but not structured cospans.
+In \cref{DecCospansDoubleCat} we construct the double category of decorated cospans, $F\lCsp$, and show how to construct maps between decorated cospan double categories. In \cref{Structured} we give a new construction of the double category of structured cospans, ${}_L \lCsp(\X)$.  In \cref{EquivDoubleCats} we prove that the double categories of decorated cospans and structured cospans are isomorphic under suitable conditions.  In \cref{spinoffs} we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  In \cref{Applications} we describe applications, and show that open dynamical system can be described using decorated cospans but not structured cospans.
 
 \subsection*{Conventions}
 
@@ -502,7 +502,7 @@ In this paper, we use a sans-serif font like $\C$ for categories, boldface like 
 
 \subsection*{Acknowledgements}
 
-We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations.  We especially thank Michael Shulman for suggesting a better proof strategy.  The third author would like to thank the General Secretariat for Research  and Technology (GSRT) and the Hellenic Foundation for Research and Innovation (HFRI).
+We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations.  We especially thank Michael Shulman for suggesting a better proof strategy that greatly improved this paper.  The third author would like to thank the General Secretariat for Research  and Technology (GSRT) and the Hellenic Foundation for Research and Innovation (HFRI).
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
@@ -551,7 +551,7 @@ a commutative diagram in $\A$ of the form
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a \define{decoration morphism} $\tau \maps F(h)(s) \to s'$ in $F(s')$.
+together with a \define{decoration morphism} $\tau \maps F(h)(s) \to s'$ in $F(m')$.
 \end{itemize}
 \end{thm}
 
@@ -840,7 +840,7 @@ object $s \in F(b)$;
 \]
 and $h \maps F(g)(s) \to s'$ is a morphism in $F(b')$.
 \end{itemize}
-As in any comma category we have a functor $\Phi \maps \A/U \to \A$ given on objects by $\Phi(a \xrightarrow{i} b, x)=a$ and on morphisms by $\Phi(f,g,h)=f$. 
+As in any comma category we have a functor $\Phi \maps \A/U \to \A$ given on objects by $\Phi(a \xrightarrow{i} b, s)=a$ and on morphisms by $\Phi(f,g,h)=f$. 
 
 To apply \cref{lem:shulman} it suffices to prove that $\Phi$ is a Beck--Chevalley monoidal opfibration.   First, there is a monoidal structure on $\A/U$ coming from the monoidality of $U$.  On objects this is given by
 \[  (a \xrightarrow{i} b, s) \otimes (a' \xrightarrow{i'} b', s') = (a+a' \xrightarrow{i+i'} b+b', 
@@ -992,7 +992,7 @@ in $(\A/U)_c$.   Concretely, this arises from the universal property of the push
 \end{tikzpicture}
 \]
 Namely, we have $\theta = (1, \zeta, 1)$.   But when the original square in $\A$ (at upper left 
-above) is a pushout, its pasting with the other pushout gives a pushout, so $\zeta$ and hence $\theta$ is isomorphism.
+above) is a pushout, its pasting with the other pushout gives a pushout, so $\zeta$ and hence $\theta$ is an isomorphism.
 
 This shows that $\Phi$ obeys the Beck--Chevalley condition.  Having checked all the hypotheses of \cref{lem:shulman}, we can define $F\lCsp$ to be $\Fr(\Phi)$ and conclude the proof of \cref{thm:decorated_cospans_1}.
 \end{proof}
@@ -1106,8 +1106,8 @@ where the decoration morphism $\lH(\tau)$ is defined as follows.  We can think o
 \node (I) at (-2,-1) {$F(n)$};
 \node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
 \path[->,font=\scriptsize,>=angle 90]
-(G) edge node [above] {$x$} (H)
-(G) edge node [below] {$x'$} (I)
+(G) edge node [above] {$s$} (H)
+(G) edge node [below] {$s'$} (I)
 (H) edge node [right] {$F(h)$} (I);
 \end{tikzpicture}
 \]
@@ -1126,8 +1126,8 @@ and in the same style of notation $\lH(\tau)$ is given by
 (B) edge node [above] {$\theta_m$} (E)
 (D) edge node [below] {$\theta_n$} (F)
 (E) edge node [right] {$F'(H(h))$} (F)
-(L) edge node[above]{$E(x)$} (B)
-(L) edge node[below]{$E(x')$} (D)
+(L) edge node[above]{$E(s)$} (B)
+(L) edge node[below]{$E(s')$} (D)
 (B) edge node[right]{$E(F((h))$} (D);
 \end{tikzpicture}
 \]
@@ -1176,7 +1176,7 @@ We described $\A/U$ and its monoidal structure in the proof of \cref{thm:decorat
 and of course the case of $\A'/U'$ is analogous.   We define $G \maps \A/U \to \A'/U'$ as follows.  On objects $G$ is given by
 \[  G(a \xrightarrow{i} b, s) \; = \; (H(a) \xrightarrow{H(i)} H(b), \underline{s}), \]
 where to define $\underline{x}$ we treat $s \in F(b)$ as a functor 
-$x \maps 1 \to F(b)$ and let $\underline{s} \in F'(H(b))$ be the composite functor
+$s \maps 1 \to F(b)$ and let $\underline{s} \in F'(H(b))$ be the composite functor
 \[  1 \xrightarrow{\phi_0} E(1) \xrightarrow{E(x)} E(F(b)) \xrightarrow{\;\theta_b\;} F'(H(b)) .\]
 On morphisms $(f,g,h) \maps (a \xrightarrow{i} b, s) \; \to \; 
 (a' \xrightarrow{i'} b', s')$, $G$ is given by
@@ -1189,8 +1189,8 @@ where to define $\underline{h}$ we treat $h \maps F(g)(s) \to s'$ as a natural t
 \node (I) at (-2,-1) {$F(b')$};
 \node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
 \path[->,font=\scriptsize,>=angle 90]
-(G) edge node [above] {$x$} (H)
-(G) edge node [below] {$x'$} (I)
+(G) edge node [above] {$s$} (H)
+(G) edge node [below] {$s'$} (I)
 (H) edge node [right] {$F(g)$} (I);
 \end{tikzpicture}
 \]
@@ -1210,8 +1210,8 @@ natural transformation:
 (B) edge node [above] {$\theta_b$} (E)
 (D) edge node [above] {$\theta_{b'}$} (F)
 (E) edge node [right] {$F'(H(h))$} (F)
-(L) edge node[above]{$E(x)$} (B)
-(L) edge node[below]{$E(x')$} (D)
+(L) edge node[above]{$E(s)$} (B)
+(L) edge node[below]{$E(s')$} (D)
 (B) edge node[right]{$E(F(h))$} (D);
 \end{tikzpicture}
 \]
@@ -1267,7 +1267,7 @@ transformation:
 \end{tikzpicture}
 \]
 We also need a natural transformation expressing lax preservation of the unit object by $G$, which
-is defined similarly.   One can show that this laxator and unit morphism satisfy the coherence laws of a lax monoidal functor, and they are invertible, so $G$ is strong monoidal functor.   \john{If furthermore $F, F'$ and $E$ are symmetric, one can check that $G$ is symmetric monoidal, and that $\lH$ is a symmetric monoidal double functor.}
+is defined similarly.   One can show that this laxator and unit morphism satisfy the coherence laws of a lax monoidal functor, and they are invertible, so $G$ is strong monoidal functor.   If furthermore $F, F'$ and $E$ are symmetric, one can check that $G$ is symmetric monoidal, and that $\lH$ is a symmetric monoidal double functor.
 \end{proof}
 
 \iffalse
@@ -1297,7 +1297,6 @@ we have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given 
 \end{tikzpicture}
 \]
 \fi
-
 
 \section{Structured cospans} \label{Structured}
 
@@ -1628,9 +1627,9 @@ that are preserved by the reindexing functors.
 
 \begin{proof}
  This is \cite[Proposition~4.4]{Gray}.    Suppose each fiber $\X_a$ of the opfibration $U$ has an initial object $\bot_a$ and these objects are preserved (up to isomorphism) by the reindexing functors.   Define $L \maps \A \to \X$ on objects $a \in \A$ by $L(a) = \bot_a$.   Given a morphism $f\maps a\to a'$ in $\A$, define $L(f)$ to be the composite
- \begin{equation}\label{eq:Lonarrows}
+\[
   \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\xrightarrow{\;\chi_a\;}\bot_{a'}
- \end{equation}
+\]
 where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ and $\chi_a$ is the unique isomorphism between two initial objects in the fiber above $a'$.    The functor $L$ then becomes left adjoint to $R$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
 
