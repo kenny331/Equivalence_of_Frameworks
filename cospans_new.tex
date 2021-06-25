@@ -1698,8 +1698,12 @@ There is an isomorphism $F \maps \A/U \to L/\X$ arising from the fact that $U$ i
 is symmetric monoidal.
 \end{proof}
 
-Given the hypothesis of \cref{thm:equiv}, the isomorphism from $F\lCsp$ to ${}_L\lCsp(\inta F)$ works as follows.   It is the identity on objects and vertical morphisms, 
-which are just objects and morphisms of $\A$.   It maps the decorated cospan
+Given the hypothesis of \cref{thm:equiv}, the isomorphism $\Fr(F)$ between decorated and 
+structured cospans works as follows.  First recall that $\X = \inta F$, so that an object of $\X$ is a pair $(a,s)$ with $a \in \A$ and $s \in F(a)$.   The functor $U \maps \X \to \A$ maps $(a,s)$ to $a$.    Its left adjoint $L \maps \A \to \X$ maps $a \in \A$ to $(a,I_a)$, where $I_a \in F(a)$ is the \define{trivial decoration} given by the composite
+\[  \one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a). \]
+The object $L(a) = (a,I_a)$ is the initial object in the fiber of $\inta F$ over $a$.
+
+The isomorphism $\Fr(F) \maps F\lCsp \to {}_L\lCsp(\inta F)$  is the identity on objects and vertical morphisms, which are just objects and morphisms of $\A$.   It maps the decorated cospan
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
@@ -1722,13 +1726,9 @@ to the structured cospan
 (C) edge node[above]{$(o,!)$} (B);
 \end{tikzpicture}
 \]
-{\chris I believe these should now be $\bot_a$ rather than $I_a$ although under these conditions those things are isomorphic I think! Since $F$ factors through Rex, each fibre has an initial object $\bot_a$ which can now be used.}
-
-Here $I_a \in F(a)$ is the \define{trivial decoration} given by the composite
-\[  \one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a), \]
-while $! \maps F(i)(I_a) \to s$ is the unique morphism with this domain and
+where $! \maps F(i)(I_a) \to s$ is the unique morphism with this domain and
 codomain (recall that $F(i)$ preserves initial objects), and similarly for
-$! \maps F(o)(I_b) \to s$.   Finally, this isomorphism sends the map of decorated cospans:
+$! \maps F(o)(I_b) \to s$.   Finally, $\Fr(\Phi)$ sends a map of decorated cospans:
 \[
 \begin{tikzpicture}[scale=1.5,baseline=(current bounding box.center)]
 \node (A) at (0,0.5) {$a$};
