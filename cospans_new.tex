@@ -1645,7 +1645,7 @@ By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL
 \[
  F\maps\A\to\Cat\quad\mapsto\quad\begin{tikzcd}[baseline=.3]\inta F\ar[d,"U"'] \\ \A \end{tikzcd}\quad\mapsto\quad\begin{tikzcd}\A\ar[r,bend left,pos=.55,"L"]\ar[r,phantom,"\bot"description] & \inta F\ar[l,bend left,pos=.45,"U"]\end{tikzcd}
 \]
-describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint maps each object $a \in \A$ to the initial object in its fiber $\X_a$, namely $L(a)=(a,\bot_a)$, which is expressed as $F(!_a)\circ\phi_0(*)$ according to \cref{eq:explicitstructure1}, where $(\phi,\phi_0)$ the lax monoidal structure of $F$.  
+describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint maps each object $a \in \A$ to the initial object in its fiber $\X_a$, namely $L(a)=(a,I_a)$, where $I_a$ is defined as in \cref{eq:explicitstructure1}.
 
 As a left adjoint, $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits.   Thus, we can construct the symmetric monoidal double category of structured cospans $_L\lCsp(\inta F)$ as in \cref{thm:structured_cospans}.  To show that this is isomorphic to the symmetric monoidal double category of decorated cospans $F\lCsp$ given by  \cref{thm:decorated_cospans_2}, we use a result of Shulman \cite[Theorem~14.11]{Shulman2010}.    Namely, the $\mathbb{F}\mathbf{r}$ construction of \cref{lem:shulman} extends to a 2-functor 
 \[ \mathbb{F}\mathbf{r} \maps \mathbf{FMF} \to \mathbf{FDbl} \]
@@ -1699,7 +1699,7 @@ is symmetric monoidal.
 \end{proof}
 
 Given the hypothesis of \cref{thm:equiv}, the isomorphism $\Fr(F)$ between decorated and 
-structured cospans works as follows.  First recall that $\X = \inta F$, so that an object of $\X$ is a pair $(a,s)$ with $a \in \A$ and $s \in F(a)$.   The functor $U \maps \X \to \A$ maps $(a,s)$ to $a$.    Its left adjoint $L \maps \A \to \X$ maps $a \in \A$ to $(a,I_a)$, where $I_a \in F(a)$ is the \define{trivial decoration} given by the composite
+structured cospans works concretely as follows.  First recall that $\X = \inta F$, so that an object of $\X$ is a pair $(a,s)$ with $a \in \A$ and $s \in F(a)$.   The functor $U \maps \X \to \A$ maps $(a,s)$ to $a$.    Its left adjoint $L \maps \A \to \X$ maps $a \in \A$ to $(a,I_a)$, where $I_a \in F(a)$ is the \define{trivial decoration} given by the composite
 \[  \one\xrightarrow{\phi_0}F(0)\xrightarrow{F(!_a)}F(a). \]
 The object $L(a) = (a,I_a)$ is the initial object in the fiber of $\inta F$ over $a$.
 
