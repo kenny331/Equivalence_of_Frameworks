@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/6/23 - Finishing up
+% 2021/6/28 - Finishing up
 
 \documentclass[reqno]{amsart}
 
@@ -306,13 +306,13 @@ An `open system' is any sort of system that can interact with the outside world.
 We call $m$ the \define{apex}, $a$ and $b$ the \define{feet}, and $i$ and $o$ the \define{legs} of the cospan.   The apex describes the system itself.  The feet describe `interfaces'  through which the system can interact with the outside world.  The legs describe how the interfaces are included in the system.   If the category $\A$ has finite colimits, we can compose cospans using pushouts: this describes the operation of attaching two open systems together in series by identifying one interface of the first with one of the second.  We can also `tensor' cospans using coproducts: this describes setting open systems side by side, in parallel.  Via these operations we obtain a symmetric monoidal double category
 with cospans in $\A$ as its horizontal 1-cells \cite{Courser,Niefield}.
 
-However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+) \to (\textsf{Set},\times)$ can be used to equip the apex $m$ of a cospan in $\A$ with some extra data: an element $x \in F(m)$, which we call a \textbf{decoration}.  Thus a \define{decorated cospan} is a pair:
+However, we often want the system itself to have more structure than its interfaces.   This led Fong to develop a theory of `decorated' cospans \cite{Fong}.  Given a category $\A$ with finite colimits, a symmetric lax monoidal functor $F \maps (\A,+) \to (\textsf{Set},\times)$ can be used to equip the apex $m$ of a cospan in $\A$ with some extra data: an element $s \in F(m)$, which we call a \textbf{decoration}.  Thus a \define{decorated cospan} is a pair:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$a$};
 \node (B) at (1,0) {$m$};
 \node (C) at (2,0) {$b$,};
-\node (E) at (4,0) {$x \in F(m)$.};
+\node (E) at (4,0) {$s \in F(m)$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -408,7 +408,7 @@ data to construct a symmetric monoidal double category $F\lCsp$ in which:
 \node (A) at (0,0) {$a$};
 \node (B) at (1,0) {$m$};
 \node (C) at (2,0) {$b,$};
-\node (D) at (3,0) {$x \in F(m)$,};
+\node (D) at (3,0) {$s \in F(m)$,};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B);
@@ -424,8 +424,8 @@ diagram
 \node (C) at (2,0.5) {$b$};
 \node (C') at (2,-0.5) {$b'$};
 \node (D) at (1,-0.5) {$m'$};
-\node (E) at (3,0.5) {$x \in F(m)$};
-\node (F) at (3,-0.5) {$x' \in F(m')$};
+\node (E) at (3,0.5) {$s \in F(m)$};
+\node (F) at (3,-0.5) {$s' \in F(m')$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$i$} (B)
 (C) edge node[above]{$o$} (B)
@@ -436,7 +436,7 @@ diagram
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a morphism $\tau \maps F(h)(x) \to x'$ in $F(m')$.
+together with a morphism $\tau \maps F(h)(s) \to s'$ in $F(m')$.
 \end{itemize}
 
 In fact another solution to the problem is already known: the theory of structured cospans \cite{BC,CourserThesis}.  Given a functor $L \maps \A \to \X$, a \define{structured cospan} is a cospan in $\X$ whose feet come from a pair of objects in $\A$:
@@ -506,7 +506,7 @@ We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations. 
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ whenever $A$ has finite colimits.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas \cite{FongThesis}.
+In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ whenever $\A$ has finite colimits.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas \cite{FongThesis}.
 
 In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.   We recall the concept of lax monoidal pseudofunctor in \cref{subsec:bicats}.
 
@@ -762,13 +762,13 @@ Suppose $(\A,+)$ is cocartesian monoidal and $\Phi \maps (\C,\otimes) \to (\A,+)
 \item a horizontal 1-cell is a pair of objects $a,b \in \A$ together with an
 object $c \in \C$ with $\Phi(c) = a + b$,
 \item a 2-morphism is a pair of morphisms $f \maps a \to a'$, $g \maps b \to b'$ 
-in $\A$ together with a morphism $h \maps c \to c'$ with $\Phi(h) = f + g$.
+in $\A$ together with a morphism $h \maps c \to c'$ in $\C$ with $\Phi(h) = f + g$.
 \end{itemize}
 If $\Phi$ is a Beck--Chevalley symmetric monoidal bifibration then $\Fr(\Phi)$ becomes a symmetric
 monoidal double category.
 \end{lem}
 
-\begin{proof} This is \cite[Theorem 14.9]{Shulman2008}; Shulman proves the dual version in more detail in his Theorem 14.4.  
+\begin{proof} This is \cite[Theorem 14.9]{Shulman2008}; Shulman proves a dual version in more detail in his Theorem 14.4.  
 \end{proof}
 
 Note that when $\C$ is the arrow category of $\A$ and $\Phi$ maps any arrow in $\C$ to its
@@ -1177,9 +1177,9 @@ Such a commuting square is a morphism in Shulman's 2-category of Beck--Chevalley
 We described $\A/U$ and its monoidal structure in the proof of \cref{thm:decorated_cospans_1}, 
 and of course the case of $\A'/U'$ is analogous.   We define $G \maps \A/U \to \A'/U'$ as follows.  On objects $G$ is given by
 \[  G(a \xrightarrow{i} b, s) \; = \; (H(a) \xrightarrow{H(i)} H(b), \underline{s}), \]
-where to define $\underline{x}$ we treat $s \in F(b)$ as a functor 
+where to define $\underline{s}$ we treat $s \in F(b)$ as a functor 
 $s \maps 1 \to F(b)$ and let $\underline{s} \in F'(H(b))$ be the composite functor
-\[  1 \xrightarrow{\phi_0} E(1) \xrightarrow{E(x)} E(F(b)) \xrightarrow{\;\theta_b\;} F'(H(b)) .\]
+\[  1 \xrightarrow{\phi_0} E(1) \xrightarrow{E(s)} E(F(b)) \xrightarrow{\;\theta_b\;} F'(H(b)) .\]
 On morphisms $(f,g,h) \maps (a \xrightarrow{i} b, s) \; \to \; 
 (a' \xrightarrow{i'} b', s')$, $G$ is given by
 \[   G(f,g,h) = (H(f),H(g),\underline{h}) \]
@@ -1189,7 +1189,7 @@ where to define $\underline{h}$ we treat $h \maps F(g)(s) \to s'$ as a natural t
 \node (G) at (-3.5,-0.5) {$1$};
 \node (H) at (-2,0) {$F(b)$};
 \node (I) at (-2,-1) {$F(b')$};
-\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
+\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow h$};
 \path[->,font=\scriptsize,>=angle 90]
 (G) edge node [above] {$s$} (H)
 (G) edge node [below] {$s'$} (I)
@@ -1204,17 +1204,17 @@ natural transformation:
 \node (L) at (0.5,-0.5) {$E(1)$};
 \node (B) at (2,0) {$E(F(b))$};
 \node (D) at (2,-1) {$E(F(b'))$};
-\node (C) at (1.5,-0.5) {$\scriptstyle\Downarrow E(\tau)$};
+\node (C) at (1.5,-0.5) {$\scriptstyle\Downarrow E(h)$};
 \node (E) at (4,0) {$F^\prime(H(b))$};
 \node (F) at (4,-1) {$F^\prime(H(b'))$.};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node [above] {$\phi_0$} (L)
 (B) edge node [above] {$\theta_b$} (E)
 (D) edge node [above] {$\theta_{b'}$} (F)
-(E) edge node [right] {$F'(H(h))$} (F)
+(E) edge node [right] {$F'(H(g))$} (F)
 (L) edge node[above]{$E(s)$} (B)
 (L) edge node[below]{$E(s')$} (D)
-(B) edge node[right]{$E(F(h))$} (D);
+(B) edge node[right]{$E(F(g))$} (D);
 \end{tikzpicture}
 \]
 One can check that with these definitions $G$ is a functor. 
@@ -1424,10 +1424,10 @@ and define ${}_L \lCsp(\X)$ to be $\Fr(\Psi)$.    First, note that in the comma 
 \end{itemize}
 Next, we define the functor $\Psi \maps L/\X \to \A$ on objects by $\Psi(a,L(a) \xrightarrow{i} x)=a$ and on morphisms by $\Psi(f,g)=f$. 
 
-The comma category $L/\X$ has finite colimits because $A$ and $X$ have finite colimits and $L$ 
+The comma category $L/\X$ has finite colimits because $\A$ and $\X$ have finite colimits and $L$ 
 preserves them.   It thus becomes symmetric monoidal with the chosen finite coproducts providing the monoidal structure.   The tensor product of two objects $(a,L(a) \xrightarrow{i} x)$ and $(a,L(a) \xrightarrow{i'} x')$ is given by 
 \[  (a,L(a) \xrightarrow{i} x) + (a',L(a') \xrightarrow{i'} x')=(a+a',L(a+a')  \xrightarrow{\sim} L(a)+L(a') \xrightarrow{i+i'} x+x'). \]
-The monoidal unit is ${(0_\A,0_\X,{L(0_\A) \xrightarrow{!} 0_\X})}$.  It is clear that $\Psi \maps (L/\X, +) \to (\A,+)$ is a strict monoidal functor.  
+The monoidal unit is $(0_\A, L(0_\A) \xrightarrow{!} 0_\X)$.  It is clear that $\Psi \maps (L/\X, +) \to (\A,+)$ is a strict monoidal functor.  
 
 The functor $\Psi$ is both a fibration and an opfibration. Suppose we are given a morphism $f \maps a \to b$ in $\A$.  For any object $(b,L(b) \xrightarrow{i} x) \in L/\X$ over $b$, a cartesian lifting of $f$ is given by
 \[ (f,1_x) \maps (a,L(a) \xrightarrow{i L(f)} x) \; \to \; (b,L(b) \xrightarrow{i} x) . \]
@@ -1648,8 +1648,8 @@ By \cref{prop:opfibtolari}, $U$ has a left adjoint $L\maps\A\to\inta F$ with $UL
 describes the construction of the adjunction from the original $F$. Explicitly, the left adjoint maps each object $a \in \A$ to the initial object in its fiber $\X_a$, namely $L(a)=(a,I_a)$, where $I_a$ is defined as in \cref{eq:explicitstructure1}.
 
 As a left adjoint, $L$ preserves all colimits that exist between the categories $\A$ and $\inta F$, which have finite colimits.   Thus, we can construct the symmetric monoidal double category of structured cospans $_L\lCsp(\inta F)$ as in \cref{thm:structured_cospans}.  To show that this is isomorphic to the symmetric monoidal double category of decorated cospans $F\lCsp$ given by  \cref{thm:decorated_cospans_2}, we use a result of Shulman \cite[Theorem~14.11]{Shulman2010}.    Namely, the $\mathbb{F}\mathbf{r}$ construction of \cref{lem:shulman} extends to a 2-functor 
-\[ \mathbb{F}\mathbf{r} \maps \mathbf{FMF} \to \mathbf{FDbl} \]
-where $\mathbf{FMF}$ is the 2-category consisting of
+\[ \mathbb{F}\mathbf{r} \maps \mathbf{BCMF} \to \mathbf{FDbl} \]
+where $\mathbf{BCMF}$ is the 2-category consisting of
 \begin{itemize}
 \item Beck--Chevalley monoidal bifibrations,
 \item strong monoidal morphisms of bifibrations, and
@@ -1661,7 +1661,7 @@ while $\mathbf{FDbl}$ is the 2-category of
 \item double functors, and 
 \item double transformations. 
 \end{itemize}
-Given two monoidal bifibrations $\Phi \maps \A \to \mathsf{B}$ and $\Phi' \maps \A' \to \mathsf{B}'$, a `strong monoidal morphism of bifibrations' from $\Phi$ to $\Phi'$ consists of a pair of strong monoidal functors $F_1$ and $F_2$ making the following square commutes
+Given two monoidal bifibrations $\Phi \maps \A \to \mathsf{B}$ and $\Phi' \maps \A' \to \mathsf{B}'$, a `strong monoidal morphism of bifibrations' from $\Phi$ to $\Phi'$ consists of a pair of strong monoidal functors $F_1$ and $F_2$ making the following square commute
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
@@ -1838,7 +1838,7 @@ into a companion of $f$ using the following 2-morphisms:
 \node (H') at (6,-0.5) {$b$};
 \node (I') at (7,-0.5) {$b$};
 \node (J) at (8,0.5) {$I_a \in F(a)$};
-\node (K) at (8,-0.5) {$I_a \in F(b)$};
+\node (K) at (8,-0.5) {$I_b \in F(b)$};
 \node (L) at (1,-1) {$\tau_{1_b} = 1_{I_b}$};
 \node (M) at (6,-1) {$\tau_f \maps F(f)(I_a) \to I_b$};
 \path[->,font=\scriptsize,>=angle 90]
@@ -2110,7 +2110,7 @@ Hansen and Shulman \cite{HS} showed that the passage from symmetric monoidal dou
 
 \section{Applications}\label{Applications}
 
-Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems, \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
+Thinking about systems and processes categorically dates back to early works by Lawvere \cite{Lawvere}, Bunge--Fiore \cite{BungeFiore}, Joyal--Nielsen--Winskel \cite{JNW}, Katis--Sabadini--Walters \cite{KSW} and others.   Spivak and others have used wiring diagrams and sheaves to capture compositional features of dynamical systems \cite{BFV,SSV,VSL}.  Another approach uses signal flow diagrams and other string diagrams \cite{BE,BSZ,FRS} to understand systems behaviorally, following ideas of Willems \cite{Willems}.  
  
 Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC}. Here we explain how they can also be fixed using our new decorated cospans.  We compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. 
 
@@ -2128,7 +2128,7 @@ One of the simplest kinds of network is a graph.  For us a \define{graph} will b
 \node (B') at (1,-1) {$N'$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$s$} (B)
-(A') edge node[above]{$s'$} (B')
+(A') edge node[below]{$s'$} (B')
 (A) edge node[left]{$f$} (A')
 (B) edge node[right]{$g$} (B');
 
@@ -2138,13 +2138,13 @@ One of the simplest kinds of network is a graph.  For us a \define{graph} will b
 \node (D') at (3,-1) {$N'$.};
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
-(C') edge node[above]{$t'$} (D')
+(C') edge node[below]{$t'$} (D')
 (C) edge node[left]{$f$} (C')
 (D) edge node[right]{$g$} (D');
 \end{tikzpicture}
 \]
 
-We can easily build a double category with `open graphs' as horizontal 1-cells using the machinery of structured cospans, see \cite[Section 5]{BC}.  Let $L \maps \Fin\Set \to \Graph$ be the functor that assigns to a finite set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Fin\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Fin\Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Fin\Set$ that assigns to a graph $G$ its underlying set of vertices $R(G)$. Thus, using structured cospans and appealing to \cref{thm:structured_cospans}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
+We can easily build a double category with `open graphs' as horizontal 1-cells using the machinery of structured cospans \cite[Section 5]{BC}.  Let $L \maps \Fin\Set \to \Graph$ be the functor that assigns to a finite set $N$ the \define{discrete graph} on $N$: the graph with no edges and $N$ as its set of vertices. Both $\Fin\Set$ and $\Graph$ have finite colimits, and the functor $L \maps \Fin\Set \to \Graph$ is left adjoint to the forgetful functor $R \maps \Graph \to \Fin\Set$ that assigns to a graph $G$ its underlying set of vertices $R(G)$. Thus, using structured cospans and appealing to \cref{thm:structured_cospans}, we get a symmetric monoidal double category $_L \lCsp(\Graph)$ in which:
 \begin{itemize}
 \item objects are finite sets,
 \item a vertical 1-morphism from $X$ to $Y$ is a function $f \maps X \to Y$,
@@ -2162,20 +2162,20 @@ We can easily build a double category with `open graphs' as horizontal 1-cells u
 \item a 2-morphism is a commuting diagram in $\Graph$ of this form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$L(X_1)$};
-\node (B) at (1,0) {$G_1$};
-\node (C) at (2,0) {$L(Y_1)$};
-\node (A') at (0,-1) {$L(X_2)$};
-\node (B') at (1,-1) {$G_2$};
-\node (C') at (2,-1) {$L(Y_2)$.};
+\node (A) at (0,0) {$L(X)$};
+\node (B) at (1,0) {$G$};
+\node (C) at (2,0) {$L(Y)$};
+\node (A') at (0,-1) {$L(X')$};
+\node (B') at (1,-1) {$G'$};
+\node (C') at (2,-1) {$L(Y')$.};
 \path[->,font=\scriptsize,>=angle 90]
-(A) edge node[above]{$I_1$} (B)
-(C) edge node[above]{$O_1$} (B)
-(A') edge node[above]{$I_2$} (B')
-(C') edge node[above]{$O_2$} (B')
+(A) edge node[above]{$i$} (B)
+(C) edge node[above]{$o$} (B)
+(A') edge node[below]{$i'$} (B')
+(C') edge node[below]{$o'$} (B')
 (A) edge node [left]{$L(f)$} (A')
 (B) edge node [left]{$\alpha$} (B')
-(C) edge node [left]{$L(g)$} (C');
+(C) edge node [right]{$L(g)$} (C');
 \end{tikzpicture}
 \]
 \end{itemize}
@@ -2288,7 +2288,7 @@ It is well known, and easy to check, that the Grothendieck category $\inta F$ is
 
 Starting from the symmetric lax monoidal pseudofunctor $F \maps (\Fin\Set, +) \to (\Cat,\times)$, \cref{thm:decorated_cospans_2} gives us a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
-\item objects are sets,
+\item objects are finite sets,
 \item a vertical 1-morphism from $X$ to $X'$ is a function $f \maps X \to X'$,
 \item a horizontal 1-cell from $X$ to $Y$ is a pair
 \[
@@ -2319,8 +2319,8 @@ which can also be thought of as an open graph from $X$ to $Y$,
 (C) edge node[above]{$o$} (B)
 (A) edge node[left]{$f$} (A')
 (C) edge node[right]{$g$} (C')
-(C') edge node [above] {$o'$} (D)
-(A') edge node [above] {$i'$} (D)
+(C') edge node [below] {$o'$} (D)
+(A') edge node [below] {$i'$} (D)
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
@@ -2347,7 +2347,7 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 \node (B') at (1,-1) {$N'$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$s$} (B)
-(A') edge node[above]{$s'$} (B')
+(A') edge node[below]{$s'$} (B')
 (A) edge node[left]{$f$} (A')
 (B) edge node[right]{$g$} (B');
 
@@ -2357,7 +2357,7 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 \node (D') at (3,-1) {$N'$};
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
-(C') edge node[above]{$t'$} (D')
+(C') edge node[below]{$t'$} (D')
 (C) edge node[left]{$f$} (C')
 (D) edge node[right]{$g$} (D');
 
@@ -2466,7 +2466,7 @@ This gives a symmetric monoidal double category $F \lCsp$, and using \cref{thm:e
 
 Petri nets are widely used as models of systems in engineering and computer science \cite{GiraultValk, Peterson}.   Structured cospans have been used to define a symmetric monoidal double category of `open Petri nets' \cite{BM}, which lets us build large Petri nets out of smaller pieces.  We can also use decorated cospans to create a double category of open Petri nets.  Again this example is very similar to the example of open graphs.
 
-A \define{Petri net} is a pair of sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$.  Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
+A \define{Petri net} is a pair of finite sets $S$ and $T$ and functions $s,t \maps T \to \N[S]$.  Here $S$ is the set of \define{places}, $T$ is the set of \define{transitions}, and $\N[S]$ is the underlying set of the free commutative monoid on $S$.  Each transition thus has a formal sum of places as its source and target as prescribed by the functions $s$ and $t$, respectively.  Here is an example:
 \[
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
@@ -2497,15 +2497,15 @@ $s, t \maps T \to \N[S]$ to the Petri net $s', t' \maps T' \to \N[S']$ is a pair
 	\[
 	\xymatrix{ 
 		T \ar[d]_f  \ar[r]^-{s} & \N[S] \ar[d]^-{\N[g]} \\	
-		T' \ar[r]^-{s'} & \N[S'] 
+		T' \ar[r]_-{s'} & \N[S'] 
 	}
 	\qquad
 	\xymatrix{ 
 		T \ar[d]_f  \ar[r]^-{t} & \N[S] \ar[d]^-{\N[g]} \\	
-		T' \ar[r]^-{t'} & \N[S'] . 
+		T' \ar[r]_-{t'} & \N[S'] . 
 	}
 	\]
-There is a functor $R \maps \Petri \to \Set$ sending any Petri net to its set of places, and this has a left adjoint $L \maps \Set \to \Petri$ sending any set $S$ to the Petri net with $S$ as its set of places and no transitions \cite[Lemma 11]{BM}.   Since both $\Set$ and $\Petri$ have finite colimits and $L$ preserves them, \cref{thm:structured_cospans} yields a symmetric monoidal double category ${}_L \lCsp(\Petri)$ in which:
+There is a functor $R \maps \Petri \to \Fin\Set$ sending any Petri net to its set of places, and this has a left adjoint $L \maps \Fin\Set \to \Petri$ sending any finite set $S$ to the Petri net with $S$ as its set of places and no transitions \cite[Lemma 11]{BM}.   Since both $\Fin\Set$ and $\Petri$ have finite colimits and $L$ preserves them, \cref{thm:structured_cospans} yields a symmetric monoidal double category ${}_L \lCsp(\Petri)$ in which:
 \begin{itemize}
 \item objects are finite sets,
 \item vertical 1-morphisms are functions,
@@ -2523,20 +2523,20 @@ There is a functor $R \maps \Petri \to \Set$ sending any Petri net to its set of
 \item 2-morphisms are diagrams in $\Petri$ of the form:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$L(X_1)$};
-\node (F) at (5,0) {$L(Y_1)$};
-\node (G) at (4,0) {$P_1$};
-\node (E') at (3,-1) {$L(X_2)$};
-\node (F') at (5,-1) {$L(Y_2)$.};
-\node (G') at (4,-1) {$P_2$};
+\node (E) at (3,0) {$L(X)$};
+\node (F) at (5,0) {$L(Y)$};
+\node (G) at (4,0) {$P$};
+\node (E') at (3,-1) {$L(X')$};
+\node (F') at (5,-1) {$L(Y')$.};
+\node (G') at (4,-1) {$P'$};
 \path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$O_1$} (G)
+(F) edge node[above]{$o$} (G)
 (E) edge node[left]{$L(f)$} (E')
 (F) edge node[right]{$L(g)$} (F')
 (G) edge node[left]{$\alpha$} (G')
-(E) edge node[above]{$I_1$} (G)
-(E') edge node[above]{$I_2$} (G')
-(F') edge node[above]{$O_2$} (G');
+(E) edge node[above]{$i$} (G)
+(E') edge node[below]{$i'$} (G')
+(F') edge node[below]{$o'$} (G');
 \end{tikzpicture}
 \]
 \end{itemize}
@@ -2660,20 +2660,20 @@ There is a functor $R \maps \Petri_r \to \Set$ sending any Petri net with rates 
 \item 2-morphisms are diagrams in $\Petri_r$ of the form
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (E) at (3,0) {$L(X_1)$};
-\node (F) at (5,0) {$L(Y_1)$};
-\node (G) at (4,0) {$P_1$};
-\node (E') at (3,-1) {$L(X_2)$};
-\node (F') at (5,-1) {$L(Y_2)$.};
-\node (G') at (4,-1) {$P_2$};
+\node (E) at (3,0) {$L(X)$};
+\node (F) at (5,0) {$L(Y)$};
+\node (G) at (4,0) {$P$};
+\node (E') at (3,-1) {$L(X')$};
+\node (F') at (5,-1) {$L(Y')$.};
+\node (G') at (4,-1) {$P'$};
 \path[->,font=\scriptsize,>=angle 90]
-(F) edge node[above]{$O_1$} (G)
+(F) edge node[above]{$i$} (G)
 (E) edge node[left]{$L(f)$} (E')
 (F) edge node[right]{$L(g)$} (F')
 (G) edge node[left]{$\alpha$} (G')
-(E) edge node[above]{$I_1$} (G)
-(E') edge node[above]{$I_2$} (G')
-(F') edge node[above]{$O_2$} (G');
+(E) edge node[above]{$o$} (G)
+(E') edge node[below]{$i'$} (G')
+(F') edge node[below]{$o'$} (G');
 \end{tikzpicture}
 \]
 \end{itemize}
@@ -2756,8 +2756,8 @@ is a diagram
 (F) edge node[right]{$g$} (F')
 (G) edge node[left]{$h$} (G')
 (E) edge node[above]{$i$} (G)
-(E') edge node[above]{$i'$} (G')
-(F') edge node[above]{$o'$} (G');
+(E') edge node[below]{$i'$} (G')
+(F') edge node[below]{$o'$} (G');
 \end{tikzpicture}
 \]
 in $\Fin\Set$ such that $D(h)(v) = v'$.
@@ -2769,15 +2769,15 @@ sending any open Petri net with rates to its corresponding open dynamical system
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\Fin\Set$};
-\node (B) at (1,0) {$\Cat$};
+\node (B) at (1.5,0) {$\Cat$};
 \node (C) at (0,-1) {$\Fin\Set$};
-\node (D) at (1,-1) {$\Cat$.};
-\node (E) at (0.5,-0.5) {$\Downarrow \theta$};
+\node (D) at (1.5,-1) {$\Cat$.};
+\node (E) at (0.75,-0.5) {$\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$F$} (B)
 (A) edge node[left]{$1$} (C)
 (B) edge node[right]{$1$} (D)
-(C) edge node[above]{$D$} (D);
+(C) edge node[below]{$D$} (D);
 \end{tikzpicture}
 \] 
 Here $\theta$ is a monoidal natural isomorphism given as follows.  For any finite set $S$, $\theta_S \maps F(S) \to D(S)$ maps any Petri nets with rates 
@@ -2807,14 +2807,14 @@ More generally, when $P$ is part of an open Petri net with rates
 \]
 we get an open dynamical system called the \define{open rate equation}:
 \[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
-where $I \maps \R \to \R^X$ and $O \maps \R \to \R^X$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
+where $I \maps \R \to \R^X$ and $O \maps \R \to \R^Y$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
 
 We now show that the decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}. Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that if the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$. We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \lCsp(\X)$. We now show that in the case at hand, where $F = D$, the opfibration $U$ does \emph{not} have a left adjoint. Thus, the conditions of \cref{thm:equiv} do not hold in this case: $F$ does not factor through $\Rex$.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
 \begin{itemize}
 \item an object is a pair $(S,v)$ where $S$ is a finite set and $v$ is an algebraic vector field $v \maps \R^S \to \R^S$,
-\item a morphism from $(S,v)$ to $(S',v')$ is a function $f \maps S \to S'$ such that $v' = f_* \circ v \circ f^*$.
+\item a morphism from $(S,v)$ to $(S',v')$ is a function $f \maps S \to S'$ such that $v' = f_* \circ v \circ f^*$
 \end{itemize}
 with the usual composition of functions.   The forgetful functor $U \maps \inta D \to \Fin\Set$ acts as follows:
 \begin{itemize}
@@ -3211,7 +3211,6 @@ double functor $\lF \maps \lD \to \lE$ that has an inverse.
 
 A symmetric monoidal double functor is an isomorphism if
 it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morphisms.
-
 
 \begin{defn}\label{def:companion}
   Let $\lD$ be a double category and $f\maps A\to B$ a vertical
