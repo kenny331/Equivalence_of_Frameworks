@@ -1845,17 +1845,17 @@ into a companion of $f$ using the following 2-morphisms:
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$1$} (C')
-(A') edge node[above] {$1$} (D)
-(C') edge node[above] {$1$} (D)
+(C) edge node[right]{$1$} (C')
+(A') edge node[below] {$1$} (D)
+(C') edge node[below] {$1$} (D)
 (B) edge node [left] {$1$} (D)
 (G) edge node [above] {$1$} (H)
 (G) edge node [left] {$1$} (G')
 (H) edge node [left] {$f$} (H')
-(G') edge node [above] {$f$} (H')
+(G') edge node [below] {$f$} (H')
 (I) edge node [above] {$1$} (H)
-(I) edge node [left] {$f$} (I')
-(I') edge node [above] {$1$} (H');
+(I) edge node [right] {$f$} (I')
+(I') edge node [below] {$1$} (H');
 \end{tikzpicture}
 \]
 where the decoration morphism $\tau_f$ is the isomorphism given by pseudofunctoriality of $F$:
@@ -1905,23 +1905,24 @@ These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a comp
 (P) edge node[above]{$1$} (O)
 (N) edge node[left]{$1$} (A)
 (O) edge node[left]{$f$} (B)
-(P) edge node[left]{$f$} (C)
+(P) edge node[right]{$f$} (C)
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$1$} (C')
-(A') edge node[above] {$1$} (D)
-(C') edge node[above] {$1$} (D)
+(C) edge node[right]{$1$} (C')
+(A') edge node[below] {$1$} (D)
+(C') edge node[below] {$1$} (D)
 (B) edge node [left] {$1$} (D)
 (G) edge node [above] {$1$} (H)
 (G) edge node [left] {$f$} (G')
 (H) edge node [left] {$f$} (H')
-(G') edge node [above] {$1$} (H')
+(G') edge node [below] {$1$} (H')
 (I) edge node [above] {$1$} (H)
-(I) edge node [left] {$f$} (I')
-(I') edge node [above] {$1$} (H');
+(I) edge node [right] {$f$} (I')
+(I') edge node [below] {$1$} (H');
 \end{tikzpicture}
 \]
+
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (G) at (-0.75,0.5) {$a$};
@@ -1961,22 +1962,22 @@ These 2-morphisms satisfy the equations \cref{eq:CompanionEq} required of a comp
 \path[->,font=\scriptsize,>=angle 90]
 (Y) edge node [left] {$1$} (Z)
 (Y) edge node [above] {$1$} (W)
-(Z) edge node [above] {$f$} (O)
+(Z) edge node [below] {$f$} (O)
 (N) edge node [above] {$1$} (W)
 (J) edge node [left] {$1$} (K)
 (A') edge node [left] {$1$} (L')
-(C') edge node [left] {$1$} (M')
-(K) edge node[above] {$f$} (L')
-(M') edge node [above] {$1$} (L')
+(C') edge node [right] {$1$} (M')
+(K) edge node[below] {$f$} (L')
+(M') edge node [below] {$1$} (L')
 (N) edge node[left]{$f$} (O)
-(R) edge node[left]{$1$} (S)
+(R) edge node[right]{$1$} (S)
 (N) edge node[above]{$f$} (P)
 (R) edge node[above]{$1$} (P)
-(S) edge node[above]{$1$} (O)
+(S) edge node[below]{$1$} (O)
 (A) edge node[above]{$f$} (B)
 (C) edge node[above]{$1$} (B)
 (A) edge node[left]{$f$} (A')
-(C) edge node[left]{$1$} (C')
+(C) edge node[right]{$1$} (C')
 (A') edge node[above] {$1$} (D)
 (C') edge node[above] {$1$} (D)
 (B) edge node [left] {$1$} (D)
