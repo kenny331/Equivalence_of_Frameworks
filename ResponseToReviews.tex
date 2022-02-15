@@ -1,0 +1,250 @@
+\documentclass[reqno]{amsart}
+
+\usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}%,undertilde}
+\usepackage{comment}
+\usepackage[neveradjust]{paralist}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage[outline]{contour}
+\contourlength{1.2pt}
+\usepackage{tikz}
+\usetikzlibrary{intersections,arrows.meta,calc,quotes,math,decorations.pathreplacing,decorations.markings,cd,arrows,positioning,fit,matrix,
+shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits.ee.IEC,shapes}
+\usepackage[a4paper,top=3cm,bottom=3cm,inner=3cm,outer=3cm]{geometry}
+\usepackage[foot]{amsaddr}
+\usepackage{graphicx}
+\usepackage{stackrel}
+
+% colors
+\usepackage{xcolor}
+\usepackage{framed,color}
+
+\definecolor{shadecolor}{rgb}{1,0.8,0.3}
+\definecolor{myurlcolor}{rgb}{0.5,0,0}
+\definecolor{mycitecolor}{rgb}{0,0,0.7}
+\definecolor{myrefcolor}{rgb}{0,0,0.7}
+\definecolor{hyperrefcolor}{rgb}{0.5,0,0}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor={hyperrefcolor},
+	citecolor={hyperrefcolor},
+	urlcolor={hyperrefcolor}
+}
+
+\newcommand{\backref}[1]{(Referred to on page #1.)}
+
+\usepackage[draft]{fixme}
+\usepackage[capitalize]{cleveref}
+
+\title{Response to reviews for ``Structured versus decorated cospans''}
+
+\author{John\ C.\ Baez, Kenny Courser, and Christina Vasilakopoulou}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Reviews - to be removed}
+
+\subsection{First Review}
+
+Decorated and structured cospans have been used to model open systems in the work of Fong, Baez, Courser, Master and others.
+
+Previous work by Shulman constructed symmetric monoidal double categories functorially from bifibrations. The present manuscript recovers structured 
+and decorated cospan categories as instances of this construction and then compares both using the functoriality of that same construction. The crux 
+of many of the proofs is in showing the Beck-Chevalley condition required to apply Shulman’s result. All of this could feel technical but the results 
+are detailed and clear. Some of the technology used here is very interesting by itself: monoidal fibrations or the construction of (symmetric 
+monoidal) double categories, bicategories and categories.
+
+From the applied point of view, they summarize many other papers in structured and decorated cospans and discuss in which cases both approaches 
+coincide. It feels that this should not be this difficult to study for the 1-categorical structure (and indeed it seems to have appeared previously on 
+the literature), but here it is done for the symmetric monoidal double category structure.
+
+As the only point against, I feel there is a growing number of “cospan” articles. The present work seems like it could serve as a comparison of all of 
+these, but perhaps that comparison could be more explicit and detailed: what is it done in each one of these “cospan” articles? is there anything that 
+is not already explained in this one? If some of the articles about decorated cospans were found to contain errors, is this the only construction of 
+decorated cospans that solves these errors?
+
+Section 1 motivates decorated cospans in terms of systems and interfaces.
+
+Section 2 recovers a generalization of decorated cospans from Shulman’s construction. The most important part is to show the Beck-Chevalley property 
+of the fibration at hand. In Section 3, the construction of structured cospans is recovered from Shulman’s double category using a fibration from the 
+comma category of a finite colimit preserving functor L : A -> X. Again, the most important part is to show that the fibration is Beck-Chevalley. Both 
+constructions (decorated and structured) are treated in a uniform way, which I see as a very positive contribution. This is used in Section 4 to give 
+the comparison.
+
+Section 5 maps double categories to bicategories and categories. For this, they use a result by Hansen and Shulman that constructs them functorially 
+from fibrant double categories.
+
+Section 6 explains the problems with Set-decoration for open graphs and justifies the need for Cat-decoration. The best argument for switching Set to 
+Cat in the definition of decorated cospan is actually detailed in “Structured Cospans” by Baez and Courser (§5), where they show that the notion of 
+isomorphism in graph decorated cospans is too restrictive. Section 6.1 explains how, with theorem contibuted by the paper, decorated and structured 
+cospans coincide on the right notion of graph isomorphism.
+
+Section 6.2 seems to simply repeat the same procedure after labelling edges, and Section 6.3 repeats again with Petri nets. Finally, Section 6.4 shows 
+something different: a category of open dynamical systems that can be described as a decorated cospan category but that cannot be equivalently 
+described as a structured cospan category.
+
+The Conclusions section explains how, if we restrict to a suitable class of opfibrations or one-side inverse adjunctions, we would get the same 
+construction from decorated and structured cospans.
+
+In my understanding, the value of this work resides in how it systematically compares the approach of decorated and structured cospans. I would 
+highlight the care put in each construction, and how it builds upon previous work for most of the heavy lifting.
+
+Suggested changes, corrections, and general comments.
+
+Lemma 2.4: when talking about the functors $F : (A,\otimes)\to(Cat,\times)$, I think sometimes it is specified that they are lax and sometimes it is 
+not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
+
+Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex -> SymMonCat”.
+
+Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
+
+After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
+
+Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
+notation.
+
+COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily” modify, we 
+“better understand”) sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing 
+it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification 
+for the use of Petri nets with rates.
+
+Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each 
+one of them, but perhaps it would be useful to point to other places where they are described.
+
+\subsection{Second review}
+
+Overview
+
+This is an important topic and brings clarity to an open question in the ACT field. The fact that structured and decorated cospans are equivalent in 
+many cases is a good thing, and the fact that the authors develop a sufficient condition for proving this equivalence is highly relevant to this 
+journal. Having the description of decorated and structured cospans in the same place with a consistent presentation is very useful for the community. 
+My review focuses on how I think this work fits into the broader context of ACT research in this area. I recommend publication after addressing the 
+following concerns.
+
+Suggested changes, corrections, and general comments.
+
+General Thoughts
+
+Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured cospans 
+are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
+structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
+application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
+how to choose whether to model their application with structured vs decorated cospans. Section 6 does a good job of detailing the various 
+constructions of combinatorial structures that get double categories of structured cospans. The graph and Petri net examples are implemented in 
+AlgebraicJulia, specifically the Catlab.Graphs module and the AlgebraicPetri.jl package. Given that Petri nets with structured cospans works, and 
+Reaction Networks work, but open dynamical systems do not, I would like some more explanation of the differences here. The examples of graph, labeled 
+graph, Petri net, reaction net are all examples of attributed C-Sets [1], the structured cospan construction in provided for arbitrary attributed 
+C-Sets in Catlab.CategoricalAlgebra [2]. The open dynamical systems are not attributed C-Sets. All the examples where decorated and structured cospans 
+agree are combinatorial, and the only example where they are different is not combinatorial. This gives me the impression that for categories of 
+presheaves over a finitely presented category, structured cospans and decorated cospans are always equivalent. The introduction of numerical 
+attributes (as in the case of reaction networks) does not appear to interfere with that pattern.
+
+The examples in section 6 would be much stronger if the others included a theorem that all (or finitary) categories of presheaves satisfy the 
+conditions of theorem 4.1 or a counter example illustrating that the situation is more complex than algebraic vs analytic distinction between open 
+presheaves and the category of open dynamical systems. Without this analysis, I am left with the intuition that for discrete structures like finitary 
+presheaves over a finitely presented schema, the decorated and structured cospans are going to be equivalent and for continuous mathematical 
+structures like dynamical systems they will be different. If that intuition is correct, the paper should say something about it. If the intuition is 
+incorrect, then additional explanation should be provided. I think that the implementation in [2] uses the left and right adjoints L and U in Theorem 
+4.1, which is why I think that every category of presheaves should satisfy the main theorem. Hopefully it is easy to check and provide some commentary 
+on it in this paper.
+
+The interaction of compositional system behavior and the main theorem is also interesting and worth exploring or commenting on in this paper. If we 
+take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics for complex 
+systems, then we should ask why the decorated and structured cospan double categories are isomorphic for reaction networks, but their semantics as 
+dynamical systems are a decorated cospan category that is not equivalent to any structured cospan category. Is there a different construction of 
+semantics for reaction networks that uses structured cospans? The current work does not address the possibility of alternative semantics for 
+structured cospans of systems. We can only say that DCsp is not equivalent to any structured cospan category, but is there a different decorated 
+cospan category that would provide meaningful functorial semantics that is equivalent to some category of structured cospans. The structured cospan 
+view is better for implementing the composition of the system specifications (reaction networks) but the current literature only uses decorated 
+cospans for providing the systems with behaviors. If the authors can discuss this issue it would greatly enhance the utility of this paper for shaping 
+the research discussion around compositional complex systems.
+
+The conclusions refer to a forthcoming paper. The only conclusion that refers to the work presented in this paper is that theorem 4.1 gives conditions 
+under which a category of decorated cospans is isomorphic to a category of structured cospans. Given that the audience for this paper is intended to 
+be applied category theorists, this is a place where I would expect some guidance on when an ACT practitioner should choose either structured or 
+decorated cospans depending on what mathematical structures they are formalizing within ACT.
+
+Specific Concerns
+
+The development of the AlgebraicPetri software system is credited to Halter and Patterson based on a blog post. The correct citation is to the 
+software itself and should be credited to the entire AlgebraicPetri team based on a citation to the repository [3]. The additional authors would be 
+Andrew Baas and James Fairbanks.
+
+Several points in the text are written in a way style that can be interpreted as the dismissive style common to many discussions of Category Theory. I 
+would recommend rewriting at least the following points that should be made in a more collegial tone.
+
+pg. 2: “But this hope is doomed for reasons painstakingly explained in [1, Section 5] … despite all the tricks one might try.” This paragraph provides 
+no insight into the reasons that those tricks fail. Referring them to tricks is dismissive. The citation is to a paper in TAC by the current authors.
+
+pg. 3: “Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other scholars 
+using the decorated cospan approach as flawed. The alleged flaw should be made more precise. What about the decorated cospan approach is inferior to 
+the structured cospan approach? The goal of this paper should be to illustrate to an applied category theory audience the differences between 
+decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
+
+pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, that might 
+be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
+readers that are more familiar with the applications and thus cannot be assumed to know such results.
+
+\begin{verbatim}
+[1] https://arxiv.org/abs/2106.04703
+[2] https://github.com/AlgebraicJulia/Catlab.jl/blob/f06417de29421441c4133c1cfb75b39ae8aa7142/src/categorical_algebra/StructuredCospans.jl
+[3] https://github.com/AlgebraicJulia/AlgebraicPetri.jl
+\end{verbatim}
+
+\section{Our Answer}
+
+
+\begin{enumerate}
+
+\item As the only point against, I feel there is a growing number of “cospan” articles. The present work seems like it could serve as a comparison of 
+all of 
+these, but perhaps that comparison could be more explicit and detailed: what is it done in each one of these “cospan” articles? is there anything 
+that 
+is not already explained in this one? If some of the articles about decorated cospans were found to contain errors, is this the only construction of 
+decorated cospans that solves these errors?
+
+ \item Lemma 2.4: when talking about the functors $F : (A,\otimes)\to(Cat,\times)$, I think sometimes it is specified that they are lax and sometimes 
+it is 
+not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
+
+\item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex -> SymMonCat”.
+
+\item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
+
+\item After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
+
+\item Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
+notation.
+
+\item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily” 
+modify, we 
+“better understand”) sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing 
+it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification 
+for the use of Petri nets with rates.
+
+\item Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over 
+each 
+one of them, but perhaps it would be useful to point to other places where they are described.
+
+\item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured 
+cospans 
+are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
+structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
+application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
+how to choose whether to model their application with structured vs decorated cospans
+
+\item ...if the others included a theorem that all (or finitary) categories of presheaves satisfy the 
+conditions of theorem 4.1 or a counter example
+
+(Possibly copy John's comments here and finish this list)
+\end{enumerate}
+
+
+\end{document}
