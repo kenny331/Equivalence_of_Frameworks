@@ -10,7 +10,7 @@
 \usepackage{tikz}
 \usetikzlibrary{intersections,arrows.meta,calc,quotes,math,decorations.pathreplacing,decorations.markings,cd,arrows,positioning,fit,matrix,
 shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits.ee.IEC,shapes}
-\usepackage[a4paper,top=3cm,bottom=3cm,inner=3cm,outer=3cm]{geometry}
+\usepackage[a4paper,top=2cm,bottom=2cm,inner=3cm,outer=3cm]{geometry}
 \usepackage[foot]{amsaddr}
 \usepackage{graphicx}
 \usepackage{stackrel}
@@ -18,6 +18,10 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 % colors
 \usepackage{xcolor}
 \usepackage{framed,color}
+
+\def\chris{\color{purple} Christina: }
+\def\john{\color{red} John: }
+\def\kenny{\color{blue} Kenny: }
 
 \definecolor{shadecolor}{rgb}{1,0.8,0.3}
 \definecolor{myurlcolor}{rgb}{0.5,0,0}
@@ -52,6 +56,8 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \section{Reviews - to be removed}
 
 \subsection{First Review}
+
+{\footnotesize
 
 Decorated and structured cospans have been used to model open systems in the work of Fong, Baez, Courser, Master and others.
 
@@ -116,9 +122,11 @@ it to other Petri net editors?). Perhaps this paragraph could be fused as a comm
 for the use of Petri nets with rates.
 
 Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each 
-one of them, but perhaps it would be useful to point to other places where they are described.
+one of them, but perhaps it would be useful to point to other places where they are described.}
 
 \subsection{Second review}
+
+{\footnotesize
 
 Overview
 
@@ -190,7 +198,7 @@ decorated and structured cospans. Referring back to previous work of the authors
 
 pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, that might 
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
-readers that are more familiar with the applications and thus cannot be assumed to know such results.
+readers that are more familiar with the applications and thus cannot be assumed to know such results.}
 
 \begin{verbatim}
 [1] https://arxiv.org/abs/2106.04703
@@ -238,12 +246,71 @@ cospans
 are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
 structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
 application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
-how to choose whether to model their application with structured vs decorated cospans
+how to choose whether to model their application with structured vs decorated cospans (...) [Conclusions section] this is a place where I would expect 
+some guidance on when an ACT practitioner should choose either structured or 
+decorated cospans depending on what mathematical structures they are formalizing within ACT.
 
-\item ...if the others included a theorem that all (or finitary) categories of presheaves satisfy the 
-conditions of theorem 4.1 or a counter example
+{\john That is their guess about what the paper should be about. I guess they were hoping for something like this:
+Theorem. Structured cospans are strictly better than decorated cospans in all circumstances.
+Does our abstract actually suggest that we're talking about which formalism is "better", or the "pros and cons"?
+I just checked: no, it does not.}
 
-(Possibly copy John's comments here and finish this list)
+\item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
+explanation of the differences here. The examples of graph, labeled 
+graph, Petri net, reaction net are all examples of attributed C-Sets [1], the structured cospan construction in provided for arbitrary attributed 
+C-Sets in Catlab.CategoricalAlgebra [2]. The open dynamical systems are not attributed C-Sets.(...)The examples in section 6 would be much stronger 
+if the others included a theorem that all (or finitary) categories of presheaves satisfy the 
+conditions of theorem 4.1 or a counter example (...) Hopefully it is easy to check and provide some 
+commentary 
+on it in this paper.
+
+{\john I agree that a general result like this would be nice, but I don't have the energy to dream one up and prove it. The most we can do here is say 
+that this is worth studying.... maybe after we give the example of a decorated cospan category that's not a structured cospan category.}
+
+\item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
+for complex 
+systems, then we should ask why the decorated and structured cospan double categories are isomorphic for reaction networks, but their semantics as 
+dynamical systems are a decorated cospan category that is not equivalent to any structured cospan category. Is there a different construction of 
+semantics for reaction networks that uses structured cospans?
+
+\item The development of the AlgebraicPetri software system is credited to Halter and Patterson based on a blog post. The correct citation is to the 
+software itself and should be credited to the entire AlgebraicPetri team based on a citation to the repository [3]. The additional authors would be 
+Andrew Baas and James Fairbanks.
+
+{\john I wasn't trying to talk about AlgebraicPetri, just the application to epidemiology, and unfortunately that was (and still is???) only explained 
+in a blog article. But it'd be good to add a reference to the repository.}
+
+[Several points in the text are written in a way style that can be interpreted as the dismissive style common to many discussions of Category 
+Theory. I 
+would recommend rewriting at least the following points that should be made in a more collegial tone.]
+
+\item pg. 2: “But this hope is doomed for reasons painstakingly explained in [1, Section 5] … despite all the tricks one might try.” This paragraph 
+provides 
+no insight into the reasons that those tricks fail. Referring them to tricks is dismissive. The citation is to a paper in TAC by the current authors.
+
+\item pg. 3: “Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other 
+scholars 
+using the decorated cospan approach as flawed. The alleged flaw should be made more precise. What about the decorated cospan approach is inferior to 
+the structured cospan approach? The goal of this paper should be to illustrate to an applied category theory audience the differences between 
+decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
+
+{\john The "other scholars" are mainly me and Brendan, and the flaws are that some claims are false! I think we describe the flaws in Section 6; if so 
+we should point to that.}
+{\john I don't like referees who say what the goal of my paper "should be". The goal of this paper is clearly to set up a clear relation between 
+structured and decorated cospans, and I hope we make that clear already in the abstract!}
+
+\item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
+that might 
+be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
+readers that are more familiar with the applications and thus cannot be assumed to know such results.
+
+{\john We can just leave out "well-known".}
+{\kenny Emily Riehl's Category Theory In Context (Lemma 4.6.1 on pdf page 162):
+
+
+was where I found that theorem when I was working on how to show that counterexample. I doubt she was the first, but she states it exactly as we have 
+it and she gives a proof.}
+
 \end{enumerate}
 
 
