@@ -327,14 +327,25 @@ decorated cospans that solves these errors?
 it is 
 not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
 
-\item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex -> SymMonCat”.
+{\bf We have added ``lax'' at Lemma 2.4 in two occurences, and have checked the rest of the document to verify that this does not happen 
+elsewhere.}
+
+\item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex $\to$ SymMonCat”.
+
+{\bf Done, also in Corollary 4.3.}
 
 \item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
 
+{\bf Done.}
+
 \item After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
+
+{\bf Done.}
 
 \item Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
 notation.
+
+{\bf Done.}
 
 \item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily” 
 modify, we 
@@ -346,7 +357,7 @@ for the use of Petri nets with rates.
 each 
 one of them, but perhaps it would be useful to point to other places where they are described.
 
-{\chris Second starts here}
+{\chris Second review starts here}
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured 
 cospans 
 are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
@@ -394,6 +405,8 @@ would recommend rewriting at least the following points that should be made in a
 provides 
 no insight into the reasons that those tricks fail. Referring them to tricks is dismissive. The citation is to a paper in TAC by the current authors.
 
+{\chris Perhaps merge this with point 16 and possibly others, and after we do something, write a common response!}
+
 \item pg. 3: “Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other 
 scholars 
 using the decorated cospan approach as flawed. The alleged flaw should be made more precise. What about the decorated cospan approach is inferior to 
@@ -410,40 +423,43 @@ that might
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
 readers that are more familiar with the applications and thus cannot be assumed to know such results.
 
-{\john We can just leave out "well-known".}
-{\kenny Emily Riehl's Category Theory In Context (Lemma 4.6.1 on pdf page 162):
+{\bf We have added a citation to Emily Riehl's book ``Category Theory in Context'' which includes said result, above Lemma 6.1.}
 
-
-was where I found that theorem when I was working on how to show that counterexample. I doubt she was the first, but she states it exactly as we have 
-it and she gives a proof.}
-
-{\chris Third starts here}
+{\chris Third review starts here}
 \item p. 2. “Unfortunately, many applications of decorated cospans were flawed… for reasons painstaking explained in [1]”
 
 Since fixing these problems is a major motivation for the whole paper, it would be good to explain what they are in slightly more detail, rather than 
 just giving a reference. This could be done in a one paragraph or less. The gist of it, as I recall, is that in the original approach to decorated 
 cospans, the isomorphism classes of open graphs depend on the identities of the edge elements, which is clearly wrong.
 
+{\chris Merge with at least 13.}
+
 \item p. 4, following statement of Thm 2.1.
 
 The diagram depicting the decoration morphism $\tau$ as a natural transformation, first shown explictly on p. 10, should be moved here since it is 
 implicitly used at the beginning of p. 5 to define the decoration of horizontal composites.
 
+{\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.}
+
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
-Does the natural transformation $\theta$: EF => F’ H have to be a natural isomorphism? Quite possibly I missed something, but I don’t see where in 
+Does the natural transformation $\theta$: EF $\Rightarrow$ F’ H have to be a natural isomorphism? Quite possibly I missed something, but I don’t see 
+where in 
 the following proofs that assumption is used.
 
-\item p. 21, definition of F: Set -> Cat
+\item p. 21, definition of F: Set $\to$ Cat
 
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
 decorated and structured approach to constructing open graphs.
 
+{\chris I don't think I understand this, anyone else?}
+
 \item p. 27, end of Section 6.
 
 It seems that the left adjoint needed for structured cospans fails to exist because the chosen category of dynamical systems does not have enough 
-morphisms. Relatedly, this is the only example where the pseudofunctor D: (FinSet,+) -> (Cat, $\times$) comes from a simple functor D: (FinSet,+) -> 
-(Set, $\times$) by viewing sets as discrete categories. In the other examples, this would count as using decorated cospans in the old, flawed way. 
+morphisms. Relatedly, this is the only example where the pseudofunctor D: (FinSet,+) $\to$ (Cat, $\times$) comes from a simple functor D: (FinSet,+) 
+$\to$ (Set, $\times$) by viewing sets as discrete categories. In the other examples, this would count as using decorated cospans in the old, flawed 
+way. 
 All of this suggests the question: is there a way of constructing a category of dynamical systems that has more morphisms, so that a connection with 
 structured cospans can be established?
 
@@ -452,7 +468,7 @@ structured cospans can be established?
 If I am not mistaken, “fibration”, “opfibration,” “monoidal (op/bi)fibration” are all defined, but the definition of “bifibration” is omitted. For 
 completeness, it should be included.
 
-{\john If we don't define bifibration, we definitely should!}
+{\bf Done.}
 
 \item A last general comment is that the paper unfortunately adopts the strategy, all too common in math papers, of putting all the examples in a 
 section at 
@@ -465,17 +481,24 @@ this section in the introduction (and perhaps should advertise it more there), a
 hand.}
 
 
-{\chris Fourth starts here}
+{\chris Fourth review starts here}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
+
+{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
 
+{\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
+much.}
+
 \item Theorem 2.1: Maybe worth saying explicitly that s is an object of the category F(m) rather than using $\in$, since this is exactly the 
 distinction to 
 Fong’s original definition
+
+{\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
 \item Proof of theorem 2.1: You should probably at least handwave that the cartesian liftings really are cartesian liftings. (No doubt it’s easy, but 
 this 
@@ -487,9 +510,14 @@ role.
 
 \item Theorem 2.5: F should be defined on A, not A’
 
+{\bf Done.}
+
 \item I think it would be worth saying in words a bit more prominently what the hypothesis of theorem 4.1 roughly means, namely that the fibers of 
 the total 
 category have finite colimits, reindexing preserves them, and the monoidal product on the fibers is cocartesian.
+
+{\bf We have added a paragraph right below the statement of Theorem 4.1, clarifying its assumptions as suggested, which also incorporates an 
+explanatory paragraph previously located under Corollary 4.3.}
 
 \item I wonder if the “problem” where DCsp is not a structured cospan category could be “fixed” by upgrading the functor from Set to Cat in a 
 non-discrete 

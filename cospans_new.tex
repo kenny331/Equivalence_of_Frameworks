@@ -551,7 +551,19 @@ a commutative diagram in $\A$ of the form
 (B) edge node [left] {$h$} (D);
 \end{tikzpicture}
 \]
-together with a \define{decoration morphism} $\tau \maps F(h)(s) \to s'$ in $F(m')$.
+together with a \define{decoration morphism} $\tau \maps F(h)(s) \to s'$ in $F(m')$, which can be thought of as a natural transformation
+\begin{equation}\label{eq:taunattransf}
+\begin{tikzpicture}[baseline=(current  bounding  box.center),scale=1.5]
+\node (G) at (-3.5,-0.5) {$1$};
+\node (H) at (-2,0) {$F(m)$};
+\node (I) at (-2,-1) {$F(n)$};
+\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
+\path[->,font=\scriptsize,>=angle 90]
+(G) edge node [above] {$s$} (H)
+(G) edge node [below] {$s'$} (I)
+(H) edge node [right] {$F(h)$} (I);
+\end{tikzpicture}
+\end{equation}
 \end{itemize}
 \end{thm}
 
@@ -778,7 +790,12 @@ The Grothendieck construction gives a bijection between pseudofunctors $F \maps 
 
 \begin{lem}
 \label{lem:MonGroth}
-For any monoidal category $(\A,\otimes)$, there is a 2-equivalence between the 2-categories of monoidal opfibrations $U\maps (\X, \otimes) \to (\A, \otimes)$ and monoidal pseudofunctors $F \maps (\A,\otimes) \to (\mathsf{Cat}, \times)$, and if $\A$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\MonCat$.  If $\A$ is symmetric monoidal, there is also a 2-equivalence between the 2-categories of symmetric monoidal opfibrations $U \maps (\X, \otimes) \to (\A, \otimes)$ and symmetric monoidal pseudofunctors $F \maps  (\A,\otimes) \to (\mathsf{Cat}, \times)$ , and if $\A$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into $\SMC$.
+For any monoidal category $(\A,\otimes)$, there is a 2-equivalence between the 2-categories of monoidal opfibrations $U\maps (\X, \otimes) \to (\A, 
+\otimes)$ and lax monoidal pseudofunctors $F \maps (\A,\otimes) \to (\mathsf{Cat}, \times)$, and if $\A$ cocartesian monoidal, there is a 
+2-equivalence between these and pseudofunctors from $\A$ into $\MonCat$.  If $\A$ is symmetric monoidal, there is also a 2-equivalence between the 
+2-categories of symmetric monoidal opfibrations $U \maps (\X, \otimes) \to (\A, \otimes)$ and symmetric lax monoidal pseudofunctors $F \maps  
+(\A,\otimes) \to (\mathsf{Cat}, \times)$ , and if $\A$ cocartesian monoidal, there is a 2-equivalence between these and pseudofunctors from $\A$ into 
+$\SMC$.
 \end{lem}
 
 \begin{proof}
@@ -1100,20 +1117,8 @@ is the following map of $F'$-decorated cospans in $F'\lCsp$:
 (B'') edge node [left] {$H(h)$} (D'');
 \end{tikzpicture}
 \]
-where the decoration morphism $\lH(\tau)$ is defined as follows.  We can think of $\tau$ as a natural transformation
-\[
-\begin{tikzpicture}[scale=1.5]
-\node (G) at (-3.5,-0.5) {$1$};
-\node (H) at (-2,0) {$F(m)$};
-\node (I) at (-2,-1) {$F(n)$};
-\node (J) at (-2.5,-0.5) {$\scriptstyle\Downarrow\tau$};
-\path[->,font=\scriptsize,>=angle 90]
-(G) edge node [above] {$s$} (H)
-(G) edge node [below] {$s'$} (I)
-(H) edge node [right] {$F(h)$} (I);
-\end{tikzpicture}
-\]
-and in the same style of notation $\lH(\tau)$ is given by
+where the decoration morphism $\lH(\tau)$ is defined as follows.  Thinking of $\tau$ as a natural transformation \cref{eq:taunattransf},
+in the same style of notation $\lH(\tau)$ is given by
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (-0.25,-0.5) {$1$};
@@ -1138,7 +1143,9 @@ The square at right commutes strictly because $\theta$ is a natural isomorphism.
 
 \begin{thm}
 \label{thm:functoriality}
-Given categories $\A$ and $\A'$ with finite colimits, lax monoidal pseudofunctors $F, F' \maps (\A',+) \to (\Cat,\times)$, a finite colimit preserving functor $H \maps \A \to \A'$, a lax monoidal pseudofunctor $E \maps (\Cat,\times) \to (\Cat,\times)$ and a monoidal natural isomorphism $\theta$ as in the following diagram:
+Given categories $\A$ and $\A'$ with finite colimits, lax monoidal pseudofunctors $F, \maps (\A,+) \to (\Cat,\times)$ and $F' \maps (\A',+) \to 
+(\Cat,\times)$, a finite colimit preserving functor $H \maps \A \to \A'$, a lax monoidal pseudofunctor $E \maps (\Cat,\times) \to (\Cat,\times)$ and 
+a monoidal natural isomorphism $\theta$ as in the following diagram:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$\A$};
@@ -1561,14 +1568,22 @@ Our main result is this:
 
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A \to \SMC$ from \cref{lem:MonGroth}
- factors through $\Rex$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and ${}_L\lCsp(\inta F)$ of structured cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
+ factors through $\Rex\to\SMC$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and ${}_L\lCsp(\inta F)$ of structured 
+cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
 \end{thm}
 
 \iffalse
 The 2-equivalence of \cref{lem:MonGroth} has an important special case where the Grothendieck category $(X,\otimes_\X)$ is cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}.  In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
 \fi
 
-It will be important to know that under the hypotheses of \cref{thm:equiv} the opfibration $U$ preserves all finite colimits.   For this we need the following lemma.
+Essentially, the above assumptions state that the fibers of the induced opfibration $U$ have finite colimits which are preserved by the reindexing 
+functors, and the induced fiberwise monoidal structure is cocartesian. Explicitly, regarding the last point, the lax monoidal 
+pseudofunctor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$ given 
+by \cref{eq:explicitstructure1}, since $\A$ is cocartesian monoidal. We here ask that the induced pseudofunctor $F\maps \A\to\SMC$ factors through 
+$\Rex$, namely that \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
+
+It will be important to know that under the hypotheses of 
+\cref{thm:equiv} the opfibration $U$ preserves all finite colimits.   For this we need the following lemma.
 
 \begin{lem}[\textbf{Hermida}] \label{lem:fibrewiselimits}
 Suppose $\J$ is a small category and $U \maps \X \to \A$ is an opfibration where the base $\A$ has $\J$-colimits.  Then the following are equivalent:
@@ -1615,10 +1630,10 @@ where $\iota_a \maps a\to a+b$ and $\iota_b \maps b \to a+b$ are the coproduct i
 \fi
 
 \begin{cor} \label{cor:fcocMonGroth}
- Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex$.  Then $\inta F$ has all finite colimits and  the induced opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
+ Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor for which the corresponding 
+pseudofunctor $F  \maps \A \to \SMC$ from \cref{lem:MonGroth} factors through $\Rex\to\SMC$.  Then $\inta F$ has all finite colimits and  the induced 
+opfibration $U\maps \inta F \to \A$ preserves them.  Moreover we can choose finite colimits in $\inta F$ so that $U$ preserves them strictly.
 \end{cor}
-
-Regarding the assumptions of the above corollary, notice that since $\A$ is cocartesian monoidal, the lax monoidal pseudofunc\-tor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ in terms of $\phi,\phi_0$, given explicitly by \cref{eq:explicitstructure1}. Since we now ask that the pseudofunctor $F\maps \A\to\SMC$ factors through $\Rex$, this fiberwise monoidal structure is required to be cocartesian, namely that \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
 
 In what follows we also need a left adjoint $L$ to the opfibration $U$.  The following result provides sufficient conditions for that.  Following Gray \cite{Gray}, we say a functor has a `left adjoint right inverse' or \define{lari} if it has a left adjoint where the unit of the adjunction is the identity.
 
@@ -1632,7 +1647,9 @@ that are preserved by the reindexing functors.
 \[
   \bot_a\xrightarrow{\mathrm{Cocart}(f,\bot_a)}f_!(\bot_a)\xrightarrow{\;\chi_a\;}\bot_{a'}
 \]
-where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ and $\chi_a$ is the unique isomorphism between two initial objects in the fiber above $a'$.    The functor $L$ then becomes left adjoint to $R$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact that $U(L(a)) = U(\bot_a) = a$.
+where $\mathrm{Cocart}(f,\bot_a)$ is the cocartesian lifting of $f$ to $\bot_a$ and $\chi_a$ is the unique isomorphism between two initial objects in 
+the fiber above $a'$.    The functor $L$ then becomes left adjoint to $L$ with unit $\iota_a \maps a \to U(L(a))$ being the identity, using the fact 
+that $U(L(a)) = U(\bot_a) = a$.
 \end{proof}
 
 We now have all the necessary background to construct an isomorphism between the double category of decorated cospans and the double category of structured cospans, starting from a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$ whose corresponding pseudofunctor $ F\maps \A \to \SMC$ factors through $\Rex$.
@@ -2968,7 +2985,7 @@ The idea goes back to Grothendieck; a proof can be found in, for example, \cite[
 
 All the above concepts and results have analogues for fibrations.   A functor $\Phi \maps \X \to \A$ a \define{fibration} if and only if $\Phi\op \maps \X\op \to \A\op$ is an opfibration.  Equivalently, $\Phi$ is a fibration if and only if for every $y \in \X$ with $U(y) = b$ and $f \maps a \to b$ in $\A$ there exists a cartesian lifting of $f$ to $y$, where this concept is defined dually to cocartesian lifting.     Furthermore, if $\Phi$ is a fibration there is a contravariant reindexing functor
 \[    f^\ast \maps \X_b \to \X_a \]
-for each morphism $f \maps a \to b$.  
+for each morphism $f \maps a \to b$.  Moreover, $\Phi\colon\X\to\A$ is a \define{bifibration} if it is both a fibration and opfibration. 
 
 If $\X$ and $\A$ are (symmetric) monoidal categories, a \define{(symmetric) monoidal fibration} $\Phi \maps \X \to \A$ is a fibration that is also a (symmetric) strict monoidal functor, such that the tensor product preserves cartesian liftings.  Similarly, a \define{(symmetric) monoidal opfibration} is an opfibration that is also a (symmetric) strict monoidal functor, such that the tensor product preserves cocartesian liftings.   Finally, a \define{(symmetric) monoidal bifibration} is a bifibration that is also a (symmetric) strict monoidal functor such that the tensor product preserves both cartesian and cocartesian liftings.
 
@@ -2991,10 +3008,10 @@ fact $f_!$ is left adjoint to $f^*$ \cite[Proposition 3.9]{Shulman2008}.   Using
 the following square commutes up to a specified natural transformation:
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (A) at (0,0) {$\C_a$};
-\node (B) at (1.5,0) {$\C_b$};
-\node (C) at (0,-1) {$\C_c$};
-\node (D) at (1.5,-1) {$\C_d$};
+\node (A) at (0,0) {$\X_a$};
+\node (B) at (1.5,0) {$\X_b$};
+\node (C) at (0,-1) {$\X_c$};
+\node (D) at (1.5,-1) {$\X_d$};
 \node (E) at (0.75,-0.5) {$\scriptstyle\Downarrow \theta$};
 \path[->,font=\scriptsize,>=angle 90]
 (B) edge node[above]{$h^\ast$} (A)
