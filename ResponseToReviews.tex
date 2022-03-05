@@ -447,12 +447,16 @@ Does the natural transformation $\theta$: EF $\Rightarrow$ F’ H have to be a n
 where in 
 the following proofs that assumption is used.
 
+{\color{blue}{Kenny: I think they are correct in that we don't use this extra assumption.}}
+
 \item p. 21, definition of F: Set $\to$ Cat
 
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
 decorated and structured approach to constructing open graphs.
 
 {\chris I don't think I understand this, anyone else?}
+
+{\color{blue}{Kenny: I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}}
 
 \item p. 27, end of Section 6.
 
@@ -487,6 +491,8 @@ section.
 
 {\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
+{\color{blue}{Kenny: They might not mean $gf$ specifically, but there are many instances where we don't use a $\circ$ for functional composition, e.g. when we're pushing forward a graph structure over a map $f$ of vertices towards the top of page 21. Do we want to use a $\circ$ or not?}}
+
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
@@ -507,6 +513,8 @@ is a classic sort of spot where errors can hide)
 \item On page 9 during the construction of H, I would appreciate a sentence giving some intuition for the functor E, at this point I’m confused about 
 its 
 role.
+
+{\color{blue}{Kenny: We don't have any examples where $E$ is not an identity, but in my mind it's a functor that possibly modifies decorations, e.g. $F(a)$ is a category of graph structures on $a$, and $E(F(a))$ could be something like a category of possibly labeled graph structures on $a$, if that makes sense. Something potentially different than \emph{just} a graph structure on $a$.}}
 
 \item Theorem 2.5: F should be defined on A, not A’
 
