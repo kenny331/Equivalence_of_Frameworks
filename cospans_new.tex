@@ -2356,7 +2356,7 @@ Fix a set $\La$ to serve as edge labels.  Define an $\La$-\define{graph} to be a
  \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
  to the $\La$-graph 
 \[ \xymatrix{\La & E' \ar@<2.5pt>[r]^{s'} \ar@<-2.5pt>[r]_{t'} \ar[l]_{\ell'} & N'} \]
-is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+is a pair of functions $f \maps N \to N', g \maps E \to E'$ such that these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -2366,8 +2366,8 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$s$} (B)
 (A') edge node[below]{$s'$} (B')
-(A) edge node[left]{$f$} (A')
-(B) edge node[right]{$g$} (B');
+(A) edge node[left]{$g$} (A')
+(B) edge node[right]{$f$} (B');
 
 \node (C) at (2,0) {$E$};
 \node (C') at (2,-1) {$E'$};
@@ -2376,8 +2376,8 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
 (C') edge node[below]{$t'$} (D')
-(C) edge node[left]{$f$} (C')
-(D) edge node[right]{$g$} (D');
+(C) edge node[left]{$g$} (C')
+(D) edge node[right]{$f$} (D');
 
 \node (E) at (4,-0.5) {$\La$};
 \node (G) at (5,0) {$E$};
@@ -2385,7 +2385,7 @@ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diag
 %\node[rotate=-90] at (4.1,-0.5) {$\sim$};
 \path[->,font=\scriptsize,>=angle 90]
 (G) edge node[above]{$\ell$} (E)
-(G) edge node[right]{$f$} (G')
+(G) edge node[right]{$g$} (G')
 (G') edge node[below]{$\ell'$} (E);
 \end{tikzpicture}
 \]
@@ -2511,15 +2511,15 @@ A \define{Petri net} is a pair of finite sets $S$ and $T$ and functions $s,t \ma
 This Petri net has a single transition $\alpha$ with $2\textnormal{H}+\textnormal{O}$ as its source and $\textnormal{H}_2 \textnormal{O}$ as its target. 
 
 There is a category $\Petri$ with Petri nets as objects, where a morphism from the Petri net 
-$s, t \maps T \to \N[S]$ to the Petri net $s', t' \maps T' \to \N[S']$ is a pair of functions $f \maps T \to T', g \maps S \to S'$ such that the following diagrams commute:
+$s, t \maps T \to \N[S]$ to the Petri net $s', t' \maps T' \to \N[S']$ is a pair of functions $f \maps S \to S', g \maps T \to T'$ such that the following diagrams commute:
 	\[
 	\xymatrix{ 
-		T \ar[d]_f  \ar[r]^-{s} & \N[S] \ar[d]^-{\N[g]} \\	
+		T \ar[d]_g  \ar[r]^-{s} & \N[S] \ar[d]^-{\N[f]} \\	
 		T' \ar[r]_-{s'} & \N[S'] 
 	}
 	\qquad
 	\xymatrix{ 
-		T \ar[d]_f  \ar[r]^-{t} & \N[S] \ar[d]^-{\N[g]} \\	
+		T \ar[d]_g  \ar[r]^-{t} & \N[S] \ar[d]^-{\N[f]} \\	
 		T' \ar[r]_-{t'} & \N[S'] . 
 	}
 	\]
@@ -2653,7 +2653,7 @@ is a morphism of the underlying Petri nets such that the following diagram also 
 \node (G) at (4,0) {$T$};
 \node (G') at (4,-1) {$T'$};
 \path[->,font=\scriptsize,>=angle 90]
-(G) edge node[right]{$f$} (G')
+(G) edge node[right]{$g$} (G')
 (G) edge node[above]{$r$} (E)
 (G') edge node[below]{$r'$} (E);
 \end{tikzpicture}
