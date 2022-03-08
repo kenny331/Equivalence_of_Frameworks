@@ -323,13 +323,18 @@ that
 is not already explained in this one? If some of the articles about decorated cospans were found to contain errors, is this the only construction of 
 decorated cospans that solves these errors?
 
-{\bf The present work reviews all previous work on decorated and structured cospans in Section 6.  As we mention, our previous paper ``Structured cospans'' fixed the errors in previous work using decorated cospans by using structured cospans instead.   Here we describe how the new improved decorated cospans can also fix those errors.     There may be even more ways to correct these errors, but we do not know them.}    {\john $\checkmark$}
+{\bf The present work reviews all previous work on decorated and structured cospans in Section 6.  As we mention, our previous paper ``Structured 
+cospans'' fixed the errors in previous work using decorated cospans by using structured cospans instead.   Here we describe how the new improved 
+decorated cospans can also fix those errors.     There may be even more ways to correct these errors, but we do not know them.}    {\john 
+$\checkmark$}
+{\chris As was suggested by John at some point, would we perhaps want to add a sentence or two in the introduction, saying that indeed there are a 
+number of cospan articles etc. and that in the beginning of section 6 we elaborate on those?}
 
  \item Lemma 2.4: when talking about the functors $F : (A,\otimes)\to(Cat,\times)$, I think sometimes it is specified that they are lax and sometimes 
 it is not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
 
 {\bf We have added ``lax'' at Lemma 2.4 in two occurences, and have checked the rest of the document to verify that this does not happen 
-elsewhere.}  {\john $\checkmark$}
+elsewhere.}  {\john $\checkmark$} {\chris $\checkmark$}
 
 \item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex $\to$ SymMonCat”.
 
@@ -345,28 +350,37 @@ I think the referee just wanted us to change, in the statement of Theorem 4.1, t
 ``factors through $\mathsf{Rex}$'' to ``“factors through $R \colon \mathsf{Rex} \to \mathsf{SMC}$, where $R$ was his name for this 2-functor, not ours!   It's not a good name for it since we have another $R$ in our
 paper.   So, I've commented out the added text and said ``factors through the above 2-functor $\mathsf{SMC} \to \mathsf{Rex}$'' --- we defined right above the theorem.}
 
+{\chris Indeed this comment refers to the functor $\mathsf{Rex} \to \mathsf{SMC}$, I also chose to disregard R for the same reasons. The paragraph 
+below existed in part later in text, and was in part expanded it according to comment 29, not this one! I think I agree with that comment in that the 
+assumptions of the theorem deserve a bit of explanation, and tried my best there but possibly did not succeed if you say it is confusing. Could we 
+revive the paragraph and explain better? I can give it another try!}
 
 \item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
 
-{\bf Done.}  {\john $\checkmark$}
+{\bf Done.}  {\john $\checkmark$} {\chris $\checkmark$}
 
 \item After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
 
-{\bf Done.} {\john $\checkmark$}
+{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$}
 
 \item Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
 notation.
 
-{\bf Done.} {\john $\checkmark$}
+{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$}
 
 \item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily”  modify, we “better understand”) sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing  it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification  for the use of Petri nets with rates.
 
-{\bf There is now a paper detailing how this software works, so we have changed our paper
-so it simply refers to that.}   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.}
+{\bf There is now a paper detailing how this software works, so we have changed our paper (according to this suggestion)
+so it simply refers to that.}   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
+
+{\chris Great! The 
+hyperref link ??? opens up notes by Kenny for me, I don't know how or why. I added ``according to this suggestion'' above to reflect that we indeed 
+fused the paragraph as they suggested.}
 
 \item Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each one of them, but perhaps it would be useful to point to other places where they are described.
 
-{\bf We have added a word about Markov processes in Section 6.2, and with this, all the applications of structured or decorated cospans that we know of are discussed here.} {\john $\checkmark$}
+{\bf We have added a word about Markov processes in Section 6.2, and with this, all the applications of structured or decorated cospans that we know 
+of are discussed here.} {\john $\checkmark$} {\chris $\checkmark$}
 
 {\chris Second review starts here}
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured  cospans are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
@@ -425,7 +439,7 @@ that might
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
 readers that are more familiar with the applications and thus cannot be assumed to know such results.
 
-{\bf We have added a citation to Emily Riehl's book ``Category Theory in Context'' which includes said result, above Lemma 6.1.}
+{\bf We have added a citation to Emily Riehl's book ``Category Theory in Context'' which includes said result, above Lemma 6.1.} {\chris $\checkmark$}
 
 {\chris Third review starts here}
 \item p. 2. “Unfortunately, many applications of decorated cospans were flawed… for reasons painstaking explained in [1]”
@@ -456,11 +470,14 @@ the following proofs that assumption is used.
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
 decorated and structured approach to constructing open graphs.
 
-{\chris I don't think I understand this, anyone else?}
+{\bf At the beginning of Section 6.1, we now use $f$ as a map between vertices and $g$ as a map between edges.} {\chris $\checkmark$}
 
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
 
-{\john That sounds plausible.  Unless there's a damn good reason let's use $f$ as a map for vertices and $g$ as a map for edges, since ``vertices come before edges'' - morally the first are 0-cells, the second are 1-cells.}
+{\john That sounds plausible.  Unless there's a damn good reason let's use $f$ as a map for vertices and $g$ as a map for edges, since ``vertices come 
+before edges'' - morally the first are 0-cells, the second are 1-cells.}
+
+{\chris I see. Fixed, and see above.}
 
 \item p. 27, end of Section 6.
 
@@ -476,7 +493,7 @@ structured cospans can be established?
 If I am not mistaken, “fibration”, “opfibration,” “monoidal (op/bi)fibration” are all defined, but the definition of “bifibration” is omitted. For 
 completeness, it should be included.
 
-{\bf Done.}
+{\bf Done.} {\chris $\checkmark$}
 
 \item A last general comment is that the paper unfortunately adopts the strategy, all too common in math papers, of putting all the examples in a 
 section at 
@@ -495,7 +512,10 @@ section.
 
 {\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
-{\color{blue}{Kenny: They might not mean $gf$ specifically, but there are many instances where we don't use a $\circ$ for functional composition, e.g. when we're pushing forward a graph structure over a map $f$ of vertices towards the top of page 21. Do we want to use a $\circ$ or not?}}
+{\color{blue}{Kenny: They might not mean $gf$ specifically, but there are many instances where we don't use a $\circ$ for functional composition, e.g. 
+when we're pushing forward a graph structure over a map $f$ of vertices towards the top of page 21. Do we want to use a $\circ$ or not?}}
+
+{\chris Ah you are right. I don't mind, we could specify that for function composition we sometimes use concatenation!}
 
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
@@ -522,7 +542,7 @@ role.
 
 \item Theorem 2.5: F should be defined on A, not A’
 
-{\bf Done.}
+{\bf Done.} {\chris $\checkmark$}
 
 \item I think it would be worth saying in words a bit more prominently what the hypothesis of theorem 4.1 roughly means, namely that the fibers of 
 the total 

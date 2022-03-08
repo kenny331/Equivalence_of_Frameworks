@@ -2133,7 +2133,10 @@ In many cases, \cref{thm:equiv} shows that the structured and decorated cospan a
 \subsection{Graphs}
 \label{subsec:graphs}
 
-One of the simplest kinds of network is a graph.  For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are finite sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ where the objects are graphs and a morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps E \to E', g \maps N \to N'$ such that these diagrams commute:
+One of the simplest kinds of network is a graph.  For us a \define{graph} will be a pair of functions $s,t\maps E \to N$ where $E$ and $N$ are finite 
+sets.   We call elements of $E$ \define{edges} and elements of $N$ \define{nodes}.  There is a category $\Graph$ where the objects are graphs and a 
+morphism from the graph $s,t\maps E \to N$ to the graph $s',t' \maps E' \to N'$ is a pair of functions $f \maps N \to N', g \maps E \to E'$ such that 
+these diagrams commute:
 \[
 \begin{tikzpicture}[scale=1.5]
 \node (A) at (0,0) {$E$};
@@ -2143,8 +2146,8 @@ One of the simplest kinds of network is a graph.  For us a \define{graph} will b
 \path[->,font=\scriptsize,>=angle 90]
 (A) edge node[above]{$s$} (B)
 (A') edge node[below]{$s'$} (B')
-(A) edge node[left]{$f$} (A')
-(B) edge node[right]{$g$} (B');
+(A) edge node[left]{$g$} (A')
+(B) edge node[right]{$f$} (B');
 
 \node (C) at (2,0) {$E$};
 \node (C') at (2,-1) {$E'$};
@@ -2153,8 +2156,8 @@ One of the simplest kinds of network is a graph.  For us a \define{graph} will b
 \path[->,font=\scriptsize,>=angle 90]
 (C) edge node[above]{$t$} (D)
 (C') edge node[below]{$t'$} (D')
-(C) edge node[left]{$f$} (C')
-(D) edge node[right]{$g$} (D');
+(C) edge node[left]{$g$} (C')
+(D) edge node[right]{$f$} (D');
 \end{tikzpicture}
 \]
 
