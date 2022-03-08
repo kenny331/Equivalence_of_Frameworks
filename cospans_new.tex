@@ -1568,15 +1568,15 @@ Our main result is this:
 
 \begin{thm} \label{thm:equiv}
 Suppose $\A$ has finite colimits and $F \maps (\A,+) \to (\Cat,\times)$ is a symmetric lax monoidal pseudofunctor. If the corresponding pseudofunctor $F \maps \A \to \SMC$ from \cref{lem:MonGroth}
- factors through $\Rex\to\SMC$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and ${}_L\lCsp(\inta F)$ of structured 
+ factors through the above 2-functor $\Rex\to\SMC$, then the symmetric monoidal double categories $F\lCsp$ of decorated cospans and ${}_L\lCsp(\inta F)$ of structured 
 cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the induced Grothendieck opfibration $U \maps \inta F \to \A$.
 \end{thm}
 
 \iffalse
 The 2-equivalence of \cref{lem:MonGroth} has an important special case where the Grothendieck category $(X,\otimes_\X)$ is cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}.  In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
-\fi
 
 Essentially, the above assumptions state that the fibers of the induced opfibration $U$ have finite colimits which are preserved by the reindexing functors, and the induced fiberwise monoidal structure is cocartesian. Regarding the last point: the lax monoidal pseudofunctor structure $(F,\phi,\phi_0)$ gives rise to a specific symmetric monoidal structure on the fibers $F(a)$ given by \cref{eq:explicitstructure1}, since $\A$ is cocartesian monoidal, and we ask that the resulting pseudofunctor $F\maps \A \to \SMC$ factors through $\Rex$, so that \cref{eq:explicitstructure1} gives coproducts and an initial object in each $F(a)$.
+\fi
 
 It will be important to know that under the hypotheses of 
 \cref{thm:equiv} the opfibration $U$ preserves all finite colimits.   For this we need the following lemma.
@@ -2346,7 +2346,8 @@ We thus have two symmetric monoidal double categories: ${}_L \lCsp(\Graph)$ obta
 \subsection{Circuits}
 \label{subsec:circuits}
 
-Structured and decorated cospans are a powerful tool for studying categories where the morphisms are electrical circuits---see \cite[Section 6.1]{BC} and \cite{BCR,BF}.  The key idea is to use open graphs with labeled edges to describe circuits, where the labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, or other circuit elements.   The whole theory of open graphs discussed in the previous section can be recapitulated for labeled graphs.  Since the abstract formalism works the same way, we can be brief.   Concrete applications of this formalism are discussed in the references.
+Structured and decorated cospans are a powerful tool for studying categories where the morphisms are electrical circuits---see \cite[Section 6.1]{BC} and \cite{BCR,BF}.  The key idea is to use open graphs with labeled edges to describe circuits, where the labels can stand for resistors with any chosen resistance, capacitors with any chosen capacitance, or other circuit elements.   The whole theory of open graphs discussed in the previous section can be recapitulated for labeled graphs.  Since the abstract formalism works the same way, we can be brief.   Concrete applications of this formalism are discussed in the above references, and in \cite{BFP} a class of Markov processes were
+also handled using this formalism, by reducing them to circuits of resistors.
 
 Fix a set $\La$ to serve as edge labels.  Define an $\La$-\define{graph} to be a graph $s,t\maps E\to N$ equipped with a function $\ell \maps E \to \La$.  There is a category $\Graph_\La$ where the objects are $\La$-graphs and a morphism from the $\La$-graph 
  \[ \xymatrix{\La & E \ar@<2.5pt>[r]^{s} \ar@<-2.5pt>[r]_{t} \ar[l]_{\ell} & N} \]
@@ -2636,9 +2637,7 @@ Here is the corresponding open dynamical system:
 \end{array}
 \end{equation}
 Here $I_1(t),I_2(t),I_3(t)$ and $O_1(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_1,i_2,i_3 \in X$ and $o_1 \in Y$.
-If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.  
-
-Recently Halter and Patterson \cite{HP} implemented this idea in a software tool that makes it easy to build epidemiological models using structured cospans.  They used this to rebuild part of the COVID-19 model that the UK has been using to make policy decisions.  The advantage of using structured or decorated cospans is that one can build complex models from smaller pieces, so one can easily add or change parts, and better understand the effects of doing this.
+If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, open Petri nets and the mathematics of structured cospan categories have recently been used to develop a software tool for building and manipulating epidemiological models \cite{BFMLP}.  
 
 Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
@@ -3415,6 +3414,9 @@ If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $
 
 \begin{thebibliography}{100}
 
+\bibitem{BFMLP}  A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson, An
+algebraic framework for structured epidemic modeling.   Available as \href{???}{???}
+
 \bibitem{BC} J.\ C.\ Baez and K.\ Courser, Structured cospans,  \textsl{Theory Appl.\ Categ.\ }\textbf{35} (2020), 1771--1822.   Available as \href{http://arxiv.org/abs/1911.04630}{arXiv:1911.04630}.
 
 \bibitem{BCR} J.\ C.\ Baez, B.\ Coya and F.\ Rebro, Props in circuit theory, \textsl{Theory Appl.\ Categ.\ }\textbf{33} (2018), 727--783.    Available as \href{https://arxiv.org/abs/1707.08321}{arXiv:1707.08321}. 
@@ -3485,8 +3487,6 @@ Available as \href{https://arxiv.org/abs/1609.05382}{arXiv:1609.05382}.
 
 \bibitem{Haas} P.\ J.\ Haas, \textsl{Stochastic Petri Nets: Modelling, Stability, Simulation},
 Springer, Berlin, 2002.
-
-\bibitem{HP} M.\ Halter and E.\ Patterson, Compositional epidemiological modeling using structured cospans, 2020.  Available at \href{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}{https://www.algebraicjulia.org/blog/post/2020/10/structured-cospans}.
 
 \bibitem{HS}  L.\ W.\ Hansen and M.\ Shulman, Constructing symmetric monoidal bicategories functorially.  Available as \href{https://arxiv.org/abs/1910.09240}{arXiv:1910.09240}.
 
