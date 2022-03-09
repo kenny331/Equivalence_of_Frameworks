@@ -567,7 +567,7 @@ together with a \define{decoration morphism} $\tau \maps F(h)(s) \to s'$ in $F(m
 \end{itemize}
 \end{thm}
 
-Vertical composition in $F\lCsp$ is done using composition in $\A$.  The horizontal composite of $F$-decorated cospans
+Note that the decoration $s \in F(m)$ is now an object in the category $F(m)$, not an element of a set as in Fong's original approach.  Vertical composition in $F\lCsp$ is done using composition in $\A$.  The horizontal composite of $F$-decorated cospans
 \[ \left(a\to m\leftarrow b,s\in F(m)\right), \qquad \left(b\to n\leftarrow c,t\in F(n)\right)\] 
 is the usual composite via pushout of their underlying cospans, shown in dashed arrows here:
 \[
@@ -2644,7 +2644,7 @@ Here is the corresponding open dynamical system:
 \end{array}
 \end{equation}
 Here $I_1(t),I_2(t),I_3(t)$ and $O_1(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_1,i_2,i_3 \in X$ and $o_1 \in Y$.
-If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, open Petri nets and the mathematics of structured cospan categories have recently been used to develop a software tool for building and manipulating epidemiological models \cite{BFMLP}.  
+If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, a group of researchers has recently used open Petri nets and the mathematics of structured cospans in their software tool for building and manipulating epidemiological models \cite{BFMLP}.  
 
 Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
@@ -2829,7 +2829,7 @@ we get an open dynamical system called the \define{open rate equation}:
 \[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
 where $I \maps \R \to \R^X$ and $O \maps \R \to \R^Y$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
 
-We now show that the decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}. Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that if the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$. We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \lCsp(\X)$. We now show that in the case at hand, where $F = D$, the opfibration $U$ does \emph{not} have a left adjoint. Thus, the conditions of \cref{thm:equiv} do not hold in this case: $F$ does not factor through $\Rex$.
+We now show that the decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}. Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that if the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$. We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \lCsp(\X)$. We now show that in the case at hand, where $F = D$ is the functor sending each finite set $S$ to the set of dynamical systems on $\R^S$, the opfibration $U$ does \emph{not} have a left adjoint. Thus, the conditions of \cref{thm:equiv} cannot hold in this case: $F$ does not factor through $\Rex$.
 
 Taking $D$ as above, it is easy to see that in the category $\inta D$
 \begin{itemize}
@@ -2842,7 +2842,7 @@ with the usual composition of functions.   The forgetful functor $U \maps \inta 
 \item on morphisms, $D(f) = f$.
 \end{itemize}
 
-To show that $U$ does not have a left adjoint, we use the following well-known result \cite[Lemma 4.6.1]{Riehl}:
+To show that $U$ does not have a left adjoint, we use a known result \cite[Lemma 4.6.1]{Riehl}:
 \begin{lem} \label{lem:initial}
 A functor $U \maps \A \to \X$ admits a left adjoint if and only if for every $x \in \X$, the comma category $x \downarrow U$ has an initial object.
 \end{lem}
