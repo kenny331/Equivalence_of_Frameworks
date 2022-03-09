@@ -357,7 +357,11 @@ below existed in part later in text, and was in part expanded according to comme
 assumptions of the theorem deserve a bit of explanation, and tried my best there but possibly did not succeed if you say it is confusing. Could we 
 revive the paragraph and explain better? I can give it another try!}
 
-{\john  Okay, that makes sense.   I put the paragraph back in and changed it a bunch: basically, I added some more steps so people who don't know what we're doing will have an easier time figuring it out.   Does it look okay to you?}
+{\john  Okay, that makes sense.   I put the paragraph back in and changed it a bunch: basically, I added some more steps so people who don't know what 
+we're doing will have an easier time figuring it out.   Does it look okay to you?}
+
+{\chris Yes it does, thanks! Although in my mind, it kinda goes the opposite way: e.g. the already induced monoidal product on the fibers ends up 
+having the universal property of a coproduct for example. Possibly just overthinking and getting mixed up with words.}
 
 \item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
 
@@ -376,11 +380,10 @@ notation.
 
 {\bf There is now a paper detailing how this software works, so according to this suggestion we have changed our paper so it simply refers to that other paper.}   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
 
-{\chris Great! The 
-hyperref link ??? opens up notes by Kenny for me, I don't know how or why. I added ``according to this suggestion'' above to reflect that we indeed 
-fused the paragraph as they suggested.}
+%{\chris Great! The 
+%hyperref link ??? opens up notes by Kenny for me, I don't know how or why.}
 
-{\john It's weird that the line ??? opens up anything for you.  It'll go away when we get the arXiv number.}
+%{\john It's weird that the line ??? opens up anything for you.  It'll go away when we get the arXiv number.} Indeed!
 
 \item Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each one of them, but perhaps it would be useful to point to other places where they are described.
 
@@ -391,7 +394,10 @@ of are discussed here.} {\john $\checkmark$} {\chris $\checkmark$}
 
 {\chris Second review starts here}
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured  cospans are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
-structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the application domain, and a some description of the tradeoffs. 
+structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
+application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
+how to choose whether to model their application with structured vs decorated cospans. {THE LAST SENTENCE IS NEWLY COPIED FROM REVIEW, WE CAN ERASE 
+IF NOT CONVENIENT}
 
 {\bf In fact our goal, as explained in the abstract and introduction, was to prove that the structured and decorated cospan approaches are equivalent under certain conditions, and to illustrate this result with a wide variety of examples.}
 
@@ -404,6 +410,11 @@ improve it, or something.}
 
 {\john $\checkmark$}
 
+{\chris I agree with both, and also I like the boldface above. I could add ``Those examples should serve as a guide for other similar applications, 
+whereas new applications would require exploring which approach works best, for example if a left adjoint (to start off with structured cospans) or a 
+lax monoidal pseudofunctor (to start off with decorated cospans) is available. We do not make a stand that either is strictly better.'' In fact, we 
+could add something soft along those lines somewhere in the introduction to satisfy the reviewer, if we like.}
+
 \item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
 explanation of the differences here. The examples of graph, labeled 
 graph, Petri net, reaction net are all examples of attributed C-Sets [1], the structured cospan construction in provided for arbitrary attributed 
@@ -415,6 +426,12 @@ on it in this paper.
 
 {\john Actually it's really easy to prove that presheaf categories obey the conditions of Theorem 4.1:
 given any functor $f : \mathsf{C} \to \mathsf{D}$ the left adjoint functor between presheaf categories $f_! : \widehat{\mathsf{C}} \to \widehat{\mathsf{D}}$ obeys the conditions of Theorems 4.1 and 4.2.   So I think we can easily add this as a corollary, maybe right after Theorem 4.2, to get a pile of examples.   Obvious to us, but not to everyone.  Should I do it?}
+
+{\chris Sounds like a great idea to me!! I was also a bit scared to go into this when I first saw it, but I kinda thought morally we should, and now 
+it looks like it won't be a disaster, and in fact a very fruitful result!! So yes please, do it and let me know what I can do to help except 
+proofread it.}
+
+{\chris Also perhaps we should add those references they provide somewhere.}
 
 \item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
 for complex 
@@ -461,9 +478,11 @@ that might
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
 readers that are more familiar with the applications and thus cannot be assumed to know such results.
 
-{\bf We have added a citation to Emily Riehl's book ``Category Theory in Context'' which includes said result, above Lemma 6.1.} {\chris $\checkmark$} 
+{\bf We have added a citation to Emily Riehl's book ``Category Theory in Context'' which includes said result, above Lemma 6.1.}  
 
-{\john I have also changed ``well-known'' to ``known'', which is more polite to people who don't know it.} {\john $\checkmark$} 
+%{\john I have also changed ``well-known'' to ``known'', which is more polite to people who don't know it.} {\chris Good!}
+
+{\john $\checkmark$} {\chris $\checkmark$}
 
 {\chris Third review starts here}
 \item p. 2. “Unfortunately, many applications of decorated cospans were flawed… for reasons painstaking explained in [1]”
@@ -494,9 +513,12 @@ the following proofs that assumption is used.
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
 decorated and structured approach to constructing open graphs.
 
-{\bf At the beginning of Section 6.1, we now use $f$ as a map between vertices and $g$ as a map between edges.} 
+{\bf At the beginning of Section 6.1, as well as in Sections 6.2 and 6.3, we now use $f$ as a map between vertices and $g$ as a map 
+between edges.} 
 
 {\chris $\checkmark$} {\john $\checkmark$}
+
+{\chris Added a few more places where Kenny spotted these mistakes.}
 
 \iffalse
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
@@ -521,7 +543,7 @@ structured cospans can be established?
 If I am not mistaken, “fibration”, “opfibration,” “monoidal (op/bi)fibration” are all defined, but the definition of “bifibration” is omitted. For 
 completeness, it should be included.
 
-{\bf We have done this} 
+{\bf Done.} 
 
 {\chris $\checkmark$} {\john $\checkmark$} 
 
@@ -562,17 +584,17 @@ much.}
 distinction to 
 Fong's original definition.
 
-{\bf  We have added a remark about this in the definition.}   \john{$\checkmark$}
+{\bf  We have added a remark about this in the definition.}   {\john $\checkmark$} {\chris $\checkmark$}
 
 {\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
-{\john It's hard to tweak the statement, since we're really trying to introduce the notation of decorations in maps of structured cospans here!    So I've added something about this \emph{after} the statement of Theorem 2.1.  See if you like it:
-
+{\john It's hard to tweak the statement, since we're really trying to introduce the notation of decorations in maps of structured cospans here!    So 
+I've added something about this \emph{after} the statement of Theorem 2.1.  See if you like it:
 \begin{quote} 
 Note that the decoration $s \in F(m)$ is now an object in the category $F(m)$, not an element of a set as in Fong's original approach. 
-\end{quote}
+\end{quote}}
 
-}
+{\chris Looks good!}
 
 \item Proof of theorem 2.1: You should probably at least handwave that the cartesian liftings really are cartesian liftings. (No doubt it’s easy, but 
 this 
