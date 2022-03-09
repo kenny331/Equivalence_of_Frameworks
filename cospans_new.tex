@@ -395,7 +395,8 @@ Unfortunately, many applications of decorated cospans were flawed.  The problem 
 }
 \]
 We might hope to do this using a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$ assigning to each finite set $m$ the set of all graphs with $m$ as their set of nodes. But this hope is doomed, for reasons painstakingly explained in \cite[Section 5]{BC}. 
-There is really a \emph{category} of graphs with $m$ as their set of nodes---and surprisingly, trying to treat this category as a mere set does not work, despite all the tricks one might try.
+There is really a \emph{category} of graphs with $m$ as their set of nodes---and surprisingly, trying to treat this category as a mere set does not 
+work.
 
 Here we present a solution to this problem.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans_1,thm:decorated_cospans_2}, we use this
 data to construct a symmetric monoidal double category $F\lCsp$ in which:
@@ -506,9 +507,16 @@ We thank Daniel Cicala, Brendan Fong and Joe Moeller for helpful conversations. 
 
 \section{Decorated cospans}\label{DecCospansDoubleCat}
 
-In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   \cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat, \times)$ whenever $\A$ has finite colimits.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas \cite{FongThesis}.
+In this section we build symmetric monoidal double categories of decorated cospans, and then study the functoriality of this construction.   
+\cref{thm:decorated_cospans_1} explains how to construct a double category of decorated cospans from a lax monoidal pseudofunctor $F \maps (\A,+) \to 
+(\Cat, \times)$ whenever $\A$ has finite colimits.  \cref{thm:decorated_cospans_2} gives conditions under which this double category is symmetric 
+monoidal.   These results build on earlier work of Fong \cite{Fong}, and we recommend his thesis for intuitive explanations of the fundamental ideas 
+\cite{FongThesis}. For concrete examples of the structures that follow, we refer the reader to \cref{Applications}.
 
-In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if $\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to canonical isomorphism, unless otherwise specified.   We recall the concept of lax monoidal pseudofunctor in \cref{subsec:bicats}.
+In all that follows, when we say a category `has finite colimits' we mean it is equipped with a choice of colimit for every finite diagram.   Thus, if 
+$\A$ has finite colimits it gives a cocartesian monoidal category $(\A,+)$: that is, a symmetric monoidal category where the monoidal structure is 
+given by the chosen binary coproducts and initial object.   However, when we say a functor `preserves finite colimits', it need only do this up to 
+canonical isomorphism, unless otherwise specified.   We recall the concept of lax monoidal pseudofunctor in \cref{subsec:bicats}.
 
 \begin{thm}\label{thm:decorated_cospans_1}
 Let $\A$ be a category with finite colimits and $(F,\phi,\phi_0) \maps (\A,+) \to (\Cat,\times)$ a lax monoidal pseudofunctor. Then there exists a double category $F\lCsp$ in which
@@ -1310,7 +1318,9 @@ we have a natural isomorphism between $0_{\inta F'}$ and $G(0_{\inta F})$ given 
 \section{Structured cospans} \label{Structured}
 
 Structured cospans are an alternative approach to equipping the apex of a cospan with 
-extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their relation to decorated cospans.   This new construction again uses Shulman's \cref{lem:shulman}.  
+extra data \cite{BC}.    Here we recall this formalism and give a new construction of the double category of structured cospans that clarifies their 
+relation to decorated cospans.   This new construction again uses Shulman's \cref{lem:shulman}. For concrete examples of this formalism, see 
+\cref{Applications}.
 
 \begin{thm}\label{thm:structured_cospans}
 Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
@@ -3420,6 +3430,9 @@ If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $
 
 
 \begin{thebibliography}{100}
+
+\bibitem{AP} AlgebraicPetri team, Github repository. Available as 
+\href{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}{AlgebraicPetri.jl}.
 
 \bibitem{BFMLP}  A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson, An
 algebraic framework for structured epidemic modeling.   Available as \href{???}{???}
