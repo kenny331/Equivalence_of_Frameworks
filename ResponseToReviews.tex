@@ -334,7 +334,7 @@ number of cospan articles etc. and that in the beginning of section 6 we elabora
 it is not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
 
 {\bf We have added ``lax'' at Lemma 2.4 in two occurences, and have checked the rest of the document to verify that this does not happen 
-elsewhere.}  {\john $\checkmark$} {\chris $\checkmark$}
+elsewhere.}  {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex $\to$ SymMonCat”.
 
@@ -365,16 +365,16 @@ having the universal property of a coproduct for example. Possibly just overthin
 
 \item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
 
-{\bf Done.}  {\john $\checkmark$} {\chris $\checkmark$}
+{\bf Done.}  {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
 
-{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$}
+{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
 notation.
 
-{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$}
+{\bf Done.} {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily”  modify, we “better understand”) sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing  it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification  for the use of Petri nets with rates.
 
@@ -388,7 +388,7 @@ notation.
 \item Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each one of them, but perhaps it would be useful to point to other places where they are described.
 
 {\bf We have added a word about Markov processes in Section 6.2, and with this, all the applications of structured or decorated cospans that we know 
-of are discussed here.} {\john $\checkmark$} {\chris $\checkmark$}
+of are discussed here.} {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \vskip 1em
 
@@ -418,6 +418,10 @@ could add something soft along those lines somewhere in the introduction to sati
 {\chris By the way, there is this sentence ''However, it should be clear by now that so
 far, in cases where either structured or decorated cospans can be used, structured cospans are simpler. '' in section 6. Perhaps we could even imply 
 that somewhere in the intro as well?}
+
+{\kenny The boldface looks good to me, but I also like Christina's suggestions above if we really want to make an effort to appease this referee. I'm fine either way on this.}
+
+{\kenny $\checkmark$}
 
 \item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
 explanation of the differences here. The examples of graph, labeled 
@@ -475,6 +479,8 @@ this tricks don't work.  So maybe I should just delete ``despite all the tricks 
 
 {\chris Sounds good to me! See above, amend at will.}
 
+{\kenny Sounds good.}
+
 \item pg. 3: “Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other 
 scholars 
 using the decorated cospan approach as flawed. The alleged flaw should be made more precise. What about the decorated cospan approach is inferior to 
@@ -501,7 +507,7 @@ readers that are more familiar with the applications and thus cannot be assumed 
 
 %{\john I have also changed ``well-known'' to ``known'', which is more polite to people who don't know it.} {\chris Good!}
 
-{\john $\checkmark$} {\chris $\checkmark$}
+{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 {\chris Third review starts here}
 \item p. 2. “Unfortunately, many applications of decorated cospans were flawed… for reasons painstaking explained in [1]”
@@ -532,6 +538,8 @@ the following proofs that assumption is used.
 {\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
 identity then? In any case, if we don't actually use it then we should make it into a transformation.}
 
+{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never actually got around to this.}
+
 \item p. 21, definition of F: Set $\to$ Cat
 
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
@@ -540,9 +548,11 @@ decorated and structured approach to constructing open graphs.
 {\bf At the beginning of Section 6.1, as well as in Sections 6.2 and 6.3, we now use $f$ as a map between vertices and $g$ as a map 
 between edges.} 
 
-{\chris $\checkmark$} {\john $\checkmark$}
+{\chris $\checkmark$} {\john $\checkmark$} {\kenny  $\checkmark$}
 
 {\chris Added a few more places where Kenny spotted these mistakes.}
+
+{\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
 
 \iffalse
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
@@ -569,7 +579,7 @@ completeness, it should be included.
 
 {\bf Done.} 
 
-{\chris $\checkmark$} {\john $\checkmark$} 
+{\chris $\checkmark$} {\john $\checkmark$}  {\kenny $\checkmark$}
 
 \item A last general comment is that the paper unfortunately adopts the strategy, all too common in math papers, of putting all the examples in a 
 section at 
@@ -588,6 +598,7 @@ hand.}
 
 {\chris I agree. How does the above boldface sound?}
 
+{\kenny Agreed about keeping the examples together. The boldface looks good to me.}
 
 {\chris Fourth review starts here}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
@@ -619,7 +630,7 @@ much.}
 distinction to 
 Fong's original definition.
 
-{\bf  We have added a remark about this in the definition.}   {\john $\checkmark$} {\chris $\checkmark$}
+{\bf  We have added a remark about this in the definition.}   {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 {\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
@@ -646,16 +657,18 @@ makes sense. Something potentially different than \emph{just} a graph structure 
 {\chris Right! We can perhaps add a sentence to this end, saying that although we only use E as an identity, someone could need to change decorations 
 for some application?}
 
+{\kenny Sure, maybe sometime before the official statement of the Theorem when we're describing how the double functor $\mathbb{H}$ is defined?}
+
 \item Theorem 2.5: F should be defined on A, not A’
 
-{\bf Done.} {\chris $\checkmark$}
+{\bf Done.} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item I think it would be worth saying in words a bit more prominently what the hypothesis of theorem 4.1 roughly means, namely that the fibers of 
 the total 
 category have finite colimits, reindexing preserves them, and the monoidal product on the fibers is cocartesian.
 
 {\bf We have added a paragraph right below the statement of Theorem 4.1, clarifying its assumptions as suggested, which also incorporates an 
-explanatory paragraph previously located under Corollary 4.3.} {\chris $\checkmark$}
+explanatory paragraph previously located under Corollary 4.3.} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item I wonder if the “problem” where DCsp is not a structured cospan category could be “fixed” by upgrading the functor from Set to Cat in a 
 non-discrete 
