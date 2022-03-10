@@ -538,7 +538,11 @@ the following proofs that assumption is used.
 {\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
 identity then? In any case, if we don't actually use it then we should make it into a transformation.}
 
-{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never actually got around to this.}
+{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my 
+thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never 
+actually got around to this.}
+
+{\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
 \item p. 21, definition of F: Set $\to$ Cat
 
@@ -553,6 +557,8 @@ between edges.}
 {\chris Added a few more places where Kenny spotted these mistakes.}
 
 {\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
+
+{\chris Sure, are those in 6.4? As in, are there sections missing from the response sentence above?}
 
 \iffalse
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
@@ -632,15 +638,16 @@ Fong's original definition.
 
 {\bf  We have added a remark about this in the definition.}   {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
-{\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
+%{\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
-{\john It's hard to tweak the statement, since we're really trying to introduce the notation of decorations in maps of structured cospans here!    So 
-I've added something about this \emph{after} the statement of Theorem 2.1.  See if you like it:
-\begin{quote} 
-Note that the decoration $s \in F(m)$ is now an object in the category $F(m)$, not an element of a set as in Fong's original approach. 
-\end{quote}}
+%{\john It's hard to tweak the statement, since we're really trying to introduce the notation of decorations in maps of structured cospans here!    
+%So 
+%I've added something about this \emph{after} the statement of Theorem 2.1.  See if you like it:
+%\begin{quote} 
+%Note that the decoration $s \in F(m)$ is now an object in the category $F(m)$, not an element of a set as in Fong's original approach. 
+%\end{quote}}
 
-{\chris Looks good!}
+%{\chris Looks good!}
 
 \item Proof of theorem 2.1: You should probably at least handwave that the cartesian liftings really are cartesian liftings. (No doubt it’s easy, but 
 this 
@@ -658,6 +665,8 @@ makes sense. Something potentially different than \emph{just} a graph structure 
 for some application?}
 
 {\kenny Sure, maybe sometime before the official statement of the Theorem when we're describing how the double functor $\mathbb{H}$ is defined?}
+
+{\chris Sounds good to me!}
 
 \item Theorem 2.5: F should be defined on A, not A’
 
