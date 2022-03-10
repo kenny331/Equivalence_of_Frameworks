@@ -15,6 +15,27 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \usepackage{graphicx}
 \usepackage{stackrel}
 
+% math symbols
+
+\newcommand*{\graysquare}{\textcolor{lightgray}{\blacksquare}}
+
+\newcommand{\double}[1]{\mathbf{\mathbb #1}}
+\newcommand{\lCsp}{\double{Csp}}
+\newcommand{\lCospan}{\double{Cospan}}
+\newcommand{\lOpen}{\double{Open}}
+\newcommand{\Fr}{\double{Fr}}
+\newcommand{\lA}{\double{A}}
+\newcommand{\lB}{\double{B}}
+\newcommand{\lC}{\double{C}}
+\newcommand{\lD}{\double{D}}
+\newcommand{\lE}{\double{E}}
+\newcommand{\lF}{\double{F}}
+\newcommand{\lG}{\double{G}}
+\newcommand{\lH}{\double{H}}
+\newcommand{\lR}{\double{R}}
+\newcommand{\lX}{\double{X}}
+\newcommand{\lY}{\double{Y}}
+
 % colors
 \usepackage{xcolor}
 \usepackage{framed,color}
@@ -325,12 +346,12 @@ decorated cospans that solves these errors?
 
 {\bf The present work reviews all previous work on decorated and structured cospans in Section 6.  As we mention, our previous paper ``Structured 
 cospans'' fixed the errors in previous work using decorated cospans by using structured cospans instead.   Here we describe how the new improved 
-decorated cospans can also fix those errors.     There may be even more ways to correct these errors, but we do not know them.}    {\john 
-$\checkmark$}
+decorated cospans can also fix those errors.     There may be even more ways to correct these errors, but we do not know them.}  
+
 {\chris As was suggested by John at some point, would we perhaps want to add a sentence or two in the introduction, saying that indeed there are a 
 number of cospan articles etc. and that in the beginning of section 6 we elaborate on those?}
 
- \item Lemma 2.4: when talking about the functors $F : (A,\otimes)\to(Cat,\times)$, I think sometimes it is specified that they are lax and sometimes 
+ \item Lemma 2.4: when talking about the functors $F : (\mathsf{A},\otimes)\to(\mathsf{Cat},\times)$, I think sometimes it is specified that they are lax and sometimes 
 it is not. Perhaps it would be clearer to always use “lax monoidal” or to just use “monoidal” to mean lax monoidal.
 
 {\bf We have added ``lax'' at Lemma 2.4 in two occurences, and have checked the rest of the document to verify that this does not happen 
@@ -535,9 +556,15 @@ $\checkmark$} {\kenny $\checkmark$}
 
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
-Does the natural transformation $\theta$: EF $\Rightarrow$ F’ H have to be a natural isomorphism? Quite possibly I missed something, but I don’t see 
-where in 
+Does the natural transformation $\theta \colon EF \Rightarrow F’ H$ have to be a natural isomorphism? Quite possibly I missed something, but I don’t see where in 
 the following proofs that assumption is used.
+
+{\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism.
+In fact, in Section 6 we construct a double functor
+\[      \graysquare \colon F \lCsp \to D \lCsp \]
+sending any open Petri net with rates to its corresponding open dynamical system, and we do this
+using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly
+written that it was; we've fixed this now.}
 
 {\kenny I think they are correct in that we don't use this extra assumption.}
 
@@ -551,6 +578,19 @@ actually got around to this.}
 {\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
 {\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of structured cospans using Shulman's machine...}
+
+{\john  As Christina pointed out on Zulip, the $\theta : EF \Rightarrow F'H$ on page 26, where we are
+constructing a map from open Petri nets with rates to open dynamical systems, is \emph{not} an
+isomorphism.  I changed ``natural isomorphism'' to ``natural transformation'' at three points on page 26 --- 
+{\bf please help make sure we catch them all!}
+
+Also, I'd better change the remark about  $\theta: EF \Rightarrow F'H$  on page 9, and
+ in the statement of Theorem 2.5 --- these are two cases where we called it a ``natural 
+isomorphism''.    I'll do this now: I'll change it to a ``natural transformation''.
+
+I've thanked the referee profusely for catching this problem --- check out my response in boldface
+above, and if you're happy, we can check this one off!}
+
 
 \item p. 21, definition of F: Set $\to$ Cat
 
