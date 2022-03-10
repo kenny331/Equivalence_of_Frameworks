@@ -453,6 +453,8 @@ require getting around the result at the end of Section 6.}
 {\chris Should we refer to which result we are talking about? Also, I am a bit confused about the question and answer. I thought reaction networks 
 can be described in both ways?}
 
+{\kenny I'm kinda' confused by the question, too, due to its wording. Based on what Dr. Baez said in response, I think they might have meant dynamical systems instead of reaction networks in their last sentence. They even say earlier in their comment that the frameworks are isomorphic for reaction networks.}
+
 \item The development of the AlgebraicPetri software system is credited to Halter and Patterson based on a blog post. The correct citation is to the 
 software itself and should be credited to the entire AlgebraicPetri team based on a citation to the repository [3]. The additional authors would be 
 Andrew Baas and James Fairbanks.
@@ -498,6 +500,8 @@ decorated and structured cospans. Referring back to previous work of the authors
 text amend that sentence to ``Many of the flawed applications of decorated cospans, \emph{like the open graph one described above},...'' because we 
 do actually say what the flaw is there, correct? I don't see where we describe flaws in Section 6.}
 
+{\kenny It looks like we loosely mention what the problem is on page 2, but we already explained (in detail) what the problems are in \emph{Structured cospans}. I don't see why we can't just point the reader that wants to see what those problems are to that paper. I don't think we explain any flaws in Section 6; only use both frameworks and compare them.}
+
 \item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
 that might 
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
@@ -519,13 +523,15 @@ cospans, the isomorphism classes of open graphs depend on the identities of the 
 {\chris If I am not wrong, the paragraph cited here IS the explanation of the problem, perhaps in application terms rather than in theory terms. 
 Consider perhaps adding one sentence along the lines suggested?}
 
+{\kenny This seems similar to comment 14 above. So that's two people that want to know more about what the flaws are with the original decorated cospans but don't feel like opening our other paper...}
+
 \item p. 4, following statement of Thm 2.1.
 
 The diagram depicting the decoration morphism $\tau$ as a natural transformation, first shown explictly on p. 10, should be moved here since it is 
 implicitly used at the beginning of p. 5 to define the decoration of horizontal composites.
 
 {\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.} {\chris 
-$\checkmark$}
+$\checkmark$} {\kenny $\checkmark$}
 
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
@@ -544,12 +550,14 @@ actually got around to this.}
 
 {\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
+{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of structured cospans using Shulman's machine...}
+
 \item p. 21, definition of F: Set $\to$ Cat
 
 The use f, g for vertex/edge maps is opposite of the convention used on the previous page. I suggest that the same convention be used for both the 
 decorated and structured approach to constructing open graphs.
 
-{\bf At the beginning of Section 6.1, as well as in Sections 6.2 and 6.3, we now use $f$ as a map between vertices and $g$ as a map 
+{\bf At the beginning of Section 6.1, as well as in Sections 6.2, 6.3 and 6.4, we now use $f$ as a map between vertices and $g$ as a map 
 between edges.} 
 
 {\chris $\checkmark$} {\john $\checkmark$} {\kenny  $\checkmark$}
@@ -559,6 +567,8 @@ between edges.}
 {\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
 
 {\chris Sure, are those in 6.4? As in, are there sections missing from the response sentence above?}
+
+{\kenny Yes, one map did get changed in Section 6.4. Good catch.}
 
 \iffalse
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
@@ -633,6 +643,8 @@ convention
 
 {\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
 much.}
+
+{\kenny Agree with Christina.}
 
 \item Theorem 2.1: Maybe worth saying explicitly that s is an object of the category F(m) rather than using $\in$, since this is exactly the 
 distinction to 
