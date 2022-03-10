@@ -563,8 +563,7 @@ the following proofs that assumption is used.
 In fact, in Section 6 we construct a double functor
 \[      \graysquare \colon F \lCsp \to D \lCsp \]
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
-using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly
-written that it was; we've fixed this now.}
+using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}   {\john: $\checkmark$}
 
 {\kenny I think they are correct in that we don't use this extra assumption.}
 
@@ -628,7 +627,26 @@ way.
 All of this suggests the question: is there a way of constructing a category of dynamical systems that has more morphisms, so that a connection with 
 structured cospans can be established?
 
+{\bf That's a great question.   We do not know how to construct such a category, but the referee
+is correct in suggesting that doing it might give a structured cospan category of open dynamical
+systems.    
+
+As the referee noticed, the ``old, flawed'' construction of 
+decorated cospans from a lax monoidal functor $D \colon (\mathsf{FinSet},+) \to 
+\mathsf{Set}, \times) $ agrees with the new one using a lax monoidal pseudofunctor  $D \colon (\mathsf{FinSet},+) \to \mathsf{Cat}, \times) $ when the categories $D(S)$ are discrete,
+and thus essentially sets.   Thus, our use of this construction amounts to working with a
+set $D(S)$, rather than a full-fledged category, of dynamical systems on the finite set $S$.
+
+In the example near the end of Section 6, the category $\int \! D$ can be seen as a category
+of dynamical systems.   It is not discrete, but it does not have an initial object, as we'd
+need to get a structured cospan
+category that matches our decorated cospan category.   
+
+So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  { \john \checkmark} 
+
 {\chris This looks similar to comment 30.}
+
+{\john Yes, but it's worth a separate answer.   I wrote an answer above.  See if you like it.  }
 
 \item p. 30, following Thm A.2
 
@@ -722,16 +740,16 @@ for some application?}
 
 {\chris Sounds good to me!}
 
-\item Theorem 2.5: F should be defined on A, not A’
+\item Theorem 2.5: $F$ should be defined on $\mathsf{A}$, not $\mathsf{A}'$.
 
-{\bf Done.} {\chris $\checkmark$} {\kenny $\checkmark$}
+{\bf Done.} {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
 
 \item I think it would be worth saying in words a bit more prominently what the hypothesis of theorem 4.1 roughly means, namely that the fibers of 
 the total 
 category have finite colimits, reindexing preserves them, and the monoidal product on the fibers is cocartesian.
 
 {\bf We have added a paragraph right below the statement of Theorem 4.1, clarifying its assumptions as suggested, which also incorporates an 
-explanatory paragraph previously located under Corollary 4.3.} {\chris $\checkmark$} {\kenny $\checkmark$}
+explanatory paragraph previously located under Corollary 4.3.} {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
 
 \item I wonder if the “problem” where DCsp is not a structured cospan category could be “fixed” by upgrading the functor from Set to Cat in a 
 non-discrete 
