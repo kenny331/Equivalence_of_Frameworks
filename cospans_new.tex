@@ -2800,7 +2800,7 @@ sending any open Petri net with rates to its corresponding open dynamical system
 (C) edge node[below]{$D$} (D);
 \end{tikzpicture}
 \] 
-Here $\theta$ is a monoidal natural isomorphism given as follows.  For any finite set $S$, $\theta_S \maps F(S) \to D(S)$ maps any Petri nets with rates 
+Here $\theta$ is a monoidal natural transformation given as follows.  For any finite set $S$, $\theta_S \maps F(S) \to D(S)$ maps any Petri nets with rates 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
 to an algebraic vector field on $\R^S$, say $v$.   This vector field is defined using a standard prescription taken from chemistry, called `the law of mass action'.   Namely, for any $c \in \R^s$, we set
 \[  
@@ -2808,7 +2808,7 @@ v(c) = \sum_{\tau \in T} r(\tau) \, ( t(\tau) - s(\tau) ) c^{s(\tau)}
 \]
 where 
 \[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
-and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural isomorphism between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural isomorphism between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.  Thus, it defines a symmetric monoidal double functor $\graysquare \maps F \lCsp \to D \lCsp$.
+and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard, where it is also shown that $\theta$ defines a monoidal natural transformation between functors to $(\Set,\times)$ \cite[Theorem 18]{BP}.   As such, it automatically becomes a monoidal natural transformation between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.  Thus, it defines a symmetric monoidal double functor $\graysquare \maps F \lCsp \to D \lCsp$.
 
 In applications, this double functor lets us turn an open Petri net with rates into an open dynamical system as follows.  Given a Petri net with rates $P$ and defining $v$ as above, we
 obtain a system of first-order ordinary differential equations for a function $c \maps \R \to \R^S$ 
