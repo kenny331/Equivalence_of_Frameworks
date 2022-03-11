@@ -504,7 +504,7 @@ like $\lD$ for double categories. For double categories with names having more t
 blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a 
 category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in 
 our double categories is strictly associative, while horizontal composition need not be.  We use $(\C,\otimes)$ to stand for a monoidal or perhaps 
-symmetric monoidal category with $\otimes$ as its tensor product. For composition of maps we use $\circ$ or occasionally concatenation.
+symmetric monoidal category with $\otimes$ as its tensor product. For composition of maps we use concatenation or occasionally $\circ$.
 
 \subsection*{Acknowledgements}
 
@@ -1072,6 +1072,8 @@ The decorated cospan formalism gives not only double categories, but also maps b
 \end{tikzpicture}
 \]
 \end{itemize}
+The intuition behind this square acting as a map between the two decorated cospan double categories is that while the pseudofunctors $F$ and $F'$ serve to assign categories of possible decorations to the objects of $\A$ and $\A'$, respectively, the functor $H$ allows us to change the objects being decorated from those of $\A$ to those of $\A'$, and the pseudofunctor $E$ allows us to change decorations as prescribed by $F$ into those as prescribed by $F'$, up to the transformation $\theta \colon EF \Rightarrow F'H$.
+
 The double functor $\lH \maps F\lCsp \to F'\lCsp$ is defined as follows:
 \begin{itemize}
 \item The image of an object $a \in F\lCsp_0=\A$ is the object $H(a) \in F'\lCsp_0=\A'$.

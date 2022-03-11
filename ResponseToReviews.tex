@@ -523,6 +523,8 @@ do actually say what the flaw is there, correct? I don't see where we describe f
 
 {\kenny It looks like we loosely mention what the problem is on page 2, but we already explained (in detail) what the problems are in \emph{Structured cospans}. I don't see why we can't just point the reader that wants to see what those problems are to that paper. I don't think we explain any flaws in Section 6; only use both frameworks and compare them.}
 
+{\kenny Actually, we do talk about the flaws a bit more in the middle of page 21 when we're setting up the example of open graphs for Theorem 2.2.}
+
 \item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
 that might 
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
@@ -560,12 +562,12 @@ Does the natural transformation $\theta \colon EF \Rightarrow F’ H$ have to be
 the following proofs that assumption is used.
 
 {\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism, {\chris so we changed the construction in p. 
-9 accordingly} (right?).
+9 accordingly} (right?) {\kenny right}.
 In fact, in Section 6 we construct a double functor
 \[      \graysquare \colon F \lCsp \to D \lCsp \]
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
 using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
-{\john $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$}
 
 {\kenny I think they are correct in that we don't use this extra assumption.}
 
@@ -598,6 +600,7 @@ above, and if you're happy, we can check this one off!}
 Kenny can double check). Except this one place where I changed it to transformation above Theorem 2.5, check that it doesn't break anything? It looks 
 OK to me.}
 
+{\kenny I also checked the entire document for `isomorphism' and didn't see any left over from this situation. Christina's catch on Zulip was a great one, and the response looks good to me.}
 
 \item p. 21, definition of F: Set $\to$ Cat
 
@@ -697,7 +700,7 @@ hand.}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
 
-{\bf We added the sentence ``For composition of maps we use $\circ$ or occasionally concatenation.'' in the convention section.} {\chris $\checkmark$}
+{\bf We added the sentence ``For composition of maps we use concatenation or occasionally $\circ$.'' in the convention section.} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 %{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
@@ -717,13 +720,15 @@ section.
 
 {\chris I made the above edit, see if you agree or change at will.}
 
+{\kenny I think we use concatenation far more than $\circ$, right? I'm gonna' slightly change it to ``concatenation or occasionally $\circ$'' both in the response comment above and the paper. Otherwise, looks good.}
+
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
 
 {\bf It is indeed the case that we use what some people call ``covariant'' version of the Grothendieck construction in this paper, however we believe 
 that mentioning this in the introduction could put people off if they haven't heard of it. We added a footnote about this in the 
-appendix.} {\chris $\checkmark$}
+appendix.} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 {\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
 much.}
@@ -731,6 +736,8 @@ much.}
 {\kenny Agree with Christina.}
 
 {\chris See if you like the answer.}
+
+{\kenny Looks good.}
 
 \item Theorem 2.1: Maybe worth saying explicitly that s is an object of the category F(m) rather than using $\in$, since this is exactly the 
 distinction to 
@@ -753,6 +760,8 @@ Fong's original definition.
 this 
 is a classic sort of spot where errors can hide)
 
+{\kenny I think we originally had these details in our proof (of both Theorem 2.1 and Theorem 3.1) but removed them.}
+
 \item On page 9 during the construction of H, I would appreciate a sentence giving some intuition for the functor E, at this point I’m confused about 
 its 
 role.
@@ -767,6 +776,8 @@ for some application?}
 {\kenny Sure, maybe sometime before the official statement of the Theorem when we're describing how the double functor $\mathbb{H}$ is defined?}
 
 {\chris Sounds good to me!}
+
+{\kenny I've added a long run-on sentence beneath the square on page 9 trying to say more about the functors $H$ and $E$ from an intuitive standpoint. Edit at will.}
 
 \item Theorem 2.5: $F$ should be defined on $\mathsf{A}$, not $\mathsf{A}'$.
 
