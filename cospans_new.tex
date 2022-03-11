@@ -499,7 +499,12 @@ In \cref{DecCospansDoubleCat} we construct the double category of decorated cosp
 
 \subsection*{Conventions}
 
-In this paper, we use a sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in our double categories is strictly associative, while horizontal composition need not be.  We use $(\C,\otimes)$ to stand for a monoidal or perhaps symmetric monoidal category with $\otimes$ as its tensor product.
+In this paper, we use a sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold 
+like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in 
+blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a 
+category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in 
+our double categories is strictly associative, while horizontal composition need not be.  We use $(\C,\otimes)$ to stand for a monoidal or perhaps 
+symmetric monoidal category with $\otimes$ as its tensor product. For composition of maps we use $\circ$ or occasionally concatenation.
 
 \subsection*{Acknowledgements}
 
@@ -1145,7 +1150,7 @@ where the decoration morphism $\lH(\tau)$ is defined as follows.  Treating $\tau
 (B) edge node[right]{$E(F((h))$} (D);
 \end{tikzpicture}
 \]
-The square at right commutes strictly because $\theta$ is a natural isomorphism.
+The square at right commutes strictly because $\theta$ is a natural transformation.
 \end{itemize}
    \iffalse Perhaps we could generalize our construction to handle the case where $\theta$ is a pseudonatural equivalence, making this square commute up to a natural isomorphism.  However, the following result suffices for the application in \cref{subsec:petrirates}. \fi
 
@@ -2963,7 +2968,10 @@ The category $\X$ is called the \textbf{total} category and $\A$ is called the \
 
 Assuming the axiom of choice, we may select a cocartesian lifting of each morphism $f\maps a\to b$ in $\A$ to each $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\maps\X _a\to\X _b$ between the fibers, which by the lifting's universal property come equipped with natural isomorphisms $(1_a)_!\cong 1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$.   With the help of these, any cloven opfibration $U \maps \X \to \A$ gives a pseudofunctor $F \maps \A \to \Cat$, where $\A$ is viewed as a 2-category with trivial 2-morphisms, $F(a) = \X_a$ for each object $a \in \A$, and $F(f) = f_!$ for each morphism $f$ in $\A$.
 
-In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'.  Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that preserve cocartesian liftings, and natural transformations with vertical components.  
+In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'\footnote{This 
+version for opfibrations rather than fibrations is sometimes referred to as the `covariant' 
+Grothendieck construction.}.  Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that 
+preserve cocartesian liftings, and natural transformations with vertical components.  
 \begin{defn}\label{def:GrothCat}
 For any pseudofunctor $F\maps\A\to\Cat$ where $\A$ is a category viewed as a 2-category with trivial 2-morphisms, the \textbf{Grothendieck category}
 $\inta F$ has

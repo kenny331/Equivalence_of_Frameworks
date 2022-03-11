@@ -559,11 +559,13 @@ $\checkmark$} {\kenny $\checkmark$}
 Does the natural transformation $\theta \colon EF \Rightarrow F’ H$ have to be a natural isomorphism? Quite possibly I missed something, but I don’t see where in 
 the following proofs that assumption is used.
 
-{\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism.
+{\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism, {\chris so we changed the construction in p. 
+9 accordingly} (right?).
 In fact, in Section 6 we construct a double functor
 \[      \graysquare \colon F \lCsp \to D \lCsp \]
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
-using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}   {\john: $\checkmark$}
+using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
+{\john $\checkmark$}
 
 {\kenny I think they are correct in that we don't use this extra assumption.}
 
@@ -576,7 +578,9 @@ actually got around to this.}
 
 {\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
-{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of structured cospans using Shulman's machine...}
+{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, 
+though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of 
+structured cospans using Shulman's machine...} {\chris Interesting!}
 
 {\john  As Christina pointed out on Zulip, the $\theta : EF \Rightarrow F'H$ on page 26, where we are
 constructing a map from open Petri nets with rates to open dynamical systems, is \emph{not} an
@@ -590,6 +594,10 @@ isomorphism''.    I'll do this now: I'll change it to a ``natural transformation
 I've thanked the referee profusely for catching this problem --- check out my response in boldface
 above, and if you're happy, we can check this one off!}
 
+{\chris The response looks great, see my small addition above. I seached ``isomorphism'' the whole document and I think we are fine (but perhaps 
+Kenny can double check). Except this one place where I changed it to transformation above Theorem 2.5, check that it doesn't break anything? It looks 
+OK to me.}
+
 
 \item p. 21, definition of F: Set $\to$ Cat
 
@@ -601,13 +609,13 @@ between edges.}
 
 {\chris $\checkmark$} {\john $\checkmark$} {\kenny  $\checkmark$}
 
-{\chris Added a few more places where Kenny spotted these mistakes.}
+%{\chris Added a few more places where Kenny spotted these mistakes.}
 
-{\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
+%{\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
 
-{\chris Sure, are those in 6.4? As in, are there sections missing from the response sentence above?}
+%{\chris Sure, are those in 6.4? As in, are there sections missing from the response sentence above?}
 
-{\kenny Yes, one map did get changed in Section 6.4. Good catch.}
+%{\kenny Yes, one map did get changed in Section 6.4. Good catch.} :)
 
 \iffalse
 {\kenny I \emph{think} they are complaining that we use $f$ as a map of vertices and $g$ as a map of edges when we're talking about the functor $F \colon \mathsf{Set} \to \mathsf{Cat}$ on page 21, but we use $g$ as a map of vertices and $f$ as a map of edges in the two squares at the start of Section 6.1 on the previous page?}
@@ -633,7 +641,8 @@ systems.
 
 As the referee noticed, the ``old, flawed'' construction of 
 decorated cospans from a lax monoidal functor $D \colon (\mathsf{FinSet},+) \to 
-\mathsf{Set}, \times) $ agrees with the new one using a lax monoidal pseudofunctor  $D \colon (\mathsf{FinSet},+) \to \mathsf{Cat}, \times) $ when the categories $D(S)$ are discrete,
+(\mathsf{Set}, \times) $ agrees with the new one using a lax monoidal pseudofunctor  $D \colon (\mathsf{FinSet},+) \to (\mathsf{Cat}, \times) $ when 
+the categories $D(S)$ are discrete,
 and thus essentially sets.   Thus, our use of this construction amounts to working with a
 set $D(S)$, rather than a full-fledged category, of dynamical systems on the finite set $S$.
 
@@ -642,11 +651,19 @@ of dynamical systems.   It is not discrete, but it does not have an initial obje
 need to get a structured cospan
 category that matches our decorated cospan category.   
 
-So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  { \john \checkmark} 
+So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  { \john $\checkmark$}
 
 {\chris This looks similar to comment 30.}
 
 {\john Yes, but it's worth a separate answer.   I wrote an answer above.  See if you like it.  }
+
+{\chris Sounds good! However I am a bit stuck on the following. Remember also in 
+\href{https://thalis.math.upatras.gr/~cvasilak/documents/MonGroth.pdf}{MonoidalGrothendieck}, we had this issue of a lax monoidal pseudofunctor not 
+really being a lax monoidal functor in the split case, whatever I mean here. This also arised for Brendan's graph if I am not wrong. Really what is 
+going on is that for a (strictly) lax monoidal functor into Cat, the laxator is strictly natural and associativity is an equality, whereas a (weakly) 
+lax monoidal functor into Cat may be strict as a functor, but the laxator is still pseudonatural and associativity still an isomorphism, as per our 
+diagram (5). So I am not 100\% sure the starting statement in the second paragraph above is true. Let us think about that for a moment, it may end up 
+being true in this case.}
 
 \item p. 30, following Thm A.2
 
@@ -665,7 +682,7 @@ open graphs were added to the relevant places in Sections 2 and 3. The remaining
 {\bf We believe that it is hard to analyze the examples (even the motivating one of open graphs) without having laid all relevant theory. Also, 
 the comparison between the two descriptions -- prominent in Section 6.1 -- would then not be possible to illustrate. In order to 
 better direct the reader to the applications, we added one sentence at each introductory paragraph of Sections 2 and 3 that point to Section 6 for 
-concrete examples.}
+concrete examples.} {\chris $\checkmark$}
 
 {\john
 I don't want to bust up the examples and put some in sections 2 and 3. Anyone who wants examples can easily find them all in Section 6, we mention 
@@ -680,29 +697,40 @@ hand.}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
 
-{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
+{\bf We added the sentence ``For composition of maps we use $\circ$ or occasionally concatenation.'' in the convention section.} {\chris $\checkmark$}
 
-{\color{blue}{Kenny: They might not mean $gf$ specifically, but there are many instances where we don't use a $\circ$ for functional composition, e.g. 
-when we're pushing forward a graph structure over a map $f$ of vertices towards the top of page 21. Do we want to use a $\circ$ or not?}}
+%{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
-{\chris Ah you are right. I don't mind, we could specify that for function composition we sometimes use concatenation!}
+%{\color{blue}{Kenny: They might not mean $gf$ specifically, but there are many instances where we don't use a $\circ$ for functional composition, 
+%e.g. 
+%when we're pushing forward a graph structure over a map $f$ of vertices towards the top of page 21. Do we want to use a $\circ$ or not?}}
 
-{\john There were a couple places where I put in $\circ$ --- that's what the referee is really complaining
-about here.  Almost always we don't.  I could remove the $\circ$s.  There was a reason I put them in: there are some places where writing a composite 
-using plain old concatenation looks weird to me.   But I don't think it's that big a deal.}
+%{\chris Ah you are right. I don't mind, we could specify that for function composition we sometimes use concatenation!}
 
-{\chris By searching our paper, I find $\circ$ in many places that should stay in my opinion, for composition of things that are not functions 
-necessarily, and maybe only a couple for functions namely towards the end of 6.4. I also don't think it's a big deal.}
+%{\john There were a couple places where I put in $\circ$ --- that's what the referee is really complaining
+%about here.  Almost always we don't.  I could remove the $\circ$s.  There was a reason I put them in: there are some places where writing a 
+%composite 
+%using plain old concatenation looks weird to me.   But I don't think it's that big a deal.}
 
+%{\chris By searching our paper, I find $\circ$ in many places that should stay in my opinion, for composition of things that are not functions 
+%necessarily, and maybe only a couple for functions namely towards the end of 6.4. I also don't think it's a big deal.}
+
+{\chris I made the above edit, see if you agree or change at will.}
 
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
 
+{\bf It is indeed the case that we use what some people call ``covariant'' version of the Grothendieck construction in this paper, however we believe 
+that mentioning this in the introduction could put people off if they haven't heard of it. We added a footnote about this in the 
+appendix.} {\chris $\checkmark$}
+
 {\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
 much.}
 
 {\kenny Agree with Christina.}
+
+{\chris See if you like the answer.}
 
 \item Theorem 2.1: Maybe worth saying explicitly that s is an object of the category F(m) rather than using $\in$, since this is exactly the 
 distinction to 
