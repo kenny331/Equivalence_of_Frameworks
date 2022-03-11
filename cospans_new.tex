@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/03/10 - dealing with referee's comments
+% 2021/03/11 - dealing with referee's comments
 
 \documentclass[reqno]{amsart}
 
@@ -499,12 +499,8 @@ In \cref{DecCospansDoubleCat} we construct the double category of decorated cosp
 
 \subsection*{Conventions}
 
-In this paper, we use a sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold 
-like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in 
-blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a 
-category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in 
-our double categories is strictly associative, while horizontal composition need not be.  We use $(\C,\otimes)$ to stand for a monoidal or perhaps 
-symmetric monoidal category with $\otimes$ as its tensor product. For composition of maps we use concatenation or occasionally $\circ$.
+In this paper, we use a sans-serif font like $\C$ for categories, boldface like $\mathbf{B}$ for bicategories or 2-categories, and blackboard bold like $\lD$ for double categories. For double categories with names having more than one letter, like $\lCsp(\X)$, only the first letter is in 
+blackboard bold. In this paper, `double category' means `pseudo double category', as in \cref{defn:double_category}. A double category $\lD$ has a category of objects and a category of arrows, and we call these $\lD_0$ and $\lD_1$ despite the fact that they are categories. Vertical composition in our double categories is strictly associative, while horizontal composition need not be.  We use $(\C,\otimes)$ to stand for a monoidal or perhaps symmetric monoidal category with $\otimes$ as its tensor product.  For composition or morphisms we use concatenation or occasionally $\circ$.
 
 \subsection*{Acknowledgements}
 
@@ -880,11 +876,11 @@ To apply \cref{lem:shulman} it suffices to prove that $\Phi$ is a Beck--Chevalle
 where $\phi$ is the laxator for $F$.  The monoidal unit is $(0_\A \xrightarrow{!} 0_\A, 0)$
 where $0 \in F(0_\A)$ is the object given by $\phi_0 \maps \one \to F(0_\A)$.   With this monoidal structure on $\A/U$, it is easy to see that $\Phi$ is a strict monoidal functor.
 
-Next, one can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a' \xrightarrow{i'} b', s') \in \A/U$ over $a'$, a cartesian lifting of $f$ to this object is given by 
+Next, one can check that $\Phi$ is a fibration.  Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a' \xrightarrow{i'} b', s') \in \A/U$ over $a'$, one can show that a cartesian lifting of $f$ to this object is given by 
 \[ (f,1,1) \maps (a \xrightarrow{i' f} b' , s')\; \to \; (a' \xrightarrow{i'} b', s'). \]
 Denoting the cartesian lifting of $f$ to an object $z \in \A/U$ by $\mathrm{Cart}(f,z)$, the tensor product of $\A/U$ preserves such cartesian liftings, in fact strictly, in the sense that $\mathrm{Cart}(f_1,z_1) \otimes \mathrm{Cart}(f_2,z_2)=\mathrm{Cart}(f_1 + f_2, z_1 \otimes z_2)$.  
 
-One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, s) \in \A/U$ over $a$, we claim that a cocartesian lifting of $f$ is given by 
+One can also check that $\Phi$ is an opfibration. Given a morphism $f \maps a \to a'$ in $\A$ and an object $(a \xrightarrow{i}b, s) \in \A/U$ over $a$, one can show that a cocartesian lifting of $f$ is given by 
 \[ (f,g,1) \maps (a \xrightarrow{i} b, s) \, \to \, (a' \xrightarrow{i'} b+_a a', F(g)(s)). \]
 where $g, i'$ and $b +_a a'$ arise from this pushout square in $\A$:
 \[
@@ -1072,7 +1068,7 @@ The decorated cospan formalism gives not only double categories, but also maps b
 \end{tikzpicture}
 \]
 \end{itemize}
-The intuition behind this square acting as a map between the two decorated cospan double categories is that while the pseudofunctors $F$ and $F'$ serve to assign categories of possible decorations to the objects of $\A$ and $\A'$, respectively, the functor $H$ allows us to change the objects being decorated from those of $\A$ to those of $\A'$, and the pseudofunctor $E$ allows us to change decorations as prescribed by $F$ into those as prescribed by $F'$, up to the transformation $\theta \colon EF \Rightarrow F'H$.
+The intuition behind this square is that while the pseudofunctors $F$ and $F'$ serve to assign categories of possible decorations to the objects of $\A$ and $\A'$, respectively, the functor $H$ lets us turn objects of $\A$ into objects of $\A'$, and the pseudofunctor $E$ lets us change decorations as prescribed by $F$ into those as prescribed by $F'$, up to the transformation $\theta$.  In applications $E$ and $H$ are often identities.
 
 The double functor $\lH \maps F\lCsp \to F'\lCsp$ is defined as follows:
 \begin{itemize}
@@ -2970,9 +2966,7 @@ The category $\X$ is called the \textbf{total} category and $\A$ is called the \
 
 Assuming the axiom of choice, we may select a cocartesian lifting of each morphism $f\maps a\to b$ in $\A$ to each $x\in\X _a$, denoted by $\mathrm{Cocart}(f,x)\maps x\to f_!(x)$, rendering $U$ a so-called \textbf{cloven} opfibration. This choice induces \textbf{reindexing functors} $f_!\maps\X _a\to\X _b$ between the fibers, which by the lifting's universal property come equipped with natural isomorphisms $(1_a)_!\cong 1_{\X _a}$ and $(f\circ g)_!\cong f_!\circ g_!$.   With the help of these, any cloven opfibration $U \maps \X \to \A$ gives a pseudofunctor $F \maps \A \to \Cat$, where $\A$ is viewed as a 2-category with trivial 2-morphisms, $F(a) = \X_a$ for each object $a \in \A$, and $F(f) = f_!$ for each morphism $f$ in $\A$.
 
-In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction'\footnote{This 
-version for opfibrations rather than fibrations is sometimes referred to as the `covariant' 
-Grothendieck construction.}.  Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that 
+In fact, there is a 2-equivalence between opfibrations and pseudofunctors induced by the so-called `Grothendieck construction', or more specifically the `covariant'  Grothendieck construction, since there is also a version of this construction for fibrations.  Let $\OpFib(\A)$ denote the 2-subcategory of the slice 2-category $\Cat/ \A$ of opfibrations over $\A$, functors that 
 preserve cocartesian liftings, and natural transformations with vertical components.  
 \begin{defn}\label{def:GrothCat}
 For any pseudofunctor $F\maps\A\to\Cat$ where $\A$ is a category viewed as a 2-category with trivial 2-morphisms, the \textbf{Grothendieck category}

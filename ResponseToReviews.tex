@@ -700,7 +700,7 @@ hand.}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
 
-{\bf We added the sentence ``For composition of maps we use concatenation or occasionally $\circ$.'' in the convention section.} {\chris $\checkmark$} {\kenny $\checkmark$}
+{\bf We added the sentence ``For composition of morphisms we use concatenation or occasionally $\circ$.'' in the convention section.} {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
 
 %{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
@@ -722,28 +722,35 @@ section.
 
 {\kenny I think we use concatenation far more than $\circ$, right? I'm gonna' slightly change it to ``concatenation or occasionally $\circ$'' both in the response comment above and the paper. Otherwise, looks good.}
 
+{\john I changed ``composition of maps'' to ``composition of morphisms'' above because people often use ``map'' to mean a morphism in a category of sets with extra structure, and here we just mean composition of morphisms, or sometimes horizontal 1-cells, which I hope is close enough.  I hope that's okay!}
+
+
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
 
 {\bf It is indeed the case that we use what some people call ``covariant'' version of the Grothendieck construction in this paper, however we believe 
-that mentioning this in the introduction could put people off if they haven't heard of it. We added a footnote about this in the 
-appendix.} {\chris $\checkmark$} {\kenny $\checkmark$}
+that mentioning this in the introduction could put people off if they haven't heard of it. We added a comment about this in the 
+appendix.} {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
 
+\iffalse
 {\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
 much.}
 
 {\kenny Agree with Christina.}
 
 {\chris See if you like the answer.}
+\fi
 
 {\kenny Looks good.}
 
-\item Theorem 2.1: Maybe worth saying explicitly that s is an object of the category F(m) rather than using $\in$, since this is exactly the 
-distinction to 
-Fong's original definition.
+{\john Great.  Except for one thing: I hate footnotes.   If something is worth saying, just say it, don't stick a little number in the text and make the reader decide if it's worth looking down at the bottom of the page to see what this mysterious number means.  That's more distracting than just saying it!   So I moved the comment into the text and merged it into the previous sentence.}
 
-{\bf  We have added a remark about this in the definition.}   {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+
+
+\item Theorem 2.1: Maybe worth saying explicitly that $s$ is an object of the category $F(m)$ rather than using $\in$, since this is exactly the  distinction to  Fong's original definition.
+
+{\bf  We have added a remark emphasizing this right after Theorem 2.1.}   {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 %{\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
@@ -758,13 +765,17 @@ Fong's original definition.
 
 \item Proof of theorem 2.1: You should probably at least handwave that the cartesian liftings really are cartesian liftings. (No doubt it’s easy, but 
 this 
-is a classic sort of spot where errors can hide)
+is a classic sort of spot where errors can hide.)
+
+\textbf{Kenny Courser carefully checked that these really are co/cartesian liftings, but the argument is straightforward uninteresting so we will just add remarks saying that this can be shown.}   {\john $\checkmark$}
 
 {\kenny I think we originally had these details in our proof (of both Theorem 2.1 and Theorem 3.1) but removed them.}
 
-\item On page 9 during the construction of H, I would appreciate a sentence giving some intuition for the functor E, at this point I’m confused about 
-its 
-role.
+{\john It's your evil advisor who removed those details.   I'll ``handwave it''---see above.}
+
+\item On page 9 during the construction of $\mathbb{H}$, I would appreciate a sentence giving some intuition for the functor $E$, at this point I’m confused about  its  role.
+
+{\bf  We have added a remark on page 9 discussing this.}  {\john $\checkmark$}
 
 {\color{blue}{Kenny: We don't have any examples where $E$ is not an identity, but in my mind it's a functor that possibly modifies decorations, e.g. 
 $F(a)$ is a category of graph structures on $a$, and $E(F(a))$ could be something like a category of possibly labeled graph structures on $a$, if that 
@@ -778,6 +789,9 @@ for some application?}
 {\chris Sounds good to me!}
 
 {\kenny I've added a long run-on sentence beneath the square on page 9 trying to say more about the functors $H$ and $E$ from an intuitive standpoint. Edit at will.}
+
+{\john I edited it --- take a looks, folks and see if you're happy. I'm gonna give this one my check mark.  I actually think the referee's implicit point is right: it'd be more natural in some ways to require $E$ to be the identity, so we'd be working in the 2-category of categories over $\mathsf{Cat}$ and lax maps between these.  But I think we can stick with what we've got,
+which is more general.}
 
 \item Theorem 2.5: $F$ should be defined on $\mathsf{A}$, not $\mathsf{A}'$.
 
