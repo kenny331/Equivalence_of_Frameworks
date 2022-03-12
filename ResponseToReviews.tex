@@ -561,28 +561,27 @@ $\checkmark$} {\kenny $\checkmark$}
 Does the natural transformation $\theta \colon EF \Rightarrow F’ H$ have to be a natural isomorphism? Quite possibly I missed something, but I don’t see where in 
 the following proofs that assumption is used.
 
-{\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism, {\chris so we changed the construction in p. 
-9 accordingly} (right?) {\kenny right}.
-In fact, in Section 6 we construct a double functor
+{\bf We thank the referee for catching this important mistake!   It does not need to be an isomorphism, so we changed the construction in p. 
+9 accordingly. In fact, in Section 6 we construct a double functor
 \[      \graysquare \colon F \lCsp \to D \lCsp \]
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
 using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
-{\john $\checkmark$} {\kenny $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
 
-{\kenny I think they are correct in that we don't use this extra assumption.}
+%{\kenny I think they are correct in that we don't use this extra assumption.}
 
-{\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
-identity then? In any case, if we don't actually use it then we should make it into a transformation.}
+%{\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
+%identity then? In any case, if we don't actually use it then we should make it into a transformation.}
 
-{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my 
-thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never 
-actually got around to this.}
+%{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my 
+%thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never 
+%actually got around to this.}
 
-{\chris I see! So for maps of structured cospans, invertibility is actually essential?}
+%{\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
-{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, 
-though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of 
-structured cospans using Shulman's machine...} {\chris Interesting!}
+%{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, 
+%though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of 
+%structured cospans using Shulman's machine...} {\chris Interesting!}
 
 {\john  As Christina pointed out on Zulip, the $\theta : EF \Rightarrow F'H$ on page 26, where we are
 constructing a map from open Petri nets with rates to open dynamical systems, is \emph{not} an
@@ -596,7 +595,8 @@ isomorphism''.    I'll do this now: I'll change it to a ``natural transformation
 I've thanked the referee profusely for catching this problem --- check out my response in boldface
 above, and if you're happy, we can check this one off!}
 
-{\chris The response looks great, see my small addition above. I seached ``isomorphism'' the whole document and I think we are fine (but perhaps 
+{\chris The response looks great, see my small addition above `` so we changed the construction in p. 
+9 accordingly''. I seached ``isomorphism'' the whole document and I think we are fine (but perhaps 
 Kenny can double check). Except this one place where I changed it to transformation above Theorem 2.5, check that it doesn't break anything? It looks 
 OK to me.}
 
@@ -718,18 +718,23 @@ section.
 %{\chris By searching our paper, I find $\circ$ in many places that should stay in my opinion, for composition of things that are not functions 
 %necessarily, and maybe only a couple for functions namely towards the end of 6.4. I also don't think it's a big deal.}
 
-{\chris I made the above edit, see if you agree or change at will.}
+%{\chris I made the above edit, see if you agree or change at will.}
 
-{\kenny I think we use concatenation far more than $\circ$, right? I'm gonna' slightly change it to ``concatenation or occasionally $\circ$'' both in the response comment above and the paper. Otherwise, looks good.}
+%{\kenny I think we use concatenation far more than $\circ$, right? I'm gonna' slightly change it to ``concatenation or occasionally $\circ$'' both in 
+%the response comment above and the paper. Otherwise, looks good.}
 
-{\john I changed ``composition of maps'' to ``composition of morphisms'' above because people often use ``map'' to mean a morphism in a category of sets with extra structure, and here we just mean composition of morphisms, or sometimes horizontal 1-cells, which I hope is close enough.  I hope that's okay!}
+%{\john I changed ``composition of maps'' to ``composition of morphisms'' above because people often use ``map'' to mean a morphism in a category of 
+%sets with extra structure, and here we just mean composition of morphisms, or sometimes horizontal 1-cells, which I hope is close enough.  I hope 
+%that's okay!}
 
+%{\chris Sure, thanks to both!}
 
 \item p3: “Using the Grothendieck construction” - maybe worth mentioning this is the “covariant” version which is different to the most common 
 convention 
 (at least I think so, but the literature seems to be very split over this)
 
-{\bf It is indeed the case that we use what some people call ``covariant'' version of the Grothendieck construction in this paper, however we believe 
+{\bf It is indeed the case that we use what some people call ``covariant'' version of the Grothen\-dieck construction in this paper, however we 
+believe 
 that mentioning this in the introduction could put people off if they haven't heard of it. We added a comment about this in the 
 appendix.} {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
 
@@ -742,11 +747,13 @@ much.}
 {\chris See if you like the answer.}
 \fi
 
-{\kenny Looks good.}
+%{\kenny Looks good.}
 
-{\john Great.  Except for one thing: I hate footnotes.   If something is worth saying, just say it, don't stick a little number in the text and make the reader decide if it's worth looking down at the bottom of the page to see what this mysterious number means.  That's more distracting than just saying it!   So I moved the comment into the text and merged it into the previous sentence.}
+%{\john Great.  Except for one thing: I hate footnotes.   If something is worth saying, just say it, don't stick a little number in the text and make 
+%the reader decide if it's worth looking down at the bottom of the page to see what this mysterious number means.  That's more distracting than just 
+%saying it!   So I moved the comment into the text and merged it into the previous sentence.}
 
-
+%{\chris OK!}
 
 \item Theorem 2.1: Maybe worth saying explicitly that $s$ is an object of the category $F(m)$ rather than using $\in$, since this is exactly the  distinction to  Fong's original definition.
 
@@ -767,7 +774,8 @@ much.}
 this 
 is a classic sort of spot where errors can hide.)
 
-\textbf{Kenny Courser carefully checked that these really are co/cartesian liftings, but the argument is straightforward uninteresting so we will just add remarks saying that this can be shown.}   {\john $\checkmark$}
+\textbf{Kenny Courser carefully checked that these really are co/cartesian liftings, but the argument is straightforward uninteresting so we will just 
+add remarks saying that this can be shown.}   {\john $\checkmark$} {\chris $\checkmark$}
 
 {\kenny I think we originally had these details in our proof (of both Theorem 2.1 and Theorem 3.1) but removed them.}
 
@@ -775,18 +783,20 @@ is a classic sort of spot where errors can hide.)
 
 \item On page 9 during the construction of $\mathbb{H}$, I would appreciate a sentence giving some intuition for the functor $E$, at this point I’m confused about  its  role.
 
-{\bf  We have added a remark on page 9 discussing this.}  {\john $\checkmark$}
+{\bf  We have added a remark on page 9 discussing this.}  {\john $\checkmark$} {\chris $\checkmark$}
 
-{\color{blue}{Kenny: We don't have any examples where $E$ is not an identity, but in my mind it's a functor that possibly modifies decorations, e.g. 
-$F(a)$ is a category of graph structures on $a$, and $E(F(a))$ could be something like a category of possibly labeled graph structures on $a$, if that 
-makes sense. Something potentially different than \emph{just} a graph structure on $a$.}}
+%{\color{blue}{Kenny: We don't have any examples where $E$ is not an identity, but in my mind it's a functor that possibly modifies decorations, e.g. 
+%$F(a)$ is a category of graph structures on $a$, and $E(F(a))$ could be something like a category of possibly labeled graph structures on $a$, if 
+%that 
+%makes sense. Something potentially different than \emph{just} a graph structure on $a$.}}
 
-{\chris Right! We can perhaps add a sentence to this end, saying that although we only use E as an identity, someone could need to change decorations 
-for some application?}
+%{\chris Right! We can perhaps add a sentence to this end, saying that although we only use E as an identity, someone could need to change 
+%decorations 
+%for some application?}
 
-{\kenny Sure, maybe sometime before the official statement of the Theorem when we're describing how the double functor $\mathbb{H}$ is defined?}
+%{\kenny Sure, maybe sometime before the official statement of the Theorem when we're describing how the double functor $\mathbb{H}$ is defined?}
 
-{\chris Sounds good to me!}
+%{\chris Sounds good to me!}
 
 {\kenny I've added a long run-on sentence beneath the square on page 9 trying to say more about the functors $H$ and $E$ from an intuitive standpoint. Edit at will.}
 
