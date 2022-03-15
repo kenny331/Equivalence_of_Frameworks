@@ -419,19 +419,24 @@ of are discussed here.} {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\che
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured  cospans are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
 structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
 application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
-how to choose whether to model their application with structured vs decorated cospans. {THE LAST SENTENCE IS NEWLY COPIED FROM REVIEW, WE CAN ERASE 
-IF NOT CONVENIENT}
+how to choose whether to model their application with structured vs decorated cospans. 
 
-{\bf In fact our goal, as explained in the abstract and introduction, was to prove that the structured and decorated cospan approaches are equivalent under certain conditions, and to illustrate this result with a wide variety of examples.}
+{\bf In fact our goal, as explained in the abstract and introduction, was to prove that the structured and decorated cospan approaches are equivalent under certain conditions, and to illustrate this result with a wide variety of examples.  These examples can serve as a guide for other similar applications, while new applications may require exploring which approach works best.  We do not make a stand that either is strictly better.   However, we have changed the end of the Introduction to read as follows:
 
+\begin{quote}
+This result shows that under certain conditions, structured and decorated cospans provide equivalent ways of describing open systems.  We illustrate this in Section 6 with applications to graphs, electrical circuits, Markov processes, Petri nets, Petri nets with rates, and dynamical systems.   This is meant to be a fairly thorough review of the existing literature.   It becomes clear that when either structured or decorated cospans can be used, structured cospans are simpler.  However, for open dynamical systems we apparently need decorated cospans, for reasons we explain.   Thus, to describe a map from open Petri nets with rates to open dynamical systems, we use \emph{both} structured and decorated cospans.
+\end{quote}
+}
+
+{\john $\checkmark$} 
+\iffalse
 {\kenny I think the reader should come to their own conclusion about which framework they should use if they are trying to decide between the two, assuming both are applicable. I wouldn't say that one is better than the other. Personally, I would rather try structured cospans first, because I would rather think about a left adjoint than a symmetric lax monoidal pseudofunctor, but other people might feel differently.} 
 
 {\john I agree with you, Kenny.  I think this reviewer saw the word ``vs'' and thought we were going to let structured and decorated cospans fight it out and announce who won, like at a boxing match.   Instead of arguing that this is not a good idea for a paper, I decided to just point out that our abstract says what our paper does, and it's something else.   (I also agree with you that structured cospans are simpler when you can use them: that's why we invented them!)}
 
 {\john If you like the response in boldface above, please add a checkmark here.  Otherwise try to
 improve it, or something.}  
-
-{\john $\checkmark$}
+\fi 
 
 {\chris I agree with both, and also I like the boldface above. I could add ``Those examples should serve as a guide for other similar applications, 
 whereas new applications would require exploring which approach works best, for example if a left adjoint (to start off with structured cospans) or a 
@@ -444,7 +449,7 @@ that somewhere in the intro as well?}
 
 {\kenny The boldface looks good to me, but I also like Christina's suggestions above if we really want to make an effort to appease this referee. I'm fine either way on this.}
 
-{\kenny $\checkmark$}
+{\john See if you like my new remarks in boldface, and give me a check mark if you do!  Kenny had checked this one off already, but I've changed it a lot.}
 
 \item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
 explanation of the differences here. The examples of graph, labeled 
