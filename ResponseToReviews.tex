@@ -386,6 +386,8 @@ we're doing will have an easier time figuring it out.   Does it look okay to you
 {\chris Yes it does, thanks! Although in my mind, it kinda goes the opposite way: e.g. the already induced monoidal product on the fibers ends up 
 having the universal property of a coproduct for example. Possibly just overthinking and getting mixed up with words.}
 
+{\john I changed the paragraph, trying to solve the problem Christina just mentioned.}
+
 \item Proof of Lemma 4.4: there is a typo where “L then becomes left adjoint to R” should probably be “L then becomes left adjoint to U”.
 
 {\bf Done.}  {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
@@ -423,6 +425,7 @@ how to choose whether to model their application with structured vs decorated co
 
 {\bf In fact our goal, as explained in the abstract and introduction, was to prove that the structured and decorated cospan approaches are equivalent under certain conditions, and to illustrate this result with a wide variety of examples.  These examples can serve as a guide for other similar applications, while new applications may require exploring which approach works best.  We do not make a stand that either is strictly better.   However, we have changed the end of the Introduction to read as follows:
 
+\vskip 1em
 \begin{quote}
 This result shows that under certain conditions, structured and decorated cospans provide equivalent ways of describing open systems.  We illustrate this in Section 6 with applications to graphs, electrical circuits, Markov processes, Petri nets, Petri nets with rates, and dynamical systems.   This is meant to be a fairly thorough review of the existing literature.   It becomes clear that when either structured or decorated cospans can be used, structured cospans are simpler.  However, for open dynamical systems we apparently need decorated cospans, for reasons we explain.   Thus, to describe a map from open Petri nets with rates to open dynamical systems, we use \emph{both} structured and decorated cospans.
 \end{quote}
@@ -438,7 +441,7 @@ This result shows that under certain conditions, structured and decorated cospan
 improve it, or something.}  
 \fi 
 
-{\chris I agree with both, and also I like the boldface above. I could add ``Those examples should serve as a guide for other similar applications, 
+{\chris I could add ``Those examples should serve as a guide for other similar applications, 
 whereas new applications would require exploring which approach works best, for example if a left adjoint (to start off with structured cospans) or a 
 lax monoidal pseudofunctor (to start off with decorated cospans) is available. We do not make a stand that either is strictly better.'' In fact, we 
 could add something soft along those lines somewhere in the introduction to satisfy the reviewer, if we like.}
@@ -475,13 +478,16 @@ systems, then we should ask why the decorated and structured cospan double categ
 dynamical systems are a decorated cospan category that is not equivalent to any structured cospan category. Is there a different construction of 
 semantics for reaction networks that uses structured cospans?
 
-{\bf We do not know a semantics for dynamical systems that uses structured cospans; to find one would
-require getting around the result at the end of Section 6.}
+{\bf We do not know a way to construct a (double) category of open dynamical systems that uses structured cospans; to find one would require getting around the result at the end of Section 6.  This is an interesting challenge.}
+
+{\john $\checkmark$}
 
 {\chris Should we refer to which result we are talking about? Also, I am a bit confused about the question and answer. I thought reaction networks 
 can be described in both ways?}
 
 {\kenny I'm kinda' confused by the question, too, due to its wording. Based on what Dr. Baez said in response, I think they might have meant dynamical systems instead of reaction networks in their last sentence. They even say earlier in their comment that the frameworks are isomorphic for reaction networks.}
+
+{\john The referee was asking about the \emph{semantics} for reaction networks --- that is, dynamical systems!  Reaction networks are the ``syntax'' and dynamical systems are our chosen ``semantics'' for these.  But my reply in boldface was confused --- you're right.  So I've fixed it.  Give me a check mark if you're happy now.}
 
 \item The development of the AlgebraicPetri software system is credited to Halter and Patterson based on a blog post. The correct citation is to the 
 software itself and should be credited to the entire AlgebraicPetri team based on a citation to the repository [3]. The additional authors would be 
