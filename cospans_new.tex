@@ -2657,7 +2657,7 @@ Here is the corresponding open dynamical system:
 \end{array}
 \end{equation}
 Here $I_1(t),I_2(t),I_3(t)$ and $O_1(t)$ are arbitrary smooth functions of time, which describe inflows and outflows at the points $i_1,i_2,i_3 \in X$ and $o_1 \in Y$.
-If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, a group of researchers has recently used open Petri nets and the mathematics of structured cospans in their software tool for building and manipulating epidemiological models \cite{BFMLP}.  
+If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, a group of researchers has recently used open Petri nets and the mathematics of structured cospans in their software tool for building and manipulating epidemiological models \cite{AP,BFMLP}.   
 
 Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to (0,\infty)$ assigning to each transition $\tau \in T$ a positive real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
 \[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
@@ -3435,8 +3435,8 @@ If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $
 
 \begin{thebibliography}{100}
 
-\bibitem{AP} AlgebraicPetri team, Github repository. Available as 
-\href{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}{AlgebraicPetri.jl}.
+\bibitem{AP} AlgebraicPetri team, GitHub repository. Available at
+\href{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}.
 
 \bibitem{BFMLP}  A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson, An
 algebraic framework for structured epidemic modeling.   Available as \href{???}{???}
