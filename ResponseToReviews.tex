@@ -373,7 +373,7 @@ elsewhere.}  {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex $\to$ SymMonCat”.
 
-{\bf Done, also in Corollary 4.3.} {\chris $\checkmark$}
+{\bf Done, also in Corollary 4.3.} {\chris $\checkmark$} {\kenny $\checkmark$}
 
 \iffalse
 {\john  I find that this added text confuses me more than it helps me:
@@ -420,6 +420,8 @@ notation.
 
 {\bf There is now a paper detailing how this software works, so according to this suggestion we have changed our paper so it simply refers to that other paper.}   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
 
+{\kenny Can we put ``In preparation." if they don't have this on the arXiv in a timely manner?}
+
 %{\chris Great! The 
 %hyperref link ??? opens up notes by Kenny for me, I don't know how or why.}
 
@@ -446,7 +448,7 @@ This result shows that under certain conditions, structured and decorated cospan
 \end{quote}
 }
 
-{\john $\checkmark$} 
+{\john $\checkmark$} {\kenny $\checkmark$}
 \iffalse
 {\kenny I think the reader should come to their own conclusion about which framework they should use if they are trying to decide between the two, assuming both are applicable. I wouldn't say that one is better than the other. Personally, I would rather try structured cospans first, because I would rather think about a left adjoint than a symmetric lax monoidal pseudofunctor, but other people might feel differently.} 
 
@@ -478,9 +480,9 @@ conditions of theorem 4.1 or a counter example (...) Hopefully it is easy to che
 commentary 
 on it in this paper.
 
-{\bf Unfortunately not all cases of C-sets meet the conditions of Theorem 4.1.   For example, the usual forgetful functor from $\mathsf{Graph}$ to $\mathsf{Set}$ sending any graph to its set of vertices is an opfibration, but not the forgetful functor sending any graph to its set of vertices.  So, this gives a structured cospan category to which Theorem 4.1 does not apply.   Finding extra conditions such that it \emph{does} apply is an interesting question, but it would take more thought.}
+{\bf Unfortunately not all cases of C-sets meet the conditions of Theorem 4.1.   For example, the usual forgetful functor from $\mathsf{Graph}$ to $\mathsf{Set}$ sending any graph to its set of vertices is an opfibration, but not the forgetful functor sending any graph to its set of vertices {\kenny edges?}.  So, this gives a structured cospan category to which Theorem 4.1 does not apply.   Finding extra conditions such that it \emph{does} apply is an interesting question, but it would take more thought.}
 
-{\john $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$}
 
 {\john Actually it's really easy to prove that presheaf categories obey the conditions of Theorem 4.1:
 given any functor $f : \mathsf{C} \to \mathsf{D}$ the left adjoint functor between presheaf categories $f_! : \widehat{\mathsf{C}} \to \widehat{\mathsf{D}}$ obeys the conditions of Theorems 4.1 and 4.2.   So I think we can easily add this as a corollary, maybe right after Theorem 4.2, to get a pile of examples.   Obvious to us, but not to everyone.  Should I do it?}
@@ -505,6 +507,8 @@ This is a good enough situation to build a structured cospan category, but the r
 With a lot of help from Todd Trimble's I once figured out when $f^\ast$ \emph{is} an opfibration, but remembering that argument and writing this up would take some work.  And I don't really feel like expanding the paper in such a way --- we've got more than enough already.   So how about if just tell the referee this is a great idea but it would take more thought?   See if you like my boldface comment above.  
 }
 
+{\kenny I think I recall you trying to explain this to me once: I believe the condition for $f^*$ to be an opfibration was that each hom-set $\hom(d,d)$ was a singleton, and that it was an if and only if. I remember trying to prove it, but getting lost in some of the details. Regardless, I agree that we have enough. The bold looks good to me.}
+
 
 \item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
 for complex 
@@ -515,6 +519,8 @@ semantics for reaction networks that uses structured cospans?
 {\bf We do not know a way to construct a (double) category of open dynamical systems that uses structured cospans; to find one would require getting around the result at the end of Section 6.  This is an interesting challenge.}
 
 {\john $\checkmark$}
+
+{\kenny $\checkmark$}
 
 {\chris Should we refer to which result we are talking about? Also, I am a bit confused about the question and answer. I thought reaction networks 
 can be described in both ways?}
@@ -531,7 +537,7 @@ Andrew Baas and James Fairbanks.
 {\bf We have added a reference to the new paper ``An
 algebraic framework for structured epidemic modeling'' by A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson.  We have also added a reference to the AlgebraicPetri GitHub repository.}
 
-{\john \checkmark} 
+{\john \checkmark} {\kenny \checkmark}
 
 {\john It'd be good to add a reference to the repository.}
 
@@ -565,9 +571,9 @@ the structured cospan approach?''
 %The goal of this paper should be to illustrate to an applied category theory audience the differences between 
 %decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
 
-{\bf The ``other scholars'' are John Baez, one of the authors here, and his coauthors.  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''  In the paper ``Structured cospans'', Kenny Courser and John Baez analyzed these mistakes in detail and fixed them using structured cospans.  See also comment (9).}
+{\bf The ``other scholars'' are John Baez, one of the authors here, and his coauthors.  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''.  In the paper ``Structured cospans'', Kenny Courser and John Baez analyzed these mistakes in detail and fixed them using structured cospans.  See also comment (9).}
 
-{\john $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$}
 
 {\john The "other scholars" are mainly me and Brendan, and the flaws are that some claims are false! I think we describe the flaws in Section 6; if so 
 we should point to that.}   
@@ -605,7 +611,7 @@ cospans, the isomorphism classes of open graphs depend on the identities of the 
 
 {\bf We have rewritten this paragraph to explain those flaws.}
 
-{\john $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$}
 
 {\chris If I am not wrong, the paragraph cited here IS the explanation of the problem, perhaps in application terms rather than in theory terms. 
 Consider perhaps adding one sentence along the lines suggested?}
