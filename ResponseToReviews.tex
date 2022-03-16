@@ -543,12 +543,16 @@ this tricks don't work.  So maybe I should just delete ``despite all the tricks 
 
 {\kenny Sounds good.}
 
-\item pg. 3: “Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other 
+\item pg. 3: ``Many of the flawed applications of decorated cospans have been fixed using structured cospans.” This dismisses the work of other 
 scholars 
 using the decorated cospan approach as flawed. The alleged flaw should be made more precise. What about the decorated cospan approach is inferior to 
-the structured cospan approach? 
+the structured cospan approach?''
 %The goal of this paper should be to illustrate to an applied category theory audience the differences between 
 %decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
+
+{\bf The ``other scholars'' are John Baez, one of the authors here, and his coauthors.  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''  In the paper ``Structured cospans'', Kenny Courser and John Baez fixed all these mistakes using structured cospans.  See also comment (9).}
+
+{\john $\checkmark$}
 
 {\john The "other scholars" are mainly me and Brendan, and the flaws are that some claims are false! I think we describe the flaws in Section 6; if so 
 we should point to that.}   
@@ -563,6 +567,8 @@ do actually say what the flaw is there, correct? I don't see where we describe f
 {\kenny It looks like we loosely mention what the problem is on page 2, but we already explained (in detail) what the problems are in \emph{Structured cospans}. I don't see why we can't just point the reader that wants to see what those problems are to that paper. I don't think we explain any flaws in Section 6; only use both frameworks and compare them.}
 
 {\kenny Actually, we do talk about the flaws a bit more in the middle of page 21 when we're setting up the example of open graphs for Theorem 2.2.}
+
+{\john See if you like my boldface response.  I'm acting like we added an explanation of the flaws to our introduction, so we don't have to say ``Hey, buster --- we already explained this.''}
 
 \item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
 that might 
@@ -601,7 +607,7 @@ The diagram depicting the decoration morphism $\tau$ as a natural transformation
 implicitly used at the beginning of p. 5 to define the decoration of horizontal composites.
 
 {\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.} {\chris 
-$\checkmark$} {\kenny $\checkmark$}
+$\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
 
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
@@ -615,20 +621,21 @@ sending any open Petri net with rates to its corresponding open dynamical system
 using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
 {\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
 
-%{\kenny I think they are correct in that we don't use this extra assumption.}
+\iffalse
+{\kenny I think they are correct in that we don't use this extra assumption.}
 
-%{\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
+{\chris I have a vague feeling that we discussed something similar a long time ago, but I do not remember the context at all. Perhaps it was an 
 %identity then? In any case, if we don't actually use it then we should make it into a transformation.}
 
-%{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my 
-%thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never 
-%actually got around to this.}
+{\kenny Yes, originally it was an identity. Structured cospans has similar squares for its maps, but those ones are required to be invertible. In my 
+thesis, I was going to try to come up with a recipe for turning those squares into these ones, so I made these ones invertible, too, but never 
+actually got around to this.}
 
-%{\chris I see! So for maps of structured cospans, invertibility is actually essential?}
+{\chris I see! So for maps of structured cospans, invertibility is actually essential?}
 
-%{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, 
-%though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of 
-%structured cospans using Shulman's machine...} {\chris Interesting!}
+{\kenny Yep, we needed certain maps $L' F \Rightarrow F' L$ (using structured cospan letters) to be invertible. We also built those maps by hand, 
+though, and here, we're using Shulman's mystical machine to build these ones. I'm not sure what happens or is required when building maps of 
+structured cospans using Shulman's machine...} {\chris Interesting!}
 
 {\john  As Christina pointed out on Zulip, the $\theta : EF \Rightarrow F'H$ on page 26, where we are
 constructing a map from open Petri nets with rates to open dynamical systems, is \emph{not} an
@@ -648,6 +655,7 @@ Kenny can double check). Except this one place where I changed it to transformat
 OK to me.}
 
 {\kenny I also checked the entire document for `isomorphism' and didn't see any left over from this situation. Christina's catch on Zulip was a great one, and the response looks good to me.}
+\fi
 
 \item p. 21, definition of F: Set $\to$ Cat
 
@@ -691,14 +699,13 @@ systems.
 
 As the referee noticed, the ``old, flawed'' construction of 
 decorated cospans from a lax monoidal functor $D \colon (\mathsf{FinSet},+) \to 
-(\mathsf{Set}, \times) $ agrees with the new one using a lax monoidal pseudofunctor  $D \colon (\mathsf{FinSet},+) \to (\mathsf{Cat}, \times) $ when 
-the categories $D(S)$ are discrete,
-and thus essentially sets.   Thus, our use of this construction amounts to working with a
+(\mathsf{Set}, \times) $ amounts to working with a discrete categories $D(S)$, treated
+as sets.  Thus, our use of this construction amounts to working with a
 set $D(S)$, rather than a full-fledged category, of dynamical systems on the finite set $S$.
 
 In the example near the end of Section 6, the category $\int \! D$ can be seen as a category
 of dynamical systems.   It is not discrete, but it does not have an initial object, as we'd
-need to get a structured cospan
+need to obtain a structured cospan
 category that matches our decorated cospan category.   
 
 So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  { \john $\checkmark$}
@@ -714,6 +721,8 @@ going on is that for a (strictly) lax monoidal functor into Cat, the laxator is 
 lax monoidal functor into Cat may be strict as a functor, but the laxator is still pseudonatural and associativity still an isomorphism, as per our 
 diagram (5). So I am not 100\% sure the starting statement in the second paragraph above is true. Let us think about that for a moment, it may end up 
 being true in this case.}
+
+{\john  Oh-ho!  In this response I don't want to get pulled into any subtle math questions that aren't  actually necessary.  I was just trying to give the referee a pat on the back.  See if you like my new simplified reply, and bless it with a check mark if you do.}
 
 \item p. 30, following Thm A.2
 
@@ -746,7 +755,8 @@ hand.}
 {\kenny Agreed about keeping the examples together. The boldface looks good to me.}
 
 {\john I tweaked the boldface a tiny bit, so you can revoke your checkmarks if you want; 
-otherwise just comment out our little conversation here.}
+otherwise just comment out our little conversation here. By the way, you can comment out
+a big chunk of text just by putting $\backslash$iffalse in front of it and $\backslash$fi at the end.  This is a special case of a trick for making some text appear only if some condition is true!}
 
 {\chris Fourth review starts here}
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
