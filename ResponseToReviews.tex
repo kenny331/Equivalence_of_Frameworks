@@ -463,6 +463,10 @@ conditions of theorem 4.1 or a counter example (...) Hopefully it is easy to che
 commentary 
 on it in this paper.
 
+{\bf Unfortunately not all cases of C-sets meet the conditions of Theorem 4.1.   For example, the usual forgetful functor from $\mathsf{Graph}$ to $\mathsf{Set}$ sending any graph to its set of vertices is an opfibration, but not the forgetful functor sending any graph to its set of vertices.  So, this gives a structured cospan category to which Theorem 4.1 does not apply.   Finding extra conditions such that it \emph{does} apply is an interesting question, but it would take more thought.}
+
+{\john $\checkmark$}
+
 {\john Actually it's really easy to prove that presheaf categories obey the conditions of Theorem 4.1:
 given any functor $f : \mathsf{C} \to \mathsf{D}$ the left adjoint functor between presheaf categories $f_! : \widehat{\mathsf{C}} \to \widehat{\mathsf{D}}$ obeys the conditions of Theorems 4.1 and 4.2.   So I think we can easily add this as a corollary, maybe right after Theorem 4.2, to get a pile of examples.   Obvious to us, but not to everyone.  Should I do it?}
 
@@ -471,6 +475,21 @@ it looks like it won't be a disaster, and in fact a very fruitful result!! So ye
 proofread it.}
 
 {\chris Also perhaps we should add those references they provide somewhere.}
+
+{\john Now I think this is a bit harder than I thought.  I started writing stuff:
+
+\vskip 1em
+\begin{quote}
+Presheaf categories provide many examples of  Theorem 4.1.  Suppose $f \colon C \to D$ is any functor between small categories.  Then precomposition with $f$ gives a functor $f^\ast \colon \widehat{D} \to \widehat{C}$ between their presheaf categories, and this has a left adjoint $f_! \colon \widehat{C} \to \widehat{D}$.   
+\end{quote}
+
+\vskip 1em
+
+This is a good enough situation to build a structured cospan category, but the right adjoint $f^\ast$ may not be an opfibration, in which case we can't apply Theorem 4.1 --- right?   
+
+With a lot of help from Todd Trimble's I once figured out when $f^\ast$ \emph{is} an opfibration, but remembering that argument and writing this up would take some work.  And I don't really feel like expanding the paper in such a way --- we've got more than enough already.   So how about if just tell the referee this is a great idea but it would take more thought?   See if you like my boldface comment above.  
+}
+
 
 \item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
 for complex 

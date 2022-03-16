@@ -1586,8 +1586,8 @@ cospans are isomorphic, where $L \maps \A \to \inta F$ is a left adjoint of the 
 \end{thm}
 
 The hypothesis of this theorem is essentially a way of asking that the fibers of the induced opfibration $U \maps \inta F \to \A$ have finite colimits which are preserved by the reindexing functors, and that the induced fiberwise monoidal structure is cocartesian.   Expanding on this a bit:
-the fibers of $U$ are the same as the categories $F(a)$ for all $a \in \A$.   The lax monoidal pseudofunctor structure of $F$ gives rise to a specific symmetric monoidal structure on each category $F(a)$ given by \cref{eq:explicitstructure1}.  The hypothesis of the theorem asks that the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$.  This implies
-that the symmetric monoidal structure on $F(a)$ is cocartesian.
+the fibers of $U$ are the same as the categories $F(a)$ for all $a \in \A$.   The lax monoidal pseudofunctor structure of $F$ gives rise to a specific symmetric monoidal structure on each category $F(a)$, as in \cref{eq:explicitstructure1}.  The hypothesis of the theorem asks that the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$.  This implies
+that the symmetric monoidal structure on each category $F(a)$ is cocartesian.
 
 \iffalse
 The 2-equivalence of \cref{lem:MonGroth} has an important special case where the Grothendieck category $(X,\otimes_\X)$ is cocartesian monoidal itself, with coproducts built up from \cref{eq:explicitstructure2}.  In that case, opfibrations $(\X,+) \to (\A,+)$ that strictly preserve coproducts and initial object bijectively correspond to pseudofunctors into the 2-category of cocartesian categories.  For more details, see \cite[Corollary 4.7]{MV} and the related discussion.
@@ -1799,6 +1799,10 @@ to this map of structured cospans:
 (B) edge node [left] {$(h,\tau)$} (D);
 \end{tikzpicture}
 \]
+
+\iffalse
+Presheaf categories provide many examples of \cref{thm:equiv}.  Suppose $\phi \maps \C \to \D$ is any functor between small categories.  Then precomposition with $\phi$ gives a functor $\phi^\ast \maps \widehat{\D} \to \widehat{\C}$ between their presheaf categories, and this has a left adjoint $\phi_! \maps \widehat{\C} \to \widehat{\D}$.   
+\fi
 
 \iffalse
 In fact, a careful examination of the proof reveals that the assumptions of \cref{thm:equiv} could be weakened to state that the pseudofunctor $F \maps \A \to \SMC$ factors through the 2-category $\mathbf{Cocart}$ of cocartesian monoidal categories.   The reason is that when we compose two structured cospans as in \cref{eq:pushoutissum}, the apex of the composite cospan ends up being a sum in the second variable due to the definition of the left adjoint functor $L$ which forces the feet of all cospans to involve a fiberwise initial object.  However, in the most interesting examples seen so far, when $F$ factors through $\mathbf{Cocart}$ it also factors through $\Rex$.   
