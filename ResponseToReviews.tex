@@ -422,6 +422,8 @@ notation.
 
 {\kenny Can we put ``In preparation." if they don't have this on the arXiv in a timely manner?}
 
+{\chris Sounds good to me...}
+
 %{\chris Great! The 
 %hyperref link ??? opens up notes by Kenny for me, I don't know how or why.}
 
@@ -448,15 +450,14 @@ This result shows that under certain conditions, structured and decorated cospan
 \end{quote}
 }
 
-{\john $\checkmark$} {\kenny $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
 \iffalse
 {\kenny I think the reader should come to their own conclusion about which framework they should use if they are trying to decide between the two, assuming both are applicable. I wouldn't say that one is better than the other. Personally, I would rather try structured cospans first, because I would rather think about a left adjoint than a symmetric lax monoidal pseudofunctor, but other people might feel differently.} 
 
 {\john I agree with you, Kenny.  I think this reviewer saw the word ``vs'' and thought we were going to let structured and decorated cospans fight it out and announce who won, like at a boxing match.   Instead of arguing that this is not a good idea for a paper, I decided to just point out that our abstract says what our paper does, and it's something else.   (I also agree with you that structured cospans are simpler when you can use them: that's why we invented them!)}
 
 {\john If you like the response in boldface above, please add a checkmark here.  Otherwise try to
-improve it, or something.}  
-\fi 
+improve it, or something.} 
 
 {\chris I could add ``Those examples should serve as a guide for other similar applications, 
 whereas new applications would require exploring which approach works best, for example if a left adjoint (to start off with structured cospans) or a 
@@ -469,7 +470,17 @@ that somewhere in the intro as well?}
 
 {\kenny The boldface looks good to me, but I also like Christina's suggestions above if we really want to make an effort to appease this referee. I'm fine either way on this.}
 
-{\john See if you like my new remarks in boldface, and give me a check mark if you do!  Kenny had checked this one off already, but I've changed it a lot.}
+
+\fi 
+
+{\john See if you like my new remarks in boldface, and give me a check mark if you do!  Kenny had checked this one off already, but I've changed it a 
+lot.}
+
+{\chris Looks great to me. Final two minor points, feel free to ignore or not and delete this comment. (1) Is ``apparently'' supposed to sound a bit 
+sceptical? If not, would ``actually'' be better or not? (2) If we were being really accurate, don't we 
+actually ONLY use decorated cospans to describe the map from open Petri nets with rates to open dynamical systems? Namely since dynamical systems only 
+work as decorated cospans, we are required to use decorated cospans also for Petri nets to then get the map between them. Unless I am mixing something 
+there.}
 
 \item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
 explanation of the differences here. The examples of graph, labeled 
@@ -518,17 +529,20 @@ semantics for reaction networks that uses structured cospans?
 
 {\bf We do not know a way to construct a (double) category of open dynamical systems that uses structured cospans; to find one would require getting around the result at the end of Section 6.  This is an interesting challenge.}
 
-{\john $\checkmark$}
+{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
 
-{\kenny $\checkmark$}
-
+\iffalse
 {\chris Should we refer to which result we are talking about? Also, I am a bit confused about the question and answer. I thought reaction networks 
 can be described in both ways?}
 
 {\kenny I'm kinda' confused by the question, too, due to its wording. Based on what Dr. Baez said in response, I think they might have meant dynamical systems instead of reaction networks in their last sentence. They even say earlier in their comment that the frameworks are isomorphic for reaction networks.}
 
 {\john The referee was asking about the \emph{semantics} for reaction networks --- that is, dynamical systems!  Reaction networks are the ``syntax'' and dynamical systems are our chosen ``semantics'' for these.  But my reply in boldface was confused --- you're right.  So I've fixed it. 
-The ``result at the end of Section 6'' is the one where we show the functor from dynamical systems to finite sets doesn't have a left adjoint.  For some reason we didn't make this into a theorem.   Give me a check mark if you're happy now.   }
+The ``result at the end of Section 6'' is the one where we show the functor from dynamical systems to finite sets doesn't have a left adjoint.  For 
+some reason we didn't make this into a theorem.   Give me a check mark if you're happy now.   }
+
+{\chris I see, thanks!}
+\fi
 
 \item The development of the AlgebraicPetri software system is credited to Halter and Patterson based on a blog post. The correct citation is to the 
 software itself and should be credited to the entire AlgebraicPetri team based on a citation to the repository [3]. The additional authors would be 
