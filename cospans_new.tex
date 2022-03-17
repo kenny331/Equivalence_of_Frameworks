@@ -394,11 +394,9 @@ Unfortunately, many applications of decorated cospans were flawed.  The problem 
 \end{tikzpicture}
 }
 \]
-We might hope to do this using a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$ assigning to each finite set $m$ the set of all graphs with $m$ as their set of nodes. But this hope is doomed, for reasons painstakingly explained in \cite[Section 5]{BC}. 
-There is really a \emph{category} of graphs with $m$ as their set of nodes---and surprisingly, trying to treat this category as a mere set does not 
-work.
+We might hope to do this using a symmetric lax monoidal functor $F \maps (\Fin\Set, +) \to (\Set, \times)$ assigning to each finite set $m$ the set of all graphs with $m$ as their set of nodes. But this hope is doomed, for reasons painstakingly explained in \cite[Section 5]{BC}.   The key problem is that two graphs with $m$ as their set of nodes but different sets of edges give distinct elements of $F(m)$, and this prevents $F$ from being symmetric lax monoidal.   To solve this problem, we need to bring isomorphisms of graphs into the framework---so we need $F(m)$ to be a \emph{category} of graphs with $m$ as their set of nodes.
 
-Here we present a solution to this problem.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans_1,thm:decorated_cospans_2}, we use this
+Here we implement this solution.  Instead of basing the theory of decorated cospans on a symmetric lax monoidal functor $F \maps (\A, +) \to (\Set, \times)$, we use a symmetric lax monoidal pseudofunctor $F \maps (\A, +) \to (\Cat, \times)$.  In \cref{thm:decorated_cospans_1,thm:decorated_cospans_2}, we use this
 data to construct a symmetric monoidal double category $F\lCsp$ in which:
 \begin{itemize}
 \item an object is an object of $\A$,
