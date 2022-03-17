@@ -73,8 +73,9 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 \maketitle
 
 \setcounter{tocdepth}{2}
-\tableofcontents
+%\tableofcontents
 
+\iffalse
 \section{Reviews - to be removed}
 
 \subsection{First Review}
@@ -334,7 +335,10 @@ way, for example with an ordering with the zero vector field as the bottom eleme
 double category or bicategory, but perhaps it would yield the same 1-category}
 
 \section{Our Answer}
+\fi
 
+We have changed the paper in response to the four referee's comments.  We list those comments below, along with our
+responses (in boldface).
 
 \begin{enumerate}
 
@@ -429,9 +433,11 @@ notation.
 
 {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
-\item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is “easy”, we “easily”  modify, we “better understand”) sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing  it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification  for the use of Petri nets with rates.
+\item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is ``easy'', we ``easily'' modify, we ``better understand'') sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing  it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification  for the use of Petri nets with rates.
 
-{\bf There is now a paper detailing how this software works, so according to this suggestion we have changed our paper so it simply refers to that other paper.}   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
+{\bf There is now a paper by detailing how this software works, so according to this suggestion we have changed our paper so that it  refers to that other paper, along with the AlgebraicPetri GitHub repository which contains the code.} 
+
+  {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
 
 {\kenny Can we put ``In preparation." if they don't have this on the arXiv in a timely manner?}
 
@@ -555,6 +561,8 @@ With a lot of help from Todd Trimble's I once figured out when $f^\ast$ \emph{is
 
 {\kenny I think I recall you trying to explain this to me once: I believe the condition for $f^*$ to be an opfibration was that each hom-set $\hom(d,d)$ was a singleton, and that it was an if and only if. I remember trying to prove it, but getting lost in some of the details. Regardless, I agree that we have enough. The bold looks good to me.}
 
+{\john I think I considered the case where $f$ is an inclusion of $C$ in $D$, and the condition to get $f^\ast$ to be an opfibration is that there's only one morphism out of $d$ for each object $D$ that's in the image of $f$.  But I could be wrong.  The example of graphs should clarify things.}
+
 
 \item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
 for complex 
@@ -658,7 +666,7 @@ may have used this approach, or perhaps Brendan himself (not a coauthor at the t
 \fi
 
 
-\item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
+\item pg. 27: ``To show that $U$ does not have a left adjoint, we use the following well-known result.'' For readers of the TAC paper previously cited, 
 that might 
 be a well known result that does not require a citation, but my understanding of the Compositionality audience assumed that the ACT work was targeted 
 readers that are more familiar with the applications and thus cannot be assumed to know such results.
