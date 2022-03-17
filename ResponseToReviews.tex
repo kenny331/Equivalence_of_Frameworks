@@ -453,7 +453,6 @@ of are discussed here.}
 
 \vskip 1em
 
-{\chris Second review starts here}
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured  cospans are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
 structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
 application domain, and a some description of the tradeoffs. This paper should come with some practical advice for the applied category theorist on 
@@ -488,8 +487,6 @@ that somewhere in the intro as well?}
 {\kenny The boldface looks good to me, but I also like Christina's suggestions above if we really want to make an effort to appease this referee. I'm fine either way on this.}
 
 
-\fi 
-
 {\john See if you like my new remarks in boldface, and give me a check mark if you do!  Kenny had checked this one off already, but I've changed it a 
 lot.}
 
@@ -514,6 +511,10 @@ there.}
 \begin{quote}
 Thus, to describe a map from open Petri nets with rates to open dynamical systems, we use \emph{both} structured and decorated cospans.
 \end{quote}}
+
+{\chris Cool thanks!}
+
+\fi 
 
 \item Given that Petri nets with structured cospans works, and Reaction Networks work, but open dynamical systems do not, I would like some more 
 explanation of the differences here. The examples of graph, labeled 
@@ -606,7 +607,7 @@ no insight into the reasons that those tricks fail. Referring them to tricks is 
 
 {\bf We removed the part of the sentence ``despite all the tricks one might try'' according to this suggestion. In [3, Section 5] we spent five pages discussing these attempts and why they fail.    The diligent reader may wish to read this discussion and see if there is some other way out.}
 
- {\chris \checkmark} {\john \checkmark}
+{\chris \checkmark} {\john \checkmark}
 
 \iffalse
 {\john He thought we were being dismissive because he didn't know that the ``tricks'' were all things I'd done myself!  If he looked at [1, Section 5] 
@@ -646,12 +647,15 @@ do actually say what the flaw is there, correct? I don't see where we describe f
 
 {\john See if you like my boldface response.  I'm acting like we added an explanation of the flaws to our introduction, so we don't have to say ``Hey, 
 buster --- we already explained this.''}
-\fi
 
 {\chris I would potentially skip the first sentence of our response above. Does it sound a bit hostile? And perhaps he also means other people that 
 may have used this approach, or perhaps Brendan himself (not a coauthor at the time?) that invented them. Not too important in any case.}
 
 {\john Okay, I deleted it.  Indeed, it \emph{was} a bit hostile.}
+
+{\chris Thanks!}
+
+\fi
 
 
 \item pg. 27: To show that U does not have a left adjoint, we use the following well-known result. For readers of the TAC paper previously cited, 
@@ -665,7 +669,8 @@ readers that are more familiar with the applications and thus cannot be assumed 
 
 {\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
 
-{\chris Third review starts here}
+\vskip 1em
+
 \item p. 2. ``Unfortunately, many applications of decorated cospans were flawed… for reasons painstakingly explained in [1].''
 
 Since fixing these problems is a major motivation for the whole paper, it would be good to explain what they are in slightly more detail, rather than 
@@ -693,8 +698,9 @@ And yeah, Kenny, it's annoying: people complain if you repeat already known stuf
 The diagram depicting the decoration morphism $\tau$ as a natural transformation, first shown explictly on p. 10, should be moved here since it is 
 implicitly used at the beginning of p. 5 to define the decoration of horizontal composites.
 
-{\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.} {\chris 
-$\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
+{\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.} 
+
+{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
 
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
@@ -706,6 +712,7 @@ the following proofs that assumption is used.
 \[      \graysquare \colon F \lCsp \to D \lCsp \]
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
 using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
+
 {\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
 
 \iffalse
@@ -795,8 +802,11 @@ of dynamical systems.   It is not discrete, but it does not have an initial obje
 need to obtain a structured cospan
 category that matches our decorated cospan category.   
 
-So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  { \john $\checkmark$}
+So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  
 
+{ \john $\checkmark$} {\chris $\checkmark$}
+
+\iffalse
 {\chris This looks similar to comment 30.}
 
 {\john Yes, but it's worth a separate answer.   I wrote an answer above.  See if you like it.  }
@@ -809,7 +819,9 @@ lax monoidal functor into Cat may be strict as a functor, but the laxator is sti
 diagram (5). So I am not 100\% sure the starting statement in the second paragraph above is true. Let us think about that for a moment, it may end up 
 being true in this case.}
 
-{\john  Oh-ho!  In this response I don't want to get pulled into any subtle math questions that aren't  actually necessary.  I was just trying to give the referee a pat on the back.  See if you like my new simplified reply, and bless it with a check mark if you do.}
+{\john  Oh-ho!  In this response I don't want to get pulled into any subtle math questions that aren't  actually necessary.  I was just trying to give 
+the referee a pat on the back.  See if you like my new simplified reply, and bless it with a check mark if you do.}
+\fi
 
 \item p. 30, following Thm A.2
 
@@ -832,6 +844,7 @@ concrete examples, and also added a paragraph and the end of the Introduction (s
 
 {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
 
+\iffalse
 {\john
 I don't want to bust up the examples and put some in sections 2 and 3. Anyone who wants examples can easily find them all in Section 6, we mention 
 this section in the introduction (and perhaps should advertise it more there), and it's hard to analyze the examples without having all the theory in 
@@ -843,9 +856,14 @@ hand.}
 
 {\john I tweaked the boldface a tiny bit, so you can revoke your checkmarks if you want; 
 otherwise just comment out our little conversation here. By the way, you can comment out
-a big chunk of text just by putting $\backslash$iffalse in front of it and $\backslash$fi at the end.  This is a special case of a trick for making some text appear only if some condition is true!}
+a big chunk of text just by putting $\backslash$iffalse in front of it and $\backslash$fi at the end.  This is a special case of a trick for making 
+some text appear only if some condition is true!}
 
-{\chris Fourth review starts here}
+{\chris Haha had already started doing it before seeing this!}
+\fi
+
+\vskip 1em
+
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
 
@@ -990,7 +1008,7 @@ double category or bicategory, but perhaps it would yield the same 1-category.
 
 {\bf This is an interesting idea but we haven't been able to get it to work yet.  See also comment 20.}
 
-{\john $\checkmark$}
+{\john $\checkmark$} {\chris $\checkmark$}
 \end{enumerate}
 
 
