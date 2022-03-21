@@ -2899,15 +2899,15 @@ Even though for both \cref{thm:equiv} and the above result the conditions stated
 with a natural isomorphism in the middle.  The connection between opfibrations and laris goes back to Gray's \cref{prop:opfibtolari}, but we need to specialize it to a class suitable for both the structured and decorated cospan constructions.  This would imply that starting from an appropriate middle ground, these two constructions are essentially the same.   We leave such considerations for future work.
 
 Finally, it is worth mentioning a structured cospan double category to which the argument sketched above does \emph{not} apply.   For any functor 
-$\phi \maps \C \to D$ between small categories, precomposition with $\phi$ gives a functor $R \maps \widehat{D} \to \widehat{C}$ between presheaf 
-categories which has a left adjoint $L \maps \widehat{C} \to \widehat{D}$.   Since presheaf categories have all small colimits and $L$ preserves them, 
+$\phi \maps \C \to \D$ between small categories, precomposition with $\phi$ gives a functor $R \maps \widehat{\D} \to \widehat{\C}$ between presheaf 
+categories which has a left adjoint $L \maps \widehat{\C} \to \widehat{\D}$.   Since presheaf categories have all small colimits and $L$ preserves them, 
 the conditions of \cref{thm:structured_cospans} apply and we obtain a symmetric monoidal double category of structured cospans, 
-${}_L\lCsp(\widehat{D})$.  However, the right adjoint $R$ is not always an opfibration---and when it is not, the above arguments cannot be used to 
-show that ${}_L\lCsp(\widehat{D})$ is a decorated cospan double category.  A simple example where $R$ is not an opfibration was 
+${}_L\lCsp(\widehat{\D})$.  However, the right adjoint $R$ is not always an opfibration---and when it is not, the above arguments cannot be used to 
+show that ${}_L\lCsp(\widehat{\D})$ is a decorated cospan double category.  A simple example where $R$ is not an opfibration was 
 provided to us by Morgan Rogers.  Take $\phi \maps \mathsf{1} + \mathsf{1} \to \mathsf{1}$ to be the unique functor where $\mathsf{1}$ is the 
 terminal category.  Then $R \maps \Set \to \Set^2$ is the diagonal, and the morphism
 $(0,0) \to (0,1)$ in $\Set^2$ admits no lift at all to $0 \in \Set$.   It will be interesting to find conditions on $\phi \maps \C \to \D$ that 
-guarantee ${}_L\lCsp(\widehat{D})$ is isomorphic to a decorated cospan category, using the above machinery.
+guarantee ${}_L\lCsp(\widehat{\D})$ is isomorphic to a decorated cospan category, using the above machinery.
 
 \appendix
 
