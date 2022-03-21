@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/03/16 - dealing with referee's comments
+% 2021/03/20 - dealing with referee's comments
 
 \documentclass[reqno]{amsart}
 
@@ -1324,7 +1324,7 @@ relation to decorated cospans.   This new construction again uses Shulman's \cre
 \cref{Applications}.
 
 \begin{thm}\label{thm:structured_cospans}
-Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category $_L\lCsp(\X)$ in which
+Given categories $\A$ and $\X$ with finite colimits and $L \maps \A \to \X$ a functor preserving finite colimits, there is a symmetric monoidal double category ${}_L\lCsp(\X)$ in which
 \begin{itemize}
 \item an object is an object of $\A$,
 \item a vertical 1-morphism is a morphism of $\A$,
@@ -2868,7 +2868,7 @@ $\emptyset \downarrow U$ is just $\inta D$.  This contains an object $(\emptyset
 
 We have given conditions under which a decorated cospan double category is isomorphic to a structured cospan double category, in \cref{thm:equiv}. The converse question is also interesting: is every structured cospan double category isomorphic to a decorated cospan double category? The answer is similar to the previous one: yes, under certain conditions that let us pass from an appropriate functor $L \maps \A \to \X$ to an appropriate pseudofunctor $F \maps \A \to \Cat$.
 
-Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.  Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:structured_cospans}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ now has enough structure to induce a double category of decorated cospans $F\lCsp$ as in \cref{thm:decorated_cospans_2}.  Finally, it can be shown that the structured and decorated cospan double categories are isomorphic as symmetric monoidal double categories: ${}_L \lCsp(\X) \cong F\lCsp$.
+Let us now sketch the story; details will appear in a forthcoming paper \cite{CV}.   Suppose the conditions hold for constructing the double category of structured cospans ${}_L \lCsp(\X)$ as in \cref{thm:structured_cospans}.  That is, suppose $\A$ and $\X$ have finite colimits and $L \maps \A \to \X$ preserves them.    If $L$ also has a right adjoint `left inverse' (meaning the unit is the identity) $U \maps \X \to \A$, which moreover strictly preserves the chosen pushouts, it can be shown that $U$ is an opfibration.  Consequently, $U$ corresponds to a pseudofunctor $F \maps \A \to \Cat$ by the inverse Grothendieck construction, as in the first part of \cref{thm:Grothendieck}. Furthermore, if $U$ preserves finite coproducts, $F$ acquires the structure of a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$ by the special case of the cocartesian monoidal Grothendieck construction discussed under \cref{lem:MonGroth}.  As a result, $F$ now has enough structure to induce a double category of decorated cospans $F\lCsp$ as in \cref{thm:decorated_cospans_2}.  Finally, it can be shown that the structured and decorated cospan double categories are isomorphic as symmetric monoidal double categories: ${}_L \lCsp(\X) \cong F\lCsp$.
 
 To give a better sense of how the pseudofunctor $F \maps \A \to\Cat$ is constructed: for each object $a \in A$, $F(a)$ is defined to be the fiber of $U$ over $a$, namely the category of all objects in $x \in \X$ such that $U(x)=a$ and morphisms $k\maps x\to y$ such that $U(k)=1_a$.  Given a morphism $f \maps a \to b$, there is a functor $F(f) \maps F(a)\to F(b)$ that maps $x \in F(a)$ to the following pushout:
 \begin{displaymath}
@@ -2897,6 +2897,9 @@ Even though for both \cref{thm:equiv} and the above result the conditions stated
 \end{tikzpicture}
 \end{displaymath}
 with a natural isomorphism in the middle.  The connection between opfibrations and laris goes back to Gray's \cref{prop:opfibtolari}, but we need to specialize it to a class suitable for both the structured and decorated cospan constructions.  This would imply that starting from an appropriate middle ground, these two constructions are essentially the same.   We leave such considerations for future work.
+
+Finally, it is worth mentioning a structured cospan double category to which the argument sketched above does \emph{not} apply.   For any functor $\phi \maps \C \to D$ between small categories, precomposition with $\phi$ gives a functor $R \maps \widehat{D} \to \widehat{C}$ between presheaf categories which has a left adjoint $L \maps \widehat{C} \to \widehat{D}$.   Since presheaf categories have all small colimits and $L$ preserves them, the conditions of \cref{thm:structured_cospans} apply and we obtain a symmetric monoidal double category of structured cospans, ${}_L\lCsp(\widehat{D})$.  However, the right adjoint $R$ is not always an opfibration---and when it is not, we know ${}_L\lCsp(\widehat{D})$ cannot be a decorated cospan double category.  A simple example where $R$ is not an opfibration was provided to us by Morgan Rogers.  Take $\phi \maps \mathsf{1} + \mathsf{1} \to \mathsf{1}$ to be the unique functor where $\mathsf{1}$ is the terminal category.  Then $R \maps \Set \to \Set^2$ is the diagonal, and the morphism
+$(0,0) \to (0,1)$ in $\Set^2$ admits no lift at all to $0 \in \Set$.   
 
 \appendix
 
@@ -3441,7 +3444,7 @@ If $\lD$ is a fibrant monoidal double category, then its horizontal bicategory $
 \href{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}{https://github.com/AlgebraicJulia/AlgebraicPetri.jl}.
 
 \bibitem{BFMLP}  A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson, An
-algebraic framework for structured epidemic modeling.   Available as \href{???}{???}
+algebraic framework for structured epidemic modeling.   To appear.
 
 \bibitem{BC} J.\ C.\ Baez and K.\ Courser, Structured cospans,  \textsl{Theory Appl.\ Categ.\ }\textbf{35} (2020), 1771--1822.   Available as \href{http://arxiv.org/abs/1911.04630}{arXiv:1911.04630}.
 

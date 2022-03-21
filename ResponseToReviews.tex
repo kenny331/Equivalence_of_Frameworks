@@ -532,10 +532,13 @@ that for discrete structures like finitary presheaves over a finitely presented 
 to be equivalent (...) If that intuition is correct, the paper should say something about it. If the intuition is incorrect, then additional 
 explanation should be provided. Hopefully it is easy to check and provide some commentary on it in this paper.
 
-{\bf Unfortunately not all cases of C-sets meet the conditions of Theorem 4.1.   For example, the usual forgetful functor from $\mathsf{Graph}$ to $\mathsf{Set}$ sending any graph to its set of vertices is an opfibration, but not the forgetful functor sending any graph to its set of edges.  So, this gives a structured cospan category to which Theorem 4.1 does not apply.   Finding extra conditions such that it \emph{does} apply is an interesting question, but it would take more thought.}
+{\bf  Indeed, presheaf categories provide a very good environment for the structured cospan construction, and we now mention this at the very end of the Conclusions.  However, not all right adjoints between presheaf categories $\widehat{\mathsf{D}} \to \widehat{\mathsf{C}}$ induced by functors $\mathsf{C} \to \mathsf{D}$ are opfibrations, so the Grothendieck construction cannot always be used to obtain a pseudofunctor $F \colon \mathsf{C} \to \mathbf{Cat}$ and build a decorated cospan category.   We give a counterexample.   There is probably more to be said about this, and we expect that Daniel Cicala and Christina Vasilakopoulou's forthcoming paper will give
+conditions under which this sort of structured cospan category \emph{is} also a decorated cospan
+category.}
 
 {\john $\checkmark$} {\kenny $\checkmark$}
 
+\iffalse
 {\john Actually it's really easy to prove that presheaf categories obey the conditions of Theorem 4.1:
 given any functor $f : \mathsf{C} \to \mathsf{D}$ the left adjoint functor between presheaf categories $f_! : \widehat{\mathsf{C}} \to \widehat{\mathsf{D}}$ obeys the conditions of Theorems 4.1 and 4.2.   So I think we can easily add this as a corollary, maybe right after Theorem 4.2, to get a pile of examples.   Obvious to us, but not to everyone.  Should I do it?}
 
@@ -562,7 +565,7 @@ With a lot of help from Todd Trimble's I once figured out when $f^\ast$ \emph{is
 {\kenny I think I recall you trying to explain this to me once: I believe the condition for $f^*$ to be an opfibration was that each hom-set $\hom(d,d)$ was a singleton, and that it was an if and only if. I remember trying to prove it, but getting lost in some of the details. Regardless, I agree that we have enough. The bold looks good to me.}
 
 {\john I think I considered the case where $f$ is an inclusion of $C$ in $D$, and the condition to get $f^\ast$ to be an opfibration is that there's only one morphism out of $d$ for each object $D$ that's in the image of $f$.  But I could be wrong.  The example of graphs should clarify things.}
-
+\fi
 
 \item If we take the categorical systems theory perspective advanced by section 6, and the body of the authors’ recent work on functorial semantics 
 for complex 
@@ -634,7 +637,7 @@ the structured cospan approach?''
 %The goal of this paper should be to illustrate to an applied category theory audience the differences between 
 %decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
 
-{\bf  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now briefly explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''.  In reference [3], Kenny Courser and John Baez analyzed these mistakes in detail and fixed them using structured cospans.  See also comment (9).}
+{\bf  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now briefly explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''.  In reference [3], Kenny Courser and John Baez analyzed these errors in detail and fixed them using structured cospans.  See also comment (9).}
 
 {\john $\checkmark$} {\kenny $\checkmark$} {\chris \checkmark}
 
