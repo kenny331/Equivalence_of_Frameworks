@@ -337,8 +337,9 @@ double category or bicategory, but perhaps it would yield the same 1-category}
 \section{Our Answer}
 \fi
 
-We have changed the paper in response to the four referee's comments.  We list those comments below, along with our
-responses (in boldface).
+We have changed the paper in response to the four referees' comments.  We list those comments below, along with our responses which are in boldface.
+
+\section*{First Review}
 
 \begin{enumerate}
 
@@ -355,7 +356,7 @@ the Introduction.   As we mention, our previous paper ``Structured
 cospans'' fixed the errors in previous work on decorated cospans by using structured cospans instead.   Here we describe how the new improved 
 decorated cospans can also fix those errors.     There may be even more ways to correct these errors, but we do not know them.}  
 
-{\kenny $\checkmark$}  {\john $\checkmark$} {\chris $\checkmark$}
+   
 
 \iffalse
 {\chris As was suggested by John at some point, would we perhaps want to add a sentence or two in the introduction, saying that indeed there are a 
@@ -378,13 +379,13 @@ it is not. Perhaps it would be clearer to always use “lax monoidal” or to ju
 {\bf We have added ``lax'' at Lemma 2.4 in two occurences, and have checked the rest of the document to verify that this does not happen 
 elsewhere.}  
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \item Theorem 4.1: perhaps it would be clearer to say it “factors through R : Rex $\to$ SymMonCat”.
 
 {\bf Done, also in Corollary 4.3.} 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
+ 
 
 \iffalse
 {\john  I find that this added text confuses me more than it helps me:
@@ -418,25 +419,26 @@ having the universal property of a coproduct for example. Possibly just overthin
 
 {\bf Done.}  
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \item After Theorem A.2: In order to be consistent, it would be practical to state explicitly what is a bifibration.
 
 {\bf Done.} 
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \item Beck-Chevalley condition, after Theorem A.2: Using $X_a$ instead of $C_a$ for the fibers on the diagram would be more consistent with previous 
 notation.
 
 {\bf Done.} 
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \item COVID paragraph: I appreciate the effort into explaining the applied aspect. However, claims about the software (it is ``easy'', we ``easily'' modify, we ``better understand'') sound too vague (is it computationally better? do we assume that the final user understands structured cospans? are we comparing  it to other Petri net editors?). Perhaps this paragraph could be fused as a comment to the previous one, which is already a very good justification  for the use of Petri nets with rates.
 
 {\bf There is now a paper by detailing how this software works, so according to this suggestion we have changed our paper so that it  refers to that other paper, along with the AlgebraicPetri GitHub repository which contains the code.} 
 
+\iffalse
   {\john But we still need to add an arXiv link in reference 1!  It should be on the arXiv soon.} 
 
 {\kenny Can we put ``In preparation." if they don't have this on the arXiv in a timely manner?}
@@ -445,19 +447,24 @@ notation.
 
 {\john Yes, we can do that.  Their paper is written, but they are struggling to get it onto the arXiv... and having trouble for stupid technical reasons.   I'll see if they succeed by the time we submit this.}
 
-%{\chris Great! The 
+{\chris Great! The 
 %hyperref link ??? opens up notes by Kenny for me, I don't know how or why.}
 
-%{\john It's weird that the line ??? opens up anything for you.  It'll go away when we get the arXiv number.} Indeed!
+{\john It's weird that the line ??? opens up anything for you.  It'll go away when we get the arXiv number.} Indeed!
+\fi
 
 \item Section 6: as a reader, I really appreciate the examples: are there more in the literature? I do not think it is necessary to go in detail over each one of them, but perhaps it would be useful to point to other places where they are described.
 
 {\bf We have added a word about Markov processes in Section 6.2, and with this, all the applications of structured or decorated cospans that we know 
 of are discussed here.} 
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
-\vskip 1em
+\end{enumerate}
+
+\section*{Second Review}
+
+\begin{enumerate}
 
 \item Given the title and abstract of this paper “Structured vs Decorated Cospans” I would expect this paper to provide a judgment that structured  cospans are strictly better than decorated cospans in all circumstances and a justification for that claim, or a detailed analysis of the pros and cons of 
 structured vs decorated cospans, some case studies in applications that show how the difference between these double categories is felt in the 
@@ -472,7 +479,7 @@ This result shows that under certain conditions, structured and decorated cospan
 \end{quote}
 }
 
-{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
+  
 \iffalse
 {\kenny I think the reader should come to their own conclusion about which framework they should use if they are trying to decide between the two, assuming both are applicable. I wouldn't say that one is better than the other. Personally, I would rather try structured cospans first, because I would rather think about a left adjoint than a symmetric lax monoidal pseudofunctor, but other people might feel differently.} 
 
@@ -536,7 +543,7 @@ explanation should be provided. Hopefully it is easy to check and provide some c
 conditions under which this sort of structured cospan category \emph{is} also a decorated cospan
 category.}
 
-{\john $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \iffalse
 {\john Actually it's really easy to prove that presheaf categories obey the conditions of Theorem 4.1:
@@ -575,7 +582,7 @@ semantics for reaction networks that uses structured cospans?
 
 {\bf We do not know a way to construct a (double) category of open dynamical systems that uses structured cospans; to find one would require getting around the result at the end of Section 6.  This is an interesting challenge.}
 
-{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
+  
 
 \iffalse
 {\chris Should we refer to which result we are talking about? Also, I am a bit confused about the question and answer. I thought reaction networks 
@@ -597,7 +604,7 @@ Andrew Baas and James Fairbanks.
 {\bf We have added a reference to the new paper ``An
 algebraic framework for structured epidemic modeling'' by A.\ Baas, J.\ Fairbanks, M.\ Halter, S.\ Libkind and E.\ Patterson.  We have also added a reference to the AlgebraicPetri GitHub repository.}
 
-{\john \checkmark} {\kenny \checkmark} {\chris \checkmark}
+  
 
 \iffalse
 {\john It'd be good to add a reference to the repository.}
@@ -618,7 +625,7 @@ no insight into the reasons that those tricks fail. Referring them to tricks is 
 
 {\bf We removed the part of the sentence ``despite all the tricks one might try'' according to this suggestion. In [3, Section 5] we spent five pages discussing these attempts and why they fail.    The diligent reader may wish to read this discussion and see if there is some other way out.}
 
-{\chris \checkmark} {\john \checkmark} {\kenny \checkmark}
+  
 
 \iffalse
 {\john He thought we were being dismissive because he didn't know that the ``tricks'' were all things I'd done myself!  If he looked at [1, Section 5] 
@@ -637,9 +644,9 @@ the structured cospan approach?''
 %The goal of this paper should be to illustrate to an applied category theory audience the differences between 
 %decorated and structured cospans. Referring back to previous work of the authors to make that point does not provide value.
 
-{\bf  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now briefly explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''.  In reference [3], Kenny Courser and John Baez analyzed these errors in detail and fixed them using structured cospans.  See also comment (9).}
+{\bf  The flaws---mathematical errors that render a number of claimed theorems incorrect---are now briefly explained in  in the Introduction, in the paragraph beginning ``Unfortunately, many applications of decorated cospans were flawed.''.  In reference [3], Kenny Courser and John Baez analyzed these errors in detail and fixed them using structured cospans.  See also comment (6) in the second review.}
 
-{\john $\checkmark$} {\kenny $\checkmark$} {\chris \checkmark}
+  
 
 \iffalse
 {\john The "other scholars" are mainly me and Brendan, and the flaws are that some claims are false! I think we describe the flaws in Section 6; if so 
@@ -678,9 +685,13 @@ readers that are more familiar with the applications and thus cannot be assumed 
 
 %{\john I have also changed ``well-known'' to ``known'', which is more polite to people who don't know it.} {\chris Good!}
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
-\vskip 1em
+\end{enumerate}
+
+\section*{Third Review}
+
+\begin{enumerate}
 
 \item p. 2. ``Unfortunately, many applications of decorated cospans were flawed… for reasons painstakingly explained in [1].''
 
@@ -690,7 +701,7 @@ cospans, the isomorphism classes of open graphs depend on the identities of the 
 
 {\bf We have rewritten this paragraph to explain those flaws.}
 
-{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
+  
 
 \iffalse
 {\chris If I am not wrong, the paragraph cited here IS the explanation of the problem, perhaps in application terms rather than in theory terms. 
@@ -711,7 +722,7 @@ implicitly used at the beginning of p. 5 to define the decoration of horizontal 
 
 {\bf We have moved the natural isomorphism triangle as equation (1) in the statement of Theorem 2.1, and we have referred to it at page 10.} 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
+  
 
 \item p. 9, ingredients for constructing a double functor of decorated cospan double categories.
 
@@ -724,7 +735,7 @@ the following proofs that assumption is used.
 sending any open Petri net with rates to its corresponding open dynamical system, and we do this
 using a monoidal natural transformation $\theta$ that is \emph{not} an isomorphism.  We had mistakenly written that it was; we have fixed this now.}
 
-{\john $\checkmark$} {\kenny $\checkmark$} {\chris $\checkmark$}
+  
 
 \iffalse
 {\kenny I think they are correct in that we don't use this extra assumption.}
@@ -770,8 +781,6 @@ decorated and structured approach to constructing open graphs.
 {\bf At the beginning of Section 6.1, as well as in Sections 6.2, 6.3 and 6.4, we now use $f$ as a map between vertices and $g$ as a map 
 between edges.} 
 
-{\chris $\checkmark$} {\john $\checkmark$} {\kenny  $\checkmark$}
-
 %{\chris Added a few more places where Kenny spotted these mistakes.}
 
 %{\kenny Species and transitions are analogous to vertices and edges, so those maps were also changed to $f$s and $g$s, respectively.}
@@ -815,8 +824,6 @@ category that matches our decorated cospan category.
 
 So, giving the category of dynamical systems more morphisms sounds like a good idea. We will continue thinking about it.}  
 
-{ \john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
-
 
 \iffalse
 {\chris This looks similar to comment 30.}
@@ -842,7 +849,7 @@ completeness, it should be included.
 
 {\bf Done.} 
 
-{\chris $\checkmark$} {\john $\checkmark$}  {\kenny $\checkmark$}
+  
 
 \item A last general comment is that the paper unfortunately adopts the strategy, all too common in math papers, of putting all the examples in a 
 section at 
@@ -854,7 +861,7 @@ the comparison between the two formalisms---a major feature of Section 6---would
 better direct the reader to the applications, we added one sentence in each introductory paragraph of Sections 2 and 3 that point to Section 6 for 
 concrete examples, and also added a paragraph and the end of the Introduction (see comment 9). } 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
+ 
 
 \iffalse
 {\john
@@ -876,12 +883,18 @@ some text appear only if some condition is true!}
 
 \vskip 1em
 
+\end{enumerate}
+
+\section*{Fourth Review}
+
+\begin{enumerate}
+
 \item Composition of morphisms f, g in this paper is usually denoted gf, and occasionally gof. I’d suggest mentioning this in the “conventions” 
 section.
 
 {\bf We added the sentence ``For composition of morphisms we use concatenation or occasionally $\circ$.'' in the convention section.} 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
+ 
 
 %{\chris I would be happy to add this to conventions, but I cannot seem to find gf anywhere in the paper. Anyone else?}
 
@@ -919,7 +932,7 @@ believe
 that mentioning this in the introduction could put people off if they haven't heard of it. We added a comment about this in the 
 appendix.} 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
+ 
 
 \iffalse
 {\chris Not sure that `covariant' would make this clearer...both are very well the Grothendieck construction I would think, but I don't mind that 
@@ -942,7 +955,7 @@ much.}
 
 {\bf  We have added a remark emphasizing this right after Theorem 2.1.}   
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 %{\chris Maybe just specify in the statement of 2.1, definitely keep $\in$ sign in all diagrams below!}
 
@@ -962,7 +975,7 @@ is a classic sort of spot where errors can hide.)
 \textbf{Kenny Courser carefully checked that these really are co/cartesian liftings, but the argument is straightforward and uninteresting so we will just 
 add remarks saying that this can be shown.}   
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \iffalse
 {\kenny I think we originally had these details in our proof (of both Theorem 2.1 and Theorem 3.1) but removed them.}
@@ -974,7 +987,7 @@ add remarks saying that this can be shown.}
 
 {\bf  We have added a remark on page 9 discussing this.} 
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 
 \iffalse
 {\color{blue}{Kenny: We don't have any examples where $E$ is not an identity, but in my mind it's a functor that possibly modifies decorations, e.g. 
@@ -1002,7 +1015,7 @@ which is more general.}
 
 {\bf Done.}
 
- {\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$}
+  
 
 \item I think it would be worth saying in words a bit more prominently what the hypothesis of theorem 4.1 roughly means, namely that the fibers of 
 the total 
@@ -1011,16 +1024,16 @@ category have finite colimits, reindexing preserves them, and the monoidal produ
 {\bf We have added a paragraph right below the statement of Theorem 4.1, clarifying its assumptions as suggested, which also incorporates an 
 explanatory paragraph previously located under Corollary 4.3.} 
 
-{\chris $\checkmark$} {\kenny $\checkmark$} {\john $\checkmark$} 
+  
 
 \item I wonder if the “problem” where DCsp is not a structured cospan category could be “fixed” by upgrading the functor from Set to Cat in a 
 non-discrete 
 way, for example with an ordering with the zero vector field as the bottom element. I suppose this would give you different 2-cells in the resulting 
 double category or bicategory, but perhaps it would yield the same 1-category.
 
-{\bf This is an interesting idea but we haven't been able to get it to work yet.  See also comment 20.}
+{\bf This is an interesting idea but we haven't been able to get it to work yet.  See also comment (5) in the third review.}
 
-{\john $\checkmark$} {\chris $\checkmark$} {\kenny $\checkmark$}
+ 
 \end{enumerate}
 
 
