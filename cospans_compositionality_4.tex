@@ -2800,24 +2800,24 @@ where
 \[     c^{s(\tau)} = \prod_{i \in S} {c_i}^{s(\tau)_i}  \]
 and we think of $t(\tau), s(\tau) \in \N[S]$ as vectors in $\R^S$.   This formula is explained in the paper with Pollard \cite{BP}.   Using the new definition of morphisms in $F(S)$, one can check that $\theta$ extends to a monoidal natural transformation between the functors $F, D \maps (\Fin\Set,+) \to (\Cat,\times)$.  Thus, it defines a symmetric monoidal double functor $\graysquare \maps F \lCsp \to D \lCsp$.
 
-In applications, this double functor lets us turn an open Petri net with rates into an open dynamical system as follows.  Given a Petri net with rates $P$ and defining $v$ as above, we
-obtain a system of first-order ordinary differential equations for a function $c \maps \R \to \R^S$ 
+In applications, this double functor lets us turn an open Petri net with rates into an open dynamical system as follows.  Given a Petri net with rates and defining $v$ as above, we obtain a system of first-order ordinary differential equations for a time-dependent function $c \maps \R \to \R^S$ 
 called the \define{rate equation}:
 \[    \frac{d}{dt} c(t) = v(c(t)) .  \]
-More generally, when $P$ is part of an open Petri net with rates
+More generally, given an open Petri net with rates
 \[
 \begin{tikzpicture}[scale=1.5]
-\node (D) at (-3,0) {$L(X)$};
-\node (E) at (-2,0) {$P$};
-\node (F) at (-1,0) {$L(Y)$,};
+\node (D) at (-3,0) {$X$};
+\node (E) at (-2,0) {$S$};
+\node (F) at (-1,0) {$Y,$};
+\node (G) at (0,0) {$P \in F(S)$};
 \path[->,font=\scriptsize,>=angle 90]
 (D) edge node [above] {$i$} (E)
 (F) edge node [above] {$o$} (E);
 \end{tikzpicture}
 \]
-we get an open dynamical system called the \define{open rate equation}:
+we get an equation called the \define{open rate equation}:
 \[     \frac{d}{dt} c(t) = v(c(t))  + i_*(I(t)) - o_*(O(t)) \]
-where $I \maps \R \to \R^X$ and $O \maps \R \to \R^Y$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
+where $v$ is defined as above and $I \maps \R \to \R^X$ and $O \maps \R \to \R^Y$ are arbitrary smooth functions describing \define{inflows} and \define{outflows}, respectively.   Applying this prescription to the open Petri net with rates shown at the start of this section one gets the differential equations \cref{eq:openPetrir}.  Other examples are worked out in \cite{BP}. 
 
 We now show that the decorated cospan double category $D \lCsp$ of open dynamical systems is not isomorphic to a structured cospan double category via \cref{thm:equiv}. Recall that in that theorem we start with the data required to build a decorated cospan category, namely a symmetric lax monoidal pseudofunctor $F \maps (\A,+) \to (\Cat,\times)$, and show that if the resulting pseudofunctor $F \maps \A \to \SMC$ factors through $\Rex$, then the opfibration $U \maps \X = \inta F \to \A$ has a left adjoint $L \maps \A \to \X$. We then obtain an isomorphism between decorated and structured cospan double categories, $F \lCsp \cong {}_L \lCsp(\X)$. We now show that in the case at hand, where $F = D$ is the functor sending each finite set $S$ to the set of dynamical systems on $\R^S$, the opfibration $U$ does \emph{not} have a left adjoint. Thus, the conditions of \cref{thm:equiv} cannot hold in this case: $F$ does not factor through $\Rex$.
 
