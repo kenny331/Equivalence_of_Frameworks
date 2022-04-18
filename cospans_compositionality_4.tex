@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/04/16 - 4th version sent to Compositionality: version for publication - fixing mistakes
+% 2021/04/18 - 4th version sent to Compositionality: version for publication - fixing mistakes
 
 \documentclass[a4paper,onecolumn, superscriptaddress,10pt, accepted=2022-03-25, issue=SS, volume=VV, shorttitle=papers/compositionality-VV-SS]{compositionalityarticle}
 \pdfoutput=1
@@ -512,7 +512,7 @@ This result shows that under certain conditions, structured and decorated cospan
 
 \subsection*{Outline}
 
-In \cref{DecCospansDoubleCat} we construct the double category of decorated cospans, $F\lCsp$, and show how to construct maps between decorated cospan double categories. In \cref{Structured} we give a new construction of the double category of structured cospans, ${}_L \lCsp(\X)$.  In \cref{EquivDoubleCats} we prove that the double categories of decorated cospans and structured cospans are isomorphic under suitable conditions.  In \cref{spinoffs} we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  In \cref{Applications} we describe applications, and show that open dynamical systems can be described using decorated cospans but not structured cospans.
+In \cref{DecCospansDoubleCat} we construct the double category of decorated cospans, $F\lCsp$, and show how to construct maps between decorated cospan double categories. In \cref{Structured} we give a new construction of the double category of structured cospans, ${}_L \lCsp(\X)$.  In \cref{EquivDoubleCats} we prove that the double categories of decorated cospans and structured cospans are isomorphic under suitable conditions.  In \cref{spinoffs} we establish the isomorphism between structured and decorated cospans at the level of bicategories and categories (via decategorification).  In \cref{Applications} we describe applications.
 
 \subsection*{Conventions}
 
@@ -2166,7 +2166,7 @@ Thinking about systems and processes categorically dates back to early works by 
  
 Decorated cospans were introduced by Fong \cite{Fong,FongThesis} to describe open systems as cospans equipped with extra data.  They were then applied to open electrical circuits \cite{BF}, Markov processes \cite{BFP}, and chemical reaction networks \cite{BP}.  Unfortunately, some of these applications were marred by technical flaws, which were later fixed using structured cospans \cite{BC}. Here we explain how they can also be fixed using our new decorated cospans.  We compare the two approaches in applications to graphs, electrical circuits, Petri nets, reaction networks and dynamical systems. 
 
-In many cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} illustrate this.   However, in \cref{subsec:petrirates} we describe a map from open Petri nets with rates to open dynamical systems.  The former are conveniently described using structured cospans, while the latter can only be treated using decorated cospans.   Here \cref{thm:equiv} serves as a bridge that lets us connect the two formalisms.
+In some cases, \cref{thm:equiv} shows that the structured and decorated cospan approaches are equivalent: \cref{subsec:graphs,subsec:circuits,subsec:petri} illustrate this.  However, in some cases decorated cospans appear to be necessary, and in \cref{subsec:petrirates} we explain why \cref{thm:equiv} does not apply to open dynamical systems.
 
 \subsection{Graphs}
 \label{subsec:graphs}
