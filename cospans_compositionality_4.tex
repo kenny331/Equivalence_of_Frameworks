@@ -2609,7 +2609,7 @@ The machinery of structured cospans has been used to provide a semantics for ope
 \subsection{Petri nets with rates}
 \label{subsec:petrirates}
 
-In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labeled with positive real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
+In chemistry, population biology, epidemiology and other fields, modelers use `Petri nets with rates', where the transitions are labeled with nonnegative real numbers called `rate constants' \cite{Haas,Koch,Wilkinson}.   From any Petri net with rates one can systematically construct a dynamical system.  Mathematical chemists have proved deep theorems relating the topology of Petri nets with rates to the qualitative behavior of their dynamical systems \cite{CTF}.
 
 Pollard and the first author showed how to construct an open dynamical system from any open Petri net with rates,  thus defining a functor from a category with open Petri nets with rates as morphisms to one with open dynamical systems as morphisms \cite{BP}.  They used Fong's original decorated cospans to do this.  Here we show we show how to promote these categories to double categories using our new approach to decorated cospans.  
  
@@ -2668,7 +2668,7 @@ First, to briefly illustrate these ideas, here is an open Petri net with rates:
 	\end{pgfonlayer}
 \end{tikzpicture}
 \]
-It is an open Petri net where the transitions are labeled with rate constants $r_1, r_2 > 0$.
+It is an open Petri net where the transitions are labeled with rate constants $r_1, r_2 \geq 0$.
 Here is the corresponding open dynamical system:
 \begin{equation}
 \label{eq:openPetrir}
@@ -2681,9 +2681,9 @@ Here $I_1(t),I_2(t),I_3(t)$ and $O_1(t)$ are arbitrary smooth functions of time,
 If we drop these inflow and outflow terms, we obtain a dynamical system: an autonomous system of coupled nonlinear first-order ordinary differential equations.   In fact these equations are a famous model of infectious disease, the `SIR model', where $S(t)$, $I(t)$ and $R(t)$ describe the populations of susceptible, infected and recovered individuals, respectively.   The inflow and outflow terms allow individuals to enter or leave the population.   This in turn lets us couple the SIR model to other models, and build larger models from smaller pieces.    Indeed, a group of researchers has recently used open Petri nets and the mathematics of structured cospans in their software tool for building and manipulating epidemiological models \cite{AP,BFMLP}.   
 
 Now we turn to the details.  A \define{Petri net with rates} is a Petri net $s,t \maps T \to \N[S]$ together with a function $r \maps T \to [0,\infty)$ assigning to each transition $\tau \in T$ a nonnegative real number called its \define{rate constant}.  There is a category $\Petri_r$ whose objects are Petri nets with rates, where a morphism from 
-\[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
+\[   \xymatrix{ [0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
  to 
- \[   \xymatrix{ (0,\infty) & T' \ar[l]_-{r'} \ar@<-.5ex>[r]_-{t'} \ar@<.5ex>[r]^-{s'} & \N[S'] }\]
+ \[   \xymatrix{ [0,\infty) & T' \ar[l]_-{r'} \ar@<-.5ex>[r]_-{t'} \ar@<.5ex>[r]^-{s'} & \N[S'] }\]
 is a morphism of the underlying Petri nets whose map $g \maps T \to T'$ obeys
 \[    r'(\tau') = \sum_{\{\tau \in T: g(\tau) = \tau'\}} r(\tau) \]
 for all $\tau' \in T'$.   This definition was suggested by Sophie Libkind; it agrees with the earlier definition \cite{BP} in the case of isomorphisms, but not in general, and the difference is important here.
@@ -2791,7 +2791,7 @@ sending any open Petri net with rates to its corresponding open dynamical system
 \end{tikzpicture}
 \] 
 Here $\theta$ is given as follows.  For any finite set $S$, $\theta_S \maps F(S) \to D(S)$ maps any Petri net with rates 
-\[   \xymatrix{ (0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
+\[   \xymatrix{ [0,\infty) & T \ar[l]_-r \ar@<-.5ex>[r]_-t \ar@<.5ex>[r]^-s & \N[S] }\]
 to an algebraic vector field on $\R^S$, say $v$.   This vector field is defined using a standard prescription taken from chemistry, called `the law of mass action'.   Namely, for any $c \in \R^s$, we set
 \[  
 v(c) = \sum_{\tau \in T} r(\tau) \, ( t(\tau) - s(\tau) ) c^{s(\tau)} 
