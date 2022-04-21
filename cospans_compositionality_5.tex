@@ -1,7 +1,7 @@
 % Structured versus decorated cospans
 % John Baez, Kenny Courser and Christina Vasilakopoulou
 % in LaTeX
-% 2021/04/20 - fifth version sent to Compositionality: version for publication
+% 2021/04/08 - third version sent to Compositionality: version for publication
 
 \documentclass[ a4paper, onecolumn, superscriptaddress,10pt, accepted=2022-03-25, issue=3, volume=4, shorttitle=papers/compositionality-4-3 ]{compositionalityarticle}
 \pdfoutput=1
@@ -273,8 +273,10 @@ shapes.geometric,external,decorations.pathmorphing,backgrounds,circuits,circuits
 
 % this puts definitions in boldface
 
-% \newcommand{\define}[1]{{\bf \boldmath{#1}}}
- \let\define\textbf
+% \newcommand{\define}[1]{{{\bf \boldmath{#1}}}
+% \let\define\textbf
+\newcommand{\define}[1]{{\rm \textbf{#1}}}
+
 % other gunk
 
 \newcommand{\dcsp}[1]{{#1}\mathbb{C}\textnormal{sp}}
@@ -3240,7 +3242,7 @@ it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morph
 
 \begin{defn}\label{def:companion}
   Let $\lD$ be a double category and $f\maps A\to B$ a vertical
-  1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
+  1-morphism.  A \define{companion} of $f$ is a horizontal 1-cell
   $\fhat\maps A\to B$ together with 2-morphisms
 	\[
 	\raisebox{-0.5\height}{
@@ -3405,7 +3407,7 @@ it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morph
 	\end{tikzpicture}
 	}
 	\end{equation}
-  A \textbf{conjoint} of $f$, denoted $\fchk \maps B \to A$, is a
+  A \define{conjoint} of $f$, denoted $\fchk \maps B \to A$, is a
   companion of $f$ in the double category
   obtained by reversing the horizontal 1-cells, but not the vertical
   1-morphisms, of $\lD$.
@@ -3414,7 +3416,7 @@ it is bijective on objects, vertical 1-morphisms, horizontal 1-cells and 2-morph
 
 \begin{defn}
 \label{defn:fibrant}
-We say that a double category is \textbf{fibrant} if every vertical
+We say that a double category is \define{fibrant} if every vertical
 1-morphism has both a companion and a conjoint.
 \end{defn}
 
